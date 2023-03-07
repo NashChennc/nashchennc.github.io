@@ -1,304 +1,233 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8"/>
+<title> Title </title>
+<link rel="stylesheet" href="./patterns/mdui/css/mdui.min.css"/>
+<link rel="stylesheet" href="./patterns/katex/katex.min.css"/>
+<script defer src="./patterns/katex/katex.min.js"></script>
+<script defer src="./patterns/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<!-- <link href="./patterns/katex/contrib/copy-tex.css" rel="stylesheet"/>
+<script src="./patterns/katex/contrib/copy-tex.js"></script> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            macros: {
+                // "\\ge": "\\geqslant",
+                // "\\le": "\\leqslant",
+                // "\\geq": "\\geqslant",
+                // "\\leq": "\\leqslant"
+            }
+        });
+    });
+</script>
+<!-- <script> MathJax = {tex: { inlineMath: [['$', '$']]}};</script> -->
+<!-- <script type="text/javascript" id="MathJax-script" async src="./patterns/mathjax/es5/tex-mml-chtml.js"></script> -->
 
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-<meta name="generator" content="Hexo 5.4.2"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+<?php //require dirname(__FILE__) . "/PHP-Markdown-2.0/Michelf/Markdown.inc.php" ?>
+<script src="./patterns/markdown.js"></script>
+    <meta name="generator" content="Hexo 5.4.2"></head>
+    <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+        <div id="head_background" class="mdui-shadow-2" style="background-image: url(./bgpaper/banner.png);max-height: 540px;">
+  <div style= "padding-top: 200px;padding-bottom:300px;">
+      <div class="mudi-img">
+          <img class="mdui-center mdui-img-circle mdui-shadow-8 mdui-ripple" src="./bgpaper/headicon.png" width=160 height=160/>
       </div>
-    </div>
+      <div class="mdui-valign" style="padding-top: 20px;">
+          <a class="mdui-center mdui-typo-display-3 mdui-text-color-indigo-400 mdui-shadow-4 mdui-hoverable">
+              Nash's Website HelloWorld Project
+          </a>
+      </div>
+  </div>
+</div>
+        <header class="appbar mdui-appbar mdui-appbar-fixed">
+  <div class="mdui-toolbar mdui-color-theme">
+      <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}">
+          <i class="mdui-icon material-icons"> menu </i>
+      </span>
+      <span class="mdui-typo-title">
+          NaTsukiNash's Website
+      </span>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+          <i class="mdui-icon material-icons"> search </i>
+      </a>
+      <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+          <i class="mdui-icon material-icons"> refresh </i>
+      </a>
+      <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+          <i class="mdui-icon material-icons"> more_vert </i>
+      </a>
   </div>
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-My-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/03/07/My-New-Post/" class="article-date">
-  <time datetime="2023-03-07T09:27:24.000Z" itemprop="datePublished">2023-03-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/07/My-New-Post/">My New Post</a>
-    </h1>
-  
+        <script>
+    function httpPost(URL, PARAMS) {
+        var tmp= document.createElement("form");
+        tmp.action= URL;
+        tmp.method= "post";
+        tmp.style.display= "none";
+        for(var x in PARAMS) {
+            var opt= document.createElement("textarea");
+            opt.name= x;
+            opt.value= PARAMS[x];
+            tmp.appendChild(opt);
+        }
+        document.body.appendChild(tmp);
+        tmp.submit();
+        return tmp;
+    }
+    function httpPostdoc(doc) {
+        return httpPost("blogmenu.php",{"mdfile": doc});
+    }
+</script>
+<div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
+    <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+        <div id="main-drawer-1" class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
+                <div class="mdui-list-item-content">
+                    页面
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a href="index.php" class="mdui-list-item mdui-ripple">Index Page</a>
+                <a href="sample.php" class="mdui-list-item mdui-ripple">Sample Page</a>
+                <a href="info.php" class="mdui-list-item mdui-ripple">Info Page</a>
+                <a href="blogmenu.php" class="mdui-list-item mdui-ripple">Blog Menu</a>
+            </div>
+        </div>
+        <div id="main-drawer-2" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">layers</i>
+                <div class="mdui-list-item-content">
+                    文章
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-一阶逻辑"><a href="#1-一阶逻辑" class="headerlink" title="1. 一阶逻辑"></a>1. 一阶逻辑</h1><p>个体</p>
-<p>谓词</p>
-<h1 id="2-rm-Zermelo-Fraenkel-公理"><a href="#2-rm-Zermelo-Fraenkel-公理" class="headerlink" title="2. $\rm Zermelo-Fraenkel$ 公理"></a>2. $\rm Zermelo-Fraenkel$ 公理</h1><h2 id="2-1-集合"><a href="#2-1-集合" class="headerlink" title="2.1. 集合"></a>2.1. 集合</h2><ul>
-<li><p><strong>[H1]</strong> 集合是对象</p>
-</li>
-<li><p><strong>[H2:空集]</strong> 存在一个被称为空集 $\varnothing$ 的对象</p>
-</li>
-</ul>
-<p>$$\forall x\not\in \varnothing$$</p>
-<ul>
-<li><strong>[H3:元素]</strong> 给定一个元素 $a$ ，存在一个集合 ${a}$ ，使得</li>
-</ul>
-<p>$$x\in{a}\Leftrightarrow x=a$$</p>
-<ul>
-<li><strong>[H4:双并公理]</strong> 给定两个集合 $A,B$ ，存在一个集合 $A\cup B$ ，使得</li>
-</ul>
-<p>$$x\in A\cup B\Leftrightarrow x\in A\lor x\in B$$</p>
-<ul>
-<li><strong>[H5:分类公理]</strong> 给定一个集合 $A$ 和一个命题 $P(a)$，存在一个集合 ${a\in A:P(a)}$ ，使得</li>
-</ul>
-<p>$$x\in{a\in A:P(a)}\Leftrightarrow x\in A\land P(x)$$</p>
-<ul>
-<li><strong>[H6:替换]</strong> 给定一个集合 $A$ ，如果 $\forall a\in A$ 只有 <strong>至多一个</strong> $b$ 使得性质 $P(a,b)$ 成立，则存在一个集合 ${b:\exists a\in A, P(a,b)}$ ，使得</li>
-</ul>
-<p>$$x\in{b:\exists a\in A,P(a,b)}\Leftrightarrow \exists a\in A,P(a,b)$$</p>
-<ul>
-<li><strong>[H7:自然数集]</strong> 存在一个被称为自然数集 $\mathbb N$ 的集合，其中的元素满足 $5$ 条 $\rm Peano$ 公理(见数系)</li>
-</ul>
-<h2 id="2-2-rm-Russell-悖论"><a href="#2-2-rm-Russell-悖论" class="headerlink" title="2.2. $\rm Russell$ 悖论"></a>2.2. $\rm Russell$ 悖论</h2><p>我们或许可以假设</p>
-<ul>
-<li>[万有之集] 存在一个被称为万有之集 $\Omega$ 的集合，使得</li>
-</ul>
-<p>$$\forall x,x\in\Omega$$</p>
-<p>依据万有之集和分类公理，我们得到</p>
-<ul>
-<li>[万有分类] 给定一个命题 $P(a)$ ，存在一个集合 ${a:P(a)}$ ，使得</li>
-</ul>
-<p>$$x\in{a:P(a)}\Leftrightarrow P(x)$$</p>
-<p>注意到如果万有之集存在，那么 $\Omega\in\Omega$ 。我们尝试研究这类包含自身的集合，得到了 $\rm Russell$ 悖论。设有一条命题叙述如下</p>
-<p>$$P(x)\Leftrightarrow x\not\in x$$</p>
-<p>这条命题看起来好像是(最好是，然而它不得不是)永真式，因为它看起来对所有初等的集合都成立。但其实我们不那么确定，所以我们尝试用这条命题构建一个集合。</p>
-<ul>
-<li>[$\rm Russell$ 悖论]  根据万有分类公理，存在一个集合 $\Omega={x:x\not\in x}$</li>
-</ul>
-<p>此处我们导出悖论：$\Omega\in\Omega\Leftrightarrow\Omega\not\in\Omega$ 。这与一阶逻辑是不相容的。后来 $\rm Russell$ 将这个命题通俗化为理发师悖论，即 $\exists\Omega={x:x\not\in\Omega}$ 。事实上，通俗命题中集合的构建是自递归定义的，这样写更使人迷惑。</p>
-<p>事实上，如果万有分类成立，它将蕴含前面除了 [集合是对象] 和 [自然数集] 的其它所有公理，这将惊人地大大简化集合论的基础。不幸的是，如我们所见，[万有分类] 公理是“好过头了”！(陶哲轩语)</p>
-<p>为了解决这个问题，我们不得不引入以下不那么直观的公理</p>
-<ul>
-<li><strong>[H8:基础公理]</strong> 如果集合 $A$ 不是空集，那么至少有一个对象 $x\in A$ ，它要么不是集合，要么是与 $A$ 不同的集合。(感觉其实等价于对所有的集合有 $A\not\in A$)</li>
-</ul>
-<h2 id="2-3-函数"><a href="#2-3-函数" class="headerlink" title="2.3. 函数"></a>2.3. 函数</h2><ul>
-<li><p><strong>[H9:幂集公理]</strong></p>
-</li>
-<li><p><strong>[H10:并公理]</strong></p>
-</li>
-</ul>
-<p>H1~H10 就是 $\rm Zermelo-Fraenkel$ 公理。另外有一条[H11:选择公理]，称作 $\rm ZF$ 选择公理，即 $\rm ZFC$ 公理。但这有时不是必要的。</p>
-<h2 id="2-4-笛卡尔积"><a href="#2-4-笛卡尔积" class="headerlink" title="2.4. 笛卡尔积"></a>2.4. 笛卡尔积</h2><h1 id="3-基数"><a href="#3-基数" class="headerlink" title="3. 基数"></a>3. 基数</h1><p>[基数相等] 如果两个集合间存在双射，那么称这两个集合基数相等</p>
-<p>一个集合 $X$ 和 ${i \in\mathbb N:1\leq i\leq n}$ 具有相同基数，则称其具有基数 $n$ ，记 $#(X)=n$ ，$X$ 是 <strong>有限的</strong> 。如果不存在 $n\in\mathbb N$ 使得 $#(X)=n$ ，则称 $X$ 是 <strong>无限的</strong>。</p>
-<p>我们尚未证明基数的唯一性，这里留做习题。(使用数学归纳法)</p>
-<p>基数的算术参考 $\rm Peano$ 算术。</p>
-<h2 id="3-1-可数集"><a href="#3-1-可数集" class="headerlink" title="3.1. 可数集"></a>3.1. 可数集</h2><p>容易知道 $\mathbb N$ 是无限的。</p>
-<p>良序原理</p>
-<p>设 $A,B$ 是可数集，那么</p>
-<p>$A\cup B$ 是可数集</p>
-<p>$A\times B$ 是可数集</p>
-<h2 id="3-2-无限集合的求和"><a href="#3-2-无限集合的求和" class="headerlink" title="3.2. 无限集合的求和"></a>3.2. 无限集合的求和</h2><h2 id="3-3-不可数的集合"><a href="#3-3-不可数的集合" class="headerlink" title="3.3. 不可数的集合"></a>3.3. 不可数的集合</h2><p>$\rm Cantor$ 定理： $X$ 和 $2^X$ 不能具有相同的基数</p>
-<h2 id="3-4-选择公理"><a href="#3-4-选择公理" class="headerlink" title="3.4. 选择公理"></a>3.4. 选择公理</h2><h2 id="3-5-序集"><a href="#3-5-序集" class="headerlink" title="3.5. 序集"></a>3.5. 序集</h2><p>$$\mathscr I$$</p>
+                <div class="mdui-panel mdui-panel-gapless" mdui-panel>
+                    <div class="mdui-panel-item mdui-panel-item-open">
+                        <div class="mdui-panel-item-header mdui-ripple">
+                            <h3>微积分</h3>
+                        </div>
+                        <div class="mdui-panel-item-body mdui-list">
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; ma-1 &#39;);">多变量微分</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; ma-2 &#39;);">重积分</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; ode-1 &#39;);">一阶常微分方程</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; ode-2 &#39;);">常系数线性微分方程</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; ode-3 &#39;);">常微分方程的基本理论</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; ode-4 &#39;);">解的稳定性</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; pde-1 &#39;);">一阶偏微分方程</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; pde-2 &#39;);">二阶偏微分方程</div>
+                            
+                        </div>
+                    </div>
+                    <div class="mdui-panel-item mdui-panel-item-open">
+                        <div class="mdui-panel-item-header mdui-ripple">
+                            <h3>分析</h3>
+                        </div>
+                        <div class="mdui-panel-item-body mdui-list">
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; set-theorem &#39;);">集合论</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; number-series &#39;);">数系</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; metric-space &#39;);">度量空间</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; ma-3-topology &#39;);">拓扑空间</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; ma-4-manifold &#39;);">微分流形</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; ma-5-tangent &#39;);">切空间</div>
+                            
+                        </div>
+                    </div>
+                    <div class="mdui-panel-item mdui-panel-item-open">
+                        <div class="mdui-panel-item-header mdui-ripple">
+                            <h3>代数</h3>
+                        </div>
+                        <div class="mdui-panel-item-body mdui-list">
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; algebra-1 &#39;);">群环域</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; poly-formula-ring &#39;);">多项式环</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; la-1-space &#39;);">线性空间</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; la-2-equivalent &#39;);">相抵与初等变换</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; la-3-similar &#39;);">相似与Jordan标准型</div>
+                            <div class="mdui-list-item mdui-ripple" onclick="httpPostdoc(&#39; la-4-congruent &#39;);">相合与实二次形</div>
+                        </div>
+                    </div>
+                </div>
 
-      
+            </div>
+        </div>
+        <div id="main-drawer-3" class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">widgets</i>
+                <div class="mdui-list-item-content">
+                    组件
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a href="" class="mdui-list-item mdui-ripple">你们想要有些什么呢</a>
+            </div>
+        </div>
+        <div id="main-drawer-4" class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">local_mall</i>
+                <div class="mdui-list-item-content">
+                    资源
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a href="/file" class="mdui-list-item mdui-ripple">文件夹</a>
+            </div>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/07/My-New-Post/" data-id="cley1uqhq0000fouc7vekcoe2" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/03/07/hello-world/" class="article-date">
-  <time datetime="2023-03-07T09:07:15.611Z" itemprop="datePublished">2023-03-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+</div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/07/hello-world/">Hello World</a>
-    </h1>
-  
+        
+        <div class="mdui-container-fluid" style="margin-top: 20px; margin-bottom: 40px;">
+            <div class="mdui-container">
+                Hello World
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
+            </div>
+        </div>
+        <div class="mdui-container-fluid mdui-color-theme">
+  <div id= "footer" class="mdui-row">
+      <div class="mdui-color-theme mdui-col-xs-2 mdui-p-t-5 mdui-p-b-5"></div>
+
+      <a id= "lfooter" href= "./" class="mdui-ripple mdui-color-theme mdui-col-xs-4 mdui-p-t-5 mdui-p-b-5">
+          <div class="mdui-float-left">
+              <div class="mdui-typo-caption-opacity">Previous</div>
+              <div class="mdui-typo-headline">
+                  <i class="mdui-icon material-icons">arrow_back</i>
+              </div>
+          </div>
+      </a>
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+      <a id= "rfooter" href= "./" class="mdui-ripple mdui-color-theme mdui-col-xs-4 mdui-p-t-5 mdui-p-b-5">
+          <div class="mdui-float-right">
+              <div class="mdui-typo-caption-opacity">Next</div>
+              <div class="mdui-typo-headline">
+                  <i class="mdui-icon material-icons">arrow_forward</i>
+              </div>
+          </div>
+      </a>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/07/hello-world/" data-id="cley13kyb00001wuc4g41grvw" class="article-share-link">Share</a>
-      
-      
-    </footer>
+      <div class="mdui-color-theme mdui-col-xs-2 mdui-p-t-5 mdui-p-b-5"></div>
   </div>
-  
-</article>
+  <script>
+      var footer= document.getElementById("footer");
+      var lfooter= document.getElementById("lfooter");
+      var rfooter= document.getElementById("rfooter");
+      var para= document.createElement("div");
+      para.className= "mdui-color-theme mdui-col-xs-4 mdui-p-t-5 mdui-p-b-5";
+  </script>
+</div>
 
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/03/07/My-New-Post/">My New Post</a>
-          </li>
-        
-          <li>
-            <a href="/2023/03/07/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2023 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
+<script src="./patterns/mdui/js/mdui.min.js"></script>
+<script type="text/javascript"> mdtrans(); </script>
+    </body>
 </html>
