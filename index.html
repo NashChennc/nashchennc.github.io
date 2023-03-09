@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8"/>
 <title> Title </title>
-<link rel="stylesheet" href="../mdui/css/mdui.min.css"/>
-<link rel="stylesheet" href="../katex/katex.min.css"/>
-<script defer src="../katex/katex.min.js"></script>
-<script defer src="../katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
+<link rel="stylesheet" href="/katex/katex.min.css"/>
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 <!-- <link href="../katex/contrib/copy-tex.css" rel="stylesheet"/>
 <script src="../katex/contrib/copy-tex.js"></script> -->
 <script>
@@ -25,17 +25,12 @@
         });
     });
 </script>
-<!-- <script> MathJax = {tex: { inlineMath: [['$', '$']]}};</script> -->
-<!-- <script type="text/javascript" id="MathJax-script" async src="../mathjax/es5/tex-mml-chtml.js"></script> -->
-
-<?php //require dirname(__FILE__) . "/PHP-Markdown-2.0/Michelf/Markdown.inc.php" ?>
-<script src="../js/markdown.js"></script>
     <meta name="generator" content="Hexo 5.4.2"></head>
     <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
-        <div id="head_background" class="mdui-shadow-2" style="background-image: url(../bgpaper/banner.png);max-height: 540px;">
+        <div id="head_background" class="mdui-shadow-2" style="background-image: url(/bgpaper/banner.png);max-height: 540px;">
   <div style= "padding-top: 200px;padding-bottom:300px;">
       <div class="mudi-img">
-          <img class="mdui-center mdui-img-circle mdui-shadow-8 mdui-ripple" src="../bgpaper/headicon.png" width=160 height=160/>
+          <img class="mdui-center mdui-img-circle mdui-shadow-8 mdui-ripple" src="/bgpaper/headicon.png" width=160 height=160/>
       </div>
       <div class="mdui-valign" style="padding-top: 20px;">
           <a class="mdui-center mdui-typo-display-3 mdui-text-color-indigo-400 mdui-shadow-4 mdui-hoverable">
@@ -49,9 +44,9 @@
       <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}">
           <i class="mdui-icon material-icons"> menu </i>
       </span>
-      <span class="mdui-typo-title">
+      <a href="/" class="mdui-typo-title">
           NaTsukiNash's Website
-      </span>
+      </a>
       <div class="mdui-toolbar-spacer"></div>
       <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
           <i class="mdui-icon material-icons"> search </i>
@@ -86,7 +81,7 @@
 </script> -->
 <div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
     <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
-        <!-- <div id="main-drawer-1" class="mdui-collapse-item">
+        <div id="main-drawer-1" class="mdui-collapse-item">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
                 <div class="mdui-list-item-content">
@@ -95,12 +90,12 @@
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
             </div>
             <div class="mdui-collapse-item-body mdui-list">
-                <a href="index.php" class="mdui-list-item mdui-ripple">Index Page</a>
-                <a href="sample.php" class="mdui-list-item mdui-ripple">Sample Page</a>
-                <a href="info.php" class="mdui-list-item mdui-ripple">Info Page</a>
-                <a href="blogmenu.php" class="mdui-list-item mdui-ripple">Blog Menu</a>
+                <a href="/" class="mdui-list-item mdui-ripple">Index Page</a>
+                <a href="/sample/" class="mdui-list-item mdui-ripple">Sample Page</a>
+                <a href="/archives/" class="mdui-list-item mdui-ripple">Archive Page</a>
+                <a href="/about/" class="mdui-list-item mdui-ripple">About</a>
             </div>
-        </div> -->
+        </div>
         <!-- <div id="main-drawer-2" class="mdui-collapse-item mdui-collapse-item-open">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">layers</i>
@@ -189,23 +184,208 @@
         
         <div class="mdui-container-fluid" style="margin-top: 20px; margin-bottom: 40px;">
             <div class="mdui-container">
-                <h1>Log</h1>
-<table class="mdui-table">
-    <thead></thead>
-    <tbody>
-        <tr><td>5.23</td> <td>开始策划并接触html/css/javascript/php/web server/mdui</td></tr>
-        <tr><td>5.25</td> <td>建站<br/></td></tr>
-        <tr><td>5.27</td> <td>接入 ustc-guest 测试，提交表单成功<br/></td></tr>
-        <tr><td>5.28</td> <td>前端结构基本完备。新增Info页面。<br/></td></tr>
-        <tr><td>5.29</td> <td>可以上传 2M 文件<br/></td></tr>
-        <tr><td>5.30</td> <td>导入 MathJax / 手搓 Markdown 编译器 / 优化前端结构 / 页面链构建完成<br/></td></tr>
-        <tr><td>6.8</td> <td>MathJax 替换成 KaTeX, 优化Markdown编译器。<br/></td></tr>
-        <tr><td>10.6</td> <td>电脑重装后重新建站。数据库相关内容暂时封存<br/></td></tr>
-        <tr><td>10.7</td> <td>从自己的洛谷博客搬运了一些博文<br/></td></tr>
-        <tr><td>10.9</td> <td>从网上弄的 js/php-markdown 编译器还不如手搓的好用，遂放弃<br/></td></tr>
-        <tr><td>3.7</td> <td>稍微修改源码用Hexo搭建静态站点并上传到GitHub<br/></td></tr>
-    </tbody>
-</table>
+                <h1> 问天地好在 </h1>
+<h1> どうも、世界 </h1>
+<h1> Hello World! </h1>
+<div>
+    This is my first html document
+</div>
+
+<div class="mdui-panel" mdui-panel>
+    <div class="mdui-panel-item">
+        <div class="mdui-panel-item-header">
+            <div class="mdui-panel-item-title">Start and end dates</div>
+            <div class="mdui-panel-item-summary">Start date: May 25, 2022</div>
+            <div class="mdui-panel-item-summary">End date: Not set</div>
+            <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-panel-item-body">
+            <p>Third content</p>
+            <p>Third content</p>
+            <p>Third content</p>
+            <p>Third content</p>
+            <p>Third content</p>
+            <p>Third content</p>
+            <div class="mdui-panel-item-actions">
+                <button class="mdui-btn mdui-ripple" mdui-panel-item-close>
+                    cancel
+                </button>
+                <button class="mdui-btn mdui-ripple">
+                    save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mdui-spinner"></div>
+
+<div>
+    $$ e^x=\sum_{k\geq 0}\frac{x^k}{k!} $$
+    Mobius inversion: $ \sum_{d|n}\mu(d) = \varepsilon(n)$
+</div>
+
+<div class="markdown">
+    
+<script src="/scripts/markdown.js"></script>
+<div class="markdown">
+
+# 1. 多变量积分的可积性
+
+对区域 $D\subset\mathbb R^n$ ，设 $D_1,D_2,\cdots,D_k$ 是 $D$ 的一个有限划分，记
+
+$$|T|=\max_{i=1}^k\textrm{diam }D_i$$
+
+记 $\sigma(D_i)$ 为 $D_i$ 的体积，令 $\vec x_i\in D_i$ ，称
+
+$$S(T)=\sum_{i=1}^kf[\vec x_i]\sigma(D_i)$$
+
+为 $f[\vec x]:\mathbb R^n\mapsto\mathbb R$ 在 $D$ 上的一个 **$\rm Riemann$ 和**。如果无论怎样划分，黎曼和都有极限，则称这个极限为 $f[\vec x]$ 在 $D$ 上的 **(重)积分** 。记作
+
+$$\iint\cdots\int_D f[\vec x]\textrm d\sigma=\lim_{T\rightarrow 0}S(T)$$
+
+## 1.1. $\rm Darboux$ 和
+
+令
+
+$$M_i=\max_{\vec x_i\in D_i} f[\vec x],\quad m_i=\min_{\vec x_i\in D_i} f[\vec x_i]$$
+
+定义 $f[\vec x]$ 在 $D$ 上的 **$\rm Darboux$ 上/下和** 以及 **振幅**
+
+$$\overline S(T)=\sum_{i=1}^m M_i\sigma(D_i),\quad \underline S(T)=\sum_{i=1}^mm_i\sigma(D_i)$$
+
+$$\omega(T)=\overline S(T)-\underline S(T)\geq 0$$
+
+应当认识到， $\overline S(T),\underline S(T),\omega(T)$ 关于不同的划分应当有一个取值范围。当 $T\rightarrow 0$ 时，这个范围是不扩张的，并且
+
+于是显然有
+
+$$m\sigma(D)\leq \underline S(T)\leq S(T)\leq\overline S(T)\leq M\sigma(D)$$
+
+$$\sup_T\underline S(T)\leq\inf_T \overline S(T)$$
+
+> **定理1**:可积函数必有界
+
+> **定理2**: $f[\vec x]$ 在 $D$ 上可积当且仅当
+
+> $$\sup_T\underline S(T)\leq\inf_T \overline S(T),\text{即}\inf_T\omega(T)=0$$
+
+
+
+## 1.2. $\rm Jordan$ 测度
+
+这个大概不用管
+
+# 2. 重积分
+
+
+
+
+## 2.1. 累次积分
+
+$$\iint\limits_{[l_1,r_1]\times[l_2,r_2]} f[x,y]~\textrm dx\textrm dy=\int_{l_1}^{r_1}\textrm dx\int_{l_2[x]}^{r_2[x]} f[x,y]~\textrm dy$$
+
+## 2.2. 换元法
+
+我们运用到一个事实
+
+> $$\textrm dx\textrm dy=\Big|\frac{\partial(x,y)}{\partial(u,v)}\Big|\textrm du\textrm dv$$
+
+设 $\phi:(x,y)\mapsto(u,v)$ ，$\phi(D')=D$
+
+$$\iint_{D'} f[x,y]~\textrm dx\textrm dy=\iint_D f[u,v]~\Big|\frac{\partial(x,y)}{\partial(u,v)}\Big|\textrm du\textrm dv$$
+
+三维同理
+
+# 3. 第一型曲线和曲面积分
+
+第一型曲线/曲面积分，即被积场是标量场的积分。
+
+## 3.1. 第一型曲线积分
+
+设曲线 $L\subset\mathbb R^n$ 的参数方程为
+
+$$\vec {\bold r}=\vec r[t],\quad t\in[\alpha,\beta]$$
+
+若 $t\mapsto \vec r$ 是一一对应，且在该区间有不为 $\vec 0$ 的导数，则 $L$ 是可求长的，其长度为
+
+$$s=\int_L\textrm ds=\int_{\alpha}^{\beta}\sqrt{\sum_{i=1}^n\Big(\frac{\textrm d r_i}{\textrm d t}\Big)^2}~\textrm dt=\int_{\alpha}^{\beta}\sqrt{\sum_{i=1}^n\textrm dr_i^2}$$
+
+我们定义 **第一型曲线积分** 为
+
+$$\int_Lf[\vec x]\textrm ds=\int_{\alpha}^{\beta}f[\vec r[t]]\sqrt{\sum_{i=1}^n\Big(\frac{\textrm d r_i}{\textrm d t}\Big)^2}~\textrm dt$$
+
+积分时，只需要做到 $f$ 与 $\textrm ds$ 在每一点都对应即可。
+
+### 3.1.1. 平面上的曲线积分
+
+对常用的一些二维情形，我们有
+
+$$L:y=y[x],\quad \textrm ds=\sqrt{1+\Big(\frac {\textrm dy}{\textrm dx}\Big)^2}~\textrm dx$$
+
+$$L:r=r[\theta],\quad\textrm ds=\sqrt{r^2+\Big(\frac {\textrm dr}{\textrm d\theta}\Big)^2}~\textrm d\theta$$
+
+## 3.2. 第一型曲面积分
+
+设曲面 $S\subset\mathbb R^3$ 的参数方程为
+
+$$\vec {\bold r}=\vec r[u,v],\quad u,v\in D$$
+
+嗯...这里是 $\mathbb R^3$ ，因为我暂时还不知道更高维如何推广...
+
+若 $(u,v)\mapsto \vec r$ 是一一对应，且在该区间有不为 $\vec 0$ 的导数，则 $S$ 的面积为
+
+$$S=\iint_S\textrm dS=\iint_D\Big|\frac{\partial\vec r}{\partial u}\times\frac{\partial\vec r}{\partial v}\Big|\textrm du\textrm dv=\iint_D\sqrt{EG-F^2}~\textrm du\textrm dv$$
+
+其中
+
+$$E=\Big(\frac{\partial\vec r}{\partial u}\Big)^2$$
+
+$$G=\Big(\frac{\partial\vec r}{\partial v}\Big)^2$$
+
+$$F=\frac{\partial\vec r}{\partial u}\cdot\frac{\partial\vec r}{\partial v}$$
+
+我们定义 **第一型曲面积分** 为
+
+$$\iint_Sf[\vec x]\textrm dS=\iint_Df[\vec r[u,v]]\Big|\frac{\partial\vec r}{\partial u}\times\frac{\partial\vec r}{\partial v}\Big|\textrm du\textrm dv$$
+
+积分时，只需要做到 $f$ 与 $\textrm dS$ 在每一点都对应即可。
+
+如果曲面方程为显式方程，则计算大为简化，因为若有
+
+$$f[x,y,z[x,y]]=0$$
+
+相当于令 $\vec r=(u,v,z[u,v])$ ，此时
+
+$$\frac{\partial\vec r}{\partial u}=(1,0,\frac{\partial z}{\partial x}),\quad\frac{\partial\vec r}{\partial v}=(0,1,\frac{\partial z}{\partial y})$$
+
+$$\textrm dS=\Big|\frac{\partial\vec r}{\partial u}\times\frac{\partial\vec r}{\partial v}\Big|\textrm du\textrm dv=\sqrt{1+\Big(\frac{\partial z}{\partial x}\Big)^2+\Big(\frac{\partial z}{\partial y}\Big)^2}~\textrm dx\textrm dy$$
+
+# 4. Green定理
+
+$$\int_{\partial S}\vec F\cdot(\textrm dx,\textrm dy)=\iint_S(\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial y})~\textrm dx\textrm dy$$
+
+# 5. Gauss定理和Stokes定理
+
+$$\textrm df$$
+
+$$\textrm dl=(\textrm dx,\textrm dy,\textrm dz)$$
+
+$$\textrm dS= (\textrm dy\textrm dz,\textrm dz\textrm dx,\textrm dx\textrm dy)$$
+
+$$\textrm dV=\textrm dx\textrm dy\textrm dz$$
+
+$$\iint_{\partial V}\vec F\cdot \textrm dS=\iiint_V(\nabla\cdot \vec F)~\textrm dV$$
+
+$$\int_{\partial S}\vec F\cdot\textrm dl=\iint_S(\nabla\times\vec F)~\cdot \textrm dS$$
+</div>
+
+<script> mdtrans(); </script>
+</div>
+
+<!--div class="video-container video-rounded">
+    <iframe src="./file/run_so_fast.mp4" frameborder="0" allowfullscreen></iframe>
+</div-->
             </div>
         </div>
         <div class="mdui-container-fluid mdui-color-theme">
@@ -241,7 +421,6 @@
   </script>
 </div>
 
-<script src="../mdui/js/mdui.min.js"></script>
-<script type="text/javascript"> mdtrans(); </script>
+<script src="/mdui/js/mdui.min.js"></script>
     </body>
 </html>

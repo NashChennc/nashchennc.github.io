@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8"/>
 <title> Title </title>
-<link rel="stylesheet" href="../mdui/css/mdui.min.css"/>
-<link rel="stylesheet" href="../katex/katex.min.css"/>
-<script defer src="../katex/katex.min.js"></script>
-<script defer src="../katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
+<link rel="stylesheet" href="/katex/katex.min.css"/>
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 <!-- <link href="../katex/contrib/copy-tex.css" rel="stylesheet"/>
 <script src="../katex/contrib/copy-tex.js"></script> -->
 <script>
@@ -25,17 +25,12 @@
         });
     });
 </script>
-<!-- <script> MathJax = {tex: { inlineMath: [['$', '$']]}};</script> -->
-<!-- <script type="text/javascript" id="MathJax-script" async src="../mathjax/es5/tex-mml-chtml.js"></script> -->
-
-<?php //require dirname(__FILE__) . "/PHP-Markdown-2.0/Michelf/Markdown.inc.php" ?>
-<script src="../js/markdown.js"></script>
     <meta name="generator" content="Hexo 5.4.2"></head>
     <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
-        <div id="head_background" class="mdui-shadow-2" style="background-image: url(../bgpaper/banner.png);max-height: 540px;">
+        <div id="head_background" class="mdui-shadow-2" style="background-image: url(/bgpaper/banner.png);max-height: 540px;">
   <div style= "padding-top: 200px;padding-bottom:300px;">
       <div class="mudi-img">
-          <img class="mdui-center mdui-img-circle mdui-shadow-8 mdui-ripple" src="../bgpaper/headicon.png" width=160 height=160/>
+          <img class="mdui-center mdui-img-circle mdui-shadow-8 mdui-ripple" src="/bgpaper/headicon.png" width=160 height=160/>
       </div>
       <div class="mdui-valign" style="padding-top: 20px;">
           <a class="mdui-center mdui-typo-display-3 mdui-text-color-indigo-400 mdui-shadow-4 mdui-hoverable">
@@ -49,9 +44,9 @@
       <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}">
           <i class="mdui-icon material-icons"> menu </i>
       </span>
-      <span class="mdui-typo-title">
+      <a href="/" class="mdui-typo-title">
           NaTsukiNash's Website
-      </span>
+      </a>
       <div class="mdui-toolbar-spacer"></div>
       <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
           <i class="mdui-icon material-icons"> search </i>
@@ -86,7 +81,7 @@
 </script> -->
 <div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
     <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
-        <!-- <div id="main-drawer-1" class="mdui-collapse-item">
+        <div id="main-drawer-1" class="mdui-collapse-item">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
                 <div class="mdui-list-item-content">
@@ -95,12 +90,12 @@
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
             </div>
             <div class="mdui-collapse-item-body mdui-list">
-                <a href="index.php" class="mdui-list-item mdui-ripple">Index Page</a>
-                <a href="sample.php" class="mdui-list-item mdui-ripple">Sample Page</a>
-                <a href="info.php" class="mdui-list-item mdui-ripple">Info Page</a>
-                <a href="blogmenu.php" class="mdui-list-item mdui-ripple">Blog Menu</a>
+                <a href="/" class="mdui-list-item mdui-ripple">Index Page</a>
+                <a href="/sample/" class="mdui-list-item mdui-ripple">Sample Page</a>
+                <a href="/archives/" class="mdui-list-item mdui-ripple">Archive Page</a>
+                <a href="/about/" class="mdui-list-item mdui-ripple">About</a>
             </div>
-        </div> -->
+        </div>
         <!-- <div id="main-drawer-2" class="mdui-collapse-item mdui-collapse-item-open">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">layers</i>
@@ -189,23 +184,91 @@
         
         <div class="mdui-container-fluid" style="margin-top: 20px; margin-bottom: 40px;">
             <div class="mdui-container">
-                <h1>Log</h1>
-<table class="mdui-table">
-    <thead></thead>
-    <tbody>
-        <tr><td>5.23</td> <td>开始策划并接触html/css/javascript/php/web server/mdui</td></tr>
-        <tr><td>5.25</td> <td>建站<br/></td></tr>
-        <tr><td>5.27</td> <td>接入 ustc-guest 测试，提交表单成功<br/></td></tr>
-        <tr><td>5.28</td> <td>前端结构基本完备。新增Info页面。<br/></td></tr>
-        <tr><td>5.29</td> <td>可以上传 2M 文件<br/></td></tr>
-        <tr><td>5.30</td> <td>导入 MathJax / 手搓 Markdown 编译器 / 优化前端结构 / 页面链构建完成<br/></td></tr>
-        <tr><td>6.8</td> <td>MathJax 替换成 KaTeX, 优化Markdown编译器。<br/></td></tr>
-        <tr><td>10.6</td> <td>电脑重装后重新建站。数据库相关内容暂时封存<br/></td></tr>
-        <tr><td>10.7</td> <td>从自己的洛谷博客搬运了一些博文<br/></td></tr>
-        <tr><td>10.9</td> <td>从网上弄的 js/php-markdown 编译器还不如手搓的好用，遂放弃<br/></td></tr>
-        <tr><td>3.7</td> <td>稍微修改源码用Hexo搭建静态站点并上传到GitHub<br/></td></tr>
-    </tbody>
-</table>
+                
+
+<div id="md" class="mdui-card mdui-hoverable" style="zoom:1.2">
+    <div class="mdui-card-primary" style="zoom:1.5">
+        <div class="mdui-card-primary-title">
+            Sample Page
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            副标题
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-p-x-5">
+        <div class="mdui-divider"></div>
+        <br/>
+        <h1 id="1-一阶逻辑"><a href="#1-一阶逻辑" class="headerlink" title="1. 一阶逻辑"></a>1. 一阶逻辑</h1><p>个体</p>
+<p>谓词</p>
+<h1 id="2-rm-Zermelo-Fraenkel-公理"><a href="#2-rm-Zermelo-Fraenkel-公理" class="headerlink" title="2. $\rm Zermelo-Fraenkel$ 公理"></a>2. $\rm Zermelo-Fraenkel$ 公理</h1><h2 id="2-1-集合"><a href="#2-1-集合" class="headerlink" title="2.1. 集合"></a>2.1. 集合</h2><ul>
+<li><p><strong>[H1]</strong> 集合是对象</p>
+</li>
+<li><p><strong>[H2:空集]</strong> 存在一个被称为空集 $\varnothing$ 的对象</p>
+</li>
+</ul>
+<p>$$\forall x\not\in \varnothing$$</p>
+<ul>
+<li><strong>[H3:元素]</strong> 给定一个元素 $a$ ，存在一个集合 ${a}$ ，使得</li>
+</ul>
+<p>$$x\in{a}\Leftrightarrow x=a$$</p>
+<ul>
+<li><strong>[H4:双并公理]</strong> 给定两个集合 $A,B$ ，存在一个集合 $A\cup B$ ，使得</li>
+</ul>
+<p>$$x\in A\cup B\Leftrightarrow x\in A\lor x\in B$$</p>
+<ul>
+<li><strong>[H5:分类公理]</strong> 给定一个集合 $A$ 和一个命题 $P(a)$，存在一个集合 ${a\in A:P(a)}$ ，使得</li>
+</ul>
+<p>$$x\in{a\in A:P(a)}\Leftrightarrow x\in A\land P(x)$$</p>
+<ul>
+<li><strong>[H6:替换]</strong> 给定一个集合 $A$ ，如果 $\forall a\in A$ 只有 <strong>至多一个</strong> $b$ 使得性质 $P(a,b)$ 成立，则存在一个集合 ${b:\exists a\in A, P(a,b)}$ ，使得</li>
+</ul>
+<p>$$x\in{b:\exists a\in A,P(a,b)}\Leftrightarrow \exists a\in A,P(a,b)$$</p>
+<ul>
+<li><strong>[H7:自然数集]</strong> 存在一个被称为自然数集 $\mathbb N$ 的集合，其中的元素满足 $5$ 条 $\rm Peano$ 公理(见数系)</li>
+</ul>
+<h2 id="2-2-rm-Russell-悖论"><a href="#2-2-rm-Russell-悖论" class="headerlink" title="2.2. $\rm Russell$ 悖论"></a>2.2. $\rm Russell$ 悖论</h2><p>我们或许可以假设</p>
+<ul>
+<li>[万有之集] 存在一个被称为万有之集 $\Omega$ 的集合，使得</li>
+</ul>
+<p>$$\forall x,x\in\Omega$$</p>
+<p>依据万有之集和分类公理，我们得到</p>
+<ul>
+<li>[万有分类] 给定一个命题 $P(a)$ ，存在一个集合 ${a:P(a)}$ ，使得</li>
+</ul>
+<p>$$x\in{a:P(a)}\Leftrightarrow P(x)$$</p>
+<p>注意到如果万有之集存在，那么 $\Omega\in\Omega$ 。我们尝试研究这类包含自身的集合，得到了 $\rm Russell$ 悖论。设有一条命题叙述如下</p>
+<p>$$P(x)\Leftrightarrow x\not\in x$$</p>
+<p>这条命题看起来好像是(最好是，然而它不得不是)永真式，因为它看起来对所有初等的集合都成立。但其实我们不那么确定，所以我们尝试用这条命题构建一个集合。</p>
+<ul>
+<li>[$\rm Russell$ 悖论]  根据万有分类公理，存在一个集合 $\Omega={x:x\not\in x}$</li>
+</ul>
+<p>此处我们导出悖论：$\Omega\in\Omega\Leftrightarrow\Omega\not\in\Omega$ 。这与一阶逻辑是不相容的。后来 $\rm Russell$ 将这个命题通俗化为理发师悖论，即 $\exists\Omega={x:x\not\in\Omega}$ 。事实上，通俗命题中集合的构建是自递归定义的，这样写更使人迷惑。</p>
+<p>事实上，如果万有分类成立，它将蕴含前面除了 [集合是对象] 和 [自然数集] 的其它所有公理，这将惊人地大大简化集合论的基础。不幸的是，如我们所见，[万有分类] 公理是“好过头了”！(陶哲轩语)</p>
+<p>为了解决这个问题，我们不得不引入以下不那么直观的公理</p>
+<ul>
+<li><strong>[H8:基础公理]</strong> 如果集合 $A$ 不是空集，那么至少有一个对象 $x\in A$ ，它要么不是集合，要么是与 $A$ 不同的集合。(感觉其实等价于对所有的集合有 $A\not\in A$)</li>
+</ul>
+<h2 id="2-3-函数"><a href="#2-3-函数" class="headerlink" title="2.3. 函数"></a>2.3. 函数</h2><ul>
+<li><p><strong>[H9:幂集公理]</strong></p>
+</li>
+<li><p><strong>[H10:并公理]</strong></p>
+</li>
+</ul>
+<p>H1~H10 就是 $\rm Zermelo-Fraenkel$ 公理。另外有一条[H11:选择公理]，称作 $\rm ZF$ 选择公理，即 $\rm ZFC$ 公理。但这有时不是必要的。</p>
+<h2 id="2-4-笛卡尔积"><a href="#2-4-笛卡尔积" class="headerlink" title="2.4. 笛卡尔积"></a>2.4. 笛卡尔积</h2><h1 id="3-基数"><a href="#3-基数" class="headerlink" title="3. 基数"></a>3. 基数</h1><p>[基数相等] 如果两个集合间存在双射，那么称这两个集合基数相等</p>
+<p>一个集合 $X$ 和 ${i \in\mathbb N:1\leq i\leq n}$ 具有相同基数，则称其具有基数 $n$ ，记 $#(X)=n$ ，$X$ 是 <strong>有限的</strong> 。如果不存在 $n\in\mathbb N$ 使得 $#(X)=n$ ，则称 $X$ 是 <strong>无限的</strong>。</p>
+<p>我们尚未证明基数的唯一性，这里留做习题。(使用数学归纳法)</p>
+<p>基数的算术参考 $\rm Peano$ 算术。</p>
+<h2 id="3-1-可数集"><a href="#3-1-可数集" class="headerlink" title="3.1. 可数集"></a>3.1. 可数集</h2><p>容易知道 $\mathbb N$ 是无限的。</p>
+<p>良序原理</p>
+<p>设 $A,B$ 是可数集，那么</p>
+<p>$A\cup B$ 是可数集</p>
+<p>$A\times B$ 是可数集</p>
+<h2 id="3-2-无限集合的求和"><a href="#3-2-无限集合的求和" class="headerlink" title="3.2. 无限集合的求和"></a>3.2. 无限集合的求和</h2><h2 id="3-3-不可数的集合"><a href="#3-3-不可数的集合" class="headerlink" title="3.3. 不可数的集合"></a>3.3. 不可数的集合</h2><p>$\rm Cantor$ 定理： $X$ 和 $2^X$ 不能具有相同的基数</p>
+<h2 id="3-4-选择公理"><a href="#3-4-选择公理" class="headerlink" title="3.4. 选择公理"></a>3.4. 选择公理</h2><h2 id="3-5-序集"><a href="#3-5-序集" class="headerlink" title="3.5. 序集"></a>3.5. 序集</h2><p>$$\mathscr I$$</p>
+
+    </div>
+</div>
             </div>
         </div>
         <div class="mdui-container-fluid mdui-color-theme">
@@ -241,7 +304,6 @@
   </script>
 </div>
 
-<script src="../mdui/js/mdui.min.js"></script>
-<script type="text/javascript"> mdtrans(); </script>
+<script src="/mdui/js/mdui.min.js"></script>
     </body>
 </html>

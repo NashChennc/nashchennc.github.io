@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8"/>
 <title> Title </title>
-<link rel="stylesheet" href="../mdui/css/mdui.min.css"/>
-<link rel="stylesheet" href="../katex/katex.min.css"/>
-<script defer src="../katex/katex.min.js"></script>
-<script defer src="../katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
+<link rel="stylesheet" href="/katex/katex.min.css"/>
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 <!-- <link href="../katex/contrib/copy-tex.css" rel="stylesheet"/>
 <script src="../katex/contrib/copy-tex.js"></script> -->
 <script>
@@ -25,17 +25,12 @@
         });
     });
 </script>
-<!-- <script> MathJax = {tex: { inlineMath: [['$', '$']]}};</script> -->
-<!-- <script type="text/javascript" id="MathJax-script" async src="../mathjax/es5/tex-mml-chtml.js"></script> -->
-
-<?php //require dirname(__FILE__) . "/PHP-Markdown-2.0/Michelf/Markdown.inc.php" ?>
-<script src="../js/markdown.js"></script>
     <meta name="generator" content="Hexo 5.4.2"></head>
     <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
-        <div id="head_background" class="mdui-shadow-2" style="background-image: url(../bgpaper/banner.png);max-height: 540px;">
+        <div id="head_background" class="mdui-shadow-2" style="background-image: url(/bgpaper/banner.png);max-height: 540px;">
   <div style= "padding-top: 200px;padding-bottom:300px;">
       <div class="mudi-img">
-          <img class="mdui-center mdui-img-circle mdui-shadow-8 mdui-ripple" src="../bgpaper/headicon.png" width=160 height=160/>
+          <img class="mdui-center mdui-img-circle mdui-shadow-8 mdui-ripple" src="/bgpaper/headicon.png" width=160 height=160/>
       </div>
       <div class="mdui-valign" style="padding-top: 20px;">
           <a class="mdui-center mdui-typo-display-3 mdui-text-color-indigo-400 mdui-shadow-4 mdui-hoverable">
@@ -49,9 +44,9 @@
       <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}">
           <i class="mdui-icon material-icons"> menu </i>
       </span>
-      <span class="mdui-typo-title">
+      <a href="/" class="mdui-typo-title">
           NaTsukiNash's Website
-      </span>
+      </a>
       <div class="mdui-toolbar-spacer"></div>
       <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
           <i class="mdui-icon material-icons"> search </i>
@@ -86,7 +81,7 @@
 </script> -->
 <div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
     <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
-        <!-- <div id="main-drawer-1" class="mdui-collapse-item">
+        <div id="main-drawer-1" class="mdui-collapse-item">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
                 <div class="mdui-list-item-content">
@@ -95,12 +90,12 @@
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
             </div>
             <div class="mdui-collapse-item-body mdui-list">
-                <a href="index.php" class="mdui-list-item mdui-ripple">Index Page</a>
-                <a href="sample.php" class="mdui-list-item mdui-ripple">Sample Page</a>
-                <a href="info.php" class="mdui-list-item mdui-ripple">Info Page</a>
-                <a href="blogmenu.php" class="mdui-list-item mdui-ripple">Blog Menu</a>
+                <a href="/" class="mdui-list-item mdui-ripple">Index Page</a>
+                <a href="/sample/" class="mdui-list-item mdui-ripple">Sample Page</a>
+                <a href="/archives/" class="mdui-list-item mdui-ripple">Archive Page</a>
+                <a href="/about/" class="mdui-list-item mdui-ripple">About</a>
             </div>
-        </div> -->
+        </div>
         <!-- <div id="main-drawer-2" class="mdui-collapse-item mdui-collapse-item-open">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">layers</i>
@@ -189,23 +184,36 @@
         
         <div class="mdui-container-fluid" style="margin-top: 20px; margin-bottom: 40px;">
             <div class="mdui-container">
-                <h1>Log</h1>
-<table class="mdui-table">
-    <thead></thead>
-    <tbody>
-        <tr><td>5.23</td> <td>开始策划并接触html/css/javascript/php/web server/mdui</td></tr>
-        <tr><td>5.25</td> <td>建站<br/></td></tr>
-        <tr><td>5.27</td> <td>接入 ustc-guest 测试，提交表单成功<br/></td></tr>
-        <tr><td>5.28</td> <td>前端结构基本完备。新增Info页面。<br/></td></tr>
-        <tr><td>5.29</td> <td>可以上传 2M 文件<br/></td></tr>
-        <tr><td>5.30</td> <td>导入 MathJax / 手搓 Markdown 编译器 / 优化前端结构 / 页面链构建完成<br/></td></tr>
-        <tr><td>6.8</td> <td>MathJax 替换成 KaTeX, 优化Markdown编译器。<br/></td></tr>
-        <tr><td>10.6</td> <td>电脑重装后重新建站。数据库相关内容暂时封存<br/></td></tr>
-        <tr><td>10.7</td> <td>从自己的洛谷博客搬运了一些博文<br/></td></tr>
-        <tr><td>10.9</td> <td>从网上弄的 js/php-markdown 编译器还不如手搓的好用，遂放弃<br/></td></tr>
-        <tr><td>3.7</td> <td>稍微修改源码用Hexo搭建静态站点并上传到GitHub<br/></td></tr>
-    </tbody>
-</table>
+                
+
+<div id="md" class="mdui-card mdui-hoverable" style="zoom:1.2">
+    <div class="mdui-card-primary" style="zoom:1.5">
+        <div class="mdui-card-primary-title">
+            Hello World
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            副标题
+        </div>
+    </div>
+    <div class="mdui-card-content mdui-p-x-5">
+        <div class="mdui-divider"></div>
+        <br/>
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+    </div>
+</div>
             </div>
         </div>
         <div class="mdui-container-fluid mdui-color-theme">
@@ -241,7 +249,6 @@
   </script>
 </div>
 
-<script src="../mdui/js/mdui.min.js"></script>
-<script type="text/javascript"> mdtrans(); </script>
+<script src="/mdui/js/mdui.min.js"></script>
     </body>
 </html>
