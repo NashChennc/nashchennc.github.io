@@ -26,40 +26,54 @@
     });
 </script>
     <meta name="generator" content="Hexo 5.4.2"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
-    <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
-        <div id="head_background" class="mdui-shadow-2" style="background-image: url(/bgpaper/banner.png);max-height: 540px;">
-  <div style= "padding-top: 200px;padding-bottom:300px;">
-      <div class="mudi-img">
-          <img class="mdui-center mdui-img-circle mdui-shadow-8 mdui-ripple" src="/bgpaper/headicon.png" width=160 height=160/>
+    <body id="top" class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+        <div class="mdui-card">
+    <div class="mdui-card-media">
+      <div id="head_background" class="mdui-shadow-2" style="background-image: url(/bgpaper/banner2.png);padding-bottom: 600px;"></div>
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary mdui-float-right">
+          <div class="mdui-card-primary-title">信じている / 昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。</div>
+          <div class="mdui-card-primary-subtitle mdui-float-right">「雨き声残響」じん / IA</div>
+        </div>
       </div>
-      <div class="mdui-valign" style="padding-top: 20px;">
-          <a class="mdui-center mdui-typo-display-3 mdui-text-color-indigo-400 mdui-shadow-4 mdui-hoverable">
-              Nash's Website HelloWorld Project
-          </a>
-      </div>
+    </div>
   </div>
-</div>
-        <header class="appbar mdui-appbar mdui-appbar-fixed">
+
+<header class="appbar mdui-appbar mdui-appbar-fixed">
   <div class="mdui-toolbar mdui-color-theme">
       <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}">
           <i class="mdui-icon material-icons"> menu </i>
       </span>
       <a href="/" class="mdui-typo-title">
-          NaTsukiNash's Website
+          Nash's Personal Website
       </a>
       <div class="mdui-toolbar-spacer"></div>
       <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
           <i class="mdui-icon material-icons"> search </i>
       </a>
-      <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
-          <i class="mdui-icon material-icons"> refresh </i>
+      <a href="#top" class="mdui-btn mdui-btn-icon mdui-ripple">
+          <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+      </a>
+      <a href="#bottom" class="mdui-btn mdui-btn-icon mdui-ripple">
+          <i class="mdui-icon material-icons">keyboard_arrow_down</i>
       </a>
       <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
           <i class="mdui-icon material-icons"> more_vert </i>
       </a>
   </div>
 </header>
-        <div class="mdui-drawer" id="main-drawer" mdui-drawer="{swipe: true}">
+        <div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
+    <div class= "mdui-p-t-1 mdui-p-b-1 mdui-color-indigo-200">
+        <div class="mudi-img">
+            <img class="mdui-center mdui-img-circle mdui-shadow-4 mdui-ripple mdui-hoverable" src="/bgpaper/headicon.png" width=100 height=100/>
+        </div>
+        <div class="mdui-valign mdui-p-t-1 mdui-p-b-1">
+            <a class="mdui-center mdui-typo-headline mdui-text-color-white">
+                Nash Chen
+            </a>
+        </div>
+    </div>
+    
     <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
         <div id="main-drawer-1" class="mdui-collapse-item mdui-collapse-item-open">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
@@ -169,7 +183,7 @@
         <i class="mdui-icon mdui-fab-opened material-icons">edit</i>
     </button>
     <div class="mdui-fab-dial">
-        <a href="./mdview.php" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+        <a href="/archives" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
             <i class="mdui-icon material-icons">bookmark</i>
         </button>
         <a href="./upload.php" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700">
@@ -180,7 +194,6 @@
         </a>
     </div>
 </div>
-        
         <div class="mdui-container-fluid" style="margin-top: 20px; margin-bottom: 40px;">
             <div class="mdui-container">
                 
@@ -436,24 +449,29 @@ c_{1,1} &amp; c_{1,2} &amp; \cdots &amp; c_{1,m} &amp; | &amp; d_1\\
 </div>
             </div>
         </div>
-        <div class="mdui-container-fluid mdui-color-theme">
+        <div id="bottom"></div>
+        
+            <div class="mdui-container-fluid mdui-color-theme">
   <div id= "footer" class="mdui-row">
       <div class="mdui-color-theme mdui-col-xs-2 mdui-p-t-5 mdui-p-b-5"></div>
-
-      <a id= "lfooter" href= "./" class="mdui-ripple mdui-color-theme mdui-col-xs-4 mdui-p-t-5 mdui-p-b-5">
+        
+      <a id= "lfooter" href= "/post/la-3-similar/" class="mdui-ripple mdui-color-theme mdui-col-xs-4 mdui-p-t-5 mdui-p-b-5">
           <div class="mdui-float-left">
               <div class="mdui-typo-caption-opacity">Previous</div>
               <div class="mdui-typo-headline">
                   <i class="mdui-icon material-icons">arrow_back</i>
+                  la-3
               </div>
           </div>
       </a>
-      
-      <a id= "rfooter" href= "./" class="mdui-ripple mdui-color-theme mdui-col-xs-4 mdui-p-t-5 mdui-p-b-5">
+    
+    
+      <a id= "rfooter" href= "/post/la-1-space/" class="mdui-ripple mdui-color-theme mdui-col-xs-4 mdui-p-t-5 mdui-p-b-5">
           <div class="mdui-float-right">
               <div class="mdui-typo-caption-opacity">Next</div>
               <div class="mdui-typo-headline">
-                  <i class="mdui-icon material-icons">arrow_forward</i>
+                la-1
+                <i class="mdui-icon material-icons">arrow_forward</i>
               </div>
           </div>
       </a>
@@ -468,7 +486,7 @@ c_{1,1} &amp; c_{1,2} &amp; \cdots &amp; c_{1,m} &amp; | &amp; d_1\\
       para.className= "mdui-color-theme mdui-col-xs-4 mdui-p-t-5 mdui-p-b-5";
   </script>
 </div>
-
-<script src="/mdui/js/mdui.min.js"></script>
+        
+        <script src="/mdui/js/mdui.min.js"></script>
     </body>
 </html>
