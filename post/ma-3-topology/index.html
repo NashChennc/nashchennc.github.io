@@ -51,12 +51,6 @@
       <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
           <i class="mdui-icon material-icons"> search </i>
       </a>
-      <a href="#top" class="mdui-btn mdui-btn-icon mdui-ripple">
-          <i class="mdui-icon material-icons">keyboard_arrow_up</i>
-      </a>
-      <a href="#bottom" class="mdui-btn mdui-btn-icon mdui-ripple">
-          <i class="mdui-icon material-icons">keyboard_arrow_down</i>
-      </a>
       <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
           <i class="mdui-icon material-icons"> more_vert </i>
       </a>
@@ -147,7 +141,7 @@
 
             </div>
         </div> -->
-        <div id="main-drawer-3" class="mdui-collapse-item">
+        <!-- <div id="main-drawer-3" class="mdui-collapse-item">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">widgets</i>
                 <div class="mdui-list-item-content">
@@ -170,27 +164,23 @@
             <div class="mdui-collapse-item-body mdui-list">
                 <a href="/file" class="mdui-list-item mdui-ripple">文件夹</a>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
-        <form method="post" action="./editor.php" id="page_editor">
-    <input style="display: none;" name="doc_id" ></input>
-</form>
-
-<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
-    <button class="mdui-fab mdui-ripple mdui-color-theme-accent" onclick="submitinfo();">
+        <div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="#bottom">
         <i class="mdui-icon material-icons">add</i>
-        <i class="mdui-icon mdui-fab-opened material-icons">edit</i>
-    </button>
+        <i class="mdui-icon mdui-fab-opened material-icons">keyboard_arrow_down</i>
+    </a>
     <div class="mdui-fab-dial">
         <a href="/archives" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
             <i class="mdui-icon material-icons">bookmark</i>
-        </button>
+        </a>
         <a href="./upload.php" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700">
             <i class="mdui-icon material-icons">backup</i>
         </a>
-        <a href="./" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo">
-            <i class="mdui-icon material-icons">settings</i>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
         </a>
     </div>
 </div>
@@ -204,11 +194,12 @@
             拓扑空间
         </div>
         
-        <div class="mdui-card-primary-subtitle">
-            Last Update: 2023/03/10 11:57
-        </div>
+        
     </div>
     <div class="mdui-card-content mdui-p-x-5">
+        <div class="mdui-typo-caption-opacity">
+            Last Update: 2023/03/10 11:57
+        </div>
         <div class="mdui-divider"></div>
         <br/>
         <h1>1. 拓扑</h1>
