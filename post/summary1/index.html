@@ -45,7 +45,7 @@
 
 <header class="appbar mdui-appbar mdui-appbar-fixed">
   <div class="mdui-toolbar mdui-color-theme">
-      <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}">
+      <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}" mdui-tooltip="{content: 'Menu'}">
           <i class="mdui-icon material-icons"> menu </i>
       </span>
       <a href="/" class="mdui-typo-title">
@@ -55,23 +55,33 @@
       <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
           <i class="mdui-icon material-icons"> search </i>
       </a>
-      <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+      <a href="/about/" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
           <i class="mdui-icon material-icons"> more_vert </i>
       </a>
   </div>
 </header>
         <div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
-    <div class= "mdui-color-indigo-200">
-        <div class="mdui-p-t-1"  mdui-tooltip="{content: 'Follow Me'}">
-            <img class="mudi-img mdui-center mdui-img-circle mdui-shadow-4" src="/bgpaper/headicon.png" width=100 height=100/>
+    <!-- <div class= "mdui-color-indigo-200">
+        <div class="mdui-p-t-2 mdui-p-l-2" mdui-tooltip="{content: 'Follow Me'}">
+            <img class="mudi-img mdui-img-circle mdui-shadow-4" src="" width=80 height=80/>
         </div>
         <div class="mdui-valign mdui-p-t-1 mdui-p-b-1">
             <a class="mdui-center mdui-typo-headline mdui-text-color-white">
                 NashChennc
             </a>
         </div>
+    </div> -->
+    <div class="mdui-card mdui-shadow-0">
+
+        <!-- 卡片头部，包含头像、标题、副标题 -->
+        <div class="mdui-card-header">
+          <img class="mdui-card-header-avatar" mdui-tooltip="{content: 'Follow Me'}" src="/bgpaper/headicon.png"/>
+          <div class="mdui-card-header-title">NashChennc</div>
+          <div class="mdui-card-header-subtitle">695977430@qq.com</div>
+          
+        </div>
+      
     </div>
-    
     <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
         <div id="main-drawer-1" class="mdui-collapse-item mdui-collapse-item-open">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
@@ -172,19 +182,19 @@
     </div>
 </div>
         <div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
-    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="#bottom">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
         <i class="mdui-icon material-icons">add</i>
-        <i class="mdui-icon mdui-fab-opened material-icons">keyboard_arrow_down</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
     </a>
     <div class="mdui-fab-dial">
-        <a href="/archives" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
-            <i class="mdui-icon material-icons">bookmark</i>
-        </a>
-        <a href="./upload.php" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700">
+        <a href="" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
             <i class="mdui-icon material-icons">backup</i>
         </a>
-        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo">
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
             <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
         </a>
     </div>
 </div>
