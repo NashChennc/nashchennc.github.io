@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            
+                实分析1 测度论 - 施工中...
+             | Nash's Static Blog
+        </title>
+        <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
+<link rel="stylesheet" href="/katex/katex.min.css"/>
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<!-- <link href="../katex/contrib/copy-tex.css" rel="stylesheet"/>
+<script src="../katex/contrib/copy-tex.js"></script> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            macros: {
+                // "\\ge": "\\geqslant",
+                // "\\le": "\\leqslant",
+                // "\\geq": "\\geqslant",
+                // "\\leq": "\\leqslant"
+            }
+        });
+    });
+</script>
+    <meta name="generator" content="Hexo 5.4.2"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+    <body id="top" class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+        <div class="mdui-card">
+    <div class="mdui-card-media">
+      <div id="head_background" class="mdui-shadow-2" style="background-image: url(/bgpaper/banner1.png);padding-bottom: 540px;"></div>
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary mdui-float-right">
+          <div class="mdui-card-primary-title">信じている / 昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。</div>
+          <div class="mdui-card-primary-subtitle mdui-float-right">「雨き声残響」じん / IA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<header class="appbar mdui-appbar mdui-appbar-fixed">
+  <div class="mdui-toolbar mdui-color-theme">
+      <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}" mdui-tooltip="{content: 'Menu'}">
+          <i class="mdui-icon material-icons"> menu </i>
+      </span>
+      <a href="/" class="mdui-typo-title">
+          Nash's Static Blog
+      </a>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+          <i class="mdui-icon material-icons"> search </i>
+      </a>
+      <a href="/about/" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+          <i class="mdui-icon material-icons"> more_vert </i>
+      </a>
+  </div>
+</header>
+        <div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
+    <!-- <div class= "mdui-color-indigo-200">
+        <div class="mdui-p-t-2 mdui-p-l-2" mdui-tooltip="{content: 'Follow Me'}">
+            <img class="mudi-img mdui-img-circle mdui-shadow-4" src="" width=80 height=80/>
+        </div>
+        <div class="mdui-valign mdui-p-t-1 mdui-p-b-1">
+            <a class="mdui-center mdui-typo-headline mdui-text-color-white">
+                NashChennc
+            </a>
+        </div>
+    </div> -->
+    <div class="mdui-card mdui-shadow-0">
+
+        <!-- 卡片头部，包含头像、标题、副标题 -->
+        <div class="mdui-card-header">
+          <img class="mdui-card-header-avatar" mdui-tooltip="{content: 'Follow Me'}" src="/bgpaper/headicon.png"/>
+          <div class="mdui-card-header-title">NashChennc</div>
+          <div class="mdui-card-header-subtitle">695977430@qq.com</div>
+          
+        </div>
+      
+    </div>
+    <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+        <div id="main-drawer-1" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
+                <div class="mdui-list-item-content">
+                    Menu
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a href="/" class="mdui-list-item mdui-ripple">Index</a>
+                <a href="/archives/" class="mdui-list-item mdui-ripple">Archive</a>
+                <a href="/about/" class="mdui-list-item mdui-ripple">About</a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">add</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">backup</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+        <div class="mdui-container-fluid" style="margin-top: 20px; margin-bottom: 40px;">
+            <div class="mdui-container">
+                
+
+<div class="mdui-card mdui-hoverable" style="zoom:1.2">
+    <div class="mdui-card-primary" style="zoom:1.5">
+        <div class="mdui-card-primary-title">
+            实分析1 测度论 - 施工中...
+        </div>
+        
+    </div>
+    <div class="mdui-card-content mdui-p-x-5">
+        <div class="mdui-row mdui-typo">
+            <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
+                Last Update: 2023/03/14 23:21
+            </div>
+            <div class="mdui-col-xs-6">
+                <div class="mdui-float-right">
+                    
+                        <a href="/categories/Analysis/">
+                            Analysis
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="mdui-divider"></div>
+        <br/>
+        <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord mathbb">R</span></span></span></span> 上的开集连通块可数</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi></mrow><annotation encoding="application/x-tex">\rm Cantor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">C</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm">t</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span></span></span></span></span> 集 具有连续统的势但长度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></p>
+<h1>1. 外测度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mtext> </mtext><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi></mrow><annotation encoding="application/x-tex">\rm exterior\ measure</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">e</span><span class="mord mathrm">x</span><span class="mord mathrm">t</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">i</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mspace"> </span><span class="mord mathrm">m</span><span class="mord mathrm">e</span><span class="mord mathrm">a</span><span class="mord mathrm">s</span><span class="mord mathrm">u</span><span class="mord mathrm">r</span><span class="mord mathrm">e</span></span></span></span></span></h1>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mo>∗</mo></msub><mo stretchy="false">(</mo><mi>E</mi><mo stretchy="false">)</mo><mo>=</mo><mi>inf</mi><mo>⁡</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi mathvariant="normal">∞</mi></munderover><mi mathvariant="normal">∣</mi><msub><mi>Q</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">m_*(E)=\inf\sum_{j=1}^{\infty}|Q_j|
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.175696em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0651740000000007em;vertical-align:-1.4137769999999998em;"></span><span class="mop">in<span style="margin-right:0.07778em;">f</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000007em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4137769999999998em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord">∣</span></span></span></span></span></p>
+<p>其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><msub><mi>Q</mi><mi>j</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{Q_j\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span></span></span> 的可数开覆盖。</p>
+
+    </div>
+</div>
+            </div>
+        </div>
+        <div id="bottom"></div>
+        
+            <div class="mdui-container-fluid mdui-color-theme">
+    <div id= "footer" class="mdui-row">
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+            
+            <a id= "lfooter" href= "/post/logic/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+                <div class="mdui-float-left">
+                    <div class="mdui-typo-caption-opacity">Previous</div>
+                    <div class="mdui-typo-headline">
+                        <i class="mdui-icon material-icons">arrow_back</i>
+                        数理逻辑 - 施工中...
+                    </div>
+                </div>
+            </a>
+            
+            <a id= "rfooter" href= "/post/ca-1/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+                <div class="mdui-float-right">
+                    <div class="mdui-typo-caption-opacity">Next</div>
+                    <div class="mdui-typo-headline">
+                        复分析1 全纯函数 - 施工中...
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                    </div>
+                </div>
+            </a>
+            
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+    </div>
+</div>
+        
+        <script src="/mdui/js/mdui.min.js"></script>
+    </body>
+</html>
