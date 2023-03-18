@@ -190,13 +190,13 @@
 <script>
     var elements= document.getElementsByTagName("table");
     for (var i=0;i<elements.length;i++) {
-        text = element.getAttribute("class");
+        text = elements[i].getAttribute("class");
         if(text==null)
             elements[i].setAttribute("class","mdui-table mdui-shadow-0");
     }
     var elements= document.getElementsByTagName("img");
     for (var i=0;i<elements.length;i++) {
-        text = element.getAttribute("class");
+        text = elements[i].getAttribute("class");
         if(text==null)
             elements[i].setAttribute("class","mdui-img-fluid");
     }

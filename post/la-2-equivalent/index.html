@@ -387,13 +387,13 @@ c_{1,1} &amp; c_{1,2} &amp; \cdots &amp; c_{1,m} &amp; | &amp; d_1\\
 <script>
     var elements= document.getElementsByTagName("table");
     for (var i=0;i<elements.length;i++) {
-        text = element.getAttribute("class");
+        text = elements[i].getAttribute("class");
         if(text==null)
             elements[i].setAttribute("class","mdui-table mdui-shadow-0");
     }
     var elements= document.getElementsByTagName("img");
     for (var i=0;i<elements.length;i++) {
-        text = element.getAttribute("class");
+        text = elements[i].getAttribute("class");
         if(text==null)
             elements[i].setAttribute("class","mdui-img-fluid");
     }
