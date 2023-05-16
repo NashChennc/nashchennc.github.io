@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            
+                看过的番
+             | Nash's Static Blog
+        </title>
+        <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
+<link rel="stylesheet" href="/katex/katex.min.css"/>
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<!-- <link href="../katex/contrib/copy-tex.css" rel="stylesheet"/>
+<script src="../katex/contrib/copy-tex.js"></script> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            macros: {
+                // "\\ge": "\\geqslant",
+                // "\\le": "\\leqslant",
+                // "\\geq": "\\geqslant",
+                // "\\leq": "\\leqslant"
+            }
+        });
+    });
+</script>
+    <meta name="generator" content="Hexo 5.4.2"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+    <body id="top" class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+        <div class="mdui-card">
+    <div class="mdui-card-media">
+      <!-- <img class="mdui-shadow-2 mdui-img-fluid" src="/bgpaper/banner1.png" style="padding-bottom: -540px;"></img> -->
+      <div class="mdui-shadow-2" style="background-image: url(/bgpaper/banner1.png);padding-bottom: 540px;"></div>
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary mdui-float-right">
+          <div class="mdui-card-primary-title">信じている / 昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。</div>
+          <div class="mdui-card-primary-subtitle mdui-float-right">「雨き声残響」Orangestar / IA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<header class="appbar mdui-appbar mdui-appbar-fixed">
+  <div class="mdui-toolbar mdui-color-theme">
+      <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}" mdui-tooltip="{content: 'Menu'}">
+          <i class="mdui-icon material-icons"> menu </i>
+      </span>
+      <a href="/" class="mdui-typo-title">
+          Nash's Static Blog
+      </a>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+          <i class="mdui-icon material-icons"> search </i>
+      </a>
+      <a href="/about/" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+          <i class="mdui-icon material-icons"> more_vert </i>
+      </a>
+  </div>
+</header>
+        <div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
+    <!-- <div class= "mdui-color-indigo-200">
+        <div class="mdui-p-t-2 mdui-p-l-2" mdui-tooltip="{content: 'Follow Me'}">
+            <img class="mudi-img mdui-img-circle mdui-shadow-4" src="" width=80 height=80/>
+        </div>
+        <div class="mdui-valign mdui-p-t-1 mdui-p-b-1">
+            <a class="mdui-center mdui-typo-headline mdui-text-color-white">
+                NashChennc
+            </a>
+        </div>
+    </div> -->
+    <div class="mdui-card mdui-shadow-0">
+
+        <!-- 卡片头部，包含头像、标题、副标题 -->
+        <div class="mdui-card-header">
+          <img class="mdui-card-header-avatar" mdui-tooltip="{content: 'Follow Me'}" src="/bgpaper/headicon.png"/>
+          <div class="mdui-card-header-title">NashChennc</div>
+          <div class="mdui-card-header-subtitle">695977430@qq.com</div>
+          
+        </div>
+      
+    </div>
+    <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+        <div id="main-drawer-1" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
+                <div class="mdui-list-item-content">
+                    Menu
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a href="/" class="mdui-list-item mdui-ripple">首页</a>
+                <a href="/archives/" class="mdui-list-item mdui-ripple">归档 </a>
+                <a href="/files/" class="mdui-list-item mdui-ripple">文件</a>
+                <a href="/comment/" class="mdui-list-item mdui-ripple"> 留言板 | 提问箱</a>
+                <a href="/about/" class="mdui-list-item mdui-ripple">关于</a>
+                <a href="/post/latex/" class="mdui-list-item mdui-ripple"> LaTeX符号表 </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+        <div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">add</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">backup</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+        <div class="mdui-container-fluid" style="margin-top: 20px; margin-bottom: 40px;">
+            <div class="mdui-container">
+                
+
+<div class="mdui-card mdui-hoverable" style="zoom:1.2">
+    <div class="mdui-card-primary" style="zoom:1.5">
+        <div class="mdui-card-primary-title">
+            看过的番
+        </div>
+        
+    </div>
+    <div class="mdui-card-content mdui-typo mdui-p-x-5">
+        <div class="mdui-row">
+            <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
+                Last Update: 2023/05/16 18:04
+            </div>
+            <div class="mdui-col-xs-6">
+                <div class="mdui-float-right mdui-typo">
+                    
+                        <a href="/categories/%E6%9D%82%E8%B0%88/">
+                            杂谈
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="mdui-divider"></div>
+        <br/>
+        <p>想着看过的番多少都对我有点影响，所以还是写一点感想放在这里。</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>+</mo></mrow><annotation encoding="application/x-tex">6+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">6</span><span class="mord">+</span></span></span></span> 分好番， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mo>+</mo></mrow><annotation encoding="application/x-tex">9+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">9</span><span class="mord">+</span></span></span></span> 分神番。为了充分利用数轴，高分段会人为稀疏化。有空会补一点简评。</p>
+<p>下面的日期是按我看番的集中时间段划分的</p>
+<p>英语音译片假名统一写成英文原词</p>
+<h1>2023.4 ~</h1>
+<ul>
+<li>Clannad 没看完</li>
+</ul>
+<h1>2022.9 ~ 12</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">冴えない彼女</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex">6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span></td>
+<td style="text-align:center">2022.12</td>
+<td style="text-align:center">后宫番。人物塑造还可以。咩咕咪是真圣人。</td>
+</tr>
+<tr>
+<td style="text-align:center">エロマンガ先生</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span></td>
+<td style="text-align:center">2022.12</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">とらドラ</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span></td>
+<td style="text-align:center">2022.12</td>
+<td style="text-align:center">逢坂大河退版本了。</td>
+</tr>
+<tr>
+<td style="text-align:center">異能日常なか</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span></td>
+<td style="text-align:center">2022.12</td>
+<td style="text-align:center">单纯因为名场面去看的，番剧本身不太行。</td>
+</tr>
+<tr>
+<td style="text-align:center">孤独摇滚</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn></mrow><annotation encoding="application/x-tex">7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span></td>
+<td style="text-align:center">2023.1</td>
+<td style="text-align:center">好了，现在来比比我跟波奇酱谁更孤独。</td>
+</tr>
+</tbody>
+</table>
+<p>遣返发烧摆烂时期看的番。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Gal名</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">G弦上的魔王</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span></td>
+<td style="text-align:center">2023.1</td>
+</tr>
+</tbody>
+</table>
+<p>纯粹是被名字吸引开始推的这部gal。不怎么样。</p>
+<p>顺便一提，这个 G 弦是指巴赫的咏叹调，我帕格尼尼的摩西主题变奏曲气抖冷</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">あの花</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></td>
+<td style="text-align:center">2022.11</td>
+</tr>
+</tbody>
+</table>
+<p>真·治愈番</p>
+<p>故事是想要消除朋友之间因为成长路径不同产生的隔阂，这确实是一个美好的愿望。</p>
+<p>确实有点想念以前的朋友了。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">軽音</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn></mrow><annotation encoding="application/x-tex">7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span></td>
+<td style="text-align:center">2022.10</td>
+<td style="text-align:center">可爱萌豚。</td>
+</tr>
+<tr>
+<td style="text-align:center">氷菓</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></td>
+<td style="text-align:center">2022.10</td>
+<td style="text-align:center">吃蛋挞和麻鸭卡简直都是梦中情人啊啊啊啊啊</td>
+</tr>
+<tr>
+<td style="text-align:center">中二病でも恋がしたい</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span></td>
+<td style="text-align:center">2022.11</td>
+<td style="text-align:center">六花可爱。把中二病写出深度了。</td>
+</tr>
+<tr>
+<td style="text-align:center">Violet Evergarden</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn></mrow><annotation encoding="application/x-tex">7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span></td>
+<td style="text-align:center">2022.11</td>
+<td style="text-align:center">配乐加分。 Oboe好き。</td>
+</tr>
+<tr>
+<td style="text-align:center">声の形</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></td>
+<td style="text-align:center">2022.11</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>京阿尼系列。神番作坊名不虚传。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">かのかり</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex">6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span></td>
+<td style="text-align:center">2022.9</td>
+<td style="text-align:center">后宫番，雨宫天最高</td>
+</tr>
+<tr>
+<td style="text-align:center">連れカノ</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn></mrow><annotation encoding="application/x-tex">7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span></td>
+<td style="text-align:center">2022.9</td>
+<td style="text-align:center">有点标题劝退，但是竟然写出了满屏的恋爱感。甜。</td>
+</tr>
+</tbody>
+</table>
+<p>回校隔离期间找来看的番，没想到质量还不错。</p>
+<h1>2022.6 ~ 8</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">響け！Euphonium 1</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span></td>
+<td style="text-align:center">2022.7</td>
+</tr>
+<tr>
+<td style="text-align:center">響け！Euphonium 2</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn></mrow><annotation encoding="application/x-tex">12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">2</span></span></span></span></td>
+<td style="text-align:center">2022.7</td>
+</tr>
+<tr>
+<td style="text-align:center">リズと青い鳥</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn></mrow><annotation encoding="application/x-tex">12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">2</span></span></span></span></td>
+<td style="text-align:center">2022.7</td>
+</tr>
+<tr>
+<td style="text-align:center">響け！Euphonium 3</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn></mrow><annotation encoding="application/x-tex">11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">1</span></span></span></span></td>
+<td style="text-align:center">2022.7</td>
+</tr>
+</tbody>
+</table>
+<p>京吹系列。神中神。不看京吹的有难了。</p>
+<p>当时整个系列连着看，全程人是瘫着的。我一直在想应该怎么描述那种感受，最后还是觉得应该用极致的真实和美好来形容。可能听起来有点怪，当时看完的感受是：真实和美好竟然可以共存到那种程度。</p>
+<p>真实在于，背景设定、人物塑造尤其是情感刻画都非常细致，每一个角色都给人一种好像真的会有那样一个人，在那个时刻他就是会那样想、那样做的感觉。而发生在她们之间的故事，又似乎是某种缩影，就像在真实世界里已经发生过无数遍一样。里面不少片段相信能触发乐团人、竞赛人的 ptsd 。</p>
+<p>美好在于，那些关于友谊、梦想和青春的这些经久不衰的主题，通过交织的故事线和细致的刻画又体现得淋漓尽致，让人不得不心生向往。这似乎确实有点像交响曲，不同旋律交织成一个复杂严谨而又充满吸引力的美丽乐章。然而看完之后反思现实，发现这么美好的事情根本就没有什么可能发生在自己身上，又和最初感觉到的真实产生一种矛盾感和失落感。</p>
+<p>可能有人会觉得铜管乐器可能有点劝退，不过我相信即使你没有学过乐器，也会被里面真挚细腻的情感打动。说不定你看完就会想学管乐了呢。</p>
+<p>顺便一提，青鸟在国内因为涉百过不了审。不过你要是百合豚的话，那就来错地方了。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">魔女の旅</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span></td>
+<td style="text-align:center">2022.7</td>
+<td style="text-align:center">1017确实很可爱但是这番就是没什么亮点啊</td>
+</tr>
+<tr>
+<td style="text-align:center">Happy Sugar Life</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn></mrow><annotation encoding="application/x-tex">7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span></td>
+<td style="text-align:center">2022.7</td>
+<td style="text-align:center">如果要自找心理创伤，非常推荐</td>
+</tr>
+</tbody>
+</table>
+<p>暑假初，心情不错的时候看的。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">四月は君の嘘</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span></td>
+<td style="text-align:center">2022.6</td>
+</tr>
+</tbody>
+</table>
+<p>古典音乐好评。全程跪着看。</p>
+<p>期末考试期间看的。算是为了缓解焦虑触发的保护机制。</p>
+<h1>2021.12</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Darling in the Franxx</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></td>
+<td style="text-align:center">2021.12</td>
+</tr>
+</tbody>
+</table>
+<p>年轻人的恋爱启蒙课。</p>
+<p>疑似烂尾扣了半分。巨大02脸鹤望兰吓到我又扣半分。其他部分还是很好的。</p>
+<h1>2021.1</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">さくら荘のペットな彼女</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn></mrow><annotation encoding="application/x-tex">9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span></td>
+<td style="text-align:center">2021.1</td>
+</tr>
+</tbody>
+</table>
+<p>当时是在一个学长家里学习的时候，半夜睡不着看完的。</p>
+<p>年轻人的第一部励志番。</p>
+<p>虽然很多人催后续，但我觉得就在这里结束也不失为一个好故事。</p>
+<h1>2019</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">番名</th>
+<th style="text-align:center">首映季度</th>
+<th style="text-align:center">长度</th>
+<th style="text-align:center">评分</th>
+<th style="text-align:center">看番日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">魔法禁书目录I</td>
+<td style="text-align:center">2008/10</td>
+<td style="text-align:center">TV 24</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></td>
+<td style="text-align:center">2019.5</td>
+</tr>
+<tr>
+<td style="text-align:center">魔法禁书目录II</td>
+<td style="text-align:center">2010/10</td>
+<td style="text-align:center">TV 24</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></td>
+<td style="text-align:center">2019.5</td>
+</tr>
+<tr>
+<td style="text-align:center">とある科学の超電磁砲</td>
+<td style="text-align:center">2009/10</td>
+<td style="text-align:center">TV 24</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex">6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span></td>
+<td style="text-align:center">2019.5</td>
+</tr>
+<tr>
+<td style="text-align:center">とある科学の超電磁砲S</td>
+<td style="text-align:center">2013/04</td>
+<td style="text-align:center">TV 24</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></td>
+<td style="text-align:center">2019.5</td>
+</tr>
+<tr>
+<td style="text-align:center">とある科学の超電磁砲T</td>
+<td style="text-align:center">2020/01</td>
+<td style="text-align:center">TV 25</td>
+<td style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span></td>
+<td style="text-align:center">2020.1</td>
+</tr>
+</tbody>
+</table>
+<p>超炮系列是我最早接触到的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">\rm TV</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">T</span><span class="mord mathrm" style="margin-right:0.01389em;">V</span></span></span></span></span>动画了。当时初三实在没事做，就想看看传说中的 <code>Bilibili</code> 到底是何方神圣。记得应该是熬了几天夜连着看完了。后来暑假刚好和两个同学去了趟霓虹，顺便入门了猕猴语。说起来那时候还不是很宅，但却先学起猕猴语了，也挺怪的。超炮T出来之后马上就去追番了。</p>
+<p>超炮系列作为经典轻改老番，世界观宏大、角色塑造出彩、情节引人入胜，还是很值得看的。即使是今天再看那些似乎是20年前的科技背景下的幻想，也可以感受到想象力之丰富。然而超炮T的经费燃烧跟魔禁三多处场景画崩形成鲜明对比，让人更觉得超炮是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">J</mi><mi mathvariant="normal">C</mi><mtext> </mtext><mi mathvariant="normal">S</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">f</mi></mrow><annotation encoding="application/x-tex">\rm JC\ Staff</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">J</span><span class="mord mathrm">C</span><span class="mspace"> </span><span class="mord mathrm">S</span><span class="mord mathrm">t</span><span class="mord mathrm">a</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span></span></span></span></span> 亲女儿（科方：？），不过个人感觉不太影响观感。</p>
+<p>不过不得不说超炮第一部确实稍微有点平淡，我一大学室友从这里开始看，看了没几集弃坑了。如果你真的没看过，也还是建议先看魔禁1。</p>
+
+    </div>
+</div>
+
+<script>
+    var elements= document.getElementsByTagName("table");
+    for (var i=0;i<elements.length;i++) {
+        text = elements[i].getAttribute("class");
+        if(text==null)
+            elements[i].setAttribute("class","mdui-table mdui-shadow-0");
+    }
+    var elements= document.getElementsByTagName("img");
+    for (var i=0;i<elements.length;i++) {
+        text = elements[i].getAttribute("class");
+        if(text==null)
+            elements[i].setAttribute("class","mdui-img-fluid");
+    }
+</script>
+            </div>
+        </div>
+        <div id="bottom"></div>
+        
+            <div class="mdui-container-fluid mdui-color-theme">
+    <div id= "footer" class="mdui-row">
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+            
+            <div class="mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5"></div>
+            
+            <a id= "rfooter" href= "/post/dim/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+                <div class="mdui-float-right">
+                    <div class="mdui-typo-caption-opacity">Next</div>
+                    <div class="mdui-typo-headline">
+                        关于减肥和作息 - 会更新&amp;打卡
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                    </div>
+                </div>
+            </a>
+            
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+    </div>
+</div>
+        
+        <script src="/mdui/js/mdui.min.js"></script>
+    </body>
+</html>
