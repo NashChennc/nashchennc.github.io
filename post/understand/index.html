@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            
+                一个早就有的想法：何为理解
+             | Nash's Static Blog
+        </title>
+        <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
+<link rel="stylesheet" href="/katex/katex.min.css"/>
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<!-- <link href="../katex/contrib/copy-tex.css" rel="stylesheet"/>
+<script src="../katex/contrib/copy-tex.js"></script> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            macros: {
+                // "\\ge": "\\geqslant",
+                // "\\le": "\\leqslant",
+                // "\\geq": "\\geqslant",
+                // "\\leq": "\\leqslant"
+            }
+        });
+    });
+</script>
+    <meta name="generator" content="Hexo 5.4.2"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+    <body id="top" class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+        <div class="mdui-card">
+    <div class="mdui-card-media">
+      <!-- <img class="mdui-shadow-2 mdui-img-fluid" src="/bgpaper/banner1.png" style="padding-bottom: -540px;"></img> -->
+      <div class="mdui-shadow-2" style="background-image: url(/bgpaper/banner1.png);padding-bottom: 540px;"></div>
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary mdui-float-right">
+          <div class="mdui-card-primary-title">信じている / 昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。</div>
+          <div class="mdui-card-primary-subtitle mdui-float-right">「雨き声残響」Orangestar / IA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<header class="appbar mdui-appbar mdui-appbar-fixed">
+  <div class="mdui-toolbar mdui-color-theme">
+      <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}" mdui-tooltip="{content: 'Menu'}">
+          <i class="mdui-icon material-icons"> menu </i>
+      </span>
+      <a href="/" class="mdui-typo-title">
+          Nash's Static Blog
+      </a>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+          <i class="mdui-icon material-icons"> search </i>
+      </a>
+      <a href="/about/" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+          <i class="mdui-icon material-icons"> more_vert </i>
+      </a>
+  </div>
+</header>
+        <div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
+    <!-- <div class= "mdui-color-indigo-200">
+        <div class="mdui-p-t-2 mdui-p-l-2" mdui-tooltip="{content: 'Follow Me'}">
+            <img class="mudi-img mdui-img-circle mdui-shadow-4" src="" width=80 height=80/>
+        </div>
+        <div class="mdui-valign mdui-p-t-1 mdui-p-b-1">
+            <a class="mdui-center mdui-typo-headline mdui-text-color-white">
+                NashChennc
+            </a>
+        </div>
+    </div> -->
+    <div class="mdui-card mdui-shadow-0">
+
+        <!-- 卡片头部，包含头像、标题、副标题 -->
+        <div class="mdui-card-header">
+          <img class="mdui-card-header-avatar" mdui-tooltip="{content: 'Follow Me'}" src="/bgpaper/headicon.png"/>
+          <div class="mdui-card-header-title">NashChennc</div>
+          <div class="mdui-card-header-subtitle">695977430@qq.com</div>
+          
+        </div>
+      
+    </div>
+    <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+        <div id="main-drawer-1" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
+                <div class="mdui-list-item-content">
+                    Menu
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a href="/" class="mdui-list-item mdui-ripple">首页</a>
+                <a href="/archives/" class="mdui-list-item mdui-ripple">归档 </a>
+                <a href="/files/" class="mdui-list-item mdui-ripple">文件</a>
+                <a href="/comment/" class="mdui-list-item mdui-ripple"> 留言板 | 提问箱</a>
+                <a href="/about/" class="mdui-list-item mdui-ripple">关于</a>
+                <a href="/post/latex/" class="mdui-list-item mdui-ripple"> LaTeX符号表 </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+        <div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">add</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">backup</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+        <div class="mdui-container-fluid" style="margin-top: 20px; margin-bottom: 40px;">
+            <div class="mdui-container">
+                
+
+<div class="mdui-card mdui-hoverable" style="zoom:1.2">
+    <div class="mdui-card-primary" style="zoom:1.5">
+        <div class="mdui-card-primary-title">
+            一个早就有的想法：何为理解
+        </div>
+        
+    </div>
+    <div class="mdui-card-content mdui-typo mdui-p-x-5">
+        <div class="mdui-row">
+            <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
+                Last Update: 2023/05/22 21:23
+            </div>
+            <div class="mdui-col-xs-6">
+                <div class="mdui-float-right mdui-typo">
+                    
+                        <a href="/categories/%E6%9D%82%E8%B0%88/">
+                            杂谈
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="mdui-divider"></div>
+        <br/>
+        <p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650877786&amp;idx=1&amp;sn=589f6163d52b74d0702bdf218ba54aa7&amp;chksm=84e4eb24b39362327ac73f8126f4bcdf49f5f5de2cf1fa85295301626d397126f12655059065&amp;mpshare=1&amp;scene=23&amp;srcid=0522QklakP1ZNEUiZNl1Alxb&amp;sharer_sharetime=1684759328928&amp;sharer_shareid=c67bf4a2697506a2a6a419a8499aa782#rd">机器之心 | 有证据了，MIT表明：大型语言模型≠随机鹦鹉，确实能学到语义</a></p>
+<p>讲在前面以防混淆，这里的 “理解” 是指理性的 “理解” ，即 “理解知识” 。这可能和某些人常用的语义不同。</p>
+<p>是很早之前就想过的结论。</p>
+<p>不止一次在写题讲题的过程中认真思考过所谓理解是什么东西，没有得到一个好的答案。于是猜想其实理解和模仿并没有本质区别，只有深浅之分。这个深浅，可以是提前抽象思考加深的，也可以是在应用的时候对性质的挖掘，当然也可以是在教科书上获知的。</p>
+<p>关于 “理解” 和 “接受” 之分，或者可以从字面上描述。“理” “解” 是指拆分，日常所说的理解可能只是将命题拆分到你能够接受的所谓 “公理” 的层面。</p>
+<p>也许这些推理早在哲学书上出现过，但无论这能否被这篇MIT的新文章证实，这对我们的方法论甚至哲学来说都是非常有意义的。</p>
+<p>一点题外话，可能受文言文/日文/c++/编译原理/数理逻辑/数学书什么乱七八糟的一堆东西的影响，我平常说活聊天也习惯于纠结语义语法逻辑结构这种东西，被诟病为抽象大师。</p>
+<p>（说起来我到底有多少个意义相近的外号，或许这些外号可以做聚类标成一个簇？</p>
+
+    </div>
+</div>
+
+<script>
+    var elements= document.getElementsByTagName("table");
+    for (var i=0;i<elements.length;i++) {
+        text = elements[i].getAttribute("class");
+        if(text==null)
+            elements[i].setAttribute("class","mdui-table mdui-shadow-0");
+    }
+    var elements= document.getElementsByTagName("img");
+    for (var i=0;i<elements.length;i++) {
+        text = elements[i].getAttribute("class");
+        if(text==null)
+            elements[i].setAttribute("class","mdui-img-fluid");
+    }
+</script>
+            </div>
+        </div>
+        <div id="bottom"></div>
+        
+            <div class="mdui-container-fluid mdui-color-theme">
+    <div id= "footer" class="mdui-row">
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+            
+            <div class="mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5"></div>
+            
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+    </div>
+</div>
+        
+        <script src="/mdui/js/mdui.min.js"></script>
+    </body>
+</html>
