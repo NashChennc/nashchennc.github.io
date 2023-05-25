@@ -4,7 +4,7 @@
         <meta charset="utf-8"/>
         <title>
             
-                碎碎念·哲学
+                关于 LLM 和 AIGC
              | Nash's Static Blog
         </title>
         <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
@@ -128,14 +128,14 @@
 <div class="mdui-card mdui-hoverable" style="zoom:1.2">
     <div class="mdui-card-primary" style="zoom:1.5">
         <div class="mdui-card-primary-title">
-            碎碎念·哲学
+            关于 LLM 和 AIGC
         </div>
         
     </div>
     <div class="mdui-card-content mdui-typo mdui-p-x-5">
         <div class="mdui-row">
             <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
-                Last Update: 2023/05/24 11:26
+                Last Update: 2023/05/25 21:23
             </div>
             <div class="mdui-col-xs-6">
                 <div class="mdui-float-right mdui-typo">
@@ -149,13 +149,37 @@
         </div>
         <div class="mdui-divider"></div>
         <br/>
-        <h3 id="理解">理解</h3>
+        <p>在写这些之前，先叠一层薄甲。</p>
+<p>下面是作为一个从高中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2019</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2019)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord">0</span><span class="mord">1</span><span class="mord">9</span><span class="mclose">)</span></span></span></span> 接触深度学习和人工智能的信息竞赛生和英才生来写的。</p>
+<p>虽然现在在数学系混吃等死，不过也是拿了算导和数据结构满绩的，这学期也有在学文本表征学习。</p>
+<p>论专业性当然比不上从业者，但应该还是比部分人的理解要多一些，所以还是写下来一些自己的想法。在每栏前面会放上有参考性的文章。</p>
+<p>首先明确两点，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">T</mi><mo separator="true">,</mo><mi mathvariant="normal">G</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi><mtext> </mtext><mi mathvariant="normal">P</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mo>−</mo><mi mathvariant="normal">t</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mtext> </mtext><mi mathvariant="normal">T</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi></mrow><annotation encoding="application/x-tex">\rm GPT, Generational\ Pre-training\ Transformer</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">G</span><span class="mord mathrm">P</span><span class="mord mathrm">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathrm">G</span><span class="mord mathrm">e</span><span class="mord mathrm">n</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">a</span><span class="mord mathrm">t</span><span class="mord mathrm">i</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span><span class="mord mathrm">a</span><span class="mord mathrm">l</span><span class="mspace"> </span><span class="mord mathrm">P</span><span class="mord mathrm">r</span><span class="mord mathrm">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathrm">t</span><span class="mord mathrm">r</span><span class="mord mathrm">a</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mspace"> </span><span class="mord mathrm">T</span><span class="mord mathrm">r</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm">s</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">m</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span></span></span></span></span> ，这三个词分别是 类型/方法/模型名，而不是一个产品名。在讨论这些问题时，更准确的指代是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">M</mi><mo separator="true">,</mo><mi mathvariant="normal">L</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mtext> </mtext><mi mathvariant="normal">L</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mtext> </mtext><mi mathvariant="normal">M</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow><annotation encoding="application/x-tex">\rm LLM,Large\ Language\ Model</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord mathrm">L</span><span class="mord mathrm">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathrm">L</span><span class="mord mathrm">a</span><span class="mord mathrm">r</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">e</span><span class="mspace"> </span><span class="mord mathrm">L</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">u</span><span class="mord mathrm">a</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">e</span><span class="mspace"> </span><span class="mord mathrm">M</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span><span class="mord mathrm">e</span><span class="mord mathrm">l</span></span></span></span></span> 大型语言模型。另外有必要强调 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">G</mi><mi mathvariant="normal">C</mi></mrow><annotation encoding="application/x-tex">\rm AIGC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">A</span><span class="mord mathrm">I</span><span class="mord mathrm">G</span><span class="mord mathrm">C</span></span></span></span></span> 生成内容这一个类属性，例如炒菜机器、人脸识别就不属于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">G</mi><mi mathvariant="normal">C</mi></mrow><annotation encoding="application/x-tex">\rm AIGC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">A</span><span class="mord mathrm">I</span><span class="mord mathrm">G</span><span class="mord mathrm">C</span></span></span></span></span>。</p>
+<p>其实基本上都是很早之前就想过的问题。</p>
+<h3 id="理解">理解</h3>
 <p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650877786&amp;idx=1&amp;sn=589f6163d52b74d0702bdf218ba54aa7&amp;chksm=84e4eb24b39362327ac73f8126f4bcdf49f5f5de2cf1fa85295301626d397126f12655059065&amp;mpshare=1&amp;scene=23&amp;srcid=0522QklakP1ZNEUiZNl1Alxb&amp;sharer_sharetime=1684759328928&amp;sharer_shareid=c67bf4a2697506a2a6a419a8499aa782#rd">机器之心 | 有证据了，MIT表明：大型语言模型≠随机鹦鹉，确实能学到语义</a></p>
 <p>讲在前面以防混淆，这里的 “理解” 是指理性的 “理解” ，即 “理解知识” 。这可能和某些人常用的语义不同。</p>
-<p>是很早之前就想过的问题。</p>
-<p>不止一次在写题讲题的过程中认真思考过所谓理解是什么东西，没有得到一个好的答案。于是猜想其实理解和模仿并没有本质区别，只有深浅之分。这个深浅，可以是提前抽象思考加深的，也可以是在应用的时候对性质的挖掘，当然也可以是在教科书上获知的。</p>
+<p>不止一次在讲解题目的过程中认真思考过所谓理解是什么东西，没有得到一个好的答案。于是猜想其实理解和模仿并没有本质区别，只有深浅之分。这个深浅，可以是提前抽象思考加深的，也可以是在应用的时候对性质的挖掘，当然也可以是在教科书上获知的。</p>
 <p>关于 “理解” 和 “接受” 之分，或者可以从字面上描述。“理” “解” 是指拆分，日常所说的理解可能只是将命题拆分到你能够接受的所谓 “公理” 的层面。</p>
 <p>也许这些推理早在哲学书上出现过，但这篇新文章确实启发了这些思考。</p>
+<h3 id="逻辑">逻辑</h3>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&amp;mid=2247678305&amp;idx=3&amp;sn=697430abe5f866159e5a3d802a1b3137&amp;chksm=e8de8e13dfa90705195cdfe4fa87015a047e4fc4e5b8222b69b63b2aa30e278534509d63f1b2&amp;mpshare=1&amp;scene=23&amp;srcid=0525ia130AOQRhTkSPo6cWlX&amp;sharer_sharetime=1685017424086&amp;sharer_shareid=c67bf4a2697506a2a6a419a8499aa782#rd">量子位 | 大模型学好编程，常识逻辑能力一起提升</a></p>
+<p>接上栏，这是否意味着日常生活中的工作也可以有一个基于逻辑的难度评定？我们暂且称为 “深度” ，这可能是评估工作价值的一个标准。</p>
+<p>一个方面，这可能表明大部分人日常的思考深度本身是相当浅的，体现在他们的对话或画作容易被 AIGC 模仿。</p>
+<p>另一个方面，基于这个标准，我们可以一定程度上划分 “思考” 和 “重复性工作” 。</p>
+<p>至于作为工作是否会被替代的一个参考，则还需要考虑物理层面的问题，例如灵活精细操作，这方面发展还不够成熟。当然，如果你的工资比电费还低，相信也很难被替代。</p>
+<p>至于所谓 “ai模仿不了人类” 。首先 ai 本身是一个算法，算法是数学的应用，数学就是人类对抽象世界的理解。从这个角度，观点实际上就相当于 “人类不能理解自身” ，这就转变为一个没有那么尖锐但仍然难以回答的问题。对这个问题，我还是持乐观态度的。</p>
+<p>数学，或者等价地说，逻辑，本身是人对世界的理解，为什么不对人对世界的理解乐观一点呢？</p>
+<p>想起一句话：数学和哲学都是在研究抽象世界，而哲学家们各自在自说自话，数学家是用同一种语言。于是哲学正统在数学（不是</p>
+<p>那么最后留一句来自数学的哲学</p>
+<ul>
+<li>结构的复杂性 和 性质的丰富性 是等价的。</li>
+</ul>
+<p>这其中的复杂性是去重后得到的结构，其中怎样认定 “重复” ，也就是重复性工作，是随人的认识水平提升的。</p>
+<p>关于数学本身，也留一句</p>
+<ul>
+<li>（集合论危机）莱茵河畔刮起了一阵大风，一群蜘蛛在大厦里惊慌失措地修补着蛛网，因为他们认为是他们的蛛网支撑着这栋数学大厦。</li>
+</ul>
+<p>这句话或许能引发你一些对数学究竟是什么的思考。</p>
 <p>一点题外话，可能受文言文/日文/c++/编译原理/数理逻辑/数学书什么乱七八糟的一堆东西的影响，我平常说活聊天也习惯于纠结语义语法逻辑结构这种东西，被诟病为抽象大师。</p>
 <p>（说起来我到底有多少个意义相近的外号，或许这些外号可以做聚类标成一个簇？</p>
 
