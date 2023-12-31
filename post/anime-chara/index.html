@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            
+                厨力分析 - xp大赏
+             | Nash's Static Blog
+        </title>
+        <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
+<link rel="stylesheet" href="/katex/katex.min.css"/>
+<link rel="icon" href="/bgpaper/titleicon.png" type="image/x-icon">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<!-- <link href="../katex/contrib/copy-tex.css" rel="stylesheet"/>
+<script src="../katex/contrib/copy-tex.js"></script> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            macros: {
+                // "\\ge": "\\geqslant",
+                // "\\le": "\\leqslant",
+                // "\\geq": "\\geqslant",
+                // "\\leq": "\\leqslant"
+            }
+        });
+    });
+</script>
+    <meta name="generator" content="Hexo 5.4.2"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+    <body id="top" class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+        
+<div class="mdui-card">
+    <div class="mdui-card-media">
+      <!-- <img class="mdui-shadow-2 mdui-img-fluid" src="/bgpaper/banner1.png" style="padding-bottom: -540px;"></img> -->
+      <div class="mdui-shadow-2" style="background-image: url(/bgpaper/banner1.png);padding-bottom: 540px;"></div>
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary mdui-float-right">
+          <div class="mdui-card-primary-title">信じている / 昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。</div>
+          <div class="mdui-card-primary-subtitle mdui-float-right">「雨き声残響」Orangestar / IA</div>
+        </div>
+      </div>
+    </div>
+</div>
+<header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}" mdui-tooltip="{content: 'Menu'}">
+            <i class="mdui-icon material-icons"> menu </i>
+        </span>
+        <a href="/" class="mdui-typo-title">
+            Nash's Static Blog
+        </a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!-- <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+            <i class="mdui-icon material-icons"> search </i>
+        </a> -->
+        <a href="/about/" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+
+    </div>
+</header>
+<div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
+    <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+        <div id="main-drawer-1" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
+                <div class="mdui-list-item-content">
+                    Menu
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a href="/" class="mdui-list-item mdui-ripple">首页</a>
+                <a href="/files/" class="mdui-list-item mdui-ripple">文件</a>
+                <a href="/comment/" class="mdui-list-item mdui-ripple"> 留言板 | 提问箱</a>
+                <a href="/about/" class="mdui-list-item mdui-ripple">关于</a>
+                <a href="/post/latex/" class="mdui-list-item mdui-ripple"> LaTeX符号表 </a>
+            </div>
+        </div>
+        <!-- <div id="main-drawer-2" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">widgets</i>
+                <div class="mdui-list-item-content">
+                    Useful Links
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/NashChen/" class="mdui-list-item mdui-ripple">Nash的洛谷博客</a>
+                <a target="_blank" rel="noopener" href="https://paperswithcode.com/" class="mdui-list-item mdui-ripple">Papers With Code</a>
+                <a target="_blank" rel="noopener" href="https://www.mdui.org/docs/" class="mdui-list-item mdui-ripple">MDUI Docs</a>
+                <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html" class="mdui-list-item mdui-ripple">Hexo Docs</a>
+                <a target="_blank" rel="noopener" href="https://tool.liumingye.cn/unlock-music/" class="mdui-list-item mdui-ripple">工具箱1</a>
+                <a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=860" class="mdui-list-item mdui-ripple">工具箱2</a>
+                <a target="_blank" rel="noopener" href="https://bangumi.moe/" class="mdui-list-item mdui-ripple">Bangumi Moe</a>
+                <a target="_blank" rel="noopener" href="http://xixidm.com/" class="mdui-list-item mdui-ripple">xixidm</a>
+                <a target="_blank" rel="noopener" href="https://cursor.so" class="mdui-list-item mdui-ripple">Cursor | 写代码必备</a>
+                <a target="_blank" rel="noopener" href="https://typeset.io/" class="mdui-list-item mdui-ripple">TypeSet | 读论文助手</a>
+            </div>
+        </div> -->
+    </div>
+</div>
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">add</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">backup</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+<div class="mdui-container mdui-p-t-2 mdui-p-b-5">
+    <div class="mdui-card mdui-hoverable" style="zoom:1.2">
+        <div class="mdui-card-primary" style="zoom:1.5">
+            <div class="mdui-card-primary-title">
+                厨力分析 - xp大赏
+            </div>
+            
+        </div>
+        <div class="mdui-card-content mdui-typo mdui-p-x-5">
+            <div class="mdui-row">
+                <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
+                    Last Update: 2024/01/01 00:22
+                </div>
+                <div class="mdui-col-xs-6">
+                    <div class="mdui-float-right mdui-typo">
+                        
+                            <a href="/categories/life/">
+                                life
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="mdui-divider"></div>
+            <br/>
+            <h1>要爱具体的人</h1>
+<p>爱抽象的人只是在爱自己。</p>
+<p>很难说这些抽象的内容对现实毫无影响。这句话放在这里是用于警示自己，下面的内容 <strong>完全不能</strong> 也 <strong>不应该</strong> 作为任何现实情形下的判定标准。现实情况应该另当别论。</p>
+<p>建立这个页面主要是为了剖析自己。因此为了避免削足适履，所有内容应当视作过去式。其中的内容随时间有变动，有可能和由阅读、经历、情感塑造的判断模式相关。注意时效性。通常来说，根据判定的稳定性，会有一定分层。</p>
+<h1>Part 1 当前厨力</h1>
+<p>这是本文唯一具有现实意义的部分。其现实意义仅仅在于你送我这些角色的谷我会很开心，并不代表会对现实中的这些特质有好感。</p>
+<p>在此给出一些有建设意义的问题：</p>
+<ul>
+<li>印象深刻的情节？例如语言、行为等直接逻辑，考虑外观、声线是否间接反映特质。特别留意是否对相关行为对象有代入关系。</li>
+<li>注意厨力的过程。喜欢上角色时对角色的印象？增加好感度的关键节点？随着印象变化，对角色的好感的变化模式？</li>
+<li>注意自身判断模式的时效性。喜欢上角色时自己的精神状态？社交情况？审美、哲学认识情况？</li>
+<li>注意 “特质” 的交互性。对作品世界观的印象？对情节的印象？对角色之间互动关系的印象？</li>
+</ul>
+<p>下面说明了一些表现形式上的不同点。如果将表现形式过于不同的角色放在一起比较，结论难免抽象化。因此必须首先给表现形式分一些大类。实际上对于不同题材甚至世界观有细微差别的作品，判断模式也会有所不同。</p>
+<p>可以得知，实际上判断标准极难统一，因此对于厨力的归纳必须抱着审慎的态度。实际上抽象程度关系到读和写两部分，简单来说就是我可以声明“本文比起本人要更偏抽象”而写得偏抽象，也可以遇到抽象的部分就此收笔。但这篇文章很大程度上的意义在于自我剖析，因此</p>
+<h2 id="最终解释请来找本人确认">最终解释请来找本人确认。</h2>
+<h2 id="1-动画">1. 动画</h2>
+<p>动画厨力角色的一些特点</p>
+<ul>
+<li>作品的剧情和表现质量有一定门槛。角色以此引起注意，这是重要的基础。出于这个原因，角色厨力很多时候只是动画内比较，多部番的横向比较现象不明显。</li>
+<li>对角色厨力的形成来源于对于观众来说的注意力节点，观众因此形成对角色行为模式、特质的深刻印象。实际上和戏份多少并不是直接关系。</li>
+<li>党争片中角色之间出现一些矛盾，这时角色的行为模式会造成区分度。有时对一部作品没有深刻印象，但角色之间区分度较大，也会引起注意。同时，党争片中的站队具有一定社交意义，或者说这属于外部因素带来的注意力。当然，如果最终没有形成足够的区分度，会有整体的印象分降低。</li>
+</ul>
+<p>下面是一些厨力</p>
+<ul>
+<li>
+<p>某些作品由于人数过多竞争太激烈惨遭淘汰，实际上如果按抽象的统一标准会入围很多人。</p>
+</li>
+<li>
+<p>作品厨不在表中，某些角色没有出现只是因为角色不戳 xp。</p>
+</li>
+<li>
+<p>没有加入传统恋爱题材作品中的角色。<s>ちょっとはずかしい</s></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">角色</th>
+<th style="text-align:center">出处</th>
+<th style="text-align:center">厨力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">南中四姬，伞除外（bushi</td>
+<td style="text-align:center">京吹</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:center">久石奏，剑崎梨梨花，黄前久美子</td>
+<td style="text-align:center">京吹</td>
+<td style="text-align:center">11</td>
+</tr>
+<tr>
+<td style="text-align:center">莓</td>
+<td style="text-align:center">国家队</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">黑川茜</td>
+<td style="text-align:center">我推</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">小鸟游六花</td>
+<td style="text-align:center">中二病</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">友利奈绪</td>
+<td style="text-align:center">Charlotte</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">千反田える，伊原まやあ</td>
+<td style="text-align:center">冰菓</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">惠惠</td>
+<td style="text-align:center">この素晴</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-抽卡手游">2. 抽卡手游</h2>
+<p>手游的注意力情况就很不同。和动画相比，外观、配音等特质大幅细化，这造成手游角色厨力的片面性和抽象性。由于手游具有抽卡资源分配、精力分配机制，这让手游角色对初印象要求很高，因此手游角色之间的横向对比仅止于浅层。此外攻略、抽卡情况等内容会大幅影响注意力的分布，以及之后的角色游戏体验造成的日常出场率同理。</p>
+<p>另外，各种艺术形式的表现结构本身不同、而抽卡手游的创作逻辑和接受逻辑和动画有很多根本性的不同。</p>
+<p>将不同艺术形式的艺术组成部分单拎出来比较是不负责任的。其关键在于你投入到作品中时以及日常中自己的接受形式以及对各部分的要求。</p>
+<p>下表不完整。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">角色</th>
+<th style="text-align:center">出处</th>
+<th style="text-align:center">厨力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">布洛妮娅·扎伊切克（剧情前期）</td>
+<td style="text-align:center">崩坏 3</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">希儿·芙乐艾（剧情前期）</td>
+<td style="text-align:center">崩坏 3</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">观星，德尔塔，维尔薇</td>
+<td style="text-align:center">崩坏 3</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">爱莉希雅，琪亚娜</td>
+<td style="text-align:center">崩坏 3</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">莱依拉</td>
+<td style="text-align:center">原神</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">芙宁娜，菲谢尔，珊瑚宫心海，归终</td>
+<td style="text-align:center">原神</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">三月七，布洛妮娅·兰德</td>
+<td style="text-align:center">星穹铁道</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">星，符玄</td>
+<td style="text-align:center">星穹铁道</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">林雨霞，赫默，华法琳，蕾缪安</td>
+<td style="text-align:center">明日方舟</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">W，白金，多萝茜</td>
+<td style="text-align:center">明日方舟</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">Sonetto，Vertin</td>
+<td style="text-align:center">1999</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<h1>Part 2 结论</h1>
+<p>基本上就是几个方向</p>
+<ul>
+<li>冷静坚定敏锐的乙女</li>
+<li>开朗过头的阴谋家</li>
+<li>天然呆</li>
+<li>妈妈</li>
+</ul>
+<p>总结来说就是冷静、自信、天真、亚萨西。实际上这个总结也是不完全的，因为对于词语的具体诠释还有很大空间。</p>
+<p>虽然听起来很苛刻，但脑子掉线会减分。</p>
+<p>完了，又变成择偶了。仔细想想无外乎</p>
+<ul>
+<li>让我想要抱抱</li>
+<li>想要抱抱我</li>
+<li>以及抱抱的能力和默契</li>
+</ul>
+<p>回到开头。人最终还是要爱自己的，这么一看似乎爱抽象的人也没什么关系。再一次想这句话，其实也是在陈述一个普遍的道理：分清楚手段和目的。只有目的是应该坚持的，不应该把半路上的 xp 当作追求。</p>
+<p>内容未经整理、且未经归一化，可能不具有参考价值</p>
+<h3 id="0">0</h3>
+<p>乙女</p>
+<h3 id="1">1</h3>
+<p>中二病</p>
+<p>小恶魔</p>
+<p>健康（？）的笑</p>
+<p>多重人格</p>
+<p>冷静甚至冷酷</p>
+<p>认真</p>
+<p>沉重</p>
+<h3 id="2">2</h3>
+<p>ご機嫌よう～</p>
+<p>全程敬语？</p>
+<h3 id="3">3</h3>
+<p>认真脸</p>
+<p>节能脸</p>
+<h3 id="4">4</h3>
+<p>深邃的瞳色</p>
+<p>荧光瞳</p>
+<p>短发/肩发</p>
+<p>少量卷发</p>
+<p>挑染/内挑染</p>
+<p>进气孔发型</p>
+<h3 id="5">5</h3>
+<p>魔法帽</p>
+<p>发卡</p>
+<p>手套</p>
+<p>正反面异色的布料</p>
+<h1>Part 3 CV</h1>
+<p>暂时是</p>
+<p>分割线以上：喜欢的 / 分次序（大概？)
+分割线以下：记得的</p>
+<p>由于声优都是怪物，之后可能不按人分类而是用声线分类</p>
+<h2 id="1-中配">1. 中配</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">役 / 动画</th>
+<th style="text-align:center">役 / 游戏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">阮从青</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">hanser</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">谢莹</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">包包</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">多多</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-日配">2. 日配</h2>
+<h3 id="90s">90s</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">役 / 动画</th>
+<th style="text-align:center">役 / 游戏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">高橋（たかはし） 李依（りえ）</td>
+<td style="text-align:center">惠惠/樱泽墨/爱</td>
+<td style="text-align:center">胡桃/调香师/夜魔</td>
+</tr>
+<tr>
+<td style="text-align:center">石見（いわみ） 舞菜香（まなか）</td>
+<td style="text-align:center">黑川茜</td>
+<td style="text-align:center">华法琳/能天使/安柏</td>
+</tr>
+<tr>
+<td style="text-align:center">雨宮（あまみや） 天（そら）</td>
+<td style="text-align:center">阿库娅/久石奏/水原千鹤</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">悠木（ゆうき） 碧（あおい）</td>
+<td style="text-align:center">七海麻美/（鹿目圆）</td>
+<td style="text-align:center">荧/丽塔/真理/地灵/年/斯奈德</td>
+</tr>
+<tr>
+<td style="text-align:center">鬼頭（きとう） 明里（あかり）</td>
+<td style="text-align:center">（岩永琴子）/（灶门祢豆子）/绪方环奈/由崎司</td>
+<td style="text-align:center">赫默/芭芭拉</td>
+</tr>
+<tr>
+<td style="text-align:center">黒沢（くろさわ） ともよ</td>
+<td style="text-align:center">黄前久美子</td>
+<td style="text-align:center">阿米娅</td>
+</tr>
+<tr>
+<td style="text-align:center">種﨑（たねざき） 敦美（あつみ）</td>
+<td style="text-align:center">铠冢霙/芙莉莲</td>
+<td style="text-align:center">蓝毒/杜宾</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>安济知佳
+本渡枫
+长绳麻理亚
+大西沙织
+楠木灯
+日高里菜
+藤田茜
+田所梓
+小原好美
+早见沙织
+佐仓绫音
+伊駒（いごま） ゆりえ</p>
+<h3 id="80s">80s</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">役 / 动画</th>
+<th style="text-align:center">役 / 游戏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">茅野（かやの） 愛衣（あい）</td>
+<td style="text-align:center">本间芽衣子/椎名真白/伊原摩耶花/霞之丘诗羽/相座凪/达克妮丝</td>
+<td style="text-align:center">白金/九霄</td>
+</tr>
+<tr>
+<td style="text-align:center">内田真礼</td>
+<td style="text-align:center">小鸟游六花/散华礼弥</td>
+<td style="text-align:center">菲谢尔</td>
+</tr>
+<tr>
+<td style="text-align:center">竹达彩奈</td>
+<td style="text-align:center">梓喵</td>
+<td style="text-align:center">W</td>
+</tr>
+<tr>
+<td style="text-align:center">种田梨沙</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">艾雅法拉</td>
+</tr>
+<tr>
+<td style="text-align:center">井口裕香</td>
+<td style="text-align:center">茵蒂克丝/降谷萌路</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">阿澄佳奈</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">布洛妮娅</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>安野希世乃
+丰崎爱生
+金元寿子
+南条爱乃
+能登麻美子
+浅仓杏美
+清水理沙
+日笠阳子
+石川绫乃
+石上静香
+藤田咲
+喜多村英梨
+小清水亚美
+泽城美雪
+中原麻衣
+洲崎绫
+诹访彩花
+佐藤聪美
+佐藤利奈</p>
+<h3 id="70s">70s</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">姓名</th>
+<th style="text-align:center">役 / 动画</th>
+<th style="text-align:center">役 / 游戏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">堀江由衣</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>钉宫理惠
+广桥凉
+皆川纯子
+生天目仁美
+田中理惠
+猪口有佳</p>
+
+        </div>
+    </div>
+
+    <script>
+        var elements= document.getElementsByTagName("table");
+        for (var i=0;i<elements.length;i++) {
+            text = elements[i].getAttribute("class");
+            if(text==null)
+                elements[i].setAttribute("class","mdui-table mdui-shadow-0");
+        }
+        var elements= document.getElementsByTagName("img");
+        for (var i=0;i<elements.length;i++) {
+            text = elements[i].getAttribute("class");
+            if(text==null)
+                elements[i].setAttribute("class","mdui-img-fluid");
+        }
+    </script>
+</div>
+<div id="bottom"></div>
+<footer class="mdui-container-fluid mdui-color-grey-300 mdui-p-a-2">
+    <!-- <div class="mdui-row mdui-color-theme">
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+            
+            <a id= "lfooter" href= "/post/pc/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+                <div class="mdui-float-left">
+                    <div class="mdui-typo-caption-opacity">Previous</div>
+                    <div class="mdui-typo-headline">
+                        <i class="mdui-icon material-icons">arrow_back</i>
+                        电脑配置
+                    </div>
+                </div>
+            </a>
+            
+            <a id= "rfooter" href= "/post/x-cmt-nlp/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+                <div class="mdui-float-right">
+                    <div class="mdui-typo-caption-opacity">Next</div>
+                    <div class="mdui-typo-headline">
+                        关于 语言大模型 LLM
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                    </div>
+                </div>
+            </a>
+            
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+    </div> -->
+    <div class="mdui-container">
+        <div class="mdui-row">
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
+                <h3 class="mdui-text-color-theme-text">Pages</h3>
+                <ol class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li><a href="/">首页 | 文章</a></li>
+                    <li><a href="/files/">文件</a></li>
+                    <li><a href="/comment/"> 留言板 | 提问箱</a></li>
+                    <li><a href="/about/">关于</a></li>
+                    <li><a href="/post/latex/"> LaTeX符号表 </a></li>
+                    <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/NashChen/">Nash的洛谷博客</a></li>
+                </ol>
+            </div>
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
+                <h3 class="mdui-text-color-theme-text">Useful links</h3>
+                <ul class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li><a target="_blank" rel="noopener" href="https://paperswithcode.com/">Papers With Code</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://typeset.io/">TypeSet</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://bangumi.moe/">Bangumi Moe</a></li>
+                    <li><a target="_blank" rel="noopener" href="http://xixidm.com/">xixidm</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://www.mdui.org/docs/">MDUI Docs</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo Docs</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://tool.liumingye.cn/unlock-music/">工具箱1</a> | <a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=860">工具箱2</a></li>
+                    <li>京吹一生推！！！！！！！！只要你喜欢京吹我们就是永远的好兄弟呜呜呜呜呜 <a target="_blank" rel="noopener" href="https://next.hyouka.ml/posts/hibike/"> 推荐片源 | 菜姬的博客</a></li>
+                
+                </ul>
+            </div>
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
+                <h3 class="mdui-text-color-theme-text">Contact</h3>
+                <ul class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li>Mail : 695977430@qq.com</li>
+                    <li>Github : Nashchennc</li>
+                    <li>QQ : 名前なし | 695977430</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdui-divider"></div>
+        <div class="mdui-row">
+            <div class="mdui-col-xs-12 mdui-text-center">
+                <p class="mdui-text-color-theme-secondary">© 2023 by NashChennc. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+        <script src="/mdui/js/mdui.min.js"></script>
+    </body>
+</html>
