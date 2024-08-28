@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            
+                抽象？
+             | Nash's Static Blog
+        </title>
+        <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
+<link rel="stylesheet" href="/katex/katex.min.css"/>
+<link rel="icon" href="/bgpaper/titleicon.png" type="image/x-icon">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<!-- <link href="../katex/contrib/copy-tex.css" rel="stylesheet"/>
+<script src="../katex/contrib/copy-tex.js"></script> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ],
+            macros: {
+                // "\\ge": "\\geqslant",
+                // "\\le": "\\leqslant",
+                // "\\geq": "\\geqslant",
+                // "\\leq": "\\leqslant"
+            }
+        });
+    });
+</script>
+    <meta name="generator" content="Hexo 5.4.2"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+    <body id="top" class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+        
+<div class="mdui-card">
+    <div class="mdui-card-media">
+      <!-- <img class="mdui-shadow-2 mdui-img-fluid" src="/bgpaper/banner1.png" style="padding-bottom: -540px;"></img> -->
+      <div class="mdui-shadow-2" style="background-image: url(/bgpaper/banner1.png);padding-bottom: 540px;"></div>
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary mdui-float-right">
+          <div class="mdui-card-primary-title">信じている / 昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。</div>
+          <div class="mdui-card-primary-subtitle mdui-float-right">「雨き声残響」Orangestar / IA</div>
+        </div>
+      </div>
+    </div>
+</div>
+<header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}" mdui-tooltip="{content: 'Menu'}">
+            <i class="mdui-icon material-icons"> menu </i>
+        </span>
+        <a href="/" class="mdui-typo-title">
+            Nash's Static Blog
+        </a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!-- <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+            <i class="mdui-icon material-icons"> search </i>
+        </a> -->
+        <a href="/about/" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+
+    </div>
+</header>
+<div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
+    <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+        <div id="main-drawer-1" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
+                <div class="mdui-list-item-content">
+                    Menu
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a href="/" class="mdui-list-item mdui-ripple">首页</a>
+                <a href="/files/" class="mdui-list-item mdui-ripple">文件</a>
+                <a href="/comment/" class="mdui-list-item mdui-ripple"> 留言板 | 提问箱</a>
+                <a href="/about/" class="mdui-list-item mdui-ripple">关于</a>
+                <a href="/post/latex/" class="mdui-list-item mdui-ripple"> LaTeX符号表 </a>
+            </div>
+        </div>
+        <!-- <div id="main-drawer-2" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">widgets</i>
+                <div class="mdui-list-item-content">
+                    Useful Links
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/NashChen/" class="mdui-list-item mdui-ripple">Nash的洛谷博客</a>
+                <a target="_blank" rel="noopener" href="https://paperswithcode.com/" class="mdui-list-item mdui-ripple">Papers With Code</a>
+                <a target="_blank" rel="noopener" href="https://www.mdui.org/docs/" class="mdui-list-item mdui-ripple">MDUI Docs</a>
+                <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html" class="mdui-list-item mdui-ripple">Hexo Docs</a>
+                <a target="_blank" rel="noopener" href="https://tool.liumingye.cn/unlock-music/" class="mdui-list-item mdui-ripple">工具箱1</a>
+                <a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=860" class="mdui-list-item mdui-ripple">工具箱2</a>
+                <a target="_blank" rel="noopener" href="https://bangumi.moe/" class="mdui-list-item mdui-ripple">Bangumi Moe</a>
+                <a target="_blank" rel="noopener" href="http://xixidm.com/" class="mdui-list-item mdui-ripple">xixidm</a>
+                <a target="_blank" rel="noopener" href="https://cursor.so" class="mdui-list-item mdui-ripple">Cursor | 写代码必备</a>
+                <a target="_blank" rel="noopener" href="https://typeset.io/" class="mdui-list-item mdui-ripple">TypeSet | 读论文助手</a>
+            </div>
+        </div> -->
+    </div>
+</div>
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">add</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">backup</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+<div class="mdui-container mdui-p-t-2 mdui-p-b-5">
+    <div class="mdui-card mdui-hoverable" style="zoom:1.2">
+        <div class="mdui-card-primary" style="zoom:1.5">
+            <div class="mdui-card-primary-title">
+                抽象？
+            </div>
+            
+        </div>
+        <div class="mdui-card-content mdui-typo mdui-p-x-5">
+            <div class="mdui-row">
+                <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
+                    Last Update: 2024/08/02 16:36
+                </div>
+                <div class="mdui-col-xs-6">
+                    <div class="mdui-float-right mdui-typo">
+                        
+                            <a href="/categories/essay/">
+                                essay
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="mdui-divider"></div>
+            <br/>
+            <p>关心新鲜热门却和自己无关的社会议题是娱乐至死，思考由于不切合自身水平，从而变得毫无实践价值的抽象哲学概念，何尝不也是一种娱乐至死。</p>
+<p>但凡你相信一样事物是有意义的，你就有责任去找到它，或者去建构它。哲学原本就是科学发展形成的过程中自然产生的指导性理论。如果你谈不上来甚至可以轻易否定一个话题在实际行为上的指导性，那我真的建议别看了，那大概只是一种孔乙己式的自我麻痹。如果你想的是疏通一些心理问题，学哲学大概是没什么用的，它比不上一句简单的“爱自己”，甚至搞不好会加重你的精神问题。当然仅作心理意义上的作用在不影响生活的情况下无可厚非，但这就跟键政没什么区别了。我对此不齿。</p>
+<p>说真的，要是有人学哲学学完整天只会抱怨而不是 <strong>真正有建设性地</strong> 批判，那只可能是脑子不太灵光，或者学的是什么野鸡哲学。</p>
+<p>“指导性”这个观点给了我一些行动准则。例如，如果你对某案例感兴趣，你必须了解基础理论才具有价值，因此必须同时开始阅读相关专著。此时涉足相关领域的精力消耗的预期就自然地被均摊到你无来由的好奇心上，形成了一种我自认为比较健康的收益和代价之间的平衡。就像我看番同时就要去学日语、听歌剧同时要去学法语、学算法同时要去学数学，这是很自然的。</p>
+<p>甚至对于自己现在所学的几乎一切，当初我做选择时都有这样的准则的影子。至于一些好的和不好的后果，那都是后话了。</p>
+<p>暂时我想出来一句玄乎的话，各位看个乐呵</p>
+<p>想不出来。
+还是太抽象了。
+乐就乐在看个乐呵都没得看，乐，乐个屁，哪有那么多事情可乐</p>
+<p>抽象话并不值得赞赏。代码写出来就是给人看的。它就像没有写注释的屎山代码，扔 github 上也不会有什么 contributor。</p>
+<p>很多日常所谓思考大部分是相当幼稚的。具体表现在很多所谓哲学问题放到代码、代码社区、现代计算机协议里面，你会得到相当有启发性的结果。包括组合学问题、计算机网络、解决问题的方法论等等。</p>
+<p>因为代码是先进的生产力、先锋的思想工具、是数学的具象化，更具体地，它是思想和物理世界的一个接口。</p>
+<p>我姑且认为写代码是最接近所谓马克思的“实践”这个概念本质的。用“姑且”这个词是因为我对马克思还几乎一无所知。</p>
+<p>Talk is cheap. Show me your code.</p>
+<p>这句话说得多好啊，这就是行胜于声的高技术力版本。</p>
+<p>当然得出这样的结论可能只是因为我自己是个活在代码里的 bug 制造机，但总之先进的思想绝对不是空想出来的，你能埋头空想出来那些思想大多已经被先行者实践过了。无论如何，去感受自己的劳动创造的价值的实体。总之认真生活就是了，有活力的地方才能诞生哲学。</p>
+
+        </div>
+    </div>
+
+    <script>
+        var elements= document.getElementsByTagName("table");
+        for (var i=0;i<elements.length;i++) {
+            text = elements[i].getAttribute("class");
+            if(text==null)
+                elements[i].setAttribute("class","mdui-table mdui-shadow-0");
+        }
+        var elements= document.getElementsByTagName("img");
+        for (var i=0;i<elements.length;i++) {
+            text = elements[i].getAttribute("class");
+            if(text==null)
+                elements[i].setAttribute("class","mdui-img-fluid");
+        }
+    </script>
+</div>
+<div id="bottom"></div>
+<footer class="mdui-container-fluid mdui-color-grey-300 mdui-p-a-2">
+    <!-- <div class="mdui-row mdui-color-theme">
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+            
+            <a id= "lfooter" href= "/post/note-hexo/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+                <div class="mdui-float-left">
+                    <div class="mdui-typo-caption-opacity">Previous</div>
+                    <div class="mdui-typo-headline">
+                        <i class="mdui-icon material-icons">arrow_back</i>
+                        Hexo Github 博客搭建
+                    </div>
+                </div>
+            </a>
+            
+            <a id= "rfooter" href= "/post/x-sr-21/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+                <div class="mdui-float-right">
+                    <div class="mdui-typo-caption-opacity">Next</div>
+                    <div class="mdui-typo-headline">
+                        匹诺康尼游记
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                    </div>
+                </div>
+            </a>
+            
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+    </div> -->
+    <div class="mdui-container">
+        <div class="mdui-row">
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
+                <h3 class="mdui-text-color-theme-text">Pages</h3>
+                <ol class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li><a href="/">首页 | 文章</a></li>
+                    <li><a href="/files/">文件</a></li>
+                    <li><a href="/comment/"> 留言板 | 提问箱</a></li>
+                    <li><a href="/about/">关于</a></li>
+                    <li><a href="/post/latex/"> LaTeX符号表 </a></li>
+                    <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/NashChen/">Nash的洛谷博客</a></li>
+                </ol>
+            </div>
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
+                <h3 class="mdui-text-color-theme-text">Useful links</h3>
+                <ul class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li><a target="_blank" rel="noopener" href="https://paperswithcode.com/">Papers With Code</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://typeset.io/">TypeSet</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://bangumi.moe/">Bangumi Moe</a></li>
+                    <li><a target="_blank" rel="noopener" href="http://xixidm.com/">xixidm</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://www.mdui.org/docs/">MDUI Docs</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo Docs</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://tool.liumingye.cn/unlock-music/">工具箱1</a> | <a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=860">工具箱2</a></li>
+                </ul>
+            </div>
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
+                <h3 class="mdui-text-color-theme-text">Contact</h3>
+                <ul class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li>Mail : 695977430@qq.com</li>
+                    <li>Github : Nashchennc</li>
+                    <li>QQ : なつき. | 695977430</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdui-divider"></div>
+        <div class="mdui-row">
+            <div class="mdui-col-xs-12 mdui-text-center">
+                <p class="mdui-text-color-theme-secondary">© 2023 by NashChennc. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+        <script src="/mdui/js/mdui.min.js"></script>
+    </body>
+</html>
