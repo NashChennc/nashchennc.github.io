@@ -5,7 +5,7 @@
         <title>
             
                 About
-             | Nash's Static Blog
+             | Natsuki&#39;s Blog
         </title>
         <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
 <link rel="stylesheet" href="/katex/katex.min.css"/>
@@ -33,7 +33,82 @@
     <meta name="generator" content="Hexo 5.4.2"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
     <body id="top" class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
         
-<h1>
+
+<header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        <span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#main-drawer', swipe: true}" mdui-tooltip="{content: 'Menu'}">
+            <i class="mdui-icon material-icons"> menu </i>
+        </span>
+        <a href="/" class="mdui-typo-title">
+            Natsuki&#39;s Blog
+        </a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!-- <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
+            <i class="mdui-icon material-icons"> search </i>
+        </a> -->
+        <a href="/about/" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+
+    </div>
+</header>
+<div class="mdui-drawer mdui-drawer-close" id="main-drawer" mdui-drawer="{swipe: true}">
+    <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+        <div id="main-drawer-1" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
+                <div class="mdui-list-item-content">
+                    Menu
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a href="/" class="mdui-list-item mdui-ripple">首页</a>
+                <a href="/files/" class="mdui-list-item mdui-ripple">文件</a>
+            </div>
+        </div>
+        <!-- <div id="main-drawer-2" class="mdui-collapse-item mdui-collapse-item-open">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">widgets</i>
+                <div class="mdui-list-item-content">
+                    Useful Links
+                </div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="mdui-collapse-item-body mdui-list">
+                <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/NashChen/" class="mdui-list-item mdui-ripple">Nash的洛谷博客</a>
+                <a target="_blank" rel="noopener" href="https://paperswithcode.com/" class="mdui-list-item mdui-ripple">Papers With Code</a>
+                <a target="_blank" rel="noopener" href="https://www.mdui.org/docs/" class="mdui-list-item mdui-ripple">MDUI Docs</a>
+                <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html" class="mdui-list-item mdui-ripple">Hexo Docs</a>
+                <a target="_blank" rel="noopener" href="https://tool.liumingye.cn/unlock-music/" class="mdui-list-item mdui-ripple">工具箱1</a>
+                <a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=860" class="mdui-list-item mdui-ripple">工具箱2</a>
+                <a target="_blank" rel="noopener" href="https://bangumi.moe/" class="mdui-list-item mdui-ripple">Bangumi Moe</a>
+                <a target="_blank" rel="noopener" href="http://xixidm.com/" class="mdui-list-item mdui-ripple">xixidm</a>
+                <a target="_blank" rel="noopener" href="https://cursor.so" class="mdui-list-item mdui-ripple">Cursor | 写代码必备</a>
+                <a target="_blank" rel="noopener" href="https://typeset.io/" class="mdui-list-item mdui-ripple">TypeSet | 读论文助手</a>
+            </div>
+        </div> -->
+    </div>
+</div>
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">add</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">backup</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+<div class="mdui-container mdui-p-t-2 mdui-p-b-5">
+    <h1>
     About This Site
 </h1>
 
@@ -46,19 +121,23 @@
 
     <p>2023.4.23 然而这里暂时还是空空如也。</p>
 
+    <p>2024.4.23 其实里面已经有一些稍微能看的文章了。</p>
+
+
     <p>这个网站是开源的，在 <a target="_blank" rel="noopener" href="https://github.com/NashChennc">Github个人页</a> Repo里面可以看到源码</p>
 </div>
 
 <h1>About Me</h1>
 <div class="mdui-typo">
-    <p><code>南七技校 高中辍学学院</code> 的一个超喜欢造轮子的大四计算数学系学生，目前（2024.8）打算gap，可能会去做 NLP 。也许还可能有 TCS。</p>
+    <p><code>南七技校 辍学学院</code> 计算数学专业的四年级本科生，目前 (2024.10) 确认保研到本校人工智能学院，正在准备毕业论文。研究方向是 NLP （自然语言处理）相关。</p>
+    <p>平时喜欢看动画片、听音乐、踢足球。梦想是做出最棒的 N (捏) L (老) P (婆) 技术。</p>
     <p>
-        高中的时候是五山街旁边一间学校的信息竞赛生，有关信息竞赛的总结、题解等大多数留在
-        <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/NashChen/">洛谷博客</a>
-        <div class="mdui-typo-body-2-opacity">（关于化竞的笔记就收起来了</div>
+        初高中时是算法竞赛生，有关算法竞赛的总结、题解等大多数留在
+        <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/NashChen/">洛谷博客</a> 。
+        <div class="mdui-typo-body-2-opacity">其实以前还往洛谷上塞化竞笔记，然而现在已经忘光了。</div>
     </p>
-    <p>(一脸认真) Nash不是无神论者，Nash信仰 爱莉希雅 ，(双手合十) <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/523314942">爱门</a></p>
-    <p class="mdui-typo-caption-opacity mdui-text-color-white">域名后面加上 /post/hidden-menu/ 是一些隐藏的故事</p>
+    <p>学术个人主页还没做，等有东西可写的时候再做吧。</p>
+    <!-- <p class="mdui-typo-caption-opacity mdui-text-color-white">域名后面加上 /post/hidden-menu/ 是一些隐藏的故事</p> -->
 </div>
 
 <h1>Log</h1>
@@ -89,6 +168,61 @@
         <tr><td>2022.5.23</td> <td>开始学习 html/css/javascript/php/web server/mdui</td></tr>
     </tbody>
 </table>
+</div>
+<div id="bottom"></div>
+<footer class="mdui-container-fluid mdui-color-grey-300 mdui-p-a-2">
+    <!-- <div class="mdui-row mdui-color-theme">
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+            
+            <div class="mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5"></div>
+            
+        <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
+    </div> -->
+    <div class="mdui-container">
+        <div class="mdui-row">
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
+                <h3 class="mdui-text-color-theme-text">Pages</h3>
+                <ol class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li><a href="/">首页 | 文章</a></li>
+                    <li><a href="/files/">文件</a></li>
+                    <!-- <li><a href="/comment/"> 留言板 | 提问箱</a></li> -->
+                    <li><a href="/about/">关于</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/NashChen/">Nash 的洛谷博客</a></li>
+                </ol>
+            </div>
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
+                <h3 class="mdui-text-color-theme-text">Useful links</h3>
+                <ul class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li><a target="_blank" rel="noopener" href="https://paperswithcode.com/">Papers With Code</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://typeset.io/">TypeSet</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://bangumi.moe/">Bangumi Moe</a></li>
+                    <li><a target="_blank" rel="noopener" href="http://xixidm.com/">xixidm</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://www.mdui.org/docs/">MDUI Docs</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo Docs</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://tool.liumingye.cn/unlock-music/">工具箱1</a> | <a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=860">工具箱2</a></li>
+                </ul>
+            </div>
+            <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
+                <h3 class="mdui-text-color-theme-text">Contact</h3>
+                <ul class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li>QQ Mail : 695977430@qq.com</li>
+                    <li>Google Mail : chennachuan0423@gmail.com</li>
+                    <li>EDU Mail : ncchen@mail.ustc.edu.cn</li>
+                    <li>Github : Nashchennc</li>
+                    <li>QQ : なつき. | 695977430</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdui-divider"></div>
+        <div class="mdui-row">
+            <div class="mdui-col-xs-12 mdui-text-center">
+                <p class="mdui-text-color-theme-secondary">© 2024 by NashChennc. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+
         <script src="/mdui/js/mdui.min.js"></script>
     </body>
 </html>
