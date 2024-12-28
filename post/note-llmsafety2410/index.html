@@ -4,7 +4,7 @@
         <meta charset="utf-8"/>
         <title>
             
-                NLP 收藏夹
+                Explainable LLM Safety
              | NaschenNeko&#39;s Blog
         </title>
         <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
@@ -122,14 +122,14 @@
     <div class="mdui-card mdui-hoverable" style="zoom:1.2">
         <div class="mdui-card-primary mdui-p-x-3" style="zoom:1.5">
             <div class="mdui-card-primary-title">
-                NLP 收藏夹
+                Explainable LLM Safety
             </div>
             
         </div>
         <div class="mdui-card-content mdui-typo mdui-p-x-5">
             <div class="mdui-row">
                 <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
-                    Last Update: 2024/12/28 21:16
+                    Last Update: 2024/12/28 22:13
                 </div>
                 <div class="mdui-col-xs-6">
                     <div class="mdui-float-right mdui-typo">
@@ -143,28 +143,80 @@
             </div>
             <div class="mdui-divider"></div>
             <br/>
-            <h1>1 Basic</h1>
-<p>Natural language toolkit (NLTK);
-Apache OpenNLP;
-Stanford NLP suite;
-Gate NLP library</p>
-<p>CS224n 笔记</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/133462196">https://zhuanlan.zhihu.com/p/133462196</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31977759">https://zhuanlan.zhihu.com/p/31977759</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/59011576">https://zhuanlan.zhihu.com/p/59011576</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/68502016">https://zhuanlan.zhihu.com/p/68502016</a></p>
-<p><a target="_blank" rel="noopener" href="https://bitjoy.net/category/0%e5%92%8c1/stanford-cs224n-nlp-with-deep-learning/">https://bitjoy.net/category/0和1/stanford-cs224n-nlp-with-deep-learning/</a></p>
-<p>GNN</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/147696322">https://zhuanlan.zhihu.com/p/147696322</a></p>
-<p>RNN</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/334676889">https://zhuanlan.zhihu.com/p/334676889</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39237205/article/details/123607515">https://blog.csdn.net/qq_39237205/article/details/123607515</a></p>
-<p>ANNS</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/415320221">https://zhuanlan.zhihu.com/p/415320221</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/462483802">https://zhuanlan.zhihu.com/p/462483802</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/260083265">https://zhuanlan.zhihu.com/p/260083265</a></p>
-<h1>2 Model Compression</h1>
-<h2 id="pruning">Pruning</h2>
+            <h1>Explainable LLM Safety</h1>
+<p>研究如何使用 <strong>可解释的手段</strong> 影响 LLM 的安全性。</p>
+<h1>一些 LLM 基础</h1>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">2017.06: Transformer</a></p>
+</li>
+<li>
+<p>GPT2</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09685">2021.06: LoRA</a></p>
+</li>
+</ul>
+<p>一份 LLM 可解释性的论文清单</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/NfFST5Mio7BCAQHPA/an-extremely-opinionated-annotated-list-of-my-favourite-1">2024.07: interpretability 入门清单</a></li>
+</ul>
+<p>NLP 的一些基础可能已经过时，但也许会有一点启发，有助于理解。</p>
+<p>详见 blog <code>&gt;</code> notes <code>&gt;</code> nlp 收藏夹</p>
+<h1>2024.10.09</h1>
+<h3 id="相关研究">相关研究</h3>
+<p>LLM 可解释安全的一些处理方法</p>
+<ul>
+<li>
+<p><strong>打算 follow 的工作</strong> <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2401.01967">2024.01: DPO and Toxicity</a> 以 <code>GPT2-DPO</code> 为例研究了对齐算法 <code>(DPO)</code> 对预训练模型 <code>(GPT2)</code> 的影响。这篇用到了 Google 的 Perspective API，弄账号有点麻烦，API 响应也很慢。跑代码时记得加上代理。</p>
+</li>
+<li>
+<p>Pruning &amp; LoRA <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.05162">2024.02: Pruning and LoRA</a></p>
+</li>
+<li>
+<p>Residual Stream <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.11717">2024.06: Refusal Direction</a> 这篇提供了 Colab 代码，操作比较方便。</p>
+</li>
+<li>
+<p>Attention Head <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.13708">2024.10: Attention Head</a> (周振宏/方俊峰师兄)</p>
+</li>
+</ul>
+<p>关于 LLM 推理特性的理解</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2312.01552">2023.12: Urial</a> 使用提示词工程揭示了关于 LLM 对齐的一些特性</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://aclanthology.org/2022.emnlp-main.3.">2022.03: Logit Lens</a> 中间层语义</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.05644">2024.06: Intermediate Layers</a> 词表在前向传播中有连续变化的规律 (周振宏师兄)</p>
+</li>
+</ul>
+<h1>2024.12.25</h1>
+<h3 id="transformer-circuits-thread-anthropic">Transformer Circuits Thread @Anthropic</h3>
+<p>Anthropic 的一个研究项目。项目主要目标是将 transformer 语言模型逆向工程为人类可理解的计算机程序。</p>
+<p>项目资源链接中有相关研究和资源，在网页论文上有一些制作精美的展示，比起传统会议的文章看着舒服。<a href="transformer-circuits.pub">Transformer Circuits Thread</a> | <a target="_blank" rel="noopener" href="https://www.anthropic.com/">Anthropic 官网</a></p>
+<p>一些关键基础研究</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2021/framework/index.html">2021.12 Attention gram</a> 注意力层形成的聚合结构</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2022/toy_model/index.html">2022.09 Toy Models of Superposition</a> 大量语义向量在低维线性空间的表征</p>
+</li>
+</ul>
+<p><strong>目前打算 follow 的工作</strong> Sparse AutoEncoder, SAE</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2023/monosemantic-features/index.html">2023.12 miniSAE</a> 层数较少模型中的 SAE</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html">2024.05 SAE</a> 大模型的 SAE</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.04093">2024.06 OpenAI SAE</a></p>
+</li>
+</ul>
 
         </div>
     </div>
@@ -189,21 +241,21 @@ Gate NLP library</p>
     <!-- <div class="mdui-row mdui-color-theme">
         <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
             
-            <a id= "lfooter" href= "/post/note-llmsafety2410/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+            <a id= "lfooter" href= "/post/note-bot/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
                 <div class="mdui-float-left">
                     <div class="mdui-typo-caption-opacity">Previous</div>
                     <div class="mdui-typo-headline">
                         <i class="mdui-icon material-icons">arrow_back</i>
-                        Explainable LLM Safety
+                        机器人
                     </div>
                 </div>
             </a>
             
-            <a id= "rfooter" href= "/post/note-favourite-href/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+            <a id= "rfooter" href= "/post/note-nlp/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
                 <div class="mdui-float-right">
                     <div class="mdui-typo-caption-opacity">Next</div>
                     <div class="mdui-typo-headline">
-                        工具收藏夹
+                        NLP 收藏夹
                         <i class="mdui-icon material-icons">arrow_forward</i>
                     </div>
                 </div>
