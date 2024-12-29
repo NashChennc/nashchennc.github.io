@@ -4,7 +4,7 @@
         <meta charset="utf-8"/>
         <title>
             
-                抽象足球 - 施工中
+                Task Queues
              | NaschenNeko&#39;s Blog
         </title>
         <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
@@ -122,14 +122,14 @@
     <div class="mdui-card mdui-hoverable" style="zoom:1.2">
         <div class="mdui-card-primary mdui-p-x-3" style="zoom:1.5">
             <div class="mdui-card-primary-title">
-                抽象足球 - 施工中
+                Task Queues
             </div>
             
         </div>
         <div class="mdui-card-content mdui-typo mdui-p-x-5">
             <div class="mdui-row">
                 <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
-                    Last Update: 2024/08/02 16:36
+                    Last Update: 2024/12/30 00:30
                 </div>
                 <div class="mdui-col-xs-6">
                     <div class="mdui-float-right mdui-typo">
@@ -143,51 +143,222 @@
             </div>
             <div class="mdui-divider"></div>
             <br/>
-            <p>好吧，我也不知道为什么要开这篇文章</p>
-<p>大概是因为最近伤了踢不了球 （4.15）</p>
-<p>总之还是写写</p>
-<p>保持抽象性不意味着要使用抽象的记号，行文以帮助理解为上。</p>
-<h1>1. 最基本原则</h1>
-<p>首先根据足球比赛的特性和规则研究一下比赛中会发生的事情，确定一些基本的原则。</p>
-<h2 id="1-1-射门">1.1. 射门</h2>
-<h3 id="射门是足球比赛唯一的得分方式">射门是足球比赛唯一的得分方式。</h3>
-<p>当然乌龙也是但这种东西可遇不可求…至少不是那么可求</p>
-<p>射门需要</p>
+            <h2 id="24-秋">24 秋</h2>
 <ul>
-<li>位置靠近球门</li>
-<li>身位可以起脚</li>
-<li>射门路线</li>
+<li>
+<p>运筹学</p>
+</li>
+<li>
+<p>科研：Explainable LLM Safety</p>
+</li>
+<li>
+<p>组合学进阶</p>
+</li>
+<li>
+<p>博客 / 看番</p>
+</li>
 </ul>
-<p>当然球员可以主动创造条件。这引出个人技术的讨论。除此之外，全场比赛就是为某个球员创造上述三项条件，包括但不限于</p>
+<h2 id="24-寒假-task-queue-暂定">24 寒假 Task Queue（暂定）</h2>
+<p>1.22 - 2.21 共 30d</p>
+<p>作息方针：养生</p>
+<p>可用时间：</p>
 <ul>
-<li>使球向进攻方向移动（通常在保持球权的情况下）</li>
-<li>为可能的射门球员创造空间</li>
+<li>上午 9：00-12：00 ，3h</li>
+<li>下午 15：00-17：00，2h</li>
+<li>晚上 20：00-23：00，3h</li>
 </ul>
-<h2 id="1-2-持球">1.2. 持球</h2>
-<p>球员持球可以移动和改变身位，期间包括球和人的相对位置在内的状态受到某些限制。这些可以引出个人技术的探讨。</p>
-<p>对方持球时，可以通过施压改变持球人或持球人的位置，甚至持球人身位以及影响球权转换。争夺球权会导致对方的压力。压力由施压球员的位置和动机决定。因此与时间和位置相关。这里，压力指一种客观状态，是心理压力的决定因素之一。</p>
-<p>防守施压策略可以引出战术讨论。</p>
-<p>由于场地大小和球员体能限制，压力总是不能在任意时刻覆盖任意持球位置。</p>
-<p>安全位置</p>
-<p>球权</p>
-<p>处理球空间</p>
-<h2 id="1-3-进攻方向">1.3. 进攻方向</h2>
-<p>后卫 - 中场 - 中锋</p>
-<p>面对进攻方向接球 - 接球尝试转身 - 向前冲刺要球</p>
-<p>落位 - 转身 - 前插 - 支点</p>
-<h1>2. 技术</h1>
-<h2 id="2-1-门线技术">2.1. 门线技术</h2>
-<p>因为第一个想到这个于是就写了</p>
-<h2 id="2-x-小技术">2.x 小技术</h2>
-<h1>3. 小范围配合</h1>
-<h2 id="3-1-建立进攻">3.1. 建立进攻</h2>
-<h2 id="3-2">3.2.</h2>
-<p>局部破阵后人数优势</p>
-<p>瓜迪奥拉的区域人数原则</p>
-<p>例 交叉跑 / 边卫套上</p>
-<p>进攻时/防守时 交接防守位置</p>
-<h2 id="3-3-联防">3.3. 联防</h2>
-<h1>4. 阵型战术</h1>
+<p>时间预算是上界，比较宽裕。</p>
+<h3 id="必选项">必选项</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Task</th>
+<th style="text-align:center">Descriptions</th>
+<th style="text-align:center">Last</th>
+<th style="text-align:center">Block Len</th>
+<th style="text-align:center">Necessity</th>
+<th style="text-align:center">Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">打机：春节活动</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">20h</td>
+<td style="text-align:center">4h</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">0/2</td>
+</tr>
+<tr>
+<td style="text-align:center">DCAI 调研</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">60h</td>
+<td style="text-align:center">3h</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">0/4</td>
+</tr>
+<tr>
+<td style="text-align:center">算导讲义</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">40h</td>
+<td style="text-align:center">3h</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">0/10</td>
+</tr>
+<tr>
+<td style="text-align:center">日语</td>
+<td style="text-align:center">标日 / N3</td>
+<td style="text-align:center">20h</td>
+<td style="text-align:center">2h</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">0/25</td>
+</tr>
+</tbody>
+</table>
+<p>预计 5h/d *30d</p>
+<h3 id="可选的发散项">可选的发散项</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Task</th>
+<th style="text-align:center">Descriptions</th>
+<th style="text-align:center">Last</th>
+<th style="text-align:center">Block Len</th>
+<th style="text-align:center">Necessity</th>
+<th style="text-align:center">Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">看番</td>
+<td style="text-align:center">魔圆</td>
+<td style="text-align:center">20h</td>
+<td style="text-align:center">2h</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">看球</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">8h</td>
+<td style="text-align:center">2h</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">逛 Github</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">5h</td>
+<td style="text-align:center">1h</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">语纲</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">3h</td>
+<td style="text-align:center">1h</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">西音史</td>
+<td style="text-align:center">速览</td>
+<td style="text-align:center">5h</td>
+<td style="text-align:center">1h</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">和声/配器</td>
+<td style="text-align:center">速览</td>
+<td style="text-align:center">10h</td>
+<td style="text-align:center">1h</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1/2</td>
+</tr>
+<tr>
+<td style="text-align:center">西哲史</td>
+<td style="text-align:center">速览</td>
+<td style="text-align:center">5h</td>
+<td style="text-align:center">1h</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">扒谱</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">3/3</td>
+</tr>
+<tr>
+<td style="text-align:center">Gal</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">整活</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">翻垃圾堆</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">博客</td>
+<td style="text-align:center">随手记即可</td>
+<td style="text-align:center">10h</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">5</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">打机：日常</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">daily : 1h/d</td>
+<td style="text-align:center">1h</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">/</td>
+</tr>
+<tr>
+<td style="text-align:center">球：日常</td>
+<td style="text-align:center">晚上空闲时间</td>
+<td style="text-align:center">daily : 2h/d</td>
+<td style="text-align:center">2h</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">/</td>
+</tr>
+<tr>
+<td style="text-align:center">cf 上分</td>
+<td style="text-align:center">一般 22：35 开始</td>
+<td style="text-align:center">2h / round</td>
+<td style="text-align:center">2h</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">/</td>
+</tr>
+<tr>
+<td style="text-align:center">练琴</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">daily : 1h/d</td>
+<td style="text-align:center">2h</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">/</td>
+</tr>
+</tbody>
+</table>
 
         </div>
     </div>
@@ -212,21 +383,21 @@
     <!-- <div class="mdui-row mdui-color-theme">
         <div class="mdui-color-theme mdui-col-xs-1 mdui-p-t-5 mdui-p-b-5"></div>
             
-            <a id= "lfooter" href= "/post/note-latex/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+            <a id= "lfooter" href= "/post/x-cha/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
                 <div class="mdui-float-left">
                     <div class="mdui-typo-caption-opacity">Previous</div>
                     <div class="mdui-typo-headline">
                         <i class="mdui-icon material-icons">arrow_back</i>
-                        LaTeX 常用符号
+                        茶与健康感想 · 后记
                     </div>
                 </div>
             </a>
             
-            <a id= "rfooter" href= "/post/note-favourite-text/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
+            <a id= "rfooter" href= "/post/note-system/" class="mdui-ripple mdui-color-theme mdui-col-xs-5 mdui-p-t-5 mdui-p-b-5">
                 <div class="mdui-float-right">
                     <div class="mdui-typo-caption-opacity">Next</div>
                     <div class="mdui-typo-headline">
-                        收藏夹
+                        硬件/系统/网络相关
                         <i class="mdui-icon material-icons">arrow_forward</i>
                     </div>
                 </div>
