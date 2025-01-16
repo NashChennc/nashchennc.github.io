@@ -4,8 +4,8 @@
         <meta charset="utf-8"/>
         <title>
             
-                Explainable LLM Safety
-             | NaschenNeko&#39;s Blog
+                Interpretable LLM Safety
+             | 川贝雪梨糖水的博客
         </title>
         <link rel="stylesheet" href="/mdui/css/mdui.min.css"/>
 <link rel="stylesheet" href="/katex/katex.min.css"/>
@@ -36,7 +36,7 @@
 <div class="mdui-card">
     <div class="mdui-card-media">
       <!-- <img class="mdui-shadow-2 mdui-img-fluid" src="/bgpaper/banner1.png" style="padding-bottom: -540px;"></img> -->
-      <div class="mdui-shadow-2" style="background-image: url(/bgpaper/banner1.png);padding-bottom: 540px;"></div>
+      <div class="mdui-shadow-2" style="background-image: url(/bgpaper/banner1.png);padding-bottom: 450px;"></div>
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary mdui-float-right">
           <div class="mdui-card-primary-title">昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。</div>
@@ -51,13 +51,33 @@
             <i class="mdui-icon material-icons"> menu </i>
         </span>
         <a href="/" class="mdui-typo-title">
-            NaschenNeko&#39;s Blog
+            川贝雪梨糖水的博客
         </a>
+        
+            <div class="mdui-tab mdui-tab-full-width">
+                <a href="/" class="mdui-ripple">
+                    Home
+                </a>
+                
+                    
+                        <a href="/categories/essay" class="mdui-ripple">
+                            essay | 11
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/notes" class="mdui-ripple">
+                            notes | 12
+                        </a>
+                    
+                
+            </div>
+        
         <div class="mdui-toolbar-spacer"></div>
         <!-- <a href="" class="mdui-btn mdui-btn-icon mdui-ripple">
             <i class="mdui-icon material-icons"> search </i>
         </a> -->
-        <a href="/about/" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+        <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '一个没什么用的按钮'}">
             <i class="mdui-icon material-icons"> more_vert </i>
         </a>
 
@@ -122,14 +142,14 @@
     <div class="mdui-card mdui-hoverable" style="zoom:1.2">
         <div class="mdui-card-primary mdui-p-x-3" style="zoom:1.5">
             <div class="mdui-card-primary-title">
-                Explainable LLM Safety
+                Interpretable LLM Safety
             </div>
             
         </div>
         <div class="mdui-card-content mdui-typo mdui-p-x-5">
             <div class="mdui-row">
                 <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
-                    Last Update: 2025/01/03 18:44
+                    Last Update: 2025/01/16 15:55
                 </div>
                 <div class="mdui-col-xs-6">
                     <div class="mdui-float-right mdui-typo">
@@ -143,9 +163,9 @@
             </div>
             <div class="mdui-divider"></div>
             <br/>
-            <h1>Explainable LLM Safety</h1>
+            <h1>Interpretable LLM Safety</h1>
 <p>研究如何使用 <strong>可解释的手段</strong> 影响 LLM 的安全性。</p>
-<h1>一些 LLM 基础</h1>
+<h2 id="一些-llm-基础">一些 LLM 基础</h2>
 <ul>
 <li>
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">2017.06: Transformer</a></p>
@@ -157,12 +177,12 @@
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09685">2021.06: LoRA</a></p>
 </li>
 </ul>
+<p>NLP 的一些基础可能已经过时，但也许会有一点启发，有助于理解。</p>
+<p>详见 blog <code>&gt;</code> notes <code>&gt;</code> nlp 收藏夹</p>
 <p>一份 LLM 可解释性的论文清单</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/NfFST5Mio7BCAQHPA/an-extremely-opinionated-annotated-list-of-my-favourite-1">2024.07: interpretability 入门清单</a></li>
 </ul>
-<p>NLP 的一些基础可能已经过时，但也许会有一点启发，有助于理解。</p>
-<p>详见 blog <code>&gt;</code> notes <code>&gt;</code> nlp 收藏夹</p>
 <h1>2024.10.09</h1>
 <h3 id="相关研究">相关研究</h3>
 <p>LLM 可解释安全的一些处理方法</p>
@@ -196,7 +216,7 @@
 <h3 id="transformer-circuits-thread-anthropic">Transformer Circuits Thread @Anthropic</h3>
 <p>Anthropic 的一个研究项目。项目主要目标是将 transformer 语言模型逆向工程为人类可理解的计算机程序。</p>
 <p>项目资源链接中有相关研究和资源，在网页论文上有一些制作精美的展示，比起传统会议的文章看着舒服。<a target="_blank" rel="noopener" href="https://transformer-circuits.pub">Transformer Circuits Thread</a> | <a target="_blank" rel="noopener" href="https://www.anthropic.com/">Anthropic 官网</a></p>
-<p>一些关键基础研究</p>
+<p>一些关键基础研究，推动了 SAE 在 LLM 上的使用</p>
 <ul>
 <li>
 <p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2021/framework/index.html">2021.12 A Mathematical Framework for Transformer Circuits</a> 注意力层形成的聚合结构</p>
@@ -220,7 +240,7 @@
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2404.16014">Gated SAE (Deepmind)</a> (Neel Nanda) Deepmind: Gated SAE</p>
 </li>
 </ul>
-<p><strong>相关工作</strong></p>
+<p>相关工作</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.19647">2024.03 Sparse Feature Circuits</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2411.14257">2024.11 Entity Recognize &amp; SAE</a></li>
@@ -233,6 +253,12 @@
 </ul>
 <p>另外一些主流方向 Activation Patching / Narrow Circuits</p>
 <p>MoE？</p>
+<h2 id="2025-01-15">2025.01.15</h2>
+<p>寒假</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/features-as-classifiers/index.html">2024.10 features as classifiers</a> SAE + 分类器</li>
+<li><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/crosscoders/index.html">2024.10 crosscoders</a> 跨层 SAE</li>
+</ul>
 
         </div>
     </div>
