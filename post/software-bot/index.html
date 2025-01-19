@@ -60,8 +60,8 @@
                 </a>
                 
                     
-                        <a href="/categories/动漫" class="mdui-ripple">
-                            动漫 | 2
+                        <a href="/categories/生活" class="mdui-ripple">
+                            生活 | 2
                         </a>
                     
                 
@@ -72,14 +72,14 @@
                     
                 
                     
-                        <a href="/categories/生活" class="mdui-ripple">
-                            生活 | 2
+                        <a href="/categories/音乐" class="mdui-ripple">
+                            音乐 | 1
                         </a>
                     
                 
                     
-                        <a href="/categories/笔记" class="mdui-ripple">
-                            笔记 | 5
+                        <a href="/categories/动漫" class="mdui-ripple">
+                            动漫 | 2
                         </a>
                     
                 
@@ -90,8 +90,8 @@
                     
                 
                     
-                        <a href="/categories/音乐" class="mdui-ripple">
-                            音乐 | 1
+                        <a href="/categories/笔记" class="mdui-ripple">
+                            笔记 | 5
                         </a>
                     
                 
@@ -164,16 +164,14 @@
 </div>
 <div class="mdui-container mdui-p-t-2 mdui-p-b-5">
     <div class="mdui-card mdui-hoverable" style="zoom:1.2">
-        <div class="mdui-card-primary mdui-p-x-3" style="zoom:1.5">
-            <div class="mdui-card-primary-title">
+        <div class="mdui-card-primary mdui-p-x-5">
+            <div class="mdui-card-primary-title" style="zoom:1.4">
                 机器人
             </div>
             
-        </div>
-        <div class="mdui-card-content mdui-typo mdui-p-x-5">
-            <div class="mdui-row">
+            <div class="mdui-row mdui-p-t-2">
                 <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
-                    Last Update: 2025/01/16 17:51
+                    Last Update: 2025/01/19 23:27
                 </div>
                 <div class="mdui-col-xs-6">
                     <div class="mdui-float-right mdui-typo">
@@ -187,10 +185,53 @@
             </div>
             <div class="mdui-divider"></div>
             <br/>
+        </div>
+        <div class="mdui-card-content mdui-typo mdui-p-x-5">
             <ul>
 <li><a target="_blank" rel="noopener" href="http://lmarena.ai">lmarena.ai</a> 榜</li>
 <li><a target="_blank" rel="noopener" href="http://bigmodel.cn">bigmodel.cn</a> 智谱清言 api</li>
 </ul>
+<h1>安装</h1>
+<h2 id="1-lagrange-onebot">1. Lagrange.OneBot</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/LagrangeDev/Lagrange.Core/releases">Lagrange.Core/releases</a></p>
+<p>解压后里面仅有一个可执行文件。</p>
+<h2 id="2-nonebot2">2. nonebot2</h2>
+<p>任选一个可用的 python 环境（建议虚拟机），安装脚手架用于搭建 <code>nonebot</code> 运行环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install nb-cli</span><br></pre></td></tr></table></figure>
+<p><code>cd</code> 到一个文件夹处运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nb</span><br></pre></td></tr></table></figure>
+<p>按照引导完成</p>
+<ul>
+<li>项目名称: yuuko</li>
+<li>适配器: OneBot V11(0neBot V11 协议)，OneBot V12(0neBot V12 协议)</li>
+<li>驱动器: FastAPI(FastAPI 驱动器)，websockets</li>
+<li>插件存储位置: 在&quot;src”文件夹中</li>
+<li>立即安装依赖?(Y)</li>
+<li>创建虚拟环境?(Y)</li>
+<li>无需内置插件</li>
+</ul>
+<p>这样就在指定文件夹 <code>/yuuko</code> 处创建了一个 <code>bot</code> 。除了项目名称可以改，其他都不能改，因为我插件还没做适配。</p>
+<p>创建完成后，<code>/yuuko/.venv</code> 是 nonebot2 插件调用的 <code>python</code> 解释器环境。我们在此处安装插件依赖。安装了脚手架的环境此时可以退出了。</p>
+<h2 id="3-插件">3. 插件</h2>
+<p>安装依赖需要直接用终端</p>
+<ul>
+<li><code>/.venv/Scripts/python.exe -m pip install xxx</code></li>
+<li>或 Linux <code>/.venv/bin/python -m pip install xxx</code></li>
+</ul>
+<p>总之自己找 python 解释器目录在哪。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zhipuai</span><br></pre></td></tr></table></figure>
+<p>然后将整个插件文件夹拖到 <code>src/plugins</code> 文件夹即可。</p>
+<h1>启动</h1>
+<p>开两个终端，分别</p>
+<ul>
+<li>
+<p>直接运行 <code>Lagrange.OneBot</code> ，将 <code>appsettings.json</code> 中的 <code>SignServerUrl</code> 改为 <code>https://sign.lagrangecore.org/api/sign/25765</code> ，然后扫码登录</p>
+</li>
+<li>
+<p>用脚手架环境 <code>cd</code> 到 <code>bot</code> 文件夹运行 <code>nb run</code> 即可。</p>
+</li>
+</ul>
+<h1>其它</h1>
 <p>下载 lagrange</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/LagrangeDev/Lagrange.Core/releases/download/nightly/Lagrange.OneBot_linux-x64_net8.0_SelfContained.tar.gz">https://github.com/LagrangeDev/Lagrange.Core/releases/download/nightly/Lagrange.OneBot_linux-x64_net8.0_SelfContained.tar.gz</a></p>
 <p>appsettings.json</p>
@@ -261,33 +302,29 @@
             <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
                 <h3 class="mdui-text-color-theme-text">Pages</h3>
                 <ol class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
-                    <li><a href="/">首页 | 文章</a></li>
+                    <li><a href="/">首页</a></li>
                     <li><a href="/files/">文件</a></li>
                     <!-- <li><a href="/comment/"> 留言板 | 提问箱</a></li> -->
-                    <li><a href="/about/">关于</a></li>
                     <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/NashChen/">Nash 的洛谷博客</a></li>
                 </ol>
             </div>
             <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
                 <h3 class="mdui-text-color-theme-text">Useful links</h3>
                 <ul class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
+                    <li><a target="_blank" rel="noopener" href="https://www.mdui.org/docs/">MDUI Docs</a> | <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo Docs</a></li>
                     <li><a target="_blank" rel="noopener" href="https://paperswithcode.com/">Papers With Code</a></li>
-                    <li><a target="_blank" rel="noopener" href="https://typeset.io/">TypeSet</a></li>
                     <li><a target="_blank" rel="noopener" href="https://bangumi.moe/">Bangumi Moe</a></li>
-                    <li><a target="_blank" rel="noopener" href="http://xixidm.com/">xixidm</a></li>
-                    <li><a target="_blank" rel="noopener" href="https://www.mdui.org/docs/">MDUI Docs</a></li>
-                    <li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo Docs</a></li>
-                    <li><a target="_blank" rel="noopener" href="https://tool.liumingye.cn/unlock-music/">工具箱1</a> | <a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=860">工具箱2</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://tool.liumingye.cn/unlock-music/">网易云解锁</a></li>
                 </ul>
             </div>
             <div class="mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-4">
                 <h3 class="mdui-text-color-theme-text">Contact</h3>
                 <ul class="mdui-typo mdui-text-color-theme-secondary" style="list-style: none;">
-                    <li>QQ Mail : 695977430@qq.com</li>
-                    <li>Google Mail : chennachuan0423@gmail.com</li>
+                    <li>QQ : なつき. | 695977430</li>
                     <li>EDU Mail : ncchen@mail.ustc.edu.cn</li>
                     <li>Github : Nashchennc</li>
-                    <li>QQ : なつき. | 695977430</li>
+                    
                 </ul>
             </div>
         </div>
