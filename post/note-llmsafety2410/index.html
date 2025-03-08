@@ -171,7 +171,7 @@
             
             <div class="mdui-row mdui-p-t-2">
                 <div class="mdui-col-xs-6 mdui-typo-caption-opacity">
-                    Last Update: 2025/01/22 10:42
+                    Last Update: 2025/03/05 09:58
                 </div>
                 <div class="mdui-col-xs-6">
                     <div class="mdui-float-right mdui-typo">
@@ -266,7 +266,7 @@
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2404.16014">2024.04 Gated SAE (Deepmind)</a> Deepmind: Gated SAE</p>
 </li>
 <li>
-<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.20526">2024.10 SAE on Llama 3.1</a> 留意 Github <a target="_blank" rel="noopener" href="https://github.com/OpenMOSS/Language-Model-SAEs">Repo</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.20526">2024.10 SAE on Llama 3.1</a> 留意 Github <a target="_blank" rel="noopener" href="https://github.com/OpenMOSS/Language-Model-SAEs">OpenMOSS/Language-Model-SAEs</a></p>
 </li>
 </ul>
 <h4 id="sae-使用例">SAE 使用例</h4>
@@ -282,16 +282,116 @@
 <li><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/features-as-classifiers/index.html">2024.10 features as classifiers</a> SAE + 分类器</li>
 <li><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/crosscoders/index.html">2024.10 crosscoders</a> 跨层 SAE</li>
 </ul>
-<h4 id="sae-社区：见-llama-scope">SAE 社区：见 Llama scope</h4>
-<p>可视化</p>
+<h4 id="openmoss-language-model-saes">OpenMOSS/Language-Model-SAEs</h4>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.neuronpedia.org/">SAE 社区</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/OpenMOSS/Language-Model-SAEs">OpenMOSS/Language-Model-SAEs</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.neuronpedia.org/">可视化网站</a></li>
 </ul>
 <p>过采样某领域数据集 / system prompt 产生的不同 SAE</p>
 <p>不同 SAE / 不同层、不同模型甚至不同架构的 SAE？</p>
 <p>如何比较 / 干预（修改 SAE，可能可以某些 SAE 互补，但其实这个可能不太有用且不太好做） / SAE 训练中持续干预（定向训练 SAE）</p>
 <p>dpo 前后 SAE 通用？每一层重建损失</p>
 <p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/cerebras/SlimPajama-627B">数据集</a></p>
+<h1>202502 实验记录</h1>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenMOSS/Language-Model-SAEs">OpenMOSS/Language-Model-SAEs</a> 的版本维护得不好，提供的用例没法直接用。</p>
+<h3 id="环境">环境</h3>
+<p>作者建议环境用 <code>pdm</code> 安装，实测 <code>pdm</code> 建立的虚拟环境会给你装一个 <code>cpu</code> 版的 <code>torch</code> ，要手动替换。</p>
+<p>其中 <code>TransformerLens</code> 库作者疑似使用了旧版且没有上传版本，导致内部有些模块无法使用。这个库没有找到对应函数历史版本，所以手动改了一些</p>
+<ul>
+<li>activation/precessors/token.py</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class RawDatasetTokenProcessor</span><br><span class="line">    def process</span><br><span class="line">        tokens = model.to_tokens_with_origins(d, tokens_only=True, prepend_bos=self.prepend_bos)</span><br><span class="line">        改为</span><br><span class="line">        tokens = model.to_tokens(d[&#x27;text&#x27;], prepend_bos=self.prepend_bos)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>activation/activation.py</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class ActivationGenerator</span><br><span class="line">    def process</span><br><span class="line">        等号后面改为</span><br><span class="line">        _, cache = model.run_with_cache(tokens, names_filter=self.hook_points)</span><br></pre></td></tr></table></figure>
+<h3 id="训练">训练</h3>
+<p>用例训练脚本无法直接使用，修改后可以运行的脚本见 <code>train_pythia.py</code></p>
+<p>数据集非常大，完整的 <code>openwebtext</code> 有 <code>15GB</code>，上传和在服务器间移动都非常费时。</p>
+<p>训练时我看着不像是能训完的样子，不知道是不是没配置好还是数据集确实大。</p>
+<p>加上原文也进行过采样。目前准备采样一部分再训，这几天在看数据集的结构。</p>
+<h1>ICLR2025</h1>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/group?id=ICLR.cc/2025/Conference">OpenReview | ICLR2025</a></p>
+<h2 id="oral">Oral</h2>
+<ul>
+<li>(10/10/8/3) Scaling and evaluating sparse autoencoders</li>
+</ul>
+<p>OpenAI 的 TopK SAE，之前已经看过</p>
+<ul>
+<li>(8/8/8/8) Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models</li>
+</ul>
+<p>之前提到过的 用 SAE feature 重新做 Circuits</p>
+<h3 id="10-10-8-8-do-i-know-this-entity-knowledge-awareness-and-hallucinations-in-language-models">(10/10/8/8) Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models</h3>
+<ul>
+<li>找到 “是否识别某个实体” 的 SAE feature。</li>
+<li>“已知实体”：回答正确两个关于该实体的信息 / “未知实体”：两个都回答错</li>
+<li>这种方向会影响模型的 <strong>拒绝行为</strong>，引导模型拒绝回答关于已知实体的问题，或者在原本会拒绝的情况下虚构未知实体的属性。</li>
+<li>会干扰和该实体有关的下游注意力头</li>
+<li><strong>用基础模型训出来的 SAE 在聊天模型能用</strong></li>
+<li>找了表示不确定性的 SAE feature，可以用来预测幻觉</li>
+</ul>
+<h2 id="poster">Poster</h2>
+<h3 id="8-8-6-6-towards-principled-evaluations-of-sparse-autoencoders-for-interpretability-and-control">(8/8/6/6) Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control</h3>
+<p>SAE 的评估框架。</p>
+<ul>
+<li>将 SAE 和有监督字典比较，可以用于评估 SAE。</li>
+<li>选择一些任务，评估两者相似性、两者的稀疏可控性和可解释性三个方面的表现。有监督字典对模型的控制比 SAE 强。</li>
+</ul>
+<p>发现 SAE 的一些问题</p>
+<ul>
+<li>特征遮挡: （激活和 feature 的一些关系）同一激活表示两个相关属性，某属性 feature 较大时另一属性会被覆盖</li>
+<li>特征过度分割</li>
+</ul>
+<p>很多人会建小模型来做实验，可以降低开销</p>
+<h3 id="8-8-6-6-sparse-autoencoders-do-not-find-canonical-units-of-analysis">(8/8/6/6) Sparse Autoencoders Do Not Find Canonical Units of Analysis</h3>
+<p>认为 SAE 在寻找完整特征和原子特征方面存在不足。</p>
+<p>提出了一些操作 SAE 的方法：</p>
+<p>基于解码器方向之间的余弦相似度，将较大 SAE 的特征分为两类：</p>
+<ul>
+<li>新特征: 与较小 SAE 中的特征的余弦相似度低于阈值的特征。</li>
+<li>重建特征: 与较小 SAE 中某些特征具有高余弦相似度的特征。</li>
+</ul>
+<p>拼接 SAE: 将新颖特征添加到较小的 SAE 中 / 将重建特征与较小 SAE 中具有相似行为的特征进行交换，减少冗余并进一步提高重建性能。</p>
+<p>Meta SAE：在 SAE 上训 SAE，得到一些 feature cluster</p>
+<p>用这些方法进行了实验，比较有效，并以此质疑原 SAE 的效果</p>
+<h3 id="6-6-6-5-rethinking-evaluation-of-sparse-autoencoders-through-the-representation-of-polysemous-words">(6/6/6/5) Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Words</h3>
+<h3 id="8-8-6-6-efficient-dictionary-learning-with-switch-sparse-autoencoders">(8/8/6/6) Efficient Dictionary Learning with Switch Sparse Autoencoders</h3>
+<p>用类似 MoE 的方法改进 SAE 的训练效率</p>
+<p>感觉工程上有点复杂，就暂时没看</p>
+<p>还没看的</p>
+<ul>
+<li>
+<p>(8/6/6/6) Towards Universality: Studying Mechanistic Similarity Across Language Model Architectures
+上次 Llama scope 团队的</p>
+</li>
+<li>
+<p>(8/6/6/5) Sparse Autoencoders Reveal Temporal Difference Learning in Large Language Models</p>
+</li>
+<li>
+<p>(5/8/3/3/5) Words in Motion: Extracting Interpretable Control Vectors for Motion Transformers</p>
+</li>
+<li>
+<p>Mechanistic Permutability: Match Features Across Layers</p>
+</li>
+<li>
+<p>Monet: Mixture of Monosemantic Experts for Transformers</p>
+</li>
+<li>
+<p>Not All Language Model Features Are Linear</p>
+</li>
+<li>
+<p>Residual Stream Analysis with Multi-Layer SAEs</p>
+</li>
+<li>
+<p>Sparse autoencoders reveal selective remapping of visual concepts during adaptation</p>
+</li>
+</ul>
+<h2 id="任务">任务</h2>
+<p>具体结合 deepseek 的 SAE</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/qresearch/DeepSeek-R1-Distill-Llama-70B-SAE-l48">https://huggingface.co/qresearch/DeepSeek-R1-Distill-Llama-70B-SAE-l48</a></p>
+<p>对齐前后模型 / 对齐前后 SAE</p>
+<p>余弦相似度 / 重建损失</p>
+<p>蒸馏相关 / 推理相关</p>
 
         </div>
     </div>
