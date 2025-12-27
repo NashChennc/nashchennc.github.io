@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>规律作息 - Blog ｜ 生猛活海鲜现宰现炒</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+
+  <style>
+    body {
+      font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+      background-color: #f5f5f5; /* 增加一点背景色对比 */
+    }
+    
+    html {
+        scroll-padding-top: 80px;
+        scroll-behavior: smooth;
+    }
+    
+    .mdui-typo a {
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+
+    .mdui-card {
+      border-radius: 8px !important;
+      transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .mdui-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .typo-h1, h1 { font-weight: 300; letter-spacing: -0.015em; }
+    .typo-body, p { line-height: 1.8; color: rgba(0,0,0,0.87); }
+
+    footer {
+      padding: 24px 0;
+    }
+    
+    img { max-width: 100%; height: auto; }
+
+    #sidebar-wrapper {
+        margin-top: 16px;
+    }
+    @media (min-width: 992px) {
+        #sidebar-wrapper {
+            margin-top: 0;
+        }
+    }
+  </style>
+<meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 7
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 26
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/流水账" class="mdui-ripple ">
+                            流水账 | 4
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple ">
+                            工具箱 | 16
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/其它" class="mdui-ripple ">
+                            其它 | 6
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '一个没什么用的按钮'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div style="position: relative; width: 100%; height: 350px; overflow: hidden;">
+    <div style="
+        background-image: url(/image/banner.png); 
+        background-position: top; 
+        background-size: cover; 
+        width: 100%; 
+        height: 100%; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        z-index: 0;
+    "></div>
+    
+    <div class="mdui-card-media-covered" style="background: rgba(0, 0, 0, 0.4); position: absolute; bottom: 0; width: 100%; padding: 0;">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right" style="color: #fff; padding-top: 16px; padding-bottom: 16px;">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                    昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                    「雨き声残響」Orangestar / IA
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        规律作息 & 减肥 - 重启！
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2025/11/26 16:40
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/">
+                                        流水账
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <p>似乎要把压抑解决了才会有动力。</p>
+<p>2025年11月开始在外面租房，也算是开始建构自己的生活了，于是（大概？）重启。</p>
+<h1>下面是黑历史</h1>
+<ul>
+<li>
+<p>参考身高 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mn>182</mn><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">m</mi></mrow></mrow><annotation encoding="application/x-tex">H=182\rm cm</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">8</span><span class="mord">2</span><span class="mord"><span class="mord mathrm">c</span><span class="mord mathrm">m</span></span></span></span></span></p>
+</li>
+<li>
+<p>开始日期 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.15</mn></mrow><annotation encoding="application/x-tex">5.15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">.</span><span class="mord">1</span><span class="mord">5</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>:</mo><mi>M</mi><mo>≈</mo><mn>85.9</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">: M\approx 85.9\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">8</span><span class="mord">5</span><span class="mord">.</span><span class="mord">9</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> ，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mfrac><mi>M</mi><msup><mi>H</mi><mn>2</mn></msup></mfrac></mstyle><mo>≈</mo><mn>25.9</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">/</mi><msup><mi mathvariant="normal">m</mi><mn>2</mn></msup></mrow></mrow><annotation encoding="application/x-tex">\dfrac M{H^2}\approx 25.9\rm kg/m^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">5</span><span class="mord">.</span><span class="mord">9</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">/</span><span class="mord"><span class="mord mathrm">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.18</mn><mo>:</mo></mrow><annotation encoding="application/x-tex">5.18:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">.</span><span class="mord">1</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 澈澈不提我还没想起来原来之前是得过 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ο</mi></mrow><annotation encoding="application/x-tex">\omicron</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ο</span></span></span></span> ，不过既然现在问题不大了还是多跑跑。</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.22</mn><mo>:</mo></mrow><annotation encoding="application/x-tex">5.22:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">.</span><span class="mord">2</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 早上空腹称了一下，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>82.85</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">82.85\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">8</span><span class="mord">2</span><span class="mord">.</span><span class="mord">8</span><span class="mord">5</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> 。看来效果超出预期。</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.31</mn><mo>:</mo></mrow><annotation encoding="application/x-tex">5.31:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">.</span><span class="mord">3</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 洗完澡称了一下，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>82.65</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">82.65\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">8</span><span class="mord">2</span><span class="mord">.</span><span class="mord">6</span><span class="mord">5</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> 。明明前几天还称出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>85</mn></mrow><annotation encoding="application/x-tex">85</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mord">5</span></span></span></span>，估计是水重导致的浮动。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Date</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">5.16 Tue</td>
+<td style="text-align:center">5min 的配速都跑不动了，只跑了 2km</td>
+</tr>
+<tr>
+<td style="text-align:center">5.17 Wed</td>
+<td style="text-align:center">凑不出人踢球，练长传/2v2</td>
+</tr>
+<tr>
+<td style="text-align:center">5.18 Thu</td>
+<td style="text-align:center">室内 5km, 9km/h</td>
+</tr>
+<tr>
+<td style="text-align:center">5.19 &amp; 5.20</td>
+<td style="text-align:center">休息</td>
+</tr>
+<tr>
+<td style="text-align:center">5.21 Sun</td>
+<td style="text-align:center">冠军杯淘汰赛，进击的中后卫冲冲冲冲冲冲</td>
+</tr>
+<tr>
+<td style="text-align:center">5.22 Mon</td>
+<td style="text-align:center">游泳课</td>
+</tr>
+<tr>
+<td style="text-align:center">5.23 Tue</td>
+<td style="text-align:center">摆烂</td>
+</tr>
+<tr>
+<td style="text-align:center">5.24 Wed</td>
+<td style="text-align:center">野球</td>
+</tr>
+<tr>
+<td style="text-align:center">5.25 Thu</td>
+<td style="text-align:center">摆烂。不能摆啊啊啊啊啊啊！！！</td>
+</tr>
+<tr>
+<td style="text-align:center">5.26 Fri</td>
+<td style="text-align:center">摆烂。</td>
+</tr>
+<tr>
+<td style="text-align:center">5.27 Sat</td>
+<td style="text-align:center">冠军杯淘汰赛，第一次踢后腰，真的累</td>
+</tr>
+<tr>
+<td style="text-align:center">5.28/29/30</td>
+<td style="text-align:center">休息。膝盖有伤下不了水。摆烂。</td>
+</tr>
+<tr>
+<td style="text-align:center">5.31 Wed</td>
+<td style="text-align:center">中午下午连着踢球，大腿抽筋严重，有点顶不住。</td>
+</tr>
+</tbody>
+</table>
+<p>下面是正文</p>
+<p>最近期中考试也考得差不多了。由于之前长时间作息出了点问题，需要强行调整一下。以后还是把事情都放在白天做，不要熬夜。另外打算重新开始提起减肥这件事。</p>
+<p>大一入学时查出肝有问题至今没有复查，而且现在也一直感觉到肝不太好。</p>
+<p>这确实是个严肃的问题，不打算继续耽搁了。</p>
+<h1>1. 饮食 &amp; 作息</h1>
+<p>上学期进行了一些饮食限制和跑步，积累了一些个性化的经验。</p>
+<p>首先还是饮食习惯放在前面。体重的保持还是要靠习惯。</p>
+<h2 id="1-1-早餐">1.1. 早餐</h2>
+<p>虽然 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Zs4y1H7NV/?spm_id_from=333.337.search-card.all.click&amp;vd_source=2d215a8a0c87402561112e659ec022a6">Bilibili | 兔叭咯</a> 有打假过早餐骗局，但我还是建议吃早餐。鉴于我相当灵活的起床时间，课程不能作为督促早上学习的手段，这时就需要强制吃个早餐提醒一下上午要干活。</p>
+<p>然而学校几乎所有饭堂的的包饼粉面等早餐实在油腻寡味，至今没有想到一种能在学校内解决的比较好的早餐搭配。</p>
+<p>各种粥加鸡蛋和炒饭大概是早餐的无奈之选了。早餐想吃肉…</p>
+<p>早上来一杯咖啡其实也不错，但也不好常喝。</p>
+<p>写这个的时候灵光一现，想到可以把水果留到早上吃，或许是个不错的办法。</p>
+<h2 id="1-2-正餐饮食比例">1.2. 正餐饮食比例</h2>
+<p>依稀记得高中生物讲过脑的供能偏好糖类，这事实上是相当需要考虑的。网上有很多关于减重的饮食比例规划，于是我发现一个问题：数学系在大脑使用程度上属于特殊人群，某些倡导低糖饮食的节食方案相当不适用。</p>
+<p>在互联网上这类信息竟然极少，我只能找到一个有一小点关系的问题下的讨论 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/45927017">知乎 | 脑和心肌</a> 。</p>
+<p>另外，所谓 “碳水” 的说法早就应被因为误用废除，我坚决不用。事实上，很多地方现在仅使用 “碳” 指代，这也是合理的。为指代更明晰，我在这里使用 “糖类” 、“糖” 等词。</p>
+<p>另外学校饭堂窗口菜普遍多油，这个时候其实中区的肉窗口和旁边的蔬菜窗口是不错的选择。最需要注意的还是食物的总量和脂肪的量，蔬菜需要挑油少的来打。</p>
+<p>多吃水果。用水果填肚子也是可选的选项。</p>
+<h2 id="1-3-零食-喝水">1.3. 零食 &amp; 喝水</h2>
+<p>夜宵和饮料是需要坚决控制的（虽然写这篇文章当晚还喝了杯饮料）。<strong>多喝水</strong>！很多时候想吃东西的念头可以靠喝水解决。这里注意，<strong>运动后也不要喝饮料</strong>！除非你已经饿到低血糖，不要碰含糖饮料。</p>
+<p>其实我觉得代糖饮料有奇怪的味道，所以一般不会考虑。也听说有研究证实代糖减肥是不实际的。</p>
+<p>顺便，思考时卡壳也要想到 <strong>喝水</strong>。这是相当有用的，有空我再去查证一下原理。另外有时脑子卡壳也会导致食欲。</p>
+<p>宿舍常备零食理论上没有问题，但我总是很快就吃完，总之是控制不住自己，甚至没成功过一次，所以不建议。</p>
+<h2 id="1-4-熬夜">1.4. 熬夜</h2>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mtext>不要熬夜</mtext></mstyle></mrow><annotation encoding="application/x-tex">\color{red}\text{不要熬夜}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text" style="color:red;"><span class="mord cjk_fallback" style="color:red;">不要熬夜</span></span></span></span></span>。</p>
+<p>更详细地，如果你指望正在做其它事情的自己能在这之后熬夜工作完成一些事情，那不可能。</p>
+<p>如果你正在工作，除非你感到你的瞬时效率很高，否则立即放弃。</p>
+<p>教训已经惨痛到不能在这里写出来的地步了。虽然这篇文章也是熬夜写出来的。</p>
+<h1>2. 锻炼</h1>
+<p>按照之前的经验，我的体重每个学期会 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>5</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">-5\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord">5</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> ，每个假期再 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>3</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">+3\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">+</span><span class="mord">3</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> 震荡下降。然而 这个学期由于某些原因至今保持着过年时的体重 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">86</mn><mi mathvariant="bold">k</mi><mi mathvariant="bold">g</mi></mrow><annotation encoding="application/x-tex">\bf 86 kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf">8</span><span class="mord mathbf">6</span><span class="mord mathbf">k</span><span class="mord mathbf" style="margin-right:0.01597em;">g</span></span></span></span></span> 。</p>
+<p>上学期因为有刻意减肥，体重下界一度接近 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>79</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">79\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">7</span><span class="mord">9</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> ，虽然最终没有达成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>75</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">75\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">7</span><span class="mord">5</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> 的目标就开摆了，但也积累了一些经验。这一次眼看学期已经过半，就立一个简单一点的目标 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>:</mo></mrow><annotation encoding="application/x-tex">:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span></span></span></span> 到夏季学期开始时达到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="bold">80</mn><mi mathvariant="bold">k</mi><mi mathvariant="bold">g</mi></mrow><annotation encoding="application/x-tex">\bf 80kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf">8</span><span class="mord mathbf">0</span><span class="mord mathbf">k</span><span class="mord mathbf" style="margin-right:0.01597em;">g</span></span></span></span></span> 。但这次要提一个新的要求，就是体重要在暑假期间不增 。希望能坚持。</p>
+<p>经验有很强的个体性，可参考度有限，谨慎阅读。</p>
+<p>其实另外还有一些琐碎的原因吧，例如体测身高体重一项少 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn></mrow><annotation encoding="application/x-tex">20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span></span></span></span> 分很亏。至于其他的 v 我 50 解锁隐藏内容。</p>
+<p>这里只有一些尝试过的有减肥效果的锻炼。</p>
+<p>至于健身什么的我也不太喜欢，引体向上 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 个就 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 个吧，主要就是减肥。至于该用的部位肌肉还是会发达一点的，反正我还是很不喜欢那些拿来看的肌肉。</p>
+<h2 id="2-1-跑步">2.1. 跑步</h2>
+<p>首要推荐。</p>
+<p>首先是上学期的战果。上学期规律跑步减重效率非常高。平均每周 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>×</mo><mn>6</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi></mrow></mrow><annotation encoding="application/x-tex">5\times 6\rm km</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm">m</span></span></span></span></span> ，最多连续 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">h</mi></mrow></mrow><annotation encoding="application/x-tex">9\rm km/h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">9</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm">m</span><span class="mord mathrm">/</span><span class="mord mathrm">h</span></span></span></span></span> 跑 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi></mrow></mrow><annotation encoding="application/x-tex">8\rm km</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm">m</span></span></span></span></span> 。一般方便计数跑 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12.5</mn><mi mathvariant="normal">/</mi><mn>20</mn></mrow><annotation encoding="application/x-tex">12.5/20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord">.</span><span class="mord">5</span><span class="mord">/</span><span class="mord">2</span><span class="mord">0</span></span></span></span> 圈，对应 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi mathvariant="normal">/</mi><mn>8</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi></mrow></mrow><annotation encoding="application/x-tex">5/8\rm km</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mord">/</span><span class="mord">8</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm">m</span></span></span></span></span> 。均速从一开始 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7.5</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">h</mi></mrow></mrow><annotation encoding="application/x-tex">7.5\rm km/h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">7</span><span class="mord">.</span><span class="mord">5</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm">m</span><span class="mord mathrm">/</span><span class="mord mathrm">h</span></span></span></span></span> 到后来加到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">h</mi></mrow></mrow><annotation encoding="application/x-tex">10\rm km/h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm">m</span><span class="mord mathrm">/</span><span class="mord mathrm">h</span></span></span></span></span> 。配速以 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mi>min</mi><mo>⁡</mo><mi mathvariant="normal">/</mi><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi></mrow></mrow><annotation encoding="application/x-tex">6\min/\rm km</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">6</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">min</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">/</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm">m</span></span></span></span></span> 作为保底为佳。效果也非常好，每周能在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">-1\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord">1</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1.5</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">-1.5\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord">1</span><span class="mord">.</span><span class="mord">5</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> 之间。</p>
+<p>不得不提，浪漫主义时期小提琴协奏曲是相当好的跑步配乐。因为时长通常在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>20</mn><mi>min</mi><mo>⁡</mo><mo separator="true">,</mo><mn>35</mn><mi>min</mi><mo>⁡</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(20\min,35\min)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord">0</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">min</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">3</span><span class="mord">5</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">min</span><span class="mclose">)</span></span></span></span> 内，可以用于计时，每次跑步播放一到两首之后收工，非常方便。</p>
+<p>其次浪漫主义时期作品通常跌宕起伏，便于发电，有助于兴奋。上学期每次跑步我都戴着耳机，有时边跑边发电，非常快乐。尤其是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>c</mi><mi>o</mi><mi>t</mi><mi>t</mi><mi>i</mi><mi>s</mi><mi>h</mi><mtext> </mtext><mi>F</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>s</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">Scottish\ Fantasy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> ，听的是神全集 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">V</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">.</mi><mn>11</mn><mo>−</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">\rm Vol.11-15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathrm" style="margin-right:0.01389em;">V</span><span class="mord mathrm">o</span><span class="mord mathrm">l</span><span class="mord mathrm">.</span><span class="mord mathrm">1</span><span class="mord mathrm">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathrm">1</span><span class="mord mathrm">5</span></span></span></span></span> 的版本，整整 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 个乐章，如梦如幻，单单作为跑步配乐就听了不下 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 遍。通常听完之后也跑得差不多了，体验极佳。</p>
+<p>这学期跑步的时候会再重新记录一些具体的发现。</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.18</mn><mo>:</mo></mrow><annotation encoding="application/x-tex">5.18:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">.</span><span class="mord">1</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>c</mi><mi>o</mi><mi>t</mi><mi>t</mi><mi>i</mi><mi>s</mi><mi>h</mi><mtext> </mtext><mi>F</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>s</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">Scottish\ Fantasy</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">t</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mspace"> </span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 约 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25</mn><mi>min</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">25\min</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">5</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">min</span></span></span></span>，也就是以 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">h</mi></mrow><mtext> </mtext><mo stretchy="false">(</mo><mn>5</mn><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">12{\rm km/h}\ (5{\rm min/km})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord"><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm">m</span><span class="mord mathrm">/</span><span class="mord mathrm">h</span></span></span><span class="mspace"> </span><span class="mopen">(</span><span class="mord">5</span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm">/</span><span class="mord mathrm">k</span><span class="mord mathrm">m</span></span></span><span class="mclose">)</span></span></span></span> 恰好可以跑 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">m</mi></mrow></mrow><annotation encoding="application/x-tex">5\rm km</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm">m</span></span></span></span></span></li>
+</ul>
+<h2 id="2-2-足球-日常球类">2.2. 足球 （日常球类）</h2>
+<p>我在多次体重大幅度震荡的经验中发现，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">5\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">5</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> 级别的体重差足以影响球场机动性一个档次。主要是速度、步频和身体控制。</p>
+<p>说到这里，就不得不提一些故事。初二最轻的时候能单靠速度和临场反应踢前锋(虽然也就是闷头带)，高一时牛尾巴过光班里的后防。后来一次受伤加上体重 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>8</mn><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">g</mi></mrow></mrow><annotation encoding="application/x-tex">+8\rm kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">+</span><span class="mord">8</span><span class="mord"><span class="mord mathrm">k</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span></span></span></span></span> ，脚下频率和身体控制下降，直接踢不上班赛。后来踢了门将，也是有意思的事情了。</p>
+<p>这学期又重了起来，以至于踢冠军杯的时候被边锋蹚爆，又被中锋内切拉开身位。虽然看起来好像是常有的事，但至少上个学期这些问题不大。上学期体重最轻的时候已经能在高质量野球里踢一点中场了，单防边路爆蹚时也基本不输速度。</p>
+<p>平常踢球主要分娱乐和正赛，可以简单考虑运动量来分配其他锻炼。由于基本是习惯爱好了，所以不是减肥中需要特别注意的部分。最重要的就是记得别买饮料。</p>
+<p>除非有很多熟人，不推荐踢野球，因为不能保证运动量和运动体验。</p>
+<h2 id="2-3-力量训练">2.3. 力量训练</h2>
+<p>这方面我是几乎都不懂。但是无聊躺床上的时候可以随便卷腹举腿什么的。</p>
+<p>我的核心力量明显是不够用的，但又总是不想练，下次多在床上平板支撑。</p>
+<p>运动量这种东西通常只能自己感觉了。只需要注意力量训练和心肺训练平衡，不要过度损伤肌肉就可以。</p>
+<h1>3. 娱乐</h1>
+<p>这是 5.18 补的。</p>
+<p>事实上我的手机上很长时间没有 b 站，是最近几个月下回来的。这几天发现，即使是作息正常了，也会有很多时间浪费在看视频上，影响睡眠时间。当然期间有质量高的好视频，但还是应该严格规划一下时间安排。</p>
+<p>对于漫无目的地寻找精神零食的行为，多少也有和真实的零食类似的不节制之嫌。而在视频网站上寻找的短期成本非常低，收益平滑分散，导致容易上瘾。事后发现信息净获取效率并不高，但未经统计，所谓 “不高” 的模型结构和数值均不明确，这是一大问题。另一大问题是，成瘾机制通常未被计入决策判断中。有时间可以查阅资料。</p>
+<p>另一个问题是，有时可能为了发现可能遗漏的创作者而刷。这一个问题应当集中解决，即清晰列出需求，一次性利用搜索和推荐机制关注。这个问题也包括潜在的兴趣和曾涉足的领域，应一并考虑。</p>
+<p>对于本人而言需要紧跟的时事大多数不只出现在视频网站，因此也没有这样的需求。</p>
+<p>解决了所有疑问之后，提出一个亟需解决的问题，就是 <strong>戒断</strong> 所有赛博翻垃圾场行为，包含 b 站、知乎在内。</p>
+<h1>4. 后记</h1>
+<p>这篇文章初稿写到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.15</mn><mtext> </mtext><mn>2</mn><mo>:</mo><mn>36</mn></mrow><annotation encoding="application/x-tex">5.15\ 2:36</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">.</span><span class="mord">1</span><span class="mord">5</span><span class="mspace"> </span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">6</span></span></span></span> ，电脑剩 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>14</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">14\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mord">%</span></span></span></span> 电量。写完就赶紧部署到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi></mrow><annotation encoding="application/x-tex">\rm Github</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">G</span><span class="mord mathrm">i</span><span class="mord mathrm">t</span><span class="mord mathrm">h</span><span class="mord mathrm">u</span><span class="mord mathrm">b</span></span></span></span></span> 了。这是新的一周，周一有游泳课，所以直接从周二开始跑步，不能延后。希望在锻炼的同时可以给生活划定一个框架，整理好自己的日常吧。</p>
+<p>这一栏，就留给之后的总结吧。</p>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                                <a href="/%E6%B5%81%E6%B0%B4%E8%B4%A6/%E9%80%80%E5%BD%B9%E8%AE%B0/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
+                                        上一篇
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
+                                        流水账 | 退役记
+                                    </div>
+                                </a>
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/%E6%B5%81%E6%B0%B4%E8%B4%A6/%E5%85%B3%E4%BA%8Exp%E7%9A%84%E5%8F%91%E7%99%AB/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        下一篇
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
+                                        流水账 | 关于xp的发癫
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5" style="position: -webkit-sticky; position: sticky; top: 80px; z-index: 1;">
+            <div class="mdui-card mdui-shadow-1" style="border-radius: 8px;">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative; margin-top: -50px;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4" style="width: 80px; height: 80px; border: 2px solid white; display: inline-flex; align-items: center; justify-content: center;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">生猛活海鲜现宰现炒</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      沉入死寂的深海。。。捞点海鲜尝尝。
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">61</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">文章</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">分类</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">0</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">标签</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:ncchen@mail.ustc.edu.cn" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/nashchennc" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            
+                <div class="mdui-card mdui-shadow-1 mdui-m-t-2">
+                    <div class="mdui-card-content">
+                        <div class="mdui-typo-heading">目录</div>
+                        <div class="mdui-card-content" style="max-height: 35vh; overflow-y: auto;">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">下面是黑历史</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">1. 饮食 &amp; 作息</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-1-%E6%97%A9%E9%A4%90"><span class="mdui-list mdui-typo-text">1.1. 早餐</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-2-%E6%AD%A3%E9%A4%90%E9%A5%AE%E9%A3%9F%E6%AF%94%E4%BE%8B"><span class="mdui-list mdui-typo-text">1.2. 正餐饮食比例</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-3-%E9%9B%B6%E9%A3%9F-%E5%96%9D%E6%B0%B4"><span class="mdui-list mdui-typo-text">1.3. 零食 &amp; 喝水</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-4-%E7%86%AC%E5%A4%9C"><span class="mdui-list mdui-typo-text">1.4. 熬夜</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">2. 锻炼</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-1-%E8%B7%91%E6%AD%A5"><span class="mdui-list mdui-typo-text">2.1. 跑步</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-2-%E8%B6%B3%E7%90%83-%E6%97%A5%E5%B8%B8%E7%90%83%E7%B1%BB"><span class="mdui-list mdui-typo-text">2.2. 足球 （日常球类）</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-3-%E5%8A%9B%E9%87%8F%E8%AE%AD%E7%BB%83"><span class="mdui-list mdui-typo-text">2.3. 力量训练</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">3. 娱乐</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">4. 后记</span></a></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+<div id="bottom"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2025 <span class="mdui-text-color-theme">生猛活海鲜现宰现炒</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  <!-- Global helper scripts -->
+  <script>
+    // 自动为所有表格和图片添加样式，替代原 post.ejs 中的内联脚本
+    document.addEventListener("DOMContentLoaded", function() {
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>

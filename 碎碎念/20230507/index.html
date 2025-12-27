@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>20230507 - Blog ｜ 生猛活海鲜现宰现炒</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+
+  <style>
+    body {
+      font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+      background-color: #f5f5f5; /* 增加一点背景色对比 */
+    }
+    
+    html {
+        scroll-padding-top: 80px;
+        scroll-behavior: smooth;
+    }
+    
+    .mdui-typo a {
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+
+    .mdui-card {
+      border-radius: 8px !important;
+      transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .mdui-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .typo-h1, h1 { font-weight: 300; letter-spacing: -0.015em; }
+    .typo-body, p { line-height: 1.8; color: rgba(0,0,0,0.87); }
+
+    footer {
+      padding: 24px 0;
+    }
+    
+    img { max-width: 100%; height: auto; }
+
+    #sidebar-wrapper {
+        margin-top: 16px;
+    }
+    @media (min-width: 992px) {
+        #sidebar-wrapper {
+            margin-top: 0;
+        }
+    }
+  </style>
+<meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 7
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 26
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/流水账" class="mdui-ripple ">
+                            流水账 | 4
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple ">
+                            工具箱 | 16
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/其它" class="mdui-ripple ">
+                            其它 | 6
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '一个没什么用的按钮'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div style="position: relative; width: 100%; height: 350px; overflow: hidden;">
+    <div style="
+        background-image: url(/image/banner.png); 
+        background-position: top; 
+        background-size: cover; 
+        width: 100%; 
+        height: 100%; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        z-index: 0;
+    "></div>
+    
+    <div class="mdui-card-media-covered" style="background: rgba(0, 0, 0, 0.4); position: absolute; bottom: 0; width: 100%; padding: 0;">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right" style="color: #fff; padding-top: 16px; padding-bottom: 16px;">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                    昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                    「雨き声残響」Orangestar / IA
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        20230507
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2023/05/07 04:09
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
+                                        碎碎念
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <h3 id="2023-5-7-4-09">2023.5.7 4:09</h3>
+<p>又一次熬过4点。不过这次可能有些别的意义，于是顶着睡意记下这篇东西。</p>
+<p>五一假期家人来到学校，我大概是尽到地主之谊了。催了家里给妹妹买科普书、按照稍正常的作息展现给了他们看放假生活，甚至花了一晚上给父母讲皮亚诺和康托。</p>
+<p>看到他们满意地回去了，我也回到宿舍。</p>
+<p>事实上即使是他们在的那几天，我也有通宵，还要控制在该起床的时间醒着，其实稍微还是有点难受。整个假期本来说是要补补作业赶赶进度，实际上从放假前就一直在肝星铁。概率论考试也让我很难受。复分析没学好是认了，点集拓扑忘了确实也不应该，但是概率论，明明我竞赛学的就是这些，明明我以后还想搞组合学，难题算是做出来了，为什么算一个积分算半天算不出结果，最后考试考个垫底。而且概率论作业过时不候，欠了整整5次，这个总评估计是基本没救。实在没有颜面给自己一个交代，也没办法跟以后的老师解释。</p>
+<p>有通宵不断电的加持，全宿舍都假期作息颠倒，这个假期很快就浑浑噩噩地过去了。</p>
+<p>假期结束是周三，看完了舟剧情，其实感触不算多，但拳拳到肉。后面也忆起很多曾想过的问题</p>
+<p>假期结束后想起因为考复分析，作业补得已经差不多了，就像干脆一口气补完。学不懂，搁置了两天，跑去翻陶哲轩实分析来看，对级数和整个数分又补足了一些理解，笔记全整理到数分那里了。周四又熬夜了，但写了很多东西，到周五复分析倒还是做了一点作业，至少周五晚上是心满意足上床的。但我想这是有好处的，毕竟很多数分内容我根本就没学懂。一来B1确实让我学得一头雾水。二来之前学习状况用“一言难喻”根本体现不出来感觉。</p>
+<p>记错了实分析考试时间，本来想周六全天翘课复习实分析。后来看了看就没动实分析。</p>
+<p>对。翘课。我已经翘了一个月多的课了。<br>
+至于展开</p>
+<p>无非是日夜颠倒，精神状态异常，注意力完全不能集中，对很多东西失去兴趣。持续了一段时间。其实这不是最严重的一次。之前是上学期，兴趣消退很严重，已经尝试放弃学习强行调整作息了。一直到遣返，回到家里还是紧绷着。</p>
+<p>回家前的icpc不知什么情况竟然打铁，至今不敢提起</p>
+<p>体测没考，补完了大雾，四级竟然早上睡过了。</p>
+<p>但这段时间也不是毫无收获。当然也有一些别的大概是趣事。<br>
+从大一下期末到大二上整段时间看完了很多番想了很多二次元里才会有的问题。<br>
+练了很多琴，整个人进入文艺青年模式，可能是某些保护机制吧。事实上除了这样的积极让我成为声部长之外现在又生疏了不少。这好像可以专门写写“曾经会”的主题。这我已经想了很长时间了</p>
+<p>比如说看到lzk官宣下定决心充的网易云<br>
+参与了选曲、招新</p>
+<p>收到了久疏联系的初中同学的中秋礼物，建立起了联系，聊了二次元数学哲学之类</p>
+<p>人生第一次推完一部gal g弦上的魔王</p>
+<p>女装 咳，不说太多</p>
+<hr>
+<p>仅这个学期，我可能在世界线之间经过了某个重大分支，似乎是不再有那样的锐气了。这可能跟上面每一件事都有关</p>
+<p>其实有可能在大二前那个暑假已经埋下伏笔。暑研摸鱼，搞直播打无期迷途之类</p>
+<p>第二次是（2023年）过年后开学期末考前。可以感觉到“考试临近我不能干别的事情”和“学习的话又痛如补天”两个念头压在潜意识里，只要思考就会立即不由自主地滑向虚无。那是很恐怖的，那时我感到一切都会被淘汰，数学也不是真实的，无论做什么都没有意义，甚至有一瞬触碰到朝闻道夕死可矣的境界，也不知道是好是坏。但现在已经没有了，估计是心理防御又上了一层锁，以后也许还会碰到。回校前的那段时间最后只有靠着生息演算和水月肉鸽逃避思考才能入睡，代价也就是每天4点睡12点起。回到学校之后自然是脑袋空空。真正意义的虚无。甚至去玩了很多4399，甚至赛尔号，这些至少花费了我考前的三个整天。</p>
+<p>一直到考试周开始前最后一天，我找了心理辅导。但心理老师跟我说了一小时的垃圾话，除了问我有没有想着自杀之外没有任何有意义的内容。倒是分散不少我本就不集中的注意力。此后我大概明白这些问题只能自己解决，或者找到值得依靠的朋友。</p>
+<p>调整了几天最后究极速成。那是真正的速成，学完的时候我甚至觉得我已经把该会的都学会了，也不知道只用了三天速成哪来的自信。</p>
+<p>考试周我发出了两封邮件。一封是考完微分方程后咨询转系，甚至想把数学转成辅修回去搞计算机。我一度非常兴奋，以为好像可以起死回生妙手回春扭转乾坤什么之类的。后来弄明白了学习情况的原则是记录下来是不能更改。于是大概放弃这个念头，不得不接受现状。另一封，是发给了当初选择数学的时候就想认识的马杰老师，至少在我心目中的组合学顶流。相当矛盾。一个人的心态怎么能在极端之间</p>
+<p>这之后，加到了马老师微信，拿到了课件，我开始整理自己的洛谷博客。看到依然活跃的社区、曾经的自己和关注自己的人们，我开始想一些过往的事情。我想要什么、我喜欢什么，这些问题好像在离我远去。直到看见洛谷生机勃勃的样子，曾经的神犇留下的笔记，我好像又明白了点什么，要去找回自己遗失的热情。一想到回去学组合学就是我最开始的愿望，再听到Euphoria那奔放浪漫而又天真的旋律，配上引发ptsd的歌词，泪水实在是止不住。</p>
+<p>开学的几周还算井井有条。去收二手书意外淘到带笔记的好书，前两周的进度甚至在花费极大量时间搭新博客的情况下有点超前，裸考补完了疫情推迟的四级。之后或许是某个时间点出了问题。大约是第四周第五周，也许是从某件事，也或许是累积起来的一系列事情，最终又滚起了雪球。这之中可能有某天熬夜失败导致作息颠倒再导致注意力不能集中，加上一些情况，形成了有相当程度负面影响的死循环。但好在有写博客这样一个仅存的正反馈机制，靠着这些我慢慢挪动着进度。期中考试前突击了复分析和概率论，大概是几乎跟上了进度。没有期中考的话，我整个人只会更烂。也感谢徐神的笔记和社团，让我对科大的评价又提高不少。</p>
+<p>近世代数助教友好地说全部作业都可以补。我想着反正也得找点什么东西学学。整理了一晚上笔记，还翻开了翻开几何学基础，同样是感觉没什么进度推进，但确实有很多理解加深了。翻阅了几遍，几何之中的优美又把我吸引住了。在这过程中我又意识到我的兴趣排序大约是组合几何代数分析。对于分析我并没有强烈的兴趣，而且基本是无感，但无感就是学数学的原罪，这也是之后一系列问题的原因之一。</p>
+<p>于是晚上我就一直兴奋到了4点。因为在这样精神状态不佳的时间段，能够集中注意力的时间确实非常珍贵。于是我一直没有停下。写完数学还继续记下这些想法。写到这里的时候，天已经亮了。</p>
+<p>那么 关于数学就还剩下<br>
+道不可须臾离，可离非道<br>
+we must know, we will know.<br>
+蛛网喻<br>
+真美辩<br>
+理</p>
+<p>关于其它的<br>
+昨天其实有个机会当副团长，但拒绝了。<br>
+中午还要踢球，还是尽量睡一下</p>
+<p>至于抑郁，一定是有。生理意义上我自己可以肯定。不过也算是积累了一点调节精神状况经验吧<br>
+关于抑郁症看起来像正常人，现在确实对这句话有一定体会。我真的还能装。但我想象不出我顶不住的那个时刻，那之后，会发生什么。<br>
+甚至我觉得自己曾是另一个人</p>
+<p>哲学是必须留时间看了</p>
+<p>梳理一下，多少是</p>
+<p>学校环境<br>
+关于计算机，总是看不起科大计算机<br>
+关于数学，学不好是因为自己的问题，成绩也差，也有别的问题<br>
+关于选择<br>
+关于未来<br>
+之间的矛盾</p>
+<p>虽然至今没有挂过科，但…</p>
+<p>总是说自己罪有应得<br>
+但确实我的价值观不支持我迁怒他人<br>
+但也没有可依靠的……</p>
+<p>原稿完成于</p>
+<p>6:30</p>
+<p>关于寒假</p>
+<p>和yj</p>
+<p>mahler5</p>
+<p>关于人</p>
+<p>关于责任</p>
+<p>开学时鼓起勇气找了mj，找回了组合学</p>
+<p>5.22 聊天，找回了自动证明</p>
+<p>那是梦想。</p>
+<p>那是一切的源头。</p>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                                <a href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/20230424%20%E5%B4%A9%E5%B4%A9%E5%B4%A9/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
+                                        上一篇
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
+                                        碎碎念 | 20230424 崩崩崩
+                                    </div>
+                                </a>
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/20230524/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        下一篇
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
+                                        碎碎念 | 20230524
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5" style="position: -webkit-sticky; position: sticky; top: 80px; z-index: 1;">
+            <div class="mdui-card mdui-shadow-1" style="border-radius: 8px;">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative; margin-top: -50px;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4" style="width: 80px; height: 80px; border: 2px solid white; display: inline-flex; align-items: center; justify-content: center;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">生猛活海鲜现宰现炒</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      沉入死寂的深海。。。捞点海鲜尝尝。
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">61</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">文章</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">分类</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">0</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">标签</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:ncchen@mail.ustc.edu.cn" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/nashchennc" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            
+                <div class="mdui-card mdui-shadow-1 mdui-m-t-2">
+                    <div class="mdui-card-content">
+                        <div class="mdui-typo-heading">目录</div>
+                        <div class="mdui-card-content" style="max-height: 35vh; overflow-y: auto;">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2023-5-7-4-09"><span class="mdui-list mdui-typo-text">2023.5.7 4:09</span></a></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+<div id="bottom"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2025 <span class="mdui-text-color-theme">生猛活海鲜现宰现炒</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  <!-- Global helper scripts -->
+  <script>
+    // 自动为所有表格和图片添加样式，替代原 post.ejs 中的内联脚本
+    document.addEventListener("DOMContentLoaded", function() {
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>

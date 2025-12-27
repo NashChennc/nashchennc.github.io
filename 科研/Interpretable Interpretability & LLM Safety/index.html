@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Interpretable Interpretability &amp; LLM Safety - Blog ｜ 生猛活海鲜现宰现炒</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+
+  <style>
+    body {
+      font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+      background-color: #f5f5f5; /* 增加一点背景色对比 */
+    }
+    
+    html {
+        scroll-padding-top: 80px;
+        scroll-behavior: smooth;
+    }
+    
+    .mdui-typo a {
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+
+    .mdui-card {
+      border-radius: 8px !important;
+      transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .mdui-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .typo-h1, h1 { font-weight: 300; letter-spacing: -0.015em; }
+    .typo-body, p { line-height: 1.8; color: rgba(0,0,0,0.87); }
+
+    footer {
+      padding: 24px 0;
+    }
+    
+    img { max-width: 100%; height: auto; }
+
+    #sidebar-wrapper {
+        margin-top: 16px;
+    }
+    @media (min-width: 992px) {
+        #sidebar-wrapper {
+            margin-top: 0;
+        }
+    }
+  </style>
+<meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 7
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 26
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/流水账" class="mdui-ripple ">
+                            流水账 | 4
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple ">
+                            工具箱 | 16
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/其它" class="mdui-ripple ">
+                            其它 | 6
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '一个没什么用的按钮'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div style="position: relative; width: 100%; height: 350px; overflow: hidden;">
+    <div style="
+        background-image: url(/image/banner.png); 
+        background-position: top; 
+        background-size: cover; 
+        width: 100%; 
+        height: 100%; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        z-index: 0;
+    "></div>
+    
+    <div class="mdui-card-media-covered" style="background: rgba(0, 0, 0, 0.4); position: absolute; bottom: 0; width: 100%; padding: 0;">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right" style="color: #fff; padding-top: 16px; padding-bottom: 16px;">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                    昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                    「雨き声残響」Orangestar / IA
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        Interpretable Interpretability & LLM Safety
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2025/12/12 13:23
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E7%A7%91%E7%A0%94/">
+                                        科研
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <h1>Interpretable Interpretability &amp; LLM Safety</h1>
+<p>研究如何使用 <strong>可解释的手段</strong> 影响 LLM 的安全性。</p>
+<h2 id="一些-llm-基础">一些 LLM 基础</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">2017.06: Transformer</a> 过于简短，建议自行上完搜教程</p>
+</li>
+<li>
+<p>基于 Transformer 的 LLM：可以按 Transformer Lens 的教程自己写一遍 GPT2</p>
+</li>
+<li>
+<p>MoE 模型</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09685">2021.06: LoRA</a></p>
+</li>
+</ul>
+<p>NLP 的一些基础可能已经过时，但也许会有一点启发，有助于理解。</p>
+<p>详见 Stanford CS224n</p>
+<h2 id="mi-alignment-资料">MI &amp; Alignment 资料</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.neelnanda.io/mechanistic-interpretability/getting-started">Getting Start</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/NfFST5Mio7BCAQHPA/an-extremely-opinionated-annotated-list-of-my-favourite-1">2024.07: interpretability 入门清单</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/Alignment-Guidebook-e5c64df77c0a4b528b7951e87337fa78#a9a397ec7bbf4c4486334383f9087468">Alignment Guidebook</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://transformerlensorg.github.io/TransformerLens/content/getting_started.html">Transformer Lens Docs</a></p>
+</li>
+</ul>
+<h1>记录</h1>
+<h2 id="2024-10-09">2024.10.09</h2>
+<h3 id="相关研究">相关研究</h3>
+<p>LLM 可解释安全的一些处理方法</p>
+<ul>
+<li>
+<p><strong>打算 follow 的工作</strong> <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2401.01967">2024.01: DPO and Toxicity</a> 以 ==GPT2-DPO== 为例研究了对齐算法 ==(DPO)== 对预训练模型 ==(GPT2)== 的影响。这篇用到了 Google 的 Perspective API，弄账号有点麻烦，API 响应也很慢。跑代码时记得加上代理。DPO 代码是在 ==Linux== 上写的，一些库不支持 ==Windows==</p>
+</li>
+<li>
+<p>Pruning &amp; LoRA <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.05162">2024.02: Pruning and LoRA</a></p>
+</li>
+<li>
+<p>Residual Stream <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.11717">2024.06: Refusal Direction</a> 这篇提供了 Colab 代码，操作比较方便。</p>
+</li>
+<li>
+<p>Attention Head <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.13708">2024.10: Attention Head</a> (周振宏/方俊峰师兄)</p>
+</li>
+</ul>
+<p>关于 LLM 推理特性的理解</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2312.01552">2023.12: Urial</a> 使用提示词工程揭示了关于 LLM 对齐的一些特性</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://aclanthology.org/2022.emnlp-main.3.">2022.03: Logit Lens</a> 中间层语义</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.05644">2024.06: Intermediate Layers</a> 词表在前向传播中有连续变化的规律 (周振宏师兄)</p>
+</li>
+</ul>
+<h2 id="2024-12-25-sae">2024.12.25 SAE</h2>
+<h3 id="transformer-circuits-thread-anthropic">Transformer Circuits Thread @Anthropic</h3>
+<p>Anthropic 的一个研究项目。项目主要目标是将 transformer 语言模型逆向工程为人类可理解的计算机程序。</p>
+<p>项目资源链接中有相关研究和资源，在网页论文上有一些制作精美的展示，比起传统会议的文章看着舒服。<a target="_blank" rel="noopener" href="https://transformer-circuits.pub">Transformer Circuits Thread</a> | <a target="_blank" rel="noopener" href="https://www.anthropic.com/">Anthropic 官网</a></p>
+<p>Sparse AutoEncoder, SAE</p>
+<h3 id="sae-基础">SAE 基础</h3>
+<p>一些关键基础研究，推动了 SAE 在 LLM 上的使用</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2021/framework/index.html">2021.12 A Mathematical Framework for Transformer Circuits</a> 注意力层形成的聚合结构</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2022/toy_model/index.html">2022.09 Toy Models of Superposition</a> 大量语义向量在低维线性空间的表征</p>
+</li>
+</ul>
+<h3 id="基本结构以及一些成品">基本结构以及一些成品</h3>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2023/monosemantic-features/index.html">2023.12 Towards Monosemanticity (miniSAE)</a> 层数较少模型中的 SAE</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html">2024.05 Scaling monosemanticity (SAE)</a> 大模型的 SAE</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.04093">2024.06 Scaling and evaluating sparse autoencoders</a> OpenAI: TopK SAE &amp; Scaling laws</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2404.16014">2024.04 Gated SAE (Deepmind)</a> Deepmind: Gated SAE</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.20526">2024.10 SAE on Llama 3.1</a> 留意 Github <a target="_blank" rel="noopener" href="https://github.com/OpenMOSS/Language-Model-SAEs">OpenMOSS/Language-Model-SAEs</a></p>
+</li>
+</ul>
+<h3 id="sae-使用例">SAE 使用例</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.19647">2024.03 Sparse Feature Circuits</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2411.14257">2024.11 Entity Recognize &amp; SAE</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2409.04185">2024.10 Residual Stream</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2412.05276">2024.12 selective remapping</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.07108">2025.01 黑白棋 GPT</a></li>
+</ul>
+<h3 id="未来的变体-2024-10">未来的变体 2024.10</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/features-as-classifiers/index.html">2024.10 features as classifiers</a> SAE + 分类器</li>
+<li><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/crosscoders/index.html">2024.10 crosscoders</a> 跨层 SAE</li>
+</ul>
+<h3 id="openmoss-language-model-saes">OpenMOSS/Language-Model-SAEs</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/OpenMOSS/Language-Model-SAEs">OpenMOSS/Language-Model-SAEs</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.neuronpedia.org/">neuronpedia</a></li>
+</ul>
+<p>过采样某领域数据集 / system prompt 产生的不同 SAE</p>
+<p>不同 SAE / 不同层、不同模型甚至不同架构的 SAE？</p>
+<p>如何比较 / 干预（修改 SAE，可能可以某些 SAE 互补，但其实这个可能不太有用且不太好做） / SAE 训练中持续干预（定向训练 SAE）</p>
+<p>dpo 前后 SAE 通用？每一层重建损失</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/cerebras/SlimPajama-627B">数据集</a></p>
+<h2 id="iclr2025">ICLR2025</h2>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/group?id=ICLR.cc/2025/Conference">OpenReview | ICLR2025</a></p>
+<h3 id="oral">Oral</h3>
+<ul>
+<li>(10/10/8/3) Scaling and evaluating sparse autoencoders</li>
+</ul>
+<p>OpenAI 的 TopK SAE，之前已经看过</p>
+<ul>
+<li>(8/8/8/8) Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models</li>
+</ul>
+<p>之前提到过的 用 SAE feature 重新做 Circuits</p>
+<h3 id="10-10-8-8-do-i-know-this-entity-knowledge-awareness-and-hallucinations-in-language-models">(10/10/8/8) Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models</h3>
+<ul>
+<li>找到 “是否识别某个实体” 的 SAE feature。</li>
+<li>“已知实体”：回答正确两个关于该实体的信息 / “未知实体”：两个都回答错</li>
+<li>这种方向会影响模型的 <strong>拒绝行为</strong>，引导模型拒绝回答关于已知实体的问题，或者在原本会拒绝的情况下虚构未知实体的属性。</li>
+<li>会干扰和该实体有关的下游注意力头</li>
+<li><strong>用基础模型训出来的 SAE 在聊天模型能用</strong></li>
+<li>找了表示不确定性的 SAE feature，可以用来预测幻觉</li>
+</ul>
+<h3 id="poster">Poster</h3>
+<h3 id="8-8-6-6-towards-principled-evaluations-of-sparse-autoencoders-for-interpretability-and-control">(8/8/6/6) Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control</h3>
+<h3 id="ioi-task-间接宾语测试">IOI task 间接宾语测试</h3>
+<p>SAE 的评估框架。</p>
+<ul>
+<li>将 SAE 和有监督字典比较，可以用于评估 SAE。</li>
+<li>选择一些任务，评估两者相似性、两者的稀疏可控性和可解释性三个方面的表现。有监督字典对模型的控制比 SAE 强。</li>
+</ul>
+<p>发现 SAE 的一些问题</p>
+<ul>
+<li>特征遮挡: （激活和 feature 的一些关系）同一激活表示两个相关属性，某属性 feature 较大时另一属性会被覆盖</li>
+<li>特征过度分割</li>
+</ul>
+<p>很多人会建小模型来做实验，可以降低开销</p>
+<h3 id="8-8-6-6-sparse-autoencoders-do-not-find-canonical-units-of-analysis">(8/8/6/6) Sparse Autoencoders Do Not Find Canonical Units of Analysis</h3>
+<p>认为 SAE 在寻找完整特征和原子特征方面存在不足。</p>
+<p>提出了一些操作 SAE 的方法：</p>
+<p>基于解码器方向之间的余弦相似度，将较大 SAE 的特征分为两类：</p>
+<ul>
+<li>新特征: 与较小 SAE 中的特征的余弦相似度低于阈值的特征。</li>
+<li>重建特征: 与较小 SAE 中某些特征具有高余弦相似度的特征。</li>
+</ul>
+<p>拼接 SAE: 将新颖特征添加到较小的 SAE 中 / 将重建特征与较小 SAE 中具有相似行为的特征进行交换，减少冗余并进一步提高重建性能。</p>
+<p>Meta SAE：在 SAE 上训 SAE，得到一些 feature cluster</p>
+<p>用这些方法进行了实验，比较有效，并以此质疑原 SAE 的效果</p>
+<h3 id="6-6-6-5-rethinking-evaluation-of-sparse-autoencoders-through-the-representation-of-polysemous-wordsí">(6/6/6/5) Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Wordsí</h3>
+<ul>
+<li>(8/6/6/6) Towards Universality: Studying Mechanistic Similarity Across Language Model Architectures</li>
+<li>上次 Llama scope 团队的</li>
+<li>Not All Language Model Features Are Linear</li>
+<li>Residual Stream Analysis with Multi-Layer SAEs</li>
+<li>Sparse autoencoders reveal selective remapping of visual concepts during adaptation</li>
+</ul>
+<p>还没看的</p>
+<ul>
+<li>(8/6/6/5) Sparse Autoencoders Reveal Temporal Difference Learning in Large Language Models</li>
+<li>(5/8/3/3/5) Words in Motion: Extracting Interpretable Control Vectors for Motion Transformers</li>
+<li>Mechanistic Permutability: Match Features Across Layers</li>
+<li>Monet: Mixture of Monosemantic Experts for Transformers</li>
+<li>(8/8/6/6) Efficient Dictionary Learning with Switch Sparse Autoencoders 用类似 MoE 的方法改进 SAE 的训练效率. 感觉工程上有点复杂，就暂时没看</li>
+</ul>
+<h3 id="任务">任务</h3>
+<p>具体结合 deepseek 的 SAE<a target="_blank" rel="noopener" href="https://huggingface.co/qresearch/DeepSeek-R1-Distill-Llama-70B-SAE-l48">https://huggingface.co/qresearch/DeepSeek-R1-Distill-Llama-70B-SAE-l48</a></p>
+<p>对齐前后模型 / 对齐前后 SAE</p>
+<p>余弦相似度 / 重建损失</p>
+<p>蒸馏相关 / 推理相关</p>
+<h2 id="20250314">20250314</h2>
+<p>A40 单卡跑8B模型+大约<a target="_blank" rel="noopener" href="https://aideadlin.es/?sub=ML,NLP,SP,KR,HCI,DM">https://aideadlin.es/?sub=ML,NLP,SP,KR,HCI,DM</a><a target="_blank" rel="noopener" href="https://ccfddl.com">https://ccfddl.com</a></p>
+<h2 id="20250425">20250425</h2>
+<p><a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/qykrYY6rXXM7EEs8Q/understanding-sae-features-with-the-logit-lens">利用富集度提取特征</a></p>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                                <a href="/%E7%A7%91%E7%A0%94/From%20Anthropic/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
+                                        上一篇
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
+                                        科研 | From Anthropic
+                                    </div>
+                                </a>
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/%E7%A7%91%E7%A0%94/Anti-Sycophancy%20Prompts/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        下一篇
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
+                                        科研 | Anti-Sycophancy Prompts
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5" style="position: -webkit-sticky; position: sticky; top: 80px; z-index: 1;">
+            <div class="mdui-card mdui-shadow-1" style="border-radius: 8px;">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative; margin-top: -50px;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4" style="width: 80px; height: 80px; border: 2px solid white; display: inline-flex; align-items: center; justify-content: center;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">生猛活海鲜现宰现炒</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      沉入死寂的深海。。。捞点海鲜尝尝。
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">61</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">文章</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">分类</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">0</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">标签</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:ncchen@mail.ustc.edu.cn" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/nashchennc" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            
+                <div class="mdui-card mdui-shadow-1 mdui-m-t-2">
+                    <div class="mdui-card-content">
+                        <div class="mdui-typo-heading">目录</div>
+                        <div class="mdui-card-content" style="max-height: 35vh; overflow-y: auto;">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Interpretable Interpretability &amp; LLM Safety</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#%E4%B8%80%E4%BA%9B-llm-%E5%9F%BA%E7%A1%80"><span class="mdui-list mdui-typo-text">一些 LLM 基础</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#mi-alignment-%E8%B5%84%E6%96%99"><span class="mdui-list mdui-typo-text">MI &amp; Alignment 资料</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">记录</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2024-10-09"><span class="mdui-list mdui-typo-text">2024.10.09</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E7%9B%B8%E5%85%B3%E7%A0%94%E7%A9%B6"><span class="mdui-list mdui-typo-text">相关研究</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2024-12-25-sae"><span class="mdui-list mdui-typo-text">2024.12.25 SAE</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#transformer-circuits-thread-anthropic"><span class="mdui-list mdui-typo-text">Transformer Circuits Thread @Anthropic</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#sae-%E5%9F%BA%E7%A1%80"><span class="mdui-list mdui-typo-text">SAE 基础</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%88%90%E5%93%81"><span class="mdui-list mdui-typo-text">基本结构以及一些成品</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#sae-%E4%BD%BF%E7%94%A8%E4%BE%8B"><span class="mdui-list mdui-typo-text">SAE 使用例</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%8F%98%E4%BD%93-2024-10"><span class="mdui-list mdui-typo-text">未来的变体 2024.10</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#openmoss-language-model-saes"><span class="mdui-list mdui-typo-text">OpenMOSS&#x2F;Language-Model-SAEs</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#iclr2025"><span class="mdui-list mdui-typo-text">ICLR2025</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#oral"><span class="mdui-list mdui-typo-text">Oral</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#10-10-8-8-do-i-know-this-entity-knowledge-awareness-and-hallucinations-in-language-models"><span class="mdui-list mdui-typo-text">(10&#x2F;10&#x2F;8&#x2F;8) Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#poster"><span class="mdui-list mdui-typo-text">Poster</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#8-8-6-6-towards-principled-evaluations-of-sparse-autoencoders-for-interpretability-and-control"><span class="mdui-list mdui-typo-text">(8&#x2F;8&#x2F;6&#x2F;6) Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#ioi-task-%E9%97%B4%E6%8E%A5%E5%AE%BE%E8%AF%AD%E6%B5%8B%E8%AF%95"><span class="mdui-list mdui-typo-text">IOI task 间接宾语测试</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#8-8-6-6-sparse-autoencoders-do-not-find-canonical-units-of-analysis"><span class="mdui-list mdui-typo-text">(8&#x2F;8&#x2F;6&#x2F;6) Sparse Autoencoders Do Not Find Canonical Units of Analysis</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#6-6-6-5-rethinking-evaluation-of-sparse-autoencoders-through-the-representation-of-polysemous-words%C3%AD"><span class="mdui-list mdui-typo-text">(6&#x2F;6&#x2F;6&#x2F;5) Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Wordsí</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E4%BB%BB%E5%8A%A1"><span class="mdui-list mdui-typo-text">任务</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#20250314"><span class="mdui-list mdui-typo-text">20250314</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#20250425"><span class="mdui-list mdui-typo-text">20250425</span></a></li></ol></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+<div id="bottom"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2025 <span class="mdui-text-color-theme">生猛活海鲜现宰现炒</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  <!-- Global helper scripts -->
+  <script>
+    // 自动为所有表格和图片添加样式，替代原 post.ejs 中的内联脚本
+    document.addEventListener("DOMContentLoaded", function() {
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>

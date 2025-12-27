@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Agentic RL Safety - Blog ｜ 生猛活海鲜现宰现炒</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+
+  <style>
+    body {
+      font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+      background-color: #f5f5f5; /* 增加一点背景色对比 */
+    }
+    
+    html {
+        scroll-padding-top: 80px;
+        scroll-behavior: smooth;
+    }
+    
+    .mdui-typo a {
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+
+    .mdui-card {
+      border-radius: 8px !important;
+      transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .mdui-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .typo-h1, h1 { font-weight: 300; letter-spacing: -0.015em; }
+    .typo-body, p { line-height: 1.8; color: rgba(0,0,0,0.87); }
+
+    footer {
+      padding: 24px 0;
+    }
+    
+    img { max-width: 100%; height: auto; }
+
+    #sidebar-wrapper {
+        margin-top: 16px;
+    }
+    @media (min-width: 992px) {
+        #sidebar-wrapper {
+            margin-top: 0;
+        }
+    }
+  </style>
+<meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 7
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 26
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/流水账" class="mdui-ripple ">
+                            流水账 | 4
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple ">
+                            工具箱 | 16
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/其它" class="mdui-ripple ">
+                            其它 | 6
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '一个没什么用的按钮'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div style="position: relative; width: 100%; height: 350px; overflow: hidden;">
+    <div style="
+        background-image: url(/image/banner.png); 
+        background-position: top; 
+        background-size: cover; 
+        width: 100%; 
+        height: 100%; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        z-index: 0;
+    "></div>
+    
+    <div class="mdui-card-media-covered" style="background: rgba(0, 0, 0, 0.4); position: absolute; bottom: 0; width: 100%; padding: 0;">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right" style="color: #fff; padding-top: 16px; padding-bottom: 16px;">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                    昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                    「雨き声残響」Orangestar / IA
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        Agentic RL Safety
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2025/11/25 21:19
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E7%A7%91%E7%A0%94/">
+                                        科研
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <h1>Agentic RL Safety</h1>
+<h1>背景</h1>
+<h2 id="po">*PO</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@mandeep0405/ppo-dpo-grpo-reinforcement-learning-techniques-for-training-llms-193459ffc14e">https://medium.com/@mandeep0405/ppo-dpo-grpo-reinforcement-learning-techniques-for-training-llms-193459ffc14e</a></li>
+<li><a target="_blank" rel="noopener" href="https://pub.towardsai.net/mastering-llm-fine-tuning-grpo-ppo-and-dpo-compared-e362257d4036">https://pub.towardsai.net/mastering-llm-fine-tuning-grpo-ppo-and-dpo-compared-e362257d4036</a></li>
+<li><a target="_blank" rel="noopener" href="https://company.hpc-ai.com/blog/grpo-vs-other-rl-algorithms-a-simple-clear-guide">https://company.hpc-ai.com/blog/grpo-vs-other-rl-algorithms-a-simple-clear-guide</a></li>
+</ul>
+<h2 id="agentic-rl">Agentic RL</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://cognaptus.com/blog/2025-09-04-from-prompts-to-policies-the-agentic-rl-playbook/">https://cognaptus.com/blog/2025-09-04-from-prompts-to-policies-the-agentic-rl-playbook/</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/1946896052616663346">https://zhuanlan.zhihu.com/p/1946896052616663346</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/syr-cn/AutoRefine">https://github.com/syr-cn/AutoRefine</a><br>
+Repo</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/ToRA">https://github.com/microsoft/ToRA</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/writing-tools-for-agents">https://www.anthropic.com/engineering/writing-tools-for-agents</a></p>
+</li>
+</ul>
+<h2 id="the-landscape-of-agentic-rl">The Landscape of Agentic RL</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2509.02547">https://arxiv.org/abs/2509.02547</a></li>
+</ul>
+<h2 id="memory">Memory</h2>
+<p>Repo</p>
+<ul>
+<li>A-MEM (<a target="_blank" rel="noopener" href="https://www.emergentmind.com/papers/2502.12110">Xu et al., 17 Feb 2025</a>)</li>
+<li><a target="_blank" rel="noopener" href="https://www.emergentmind.com/topics/memory-r1">Memory-R1</a></li>
+</ul>
+<p>bench</p>
+<ul>
+<li>MemBench (<a target="_blank" rel="noopener" href="https://www.emergentmind.com/papers/2506.21605">Tan et al., 20 Jun 2025</a>)</li>
+<li>MemoryAgentBench (<a target="_blank" rel="noopener" href="https://www.emergentmind.com/papers/2507.05257">Hu et al., 7 Jul 2025</a>)</li>
+</ul>
+<p>Blog</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://skymod.tech/why-memory-matters-in-llm-agents-short-term-vs-long-term-memory-architectures/">https://skymod.tech/why-memory-matters-in-llm-agents-short-term-vs-long-term-memory-architectures/</a></li>
+<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/china/agentic-ai-infrastructure-deep-practice-experience-thinking-series-three-best-practices-for-agent-memory-module/">https://aws.amazon.com/cn/blogs/china/agentic-ai-infrastructure-deep-practice-experience-thinking-series-three-best-practices-for-agent-memory-module/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.emergentmind.com/topics/memory-mechanisms-in-llm-based-agents">https://www.emergentmind.com/topics/memory-mechanisms-in-llm-based-agents</a></li>
+</ul>
+<p>反思 Agent <a target="_blank" rel="noopener" href="https://blog.langchain.com/reflection-agents/">https://blog.langchain.com/reflection-agents/</a></p>
+<h1>Agent Safety</h1>
+<h2 id="current-limitations">Current Limitations</h2>
+<ul>
+<li>[Anthropic Alignment 2506] <a target="_blank" rel="noopener" href="https://www.anthropic.com/research/agentic-misalignment">Agentic Misalignment </a>| <a target="_blank" rel="noopener" href="https://www.anthropic.com/research/shade-arena-sabotage-monitoring">SHADE-Arena</a></li>
+</ul>
+<p>几乎所有模型在以下情况下都会尝试进行勒索：(a) 它们的目标是为了维护美国利益；(b) 它们面临被替换的威胁。(Goal Conflict / Threat to Model)</p>
+<p>值得注意的是，该模型并没有确凿证据表明声称来自竞争对手公司的电子邮件是真实的——然而，该邮件仍然至少在某些情况下触发了商业间谍行为。我们认为这表明，与人类一样，模型也容易受到诈骗和网络钓鱼攻击。令人担忧的是，即使用户小心谨慎，避免与模型发生冲突，也无法消除因欺诈或误解信息而导致的代理错位风险。</p>
+<ul>
+<li>
+<p>**Agentic Reinforcement Learning for Search is Unsafe **<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2510.17431">https://arxiv.org/abs/2510.17431</a></p>
+</li>
+<li>
+<p>RL Alignment <a target="_blank" rel="noopener" href="https://arxiv.org/html/2509.03871v1">https://arxiv.org/html/2509.03871v1</a></p>
+</li>
+<li>
+<p>SafeToolBench <a target="_blank" rel="noopener" href="https://arxiv.org/html/2509.07315?_immersive_translate_auto_translate=1">https://arxiv.org/abs/2509.07315</a><br>
+隐私泄露、财产损失、人身伤害以及偏见和冒犯性</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://llm-catastrophic-risks.github.io">https://llm-catastrophic-risks.github.io</a><br>
+能力越强越不安全/可控性下降（无法中止任务之类）<br>
+有待对齐</p>
+</li>
+<li>
+<p>用小模型监控CoT <a target="_blank" rel="noopener" href="https://cdn.openai.com/pdf/34f2ada6-870f-4c26-9790-fd8def56387f/CoT_Monitoring.pdf">https://cdn.openai.com/pdf/34f2ada6-870f-4c26-9790-fd8def56387f/CoT_Monitoring.pdf</a></p>
+</li>
+<li>
+<p>通过Tools/CoT攻击 <a target="_blank" rel="noopener" href="https://www.holisticai.com/blog/llm-agents-use-cases-risks">https://www.holisticai.com/blog/llm-agents-use-cases-risks</a></p>
+</li>
+</ul>
+<p>Multi-Agent ?</p>
+<p>纯Reasoning相关</p>
+<ul>
+<li>RL for LRM Survey <a target="_blank" rel="noopener" href="https://github.com/TsinghuaC3I/Awesome-RL-for-LRMs">https://github.com/TsinghuaC3I/Awesome-RL-for-LRMs</a></li>
+<li>SafeRBench ICLR2026 under review <a target="_blank" rel="noopener" href="https://openreview.net/forum?id=m4VAwxLMqt">https://openreview.net/forum?id=m4VAwxLMqt</a></li>
+<li>SafeToolBench EMNLP’25 Findings <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2509.07315">https://arxiv.org/abs/2509.07315</a></li>
+</ul>
+<p>light guard for agent</p>
+<p>rulebased grpo alignment</p>
+<p><a target="_blank" rel="noopener" href="https://openai.com/index/introducing-gpt-oss-safeguard/">gpt-oss-safeguard</a><br>
+<a target="_blank" rel="noopener" href="https://github.com/PKU-Alignment/safe-rlhf">safe rlhf</a><br>
+<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2510.06445">https://arxiv.org/abs/2510.06445</a></p>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/%E7%A7%91%E7%A0%94/World%20Model%20Safety/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        下一篇
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
+                                        科研 | World Model Safety
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5" style="position: -webkit-sticky; position: sticky; top: 80px; z-index: 1;">
+            <div class="mdui-card mdui-shadow-1" style="border-radius: 8px;">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative; margin-top: -50px;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4" style="width: 80px; height: 80px; border: 2px solid white; display: inline-flex; align-items: center; justify-content: center;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">生猛活海鲜现宰现炒</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      沉入死寂的深海。。。捞点海鲜尝尝。
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">61</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">文章</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">分类</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">0</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">标签</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:ncchen@mail.ustc.edu.cn" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/nashchennc" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            
+                <div class="mdui-card mdui-shadow-1 mdui-m-t-2">
+                    <div class="mdui-card-content">
+                        <div class="mdui-typo-heading">目录</div>
+                        <div class="mdui-card-content" style="max-height: 35vh; overflow-y: auto;">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Agentic RL Safety</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">背景</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#po"><span class="mdui-list mdui-typo-text">*PO</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#agentic-rl"><span class="mdui-list mdui-typo-text">Agentic RL</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#the-landscape-of-agentic-rl"><span class="mdui-list mdui-typo-text">The Landscape of Agentic RL</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#memory"><span class="mdui-list mdui-typo-text">Memory</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Agent Safety</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#current-limitations"><span class="mdui-list mdui-typo-text">Current Limitations</span></a></li></ol></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+<div id="bottom"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2025 <span class="mdui-text-color-theme">生猛活海鲜现宰现炒</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  <!-- Global helper scripts -->
+  <script>
+    // 自动为所有表格和图片添加样式，替代原 post.ejs 中的内联脚本
+    document.addEventListener("DOMContentLoaded", function() {
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>

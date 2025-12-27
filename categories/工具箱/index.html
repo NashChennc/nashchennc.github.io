@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog ｜ 生猛活海鲜现宰现炒</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+
+  <style>
+    body {
+      font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+      background-color: #f5f5f5; /* 增加一点背景色对比 */
+    }
+    
+    html {
+        scroll-padding-top: 80px;
+        scroll-behavior: smooth;
+    }
+    
+    .mdui-typo a {
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+
+    .mdui-card {
+      border-radius: 8px !important;
+      transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .mdui-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .typo-h1, h1 { font-weight: 300; letter-spacing: -0.015em; }
+    .typo-body, p { line-height: 1.8; color: rgba(0,0,0,0.87); }
+
+    footer {
+      padding: 24px 0;
+    }
+    
+    img { max-width: 100%; height: auto; }
+
+    #sidebar-wrapper {
+        margin-top: 16px;
+    }
+    @media (min-width: 992px) {
+        #sidebar-wrapper {
+            margin-top: 0;
+        }
+    }
+  </style>
+<meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 7
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 26
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/流水账" class="mdui-ripple ">
+                            流水账 | 4
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple mdui-color-indigo-400">
+                            工具箱 | 16
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/其它" class="mdui-ripple ">
+                            其它 | 6
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '一个没什么用的按钮'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<!-- <div style="position: relative; width: 100%; height: 350px; overflow: hidden;">
+    <div style="
+        background-image: url(/image/banner.png); 
+        background-position: top; 
+        background-size: cover; 
+        width: 100%; 
+        height: 100%; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        z-index: 0;
+    "></div>
+    
+    <div class="mdui-card-media-covered" style="background: rgba(0, 0, 0, 0.4); position: absolute; bottom: 0; width: 100%; padding: 0;">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right" style="color: #fff; padding-top: 16px; padding-bottom: 16px;">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                    昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                    「雨き声残響」Orangestar / IA
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container mdui-p-t-3 mdui-p-b-5">
+    <div class="mdui-row">
+        <div class="mdui-col-md-9 mdui-col-xs-12">
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/">
+                    LaTeX 常用符号
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        100 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年12月27日 Sat
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：164 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/QQ%20Bot/">
+                    QQ Bot
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        100 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年12月1日 Mon
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：480 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E4%B8%80%E4%BA%9B%E6%88%91%E7%BB%B4%E6%8A%A4%E7%9A%84%E9%A1%B9%E7%9B%AE/">
+                    一些我维护的项目
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        0 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年12月1日 Mon
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：56 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E8%AF%AD%E8%A8%80%E5%AD%A6/">
+                    一些语言网站
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        0 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年12月1日 Mon
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：66 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E4%B8%80%E4%BA%9B%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E5%86%85%E5%AE%B9/">
+                    一些有意思的内容
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        0 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年12月1日 Mon
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：29 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E4%B8%80%E4%BA%9B%E9%9F%B3%E4%B9%90%E7%BD%91%E7%AB%99/">
+                    一些音乐网站
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        0 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：53 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%E7%9B%B8%E5%85%B3/">
+                    音视频处理相关
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        10 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：72 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E9%82%AE%E7%AE%B1%E4%BB%A3%E6%94%B6%E8%AE%BE%E7%BD%AE/%E9%82%AE%E7%AE%B1%E4%BB%A3%E6%94%B6%E8%AE%BE%E7%BD%AE/">
+                    邮箱代收设置
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        0 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：280 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/">
+                    远程服务器使用
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        0 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年12月12日 Fri
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：346 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E8%A3%85%E6%9C%BA%E7%9B%B8%E5%85%B3/">
+                    硬件/系统/网络相关
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        0 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：138 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E8%B5%84%E6%BA%90%E7%AB%99/">
+                    资源站
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        100 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：48 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E6%89%93%E8%B0%B1%E6%89%92%E8%B0%B1/">
+                    打谱扒谱
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        0 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：107 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/Text2Speech/">
+                    Text2Speech
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        0 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：94 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E6%95%B0%E5%AD%A6/">
+                    数学
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        100 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：199 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                    Hexo Github 博客搭建
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        100 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：171 &nbsp; 预计阅读时长：1 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+                <div class="mdui-card mdui-hoverable">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">
+            <div class="mdui-typo">
+                <a href="/%E5%B7%A5%E5%85%B7%E7%AE%B1/Github%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/">
+                    Github使用简介
+                </a>
+                <div class="mdui-float-right">
+                    <span class="mdui-typo-subheading">
+                        10 % 
+                    </span>
+                    <span class="mdui-typo-caption">Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-card-primary-subtitle">
+            2025年11月26日 Wed
+            <div class="mdui-float-right">
+                工具箱
+            </div>
+        </div>
+        <div class="mdui-typo mdui-card-body mdui-typo-heading">
+            字数：1.1k &nbsp; 预计阅读时长：4 min
+        </div>
+    </div>
+    <!-- <div class="mdui-card-content"> 预览功能维护中 </div> -->
+</div>
+<br/>
+            
+            
+            <!-- 分页器 (如果有) -->
+            
+        </div>
+        <div class="mdui-col-md-3 mdui-col-xs-12" style="position: -webkit-sticky; position: sticky; top: 80px; z-index: 1;">
+            <div class="mdui-card mdui-shadow-1" style="border-radius: 8px;">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative; margin-top: -50px;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4" style="width: 80px; height: 80px; border: 2px solid white; display: inline-flex; align-items: center; justify-content: center;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">生猛活海鲜现宰现炒</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      沉入死寂的深海。。。捞点海鲜尝尝。
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">61</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">文章</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">分类</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">0</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">标签</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:ncchen@mail.ustc.edu.cn" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/nashchennc" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            <div class="mdui-card mdui-shadow-1 mdui-m-b-3 mdui-m-t-3 mdui-color-theme-50">
+                <div class="mdui-card-content">
+                    <!-- 背景装饰图标 -->
+                    <div class="mdui-float-right">
+                         <i class="mdui-icon material-icons mdui-text-color-theme-300" style="font-size: 48px; opacity: 0.5;">folder_open</i>
+                    </div>
+                    
+                    <div class="mdui-typo-caption-opacity">Current Category</div>
+                    <div class="mdui-typo-h2 mdui-m-y-1 mdui-text-color-theme">
+                        工具箱
+                    </div>
+                    
+                    <div class="mdui-divider mdui-m-y-1"></div>
+                    
+                    <div class="mdui-typo-caption">
+                        16 articles
+                    </div>
+                    
+                    <!-- 返回全部分类按钮 -->
+                    <a href="/archives" class="mdui-btn mdui-btn-block mdui-btn-flat mdui-ripple mdui-m-t-1 mdui-text-color-theme">
+                        View All Categories
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="bottom"></div>
+
+
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2025 <span class="mdui-text-color-theme">生猛活海鲜现宰现炒</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  <!-- Global helper scripts -->
+  <script>
+    // 自动为所有表格和图片添加样式，替代原 post.ejs 中的内联脚本
+    document.addEventListener("DOMContentLoaded", function() {
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>

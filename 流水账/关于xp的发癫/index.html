@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>关于xp的发癫 - Blog ｜ 生猛活海鲜现宰现炒</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+
+  <style>
+    body {
+      font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+      background-color: #f5f5f5; /* 增加一点背景色对比 */
+    }
+    
+    html {
+        scroll-padding-top: 80px;
+        scroll-behavior: smooth;
+    }
+    
+    .mdui-typo a {
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+
+    .mdui-card {
+      border-radius: 8px !important;
+      transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .mdui-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .typo-h1, h1 { font-weight: 300; letter-spacing: -0.015em; }
+    .typo-body, p { line-height: 1.8; color: rgba(0,0,0,0.87); }
+
+    footer {
+      padding: 24px 0;
+    }
+    
+    img { max-width: 100%; height: auto; }
+
+    #sidebar-wrapper {
+        margin-top: 16px;
+    }
+    @media (min-width: 992px) {
+        #sidebar-wrapper {
+            margin-top: 0;
+        }
+    }
+  </style>
+<meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 7
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 26
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/流水账" class="mdui-ripple ">
+                            流水账 | 4
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple ">
+                            工具箱 | 16
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/其它" class="mdui-ripple ">
+                            其它 | 6
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '一个没什么用的按钮'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div style="position: relative; width: 100%; height: 350px; overflow: hidden;">
+    <div style="
+        background-image: url(/image/banner.png); 
+        background-position: top; 
+        background-size: cover; 
+        width: 100%; 
+        height: 100%; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        z-index: 0;
+    "></div>
+    
+    <div class="mdui-card-media-covered" style="background: rgba(0, 0, 0, 0.4); position: absolute; bottom: 0; width: 100%; padding: 0;">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right" style="color: #fff; padding-top: 16px; padding-bottom: 16px;">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                    昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                    「雨き声残響」Orangestar / IA
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        关于xp的发癫
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2025/11/26 16:40
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/">
+                                        流水账
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <h1>要爱具体的人</h1>
+<p>爱抽象的人只是在爱自己。</p>
+<p>很难说这些抽象的内容对现实毫无影响。这句话放在这里是用于警示自己，下面的内容 <strong>完全不能</strong> 也 <strong>不应该</strong> 作为任何现实情形下的判定标准。现实情况应该另当别论。</p>
+<p>建立这个页面主要是为了剖析自己。因此为了避免削足适履，所有内容应当视作过去式。其中的内容随时间有变动，有可能和由阅读、经历、情感塑造的判断模式相关。注意时效性。通常来说，根据判定的稳定性，会有一定分层。</p>
+<h1>Part 1 当前厨力</h1>
+<p>这是本文唯一具有现实意义的部分。其现实意义仅仅在于你送我这些角色的谷我会很开心，并不代表会对现实中的这些特质有好感。</p>
+<p>在此给出一些有建设意义的问题：</p>
+<ul>
+<li>印象深刻的情节？例如语言、行为等直接逻辑，考虑外观、声线是否间接反映特质。特别留意是否对相关行为对象有代入关系。</li>
+<li>注意厨力的过程。喜欢上角色时对角色的印象？增加好感度的关键节点？随着印象变化，对角色的好感的变化模式？</li>
+<li>注意自身判断模式的时效性。喜欢上角色时自己的精神状态？社交情况？审美、哲学认识情况？</li>
+<li>注意 “特质” 的交互性。对作品世界观的印象？对情节的印象？对角色之间互动关系的印象？</li>
+</ul>
+<p>下面说明了一些表现形式上的不同点。如果将表现形式过于不同的角色放在一起比较，结论难免抽象化。因此必须首先给表现形式分一些大类。实际上对于不同题材甚至世界观有细微差别的作品，判断模式也会有所不同。</p>
+<p>可以得知，实际上判断标准极难统一，因此对于厨力的归纳必须抱着审慎的态度。实际上抽象程度关系到读和写两部分，简单来说就是我可以声明“本文比起本人要更偏抽象”而写得偏抽象，也可以遇到抽象的部分就此收笔。但这篇文章很大程度上的意义在于自我剖析，因此</p>
+<h2 id="最终解释请来找本人确认">最终解释请来找本人确认。</h2>
+<p>当前你可以看到的我用作头像的角色</p>
+<ul>
+<li>QQ: 中川夏纪</li>
+<li>微信：吉川优子&amp;中川夏纪</li>
+<li>知乎：希儿</li>
+<li>B 站：中川夏纪</li>
+<li>github：久石奏</li>
+<li>网易云：铠冢霙 &amp; 伞木希美</li>
+<li>微软：伊吹萃香</li>
+<li>codeforces：伊吹萃香</li>
+<li>洛谷：伊吹萃香</li>
+</ul>
+<p>有些年代久远想不起来的就算了</p>
+<h2 id="1-动画">1. 动画</h2>
+<p>动画厨力角色的一些特点</p>
+<ul>
+<li>作品的剧情和表现质量有一定门槛。角色以此引起注意，这是重要的基础。出于这个原因，角色厨力很多时候只是动画内比较，多部番的横向比较现象不明显。</li>
+<li>对角色厨力的形成来源于对于观众来说的注意力节点，观众因此形成对角色行为模式、特质的深刻印象。实际上和戏份多少并不是直接关系。</li>
+<li>党争片中角色之间出现一些矛盾，这时角色的行为模式会造成区分度。有时对一部作品没有深刻印象，但角色之间区分度较大，也会引起注意。同时，党争片中的站队具有一定社交意义，或者说这属于外部因素带来的注意力。当然，如果最终没有形成足够的区分度，会有整体的印象分降低。</li>
+</ul>
+<p>下面是一些厨力</p>
+<ul>
+<li>
+<p>某些作品由于人数过多竞争太激烈惨遭淘汰，实际上如果按抽象的统一标准会入围很多人。</p>
+</li>
+<li>
+<p>作品厨不在表中，某些角色没有出现只是因为角色不戳 xp。</p>
+</li>
+<li>
+<p>没有加入传统恋爱题材作品中的角色。<s>ちょっとはずかしい</s></p>
+</li>
+<li>
+<p>真的没有迫伞</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">角色</th>
+<th style="text-align:center">出处</th>
+<th style="text-align:center">厨力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">南中四姬，伞除外</td>
+<td style="text-align:center">京吹</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:center">久石奏，剑崎梨梨花，黄前久美子</td>
+<td style="text-align:center">京吹</td>
+<td style="text-align:center">11</td>
+</tr>
+<tr>
+<td style="text-align:center">莓</td>
+<td style="text-align:center">国家队</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">黑川茜</td>
+<td style="text-align:center">我推</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">小鸟游六花</td>
+<td style="text-align:center">中二病</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">友利奈绪</td>
+<td style="text-align:center">Charlotte</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">千反田える，伊原まやあ</td>
+<td style="text-align:center">冰菓</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">惠惠</td>
+<td style="text-align:center">この素晴</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-抽卡手游">2. 抽卡手游</h2>
+<p>抽卡手游的注意力情况就很不同。由于在持续运营的游戏中角色数量不断增长，玩家对角色需要在资源、精力上进行分配，这造成了对不同角色之间的注意力不公平。同时一定程度上造成了判断标准的浅层化。因此，抽卡手游的角色 xp 横向对比不具有一定深度的意义。</p>
+<p>这里点名表扬崩坏 3，通过卡池中推出同角色的不同形态，在剧情上保持了相对较少的人数，甚至采取同特质角色、出演活动剧情的形式建立了类似多 if 线的效果。这样做的好处是可以在一个长的时间线甚至 if 线上描述角色的成长、变化，维持了角色塑造的厚度。目前粥也少量参考了这种模式。</p>
+<p>然而某二字开放世界游戏没有妥善处理上述两个问题，很多时候卡池角色的剧情厚度甚至不如世界任务中的 npc。可以说这是卡池模式的一个重要问题。另外该二字游戏在角色间互动的塑造也有一定缺失，这可能和产能有关，因为如果没有选定主角团或阶段性的主角团，对每一组团体创作一定深度的剧情所需产能是巨大的。</p>
+<p>我们不对比手游和动画的具体的塑造逻辑差异，实际上这有很多难以统一的标准和难以理清的外部因素（或者另开一坑）。各种艺术形式的表现结构本身不同、而抽卡手游的创作逻辑和接受逻辑和动画有很多根本性的不同。将不同艺术形式的艺术组成部分单拎出来比较是不负责任的。其关键在于你投入到作品中时以及日常中自己的接受形式以及对各部分的要求。</p>
+<p>下表可能不完整。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">角色</th>
+<th style="text-align:center">出处</th>
+<th style="text-align:center">厨力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">布洛妮娅·扎伊切克（剧情前期）</td>
+<td style="text-align:center">崩坏 3</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">希儿·芙乐艾（剧情前期）</td>
+<td style="text-align:center">崩坏 3</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">观星，德尔塔，维尔薇</td>
+<td style="text-align:center">崩坏 3</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">爱莉希雅，琪亚娜</td>
+<td style="text-align:center">崩坏 3</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">莱依拉，伐难</td>
+<td style="text-align:center">原神</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">芙宁娜，菲谢尔，珊瑚宫心海，归终</td>
+<td style="text-align:center">原神</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">三月七，布洛妮娅·兰德</td>
+<td style="text-align:center">星穹铁道</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">星，符玄</td>
+<td style="text-align:center">星穹铁道</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">林雨霞，赫默，华法琳，蕾缪安</td>
+<td style="text-align:center">明日方舟</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">W，白金，多萝茜，斯卡蒂</td>
+<td style="text-align:center">明日方舟</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">Sonetto，Vertin</td>
+<td style="text-align:center">1999</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<h1>Part 2 CV</h1>
+<p>喜欢的声线</p>
+<p>这一部分实在很难分类。主要就分为</p>
+<ul>
+<li>乙女。特点是：声线放松，有少量气音，听起来不完全圆润</li>
+<li>无口吐槽役（幼）。</li>
+</ul>
+<p>上面两种一般来说都属于比较清晰放松的类型。<s>似乎和平胸在声学构造上有高度关联</s></p>
+<p><s>确实不太喜欢那种 “听起来就很大” 的声线</s></p>
+<p><s>再次声明在几何上对平胸没有特殊爱好，可能真的是和声线有所关联</s></p>
+<ul>
+<li>无口重女。</li>
+</ul>
+<p>加上这一种，上面三种基本上体现了 青涩/冷静/社恐 等要素。</p>
+<p>另外有两大类</p>
+<ul>
+<li>骂人的彩喵/佐仓</li>
+<li>懒</li>
+</ul>
+<p>下面是一些举例，可能不全，但主要是印象比较深刻的。</p>
+<h3 id="1-乙女：低">1 乙女：低</h3>
+<p>鬼頭明里：赫默</p>
+<p>市之濑加奈：莓 / 菲伦</p>
+<p>茅野愛衣：白金</p>
+<p>多多：德尔塔</p>
+<p>阮从青：维尔薇</p>
+<h3 id="2-乙女：中">2 乙女：中</h3>
+<p>黒沢ともよ：黄前久美子</p>
+<p>茅野愛衣：伊原摩耶花</p>
+<p>阮从青：维尔薇</p>
+<p>雨宮天：久石奏</p>
+<p>高橋李依：爱/夜魔（里）</p>
+<p>石見舞菜香：黑川茜 / 华法琳</p>
+<p>佐仓绫音：友利奈绪</p>
+<h3 id="3-乙女：高">3 乙女：高</h3>
+<p>包包：爱莉希雅</p>
+<p>种田梨沙：艾雅法拉</p>
+<p>高橋李依：惠惠/胡桃</p>
+<h3 id="4-想被骂">4 想被骂</h3>
+<p>低音区共鸣充分，听起来中气很足，被骂得很舒服</p>
+<p>佐仓绫音：友利奈绪</p>
+<p>竹达彩奈：W / 中野二乃</p>
+<p>阮从青：维尔薇</p>
+<h3 id="5-无口：幼">5 无口：幼</h3>
+<p>hanser：布洛妮娅</p>
+<p>井口裕香：茵蒂克丝/降谷萌路</p>
+<p>阿澄佳奈 ：布洛妮娅</p>
+<p>包包：莉莉娅</p>
+<p>悠木碧：荧/真理</p>
+<h3 id="6-无口：重">6 无口：重</h3>
+<p>气音较多，音域较低，听起来有点费力。</p>
+<p>能登麻美子：苇草 / 一之濑琴美</p>
+<p>種﨑敦美：铠冢霙 / 蓝毒</p>
+<h3 id="7-懒">7 懒</h3>
+<p>田所梓：克洛斯</p>
+<h1>Part 3 外观</h1>
+<p>首先还是举一些例子</p>
+<h1>Part 4 结论</h1>
+<p>基本上就是几个方向</p>
+<ul>
+<li>冷静坚定敏锐的乙女</li>
+<li>开朗过头的阴谋家</li>
+<li>天然呆</li>
+<li>妈妈</li>
+</ul>
+<p>总结来说就是冷静、自信、天真、亚萨西。实际上这个总结也是不完全的，因为对于词语的具体诠释还有很大空间。</p>
+<p>虽然听起来很苛刻，但脑子掉线会减分。</p>
+<p>完了，又变成择偶了。仔细想想无外乎</p>
+<ul>
+<li>让我想要抱抱</li>
+<li>想要抱抱我</li>
+<li>以及抱抱的能力和默契</li>
+</ul>
+<p>回到开头。人最终还是要爱自己的，这么一看似乎爱抽象的人也没什么关系。再一次想这句话，其实也是在陈述一个普遍的道理：分清楚手段和目的。只有目的是应该坚持的，不应该把半路上的 xp 当作追求。</p>
+<p>内容未经整理、且未经归一化，可能不具有参考价值</p>
+<h3 id="0">0</h3>
+<p>乙女</p>
+<h3 id="1">1</h3>
+<p>中二病</p>
+<p>小恶魔</p>
+<p>健康（？）的笑</p>
+<p>多重人格</p>
+<p>冷静甚至冷酷</p>
+<p>认真</p>
+<p>沉重</p>
+<h3 id="2">2</h3>
+<p>ご機嫌よう～</p>
+<p>全程敬语？</p>
+<h3 id="3">3</h3>
+<p>认真脸</p>
+<p>节能脸</p>
+<h3 id="4">4</h3>
+<p>深邃的瞳色</p>
+<p>荧光瞳</p>
+<p>短发/肩发</p>
+<p>少量卷发</p>
+<p>挑染/内挑染</p>
+<p>进气孔发型</p>
+<h3 id="5">5</h3>
+<p>魔法帽</p>
+<p>发卡</p>
+<p>手套</p>
+<p>正反面异色的布料</p>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                                <a href="/%E6%B5%81%E6%B0%B4%E8%B4%A6/%E8%A7%84%E5%BE%8B%E4%BD%9C%E6%81%AF/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
+                                        上一篇
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
+                                        流水账 | 规律作息
+                                    </div>
+                                </a>
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/%E6%B5%81%E6%B0%B4%E8%B4%A6/%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        下一篇
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
+                                        流水账 | 看番记录
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5" style="position: -webkit-sticky; position: sticky; top: 80px; z-index: 1;">
+            <div class="mdui-card mdui-shadow-1" style="border-radius: 8px;">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative; margin-top: -50px;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4" style="width: 80px; height: 80px; border: 2px solid white; display: inline-flex; align-items: center; justify-content: center;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">生猛活海鲜现宰现炒</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      沉入死寂的深海。。。捞点海鲜尝尝。
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">61</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">文章</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">分类</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">0</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">标签</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:ncchen@mail.ustc.edu.cn" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/nashchennc" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            
+                <div class="mdui-card mdui-shadow-1 mdui-m-t-2">
+                    <div class="mdui-card-content">
+                        <div class="mdui-typo-heading">目录</div>
+                        <div class="mdui-card-content" style="max-height: 35vh; overflow-y: auto;">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">要爱具体的人</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Part 1 当前厨力</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#%E6%9C%80%E7%BB%88%E8%A7%A3%E9%87%8A%E8%AF%B7%E6%9D%A5%E6%89%BE%E6%9C%AC%E4%BA%BA%E7%A1%AE%E8%AE%A4"><span class="mdui-list mdui-typo-text">最终解释请来找本人确认。</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-%E5%8A%A8%E7%94%BB"><span class="mdui-list mdui-typo-text">1. 动画</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-%E6%8A%BD%E5%8D%A1%E6%89%8B%E6%B8%B8"><span class="mdui-list mdui-typo-text">2. 抽卡手游</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Part 2 CV</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-%E4%B9%99%E5%A5%B3%EF%BC%9A%E4%BD%8E"><span class="mdui-list mdui-typo-text">1 乙女：低</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-%E4%B9%99%E5%A5%B3%EF%BC%9A%E4%B8%AD"><span class="mdui-list mdui-typo-text">2 乙女：中</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#3-%E4%B9%99%E5%A5%B3%EF%BC%9A%E9%AB%98"><span class="mdui-list mdui-typo-text">3 乙女：高</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#4-%E6%83%B3%E8%A2%AB%E9%AA%82"><span class="mdui-list mdui-typo-text">4 想被骂</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#5-%E6%97%A0%E5%8F%A3%EF%BC%9A%E5%B9%BC"><span class="mdui-list mdui-typo-text">5 无口：幼</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#6-%E6%97%A0%E5%8F%A3%EF%BC%9A%E9%87%8D"><span class="mdui-list mdui-typo-text">6 无口：重</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#7-%E6%87%92"><span class="mdui-list mdui-typo-text">7 懒</span></a></li></ol></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Part 3 外观</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Part 4 结论</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#0"><span class="mdui-list mdui-typo-text">0</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1"><span class="mdui-list mdui-typo-text">1</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2"><span class="mdui-list mdui-typo-text">2</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#3"><span class="mdui-list mdui-typo-text">3</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#4"><span class="mdui-list mdui-typo-text">4</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#5"><span class="mdui-list mdui-typo-text">5</span></a></li></ol></li></ol></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+<div id="bottom"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2025 <span class="mdui-text-color-theme">生猛活海鲜现宰现炒</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  <!-- Global helper scripts -->
+  <script>
+    // 自动为所有表格和图片添加样式，替代原 post.ejs 中的内联脚本
+    document.addEventListener("DOMContentLoaded", function() {
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>
