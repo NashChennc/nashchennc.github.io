@@ -1,0 +1,245 @@
+/* 
+ * mdblog 自定义样式 - 最小化版本
+ * 只包含无法用 MDUI 工具类实现的部分
+ */
+
+/* ============================================
+ * MDUI CSS 自定义属性全局调整
+ * ============================================ */
+:root {
+  /* 使用 MDUI 自定义属性替代硬编码值 */
+  --mdui-shape-corner-medium: 8px;
+}
+
+/* ============================================
+ * 全局样式（无法用 MDUI 类替代的部分）
+ * ============================================ */
+/* 字体已在 body 标签的类中设置，这里只保留必要的全局样式 */
+html {
+  scroll-padding-top: 80px;
+  /* scroll-behavior: smooth; 已移除，防止首页自动下滑 */
+}
+
+/* 链接换行处理（MDUI 没有提供此功能） */
+.mdui-typo a {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+/* Footer 间距（使用 MDUI 类可能不够精确） */
+footer {
+  padding: 24px 0;
+}
+
+/* 图片响应式（MDUI 的 mdui-img-fluid 类已处理，但保留作为兜底） */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 侧边栏包装器响应式 */
+#sidebar-wrapper {
+  margin-top: 16px;
+}
+
+@media (min-width: 992px) {
+  #sidebar-wrapper {
+    margin-top: 0;
+  }
+}
+
+/* ============================================
+ * 粘性侧边栏工具类
+ * ============================================ */
+.sticky-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80px;
+  z-index: 1;
+}
+
+/* ============================================
+ * Hero Banner 样式（首页专用）
+ * ============================================ */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 95vh;
+  min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+}
+
+.hero-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  opacity: 0;
+  animation: heroFadeIn 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+/* Hero 动画 */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 滚动指示器已移除 */
+
+/* ============================================
+ * 文章卡片样式（首页专用）
+ * ============================================ */
+.post-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+}
+
+.post-card-media {
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-post .post-card-media {
+  height: 350px;
+}
+
+.post-card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 限制摘要行数 */
+.limit-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6;
+  height: calc(1.6em * 3);
+}
+
+/* ============================================
+ * 滚动显现动画
+ * ============================================ */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+ * 等高列布局（Flexbox 补丁）
+ * ============================================ */
+.equal-height-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.equal-height-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+ * Banner 容器样式（通用）
+ * ============================================ */
+.banner-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: top;
+  background-size: cover;
+  z-index: 0;
+}
+
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* ============================================
+ * 侧边栏头像负边距（无法用 MDUI 类实现）
+ * ============================================ */
+.sidebar-avatar-offset {
+  margin-top: -50px;
+}
+
+/* ============================================
+ * 目录窗口高度样式
+ * ============================================ */
+.toc-full-height {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 92px); /* 最大高度：80px (sticky top) */
+}
+
+.toc-card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  min-height: 0; /* 允许 flex 子元素缩小 */
+}
+
+.toc-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1 1 auto; /* 自动适应内容，但可以缩小 */
+  min-height: 0; /* 允许缩小到内容高度 */
+}
+

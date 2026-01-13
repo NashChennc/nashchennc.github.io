@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Interpretable Interpretability &amp; LLM Safety - Blog ｜ Nebula and Nova</title>
+  <title>Interpretable Interpretability &amp; LLM Safety - NaN&#39;s Blog ｜ Not a Nihilist</title>
 
   <!-- MDUI CSS -->
   <link rel="stylesheet" href="/mdui/css/mdui.min.css">
@@ -12,53 +12,12 @@
   <!-- KaTeX CSS (If needed) -->
   <link rel="stylesheet" href="/katex/katex.min.css">
 
+  <!-- Custom CSS (最小化，只包含无法用 MDUI 实现的部分) -->
+  <link rel="stylesheet" href="/css/custom.css">
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <meta name="theme-color" content="#3F51B5">
-
-  <style>
-    body {
-      font-family: 'Roboto', 'Noto Sans SC', sans-serif;
-      background-color: #f5f5f5; /* 增加一点背景色对比 */
-    }
-    
-    html {
-        scroll-padding-top: 80px;
-        scroll-behavior: smooth;
-    }
-    
-    .mdui-typo a {
-      word-break: break-all;
-      overflow-wrap: break-word;
-    }
-
-    .mdui-card {
-      border-radius: 8px !important;
-      transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .mdui-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .typo-h1, h1 { font-weight: 300; letter-spacing: -0.015em; }
-    .typo-body, p { line-height: 1.8; color: rgba(0,0,0,0.87); }
-
-    footer {
-      padding: 24px 0;
-    }
-    
-    img { max-width: 100%; height: auto; }
-
-    #sidebar-wrapper {
-        margin-top: 16px;
-    }
-    @media (min-width: 992px) {
-        #sidebar-wrapper {
-            margin-top: 0;
-        }
-    }
-  </style>
 <meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
   
@@ -76,7 +35,7 @@
                 
                     
                         <a href="/categories/笔记" class="mdui-ripple ">
-                            笔记 | 3
+                            笔记 | 6
                         </a>
                     
                 
@@ -88,7 +47,7 @@
                 
                     
                         <a href="/categories/碎碎念" class="mdui-ripple ">
-                            碎碎念 | 26
+                            碎碎念 | 29
                         </a>
                     
                 
@@ -113,7 +72,7 @@
             </div>
         
         <div class="mdui-toolbar-spacer"></div>
-        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '一个没什么用的按钮'}">
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
             <i class="mdui-icon material-icons"> more_vert </i>
         </a>
     </div>
@@ -122,27 +81,17 @@
   <!-- Main Content (Layout control moved to individual views) -->
   <div id="main-content">
     <!-- 全宽 Banner -->
-<div style="position: relative; width: 100%; height: 350px; overflow: hidden;">
-    <div style="
-        background-image: url(/image/banner.png); 
-        background-position: top; 
-        background-size: cover; 
-        width: 100%; 
-        height: 100%; 
-        position: absolute; 
-        top: 0; 
-        left: 0; 
-        z-index: 0;
-    "></div>
+<div class="banner-container" style="height: 350px;">
+    <div class="banner-bg" style="background-image: url(/image/banner.png);"></div>
     
-    <div class="mdui-card-media-covered" style="background: rgba(0, 0, 0, 0.4); position: absolute; bottom: 0; width: 100%; padding: 0;">
+    <div class="mdui-card-media-covered banner-overlay" style="background: rgba(0, 0, 0, 0.4);">
         <div class="mdui-container">
-            <div class="mdui-card-primary mdui-float-right" style="color: #fff; padding-top: 16px; padding-bottom: 16px;">
+            <div class="mdui-card-primary mdui-float-right mdui-text-color-white mdui-p-y-2">
                 <div class="mdui-card-primary-title" style="font-weight: 300;">
-                    昨日の僕守る為に / 笑うくらいなら / 泣いたっていいだろ？ ねぇ。
+                    NaN&#39;s Blog ｜ Not a Nihilist
                 </div>
                 <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
-                    「雨き声残響」Orangestar / IA
+                    Nomen a Nullo. Nihil ad Nomen.
                 </div>
             </div>
         </div>
@@ -161,17 +110,17 @@
         <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
             <i class="mdui-icon material-icons">keyboard_arrow_up</i>
         </a>
-        <a href="#bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+        <a href="#page-bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
             <i class="mdui-icon material-icons">keyboard_arrow_down</i>
         </a>
     </div>
 </div>
 
 <div class="mdui-container">
-    <div class="mdui-row">
+    <div class="mdui-row mdui-p-t-1 mdui-p-b-1">
         <!-- 文章内容 -->
 
-        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5">
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-1 mdui-p-b-4">
             <div class="mdui-card mdui-hoverable">
                 <div class="mdui-card-primary mdui-p-x-5">
                     <div class="mdui-card-primary-title mdui-typo-display-1">
@@ -179,7 +128,7 @@
                     </div>
                     <div class="mdui-row mdui-p-t-2">
                         <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
-                            Last Update: 2025/12/12 13:23
+                            Last Update: 2026/01/13 14:40
                         </div>
                         <div class="mdui-col-xs-3">
                             <div class="mdui-float-right mdui-typo">
@@ -385,6 +334,86 @@
 <p>A40 单卡跑8B模型+大约<a target="_blank" rel="noopener" href="https://aideadlin.es/?sub=ML,NLP,SP,KR,HCI,DM">https://aideadlin.es/?sub=ML,NLP,SP,KR,HCI,DM</a><a target="_blank" rel="noopener" href="https://ccfddl.com">https://ccfddl.com</a></p>
 <h2 id="20250425">20250425</h2>
 <p><a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/qykrYY6rXXM7EEs8Q/understanding-sae-features-with-the-logit-lens">利用富集度提取特征</a></p>
+<h2 id="202512">202512</h2>
+<ul>
+<li>202502 Are SAE Useful？ <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.16681">https://arxiv.org/abs/2502.16681</a></li>
+<li>202512 sae for embedding search <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2512.10092v1">https://arxiv.org/abs/2512.10092v1</a></li>
+<li>202509 iclr26 高分被拒 SAE reconstruction for OOD detection <a target="_blank" rel="noopener" href="https://openreview.net/forum?id=F6DzptrpGI">https://openreview.net/forum?id=F6DzptrpGI</a></li>
+<li>202509 Target Aligned Data Filtering <a target="_blank" rel="noopener" href="https://openreview.net/forum?id=cgmo3v18sx">https://openreview.net/forum?id=cgmo3v18sx</a></li>
+<li>202411 Decoding Dark Matter <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2411.00743v1">https://arxiv.org/abs/2411.00743v1</a></li>
+<li>202410 Sparse Autoencoder Feature Structure <a target="_blank" rel="noopener" href="https://arxiv.org/html/2410.19750v1">https://arxiv.org/html/2410.19750v1</a> 分析数据集</li>
+<li>202508 Domain-Specific SAE <a target="_blank" rel="noopener" href="https://arxiv.org/html/2508.09363v1">https://arxiv.org/html/2508.09363v1</a></li>
+<li>202509 Fine-grained Safety <a target="_blank" rel="noopener" href="https://arxiv.org/html/2509.18127v1">https://arxiv.org/html/2509.18127v1</a></li>
+<li>202411 steering refusal <a target="_blank" rel="noopener" href="https://arxiv.org/html/2411.11296v1">https://arxiv.org/html/2411.11296v1</a></li>
+<li>202507 Delta SAE <a target="_blank" rel="noopener" href="https://arxiv.org/html/2507.12990v1">https://arxiv.org/html/2507.12990v1</a></li>
+<li>202409 refusal features <a target="_blank" rel="noopener" href="https://arxiv.org/html/2409.20089v2">https://arxiv.org/html/2409.20089v2</a>
+SAE重构误差还可以用于检测数据集中的对抗性攻击或“越狱”样本。攻击者注入的恶意Prompt往往会触发异常的内部激活模式（例如，激活幅度远超正常范围，或激活了互斥的特征组合）。通过监控SAE的重构误差以及特征激活的稀疏度（L0），研究者可以有效地筛选出这些潜在的“毒数据”，防止模型在训练中习得有害行为。</li>
+</ul>
+<h2 id="20251028-industrial-sae-for-pii-detection">20251028 Industrial: SAE for PII detection</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.goodfire.ai/research/rakuten-sae-probes-for-pii-detection#">https://www.goodfire.ai/research/rakuten-sae-probes-for-pii-detection#</a></li>
+</ul>
+<h3 id="1-标签的具体类别-classes">1. 标签的具体类别 (Classes)</h3>
+<p>文章明确定义了每一个 token（词元）被分类的目标集合。模型并非对整句话打标签，而是对序列中的每一个 token <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span> 进行预测。</p>
+<p>具体的标签集合 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> 为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>∈</mo><mo stretchy="false">{</mo><mtext mathvariant="monospace">personal_name</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">address</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">phone</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">email</mtext><mo separator="true">,</mo><mtext mathvariant="monospace">none</mtext><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">p \in \{ \texttt{personal\_name}, \texttt{address}, \texttt{phone}, \texttt{email}, \texttt{none} \}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord text"><span class="mord texttt">personal_name</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">address</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">phone</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">email</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord texttt">none</span></span><span class="mclose">}</span></span></span></span></span></p>
+<p>这意味着每一个 token 都会被标记为上述 5 种类别之一（具体的 PII 类型或者非 PII）。</p>
+<p>文章在 “Formal setup” 章节中描述了如何对每一个 token 进行操作。</p>
+<ul>
+<li>
+<p><strong>输入</strong>: 对于输入序列 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> 中的每一个 token <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>。</p>
+</li>
+<li>
+<p><strong>提取</strong>: 从 Sidecar 模型（Llama 3.1 8B）的中间层 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span> 提取激活值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi></mrow><annotation encoding="application/x-tex">h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">h</span></span></span></span>。</p>
+</li>
+<li>
+<p><strong>预测</strong>: 分类器（Probe）针对该 token 输出预测结果。</p>
+<ul>
+<li>对于 <strong>SAE Probe</strong>，它使用 SAE 特征激活值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span> 作为输入：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">E</mi></mrow></msub><mo>=</mo><msub><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">f</mi></mrow><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">E</mi></mrow></msub><mo stretchy="false">(</mo><mi>z</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">p_{\mathrm{SAE}} = \mathrm{clf}_\mathrm{SAE}(z)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">S</span><span class="mord mathrm mtight">A</span><span class="mord mathrm mtight">E</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">c</span><span class="mord mathrm">l</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">S</span><span class="mord mathrm mtight">A</span><span class="mord mathrm mtight">E</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>。</li>
+<li>目标就是预测该 token 对应的标签 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>。</li>
+</ul>
+</li>
+<li>
+<p>由于真实 PII 数据的敏感性，训练数据是<strong>全合成的 (entirely synthetic)</strong>。</p>
+</li>
+<li>
+<p>这意味着训练时的 token level 标签是由生成合成数据时自动标注的。</p>
+</li>
+<li>
+<p>文章的一个核心挑战是：在合成数据的 token 标签上训练，通过 SAE Probe 泛化到真实生产环境数据（Real production data）的 token 标签预测上。</p>
+</li>
+</ul>
+<h3 id="2-random-forest-for-sae-probing">2. Random Forest for SAE probing</h3>
+<p>We found that our SAE probes outperformed our activation probes and all attention probes. In particular, <strong>our SAE probes were considerably more robust across the distribution shift from synthetic to real data.</strong></p>
+<p>随机森林属于 <strong>Bagging (Bootstrap Aggregating)</strong> 算法。</p>
+<ul>
+<li><strong>原理：</strong> 想象你要做一个重大决定，你不想一个人做，而是找了 100 个专家（决策树）来投票。
+<ol>
+<li><strong>随机性 (Randomness)：</strong> 每个专家只看<strong>一部分数据</strong>（有放回抽样），并且只关注<strong>一部分特征</strong>。这样保证了每个专家都有差异，不会犯同样的错。</li>
+<li><strong>并行 (Parallel)：</strong> 这 100 个专家是互不干扰、同时训练的。</li>
+<li><strong>投票 (Voting)：</strong> 最终结果由多数决（分类）或平均值（回归）决定。</li>
+</ol>
+</li>
+<li><strong>为什么适合 SAE Probe？</strong>
+<ul>
+<li>SAE 特征通常是<strong>高维且稀疏</strong>的（成千上万个特征，大部分是 0）。随机森林在分裂节点时随机选取特征子集，非常擅长在高维噪音中找到有用的信号，且不容易过拟合。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-sae-探针">3. SAE 探针</h3>
+<p>We were surprised to find that the SAE probes outperformed the activation probes at all. Prior work suggests that probing with SAE features does not usually outperform probing with raw activations (<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.16681">Kantamneni et al., 2025</a>) and in particular does not generalize as well out of distribution (<a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/4uXCAJNuPKtKBsi28/sae-progress-update-2-draft">Smith et al., 2025</a>, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.03407">Goldowsky-Dill et al., 2025</a>). However, <a target="_blank" rel="noopener" href="https://www.tilderesearch.com/blog/sieve">Karvonen et al., 2024</a> provide an example in which SAEs do outperform activation-probe baselines (in a data-limited setting).
+我们惊讶地发现，SAE 探针的性能竟然优于激活探针。先前的研究表明，使用 SAE 特征进行探测通常不如使用原始激活进行探测（Kantamneni 等人，2025），尤其是在分布外泛化能力较差（Smith 等人，2025；Goldowsky-Dill 等人，2025）。然而，Karvonen 等人（2024）提供了一个例子，表明在数据受限的情况下，SAE 的性能确实优于激活探针基线。</p>
+<p>相比之下，在我们几乎所有的实验中，SAE 探针都超过了激活探针（主要例外是仅包含英文数据）。</p>
+<p>我们对我们的研究结果与以往大多数研究结果存在差异的原因有以下几点假设：</p>
+<ul>
+<li>我们研究的合成分布到真实分布的转变可能与先前研究中的分布转变有所不同（尤其是更大）。</li>
+<li>我们的 SAE 使用了比以往工作（大多为 32）更小的扩展因子（8）。虽然目前还没有广泛认可的扩展因子选择方法，但我们预期，当使用小型探测训练数据集时，较大的扩展因子会导致更多的特征分裂和较差的 OOD 泛化能力。</li>
+<li>我们的任务涉及位置感知标记级分类，而 Kantamneni 等人和 Smith 等人则使用最大池化 SAE 研究了整体提示分类任务。</li>
+<li>我们的任务包含大量日语数据——日语是 Llama 3.1 8B 不支持或资源匮乏的语言——而以往的研究仅考虑英语任务。有关不同语言的性能图表，请参见附录 D.3。</li>
+</ul>
+<p>See <a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/4uXCAJNuPKtKBsi28/sae-progress-update-2-draft#Is_it_surprising_that_SAEs_didn_t_work_">Smith et al.</a> for additional discussion of when SAEs may work better or worse for downstream tasks.<br>
+有关 SAE 在下游任务中何时可能表现更好或更差的更多讨论，请参阅 Smith 等人的文章。</p>
 
                 </div>
                 
@@ -395,29 +424,19 @@
                     <div class="mdui-row">
                         <div class="mdui-col-sm-3 mdui-text-left">
                             
-                                <a href="/%E7%A7%91%E7%A0%94/From%20Anthropic/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
-                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                <a href="/%E7%A7%91%E7%A0%94/Anti-Sycophancy%20Prompts/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
                                         <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
-                                        上一篇
+                                        Previous
                                     </div>
-                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
-                                        科研 | From Anthropic
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        科研 | Anti-Sycophancy Prompts
                                     </div>
                                 </a>
                             
                         </div>
                         <div class="mdui-col-sm-6"></div>
                         <div class="mdui-col-sm-3 mdui-text-right">
-                            
-                                <a href="/%E7%A7%91%E7%A0%94/Anti-Sycophancy%20Prompts/" class="mdui-ripple mdui-hoverable mdui-p-a-1" style="display: block; text-decoration: none; border-radius: 4px; color: inherit;">
-                                    <div class="mdui-typo-caption mdui-text-color-theme-accent" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                        下一篇
-                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
-                                    </div>
-                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate" style="font-weight: 500;">
-                                        科研 | Anti-Sycophancy Prompts
-                                    </div>
-                                </a>
                             
                         </div>
                     </div>
@@ -428,15 +447,26 @@
             
         </div>
         <!-- 侧边栏 -->
-        <div class="mdui-col-md-3 mdui-col-xs-12 mdui-p-t-3 mdui-p-b-5" style="position: -webkit-sticky; position: sticky; top: 80px; z-index: 1;">
-            <div class="mdui-card mdui-shadow-1" style="border-radius: 8px;">
+        <div class="mdui-col-md-3 mdui-col-xs-12  mdui-p-t-1 mdui-p-b-4 sticky-sidebar" id="post-sidebar">
+            
+                <div class="mdui-card mdui-shadow-1 toc-full-height">
+                    <div class="mdui-card-content toc-card-content">
+                        <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
+                        <div class="toc-content">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Interpretable Interpretability &amp; LLM Safety</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#%E4%B8%80%E4%BA%9B-llm-%E5%9F%BA%E7%A1%80"><span class="mdui-list mdui-typo-text">一些 LLM 基础</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#mi-alignment-%E8%B5%84%E6%96%99"><span class="mdui-list mdui-typo-text">MI &amp; Alignment 资料</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">记录</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2024-10-09"><span class="mdui-list mdui-typo-text">2024.10.09</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E7%9B%B8%E5%85%B3%E7%A0%94%E7%A9%B6"><span class="mdui-list mdui-typo-text">相关研究</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2024-12-25-sae"><span class="mdui-list mdui-typo-text">2024.12.25 SAE</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#transformer-circuits-thread-anthropic"><span class="mdui-list mdui-typo-text">Transformer Circuits Thread @Anthropic</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#sae-%E5%9F%BA%E7%A1%80"><span class="mdui-list mdui-typo-text">SAE 基础</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%88%90%E5%93%81"><span class="mdui-list mdui-typo-text">基本结构以及一些成品</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#sae-%E4%BD%BF%E7%94%A8%E4%BE%8B"><span class="mdui-list mdui-typo-text">SAE 使用例</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%8F%98%E4%BD%93-2024-10"><span class="mdui-list mdui-typo-text">未来的变体 2024.10</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#openmoss-language-model-saes"><span class="mdui-list mdui-typo-text">OpenMOSS&#x2F;Language-Model-SAEs</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#iclr2025"><span class="mdui-list mdui-typo-text">ICLR2025</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#oral"><span class="mdui-list mdui-typo-text">Oral</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#10-10-8-8-do-i-know-this-entity-knowledge-awareness-and-hallucinations-in-language-models"><span class="mdui-list mdui-typo-text">(10&#x2F;10&#x2F;8&#x2F;8) Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#poster"><span class="mdui-list mdui-typo-text">Poster</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#8-8-6-6-towards-principled-evaluations-of-sparse-autoencoders-for-interpretability-and-control"><span class="mdui-list mdui-typo-text">(8&#x2F;8&#x2F;6&#x2F;6) Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#ioi-task-%E9%97%B4%E6%8E%A5%E5%AE%BE%E8%AF%AD%E6%B5%8B%E8%AF%95"><span class="mdui-list mdui-typo-text">IOI task 间接宾语测试</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#8-8-6-6-sparse-autoencoders-do-not-find-canonical-units-of-analysis"><span class="mdui-list mdui-typo-text">(8&#x2F;8&#x2F;6&#x2F;6) Sparse Autoencoders Do Not Find Canonical Units of Analysis</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#6-6-6-5-rethinking-evaluation-of-sparse-autoencoders-through-the-representation-of-polysemous-words%C3%AD"><span class="mdui-list mdui-typo-text">(6&#x2F;6&#x2F;6&#x2F;5) Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Wordsí</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E4%BB%BB%E5%8A%A1"><span class="mdui-list mdui-typo-text">任务</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#20250314"><span class="mdui-list mdui-typo-text">20250314</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#20250425"><span class="mdui-list mdui-typo-text">20250425</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#202512"><span class="mdui-list mdui-typo-text">202512</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#20251028-industrial-sae-for-pii-detection"><span class="mdui-list mdui-typo-text">20251028 Industrial: SAE for PII detection</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-%E6%A0%87%E7%AD%BE%E7%9A%84%E5%85%B7%E4%BD%93%E7%B1%BB%E5%88%AB-classes"><span class="mdui-list mdui-typo-text">1. 标签的具体类别 (Classes)</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-random-forest-for-sae-probing"><span class="mdui-list mdui-typo-text">2. Random Forest for SAE probing</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#3-sae-%E6%8E%A2%E9%92%88"><span class="mdui-list mdui-typo-text">3. SAE 探针</span></a></li></ol></li></ol></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="mdui-m-t-2">
+                <div class="mdui-card mdui-shadow-1">
   <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
-    <img src="/image/card.png" style="width: 100%; height: 100%; object-fit: cover;">
+    <img src="/image/card.png" class="mdui-img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
 
-  <div class="mdui-card-content mdui-text-center" style="position: relative; margin-top: -50px;">
+  <div class="mdui-card-content mdui-text-center" style="position: relative;">
     
-      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4" style="width: 80px; height: 80px; border: 2px solid white; display: inline-flex; align-items: center; justify-content: center;">
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4 sidebar-avatar-offset" style="width: 80px; height: 80px; border: 2px solid white; display: block; margin-left: auto; margin-right: auto;">
     
 
     <div class="mdui-typo-headline mdui-m-t-2">NaN / Not a Name</div>
@@ -449,16 +479,16 @@
 
   <div class="mdui-row mdui-text-center mdui-p-y-2">
     <div class="mdui-col-xs-4">
-      <div class="mdui-typo-subheading">62</div>
-      <div class="mdui-typo-caption mdui-text-color-grey-600">文章</div>
+      <div class="mdui-typo-subheading">68</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">posts</div>
     </div>
     <div class="mdui-col-xs-4">
       <div class="mdui-typo-subheading">6</div>
-      <div class="mdui-typo-caption mdui-text-color-grey-600">分类</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Categories</div>
     </div>
     <div class="mdui-col-xs-4">
       <div class="mdui-typo-subheading">0</div>
-      <div class="mdui-typo-caption mdui-text-color-grey-600">标签</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Tags</div>
     </div>
   </div>
 
@@ -467,31 +497,22 @@
   <div class="mdui-card-actions mdui-text-center">
     
         
-            <a href="mailto:ncchen@mail.ustc.edu.cn" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+            <a href="mailto:your@email.com" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
                 <i class="mdui-icon material-icons">email</i>
             </a>
         
-            <a href="https://github.com/nashchennc" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+            <a href="https://github.com/yourusername" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
                 <i class="mdui-icon material-icons">code</i>
             </a>
         
     
   </div>
 </div>
-            
-                <div class="mdui-card mdui-shadow-1 mdui-m-t-2">
-                    <div class="mdui-card-content">
-                        <div class="mdui-typo-heading">目录</div>
-                        <div class="mdui-card-content" style="max-height: 35vh; overflow-y: auto;">
-                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Interpretable Interpretability &amp; LLM Safety</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#%E4%B8%80%E4%BA%9B-llm-%E5%9F%BA%E7%A1%80"><span class="mdui-list mdui-typo-text">一些 LLM 基础</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#mi-alignment-%E8%B5%84%E6%96%99"><span class="mdui-list mdui-typo-text">MI &amp; Alignment 资料</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">记录</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2024-10-09"><span class="mdui-list mdui-typo-text">2024.10.09</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E7%9B%B8%E5%85%B3%E7%A0%94%E7%A9%B6"><span class="mdui-list mdui-typo-text">相关研究</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2024-12-25-sae"><span class="mdui-list mdui-typo-text">2024.12.25 SAE</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#transformer-circuits-thread-anthropic"><span class="mdui-list mdui-typo-text">Transformer Circuits Thread @Anthropic</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#sae-%E5%9F%BA%E7%A1%80"><span class="mdui-list mdui-typo-text">SAE 基础</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%88%90%E5%93%81"><span class="mdui-list mdui-typo-text">基本结构以及一些成品</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#sae-%E4%BD%BF%E7%94%A8%E4%BE%8B"><span class="mdui-list mdui-typo-text">SAE 使用例</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%8F%98%E4%BD%93-2024-10"><span class="mdui-list mdui-typo-text">未来的变体 2024.10</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#openmoss-language-model-saes"><span class="mdui-list mdui-typo-text">OpenMOSS&#x2F;Language-Model-SAEs</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#iclr2025"><span class="mdui-list mdui-typo-text">ICLR2025</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#oral"><span class="mdui-list mdui-typo-text">Oral</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#10-10-8-8-do-i-know-this-entity-knowledge-awareness-and-hallucinations-in-language-models"><span class="mdui-list mdui-typo-text">(10&#x2F;10&#x2F;8&#x2F;8) Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#poster"><span class="mdui-list mdui-typo-text">Poster</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#8-8-6-6-towards-principled-evaluations-of-sparse-autoencoders-for-interpretability-and-control"><span class="mdui-list mdui-typo-text">(8&#x2F;8&#x2F;6&#x2F;6) Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#ioi-task-%E9%97%B4%E6%8E%A5%E5%AE%BE%E8%AF%AD%E6%B5%8B%E8%AF%95"><span class="mdui-list mdui-typo-text">IOI task 间接宾语测试</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#8-8-6-6-sparse-autoencoders-do-not-find-canonical-units-of-analysis"><span class="mdui-list mdui-typo-text">(8&#x2F;8&#x2F;6&#x2F;6) Sparse Autoencoders Do Not Find Canonical Units of Analysis</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#6-6-6-5-rethinking-evaluation-of-sparse-autoencoders-through-the-representation-of-polysemous-words%C3%AD"><span class="mdui-list mdui-typo-text">(6&#x2F;6&#x2F;6&#x2F;5) Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Wordsí</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E4%BB%BB%E5%8A%A1"><span class="mdui-list mdui-typo-text">任务</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#20250314"><span class="mdui-list mdui-typo-text">20250314</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#20250425"><span class="mdui-list mdui-typo-text">20250425</span></a></li></ol></li></ol>
-                        </div>
-                    </div>
-                </div>
-            
+            </div>
         </div>
     </div>
 </div>
-<div id="bottom"></div>
+<div id="page-bottom" aria-hidden="true"></div>
   </div>
   <!-- Footer -->
   <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
@@ -510,7 +531,9 @@
   <script src="/katex/contrib/auto-render.min.js"></script>
   
   <script>
+    // 合并所有 DOMContentLoaded 监听器
     document.addEventListener("DOMContentLoaded", function() {
+      // KaTeX 数学公式渲染
       renderMathInElement(document.body, {
         // 自定义分隔符，支持 $...$ 和 $$...$$
         delimiters: [
@@ -522,12 +545,8 @@
         // 忽略的标签
         ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
       });
-    });
-  </script>
-  <!-- Global helper scripts -->
-  <script>
-    // 自动为所有表格和图片添加样式，替代原 post.ejs 中的内联脚本
-    document.addEventListener("DOMContentLoaded", function() {
+
+      // 自动为所有表格和图片添加 MDUI 样式类
         var tables = document.getElementsByTagName("table");
         for (var i = 0; i < tables.length; i++) {
             if (!tables[i].classList.contains("mdui-table")) {
