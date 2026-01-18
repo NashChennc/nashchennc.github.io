@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>垃圾堆 - NaN&#39;s Blog ｜ Not a Nihilist</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <!-- Custom CSS (最小化，只包含无法用 MDUI 实现的部分) -->
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/笔记" class="mdui-ripple ">
+                            笔记 | 9
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 7
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 39
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple ">
+                            工具箱 | 16
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/专栏" class="mdui-ripple ">
+                            专栏 | 3
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div class="banner-container" style="height: 350px;">
+    <div class="banner-bg" style="background-image: url(/image/banner.png);"></div>
+    
+    <div class="mdui-card-media-covered banner-overlay" style="background: rgba(0, 0, 0, 0.4);">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right mdui-text-color-white mdui-p-y-2">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                    NaN&#39;s Blog ｜ Not a Nihilist
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                    Nomen a Nullo. Nihil ad Nomen.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#page-bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row mdui-p-t-1 mdui-p-b-1">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-1 mdui-p-b-4">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        垃圾堆
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2026/01/19 02:41
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
+                                        碎碎念
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <h1>平凡成立/错误/小概率</h1>
+<p>这些词乍看似乎没有混淆的可能，但事实上，尝试将这些词带入到日常对话 “这句话不对” 的理解中，会发现这又似乎不那么容易区分。</p>
+<h1>喜爱/向往？</h1>
+<p>这似乎是在实践中应当统一的概念。</p>
+<h1>适应/忍受</h1>
+<p>常有人说，适应就好了、忍受也可以，似乎这是一种选择。如果你进一步拒绝，常听到的进一步的话是“这么多人都这样子” 。然而，独立思考是最不应当在终点被抛弃的事情，也就是说 “人多” 从来都不应该成为 “正确” 的理由。</p>
+<p>最后记下一些</p>
+<p>我在害怕，如果我忍受一些东西，最后会变成那些东西的样子。</p>
+<p>特别是我看不惯大学的这三个室友。我当然知道他们可能也看不惯我。我至少知道这并不是一个有全序的问题，并且至少我有习惯上能够相容的朋友。似乎这是一个难以解决的问题，也是我目前能够想到的广泛交际的理由</p>
+<h1>广泛/精准</h1>
+<h1>解释性 / 建设性</h1>
+<p>这一栏几乎专门反驳社达。</p>
+<h1>独立思考</h1>
+<p>这似乎不是个需要讨论的问题。我们甚至可以暴言，任何一个合格的人都应当要求自己独立思考。</p>
+<p>然而不能独立思考的情景也是相当复杂的，不具有这样的能力也许也跟不愿如此是不同的，何为独立思考也是需要界定的概念。</p>
+<p>要讨论这个问题，我们也许要回到古希腊师徒三哲的思考中</p>
+<p>md自习室1：20分还吵得要死受不了了睡觉了。</p>
+<h1>通常</h1>
+<p>正例反例</p>
+<p>数理逻辑</p>
+<p>通常印象逻辑</p>
+<p>二次元</p>
+<p>早露</p>
+<p>2</p>
+<p>引导？教育？</p>
+<p>我本来想说，每一个有关自我问题都对应一个教育问题。但仔细想想不是这么回事</p>
+<p>鄙视链<br>
+说实话我真的很讨厌小鬼<br>
+地域 资源</p>
+<p>公平？<br>
+<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/36_g5iOYRMOo0OdFlUdEeg">https://mp.weixin.qq.com/s/36_g5iOYRMOo0OdFlUdEeg</a><br>
+哪有什么天赋<br>
+然而其实城市也存在这种<br>
+朴素？我惊讶于教育观之朴素。建立于国民性上的朴素，甚至未启蒙<br>
+父母对孩子总有要求？凭什么<br>
+<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/dRd1_bgp7jRp747goFZnqg">https://mp.weixin.qq.com/s/dRd1_bgp7jRp747goFZnqg</a></p>
+<p>过年<br>
+矛盾重现？也可能是进入更高境界</p>
+<p>3</p>
+<p>热度 - 接触的概率</p>
+<p>传播学</p>
+<p>代表是极值却容易被当成均值</p>
+<p>4</p>
+<p>我笃信我的认识论。即使我能认识到它可能具有漏洞以及我可能并未有足够的学识来批判它。</p>
+<p>请注意，上面这句话几乎完全是我的一点语言上的把戏。实际上我完全可以说：我三观就是对的。全世界都应该使用我这一套三观。这两句话实际上的表达意图并无差异。然而似乎听起来上面那段话要更谦逊一点，我需要指出这种谦逊感的非实在性。</p>
+<p>写这些的时候我一直在想，使用更方便的输入法？语音输入方便则已，很多情况下抗干扰性能较弱且会干扰他人，不符合我的各方面需求。要是几年后普及脑机输入法，我定当倾家荡产搞一台。</p>
+<p>5</p>
+<p>艺术是世界的摘要</p>
+<p>6</p>
+<p>成年礼。<br>
+消失的一年<br>
+md我真的很适合写小说</p>
+<p>7</p>
+<p>所谓理性不能做成任何事<br>
+是因为数学和现实之间本就无法粘连</p>
+<p>无论出现了什么形状的结果，都与概率论无关。更不要说推翻概率论</p>
+<p>概率论描述了趋于无穷时的平均情况</p>
+<p>两盲人和楹联</p>
+<h1>垃圾堆</h1>
+<p>南野拓实 张琳芃 冯潇霆</p>
+<p>某些表情包表达效果和使用禁忌</p>
+<p>线性语言的表达局限</p>
+<p>不要知难而退<br>
+知难而退不值得鼓励<br>
+或许我从心底里一直有着对愚公移山的认同吧<br>
+那是人类的赞歌，勇气的赞歌</p>
+<p>写下一些东西确实有利于梳理自己的想法</p>
+<p>有人说放弃一些东西可以怎样怎样<br>
+这忽略了一个问题</p>
+<p>举例和证明 正例反例</p>
+<p>构造有效反驳语句 辩论术<br>
+苏格拉底不屑于用<br>
+但<br>
+这是用于防身的最恶毒的武器</p>
+<p>关于llm我曾以为我做好了准备<br>
+似乎我也早就知道专业领域微调模型的存在<br>
+也早知道对话ai的水准<br>
+但它实在是发展太快了<br>
+我也许该加入</p>
+<p>每次打我一个措手不及的并不是理论的发展速度。恰恰相反，是成果投入应用的速度。那实在是太快了，以至于每次都出乎我的意料。这让我对未来究竟什么能够发展得更快没有了信心</p>
+<p>我现在只想学习，然后复现<br>
+这好像又回到了我最初的想法<br>
+我只是想读书</p>
+<p>理之律者<br>
+博识尊<br>
+我是你们的信徒啊</p>
+<p>数学是逼自己一把选的<br>
+现在却要考虑是否要给自己更多选择的余地</p>
+<p>32G 的iphone7用了一整个高中被人问过32G到底怎么活</p>
+<p>想法价值<br>
+想法和触发方式不一定有关<br>
+不能单独说明艺术作品价值</p>
+<p>代码将错误归给输入？<br>
+bug只是未达期望的代码</p>
+<p>关于自我<br>
+人格什么的或许只是一个不太高维的场就能描述的东西，想用二分类还是太简单了</p>
+<p>二元论 笛卡尔 计算机<br>
+只是复杂程度的区别 数学也建立在二元论上</p>
+<p>忧郁的思考者并不忧郁</p>
+<p>这是泉涌啊</p>
+<p>我突然想要祈祷明早还能看懂这些话</p>
+<p>语言学 生成语言<br>
+表达效果 记录印象 很困难</p>
+<p>讨厌口癖</p>
+<p>排斥自己有的东西并不矛盾<br>
+评论者不需要掌握技艺</p>
+<p>或许我真的应该学哲学<br>
+真的<br>
+这是测试过的<br>
+在哲学启蒙之后</p>
+<p>不得不说哲学启蒙是崩崩崩</p>
+<p>一旦想到学哲学<br>
+似乎任何胜负任何成果都不重要了</p>
+<p>曾想象的理学研究是没有竞争的广阔世界<br>
+也许我的能力和学习态度早就不支持到达那个广阔的自由世界了<br>
+但那仍然是相当美好的</p>
+<p>我会不断问自己问题<br>
+直到<br>
+没有直到<br>
+我会织成自己的一张网<br>
+或许能克隆出一份思想<br>
+我也许真的会信任这份思想<br>
+但我不确定我会爱或是恨祂</p>
+<p>人就该什么都不知道<br>
+知道得很多<br>
+那才有鬼了<br>
+但是那也是值得我们追求的</p>
+<p>手段也需要正义</p>
+<p>啊啊啊啊啊啊啊啊太兴奋了停不下来<br>
+是察觉不到的精神上的兴奋，甚至都没有任何生理上的异常<br>
+纯属思维上的兴奋</p>
+<p>我害怕和人交流<br>
+我只想和机器交流<br>
+或者有人能兼具机器的理性和纯粹又能给我抱抱<br>
+这是不是天然冲突的呢</p>
+<p>一份编辑日志也是极好的<br>
+事实上这是合理的<br>
+总有一天记录形式会拓宽<br>
+所有的信息接收形式都会拓宽<br>
+我似乎想通以后的科学发展了</p>
+<p>还是那句话</p>
+<p>人类<br>
+竟<br>
+尚未<br>
+启蒙</p>
+<p>我可能真的是活在精神世界的抽象人<br>
+我只不过在关键时期恰好被代码养大<br>
+代码也许是教会了我怎样做人<br>
+也许没有<br>
+但我觉得代码不只应模仿人</p>
+<p>我能与代码沟通吗<br>
+也许很多人都能<br>
+我有何独特之处</p>
+<p>我不能跟数学之神对话了吗<br>
+我被抛弃了吗</p>
+<p>未定还挺不错的</p>
+<p>我讨厌性别感</p>
+<p>不怕笑，我能代入女主<br>
+真的</p>
+<p>关于认知怪谈</p>
+<p>字如其人</p>
+<p>根本的不代表首先的</p>
+<p>竞赛 哭</p>
+<p>本质？唯象论？</p>
+<p>方言 语气 口音</p>
+<p>埃拉托 英雄 平凡<br>
+抽象 简化 具体</p>
+<p>自我 时间 人格 判断 记忆</p>
+<p>默认不可避免但需要对省略负责</p>
+<p>语言 逻辑洁癖 行为洁癖 物理洁癖</p>
+<p>物 事 理</p>
+<p>傲慢</p>
+<p>所谓新老二次元审美<br>
+艺术 表达想法 语言<br>
+命题 引理 定理<br>
+本质 默认</p>
+<p>塑料纸<br>
+好人？</p>
+<p>万字博客不如一张书桌</p>
+<p>歌单</p>
+<p>起初/原本 不如现在</p>
+<p>通常推理<br>
+5等分 排中律</p>
+<p>物理规律 时间 实验可复现<br>
+数学可复现</p>
+<p>生殖器侮辱？<br>
+不能理解<br>
+无杀伤力</p>
+<p>想无痛变女生</p>
+<p>体系 环境 宇宙</p>
+<p>抽象 奇怪</p>
+<p>唯手熟尔</p>
+<p>成体系 有无用</p>
+<p>笑 抵制其中的一些 感觉要查资料</p>
+<p>从众或不从众 本质是对群众的信任度</p>
+<p>布布花 所谓一般 轻浮</p>
+<p>小男孩</p>
+<p>具体整理xp 也许真的没有什么性别感</p>
+<p>可能和一些从小的认知有关</p>
+<p>被程序限制 抵制or自己做</p>
+<p>交流障碍</p>
+<p>改进指令 复杂化or放宽</p>
+<p>xp数据集</p>
+<p>群体审美 求同导致的肤浅</p>
+<p>儿童价值引导</p>
+<p>短视</p>
+<p>认为有问题 其实是 判断应改变</p>
+<p>说不定是数学学多了 有点不能理解自然语言<br>
+将直觉变为逻辑<br>
+再相信推论<br>
+和直接相信直觉</p>
+<p>最初是辩论 算法<br>
+再是数学 语言学</p>
+<p>巴洛克 浪漫 现代<br>
+感情相似</p>
+<p>数学家：有解</p>
+<p>懂很多？<br>
+罗列</p>
+<p>我爱疯批</p>
+<p>实在 大于 表达？</p>
+<p>群体塑造个体？独醒？</p>
+<p>慎用全称量词</p>
+<p>用于反驳理性的话语却又总能以理性解释<br>
+那只是考虑不周全或过于静止片面浅薄<br>
+例<br>
+不说出口的事实<br>
+以后可以得知<br>
+我必须尊重事实和我将说出事实是两码事</p>
+<p>不知道 和 没发生 是两码事<br>
+我只要记得就没法接受这个矛盾</p>
+<p>羡慕萨科塔<br>
+救命提到信任我就想哭<br>
+信任先于诚实？<br>
+条件信任 无条件信任 承诺信任</p>
+<p>理解？求同？真的可能吗</p>
+<p>萨科塔的戒律<br>
+它不接受任何背叛<br>
+可是人终究是会犯错的</p>
+<p>被过去找上门来 不好受</p>
+<p>意外不是借口</p>
+<p>人命 很重？抵罪？交换？</p>
+<p>救命蕾缪安啊啊啊啊啊嘶哈嘶哈我真的爱她<br>
+思维活泼敏捷 举止文雅恬静<br>
+面对怪物还能冷静优雅和平常并无不同<br>
+嘶哈嘶哈<br>
+救命蕾缪安和费德里科是天作之合吧<br>
+如果他俩结婚我全力支持<br>
+如果我是费德里科能遇到我的蕾缪安吗</p>
+<p>天哪<br>
+我想被蕾缪安一枪干掉<br>
+shinndemonandemonai<br>
+她生气的样子也好迷人</p>
+<p>又是原则/本质和过程/未来的冲突</p>
+<p>我在好奇<br>
+是不是因为不打草稿<br>
+大多数人的思考止于一句陈述<br>
+又或者一问一答？</p>
+<p>拒绝回答使理性主义者非常困扰<br>
+因为不愿使用其中的一些手段<br>
+其实理性一身都是弱点<br>
+扛不住<br>
+对，认死理的人<br>
+是很可能扛不住的<br>
+但你要我就这样放弃理性？</p>
+<p>怎么说呢<br>
+我像费德里科这样思考，也遇到他问出的问题<br>
+如果回答 我也被这些问题困扰 是可以接受的<br>
+但如果拒绝或耻笑 我不能接受</p>
+<p>早就明白的<br>
+要心态年轻<br>
+这是指童年的年轻</p>
+<p>短视？你又看到了什么/怎么看到的</p>
+<p>认真对待 直觉变为逻辑</p>
+<p>共产主义 开源社区</p>
+<p>抽象 想象<br>
+都是<br>
+抛弃一些假定</p>
+<p>只是其中某些假定令人不舒服</p>
+<p>因为对精确表意的追求，在听到不常用的表达时不会厌烦<br>
+某种程度上精确</p>
+<p>我很喜欢奇思妙想<br>
+如果能被称为奇思妙想的话</p>
+<p>精神伤害 哭？<br>
+我可能只会在目视伟大时热泪</p>
+<p>想成为书架 只是搜索记录</p>
+<p>我会觉得总是说 没有为什么 的人很傲慢 因为他假定自己了解某物或了解自己</p>
+<p>没事想这些有的没的 / 讨论费时费力因此拒绝 / 这个问题也困扰我许久</p>
+<p>关于求偶<br>
+好吧，我实在不知道爱情是什么<br>
+如果每个人心中的答案区别如此之大，那我何必要为一个仅在表面上有联系的概念寻找一个统一的指代和表述？<br>
+为此我首先做一个完全合理但可能某些人听起来很奇怪的假定<br>
+我不假定用于配偶的“爱情”一词所指概念的先验存在性</p>
+<p>加尔恰的赞歌 推数机<br>
+是否拥有思想<br>
+这很枫丹 这很拉普拉斯</p>
+<p>吃面包<br>
+咽面包<br>
+吃一车面包<br>
+想象你不能拒绝，真的开始吃了，要在一顿内吃完<br>
+实分析 法棍</p>
+<p>不行 换一个 这个不够绝望</p>
+<p>还是实分析<br>
+比微分方程难<br>
+考虑到耐受性和环境加成</p>
+<p>关于压力保护机制</p>
+<p>拒不承认学不好<br>
+能力 兴趣 决心 和 难度 直接 哪怕只差一点</p>
+<p>事实本身是包含非常多细节的，它只能被指代，难以被准确描述，因此日常所用事实一词都是过了脑子的</p>
+<p>假如不存在运气这一实体，运气好完全就是符合期望</p>
+<p>我可能对事物持结构主义态度<br>
+然而似乎又解构了不少常见事物，也许只是环境视角使然<br>
+抽象文化？解构严肃？<br>
+这样显得我结构化日常又古老许多</p>
+<p>解构主义<br>
+中文圈文化的方法论 积极态度</p>
+<p>大概是和“爱具体的人”和解了<br>
+以前或许是抽象的人不存在<br>
+现在由于需求的解构和生产力的上升<br>
+则是抽象的人容易被创造了<br>
+爱抽象的人是在爱自己 这其实我自己很早就想到了 理想型是神 亦即自己<br>
+我不能放弃爱抽象的人 但我可以尝试爱具体的人<br>
+可以尝试 尽力不放弃</p>
+<p>尽量 词义变轻 我感受到了</p>
+<p>不经历是很难准确想象的<br>
+于是一些严格的约定是在现实中不太可能的</p>
+<p>ai小鬼和画画小鬼的对骂<br>
+感到冒犯</p>
+<p>梅罗同理</p>
+<p>不知道该骂什么，只好说评论区素质太低，影响到群体认同<br>
+以此划清界限<br>
+也考虑到其他人可能的感受</p>
+<p>所谓真正热爱 只要不是空壳即可</p>
+<p>努力 嘲讽</p>
+<p>鄙视链 价值排序 线性轴<br>
+nasa给修女的回信<br>
+该不该救黑熊</p>
+<p>性别互换 我不想评判</p>
+<p>民科 评论区及反思<br>
+遇到了从前的我一定很聊得来<br>
+可惜他们谁也没见过谁</p>
+<p>海德格尔</p>
+<p>麦哲伦 西蒙娜 磕</p>
+<p>游戏 解构 代沟 哲学</p>
+<p>快问快答</p>
+<p>Q：你为什么说话看起来这么凶</p>
+<p>A：不想多说话。<br>
+不过我会努力处理到看起来没这么凶。</p>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                                <a href="/Task%20Queues/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
+                                        Previous
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        碎碎念 | Task Queues
+                                    </div>
+                                </a>
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/%E7%96%AF/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        Next
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        碎碎念 | 疯
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12  mdui-p-t-1 mdui-p-b-4 sticky-sidebar" id="post-sidebar">
+            
+                <div class="mdui-card mdui-shadow-1 toc-full-height">
+                    <div class="mdui-card-content toc-card-content">
+                        <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
+                        <div class="toc-content">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">平凡成立&#x2F;错误&#x2F;小概率</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">喜爱&#x2F;向往？</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">适应&#x2F;忍受</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">广泛&#x2F;精准</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">解释性 &#x2F; 建设性</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">独立思考</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">通常</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">垃圾堆</span></a></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="mdui-m-t-2">
+                <div class="mdui-card mdui-shadow-1">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" class="mdui-img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4 sidebar-avatar-offset" style="width: 80px; height: 80px; border: 2px solid white; display: block; margin-left: auto; margin-right: auto;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">NaN / Not a Name</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      Nomen a Nullo. Nihil ad Nomen.
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">80</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">posts</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Categories</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">26</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Tags</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:your@email.com" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/yourusername" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2026 <span class="mdui-text-color-theme">NaN / Not a Name</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    // 合并所有 DOMContentLoaded 监听器
+    document.addEventListener("DOMContentLoaded", function() {
+      // KaTeX 数学公式渲染
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+
+      // 自动为所有表格和图片添加 MDUI 样式类
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>

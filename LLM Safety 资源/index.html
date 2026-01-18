@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LLM Safety 资源 - NaN&#39;s Blog ｜ Not a Nihilist</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <!-- Custom CSS (最小化，只包含无法用 MDUI 实现的部分) -->
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/笔记" class="mdui-ripple ">
+                            笔记 | 9
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 7
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 39
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple ">
+                            工具箱 | 16
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/专栏" class="mdui-ripple ">
+                            专栏 | 3
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div class="banner-container" style="height: 350px;">
+    <div class="banner-bg" style="background-image: url(/image/banner.png);"></div>
+    
+    <div class="mdui-card-media-covered banner-overlay" style="background: rgba(0, 0, 0, 0.4);">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right mdui-text-color-white mdui-p-y-2">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                    NaN&#39;s Blog ｜ Not a Nihilist
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                    Nomen a Nullo. Nihil ad Nomen.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#page-bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row mdui-p-t-1 mdui-p-b-1">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-1 mdui-p-b-4">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        LLM Safety 资源
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2026/01/18 02:37
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E7%A7%91%E7%A0%94/">
+                                        科研
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <h1>信息源</h1>
+<h2 id="1-三大ai顶会-nlp顶会">1. 三大AI顶会 &amp; NLP顶会</h2>
+<p>顶会的文章通常比较严谨，开源可复现。并且通常学术界的文章实验条件接近，容易参考。但质量并非都很好。因此要留意划分的oral/spotlight/poster级别，以及审稿人意见和rebuttal过程，以此参考文章质量。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://openreview.net/group?id=ICLR.cc">Openreview | ICLR</a></li>
+<li><a target="_blank" rel="noopener" href="https://openreview.net/group?id=ICML.cc">Openreview | ICML</a></li>
+<li><a target="_blank" rel="noopener" href="https://openreview.net/group?id=NeurIPS.cc">Openreview | NeurIPS</a></li>
+<li><a target="_blank" rel="noopener" href="https://aclanthology.org/venues/acl/">ACL Anthology | ACL</a></li>
+<li><a target="_blank" rel="noopener" href="https://aclanthology.org/venues/emnlp/">ACL Anthology | EMNLP</a></li>
+</ul>
+<h2 id="2-核心实验室">2. 核心实验室</h2>
+<p>工业界的研究通常比较领先，很多方法和研究方向值得参考意义。但通常闭源、需要很高计算资源，难以直接上手。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/research">Anthropic | Alignment / Interpretability</a> <strong>(必读)</strong> 他们的文章质量极高，在 Alignment 方面处于领导地位。</li>
+<li><a target="_blank" rel="noopener" href="https://openai.com/research">OpenAI Safety Team</a> 在页面中寻找 Safety 标签，关注 <strong>Preparedness Framework</strong> 和 Superalignment (尽管团队重组，但过往文档极具价值) 和关于 GPT-4 System Card 的技术报告，里面详细描述了红队测试的过程。</li>
+<li><a target="_blank" rel="noopener" href="https://deepmind.google/discover/">Google DeepMind</a> 筛选 Responsibility 或 Safety，关注 <strong>Safety &amp; Ethics</strong> 部门的研究，特别是关于 Agent Misalignment 和 Reward Hacking 的研究。</li>
+<li><a target="_blank" rel="noopener" href="https://www.safe.ai/research">BAIR (Berkeley AI Research)</a> 由 Dan Hendrycks 领导，非常纯粹的 Safety 研究机构。他们发布的 <strong>“Statement on AI Risk”</strong> 和各类 Safety Benchmark 是必看的。关注 <strong>Center for AI Safety (CAIS)</strong>。</li>
+</ul>
+<h2 id="1-3-社区与预印本平台">1.3. 社区与预印本平台</h2>
+<ul>
+<li>顶会的 Workshop 往往比主会更前沿。寻找带有 “Generative AI Safety”, “Trustworthy AI”, “Machine Learning Safety” 标题的 Workshop。</li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/papers">Hugging Face Papers</a></li>
+<li>在 GitHub 搜索 awesome-llm-safety, awesome-ai-alignment, awesome-llm-agents。这些仓库通常会按时间线整理必读论文。</li>
+<li><a target="_blank" rel="noopener" href="https://www.alignmentforum.org/">Alignment Forum</a> 全球最硬核的 AI 安全讨论区。这里不只是发论文，更多是对未来风险、Agent 欺骗、理论对齐的深度长文讨论。<strong>适合当你对基本概念熟悉后，去寻找 deeply insightful 的观点。</strong></li>
+<li><strong>IEEE SaTML (Conference on Secure and Trustworthy Machine Learning):</strong> 专注于安全和可信赖 ML。</li>
+<li><strong>FAccT (Fairness, Accountability, and Transparency):</strong> 偏向社会影响、公平性和伦理。</li>
+<li>X：关注活跃的 Safety 研究员（如 Dan Hendrycks, Paul Christiano, Neel Nanda 等）。很多论文的一作会在这里发 Thread 解释核心思想，比读 Abstract 更好懂。</li>
+</ul>
+<h1>2. 学习资源</h1>
+<ul>
+<li><strong>CS 324 (Stanford):</strong> Large Language Models 课程，其中有关于 Safety 和 Harms 的章节。</li>
+<li><strong>ML Safety Course (Dan Hendrycks):</strong> 系统性的 ML 安全课程，涵盖了 Robustness, Monitoring, Alignment, Systemic Safety。</li>
+</ul>
+<h1>3. 关键词</h1>
+<ul>
+<li><strong>搜索关键词：</strong> Large Language Model Safety, Jailbreak, Hallucination, Red Teaming, Bias, Toxicity, Agent Alignment, Adversarial Attacks, Robustness, Interpretability, RLHF。
+由于你提到了 <strong>Agentic LLM</strong>，这是一个较新的子领域，主要关注 LLM 在使用工具、规划和执行任务时的风险。</li>
+</ul>
+<ul>
+<li><strong>关键词:</strong> Tool-use safety, Indirect Prompt Injection, Agentic Jailbreak, Power-seeking behavior, Reward Hacking。</li>
+<li><strong>关注基准测试 (Benchmarks):</strong>
+<ul>
+<li>寻找如 <strong>AgentBench</strong>, <strong>SafetyBench</strong>, <strong>Do-Not-Answer</strong> 等针对 Agent 行为的评测集论文。</li>
+<li>关注 <strong>R-U-S (Risk-Use-Safety)</strong> 相关的最新框架。</li>
+</ul>
+</li>
+</ul>
+<h1>4. 建议的起步路径</h1>
+<ol>
+<li><strong>先看综述 (Survey):</strong> 找 1-2 篇 2024/2025 年的 <em>Survey on Large Language Model Safety</em> 或 <em>Survey on Agentic AI</em>。这能帮你建立坐标系。</li>
+<li><strong>关注红队测试 (Red Teaming):</strong> 阅读关于 LLM Jailbreaking (越狱) 的文章，这是理解 Agent 漏洞的最直观方式。</li>
+<li><strong>动手实验:</strong> 尝试复现一些简单的 Prompt Injection 攻击或防御机制，Agentic Safety 如果不跑代码很难理解其中的复杂交互。</li>
+</ol>
+<h2 id="💡-科研新手实操建议：如何开始第一周？">💡 科研新手实操建议：如何开始第一周？</h2>
+<p>不要试图把上面所有链接都看完。请按以下步骤操作：</p>
+<ol>
+<li><strong>Day 1:</strong> 打开 <strong>ACL Anthology</strong>，搜索 Survey Large Language Model Safety，找一篇 2024 年以后的综述（Survey），只读这一篇，搞清楚领域的分类树（Taxonomy）。</li>
+<li><strong>Day 2:</strong> 去 <strong>Anthropic</strong> 的博客，读两篇关于 Constitutional AI 的科普文，建立直观理解。</li>
+<li><strong>Day 3:</strong> 打开 <strong>Hugging Face Papers</strong>，只看当天的热门，培养“体感”。</li>
+<li><strong>工具:</strong> 安装插件 <strong>Connected Papers</strong> 或 <strong>Elicit</strong>。当你找到一篇好文章时，用这些工具自动寻找“相似文章”，比你自己搜要快10倍。<br>
+希望这份“地图”能帮你少走弯路！如果在阅读具体论文时遇到不懂的概念，随时来问我。</li>
+</ol>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                                <a href="/Agentic%20RL%20Safety/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
+                                        Previous
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        科研 | Agentic RL Safety
+                                    </div>
+                                </a>
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/%E6%96%87%E6%A1%A3/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        Next
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        科研 | 文档
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12  mdui-p-t-1 mdui-p-b-4 sticky-sidebar" id="post-sidebar">
+            
+                <div class="mdui-card mdui-shadow-1 toc-full-height">
+                    <div class="mdui-card-content toc-card-content">
+                        <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
+                        <div class="toc-content">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">信息源</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-%E4%B8%89%E5%A4%A7ai%E9%A1%B6%E4%BC%9A-nlp%E9%A1%B6%E4%BC%9A"><span class="mdui-list mdui-typo-text">1. 三大AI顶会 &amp; NLP顶会</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-%E6%A0%B8%E5%BF%83%E5%AE%9E%E9%AA%8C%E5%AE%A4"><span class="mdui-list mdui-typo-text">2. 核心实验室</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-3-%E7%A4%BE%E5%8C%BA%E4%B8%8E%E9%A2%84%E5%8D%B0%E6%9C%AC%E5%B9%B3%E5%8F%B0"><span class="mdui-list mdui-typo-text">1.3. 社区与预印本平台</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">2. 学习资源</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">3. 关键词</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">4. 建议的起步路径</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#%F0%9F%92%A1-%E7%A7%91%E7%A0%94%E6%96%B0%E6%89%8B%E5%AE%9E%E6%93%8D%E5%BB%BA%E8%AE%AE%EF%BC%9A%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9F"><span class="mdui-list mdui-typo-text">💡 科研新手实操建议：如何开始第一周？</span></a></li></ol></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="mdui-m-t-2">
+                <div class="mdui-card mdui-shadow-1">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" class="mdui-img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4 sidebar-avatar-offset" style="width: 80px; height: 80px; border: 2px solid white; display: block; margin-left: auto; margin-right: auto;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">NaN / Not a Name</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      Nomen a Nullo. Nihil ad Nomen.
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">80</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">posts</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Categories</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">26</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Tags</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:your@email.com" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/yourusername" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2026 <span class="mdui-text-color-theme">NaN / Not a Name</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    // 合并所有 DOMContentLoaded 监听器
+    document.addEventListener("DOMContentLoaded", function() {
+      // KaTeX 数学公式渲染
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+
+      // 自动为所有表格和图片添加 MDUI 样式类
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>
