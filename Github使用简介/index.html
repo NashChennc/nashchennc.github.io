@@ -156,7 +156,7 @@
 <li>GIT: 是一个面向开源及私有软件项目的托管平台，是一个分布式的版本控制软件，它可以有效、高速地处理各种项目的版本管理。</li>
 <li>GitHub: 是 Git 的一个托管平台（把本地的代码历史上传到云端），相对于传统的 SVN(Subversion)，GitHub 具有更强大的功能，已成为当前人们用来管理代码及各种文档的利器。</li>
 </ul>
-<h2 id="git">Git</h2>
+<h2 id="Git">Git</h2>
 <p>教程</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰 Git 教程</a></li>
@@ -169,13 +169,13 @@
 <li><code>git reset --hard &lt;hash-code&gt;</code>：跳转到任意版本，代码改变，谨慎使用</li>
 <li><code>git push origin master -f</code>：当将本地代码推到 GitHub 后还想撤销时，先本地回退到相应版本，然后用此命令将本地版本强推到 GitHub 上</li>
 </ul>
-<h2 id="github">GitHub</h2>
+<h2 id="GitHub">GitHub</h2>
 <p>官方教程：<a target="_blank" rel="noopener" href="https://lab.github.com/">https://lab.github.com/</a></p>
-<h2 id="github-desktop">GitHub Desktop</h2>
+<h2 id="GitHub-Desktop">GitHub Desktop</h2>
 <p>Github Desktop 是 GitHub 的客户端（桌面端）软件 ，它与 GitHub 进行在线同步，可简化 Git 与 GitHub 间的操作，是 Git 功能的简单封装。可以完成一般的操作，但复杂的操作就只能使用 Git 的命令行。推荐使用！</p>
 <p>必须学会<strong>冲突</strong>的解决（在 merge 其他分支到 <code>master</code> 分支的时候很容易产生冲突）</p>
 <p>学习文档： <a target="_blank" rel="noopener" href="https://help.github.com/en/desktop">https://help.github.com/en/desktop</a></p>
-<h2 id="private-fork-工作流">Private Fork 工作流</h2>
+<h2 id="Private-Fork-工作流">Private Fork 工作流</h2>
 <blockquote>
 <p>参考来源：<a target="_blank" rel="noopener" href="https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274">https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274</a></p>
 </blockquote>
@@ -192,7 +192,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add upstream https://github.com/USTC-CG/USTC_CG_24.git</span><br><span class="line">git remote set-url --push upstream DISABLE</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="2-从-ustc-cg-24-拉取更新">2. 从 USTC_CG_24 拉取更新</h3>
+<h3 id="2-从-USTC-CG-24-拉取更新">2. 从 USTC_CG_24 拉取更新</h3>
 <p><strong>助教会在此仓库发布作业框架、文档的更新，</strong></p>
 <ul>
 <li>在库的本地根目录执行</li>
@@ -203,7 +203,7 @@
 <h4 id="命令行方式">命令行方式</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge upstream/main</span><br></pre></td></tr></table></figure>
 <p>然后可以使用 visual studio code 编辑器来解决冲突。</p>
-<h4 id="github-desktop-方式">Github Desktop 方式</h4>
+<h4 id="Github-Desktop-方式">Github Desktop 方式</h4>
 <ul>
 <li>
 <p>在 GitHub Desktop 中，点击菜单栏的 <code>branch-&gt;merge into current branch</code>，弹出的窗口中选择 other branches 的 <code>upstream/main</code></p>
@@ -285,7 +285,7 @@
                     <div class="mdui-card-content toc-card-content">
                         <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
                         <div class="toc-content">
-                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">GitHub 简略使用说明</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#git"><span class="mdui-list mdui-typo-text">Git</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#github"><span class="mdui-list mdui-typo-text">GitHub</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#github-desktop"><span class="mdui-list mdui-typo-text">GitHub Desktop</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#private-fork-%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="mdui-list mdui-typo-text">Private Fork 工作流</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="mdui-list mdui-typo-text">1. 初始化</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-%E4%BB%8E-ustc-cg-24-%E6%8B%89%E5%8F%96%E6%9B%B4%E6%96%B0"><span class="mdui-list mdui-typo-text">2. 从 USTC_CG_24 拉取更新</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="mdui-list mdui-typo-text">冲突解决</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Others</span></a></li></ol>
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">GitHub 简略使用说明</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#Git"><span class="mdui-list mdui-typo-text">Git</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#GitHub"><span class="mdui-list mdui-typo-text">GitHub</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#GitHub-Desktop"><span class="mdui-list mdui-typo-text">GitHub Desktop</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#Private-Fork-%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="mdui-list mdui-typo-text">Private Fork 工作流</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="mdui-list mdui-typo-text">1. 初始化</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-%E4%BB%8E-USTC-CG-24-%E6%8B%89%E5%8F%96%E6%9B%B4%E6%96%B0"><span class="mdui-list mdui-typo-text">2. 从 USTC_CG_24 拉取更新</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="mdui-list mdui-typo-text">冲突解决</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">Others</span></a></li></ol>
                         </div>
                     </div>
                 </div>
