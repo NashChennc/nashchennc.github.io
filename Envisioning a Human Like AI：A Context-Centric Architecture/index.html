@@ -132,7 +132,7 @@
                     </div>
                     <div class="mdui-row mdui-p-t-2">
                         <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
-                            Last Update: 2026/02/22 18:13
+                            Last Update: 2026/02/22 18:21
                         </div>
                         <div class="mdui-col-xs-3">
                             <div class="mdui-float-right mdui-typo">
@@ -197,13 +197,9 @@
 </ol>
 <p>更详细的内容详见附录 A 。可以看出，这仍然是一个以单体上下文为中心的设计。有明显的层次感：</p>
 <ul>
-<li>1./2./5. 实现了一个典型的 Agentic RAG 解决方案，包含了基本的长期记忆 <strong>写/查</strong> 功能。</li>
-<li>4./5. 实际上就是我们最开始提到的最简 Note 方案。</li>
-<li>
-<ol start="3">
-<li>更像是附加的 <strong>强制精炼</strong> 逻辑，它确保重要信息不会被压缩损失掉。3./4. 的同时存在使得 LLM 能够保留某些重要事实。</li>
-</ol>
-</li>
+<li>(1.)(2.)(5.) 实现了一个典型的 Agentic RAG 解决方案，包含了基本的长期记忆 <strong>写/查</strong> 功能。</li>
+<li>(4.)(5.) 实际上就是我们最开始提到的最简 Note 方案。</li>
+<li>(3.) 更像是附加的 <strong>强制精炼</strong> 逻辑，它确保重要信息不会被压缩损失掉。3./4. 的同时存在使得 LLM 能够保留某些重要事实。</li>
 </ul>
 <p>容易看到：写/查/精炼 是一个长期记忆系统必须要有的几个功能。</p>
 <p>我们换一个视角：</p>
@@ -330,7 +326,7 @@
 </tr>
 </tbody>
 </table>
-<p>我在表格中填入了一个 3. Curated Dynamic Soul，让我来解释一下这是什么。当前的 Memory 模块设计已经开始从 5. Raw Log 向 4. Refined Memory 演进。鉴于我对与手动修改 2. System Prompt 和自动 4. Refined Memory 之间相似性的观察，我很好奇是否有一天，整个 Memory 模块可以做到替代大部分的 2. System Prompt，产生中间的 3. Curated Dynamic Soul 形态。而 3. 则作为记忆库的一部分，会被当作一种更高级的角色卡，然后像现在的 <code>SKILL.md</code> 一样被传播。</p>
+<p>我在表格中填入了一个 3. Curated Dynamic Soul，让我来解释一下这是什么。当前的 Memory 模块设计已经开始从 5. Raw Log 向 4. Refined Memory 演进。鉴于我对与手动修改 2. System Prompt 和自动 4. Refined Memory 之间相似性的观察，我很好奇是否有一天，整个 Memory 模块可以做到替代大部分的 2. System Prompt，产生中间的 3. Curated Dynamic Soul 形态。而 3. 则作为记忆库的一部分，会被当作一种更高级的角色卡，然后像现在的 <code>SKILLS.md</code> 一样被传播。</p>
 <p>目前这个想法还缺少实验支撑。前段时间我查到了一些相关的资料，但帮助不是很大。也许过一段时间我会再写一份报告（挖坑）。在我设想中，这种精炼可以通过一个专门的模块负责，值得多进行实验。</p>
 <h3 id="2-3-事件驱动">2.3. 事件驱动</h3>
 <p>这个部分并非记忆系统的必需品。但这是一个更底层的架构改动，会影响到记忆系统的接口实现。</p>
@@ -349,7 +345,7 @@
 <li><code>Context Engine</code>： 在 API Request 发出前唤起被动记忆，动态组装 Request 文本。</li>
 </ul>
 <p>在我写完这个的时候，我发现 @kwaa 和 @Lilia-Chen 已经在 <a target="_blank" rel="noopener" href="https://github.com/moeru-ai/plast-mem">moeru-ai/plast-mem</a> 的 example 里把这个框架搭好了！那么架构直接参考这个仓库就好了。</p>
-<p>（架构分析详见 <a target="_blank" rel="noopener" href="https://github.com/moeru-ai/plast-mem">moeru-ai/plast-mem</a>）</p>
+<p>（架构分析?）</p>
 <h2 id="4-一定要很像人吗？">4. 一定要很像人吗？</h2>
 <p>许多所谓人类的 “特质” ，我更愿意理解为为了实现某些目标而产生的 “副作用” 。例如遗忘，虽然这本身就是一种合理的信息筛选机制，但是在计算机世界这又有所不同。在存储空间和搜索效率可接受的情况下，我仍然倾向于尽量保留记忆。对应地，我们也可以充分利用数字世界的特点，对 LLM agent 系统实现一些 “思想钢印” 或是 @nekomeowww 提到的一种 “可移植记忆”。多数时候我们并不会因为这样的反常机制存在而否定这个系统的 “人性”。</p>
 <p>反过来，当我们为了模仿人类而设计一个机制时，最好思考一下这个机制从何而来、有何作用。</p>
