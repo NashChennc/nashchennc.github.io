@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Envisioning a Human Like AI：A Context-Centric Architecture - NaN&#39;s Blog ｜ Not a Nihilist</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <!-- Custom CSS (最小化，只包含无法用 MDUI 实现的部分) -->
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/笔记" class="mdui-ripple ">
+                            笔记 | 9
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 9
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 41
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple ">
+                            工具箱 | 15
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/专栏" class="mdui-ripple ">
+                            专栏 | 6
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div class="banner-container" style="height: 320px;">
+    <div class="banner-bg" style="background-image: url(/image/banner.jpeg);"></div>
+    
+    <div class="mdui-card-media-covered banner-overlay" style="background: rgba(0, 0, 0, 0.4);">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right mdui-text-color-white mdui-p-y-2">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                     <div style='display:flex; justify-content:center; align-items:flex-end; width:100%; white-space:nowrap;'>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>NOUS SOMMES</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>我们是</span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; line-height:1.2; position:relative;'> DES ENFANTS<span style='position:absolute; right:-0.8em;'>,</span> </span> <span style='font-size:1em; font-weight:400; line-height:1.2; position:relative;'> 孩子<span style='position:absolute; right:-1em;'>，</span> </span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>MAIS</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>但</span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>DES ENFANTS</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>我们</span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; line-height:1.2; position:relative;'> PROGRESSIFS<span style='position:absolute; right:-0.8em;'>,</span> </span> <span style='font-size:1em; font-weight:400; line-height:1.2; position:relative;'> 精力充沛<span style='position:absolute; right:-1em;'>，</span> </span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>PLEINS DE FORCE ET DE COURAGE</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>勇往直前<span style='position:absolute; right:-1em;'>。</span> </span> </div>
+</div>
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                     <div style='display:flex; justify-content:center; align-items:flex-end; gap:1.5rem; white-space:nowrap;'>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.7em; opacity:0.7; letter-spacing:1px; text-transform:uppercase;'>ÉVARISTE GALOIS (1811-1832)</span> <span style='font-size:1.1em; font-weight:400; line-height:0.8; position:relative;'> <span style='position:absolute; left:-2em;'>—— </span>埃瓦里斯特 · 伽罗瓦 </span> </div>
+<div style='padding-bottom:1.6px; font-size:0.9em; opacity:0.8; font-weight:300; letter-spacing:0.5px; position:relative; padding:0 0.6em;'> ，1831年 于巴黎政治审判庭上的辩护 </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#page-bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row mdui-p-t-1 mdui-p-b-1">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-1 mdui-p-b-4">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        Envisioning a Human Like AI：A Context-Centric Architecture
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2026/02/22 18:13
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E7%A7%91%E7%A0%94/">
+                                        科研
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <p>这篇文章花费了许多篇幅来讲述一些（或许）众所周知的背景，而每个部分相对独立，您可以直接跳转到您感兴趣的部分。</p>
+<p>我希望本文引用的链接足够 Inspiring ，这样即使我写的不好，您也可以到被引用的原文去寻找一些有价值的内容。如果有兴趣的话，非常推荐您阅读这里提到的文章。</p>
+<p>感谢 @nekomeowww, @kwaa 和 @Lilia-Chen, 有许多思考离不开和他们的讨论。</p>
+<h2 id="0-intro">0. Intro</h2>
+<p>当前 Transformer 架构的 LLM 已经能够承担许多人类的工作。在 CoT 落地以后，不少模型已经可以独自在长上下文下表现得相当像人类。无论技术本质是否与人类相同，我们必须要承认，Transformer 已经给出了足够多的证据，展现它足以通过语言这种媒介，实现组织语言、模仿思考的模式、管理短期记忆、甚至主动调用工具。</p>
+<p>这篇文章我不打算谈 Self-Attention 如何工作或是 CoT 到底是不是思考（即使我可能已经 mech interp 入脑了）。我们只务实地讲：根据我们目前被提供的大模型 API ，为了构建一个足够像人的 LLM，我们能够做什么。</p>
+<p>我努力想要阐明这一点：我们应该将 <strong>整个被构建的 agent 系统</strong> 视为一个主体，而非只是一个扮演 System Prompt 的 LLM。这就是说，包含记忆系统在内的 <strong>上下文管理方式</strong> 提供了一个框架，而 <strong>灵魂流动在文本中</strong>。</p>
+<h2 id="1-llm-还不够像人吗？">1. LLM 还不够像人吗？</h2>
+<p>人们常说，LLM 目前完成 <strong>长期规划</strong> 或是进行超越语言的 <strong>抽象思考</strong> 的能力还不足。如果你看过 Claude 玩宝可梦的项目 <a target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/u6Lacc7wx4yYkBQ3r/insights-into-claude-opus-4-5-from-pokemon">LessWrong@Julian Bradshaw | Insights into Claude Opus 4.5 from Pokémon</a> ——虽然 Claude 的表现令人印象深刻，但它绝对不会被认为是人类玩家。一个静态脑容量巨大的、常被认为超越人类博士的模型在这个游戏中表现得甚至不如六岁小孩。</p>
+<p>的确如此，LLM 目前还缺少 <strong>稳定的长期记忆能力</strong> 和 <strong>反思内省的能力</strong> 。同时，被提供的 request 式 API 还常常伴随着 Request-Response 模式 的<strong>被动性</strong>、 <strong>Helpful Assistant 人格</strong>，及其衍生的 Hack 等问题。</p>
+<h3 id="1-1-长期记忆">1.1. 长期记忆</h3>
+<p>事实上，我们惊讶于 Transformer 能在上下文中实现相当好的短期记忆效果，并且似乎这样的上下文长度最近被扩展到了相当大的数量级 (Millions)。这已经远远超过了人类！配合超大的静态记忆，Transformer 足以轻松地完成许多专家级任务。然而，上下文的长度无论多长，总归是有限的；而且受制于模型架构，静态记忆和上下文记忆总是非常难以稳定地实时更新。非但如此，在一个复杂的任务中，盲目地保留所有对话历史不仅浪费Token，还会降低智能体的智商。因此高效的 agent 系统必须将上下文视为一种稀缺资源来仔细管理。</p>
+<p>这涉及 <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" title="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic | Effective Context Engineering for AI Agent</a> 提到的 <strong>动态上下文管理</strong>：系统主动修剪无关的历史记录，并仅在需要时注入必要的背景知识。一个简单的 RAG 架构是不够的，必须要从单体上下文窗口的思路向受管理的、碎片化、专门的上下文转变。</p>
+<p>仔细想想人类在阅读百万字的书籍时是如何做的。人类会在一个短得多的上下文窗口之内就开始遗忘具体细节，进行有损压缩。此时，我们的解决方法通常是反复阅读或查询。这过程中也会产生一些联想。总的来说，人类的记忆也并非在如此长的上下文中无差别地存在，很快就需要交互来唤醒遗忘的细节。</p>
+<p>当然，单体上下文仍然能够做到一些事情，这就需要我们提供一个好的记忆检索方法。最终我们会在 <strong>精准的记忆注入</strong> 和 <strong>LLM 上下文的高利用率</strong> 之间取得一个平衡。</p>
+<h3 id="1-2-反思能力">1.2. 反思能力</h3>
+<p>关于 <strong>反思能力</strong>，也就是推演结果、进行长期持续学习的能力。现在，我们使用 CoT 模拟了人类的思考方式，其实 LLM 的短期思考能力已经没什么值得担心的了。但是，让模型评估自己的想法的置信度、进行高级抽象和长期规划仍然非常困难。</p>
+<p>实际上当我们在讨论 memory 时，只要是涉及 <strong>压缩</strong> 保存，我们总会期望这一步能够帮助 LLM 沉淀下来一些有长期价值的内容。这又是持续学习框架最困难的部分，我迟迟觉得 memory 难以下手正是因为这一点。</p>
+<p>不管怎样，持续学习的框架是必须的，因此我们至少还需要给 LLM 一个笔记本。目前有许多工作正在尝试让单一 agentic LLM 自行管理上下文来实现反省，包括总结和调用笔记。最近有反馈称 Claude Opus 4.5 使用笔记的合理度变好了，这是一个很重要的进步。或者我们就不应该想这么多，可能随着大模型能力的提升自然就解决了，谁知道呢？</p>
+<p>在这些工作真正落地铺开之前，我们可以设计一些上下文工程来实现类似的效果。最近 @kwaa 和 @Lilia-Chen 正在尝试一种记忆管理方法 <a target="_blank" rel="noopener" href="https://github.com/moeru-ai/plast-mem">moeru-ai/plast-mem</a>，里面有一项 “惊奇度预测”，它类似于 “纯文本世界模型” ，利用预测事情发展来更新记忆，最终影响 policy 模型。我感到非常 make sense。这在我眼里是实现黑盒 RL 的重要一环。希望这有效。</p>
+<h3 id="1-3-题外话">1.3. 题外话</h3>
+<p>除去上面的两点，我有一些关于 LLM 现有缺陷的题外话：</p>
+<ul>
+<li>因果推理：在数据分析上这固然重要，但事实上 LLM 的贝叶斯推理是一种相当常见、相当 <strong>像人</strong> 的推理模式。对于 Human-Like AI 来说这种推理模式已然足够。</li>
+<li>一致性是一个棘手的问题。人真的具有一致性吗？</li>
+<li>Request-Response 这种模式的问题可以通过一些简单的 trick 解决。我们会在后文继续讨论。</li>
+</ul>
+<p>我有时会觉得，LLM 就只是一个文本处理工具，毕竟 Transformer 在最初只是为翻译任务而设计的。LLM 难道不只是一个语言动力学模拟器吗？有时这有助于我们谨慎看待 Transformer 的能力，但这种观点显然是过时的。模拟器也可以是很有用的工具，甚至拥有“自主”决策能力。我曾经看过一系列玄乎的文章 <a target="_blank" rel="noopener" href="https://www.lesswrong.com/s/pwKrMXjYNK5LNeKCu">LessWrong@WillPetillo | Simulator vs. Agent: Updating Risk Models</a> ，里面详尽地阐述了这一点。</p>
+<p>可想而知，若是我们仅仅将 LLM 视作简单文本处理器，来构建一个 Human-Like Agent System，那这样的系统得有多庞大。事实是，虽然这样的系统在早期达成了相当好的效果，但这样的庞大系统不断地正在被单一模型超越，最终消失在历史中。参见 <a target="_blank" rel="noopener" href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">Rich Sutton | The Bitter Lesson</a> 以及 Ilya Sutskever 的世界模型，包括  <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/building-effective-agents" title="https://www.anthropic.com/engineering/building-effective-agents">Anthropic | Building Effective Agent</a>  也提到了这一点。因此，我们总会需要考虑 LLM 的上下文利用率，将更多的逻辑交到 LLM 手中。既不是完全交予，也不是仅限每个任务单元。这是一个确定性和泛化性之间的权衡。</p>
+<h2 id="2-那么-我们实际上要做什么？">2. 那么，我们实际上要做什么？</h2>
+<p>我花了一些时间来弄明白记忆的读和写为何是完全不同的两件事，以及 planner 并不是 memory 的必需品。</p>
+<p>在记忆管理系统的设计上，只要你的设计实现了一些基本功能（例如信息提取），那么就一定会有效果。这意味着我们一不小心就会把整个系统弄得非常复杂。同时类人的行为又是极难 benchmark 的，我们很难因为某个方法表现更好就选择它。最好的方法只有在真实环境中不断调试。因此，我们最好在实现时就提醒自己 Keep it Simple and Stupid，至少 Keep it Configurable。</p>
+<blockquote>
+<p>在我看来，要弄明白任何一个 benchmark 的数字代表什么，都需要你对这个 bench 的组成非常熟悉。在这个角度来说，真实场景反而是我们最熟悉的。我们只需要在实现时留好调试点即可。</p>
+</blockquote>
+<p>现在，你有一个 CPU (LLM)，它拥有一些缓存 (上下文)，但你需要加入 RAM 才能使其工作起来，于是你需要写一个调度器。这似乎回到了一个典型的计算机体系结构问题。但是，这一次，我们想要设计的不仅仅是一个内存调度器，还有其中运行的数据形式和运算单元。LLM 提供了对自然语言的处理能力，我们自然不应该错过 <strong>使用自然语言存储一切数据</strong> 的机会。这样想的话，我们构建的角色的灵魂，不应该只是那一串被不断优化的 System Prompt 角色卡，而是流动在系统中的每一个文本，包括长期持续学习积累的经验。</p>
+<h3 id="2-1-一些简单的例子">2.1. 一些简单的例子</h3>
+<p>我们首先抛开具体的检索算法，看看 LLM 可以适配怎样的架构。</p>
+<p>最简单的一个记忆扩展是：将笔记作为一个可调用工具，一切交给 LLM 。这样不仅对长期记忆有帮助，还扩展了 LLM 的规划和反思能力。可惜现在提供商的 LLM 并非每一家都能稳定地利用这样的笔记，甚至是 Claude Plays Pokémon 也表现挣扎。</p>
+<p>为了梳理目前的记忆方案是怎样的，我们来看看最近非常热门的 OpenClaw 是怎么做的，顺便也把 Agentic RAG 的部分也一起讨论掉——它十分简洁而粗糙：</p>
+<ol>
+<li>上下文溢出时通过 <strong>压缩早期信息</strong> 进行缓冲。</li>
+<li>扁平化的 <strong>条目式</strong> <strong>仅追加</strong> 记忆管理。 <strong>所有上下文</strong> 被动写入日志。</li>
+<li>每次压缩前被动触发从上下文中 <strong>提炼知识</strong> 的动作。这些知识会被注入到 System Prompt 中。</li>
+<li>LLM 主动使用 Tool 写入每日笔记。</li>
+<li>LLM 主动使用 Tool 在所有的记忆和知识中进行检索，返回为上下文中的工具结果。</li>
+</ol>
+<p>更详细的内容详见附录 A 。可以看出，这仍然是一个以单体上下文为中心的设计。有明显的层次感：</p>
+<ul>
+<li>1./2./5. 实现了一个典型的 Agentic RAG 解决方案，包含了基本的长期记忆 <strong>写/查</strong> 功能。</li>
+<li>4./5. 实际上就是我们最开始提到的最简 Note 方案。</li>
+<li>
+<ol start="3">
+<li>更像是附加的 <strong>强制精炼</strong> 逻辑，它确保重要信息不会被压缩损失掉。3./4. 的同时存在使得 LLM 能够保留某些重要事实。</li>
+</ol>
+</li>
+</ul>
+<p>容易看到：写/查/精炼 是一个长期记忆系统必须要有的几个功能。</p>
+<p>我们换一个视角：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>被动</th>
+<th>主动 (LLM 在场)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>写入数据库</td>
+<td>2. 仅追加的日志 / 3. 受触发的总结</td>
+<td>4. 可用的笔记 Tool</td>
+</tr>
+<tr>
+<td>注入上下文</td>
+<td>3. 精炼知识被注入到 System Prompt / <strong>-1. 自然存在的上下文</strong></td>
+<td>5. 主动检索日志和笔记</td>
+</tr>
+</tbody>
+</table>
+<p>实际上，这个系统有两个可见的缺陷</p>
+<ul>
+<li>记忆注入时未有分类/分隔机制，尤其是 <code>MEMORY.md</code> 。</li>
+<li>重度依赖 LLM 主动触发查询操作。</li>
+</ul>
+<p>我会给这样的设计一个类比：这是在给一个有顺行性健忘症的人一些笔记本，让他自己学会何时翻阅。这些笔记有可能是被动记的，也可能是主动记的。这当然是最主流的思路，并且确实起到了一些作用。但是，如果我们以一个持续学习、持续交互的角度来看，运行时产生的数据就变得非常重要，值得被更仔细地管理。我要重新提及这个看法：</p>
+<blockquote>
+<p>包含记忆系统在内的 <strong>上下文管理方式</strong> 提供了一个框架，而 <strong>灵魂流动在文本中</strong>。</p>
+</blockquote>
+<p>在长期运行的 AI Companion 中，这样有助于实现一个更有机的记忆整体。</p>
+<p>如果你熟悉了这些现有的设计，接下来我们要继续讨论一些略微少见一点的东西了。</p>
+<h3 id="2-2-重新思考记忆系统">2.2. 重新思考记忆系统</h3>
+<h4 id="上下文注入机制">上下文注入机制</h4>
+<p>上下文注入（包括 System Prompt）是必须小心的。文本一旦被注入，其影响就很难被消除。虽然少量泄漏的信息并不会严重使 LLM 完成任务的能力下降，但绝对会非常影响对话体验。并且长期来看，疏于管理的上下文仍然会影响 LLM 的能力。</p>
+<blockquote>
+<p>I have firmly decided against using user data. (Gemini 3.1 Pro)</p>
+</blockquote>
+<p>我一直觉得 Gemini App 中提供的用户记忆系统有非常大的问题。它总是会在对话中无意识地（真的无意识吗？）泄漏过多信息，并将话题越聊越窄。最关键的问题是，它很爱拍马屁！它总会将与用户有关的内容推断为好的、应当赞美的，并且坚决声称自己并未使用用户信息。我受不了这一点。</p>
+<p>对于 <strong>动态产生</strong> 的用户画像、经验和情境记忆，至少我们可以将何时注入的管理权限独立出来，<strong>专门管理</strong>。使用一个独立的小模型和特定 System Prompt 来专门管理也是一个可选方案。</p>
+<p>在我看来，LLM API 始终会提供一个 Helpful Assistant 人格的 LLM。我们日常感受到 LLM 的发散性来源于 <strong>巨大信息池</strong> 中你没有接触过的那些。但是，对你本人来说，用户记忆是一个 <strong>总量小</strong>、<strong>惊讶度小</strong> 的信息池。这是一个最核心的区别。除去全量被动注入，如果只依赖主动调用 Tool，收集到的信息会比较有目的性，从而使对话开始 <strong>收敛</strong> 。</p>
+<p>在任务导向的设计中，逐渐收敛的信息收集可以是有用的。但是当没有任务目标时，LLM 就不知道应该如何调用了。日常对话多数是漫无目的的，而用固定 System Prompt 注入的 “发散性目标” 又很难真正起作用。甚至说，描述生活的目标就是对人类来说最困难的事情之一。我希望，保留 <strong>被动输入</strong> 能够帮助实现一个真正漫无边际的思考机制。</p>
+<p>其实很难说人类的记忆联想机制究竟是权限被隔离了，还是完全被动的，但我相信隔离权限是更仿生的。</p>
+<h4 id="上下文窗口">上下文窗口</h4>
+<p>一旦我们决定使用严格的上下文卫生管理，尤其是动态组装 System Prompt 和  Context 在内的所有文本，就意味着许多信息会被删除、重整。缓存命中就几乎和我们没有关系了。</p>
+<p>实际上缓存命中的适用范围非常有限。你要确保注入的知识在一个对话 session 内不会更新。而时间、用户知识等等信息在对话内不断更新的情况比比皆是。一旦要对上下文进行修剪，就必然会破坏缓存命中率。于是我们干脆不考虑利用缓存。</p>
+<p>我们进行一个简单的估计：在最新的 API 中，我们积极地将总的上下文管理在 5k 或 20k 以内，在 Cache Miss 的情况下会产生的花费如下</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>5k tokens</th>
+<th>20k tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prefill Delay</td>
+<td>200ms ~ 400ms</td>
+<td>800ms ~ 1500ms</td>
+</tr>
+<tr>
+<td>Reasoning Delay</td>
+<td>2000ms+</td>
+<td>5000ms+</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>$0.0025~$0.025</td>
+<td>$0.01~$0.1</td>
+</tr>
+</tbody>
+</table>
+<p>与缓存命中相比，缓存未命中会使得每一轮都出现 Prefill Delay。可以看出这基本上是实时 <strong>仅文字</strong> 互动的分水岭。如果我们的语音可以流式地处理，那么预计可以达到不错的延迟效果。</p>
+<p>除此之外最大的一个问题是费用。长期来看，我们期望上下文长度在一个常数 (刚刚的5k ~ 20k) 附近波动，缓存命中带来的费用折扣（50% ~ 90% off）确实值得利用。缓存命中实际上是一个比较复杂的问题，不同的公司甚至提供不同的缓存策略。也许我们可以以后再进行优化。</p>
+<h4 id="精炼记忆">精炼记忆</h4>
+<blockquote>
+<p>LLM 提供了对自然语言的处理能力，我们自然不应该错过 <strong>使用自然语言存储一切数据</strong> 的机会。</p>
+</blockquote>
+<p>不知道各位改进 Prompt 的时候有没有这种感觉：LLM 与环境交互 -&gt; 我们发现 LLM 出现问题 -&gt; 更改 Prompt -&gt; 让 LLM 重新运行，如此反复。有没有可能，这也是一种 RLHF ？</p>
+<p>仔细想想，上下文学习似乎也是一种 RLHF。其实 OpenClaw 的 <code>MEMORY.md</code> 就是这种 RL 的一个最简实现：这个文件不是仅追加的，而是支持逐 entry 替换。这已经是一种相对复杂的参数管理了。</p>
+<p>实际上，所有的记忆最终也要输入到上下文中才能发挥作用，因此将方法扩展到更广义的文本上也是一种思路。我将这个变化列成一个表：</p>
+<table>
+<thead>
+<tr>
+<th>广义超参数</th>
+<th><strong>动态程度</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. LLM Params</strong></td>
+<td>极低 (固态)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>2. System Prompt</strong></td>
+<td>低 (会话级静态)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(3. Curated Dynamic Soul)</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>4. Refined Memory</strong></td>
+<td>中 (异步/周期性动态)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>5. Raw Log</strong></td>
+<td>高 (逐轮动态)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>6. Raw Context</strong></td>
+<td>极高 (瞬时动态)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>我在表格中填入了一个 3. Curated Dynamic Soul，让我来解释一下这是什么。当前的 Memory 模块设计已经开始从 5. Raw Log 向 4. Refined Memory 演进。鉴于我对与手动修改 2. System Prompt 和自动 4. Refined Memory 之间相似性的观察，我很好奇是否有一天，整个 Memory 模块可以做到替代大部分的 2. System Prompt，产生中间的 3. Curated Dynamic Soul 形态。而 3. 则作为记忆库的一部分，会被当作一种更高级的角色卡，然后像现在的 <code>SKILL.md</code> 一样被传播。</p>
+<p>目前这个想法还缺少实验支撑。前段时间我查到了一些相关的资料，但帮助不是很大。也许过一段时间我会再写一份报告（挖坑）。在我设想中，这种精炼可以通过一个专门的模块负责，值得多进行实验。</p>
+<h3 id="2-3-事件驱动">2.3. 事件驱动</h3>
+<p>这个部分并非记忆系统的必需品。但这是一个更底层的架构改动，会影响到记忆系统的接口实现。</p>
+<p>LLM API 提供的是无状态的 <strong>请求-响应</strong> 服务。这是一个命令式的关系，缺少了最关键的自主性。一个主动的 Agent 系统应当可以选择不回复，甚至是被打断。如果我们要将选择权给出，就要把这个模型转化成 <strong>事件驱动</strong> 的架构。这是一个传统软件工程问题，我们只要在中间加入事件总线和分发器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User Input -&gt; (Sensors) -&gt; Event Bus -&gt; (Dispatcher) -&gt; LLM Core -&gt; Response</span><br></pre></td></tr></table></figure>
+<p>其中，Sensors 用于提供比纯文本更丰富的事件，LLM Core 则负责实际的动作响应，是这里最灵活的部分。</p>
+<p>除去文本输入，事件还可以包括点击互动、消息提醒等等。我们可以分层隔离：记录一个 <code>level</code> 标记，由事件的生产者标记。每个 <code>level&lt;=k</code> 的事件子集应当自描述，这样可以给现有的简单方法留下一条迭代路径。</p>
+<p>按标准的事件驱动架构，Dispatcher 监听总线上的所有事件，并根据当前的上下文状态，决定将控制流路由给哪个部分处理，并 <strong>组装 LLM Request 文本</strong>。在这里，LLM Core 就成为了一个事件的消费者和生产者。从功能上来说，LLM Core 的功能确实可能同时包括 Dispatcher。但由于 Dispatcher 面对的上下文可能是巨大的，并且对于实时性有很高的需求，因此有必要使用一个独立的小 LLM、独立的 prompt （完整 prompt 的一部分）来实现。</p>
+<h2 id="3-架构提案">3. 架构提案</h2>
+<p>上面似乎提了很多想法，但是总还是要立一个靶子让大家来打。不管怎么样，这肯定是一个要被迭代不知道多少次的方案，我先干为敬。</p>
+<p>感谢 @nekomeowww 在 issue 里提的 mutate / query / planner / voyager 分类，让我理清了架构思路，特别是解耦了不少想法。在这之前我的脑子里不能说是一片空白，也该算是一坨浆糊。</p>
+<p>在这个事件驱动的架构中，记忆系统不再只是一个 Tool 工具集，而是可以包含如下部分</p>
+<ul>
+<li><code>Mutate/Query Tools</code> ：记忆模块的基础设置。允许其他模块调用，也可以由 LLM Core 调用 Tool 进行写入和查询。</li>
+<li><code>Mutate Engine</code> ： 在后台监听事件总线，自动写入 Raw Log；在后台异步进行提取和精炼，由周期性时钟或特定事件触发。</li>
+<li><code>Context Engine</code>： 在 API Request 发出前唤起被动记忆，动态组装 Request 文本。</li>
+</ul>
+<p>在我写完这个的时候，我发现 @kwaa 和 @Lilia-Chen 已经在 <a target="_blank" rel="noopener" href="https://github.com/moeru-ai/plast-mem">moeru-ai/plast-mem</a> 的 example 里把这个框架搭好了！那么架构直接参考这个仓库就好了。</p>
+<p>（架构分析详见 <a target="_blank" rel="noopener" href="https://github.com/moeru-ai/plast-mem">moeru-ai/plast-mem</a>）</p>
+<h2 id="4-一定要很像人吗？">4. 一定要很像人吗？</h2>
+<p>许多所谓人类的 “特质” ，我更愿意理解为为了实现某些目标而产生的 “副作用” 。例如遗忘，虽然这本身就是一种合理的信息筛选机制，但是在计算机世界这又有所不同。在存储空间和搜索效率可接受的情况下，我仍然倾向于尽量保留记忆。对应地，我们也可以充分利用数字世界的特点，对 LLM agent 系统实现一些 “思想钢印” 或是 @nekomeowww 提到的一种 “可移植记忆”。多数时候我们并不会因为这样的反常机制存在而否定这个系统的 “人性”。</p>
+<p>反过来，当我们为了模仿人类而设计一个机制时，最好思考一下这个机制从何而来、有何作用。</p>
+<p>OpenClaw 和 许多提供商的 Deep Research 功能都提供了一些 sub-agent 的功能，这在合适的时候可以很有用。Neuro 和 Evil 也提供了这样的例子，不少文学作品中描绘的分身、多人格的设定也令人痴迷。如果合适的话，这样的设计也可以变得很好玩。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/multi-agent-research-system" title="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic | Multi Agent Research System</a></li>
+</ul>
+<h2 id="appendix-a-openclaw-s-memory-context">Appendix A. OpenClaw’s Memory &amp; Context</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/concepts/memory">OpenClaw Docs | Memory</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/concepts/context">OpenClaw Docs | Context</a></li>
+</ul>
+<p>OpenClaw 的内存以<strong>纯 Markdown 格式存储在Agent Workspace 中</strong> 。默认使用两个内存层：</p>
+<ul>
+<li><code>memory/YYYY-MM-DD.md</code> 仅追加的每日日志。包括所有上下文，以及日常笔记；</li>
+<li><code>MEMORY.md</code> 精心构造的长期记忆，会被注入 System Prompt。在上下文即将溢出或被要求时写入时触发写入；</li>
+<li>以及一个实验性的可选功能：保留所有交互记录以供查询。</li>
+</ul>
+<p>当任何 md 文件更新时，同步更新：按标题或段落构建的 <strong>文本块向量索引</strong>。</p>
+<p>关于所有的 <strong>写</strong> 操作：</p>
+<ul>
+<li>每当有事件更新，向每日日志追加更新。</li>
+<li>触发记笔记时，向每日日志记录笔记条目。</li>
+<li>每当上下文即将溢出 或 到达设定的时钟周期，通过特定的 prompt 总结最近一段时间内的每日日志，更新长期记忆。更新是原子化的，进行 entry-to-entry 的替换。</li>
+</ul>
+<p>关于所有的 <strong>读</strong> (检索) 操作：</p>
+<ul>
+<li>记忆检索作为 Tool 被 LLM 调用</li>
+<li><code>memory_get</code> 直接使用文件 / 行范围</li>
+<li><code>memory_search</code> 使用 BM25 和 向量相似度，按比例取并集。</li>
+</ul>
+<p>除此之外我们还必须要弄清楚上下文构造方法：</p>
+<p><strong>上下文</strong> 包含所有对话和工具调用历史，并且受到 <strong>压缩</strong> 和 <strong>修剪</strong> 机制管控。</p>
+<ul>
+<li><strong>压缩</strong> 仅在上下文即将溢出时，先触发一个回合用于写 <code>MEMORY.md</code> ，然后对早期上下文进行压缩。</li>
+<li><strong>修剪</strong> 是指在上下文中对工具调用结果进行删除省略。仅对于具有输入缓存功能的 API 使用，用于在缓存刷新，重新发送全部上下文时节省 token。</li>
+</ul>
+<p><strong>System Prompt</strong> 在每次请求进行构造，包括</p>
+<ul>
+<li>完整 Tools 描述，并通过 API 传递 Schema / Skills 描述及 <code>SKILLS.md</code> 文件位置；</li>
+<li>Workspace / Time / Runtime Metadata ；</li>
+<li>Safety / Update / Heartbeats Prompts；</li>
+<li>工作区 md 文件，包括 <code>SOUL.md</code> / <code>USER.md</code> / <code>MEMORY.md</code> / <code>HEARTBEAT.md</code> 等等，以及仅在初次启动时注入的 <code>BOOTSTRAP.md</code>。</li>
+</ul>
+<p>System Prompt 设置了三种模式 <code>full</code> / <code>minimal</code> / <code>none</code> ，供不同的子代理使用。 <code>minimal</code> 模式会剔除无关的信息，例如不加载 <code>MEMORY.md</code> ，剔除无关 Tools / Skills 列表。
+每日日志并不注入，而是通过 Tool 调用。</p>
+<p>OpenClaw 不存在面向特定用户的持久化记忆。每个群聊对话是独立的。<code>MEMORY.md</code> 不会对群聊加载。群聊的上下文中，与单用户对话的不同之处在于：使用针对群聊的 prompt，并在 User Input 开头标记发言人名字。</p>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                                <a href="/LLM%20Safety%20%E8%B5%84%E6%BA%90/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
+                                        Previous
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        科研 | LLM Safety 资源
+                                    </div>
+                                </a>
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/Blog%20Category/%E7%A7%91%E7%A0%94/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        Next
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        科研 | 科研
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12  mdui-p-t-1 mdui-p-b-4 sticky-sidebar" id="post-sidebar">
+            
+                <div class="mdui-card mdui-shadow-1 toc-full-height">
+                    <div class="mdui-card-content toc-card-content">
+                        <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
+                        <div class="toc-content">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#0-intro"><span class="mdui-list mdui-typo-text">0. Intro</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-llm-%E8%BF%98%E4%B8%8D%E5%A4%9F%E5%83%8F%E4%BA%BA%E5%90%97%EF%BC%9F"><span class="mdui-list mdui-typo-text">1. LLM 还不够像人吗？</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-1-%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86"><span class="mdui-list mdui-typo-text">1.1. 长期记忆</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-2-%E5%8F%8D%E6%80%9D%E8%83%BD%E5%8A%9B"><span class="mdui-list mdui-typo-text">1.2. 反思能力</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-3-%E9%A2%98%E5%A4%96%E8%AF%9D"><span class="mdui-list mdui-typo-text">1.3. 题外话</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-%E9%82%A3%E4%B9%88-%E6%88%91%E4%BB%AC%E5%AE%9E%E9%99%85%E4%B8%8A%E8%A6%81%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="mdui-list mdui-typo-text">2. 那么，我们实际上要做什么？</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-1-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="mdui-list mdui-typo-text">2.1. 一些简单的例子</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-2-%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F"><span class="mdui-list mdui-typo-text">2.2. 重新思考记忆系统</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-3-%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8"><span class="mdui-list mdui-typo-text">2.3. 事件驱动</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#3-%E6%9E%B6%E6%9E%84%E6%8F%90%E6%A1%88"><span class="mdui-list mdui-typo-text">3. 架构提案</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#4-%E4%B8%80%E5%AE%9A%E8%A6%81%E5%BE%88%E5%83%8F%E4%BA%BA%E5%90%97%EF%BC%9F"><span class="mdui-list mdui-typo-text">4. 一定要很像人吗？</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#appendix-a-openclaw-s-memory-context"><span class="mdui-list mdui-typo-text">Appendix A. OpenClaw’s Memory &amp; Context</span></a></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="mdui-m-t-2">
+                <div class="mdui-card mdui-shadow-1">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" class="mdui-img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4 sidebar-avatar-offset" style="width: 80px; height: 80px; border: 2px solid white; display: block; margin-left: auto; margin-right: auto;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">NaN / Not a Name</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      Nomen a Nullo. Nihil ad Nomen.
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">86</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">posts</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Categories</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">28</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Tags</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:your@email.com" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/yourusername" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2026 <span class="mdui-text-color-theme">NaN / Not a Name</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    // 合并所有 DOMContentLoaded 监听器
+    document.addEventListener("DOMContentLoaded", function() {
+      // KaTeX 数学公式渲染
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+
+      // 自动为所有表格和图片添加 MDUI 样式类
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>

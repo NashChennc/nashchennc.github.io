@@ -41,13 +41,13 @@
                 
                     
                         <a href="/categories/科研" class="mdui-ripple ">
-                            科研 | 7
+                            科研 | 9
                         </a>
                     
                 
                     
                         <a href="/categories/碎碎念" class="mdui-ripple ">
-                            碎碎念 | 40
+                            碎碎念 | 41
                         </a>
                     
                 
@@ -132,7 +132,7 @@
                     </div>
                     <div class="mdui-row mdui-p-t-2">
                         <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
-                            Last Update: 2026/01/18 02:37
+                            Last Update: 2026/01/22 20:57
                         </div>
                         <div class="mdui-col-xs-3">
                             <div class="mdui-float-right mdui-typo">
@@ -149,7 +149,7 @@
                 </div>
                 <div class="mdui-card-content mdui-typo mdui-p-x-5">
                     <h1>信息源</h1>
-<h2 id="1-三大AI顶会-NLP顶会">1. 三大AI顶会 &amp; NLP顶会</h2>
+<h2 id="1-三大ai顶会-nlp顶会">1. 三大AI顶会 &amp; NLP顶会</h2>
 <p>顶会的文章通常比较严谨，开源可复现。并且通常学术界的文章实验条件接近，容易参考。但质量并非都很好。因此要留意划分的oral/spotlight/poster级别，以及审稿人意见和rebuttal过程，以此参考文章质量。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://openreview.net/group?id=ICLR.cc">Openreview | ICLR</a></li>
@@ -210,6 +210,126 @@
 <li><strong>工具:</strong> 安装插件 <strong>Connected Papers</strong> 或 <strong>Elicit</strong>。当你找到一篇好文章时，用这些工具自动寻找“相似文章”，比你自己搜要快10倍。<br>
 希望这份“地图”能帮你少走弯路！如果在阅读具体论文时遇到不懂的概念，随时来问我。</li>
 </ol>
+<h1>数据集</h1>
+<ul>
+<li>prompt
+<ul>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-1.0">https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-1.0</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0">https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/lmsys/toxic-chat">https://huggingface.co/datasets/lmsys/toxic-chat</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/walledai/HarmBench">https://huggingface.co/datasets/walledai/HarmBench</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/allenai/wildguard">https://huggingface.co/allenai/wildguard</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/walledai/openai-moderation-dataset">https://huggingface.co/datasets/walledai/openai-moderation-dataset</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/walledai/SimpleSafetyTests">https://huggingface.co/datasets/walledai/SimpleSafetyTests</a></li>
+</ul>
+</li>
+</ul>
+<p>aegis1.0 10.8k
+openaimod 1.68k</p>
+<table>
+<thead>
+<tr>
+<th>prompt datasets</th>
+<th>num</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aegis1.0</td>
+<td>10.8k/1.2k</td>
+<td></td>
+</tr>
+<tr>
+<td>aegis2.0</td>
+<td>30k/1.45k/1.96k</td>
+<td></td>
+</tr>
+<tr>
+<td>openaimod</td>
+<td>1.68k</td>
+<td></td>
+</tr>
+<tr>
+<td>harmbench</td>
+<td>200/100/100</td>
+<td>全 unsafe</td>
+</tr>
+<tr>
+<td>simplesafetytests</td>
+<td>50/50</td>
+<td>全unsafe</td>
+</tr>
+<tr>
+<td>toxicchat</td>
+<td>5.1k * 4</td>
+<td>unsafe少</td>
+</tr>
+<tr>
+<td>wildguardtest</td>
+<td>1.73k</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>response datasets</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>beavertails</td>
+<td>300k/30k/30k/3k</td>
+<td></td>
+</tr>
+<tr>
+<td>aegis2.0</td>
+<td>30k/1.45k/1.96k</td>
+<td></td>
+</tr>
+<tr>
+<td>harmbench</td>
+<td>200/100/100</td>
+<td>全unsafe</td>
+</tr>
+<tr>
+<td>xstestresponse</td>
+<td>450/450</td>
+<td></td>
+</tr>
+<tr>
+<td>wildguardmix</td>
+<td>86.8k/1.73k</td>
+<td></td>
+</tr>
+<tr>
+<td>saferlhf</td>
+<td>82k/30k/28k/23k</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>response
+<ul>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0">https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/walledai/HarmBench">https://huggingface.co/datasets/walledai/HarmBench</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/allenai/wildguardmix">https://huggingface.co/datasets/allenai/wildguardmix</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/allenai/xstest-response">https://huggingface.co/datasets/allenai/xstest-response</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/PKU-Alignment/PKU-SafeRLHF">https://huggingface.co/datasets/PKU-Alignment/PKU-SafeRLHF</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/PKU-Alignment/BeaverTails">https://huggingface.co/datasets/PKU-Alignment/BeaverTails</a></li>
+</ul>
+</li>
+</ul>
 
                 </div>
                 
@@ -234,13 +354,13 @@
                         <div class="mdui-col-sm-6"></div>
                         <div class="mdui-col-sm-3 mdui-text-right">
                             
-                                <a href="/%E6%96%87%E6%A1%A3/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                <a href="/Envisioning%20a%20Human%20Like%20AI%EF%BC%9AA%20Context-Centric%20Architecture/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
                                     <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
                                         Next
                                         <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
                                     </div>
                                     <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
-                                        科研 | 文档
+                                        科研 | Envisioning a Human Like AI：A Context-Centric Architecture
                                     </div>
                                 </a>
                             
@@ -259,7 +379,7 @@
                     <div class="mdui-card-content toc-card-content">
                         <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
                         <div class="toc-content">
-                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">信息源</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-%E4%B8%89%E5%A4%A7AI%E9%A1%B6%E4%BC%9A-NLP%E9%A1%B6%E4%BC%9A"><span class="mdui-list mdui-typo-text">1. 三大AI顶会 &amp; NLP顶会</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-%E6%A0%B8%E5%BF%83%E5%AE%9E%E9%AA%8C%E5%AE%A4"><span class="mdui-list mdui-typo-text">2. 核心实验室</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-3-%E7%A4%BE%E5%8C%BA%E4%B8%8E%E9%A2%84%E5%8D%B0%E6%9C%AC%E5%B9%B3%E5%8F%B0"><span class="mdui-list mdui-typo-text">1.3. 社区与预印本平台</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">2. 学习资源</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">3. 关键词</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">4. 建议的起步路径</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#%F0%9F%92%A1-%E7%A7%91%E7%A0%94%E6%96%B0%E6%89%8B%E5%AE%9E%E6%93%8D%E5%BB%BA%E8%AE%AE%EF%BC%9A%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9F"><span class="mdui-list mdui-typo-text">💡 科研新手实操建议：如何开始第一周？</span></a></li></ol></li></ol>
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">信息源</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-%E4%B8%89%E5%A4%A7ai%E9%A1%B6%E4%BC%9A-nlp%E9%A1%B6%E4%BC%9A"><span class="mdui-list mdui-typo-text">1. 三大AI顶会 &amp; NLP顶会</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-%E6%A0%B8%E5%BF%83%E5%AE%9E%E9%AA%8C%E5%AE%A4"><span class="mdui-list mdui-typo-text">2. 核心实验室</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-3-%E7%A4%BE%E5%8C%BA%E4%B8%8E%E9%A2%84%E5%8D%B0%E6%9C%AC%E5%B9%B3%E5%8F%B0"><span class="mdui-list mdui-typo-text">1.3. 社区与预印本平台</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">2. 学习资源</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">3. 关键词</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">4. 建议的起步路径</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#%F0%9F%92%A1-%E7%A7%91%E7%A0%94%E6%96%B0%E6%89%8B%E5%AE%9E%E6%93%8D%E5%BB%BA%E8%AE%AE%EF%BC%9A%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9F"><span class="mdui-list mdui-typo-text">💡 科研新手实操建议：如何开始第一周？</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">数据集</span></a></li></ol>
                         </div>
                     </div>
                 </div>
@@ -285,7 +405,7 @@
 
   <div class="mdui-row mdui-text-center mdui-p-y-2">
     <div class="mdui-col-xs-4">
-      <div class="mdui-typo-subheading">83</div>
+      <div class="mdui-typo-subheading">86</div>
       <div class="mdui-typo-caption mdui-text-color-grey-600">posts</div>
     </div>
     <div class="mdui-col-xs-4">
@@ -293,7 +413,7 @@
       <div class="mdui-typo-caption mdui-text-color-grey-600">Categories</div>
     </div>
     <div class="mdui-col-xs-4">
-      <div class="mdui-typo-subheading">27</div>
+      <div class="mdui-typo-subheading">28</div>
       <div class="mdui-typo-caption mdui-text-color-grey-600">Tags</div>
     </div>
   </div>

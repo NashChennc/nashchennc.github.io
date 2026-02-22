@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SAE 特征筛选 - NaN&#39;s Blog ｜ Not a Nihilist</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <!-- Custom CSS (最小化，只包含无法用 MDUI 实现的部分) -->
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/笔记" class="mdui-ripple ">
+                            笔记 | 9
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/科研" class="mdui-ripple ">
+                            科研 | 9
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 41
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/工具箱" class="mdui-ripple ">
+                            工具箱 | 15
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/专栏" class="mdui-ripple ">
+                            专栏 | 6
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div class="banner-container" style="height: 320px;">
+    <div class="banner-bg" style="background-image: url(/image/banner.jpeg);"></div>
+    
+    <div class="mdui-card-media-covered banner-overlay" style="background: rgba(0, 0, 0, 0.4);">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right mdui-text-color-white mdui-p-y-2">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                     <div style='display:flex; justify-content:center; align-items:flex-end; width:100%; white-space:nowrap;'>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>NOUS SOMMES</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>我们是</span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; line-height:1.2; position:relative;'> DES ENFANTS<span style='position:absolute; right:-0.8em;'>,</span> </span> <span style='font-size:1em; font-weight:400; line-height:1.2; position:relative;'> 孩子<span style='position:absolute; right:-1em;'>，</span> </span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>MAIS</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>但</span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>DES ENFANTS</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>我们</span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; line-height:1.2; position:relative;'> PROGRESSIFS<span style='position:absolute; right:-0.8em;'>,</span> </span> <span style='font-size:1em; font-weight:400; line-height:1.2; position:relative;'> 精力充沛<span style='position:absolute; right:-1em;'>，</span> </span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>PLEINS DE FORCE ET DE COURAGE</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>勇往直前<span style='position:absolute; right:-1em;'>。</span> </span> </div>
+</div>
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                     <div style='display:flex; justify-content:center; align-items:flex-end; gap:1.5rem; white-space:nowrap;'>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.7em; opacity:0.7; letter-spacing:1px; text-transform:uppercase;'>ÉVARISTE GALOIS (1811-1832)</span> <span style='font-size:1.1em; font-weight:400; line-height:0.8; position:relative;'> <span style='position:absolute; left:-2em;'>—— </span>埃瓦里斯特 · 伽罗瓦 </span> </div>
+<div style='padding-bottom:1.6px; font-size:0.9em; opacity:0.8; font-weight:300; letter-spacing:0.5px; position:relative; padding:0 0.6em;'> ，1831年 于巴黎政治审判庭上的辩护 </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#page-bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row mdui-p-t-1 mdui-p-b-1">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-1 mdui-p-b-4">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        SAE 特征筛选
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2026/01/21 12:21
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E7%A7%91%E7%A0%94/">
+                                        科研
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <p>## 平均激活差 (Difference in Means)。</p>
+<h3 id="1-数学定义与几何解释">1. 数学定义与几何解释</h3>
+<p>假设对于某个特定的 SAE 特征 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：</p>
+<ul>
+<li>
+<p><strong>正样本集 (Positive/Unsafe):</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow></msub><mo>=</mo><mo stretchy="false">{</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>x</mi><mi>m</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">X_{pos} = \{x_1, x_2, ..., x_m\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span></p>
+</li>
+<li>
+<p><strong>负样本集 (Negative/Safe):</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mrow><mi>n</mi><mi>e</mi><mi>g</mi></mrow></msub><mo>=</mo><mo stretchy="false">{</mo><msub><mi>y</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>y</mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">X_{neg} = \{y_1, y_2, ..., y_n\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span></p>
+</li>
+</ul>
+<p>你所说的指标 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>μ</mi></mrow><annotation encoding="application/x-tex">\Delta \mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord mathdefault">μ</span></span></span></span> 计算如下：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>μ</mi><mo>=</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><munder><mo>∑</mo><mrow><mi>x</mi><mo>∈</mo><msub><mi>X</mi><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow></msub></mrow></munder><mi>x</mi><mo>−</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munder><mo>∑</mo><mrow><mi>y</mi><mo>∈</mo><msub><mi>X</mi><mrow><mi>n</mi><mi>e</mi><mi>g</mi></mrow></msub></mrow></munder><mi>y</mi><mo>=</mo><msub><mi>μ</mi><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow></msub><mo>−</mo><msub><mi>μ</mi><mrow><mi>n</mi><mi>e</mi><mi>g</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\Delta \mu = \frac{1}{m}\sum_{x \in X_{pos}} x - \frac{1}{n}\sum_{y \in X_{neg}} y = \mu_{pos} - \mu_{neg}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord mathdefault">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.813096em;vertical-align:-1.491656em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">m</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8556639999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="mrel mtight">∈</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285716em;"><span style="top:-2.357em;margin-left:-0.07847em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2818857142857143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.491656em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.813096em;vertical-align:-1.491656em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8556639999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span><span class="mrel mtight">∈</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285716em;"><span style="top:-2.357em;margin-left:-0.07847em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2818857142857143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.491656em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8694379999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>几何解释：</p>
+<p>如果你把所有的样本看作高维空间中的点，这个指标计算的是两个类别中心点（Centroids）在特征 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 这一维度上的投影距离。</p>
+<ul>
+<li>如果在所有维度上都做这个减法，得到的向量其实就是连接正样本中心和负样本中心的向量，这正是 <strong>Steering Vector (引导向量)</strong> 的基础形式。</li>
+</ul>
+<hr>
+<h3 id="2-这个指标的性质-properties">2. 这个指标的性质 (Properties)</h3>
+<h4 id="a-具有方向性-signed-directional">A. 具有方向性 (Signed / Directional)</h4>
+<p>与互信息（MI）或卡方（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>）不同，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>μ</mi></mrow><annotation encoding="application/x-tex">\Delta \mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord mathdefault">μ</span></span></span></span> 是有正负号的。</p>
+<ul>
+<li>
+<p><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>μ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta \mu &gt; 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord mathdefault">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>:</strong> 该特征在 Unsafe 样本中激活更强（Unsafe-correlated）。</p>
+</li>
+<li>
+<p><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>μ</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta \mu &lt; 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord mathdefault">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>:</strong> 该特征在 Safe 样本中激活更强（Safe-correlated）。</p>
+</li>
+<li>
+<p><strong>价值：</strong> 这对于你后续构建“不同类别的森林”非常有用，你可以直接通过符号把特征分流给不同的专家模型。</p>
+</li>
+</ul>
+<h4 id="b-尺度敏感-scale-sensitive">B. 尺度敏感 (Scale Sensitive)</h4>
+<p>这是该指标最大的<strong>双刃剑</strong>。</p>
+<ul>
+<li>
+<p>它直接依赖于激活值的绝对大小。</p>
+</li>
+<li>
+<p>如果特征 A 的激活值范围是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>100</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0, 100]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mclose">]</span></span></span></span>，特征 B 的范围是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0, 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>。即使特征 B 分类能力更强（完美分割），特征 A 的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>μ</mi></mrow><annotation encoding="application/x-tex">\Delta \mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord mathdefault">μ</span></span></span></span> 可能因为数值本身很大而远大于 B。</p>
+</li>
+<li>
+<p><strong>后果：</strong> 如果不进行归一化（Normalization），这个指标会偏向于那些“嗓门大”（激活值很高）的特征，而忽略那些“声音小但很准”的特征。</p>
+</li>
+</ul>
+<h4 id="c-线性假设-linearity-assumption">C. 线性假设 (Linearity Assumption)</h4>
+<p>它假设差异是累加的。它只关心“平均水平”的移动，而不关心分布的形状。</p>
+<hr>
+<h3 id="3-评价：在-sae-场景下的优缺点">3. 评价：在 SAE 场景下的优缺点</h3>
+<h4 id="✅-优点-pros">✅ 优点 (Pros)</h4>
+<ol>
+<li>
+<p>Steering 意义明确:</p>
+<p>对于 SAE 来说，激活值的大小通常代表“语义强度”。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>μ</mi></mrow><annotation encoding="application/x-tex">\Delta \mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord mathdefault">μ</span></span></span></span> 大，意味着在 Unsafe 样本中这个语义确实更强。这是构建 Steering Vector 最直接的方法。</p>
+</li>
+<li>
+<p>计算极快:</p>
+<p>复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>，且只需要做加减法，不需要像计算互信息那样做复杂的概率密度估计或分箱。</p>
+</li>
+<li>
+<p>稀疏性友好 (部分):</p>
+<p>由于 SAE 大部分时候激活为 0，平均值的计算会自动把“激活频率”和“激活强度”结合在一起。</p>
+</li>
+</ol>
+<h4 id="❌-缺点与风险-cons-risks">❌ 缺点与风险 (Cons &amp; Risks)</h4>
+<ol>
+<li>
+<p><strong>忽略方差 (Ignores Variance / Overlap):</strong></p>
+<p>这是最致命的缺陷。</p>
+<ul>
+<li>
+<p><strong>情况 A:</strong> Unsafe 均值 10，Safe 均值 0。方差都很小。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\Delta = 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Δ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>。（完美区分）</p>
+</li>
+<li>
+<p><strong>情况 B:</strong> Unsafe 均值 100，Safe 均值 90。方差极大（比如 50），两类数据混在一起。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\Delta = 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Δ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>。（区分度极差）</p>
+</li>
+<li>
+<p><strong>结论：</strong> 仅看差值，A 和 B 得分一样，但 A 明显更好。这个指标<strong>无法区分“分得开”和“仅仅是均值大”</strong>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>受离群点影响 (Outlier Sensitivity):</p>
+<p>SAE 特征有时候会因为某个特定的 token 突然爆出一个极大的激活值（例如 1000）。</p>
+<ul>
+<li>如果在 Safe 样本中只有一个样本激活了 1000，其他都是 0。平均值会被瞬间拉高，导致 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>μ</mi></mrow><annotation encoding="application/x-tex">\Delta \mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">Δ</span><span class="mord mathdefault">μ</span></span></span></span>变成负数，让你误以为这是个 Safe 特征，其实它只是噪音。</li>
+</ul>
+</li>
+<li>
+<p><strong>混淆“频率”与“强度”:</strong></p>
+<ul>
+<li>
+<p>特征 X：在 100% 的 Unsafe 样本中以强度 1 激活。（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\mu_{pos} = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>）</p>
+</li>
+<li>
+<p>特征 Y：在 1% 的 Unsafe 样本中以强度 100 激活。（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\mu_{pos} = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>）</p>
+</li>
+<li>
+<p>两者均值相同，但物理含义完全不同。特征 X 是普遍特征，特征 Y 是特定场景特征（比如特定攻击词汇）。直接相减无法区分这两种情况。</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="4-改进建议：标准化平均差">4. 改进建议：标准化平均差</h3>
+<p>为了解决上述“忽略方差”的问题，统计学中通常使用 <strong>Cohen’s d</strong> 或 <strong>T-statistic</strong> 的思想来修正这个指标。</p>
+<p>建议你不要只用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow></msub><mo>−</mo><msub><mi>μ</mi><mrow><mi>n</mi><mi>e</mi><mi>g</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\mu_{pos} - \mu_{neg}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8694379999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，而是用：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>=</mo><mfrac><mrow><msub><mi>μ</mi><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow></msub><mo>−</mo><msub><mi>μ</mi><mrow><mi>n</mi><mi>e</mi><mi>g</mi></mrow></msub></mrow><mrow><msub><mi>σ</mi><mrow><mi>p</mi><mi>o</mi><mi>o</mi><mi>l</mi><mi>e</mi><mi>d</mi></mrow></msub><mo>+</mo><mi>ϵ</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">Score = \frac{\mu_{pos} - \mu_{neg}}{\sigma_{pooled} + \epsilon}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.232438em;vertical-align:-0.972108em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.26033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">ϵ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.972108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<ul>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>p</mi><mi>o</mi><mi>o</mi><mi>l</mi><mi>e</mi><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\sigma_{pooled}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>：混合标准差（代表数据的离散程度）。</p>
+</li>
+<li>
+<p><strong>含义：</strong> 这是一个<strong>信噪比 (Signal-to-Noise Ratio)</strong> 的概念。我们不仅要求正负样本均值差得远（Signal 大），还要求它们各自内部比较聚拢（Noise 小）。</p>
+</li>
+</ul>
+<h3 id="总结">总结</h3>
+<ul>
+<li>
+<p><strong>正负激活相减</strong>是一个**一阶矩（First-order moment）**统计量。</p>
+</li>
+<li>
+<p><strong>适用性：</strong> 它可以作为<strong>粗筛</strong>，或者用于确定特征的<strong>方向</strong>（是 Safe 还是 Unsafe）。</p>
+</li>
+<li>
+<p><strong>局限性：</strong> 作为一个特征选择的“金标准”是不够的，因为它忽略了方差和分布重叠。</p>
+</li>
+<li>
+<p><strong>建议：</strong> 如果计算资源允许，最好结合 <strong>方差归一化</strong>（变成 T-score）或者结合 <strong>互信息</strong>（捕捉非线性）一起使用。</p>
+</li>
+</ul>
+<h3 id="1-核心对比总表-the-theoretical-matrix">1. 核心对比总表 (The Theoretical Matrix)</h3>
+<table>
+<thead>
+<tr>
+<th><strong>指标 (Metric)</strong></th>
+<th><strong>统计阶数 (Order/Moment)</strong></th>
+<th><strong>核心代数运算 (Algebra)</strong></th>
+<th><strong>处理的信息 (Information Processed)</strong></th>
+<th><strong>对分类问题的本质视角</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>均值差 (Mean Diff)</strong></td>
+<td><strong>一阶 (1st Order)</strong></td>
+<td>减法 (Linear Subtraction) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mn>1</mn></msub><mo>−</mo><msub><mi>μ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\mu_1 - \mu_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td><strong>位置 (Location):</strong> 仅关注两个分布中心点的距离，忽略形状。</td>
+<td>“这个特征在正负样本中的<strong>强度</strong>是否不同？”</td>
+</tr>
+<tr>
+<td><strong>相关系数 (Correlation)</strong></td>
+<td><strong>二阶 (2nd Order)</strong></td>
+<td>内积/归一化 (Dot Product) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>E</mi><mo stretchy="false">[</mo><mi>X</mi><mi>Y</mi><mo stretchy="false">]</mo></mrow><mrow><msub><mi>σ</mi><mi>X</mi></msub><msub><mi>σ</mi><mi>Y</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{E[XY]}{\sigma_X \sigma_Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.455305em;vertical-align:-0.44530499999999995em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3567071428571427em;margin-left:-0.03588em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">X</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.14329285714285717em;"><span></span></span></span></span></span></span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3567071428571427em;margin-left:-0.03588em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight" style="margin-right:0.22222em;">Y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.14329285714285717em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span><span class="mopen mtight">[</span><span class="mord mathdefault mtight" style="margin-right:0.07847em;">X</span><span class="mord mathdefault mtight" style="margin-right:0.22222em;">Y</span><span class="mclose mtight">]</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.44530499999999995em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
+<td>**线性共变 (Linear Co-variance):**关注特征与标签是否同步变化。</td>
+<td>“特征增加时，是 Safe 还是 Unsafe 的概率线性增加？”</td>
+</tr>
+<tr>
+<td><strong>Precision / Recall</strong></td>
+<td><strong>基于阈值 (Threshold-based)</strong></td>
+<td>比率 (Ratio) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>P</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">TP/(TP+FP)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span></td>
+<td><strong>象限计数 (Quadrant Counts):</strong> 关注混淆矩阵的特定部分，忽略 True Negatives (通常)。</td>
+<td>“<strong>如果</strong>我根据这个特征判定为 Unsafe，判对的概率有多大？”</td>
+</tr>
+<tr>
+<td><strong>F1 Score</strong></td>
+<td><strong>基于阈值 (Threshold-based)</strong></td>
+<td>调和平均 (Harmonic Mean) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>2</mn><mi>P</mi><mi>R</mi></mrow><mrow><mi>P</mi><mo>+</mo><mi>R</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{2PR}{P+R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.275662em;vertical-align:-0.403331em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.403331em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
+<td><strong>平衡计数 (Balanced Counts):</strong> 寻求 P 和 R 的权衡点。</td>
+<td>“这个特征在查全和查准之间是否有一个好的平衡点？”</td>
+</tr>
+<tr>
+<td><strong>卡方 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>)</strong></td>
+<td><strong>二阶 (2nd Order)</strong></td>
+<td>二次离差 (Quadratic) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∑</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>O</mi><mo>−</mo><mi>E</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mi>E</mi></mfrac></mrow><annotation encoding="application/x-tex">\sum \frac{(O-E)^2}{E}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.4539199999999999em;vertical-align:-0.345em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10892em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">O</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913142857142857em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
+<td><strong>独立性偏离 (Deviation from Independence):</strong> 关注实际分布与随机分布的距离。</td>
+<td>“这个特征的出现频率是否<strong>显著异常</strong>于随机猜测？”</td>
+</tr>
+<tr>
+<td><strong>互信息 (Mutual Info)</strong></td>
+<td><strong>全阶 (All Orders)</strong></td>
+<td>对数 (Logarithmic) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∑</mo><mi>p</mi><mi>log</mi><mo>⁡</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">\sum p \log p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span></span></span></span></td>
+<td><strong>不确定性削减 (Entropy Reduction):</strong> 关注整个概率分布的形状重合度。</td>
+<td>“已知这个特征后，我对标签的<strong>困惑度</strong>下降了多少比特？”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="2-深度剖析：从信息论与统计学角度">2. 深度剖析：从信息论与统计学角度</h3>
+<h4 id="第一类：几何与线性指标-均值差-相关系数">第一类：几何与线性指标 (均值差, 相关系数)</h4>
+<ul>
+<li>
+<p><strong>统计学视角：</strong> 这是一阶（均值）或二阶（方差/协方差）矩的比较。它们假设数据服从单峰分布（如高斯分布），且关系是线性的。</p>
+</li>
+<li>
+<p><strong>代数本质：</strong> 线性变换。</p>
+</li>
+<li>
+<p><strong>信息损失：</strong> <strong>极大</strong>。它们“压缩”了整个分布的形状信息。</p>
+<ul>
+<li><em>例子：</em> 一个 SAE 特征在 Safe 类中是双峰分布（比如值在 0 和 10），在 Unsafe 类中是单峰（值在 5）。均值可能都是 5，均值差为 0。这个指标认为该特征“无用”，但实际上它能完美分类（看方差或分布形状）。</li>
+</ul>
+</li>
+<li>
+<p><strong>分类效用：</strong> 适合作为<strong>粗筛</strong>。如果均值差很大，分类肯定容易；但均值差小，不代表没法分类。</p>
+</li>
+</ul>
+<h4 id="第二类：决策逻辑指标-precision-recall-f1">第二类：决策逻辑指标 (Precision, Recall, F1)</h4>
+<ul>
+<li>
+<p><strong>统计学视角：</strong> 这些不是纯粹的统计量，而是<strong>后验评估 (Posterior Evaluation)</strong>。它们必须先经过一个非线性的<strong>硬阈值操作 (Hard Thresholding/Binarization)</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mtext> if </mtext><mi>x</mi><mo>&gt;</mo><mi>θ</mi><mtext> else </mtext><mn>0</mn></mrow><annotation encoding="application/x-tex">f(x) = 1 \text{ if } x &gt; \theta \text{ else } 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mord text"><span class="mord"> if </span></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mord text"><span class="mord"> else </span></span><span class="mord">0</span></span></span></span>。</p>
+</li>
+<li>
+<p><strong>代数本质：</strong> 集合论的计数与比率。</p>
+</li>
+<li>
+<p><strong>信息处理：</strong></p>
+<ul>
+<li>
+<p>它们抛弃了“激活强度”的信息，只保留“激活与否”的信息（如果你是在二值化后计算）。</p>
+</li>
+<li>
+<p><strong>非对称性 (Asymmetry):</strong> 这是一个关键特性。Precision/Recall 不关心 True Negatives (TN)。在 SAE 场景下（极其稀疏，TN 极大），这是一个<strong>优点</strong>。因为大多数时候特征不激活（Safe），我们不希望海量的 0 把指标淹没。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>分类效用：</strong> 非常适合处理<strong>稀疏数据</strong>。如果你只关心“当这个特征亮起时，是不是 Unsafe”，那么 Precision 是最直接的衡量。</p>
+</li>
+</ul>
+<h4 id="第三类：分布距离指标-卡方-chi-2">第三类：分布距离指标 (卡方 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>)</h4>
+<ul>
+<li>
+<p><strong>统计学视角：</strong> 假设检验统计量。它衡量的是“观察到的分布”和“理论上的独立分布”之间的<strong>欧氏距离</strong>（经过方差归一化）。</p>
+</li>
+<li>
+<p><strong>代数本质：</strong> 加权平方和。平方操作使得它对正负偏差一视同仁（不像均值差有方向）。</p>
+</li>
+<li>
+<p><strong>信息处理：</strong> 处理的是<strong>频率 (Frequency)</strong> 的异常。</p>
+</li>
+<li>
+<p><strong>分类效用：</strong> <strong>强力推荐用于特征选择。</strong> 尤其是对于 SAE 这种离散/稀疏特征，卡方检验能非常敏感地捕捉到那些“虽然出现次数不多，但一出现就高度集中在某类”的特征。</p>
+</li>
+</ul>
+<h4 id="第四类：熵与信息量指标-互信息-mi">第四类：熵与信息量指标 (互信息 MI)</h4>
+<ul>
+<li>
+<p><strong>统计学视角：</strong> 这是<strong>非参数 (Non-parametric)</strong> 统计。它不假设数据服从高斯分布，也不假设线性关系。它利用了<strong>所有阶</strong>的统计矩（因为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">p(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span> 包含了分布的所有信息）。</p>
+</li>
+<li>
+<p><strong>代数本质：</strong> 对数运算 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\log</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span></span></span></span>)。这意味着它处理的是<strong>比特 (Bits)</strong> 或者是数量级，而不是数值本身。</p>
+</li>
+<li>
+<p>信息处理： 处理的是概率分布的重叠 (Overlap of Distributions)。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>Y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>H</mi><mo stretchy="false">(</mo><mi>Y</mi><mo stretchy="false">)</mo><mo>−</mo><mi>H</mi><mo stretchy="false">(</mo><mi>Y</mi><mi mathvariant="normal">∣</mi><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">I(X;Y) = H(Y) - H(Y|X)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span></span></p>
+<p>本质上是计算：两个概率分布究竟有多“不一样”。哪怕是非线性的（例如：特征值在中间是 Safe，两头是 Unsafe），互信息也能捕捉到。</p>
+</li>
+<li>
+<p><strong>分类效用：</strong> <strong>理论上的上限</strong>。它是最完美的特征选择指标，因为它直接对应贝叶斯误差率的下界（Fano’s Inequality）。如果 MI 为 0，说明这个特征对分类绝对没用。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-针对你的-pipeline-sae-forest-的具体建议">3. 针对你的 Pipeline (SAE -&gt; Forest) 的具体建议</h3>
+<p>既然你是做<strong>分类 (Safe/Unsafe)</strong>，且使用<strong>随机森林</strong>集成：</p>
+<ol>
+<li>
+<p><strong>为什么均值差/Steering 指标不够好？</strong></p>
+<ul>
+<li>因为随机森林本身是非线性的，它不需要特征和标签线性相关。均值差只能找到线性特征，会漏掉很多 RF 能利用的非线性特征。</li>
+</ul>
+</li>
+<li>
+<p><strong>为什么 F1/(P,R) 有风险？</strong></p>
+<ul>
+<li>因为它们需要你预先设定一个阈值（比如激活&gt;0）。但这可能不是最优切分点。随机森林的优势就是自己寻找最优切分点。过早二值化会损失“激活强度”里的信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>最终推荐：互信息 (MI) 或 卡方 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>)</strong></p>
+<ul>
+<li>
+<p><strong>首选 MI：</strong> 因为 SAE 激活值不仅仅是 0/1，其强度大小（Magnitude）往往携带语义浓度。MI 能同时利用“是否激活”和“激活强度”的信息。</p>
+</li>
+<li>
+<p><strong>次选 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>：</strong> 如果计算资源受限，或者你打算把 SAE 特征视为纯二值（亮/灭），卡方是最稳健的统计学选择。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                                <a href="/Interpretable%20Interpretability%20&%20LLM%20Safety/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
+                                        Previous
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        科研 | Interpretable Interpretability &amp; LLM Safety
+                                    </div>
+                                </a>
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/Agentic%20RL%20Safety/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        Next
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        科研 | Agentic RL Safety
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12  mdui-p-t-1 mdui-p-b-4 sticky-sidebar" id="post-sidebar">
+            
+                <div class="mdui-card mdui-shadow-1 toc-full-height">
+                    <div class="mdui-card-content toc-card-content">
+                        <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
+                        <div class="toc-content">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A"><span class="mdui-list mdui-typo-text">1. 数学定义与几何解释</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-%E8%BF%99%E4%B8%AA%E6%8C%87%E6%A0%87%E7%9A%84%E6%80%A7%E8%B4%A8-properties"><span class="mdui-list mdui-typo-text">2. 这个指标的性质 (Properties)</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#3-%E8%AF%84%E4%BB%B7%EF%BC%9A%E5%9C%A8-sae-%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="mdui-list mdui-typo-text">3. 评价：在 SAE 场景下的优缺点</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#4-%E6%94%B9%E8%BF%9B%E5%BB%BA%E8%AE%AE%EF%BC%9A%E6%A0%87%E5%87%86%E5%8C%96%E5%B9%B3%E5%9D%87%E5%B7%AE"><span class="mdui-list mdui-typo-text">4. 改进建议：标准化平均差</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E6%80%BB%E7%BB%93"><span class="mdui-list mdui-typo-text">总结</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-%E6%A0%B8%E5%BF%83%E5%AF%B9%E6%AF%94%E6%80%BB%E8%A1%A8-the-theoretical-matrix"><span class="mdui-list mdui-typo-text">1. 核心对比总表 (The Theoretical Matrix)</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%EF%BC%9A%E4%BB%8E%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%AD%A6%E8%A7%92%E5%BA%A6"><span class="mdui-list mdui-typo-text">2. 深度剖析：从信息论与统计学角度</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#3-%E9%92%88%E5%AF%B9%E4%BD%A0%E7%9A%84-pipeline-sae-forest-%E7%9A%84%E5%85%B7%E4%BD%93%E5%BB%BA%E8%AE%AE"><span class="mdui-list mdui-typo-text">3. 针对你的 Pipeline (SAE -&gt; Forest) 的具体建议</span></a></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="mdui-m-t-2">
+                <div class="mdui-card mdui-shadow-1">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" class="mdui-img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4 sidebar-avatar-offset" style="width: 80px; height: 80px; border: 2px solid white; display: block; margin-left: auto; margin-right: auto;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">NaN / Not a Name</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      Nomen a Nullo. Nihil ad Nomen.
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">86</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">posts</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Categories</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">28</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Tags</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-card-actions mdui-text-center">
+    
+        
+            <a href="mailto:your@email.com" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
+        
+            <a href="https://github.com/yourusername" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
+                <i class="mdui-icon material-icons">code</i>
+            </a>
+        
+    
+  </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2026 <span class="mdui-text-color-theme">NaN / Not a Name</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    // 合并所有 DOMContentLoaded 监听器
+    document.addEventListener("DOMContentLoaded", function() {
+      // KaTeX 数学公式渲染
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+
+      // 自动为所有表格和图片添加 MDUI 样式类
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>
