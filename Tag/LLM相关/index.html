@@ -9,6 +9,9 @@
   <!-- MDUI CSS -->
   <link rel="stylesheet" href="/mdui/css/mdui.min.css">
 
+  <!-- Font Awesome 6 for brand icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <!-- KaTeX CSS (If needed) -->
   <link rel="stylesheet" href="/katex/katex.min.css">
 
@@ -35,31 +38,25 @@
                 
                     
                         <a href="/categories/笔记" class="mdui-ripple ">
-                            笔记 | 9
-                        </a>
-                    
-                
-                    
-                        <a href="/categories/科研" class="mdui-ripple ">
-                            科研 | 9
+                            笔记 | 37
                         </a>
                     
                 
                     
                         <a href="/categories/碎碎念" class="mdui-ripple ">
-                            碎碎念 | 41
+                            碎碎念 | 33
                         </a>
                     
                 
                     
-                        <a href="/categories/工具箱" class="mdui-ripple ">
-                            工具箱 | 15
+                        <a href="/categories/散文" class="mdui-ripple ">
+                            散文 | 10
                         </a>
                     
                 
                     
                         <a href="/categories/专栏" class="mdui-ripple ">
-                            专栏 | 6
+                            专栏 | 8
                         </a>
                     
                 
@@ -132,7 +129,7 @@
                     </div>
                     <div class="mdui-row mdui-p-t-2">
                         <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
-                            Last Update: 2026/02/22 17:57
+                            Last Update: 2026/03/04 16:29
                         </div>
                         <div class="mdui-col-xs-3">
                             <div class="mdui-float-right mdui-typo">
@@ -149,8 +146,8 @@
                 </div>
                 <div class="mdui-card-content mdui-typo mdui-p-x-5">
                     <img src="/files/126281615_p0_大黑塔.jpg" alt="" />
-<!-- QueryToSerialize: TABLE join(file.tags, " ") AS Tags, updated AS "时间", categories FROM #LLM AND -#menu WHERE file.name != this.file.name SORT updated DESC -->
-<!-- SerializedQuery: TABLE join(file.tags, " ") AS Tags, updated AS "时间", categories FROM #LLM AND -#menu WHERE file.name != this.file.name SORT updated DESC -->
+<!-- QueryToSerialize: TABLE join(file.tags, " ") AS Tags, default(updated, file.mtime) AS "时间", categories FROM #LLM AND -#menu WHERE file.name != this.file.name SORT default(updated, file.mtime) DESC -->
+<!-- SerializedQuery: TABLE join(file.tags, " ") AS Tags, default(updated, file.mtime) AS "时间", categories FROM #LLM AND -#menu WHERE file.name != this.file.name SORT default(updated, file.mtime) DESC -->
 <table>
 <thead>
 <tr>
@@ -162,70 +159,70 @@
 </thead>
 <tbody>
 <tr>
-<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/关于LLM的胡扯/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">关于LLM的胡扯</span>                 </span></td>
-<td>#LLM #随笔 #哲学</td>
-<td>2023/07/12</td>
-<td><ul><li>碎碎念</li></ul></td>
-</tr>
-<tr>
-<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Envisioning a Human Like AI：A Context-Centric Architecture/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Envisioning a Human Like AI：A Context-Centric Architecture</span>                 </span></td>
-<td>#NLP #LLM</td>
-<td>-</td>
-<td><ul><li>科研</li></ul></td>
-</tr>
-<tr>
-<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/文档/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">文档</span>                 </span></td>
-<td>#LLM</td>
-<td>-</td>
-<td><ul><li>科研</li></ul></td>
-</tr>
-<tr>
-<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/后训练/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">后训练</span>                 </span></td>
-<td>#笔记 #RL #LLM #AI</td>
-<td>-</td>
+<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Advice From Anthropic/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Advice From Anthropic</span>                 </span></td>
+<td>#LLM #科研</td>
+<td>2026/03/04 3:47 PM</td>
 <td><ul><li>笔记</li></ul></td>
 </tr>
 <tr>
-<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Transformer/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Transformer</span>                 </span></td>
-<td>#笔记 #NLP #LLM</td>
-<td>-</td>
+<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Interpretable Interpretability & LLM Safety/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Interpretable Interpretability &amp; LLM Safety</span>                 </span></td>
+<td>#LLM #科研</td>
+<td>2026/03/04 3:46 PM</td>
 <td><ul><li>笔记</li></ul></td>
 </tr>
 <tr>
 <td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/SAE 特征筛选/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">SAE 特征筛选</span>                 </span></td>
-<td>#LLM #NLP #Interpretability</td>
-<td>-</td>
-<td><ul><li>科研</li></ul></td>
-</tr>
-<tr>
-<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/LLM Safety 资源/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">LLM Safety 资源</span>                 </span></td>
-<td>#LLM</td>
-<td>-</td>
-<td><ul><li>科研</li></ul></td>
-</tr>
-<tr>
-<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Interpretable Interpretability & LLM Safety/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Interpretable Interpretability &amp; LLM Safety</span>                 </span></td>
-<td>#LLM</td>
-<td>-</td>
-<td><ul><li>科研</li></ul></td>
-</tr>
-<tr>
-<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/From Anthropic/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">From Anthropic</span>                 </span></td>
-<td>#LLM</td>
-<td>-</td>
-<td><ul><li>科研</li></ul></td>
-</tr>
-<tr>
-<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Anti-Sycophancy Prompts/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Anti-Sycophancy Prompts</span>                 </span></td>
-<td>#LLM</td>
-<td>-</td>
+<td>#LLM #NLP #Interpretability #科研</td>
+<td>2026/03/04 3:46 PM</td>
 <td><ul><li>笔记</li></ul></td>
 </tr>
 <tr>
 <td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Agentic RL Safety/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Agentic RL Safety</span>                 </span></td>
+<td>#LLM #科研</td>
+<td>2026/03/04 3:46 PM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/文档/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">文档</span>                 </span></td>
+<td>#LLM #科研</td>
+<td>2026/03/04 3:45 PM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/LLM Safety 资源/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">LLM Safety 资源</span>                 </span></td>
+<td>#LLM #科研</td>
+<td>2026/03/04 3:45 PM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Envisioning a Human Like AI/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Envisioning a Human Like AI</span>                 </span></td>
+<td>#NLP #LLM</td>
+<td>2026/03/04 3:45 PM</td>
+<td><ul><li>散文</li></ul></td>
+</tr>
+<tr>
+<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Transformer/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Transformer</span>                 </span></td>
+<td>#笔记 #NLP #LLM</td>
+<td>2026/02/12 11:19 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/后训练/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">后训练</span>                 </span></td>
+<td>#笔记 #RL #LLM #AI</td>
+<td>2026/01/19 3:46 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/Anti-Sycophancy Prompts/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">Anti-Sycophancy Prompts</span>                 </span></td>
 <td>#LLM</td>
-<td>-</td>
-<td><ul><li>科研</li></ul></td>
+<td>2026/01/18 2:33 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><span class="mdui-chip mdui-hoverable mdui-ripple mdui-color-deep-purple-50 mdui-text-color-indigo"                       onclick="window.location.href='/关于LLM的胡扯/'"                       title=""                       style="cursor: pointer; vertical-align: middle; user-select: none;">                   <span class="mdui-chip-title">关于LLM的胡扯</span>                 </span></td>
+<td>#LLM #随笔</td>
+<td>2023/07/12</td>
+<td><ul><li>散文</li></ul></td>
 </tr>
 </tbody>
 </table>
@@ -240,19 +237,29 @@
                     <div class="mdui-row">
                         <div class="mdui-col-sm-3 mdui-text-left">
                             
-                                <a href="/Tag/%E5%93%B2%E5%AD%A6%E7%9B%B8%E5%85%B3/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                <a href="/Tag/%E9%9F%B3%E4%B9%90%E7%9B%B8%E5%85%B3/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
                                     <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
                                         <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
                                         Previous
                                     </div>
                                     <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
-                                        专栏 | 哲学相关
+                                        专栏 | 音乐相关
                                     </div>
                                 </a>
                             
                         </div>
                         <div class="mdui-col-sm-6"></div>
                         <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/Blog%20Category/%E6%80%BB%E7%9B%AE%E5%BD%95/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        Next
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        专栏 | 总目录
+                                    </div>
+                                </a>
                             
                         </div>
                     </div>
@@ -295,35 +302,50 @@
 
   <div class="mdui-row mdui-text-center mdui-p-y-2">
     <div class="mdui-col-xs-4">
-      <div class="mdui-typo-subheading">86</div>
+      <div class="mdui-typo-subheading">88</div>
       <div class="mdui-typo-caption mdui-text-color-grey-600">posts</div>
     </div>
     <div class="mdui-col-xs-4">
-      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-subheading">4</div>
       <div class="mdui-typo-caption mdui-text-color-grey-600">Categories</div>
     </div>
     <div class="mdui-col-xs-4">
-      <div class="mdui-typo-subheading">28</div>
+      <div class="mdui-typo-subheading">30</div>
       <div class="mdui-typo-caption mdui-text-color-grey-600">Tags</div>
     </div>
   </div>
 
   <div class="mdui-divider"></div> -->
 
-  <div class="mdui-card-actions mdui-text-center">
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list mdui-list-dense mdui-p-y-0">
     
         
-            <a href="mailto:your@email.com" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
-                <i class="mdui-icon material-icons">email</i>
+            <a href="https://qm.qq.com/q/RPs1VkX9OU" target="_blank" class="mdui-list-item mdui-ripple" style="min-height: 40px; height: 40px;">
+                <i class="mdui-list-item-icon fa-brands fa-qq mdui-text-color-light-blue" style="font-size: 18px; width: 20px; text-align: center;"></i>
+                <div class="mdui-list-item-content mdui-text-truncate" style="font-size: 12.5px; opacity: 0.8; margin-left: 12px;">
+                    695977430
+                </div>
             </a>
         
-            <a href="https://github.com/yourusername" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
-                <i class="mdui-icon material-icons">code</i>
+            <a href="https://github.com/nashchennc" target="_blank" class="mdui-list-item mdui-ripple" style="min-height: 40px; height: 40px;">
+                <i class="mdui-list-item-icon fa-brands fa-github mdui-text-color-black" style="font-size: 18px; width: 20px; text-align: center;"></i>
+                <div class="mdui-list-item-content mdui-text-truncate" style="font-size: 12.5px; opacity: 0.8; margin-left: 12px;">
+                    NashChennc
+                </div>
+            </a>
+        
+            <a href="mailto:chennachuan0423@gmail.com" target="_blank" class="mdui-list-item mdui-ripple" style="min-height: 40px; height: 40px;">
+                <i class="mdui-list-item-icon fa-solid fa-envelope mdui-text-color-blue" style="font-size: 18px; width: 20px; text-align: center;"></i>
+                <div class="mdui-list-item-content mdui-text-truncate" style="font-size: 12.5px; opacity: 0.8; margin-left: 12px;">
+                    chennachuan0423@gmail.com
+                </div>
             </a>
         
     
   </div>
-</div>
+  </div>
             </div>
         </div>
     </div>

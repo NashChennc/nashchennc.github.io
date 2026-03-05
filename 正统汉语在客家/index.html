@@ -9,6 +9,9 @@
   <!-- MDUI CSS -->
   <link rel="stylesheet" href="/mdui/css/mdui.min.css">
 
+  <!-- Font Awesome 6 for brand icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <!-- KaTeX CSS (If needed) -->
   <link rel="stylesheet" href="/katex/katex.min.css">
 
@@ -35,31 +38,25 @@
                 
                     
                         <a href="/categories/笔记" class="mdui-ripple ">
-                            笔记 | 9
-                        </a>
-                    
-                
-                    
-                        <a href="/categories/科研" class="mdui-ripple ">
-                            科研 | 9
+                            笔记 | 37
                         </a>
                     
                 
                     
                         <a href="/categories/碎碎念" class="mdui-ripple ">
-                            碎碎念 | 41
+                            碎碎念 | 33
                         </a>
                     
                 
                     
-                        <a href="/categories/工具箱" class="mdui-ripple ">
-                            工具箱 | 15
+                        <a href="/categories/散文" class="mdui-ripple ">
+                            散文 | 10
                         </a>
                     
                 
                     
                         <a href="/categories/专栏" class="mdui-ripple ">
-                            专栏 | 6
+                            专栏 | 8
                         </a>
                     
                 
@@ -137,8 +134,8 @@
                         <div class="mdui-col-xs-3">
                             <div class="mdui-float-right mdui-typo">
                                 
-                                    <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
-                                        碎碎念
+                                    <a href="/categories/%E6%95%A3%E6%96%87/">
+                                        散文
                                     </a>
                                 
                             </div>
@@ -148,20 +145,271 @@
                     <br/>
                 </div>
                 <div class="mdui-card-content mdui-typo mdui-p-x-5">
-                    <p>我为什么对语言学感兴趣？</p>
-<p>这个问题拖了很久了。最初是和宋彦老师面谈的时候被问了这个问题。尤其是有时候和不了解的长辈和没有相关爱好的朋友谈到时都还会被问到。</p>
-<p>然而相关的话题又实在太多，以我的性子总是想讲讲道理辟辟谣，这还得感谢在中文和中华文化方面满天飞的谣言和错误论断，以及总是不嫌事大甚至将其奉为真理的老大爷老大妈们。要是他们稍微有一点基本的知识水平那还用不着知道这玩意是我平时爱看的东西了。</p>
-<p>确实。语言学直观上来看怎么说都是一门文科专业课，似乎和在理工科大学读书的我怎么看都没有关系。更何况科大确实也不具备开设这门课的条件，结果我只能自己没事的时候拿语纲当闲书看。</p>
-<hr>
-<p>作为从小就讲粤语的广东人，或许很多人都记得在什么地方听说过这样的说法</p>
-<p>“用粤语读唐诗更押韵，所以粤语更接近古汉语”</p>
+                    <p>如果你是讲粤语的广东人，或许你会在什么地方听说过这样的说法</p>
+<blockquote>
+<p>用粤语读唐诗更押韵，所以粤语更接近古汉语</p>
+</blockquote>
 <p>这种说法似乎直接坐实了粤语比普通话更接近“正统汉语”。小时候第一次发现这一点的时候，我立马就找了不少诗词试了试，似乎确实是这样。但似乎也不完全是。后来我爸用客家话给我读诗，似乎还要更押韵一点。于是我又感觉客家话“更正统”。但是从来没听别人说过“客家话更正统”的说法，当时我想，可能只是因为讲客家话的人要少一点吧。感觉此时不少人脑海中就逐渐脑补出这样的情节：“北方官话不是正统，正统汉语随着几次南迁留在了南方。”</p>
-<p>多的不说，稍微上网调查便是。搜一搜民国时期定下国语的过程、中古汉语的发音等等。不过可能也需要一点背景知识，之后要是我还记得这事我就找一些科普放在这里。</p>
-<p>甚至还有一些什么“粤语是语言不是方言”之类的说法。确实粤语在使用范围和文化上都比较丰富，但是从严谨的学术上来说从来没有人规定过什么是主/次的语言/方言。</p>
-<p>如果有人仍然执着地认为这样能抬高自己所在文化的地位我也无话可说。哪来的什么正统不正统，方言不方言。不过是把各种客观事实张冠李戴、断章取义。这些人对事物的合理化必须要由一个“官方”、“学术”来给予，不管这个“权威”是否子虚乌有。没有也要给自己造一个。毫无逻辑，毫无自信。</p>
+<h1>1. 为什么“粤语/客家话读唐诗更押韵”？</h1>
+<p>这不是错觉，但也不代表它们就是“古汉语”。</p>
+<p>核心概念是 <strong>入声（Entering Tone）</strong> 你感觉粤语或客家话读唐诗更有“味道”或更押韵，最主要的原因是<strong>入声的保留</strong>。</p>
+<ul>
+<li>
+<p><strong>什么是入声？</strong> 在中古汉语（隋唐时期）的音韵系统中，有四个声调：平、上、去、<strong>入</strong>。 入声字不是一种单纯的“音高”，而是一种短促、急切的读音，特点是以 <strong>-p, -t, -k</strong> 三个辅音结尾。</p>
+<ul>
+<li>
+<p>例如：“十”（shí）在普通话里拖得很长，但在粤语（sap6）、客家话（sip5/sep5）里读起来非常短促，一下子就收住了。</p>
+</li>
+<li>
+<p><strong>北方官话（普通话的前身）：</strong> 在元代以后，入声逐渐消失了。原本的 -p, -t, -k 结尾脱落，这些字被派分到了阴平、阳平、上声、去声里（这叫“入派三声”或“入派四声”）。所以你现在用普通话读“白日依山尽”的“白”（bái），韵母很长。</p>
+</li>
+<li>
+<p><strong>南方方言（粤、客、闽）：</strong> 比较完整地保留了入声系统。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>为什么觉得押韵？</strong> 唐诗讲究平仄格律，如果用普通话读，很多原本是“仄声”的入声字变成了“平声”，平仄规律就乱了。而且很多韵脚在普通话里韵母变了（比如 -m 尾合并到了 -n 尾），读起来就不顺口。用保留了入声和闭口音（-m）的粤语或客家话读，确实更能还原唐代音系的<strong>结构感</strong>。</p>
+<h1>2. “粤语/客家话 = 古汉语”？</h1>
+<p>这是典型的<strong>正统性迷思（Orthodoxy Myth）</strong>。</p>
+<p>虽然南方方言保留了入声，但它们绝对<strong>不是</strong>古汉语。语言演化是公平的，所有方言都在变，只是变的地方不一样：</p>
+<table>
+<thead>
+<tr>
+<th><strong>特征</strong></th>
+<th><strong>中古汉语（唐）</strong></th>
+<th><strong>普通话</strong></th>
+<th><strong>粤语</strong></th>
+<th><strong>结论</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>入声 (-p/t/k)</strong></td>
+<td>有</td>
+<td><strong>丢失</strong></td>
+<td><strong>保留</strong></td>
+<td>粤语更存古</td>
+</tr>
+<tr>
+<td><strong>闭口韵 (-m)</strong></td>
+<td>有（如“心”、“林”）</td>
+<td><strong>丢失</strong>（并入-n）</td>
+<td><strong>保留</strong></td>
+<td>粤语更存古</td>
+</tr>
+<tr>
+<td><strong>浊辅音</strong></td>
+<td>有（如 b, d, g 这种浊音）</td>
+<td><strong>丢失</strong>（清化）</td>
+<td><strong>丢失</strong>（清化）</td>
+<td><strong>吴语（如苏州话）保留得最好</strong></td>
+</tr>
+<tr>
+<td><strong>声调</strong></td>
+<td>4个（平上去入）</td>
+<td>4个</td>
+<td>6个或9个</td>
+<td>粤语分化得更细，普通话合并了</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>普通话</strong>：丢了入声，丢了尖团音，但在某些元音和介音上可能保留了唐宋的特点。</li>
+<li><strong>粤语</strong>：保留了入声和韵尾，但声母发生了巨大变化，元音系统也大变样了。</li>
+<li><strong>客家话</strong>：介于两者之间，保留了中原古音的很多底层词汇，但也有自己的演变。</li>
+</ul>
+<p>提到“正统性”，其实日语的<strong>音读（On’yomi）</strong> 系统保留了比任何中国方言都更古老、更分层的发音记录。日本人不是一次性借用汉字，而是分三批大的“进货”，每一批都记录了当时中国的标准音。</p>
+<p>这就好比地质学的“地层”，每一层都压着不同年代的化石：</p>
+<table>
+<thead>
+<tr>
+<th><strong>借词层级</strong></th>
+<th><strong>对应中国时代</strong></th>
+<th><strong>来源地</strong></th>
+<th><strong>特征</strong></th>
+<th><strong>例子（以“行”字为例）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>吴音 (Go-on)</strong></td>
+<td>南北朝/隋以前</td>
+<td>长江下游（金陵/吴地）</td>
+<td>最早传入，伴随佛教。鼻音重，保留了古老的浊音。</td>
+<td><strong>Gyo</strong> (修行 shugyo)</td>
+</tr>
+<tr>
+<td><strong>汉音 (Kan-on)</strong></td>
+<td><strong>唐朝 (主要)</strong></td>
+<td>长安/洛阳</td>
+<td>遣唐使带回的“正统”官话。听起来更清脆，是官方推崇的发音。</td>
+<td><strong>Kou</strong> (旅行 ryoko)</td>
+</tr>
+<tr>
+<td><strong>唐音 (To-on)</strong></td>
+<td>宋/元/明</td>
+<td>杭州/浙江</td>
+<td>随禅宗和贸易传入。更像现代的南方方言。</td>
+<td><strong>An</strong> (行灯 andon)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>有趣的点：</strong></p>
+<ul>
+<li>
+<p><strong>吴音 vs 汉音：</strong> 日本人也很纠结“正统”。当年桓武天皇极其推崇<strong>汉音</strong>（唐朝长安音），认为之前的<strong>吴音</strong>（金陵音）太土、不正宗，甚至下令废除吴音。结果失败了，因为佛教经文全是吴音读法，改不过来。</p>
+</li>
+<li>
+<p><strong>证据：</strong> 今天你听日语里的“色”（shiki）、“肉”（niku）、“北”（hoku），那个短促的结尾 <strong>-k</strong>，就是完美复刻了唐代入声字的读音（而在普通话里已经消失了）。</p>
+</li>
+</ul>
+<p><strong>没有哪个现代方言是“正统”的，它们都是古汉语分家后各自跑偏的后代。</strong> 就像三兄弟分家，老大长得像爸爸的鼻子，老二长得像爸爸的眼睛，老三继承了爸爸的性格，谁也不能说只有自己才是爸爸的“克隆体”。</p>
+<h1>3. 中古汉语</h1>
+<p>我们可以把<strong>中古汉语</strong>（Middle Chinese）和<strong>拉丁语</strong>（Latin）看作历史长河中的一对“镜像”。它们都曾是一个庞大帝国（唐帝国 vs 罗马帝国）的通用语，都随着帝国的衰落而分化，但最终走向了完全不同的结局：</p>
+<ul>
+<li>
+<p><strong>欧洲：</strong> 拉丁语死了，生下了一堆“儿子”（罗曼语族：法语、西班牙语、意大利语等），大家分家过日子，变成了不同的国家。</p>
+</li>
+<li>
+<p><strong>中国：</strong> 中古汉语分化了（官话、粤语、吴语等），但大家还在一个屋檐下，虽然“口音”不同，但认同一个“家”（汉字文化圈/大一统国家）。</p>
+</li>
+</ul>
+<h3 id="一-两个-幽灵-祖先：中古汉语与拉丁语">一、 两个“幽灵”祖先：中古汉语与拉丁语</h3>
+<h4 id="1-中古汉语：韵书里的-普通话">1. 中古汉语：韵书里的“普通话”</h4>
+<p>你在上一篇博文里看到的“唐诗韵律”，其标准并非唐代某地人的真实口语，而是一套<strong>人为的规范系统</strong>。</p>
+<ul>
+<li>
+<p><strong>切韵（Qieyun）：</strong> 隋朝时，陆法言等几个文人聚在一起，觉得当时“南腔北调”太乱了，写诗不仅不押韵，连科举考试都没法判卷。于是他们编了一本《切韵》，综合了金陵（南）和洛下（北）的语音，制定了一个 <strong>“最大公约数”</strong>。</p>
+</li>
+<li>
+<p><strong>性质：</strong> 这就是中古汉语的“标准音”。它可能更像是一种 <strong>“读书音”</strong>（High Language），受过教育的人在吟诗作赋时使用，而老百姓平时说的“土话”可能早就开始分化了。</p>
+</li>
+</ul>
+<h4 id="2-通俗拉丁语：士兵与商人的语言">2. 通俗拉丁语：士兵与商人的语言</h4>
+<p>罗马帝国时期，官方文件用<strong>古典拉丁语</strong>（Cicero等大文豪用的）。但随军出征的士兵、做生意的商贩，说的是<strong>通俗拉丁语</strong>（Vulgar Latin）。</p>
+<ul>
+<li>
+<p><strong>演变：</strong> 随着罗马军团驻扎在法国（高卢）、西班牙（伊比利亚），通俗拉丁语和当地土著语言混合。</p>
+</li>
+<li>
+<p><strong>结局：</strong> 罗马帝国崩溃后，各地交通隔绝。高卢地区的拉丁语变成了<strong>法语</strong>，伊比利亚的变成了<strong>西班牙语</strong>，佛罗伦萨附近的变成了<strong>意大利语</strong>。</p>
+</li>
+</ul>
+<h3 id="二-不同的剧本：为何欧洲分裂-中国统一？">二、 不同的剧本：为何欧洲分裂，中国统一？</h3>
+<p>这是一个经典的历史谜题：为什么由于地理隔绝，欧洲的方言变成了<strong>独立语言</strong>（Language），而中国的方言只被视为<strong>方言</strong>（Dialect）？</p>
+<p><strong>关键在于“文字”的锚定作用。</strong></p>
+<ol>
+<li>
+<p><strong>拼音 vs 表意：</strong></p>
+<ul>
+<li>
+<p><strong>欧洲（表音文字）：</strong> 拉丁字母是表音的。当法语的发音变了，拼写也跟着变（比如 pater 变成了 père）。一旦拼写变了，文字就变了，书面语也就无法互通了，民族认同随之割裂。</p>
+</li>
+<li>
+<p><strong>中国（表意文字）：</strong> 汉字是表意的。虽然“日”字，北京人读 <em>rì</em>，广州人读 <em>jat6</em>，日本人读 <em>nichi</em>，但写下来大家看到的都是同一个<strong>符号</strong>，意义完全一样。</p>
+</li>
+<li>
+<p><strong>结论：</strong> 汉字像一个巨大的<strong>锚</strong>，在语音分崩离析的一千多年里，强行锁住了书面语的统一性。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="三-语言规范运动：权力的游戏">三、 语言规范运动：权力的游戏</h3>
+<p>语言从来不仅是交流工具，更是<strong>政治权力</strong>的体现。谁掌握了标准语的定义权，谁就掌握了文化正统。</p>
+<h4 id="1-欧洲：民族国家的崛起-方言上位">1. 欧洲：民族国家的崛起（方言上位）</h4>
+<p>欧洲的规范化运动，往往伴随着 <strong>“摆脱拉丁语，确立民族语言”</strong> 的过程。</p>
+<ul>
+<li>
+<p><strong>但丁与意大利语（13-14世纪）：</strong> 但丁写《神曲》时，故意不用高贵的拉丁语，而是用了他老家托斯卡纳（Tuscany）的方言。这使得托斯卡纳方言后来成为了标准意大利语的基础。</p>
+</li>
+<li>
+<p><strong>马丁·路德与德语（16世纪）：</strong> 他把《圣经》翻译成德语方言。这不仅是宗教改革，更是确立了“标准德语”的地位，让德意志地区有了统一的文化认同。</p>
+</li>
+<li>
+<p><strong>法兰西学会（1635年）：</strong> 黎塞留红衣主教建立了法兰西学会（Académie française），这是世界上最早的官方语言“警察”。直到今天，他们还在拼命抵抗英语词汇（比如把 email 规定为 courriel），以此维护法国文化的纯洁性和中央集权。</p>
+</li>
+</ul>
+<h4 id="2-中国：从-读书音-到-国语">2. 中国：从“读书音”到“国语”</h4>
+<p>中国的规范化，是为了在庞大的疆域内维持<strong>行政效率</strong>。</p>
+<ul>
+<li>
+<p><strong>明清官话（Mandarin）：</strong> 明清时期，为了让来自天南地北的官员能互相听懂上朝议事，形成了一套以北方方言为基础的“官话”。但这仅限于官场和知识分子。</p>
+</li>
+<li>
+<p><strong>大清帝国的焦虑（1728年）：</strong> 雍正皇帝曾经很生气，因为他听不懂广东和福建官员的汇报。他亲自下令在南方设立“正音书院”，教官员说官话。这是中国最早的强制性推广普通话运动（虽然效果不佳）。</p>
+</li>
+<li>
+<p><strong>民国“读音统一会”（1913年）：一场著名的混战。</strong></p>
+<ul>
+<li>
+<p><strong>辟谣时间：</strong> 网上流传“粤语差一票成为国语”是<strong>谣言</strong>。</p>
+</li>
+<li>
+<p><strong>真相：</strong> 当时的会议非常混乱。江浙派和北方派吵得不可开交。</p>
+</li>
+<li>
+<p><strong>老国音：</strong> 最后制定出的“老国音”是一个<strong>人造混合怪</strong>。它以北京音为基础，但人为地保留了入声（为了照顾南方人），还区分了尖团音。结果是谁说起来都别扭，根本推行不下去。</p>
+</li>
+<li>
+<p><strong>结局：</strong> 到了1920-30年代，瞿秋白、鲁迅等人推动“国语罗马字”和“大众语”，最终大家意识到人造语言行不通，必须以活的语言为标准。于是1932年确立了以**“北平音”**为标准音的国语系统，也就是后来“普通话”的雏形。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>历史源流上：</strong> 粤语、客家话确实像化石一样保留了更多中古汉语（唐宋）的特征（入声、闭口音）。</p>
+</li>
+<li>
+<p><strong>语言规范上：</strong> 普通话是基于政治中心（北京）的活语言演化而来的现代标准。它不是为了“复古”，而是为了“沟通”。</p>
+</li>
+</ul>
+<p>并没有一种方言是“正统”的，它们都是古汉语在不同历史条件下长出来的树枝。<strong>普通话赢在了政治与沟通效率，而南方方言赢在了对历史信息的封存。</strong></p>
+<h1>4. “语言”还是“方言”？</h1>
 <blockquote>
 <p>语言就是拥有陆军和海军的方言。——马克斯·魏因赖希</p>
 </blockquote>
+<p>这句话来自意第绪语语言学家 <strong>Max Weinreich</strong> (1945年)。他并不是说真的要有军队，而是讽刺语言和方言的区别往往不是<strong>语言学</strong>上的，而是<strong>政治</strong>上的。</p>
+<ul>
+<li><strong>互通度（Mutual Intelligibility）：</strong> 在语言学上，判断两者是否为同一种语言，通常看“能不能互相听懂”。
+<ul>
+<li>瑞典语和挪威语其实可以互通，但因为是两个国家，所以算两门<strong>语言</strong>。</li>
+<li>粤语和普通话完全无法互通（差异比法语和意大利语还大），但因为同属一个文化和政治实体，所以被称为<strong>方言</strong>。</li>
+</ul>
+</li>
+</ul>
+<p>甚至还有一些什么“粤语是语言不是方言”之类的说法。纠结“我是语言你是方言”从而产生优越感，在学术上是没意义的。</p>
+<p>如果有人仍然执着地认为这样能抬高自己所在文化的地位我也无话可说。哪来的什么正统不正统，方言不方言。不过是把各种客观事实张冠李戴、断章取义。这些人对事物的合理化必须要由一个“官方”、“学术”来给予，不管这个“权威”是否子虚乌有。没有也要给自己造一个。毫无逻辑，毫无自信。</p>
+<h1>A. 尾声一</h1>
+<p>既然提到所谓嫡系旁系，不妨再来提一下私生子。这些语言或方案通常诞生于<strong>特定的历史时期</strong>（如殖民、战争），随着时代的结束而消亡或边缘化。</p>
+<ul>
+<li>
+<p><strong>洋泾浜英语 (Pidgin English)</strong> ：“洋泾浜”原是上海的一条河浜。晚清时期，上海滩的商人和水手为了做生意，发明了一种“中式语法 + 破碎英语单词”的混合语。没有复杂的时态，词汇量极小。</p>
+</li>
+<li>
+<p>例如： <em>Long time no see</em> （好久不见）/ <em>No can do</em> （做不到）。</p>
+</li>
+<li>
+<p><strong>协和语 (Kyowa-go)</strong> ：伪满洲国时期，日本人为了统治中国东北，强行推广一种 “日式汉语”。强行把日语的语法（SOV，动词在后）套在汉语词汇上。</p>
+</li>
+<li>
+<p>例如：“你的，什么的干活？” “良民证的有没有？”</p>
+</li>
+</ul>
+<p>由于国民教育水平提高，大家都会说正经英语了，“洋泾浜” 这种“过渡性语言”自然就消失了。而协和语因为带有强烈的殖民耻辱感，随着 1945 年日本战败，瞬间灰飞烟灭。</p>
+<p>这种语言似乎就是是无可辩驳的鄙视链底端。有没有类似的“大杂烩”或者“不规范”的语言，最后不仅没死，反而变成了<strong>正式语言</strong>，甚至<strong>国语</strong>？</p>
+<p><strong>有。而且非常多。</strong></p>
+<p>在语言学上，这叫从 <strong>Pidgin（皮钦语/洋泾浜）</strong> 进化为 <strong>Creole（克里奥尔语/混合语）</strong> 的过程。 “洋泾浜”就是一种典型的<strong>皮钦语（Pidgin）</strong>。</p>
+<p>现代英语在某种程度上就是 <strong>欧洲最大的“洋泾浜”</strong>。</p>
+<p>1066年，法国诺曼底公爵征服英国。上层贵族说<strong>法语</strong>（Pork, Beef, Mansion）。下层农民说<strong>古英语</strong>（Pig, Cow, House）。几百年里，这两种语言在 “中层阶级” 嘴里打架、融合。古英语复杂的屈折变化（像德语那样）被磨没了，为了方便沟通，语法变得极简，词汇量暴增。不用说也知道，这个当初被鄙视的“混杂语言”，现在是世界通用语。</p>
+<p>另举两例</p>
+<ul>
+<li>
+<p>南非荷兰语 (Afrikaans)：17世纪荷兰殖民者到了南非，他们的荷兰语混杂了马来语、葡萄牙语、当地土著语。最初被称为“厨房荷兰语”（Kitchen Dutch），被正统荷兰人鄙视，认为是没文化的奴隶才说的。后来随着布尔人的民族主义觉醒，他们把这种“方言”标准化，甚至剥离了荷兰语的复杂语法（比如动词变位全砍了）。目前变成了南非的官方语言之一，拥有完整的文学和法律地位。</p>
+</li>
+<li>
+<p>施瓦比亚语/意第绪语 (Yiddish) ：也是一种混合语（德语方言 + 希伯来语 + 斯拉夫语）。犹太人流散到哪里，就吸收哪里的词。虽然二战遭重创，但它从一种“方言”变成了一种拥有诺贝尔文学奖（艾萨克·辛格）的独立语言文化。</p>
+</li>
+</ul>
 
                 </div>
                 
@@ -178,7 +426,7 @@
                                         Previous
                                     </div>
                                     <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
-                                        碎碎念 | 茶与健康感想
+                                        散文 | 茶与健康感想
                                     </div>
                                 </a>
                             
@@ -186,13 +434,13 @@
                         <div class="mdui-col-sm-6"></div>
                         <div class="mdui-col-sm-3 mdui-text-right">
                             
-                                <a href="/%E6%97%A0%E9%A2%98%20-%2024%20%E8%BF%87%E5%B9%B4/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                <a href="/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E9%9F%B3%E9%98%B6/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
                                     <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
                                         Next
                                         <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
                                     </div>
                                     <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
-                                        碎碎念 | 无题 - 24 过年
+                                        散文 | 匹诺康尼音阶
                                     </div>
                                 </a>
                             
@@ -211,7 +459,7 @@
                     <div class="mdui-card-content toc-card-content">
                         <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
                         <div class="toc-content">
-                            
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">1. 为什么“粤语&#x2F;客家话读唐诗更押韵”？</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">2. “粤语&#x2F;客家话 &#x3D; 古汉语”？</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">3. 中古汉语</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E4%B8%80-%E4%B8%A4%E4%B8%AA-%E5%B9%BD%E7%81%B5-%E7%A5%96%E5%85%88%EF%BC%9A%E4%B8%AD%E5%8F%A4%E6%B1%89%E8%AF%AD%E4%B8%8E%E6%8B%89%E4%B8%81%E8%AF%AD"><span class="mdui-list mdui-typo-text">一、 两个“幽灵”祖先：中古汉语与拉丁语</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E4%BA%8C-%E4%B8%8D%E5%90%8C%E7%9A%84%E5%89%A7%E6%9C%AC%EF%BC%9A%E4%B8%BA%E4%BD%95%E6%AC%A7%E6%B4%B2%E5%88%86%E8%A3%82-%E4%B8%AD%E5%9B%BD%E7%BB%9F%E4%B8%80%EF%BC%9F"><span class="mdui-list mdui-typo-text">二、 不同的剧本：为何欧洲分裂，中国统一？</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#%E4%B8%89-%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83%E8%BF%90%E5%8A%A8%EF%BC%9A%E6%9D%83%E5%8A%9B%E7%9A%84%E6%B8%B8%E6%88%8F"><span class="mdui-list mdui-typo-text">三、 语言规范运动：权力的游戏</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">4. “语言”还是“方言”？</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">A. 尾声一</span></a></li></ol>
                         </div>
                     </div>
                 </div>
@@ -237,35 +485,50 @@
 
   <div class="mdui-row mdui-text-center mdui-p-y-2">
     <div class="mdui-col-xs-4">
-      <div class="mdui-typo-subheading">86</div>
+      <div class="mdui-typo-subheading">88</div>
       <div class="mdui-typo-caption mdui-text-color-grey-600">posts</div>
     </div>
     <div class="mdui-col-xs-4">
-      <div class="mdui-typo-subheading">5</div>
+      <div class="mdui-typo-subheading">4</div>
       <div class="mdui-typo-caption mdui-text-color-grey-600">Categories</div>
     </div>
     <div class="mdui-col-xs-4">
-      <div class="mdui-typo-subheading">28</div>
+      <div class="mdui-typo-subheading">30</div>
       <div class="mdui-typo-caption mdui-text-color-grey-600">Tags</div>
     </div>
   </div>
 
   <div class="mdui-divider"></div> -->
 
-  <div class="mdui-card-actions mdui-text-center">
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list mdui-list-dense mdui-p-y-0">
     
         
-            <a href="mailto:your@email.com" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-blue" mdui-tooltip="{content: 'Email'}">
-                <i class="mdui-icon material-icons">email</i>
+            <a href="https://qm.qq.com/q/RPs1VkX9OU" target="_blank" class="mdui-list-item mdui-ripple" style="min-height: 40px; height: 40px;">
+                <i class="mdui-list-item-icon fa-brands fa-qq mdui-text-color-light-blue" style="font-size: 18px; width: 20px; text-align: center;"></i>
+                <div class="mdui-list-item-content mdui-text-truncate" style="font-size: 12.5px; opacity: 0.8; margin-left: 12px;">
+                    695977430
+                </div>
             </a>
         
-            <a href="https://github.com/yourusername" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-text-color-black" mdui-tooltip="{content: 'Github'}">
-                <i class="mdui-icon material-icons">code</i>
+            <a href="https://github.com/nashchennc" target="_blank" class="mdui-list-item mdui-ripple" style="min-height: 40px; height: 40px;">
+                <i class="mdui-list-item-icon fa-brands fa-github mdui-text-color-black" style="font-size: 18px; width: 20px; text-align: center;"></i>
+                <div class="mdui-list-item-content mdui-text-truncate" style="font-size: 12.5px; opacity: 0.8; margin-left: 12px;">
+                    NashChennc
+                </div>
+            </a>
+        
+            <a href="mailto:chennachuan0423@gmail.com" target="_blank" class="mdui-list-item mdui-ripple" style="min-height: 40px; height: 40px;">
+                <i class="mdui-list-item-icon fa-solid fa-envelope mdui-text-color-blue" style="font-size: 18px; width: 20px; text-align: center;"></i>
+                <div class="mdui-list-item-content mdui-text-truncate" style="font-size: 12.5px; opacity: 0.8; margin-left: 12px;">
+                    chennachuan0423@gmail.com
+                </div>
             </a>
         
     
   </div>
-</div>
+  </div>
             </div>
         </div>
     </div>

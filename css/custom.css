@@ -243,3 +243,32 @@ img {
   min-height: 0; /* 允许缩小到内容高度 */
 }
 
+/* ============================================
+ * 代码块适配 (Hexo highlight & MDUI Typo 冲突修复)
+ * ============================================ */
+.mdui-typo .highlight {
+  overflow: auto;
+  margin: 1.5em 0;
+  background: #f8f8f8;
+  border-radius: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mdui-typo .highlight table {
+  width: auto !important; /* 允许表格根据代码长度伸展 */
+  margin: 0 !important;
+  border: none !important;
+}
+
+.mdui-typo .highlight td {
+  padding: 0 !important;
+  border: none !important;
+}
+
+.mdui-typo .highlight pre {
+  margin: 0 !important;
+  padding: 12px 16px !important;
+  white-space: pre !important; /* 强制不换行以触发滚动条 */
+  word-break: normal !important;
+}
+

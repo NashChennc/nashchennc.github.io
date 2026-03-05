@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>写给首调选手的视唱练耳进阶知识 - NaN&#39;s Blog ｜ Not a Nihilist</title>
+
+  <!-- MDUI CSS -->
+  <link rel="stylesheet" href="/mdui/css/mdui.min.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- KaTeX CSS (If needed) -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+
+  <!-- Custom CSS (最小化，只包含无法用 MDUI 实现的部分) -->
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="theme-color" content="#3F51B5">
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-grey-100">
+  
+  <!-- Header/AppBar -->
+  <header class="appbar mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        
+          <div class="mdui-toolbar-spacer"></div>
+            <div class="mdui-tab mdui-tab-full-width">
+                
+                <a href="/" class="mdui-ripple ">
+                    Home
+                </a>
+                
+                
+                    
+                        <a href="/categories/笔记" class="mdui-ripple ">
+                            笔记 | 37
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/碎碎念" class="mdui-ripple ">
+                            碎碎念 | 33
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/散文" class="mdui-ripple ">
+                            散文 | 10
+                        </a>
+                    
+                
+                    
+                        <a href="/categories/专栏" class="mdui-ripple ">
+                            专栏 | 8
+                        </a>
+                    
+                
+            </div>
+        
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="/about" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: 'About'}">
+            <i class="mdui-icon material-icons"> more_vert </i>
+        </a>
+    </div>
+</header>
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div class="banner-container" style="height: 320px;">
+    <div class="banner-bg" style="background-image: url(/image/banner.jpeg);"></div>
+    
+    <div class="mdui-card-media-covered banner-overlay" style="background: rgba(0, 0, 0, 0.4);">
+        <div class="mdui-container">
+            <div class="mdui-card-primary mdui-float-right mdui-text-color-white mdui-p-y-2">
+                <div class="mdui-card-primary-title" style="font-weight: 300;">
+                     <div style='display:flex; justify-content:center; align-items:flex-end; width:100%; white-space:nowrap;'>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>NOUS SOMMES</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>我们是</span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; line-height:1.2; position:relative;'> DES ENFANTS<span style='position:absolute; right:-0.8em;'>,</span> </span> <span style='font-size:1em; font-weight:400; line-height:1.2; position:relative;'> 孩子<span style='position:absolute; right:-1em;'>，</span> </span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>MAIS</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>但</span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>DES ENFANTS</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>我们</span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; line-height:1.2; position:relative;'> PROGRESSIFS<span style='position:absolute; right:-0.8em;'>,</span> </span> <span style='font-size:1em; font-weight:400; line-height:1.2; position:relative;'> 精力充沛<span style='position:absolute; right:-1em;'>，</span> </span> </div>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.35em; opacity:0.7; text-transform:uppercase; letter-spacing:1px; margin-right:-1px; line-height:1.2;'>PLEINS DE FORCE ET DE COURAGE</span> <span style='font-size:1em; font-weight:400; line-height:1.2;'>勇往直前<span style='position:absolute; right:-1em;'>。</span> </span> </div>
+</div>
+                </div>
+                <div class="mdui-card-primary-subtitle mdui-float-right" style="opacity: 0.9;">
+                     <div style='display:flex; justify-content:center; align-items:flex-end; gap:1.5rem; white-space:nowrap;'>
+<div style='display:flex; flex-direction:column; align-items:center;'> <span style='font-size:0.7em; opacity:0.7; letter-spacing:1px; text-transform:uppercase;'>ÉVARISTE GALOIS (1811-1832)</span> <span style='font-size:1.1em; font-weight:400; line-height:0.8; position:relative;'> <span style='position:absolute; left:-2em;'>—— </span>埃瓦里斯特 · 伽罗瓦 </span> </div>
+<div style='padding-bottom:1.6px; font-size:0.9em; opacity:0.8; font-weight:300; letter-spacing:0.5px; position:relative; padding:0 0.6em;'> ，1831年 于巴黎政治审判庭上的辩护 </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAB -->
+<div id="exampleFab" class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+    <a class="mdui-fab mdui-ripple mdui-color-theme-accent" href="/archives" mdui-tooltip="{content: 'goto Archive', position: 'left'}">
+        <i class="mdui-icon material-icons">bookmark</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">bookmark</i>
+    </a>
+    <div class="mdui-fab-dial">
+        <a href="/about" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-teal">
+            <i class="mdui-icon material-icons">more_vert</i>
+        </a>
+        <a href="#top" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue-700" mdui-tooltip="{content: 'goto top', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <a href="#page-bottom" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-indigo" mdui-tooltip="{content: 'goto bottom', position: 'left'}">
+            <i class="mdui-icon material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="mdui-container">
+    <div class="mdui-row mdui-p-t-1 mdui-p-b-1">
+        <!-- 文章内容 -->
+
+        <div class="mdui-col-md-9 mdui-col-xs-12 mdui-p-t-1 mdui-p-b-4">
+            <div class="mdui-card mdui-hoverable">
+                <div class="mdui-card-primary mdui-p-x-5">
+                    <div class="mdui-card-primary-title mdui-typo-display-1">
+                        写给首调选手的视唱练耳进阶知识
+                    </div>
+                    <div class="mdui-row mdui-p-t-2">
+                        <div class="mdui-col-xs-9 mdui-typo-caption-opacity">
+                            Last Update: 2026/03/04 16:25
+                        </div>
+                        <div class="mdui-col-xs-3">
+                            <div class="mdui-float-right mdui-typo">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/">
+                                        笔记
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <br/>
+                </div>
+                <div class="mdui-card-content mdui-typo mdui-p-x-5">
+                    <h1>0. 说明</h1>
+<p>以 C4 为中央 C (A4=440Hz)，以音名表示绝对音高，不考虑转调记谱。</p>
+<p>以数字代表唱名，分别对应</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Do</td>
+<td>Re</td>
+<td>Mi</td>
+<td>Fa</td>
+<td>Sol</td>
+<td>La</td>
+<td>Ti</td>
+</tr>
+</tbody>
+</table>
+<p>基础要求：能够识别简单主调音乐的首调谱。</p>
+<h1>1. 首调唱名法</h1>
+<h2 id="1-大调">1. 大调</h2>
+<p>首调唱名法大调的主音唱 Do，小调的主音唱 La，或者 Do，取决于具体的派别。通常自然小调主音唱 La。</p>
+<p><strong>例：G 大调音阶 (G Major Scale)</strong></p>
+<ul>
+<li>
+<p>谱面音符：G - A - B - C - D - E - F# - G</p>
+</li>
+<li>
+<p><strong>唱名：</strong> Do - Re - Mi - Fa - Sol - La - Ti - Do</p>
+<ul>
+<li>注意：虽然谱子上是 F# (升Fa)，但在首调里，因为它是 G 大调的第七级音，所以它直接唱成 Ti ，不需要唱升音。这就是首调的优势——它反映了音级关系。</li>
+</ul>
+</li>
+</ul>
+<p>如果曲子中出现了调号以外的升降号，需要修改元音来改变唱名。</p>
+<ul>
+<li>
+<p><strong>升音 (Sharps, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">♯</mi></mrow><annotation encoding="application/x-tex">\sharp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">♯</span></span></span></span>):</strong> 将元音改为 <strong>“i”</strong>。</p>
+<ul>
+<li>Do <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>Di</strong> (升Do)</li>
+<li>Re <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>Ri</strong> (升Re)</li>
+<li>Fa <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>Fi</strong> (升Fa)</li>
+<li>Sol <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>Si</strong> (升Sol)</li>
+<li>La <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>Li</strong> (升La)</li>
+</ul>
+</li>
+<li>
+<p><strong>降音 (Flats, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">♭</mi></mrow><annotation encoding="application/x-tex">\flat</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:0em;"></span><span class="mord">♭</span></span></span></span>):</strong> 将元音改为 <strong>“e”</strong> 或 <strong>“a”</strong>。</p>
+<ul>
+<li>Ti <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>Te</strong> (降Ti) / <strong>Ta</strong></li>
+<li>Mi <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>Me</strong> (降Mi) / **Ma</li>
+<li>La <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>Le</strong> (降La) / **Lo</li>
+<li>Re <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <strong>Ra</strong> (降Re)</li>
+</ul>
+</li>
+<li>
+<p><strong>优势 (Pros):</strong> 极好地培养<strong>调性听感 (Tonal Center)</strong>。一旦你掌握了 Do-Mi-Sol 的色彩，换到任何调，只要找到 1，你就能准确地唱出音准。这对于流行音乐、爵士乐和声乐训练非常有效。</p>
+</li>
+<li>
+<p><strong>难点 (Cons):</strong> 转调频繁的音乐（如晚期浪漫派作品）会非常难唱，因为 1 的位置一直在变，大脑需要不断切换参考系。</p>
+</li>
+</ul>
+<h2 id="1-2-la-based-minor">1.2. La-based Minor</h2>
+<p>这是目前国内中小学音乐课、柯达伊教学法 (Kodály) 最常用的方法。</p>
+<ul>
+<li>
+<p><strong>核心逻辑</strong>：小调是大调的“亲戚”（关系大小调）。</p>
+<ul>
+<li>C 大调的音阶：1 2 3 4 5 <strong>6</strong> 7 1</li>
+<li>a 小调的音阶：<strong>6</strong> 7 1 2 3 4 5 <strong>6</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>怎么唱</strong>：</p>
+<ul>
+<li>不需要改变唱名，直接从 6 开始唱即可。</li>
+<li>遇到和声小调（升高七级音）时，把 Sol 唱成 <strong>Si</strong> (#5)。</li>
+</ul>
+</li>
+<li>
+<p><strong>优点</strong>：</p>
+<ul>
+<li><strong>入门极快</strong>：你只要学会了大调的 Do Re Mi，直接照搬就可以唱小调，不用学新的半音唱名。</li>
+<li><strong>视谱容易</strong>：看着谱号（调号），不用脑内换算，直接找 6 就行。</li>
+<li><strong>转调方便</strong>：在“关系大小调”互转的歌曲中（比如很多流行歌主歌是小调，副歌转大调），唱名不需要打架，直接顺过去。</li>
+</ul>
+</li>
+<li>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li><strong>主音感不强</strong>：1 听起来最像“家”（稳定感），但在这种唱法里，6 变成了“家”，容易造成调性感觉的混淆。</li>
+<li><strong>难以适应复杂音乐</strong>：面对 <strong>转调（Modulation）</strong> 和 <strong>多升降号（Chromaticism）</strong> 难以适应。 例如遇到同主音大小调转换（比如 C 大调转 c 小调）时，整个唱名系统会发生剧烈冲突。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-3-do-based-minor">1.3. Do-based Minor</h2>
+<p>无论大调小调，<strong>主音永远是 Do</strong>。小调只是大调的“变体”（降了第3、6、7级音）。<strong>自然小调唱成：</strong> Do - Re - <strong>Me</strong> - Fa - Sol - <strong>Le</strong> - <strong>Te</strong> - Do</p>
+<ul>
+<li>
+<p><strong>优点</strong>：</p>
+<ul>
+<li><strong>调性听感极强</strong>：建立了“主音=Do”的绝对条件反射。无论什么调式，你都能清晰听到每个音距离主音的音程关系。</li>
+<li><strong>利于扒谱和爵士</strong>：在复杂的转调和离调音乐中，能更准确地把握音级功能。</li>
+</ul>
+</li>
+<li>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li><strong>门槛高</strong>：初学者光是唱准自然音阶就很累了，这个方法上来就要唱 3 个变音（Me, Le, Te），难度较大。</li>
+</ul>
+</li>
+</ul>
+<p>直观对比：唱 a 小调 (a minor)</p>
+<table>
+<thead>
+<tr>
+<th><strong>唱法</strong></th>
+<th><strong>音阶唱名 (a natural minor)</strong></th>
+<th><strong>遇到导音 (G#) 怎么唱？</strong></th>
+<th><strong>心理感受</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>La为主 (La-based)</strong></td>
+<td>La - Ti - Do - Re - Mi - Fa - Sol - La</td>
+<td>Sol 变 <strong>Si</strong></td>
+<td>“这是C大调的一个分支，只是家搬到了La”</td>
+</tr>
+<tr>
+<td><strong>Do为主 (Do-based)</strong></td>
+<td>Do - Re - <strong>Me</strong> - Fa - Sol - <strong>Le</strong> - <strong>Te</strong>- Do</td>
+<td>Te 变 <strong>Ti</strong> (还原)</td>
+<td>“这是Do大调变暗了，第3、6、7级音降了”</td>
+</tr>
+</tbody>
+</table>
+<p>对于首调唱名法来说，每一个变化音都有它独特的 <strong>“倾向性” (Tendency)</strong> 和 <strong>“功能” (Function)</strong>。如果已经掌握 <strong>首调听觉（Movable-Do）</strong> ，处于“自然音阶（Diatonic）”向“半音体系（Chromatic）”和“转调（Modulation）”跨越的瓶颈期，可以尝试训练唱 Do-based Minor。</p>
+<p>进一步，可以尝试通过 <strong>“色彩听辨” (Color Identification)</strong> 来辨别更多的半音。</p>
+<h1>2. 变化音的处理</h1>
+<p>变化音通常分为两类：<strong>装饰音</strong> 和 <strong>转调音</strong>。转调音 的 <strong>色彩听辨法</strong> 本质上是借助了近关系调的色彩。而装饰音更多是通过音程快速判断，和简单升半音转调的判断属于同一类。</p>
+<h2 id="2-1-大调中的变化音">2.1. 大调中的变化音</h2>
+<ul>
+<li>
+<p><strong>b3 (降Mi / Me):</strong></p>
+<ul>
+<li><strong>色彩：</strong> 悲伤、忧郁、瞬间把大调拉回同主音小调。</li>
+<li><strong>功能：</strong> 大调转小调的最明显标志（Mode Mixture / 调式互换）。</li>
+</ul>
+</li>
+<li>
+<p><strong>b7 (降Ti / Te):</strong></p>
+<ul>
+<li><strong>色彩：</strong> 音乐突然“塌陷”、“变宽”、“像是在下楼梯”。带有一种“布鲁斯 (Blues)”或“混合利底亚 (Mixolydian)”的味道。</li>
+<li><strong>功能：</strong> 它把原本不稳定的 Ti 变成了稳定的 Te，同时它自己往往想下行去 La 或 Fa。它是 <strong>IV级（下属方向）</strong> 的特征音。一听到 b7，通常意味着要<strong>往下属方向（Subdominant, IV级）转调</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>#4 (升Fa / Fi):</strong></p>
+<ul>
+<li><strong>色彩：</strong> 极度明亮、甚至刺眼，有一种向上的强力推力。</li>
+<li><strong>功能：</strong> 它是 <strong>Sol (属音)</strong> 的“临时导音”。一听到 #4 ，马上预感到音乐要<strong>往属方向（Dominant, V级）转调</strong>。</li>
+<li>这也是 <strong>利底亚调式 (Lydian Mode)</strong> 的声音，有一种异世界的漂浮感。考虑《原神》开头。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-3-小调中的变化音">2.3. 小调中的变化音</h2>
+<p>为避免混淆，以 a 小调 La-based 为例：6 7 1 2 3 4 5 6</p>
+<ul>
+<li>
+<p><strong>#5 (升Sol / Si，还原 VII 级音):</strong></p>
+<ul>
+<li>在<strong>和声小调</strong>里，G 变成 G# (<strong>Si</strong>)。它具有极强的紧张感，必须解决到 La。这是小调最核心的“味道”，区分了“古风/中古调式”和“古典/现代小调”。</li>
+<li><strong>听辨：</strong> 听到这个音，就是明确的“导音”，确认主音是 La。</li>
+</ul>
+</li>
+<li>
+<p><strong>#4 (升Fa / Si，升 VI 级音):</strong></p>
+<ul>
+<li>这是 <strong>多利亚调式 (Dorian Mode)</strong> 的声音。它是小调中唯一“明亮”的音，因为它消除了小六度（Fa-La）的压抑感。</li>
+<li><strong>听辨：</strong> 如果你在小调里听到了一个莫名其妙的“大调感”升音，通常就是它。回想《挪德卡莱》旋律的开头。</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>听到什么感觉？(Sensation)</strong></th>
+<th><strong>可能是哪个音？</strong></th>
+<th><strong>暗示的动作</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>刺眼、提振、向上推</strong></td>
+<td><strong>#4 (Fi)</strong></td>
+<td><strong>准备向属方向(V)转调</strong>。把现在的 Sol 变成新 Do。</td>
+</tr>
+<tr>
+<td><strong>忧郁、变暗、布鲁斯感</strong></td>
+<td><strong>b7 (Te)</strong></td>
+<td><strong>准备向下属方向(IV)转调</strong>。把现在的 Fa 变成新 Do。</td>
+</tr>
+<tr>
+<td><strong>悲伤、突然阴沉、小调感</strong></td>
+<td><strong>b3 (Me)</strong></td>
+<td><strong>同主音大调转小调</strong>。Do 不变，但要把 Mi/La/Ti 全部降下来。</td>
+</tr>
+<tr>
+<td><strong>异域风情、神秘、诡异</strong></td>
+<td><strong>小调 #4 (Fi)</strong></td>
+<td><strong>多利亚调式 (Dorian)</strong>。通常不转调，只是为了色彩。</td>
+</tr>
+<tr>
+<td><strong>强烈的导向、古典结尾感</strong></td>
+<td><strong>小调 还原7 (#5/Si)</strong></td>
+<td><strong>和声小调</strong>。确认主音是 La，这是小调最强的标志。</td>
+</tr>
+</tbody>
+</table>
+<h1>3. 近关系转调</h1>
+<p>对于首调选手来说，远关系转调非常容易将头脑打乱。此时不仅难以计算音程，就连转调前的主音都会很容易在混乱中遗忘掉。因此首先要识别出调性的关系远近（和弦共同音的多少）。然后可以识别其中明显的 主音移动 和 升降号加减 这两点来区分常见的 <strong>近关系转调</strong>。</p>
+<p>通过对比转调前后对应相同级数的和弦，可以识别出转调前后的变化。通常来说，主音的移动可以从情绪的强度（高扬/下坠）听出来，升降号的加减可以从 情绪的色彩（明/暗）。</p>
+<p>值得注意的是，调式的转换也会影响情绪色彩，其中最典型的是自然大小调转换。这是三点不同的影响因素。这样说很抽象，我们通过实际的例子来说明。</p>
+<p>在 <strong>近（次近）关系转调时</strong>：</p>
+<ul>
+<li><strong>变亮/变紧 (Brighter/Tenser) = 属方向 (Dominant Direction)</strong> 。加升号，往五度圈的右边转。</li>
+<li><strong>变暗/变宽 (Darker/Relaxer) = 下属方向 (Subdominant Direction)</strong> 。加降号，往五度圈的左边转。</li>
+</ul>
+<p>举一个例子：在转调前，大调的 II 级是下属功能的小和弦。#4 后变成了主功能的大和弦，这给属调和升全音调都带来了明亮感。</p>
+<p>近关系调：属调和下属调通常 由音阶引出：在上行时 #4 或下行时 b7 。经常也作为变化音出现。变化音在某种程度上也可以说是临时转调。</p>
+<table>
+<thead>
+<tr>
+<th>转调</th>
+<th>升降号</th>
+<th>主音移动</th>
+<th>特征</th>
+<th>代表曲目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>转属调</td>
+<td>+1（出现#4）</td>
+<td>+7/-5（属音）</td>
+<td>突然刺眼， #4 作为属调的 7</td>
+<td>原神 / 风花的邀约</td>
+</tr>
+<tr>
+<td>转下属调</td>
+<td>-1（出现b7）</td>
+<td>+5/-7（下属音）</td>
+<td>突然失焦，b7 作为下属调的 4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>次近关系调：升降全音的效果非常容易听出来。实际上，升降全音转调的关系较近是一个很重要的原因。</p>
+<table>
+<thead>
+<tr>
+<th>转调</th>
+<th>升降号</th>
+<th>主音移动</th>
+<th>特征</th>
+<th>代表曲目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>升全音</td>
+<td>+2</td>
+<td>+2（升全音）</td>
+<td>纯粹的阳光感 / 推背感</td>
+<td>各种流行最后一段重复</td>
+</tr>
+<tr>
+<td>降全音</td>
+<td>-2</td>
+<td>-2（降全音）</td>
+<td>纯粹的阴暗感 / 失重感</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>关系大小调：谱面没有任何升降号变化。转调前后主和弦互为主功能。情绪过渡非常自然平稳。</p>
+<table>
+<thead>
+<tr>
+<th>转调</th>
+<th>升降号</th>
+<th>主音移动</th>
+<th>特征</th>
+<th>代表曲目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小调转关系大调</td>
+<td>0</td>
+<td>+3</td>
+<td><strong>自然地</strong> 变明亮</td>
+<td>シリウスの心臓 - 异世界情绪</td>
+</tr>
+<tr>
+<td>大调转关系小调</td>
+<td>0</td>
+<td>-3</td>
+<td><strong>自然地</strong> 变阴暗</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>以从 a 小调转到 C 大调为例，主音上移了小三度（+3）。调性重心的自然转移扫除了小调的阴霾，带来了大调的明亮感。如果是 C 大调转 a 小调，主音移动则是 -3，带来的是沉淀、变暗的感觉。</p>
+<h1>4. 常见的远关系调</h1>
+<p>远关系转调会造成头脑混乱是很正常的，因为远关系转调的目的正是 <strong>造成思绪飘离、世界观变换的效果</strong> 。</p>
+<p>升降小三度调仍然可以从主音移动方面听出一些昂扬感，或是从升降号变化听出明暗区别，这取决于曲子在转调处的编排。但此时远关系调造成的割裂感占主导地位。</p>
+<table>
+<thead>
+<tr>
+<th>转调</th>
+<th>升降号</th>
+<th>主音移动</th>
+<th>特征</th>
+<th>代表曲目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>降小三度</td>
+<td>+3</td>
+<td>-3（降小三度）</td>
+<td>奇幻感 / 魔法感</td>
+<td></td>
+</tr>
+<tr>
+<td>升小三度</td>
+<td>-3</td>
+<td>+3（升小三度）</td>
+<td>史诗感 / 庄重感</td>
+<td>誇りと驕り - starlight 九九组</td>
+</tr>
+</tbody>
+</table>
+<p>另一个常用的是升降半音。比起升降全音，升降半音属于远关系转调，割裂感非常强。</p>
+<p>《化けの花》的结尾有一个降半音转调，渲染了一种非常独特而鲜明的感觉：它就像是从一个轻飘飘的美梦（物理高但色彩暗淡的 C 小调）瞬间跌落到了坚硬冰冷的水泥地上（物理低但色彩极其尖锐的 B 小调）。因此它极少用于常规的情感升华，而是多用于叙事曲中表达“梦醒”、“打破幻想”或“直面残酷现实”的转折点。</p>
+<table>
+<thead>
+<tr>
+<th>转调</th>
+<th>升降号</th>
+<th>主音移动</th>
+<th>特征</th>
+<th>代表曲目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>升半音</td>
+<td>-5</td>
+<td>+1（升半音）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>降半音</td>
+<td>+5</td>
+<td>-1（降半音）</td>
+<td></td>
+<td>化けの花 - 25时</td>
+</tr>
+</tbody>
+</table>
+<p>典型的大小调转换其实属于远关系转调。但是这个听不出来的话…罚听贝多芬一年。</p>
+<table>
+<thead>
+<tr>
+<th>转调</th>
+<th>升降号</th>
+<th>主音移动</th>
+<th>特征</th>
+<th>代表曲目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小调转同名大调</td>
+<td>+3</td>
+<td>0</td>
+<td>明显地变明亮</td>
+<td>古典到处都是</td>
+</tr>
+<tr>
+<td>大调转同名小调</td>
+<td>-3</td>
+<td>0</td>
+<td>明显地变阴暗</td>
+<td>古典到处都是</td>
+</tr>
+</tbody>
+</table>
+<p>更复杂的转调就不在这里提及了。转调还可以涉及一些复杂编排，就留到专门的章节来讲吧。</p>
+
+                </div>
+                
+
+                
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-actions mdui-p-x-3 mdui-p-y-2">
+                    <div class="mdui-row">
+                        <div class="mdui-col-sm-3 mdui-text-left">
+                            
+                                <a href="/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%E7%9B%B8%E5%85%B3/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_back</i> 
+                                        Previous
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        笔记 | 音视频处理相关
+                                    </div>
+                                </a>
+                            
+                        </div>
+                        <div class="mdui-col-sm-6"></div>
+                        <div class="mdui-col-sm-3 mdui-text-right">
+                            
+                                <a href="/%E4%B8%80%E4%BA%9B%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E5%86%85%E5%AE%B9/" class="mdui-ripple mdui-hoverable mdui-p-a-1 mdui-text-truncate" style="display: block; text-decoration: none;">
+                                    <div class="mdui-typo-caption mdui-text-color-theme-accent mdui-text-truncate">
+                                        Next
+                                        <i class="mdui-icon material-icons" style="font-size: 14px; vertical-align: middle;">arrow_forward</i>
+                                    </div>
+                                    <div class="mdui-typo-body-1 mdui-m-t-1 mdui-text-truncate mdui-text-color-black" style="font-weight: 500;">
+                                        笔记 | 一些有意思的内容
+                                    </div>
+                                </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- 侧边栏 -->
+        <div class="mdui-col-md-3 mdui-col-xs-12  mdui-p-t-1 mdui-p-b-4 sticky-sidebar" id="post-sidebar">
+            
+                <div class="mdui-card mdui-shadow-1 toc-full-height">
+                    <div class="mdui-card-content toc-card-content">
+                        <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
+                        <div class="toc-content">
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">0. 说明</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">1. 首调唱名法</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-%E5%A4%A7%E8%B0%83"><span class="mdui-list mdui-typo-text">1. 大调</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-2-la-based-minor"><span class="mdui-list mdui-typo-text">1.2. La-based Minor</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-3-do-based-minor"><span class="mdui-list mdui-typo-text">1.3. Do-based Minor</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">2. 变化音的处理</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-1-%E5%A4%A7%E8%B0%83%E4%B8%AD%E7%9A%84%E5%8F%98%E5%8C%96%E9%9F%B3"><span class="mdui-list mdui-typo-text">2.1. 大调中的变化音</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-3-%E5%B0%8F%E8%B0%83%E4%B8%AD%E7%9A%84%E5%8F%98%E5%8C%96%E9%9F%B3"><span class="mdui-list mdui-typo-text">2.3. 小调中的变化音</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">3. 近关系转调</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-1"><a class="mdui-list mdui-typo-link"><span class="mdui-list mdui-typo-text">4. 常见的远关系调</span></a></li></ol>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="mdui-m-t-2">
+                <div class="mdui-card mdui-shadow-1">
+  <div class="mdui-card-media" style="height: 120px; overflow: hidden;">
+    <img src="/image/card.png" class="mdui-img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="mdui-card-content mdui-text-center" style="position: relative;">
+    
+      <img src="/image/avatar.jpeg" class="mdui-img-circle mdui-shadow-4 sidebar-avatar-offset" style="width: 80px; height: 80px; border: 2px solid white; display: block; margin-left: auto; margin-right: auto;">
+    
+
+    <div class="mdui-typo-headline mdui-m-t-2">NaN / Not a Name</div>
+    <div class="mdui-typo-caption mdui-text-color-grey-600 mdui-m-t-1">
+      Nomen a Nullo. Nihil ad Nomen.
+    </div>
+  </div>
+
+  <!-- <div class="mdui-divider"></div>
+
+  <div class="mdui-row mdui-text-center mdui-p-y-2">
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">88</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">posts</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">4</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Categories</div>
+    </div>
+    <div class="mdui-col-xs-4">
+      <div class="mdui-typo-subheading">30</div>
+      <div class="mdui-typo-caption mdui-text-color-grey-600">Tags</div>
+    </div>
+  </div>
+
+  <div class="mdui-divider"></div> -->
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list mdui-list-dense mdui-p-y-0">
+    
+        
+            <a href="https://qm.qq.com/q/RPs1VkX9OU" target="_blank" class="mdui-list-item mdui-ripple" style="min-height: 40px; height: 40px;">
+                <i class="mdui-list-item-icon fa-brands fa-qq mdui-text-color-light-blue" style="font-size: 18px; width: 20px; text-align: center;"></i>
+                <div class="mdui-list-item-content mdui-text-truncate" style="font-size: 12.5px; opacity: 0.8; margin-left: 12px;">
+                    695977430
+                </div>
+            </a>
+        
+            <a href="https://github.com/nashchennc" target="_blank" class="mdui-list-item mdui-ripple" style="min-height: 40px; height: 40px;">
+                <i class="mdui-list-item-icon fa-brands fa-github mdui-text-color-black" style="font-size: 18px; width: 20px; text-align: center;"></i>
+                <div class="mdui-list-item-content mdui-text-truncate" style="font-size: 12.5px; opacity: 0.8; margin-left: 12px;">
+                    NashChennc
+                </div>
+            </a>
+        
+            <a href="mailto:chennachuan0423@gmail.com" target="_blank" class="mdui-list-item mdui-ripple" style="min-height: 40px; height: 40px;">
+                <i class="mdui-list-item-icon fa-solid fa-envelope mdui-text-color-blue" style="font-size: 18px; width: 20px; text-align: center;"></i>
+                <div class="mdui-list-item-content mdui-text-truncate" style="font-size: 12.5px; opacity: 0.8; margin-left: 12px;">
+                    chennachuan0423@gmail.com
+                </div>
+            </a>
+        
+    
+  </div>
+  </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="mdui-color-grey-200 mdui-text-center mdui-typo-caption">
+  <div class="mdui-container">
+    <div class="mdui-p-y-2">
+      &copy; 2026 <span class="mdui-text-color-theme">NaN / Not a Name</span>
+      <br>
+      Powered by <a target="_blank" rel="noopener" href="https://hexo.io/" class="mdui-text-color-theme-accent">Hexo</a> | <a target="_blank" rel="noopener" href="https://www.mdui.org/" class="mdui-text-color-theme-accent">MDUI v1</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="/mdui/js/mdui.min.js"></script>
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  
+  <script>
+    // 合并所有 DOMContentLoaded 监听器
+    document.addEventListener("DOMContentLoaded", function() {
+      // KaTeX 数学公式渲染
+      renderMathInElement(document.body, {
+        // 自定义分隔符，支持 $...$ 和 $$...$$
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        // 忽略的标签
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+
+      // 自动为所有表格和图片添加 MDUI 样式类
+        var tables = document.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].classList.contains("mdui-table")) {
+                tables[i].classList.add("mdui-table", "mdui-shadow-0");
+            }
+        }
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].classList.contains("mdui-img-fluid")) {
+                imgs[i].classList.add("mdui-img-fluid");
+            }
+        }
+    });
+  </script>
+</body>
+</html>
