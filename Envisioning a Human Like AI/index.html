@@ -148,11 +148,11 @@
                     <p>这篇文章花费了许多篇幅来讲述一些（或许）众所周知的背景，而每个部分相对独立，您可以直接跳转到您感兴趣的部分。</p>
 <p>我希望本文引用的链接足够 Inspiring ，这样即使我写的不好，您也可以到被引用的原文去寻找一些有价值的内容。如果有兴趣的话，非常推荐您阅读这里提到的文章。</p>
 <p>感谢 @nekomeowww, @kwaa 和 @Lilia-Chen, 有许多思考离不开和他们的讨论。</p>
-<h2 id="0-Intro">0. Intro</h2>
+<h2 id="0-intro">0. Intro</h2>
 <p>当前 Transformer 架构的 LLM 已经能够承担许多人类的工作。在 CoT 落地以后，不少模型已经可以独自在长上下文下表现得相当像人类。无论技术本质是否与人类相同，我们必须要承认，Transformer 已经给出了足够多的证据，展现它足以通过语言这种媒介，实现组织语言、模仿思考的模式、管理短期记忆、甚至主动调用工具。</p>
 <p>这篇文章我不打算谈 Self-Attention 如何工作或是 CoT 到底是不是思考（即使我可能已经 mech interp 入脑了）。我们只务实地讲：根据我们目前被提供的大模型 API ，为了构建一个足够像人的 LLM，我们能够做什么。</p>
 <p>我努力想要阐明这一点：我们应该将 <strong>整个被构建的 agent 系统</strong> 视为一个主体，而非只是一个扮演 System Prompt 的 LLM。这就是说，包含记忆系统在内的 <strong>上下文管理方式</strong> 提供了一个框架，而 <strong>灵魂流动在文本中</strong>。</p>
-<h2 id="1-LLM-还不够像人吗？">1. LLM 还不够像人吗？</h2>
+<h2 id="1-llm-还不够像人吗？">1. LLM 还不够像人吗？</h2>
 <p>人们常说，LLM 目前完成 <strong>长期规划</strong> 或是进行超越语言的 <strong>抽象思考</strong> 的能力还不足。如果你看过 Claude 玩宝可梦的项目 <a target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/u6Lacc7wx4yYkBQ3r/insights-into-claude-opus-4-5-from-pokemon">LessWrong@Julian Bradshaw | Insights into Claude Opus 4.5 from Pokémon</a> ——虽然 Claude 的表现令人印象深刻，但它绝对不会被认为是人类玩家。一个静态脑容量巨大的、常被认为超越人类博士的模型在这个游戏中表现得甚至不如六岁小孩。</p>
 <p>的确如此，LLM 目前还缺少 <strong>稳定的长期记忆能力</strong> 和 <strong>反思内省的能力</strong> 。同时，被提供的 request 式 API 还常常伴随着 Request-Response 模式 的<strong>被动性</strong>、 <strong>Helpful Assistant 人格</strong>，及其衍生的 Hack 等问题。</p>
 <h3 id="1-1-长期记忆">1.1. 长期记忆</h3>
@@ -174,7 +174,7 @@
 </ul>
 <p>我有时会觉得，LLM 就只是一个文本处理工具，毕竟 Transformer 在最初只是为翻译任务而设计的。LLM 难道不只是一个语言动力学模拟器吗？有时这有助于我们谨慎看待 Transformer 的能力，但这种观点显然是过时的。模拟器也可以是很有用的工具，甚至拥有“自主”决策能力。我曾经看过一系列玄乎的文章 <a target="_blank" rel="noopener" href="https://www.lesswrong.com/s/pwKrMXjYNK5LNeKCu">LessWrong@WillPetillo | Simulator vs. Agent: Updating Risk Models</a> ，里面详尽地阐述了这一点。</p>
 <p>可想而知，若是我们仅仅将 LLM 视作简单文本处理器，来构建一个 Human-Like Agent System，那这样的系统得有多庞大。事实是，虽然这样的系统在早期达成了相当好的效果，但这样的庞大系统不断地正在被单一模型超越，最终消失在历史中。参见 <a target="_blank" rel="noopener" href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">Rich Sutton | The Bitter Lesson</a> 以及 Ilya Sutskever 的世界模型，包括  <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/building-effective-agents" title="https://www.anthropic.com/engineering/building-effective-agents">Anthropic | Building Effective Agent</a>  也提到了这一点。因此，我们总会需要考虑 LLM 的上下文利用率，将更多的逻辑交到 LLM 手中。既不是完全交予，也不是仅限每个任务单元。这是一个确定性和泛化性之间的权衡。</p>
-<h2 id="2-那么，我们实际上要做什么？">2. 那么，我们实际上要做什么？</h2>
+<h2 id="2-那么-我们实际上要做什么？">2. 那么，我们实际上要做什么？</h2>
 <p>我花了一些时间来弄明白记忆的读和写为何是完全不同的两件事，以及 planner 并不是 memory 的必需品。</p>
 <p>在记忆管理系统的设计上，只要你的设计实现了一些基本功能（例如信息提取），那么就一定会有效果。这意味着我们一不小心就会把整个系统弄得非常复杂。同时类人的行为又是极难 benchmark 的，我们很难因为某个方法表现更好就选择它。最好的方法只有在真实环境中不断调试。因此，我们最好在实现时就提醒自己 Keep it Simple and Stupid，至少 Keep it Configurable。</p>
 <blockquote>
@@ -258,26 +258,22 @@
 <tbody>
 <tr>
 <td>Prefill Delay</td>
-<td>$200\mathrm{ms} - 400\mathrm{ms}$</td>
-<td>$800\mathrm{ms} - 1500\mathrm{ms}$</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">s</mi></mrow><mo>−</mo><mn>400</mn><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">s</mi></mrow></mrow><annotation encoding="application/x-tex">200\mathrm{ms} - 400\mathrm{ms}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">s</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mord">0</span><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">s</span></span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>800</mn><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">s</mi></mrow><mo>−</mo><mn>1500</mn><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">s</mi></mrow></mrow><annotation encoding="application/x-tex">800\mathrm{ms} - 1500\mathrm{ms}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mord">0</span><span class="mord">0</span><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">s</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">5</span><span class="mord">0</span><span class="mord">0</span><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">s</span></span></span></span></span></td>
 </tr>
 <tr>
 <td>Reasoning Delay</td>
-<td>$2000\mathrm{ms}+$</td>
-<td>$5000\mathrm{ms}+$</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2000</mn><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">s</mi></mrow><mo>+</mo></mrow><annotation encoding="application/x-tex">2000\mathrm{ms}+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">s</span></span><span class="mord">+</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5000</mn><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">s</mi></mrow><mo>+</mo></mrow><annotation encoding="application/x-tex">5000\mathrm{ms}+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">s</span></span><span class="mord">+</span></span></span></span></td>
 </tr>
 <tr>
 <td>Cost</td>
-<td>$$0.0025 - $0.025$</td>
-<td>$$0.01 - $0.1$</td>
-</tr>
-<tr>
-<td>与缓存命中相比，缓存未命中会使得每一轮都出现 Prefill Delay。可以看出这基本上是实时 <strong>仅文字</strong> 互动的分水岭。如果我们的语音可以流式地处理，那么预计可以达到不错的延迟效果。</td>
-<td></td>
-<td></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">$</mi><mn>0.0025</mn><mo>−</mo><mi mathvariant="normal">$</mi><mn>0.025</mn></mrow><annotation encoding="application/x-tex">\$0.0025 - \$0.025</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.08333em;"></span><span class="mord">$</span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">0</span><span class="mord">2</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">$</span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">2</span><span class="mord">5</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">$</mi><mn>0.01</mn><mo>−</mo><mi mathvariant="normal">$</mi><mn>0.1</mn></mrow><annotation encoding="application/x-tex">\$0.01 - \$0.1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.08333em;"></span><span class="mord">$</span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">$</span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span></span></span></span></td>
 </tr>
 </tbody>
 </table>
+<p>与缓存命中相比，缓存未命中会使得每一轮都出现 Prefill Delay。可以看出这基本上是实时 <strong>仅文字</strong> 互动的分水岭。如果我们的语音可以流式地处理，那么预计可以达到不错的延迟效果。</p>
 <p>除此之外最大的一个问题是费用。长期来看，我们期望上下文长度在一个常数 (刚刚的5k ~ 20k) 附近波动，缓存命中带来的费用折扣（50% ~ 90% off）确实值得利用。缓存命中实际上是一个比较复杂的问题，不同的公司甚至提供不同的缓存策略。也许我们可以以后再进行优化。</p>
 <h4 id="精炼记忆">精炼记忆</h4>
 <blockquote>
@@ -325,13 +321,9 @@
 <td>极高 (瞬时动态)</td>
 <td></td>
 </tr>
-<tr>
-<td>我在表格中填入了一个 3. Curated Dynamic Soul，让我来解释一下这是什么。当前的 Memory 模块设计已经开始从 5. Raw Log 向 4. Refined Memory 演进。鉴于我对与手动修改 2. System Prompt 和自动 4. Refined Memory 之间相似性的观察，我很好奇是否有一天，整个 Memory 模块可以做到替代大部分的 2. System Prompt，产生中间的 3. Curated Dynamic Soul 形态。而 3. 则作为记忆库的一部分，会被当作一种更高级的角色卡，然后像现在的 <code>SKILLS.md</code> 一样被传播。</td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<p>我在表格中填入了一个 3. Curated Dynamic Soul，让我来解释一下这是什么。当前的 Memory 模块设计已经开始从 5. Raw Log 向 4. Refined Memory 演进。鉴于我对与手动修改 2. System Prompt 和自动 4. Refined Memory 之间相似性的观察，我很好奇是否有一天，整个 Memory 模块可以做到替代大部分的 2. System Prompt，产生中间的 3. Curated Dynamic Soul 形态。而 3. 则作为记忆库的一部分，会被当作一种更高级的角色卡，然后像现在的 <code>SKILLS.md</code> 一样被传播。</p>
 <p>目前这个想法还缺少实验支撑。前段时间我查到了一些相关的资料，但帮助不是很大。也许过一段时间我会再写一份报告（挖坑）。在我设想中，这种精炼可以通过一个专门的模块负责，值得多进行实验。</p>
 <h3 id="2-3-事件驱动">2.3. 事件驱动</h3>
 <p>这个部分并非记忆系统的必需品。但这是一个更底层的架构改动，会影响到记忆系统的接口实现。</p>
@@ -359,7 +351,7 @@
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/multi-agent-research-system" title="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic | Multi Agent Research System</a></li>
 </ul>
-<h2 id="Appendix-A-OpenClaw’s-Memory-Context">Appendix A. OpenClaw’s Memory &amp; Context</h2>
+<h2 id="appendix-a-openclaw-s-memory-context">Appendix A. OpenClaw’s Memory &amp; Context</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/concepts/memory">OpenClaw Docs | Memory</a></li>
 <li><a target="_blank" rel="noopener" href="https://docs.openclaw.ai/concepts/context">OpenClaw Docs | Context</a></li>
@@ -448,7 +440,7 @@
                     <div class="mdui-card-content toc-card-content">
                         <div class="mdui-typo-heading mdui-m-b-2">Table of Contents</div>
                         <div class="toc-content">
-                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#0-Intro"><span class="mdui-list mdui-typo-text">0. Intro</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-LLM-%E8%BF%98%E4%B8%8D%E5%A4%9F%E5%83%8F%E4%BA%BA%E5%90%97%EF%BC%9F"><span class="mdui-list mdui-typo-text">1. LLM 还不够像人吗？</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-1-%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86"><span class="mdui-list mdui-typo-text">1.1. 长期记忆</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-2-%E5%8F%8D%E6%80%9D%E8%83%BD%E5%8A%9B"><span class="mdui-list mdui-typo-text">1.2. 反思能力</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-3-%E9%A2%98%E5%A4%96%E8%AF%9D"><span class="mdui-list mdui-typo-text">1.3. 题外话</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-%E9%82%A3%E4%B9%88%EF%BC%8C%E6%88%91%E4%BB%AC%E5%AE%9E%E9%99%85%E4%B8%8A%E8%A6%81%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="mdui-list mdui-typo-text">2. 那么，我们实际上要做什么？</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-1-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="mdui-list mdui-typo-text">2.1. 一些简单的例子</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-2-%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F"><span class="mdui-list mdui-typo-text">2.2. 重新思考记忆系统</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-3-%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8"><span class="mdui-list mdui-typo-text">2.3. 事件驱动</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#3-%E6%9E%B6%E6%9E%84%E6%8F%90%E6%A1%88"><span class="mdui-list mdui-typo-text">3. 架构提案</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#4-%E4%B8%80%E5%AE%9A%E8%A6%81%E5%BE%88%E5%83%8F%E4%BA%BA%E5%90%97%EF%BC%9F"><span class="mdui-list mdui-typo-text">4. 一定要很像人吗？</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#Appendix-A-OpenClaw%E2%80%99s-Memory-Context"><span class="mdui-list mdui-typo-text">Appendix A. OpenClaw’s Memory &amp; Context</span></a></li></ol>
+                            <ol class="mdui-list mdui-typo"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#0-intro"><span class="mdui-list mdui-typo-text">0. Intro</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#1-llm-%E8%BF%98%E4%B8%8D%E5%A4%9F%E5%83%8F%E4%BA%BA%E5%90%97%EF%BC%9F"><span class="mdui-list mdui-typo-text">1. LLM 还不够像人吗？</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-1-%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86"><span class="mdui-list mdui-typo-text">1.1. 长期记忆</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-2-%E5%8F%8D%E6%80%9D%E8%83%BD%E5%8A%9B"><span class="mdui-list mdui-typo-text">1.2. 反思能力</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#1-3-%E9%A2%98%E5%A4%96%E8%AF%9D"><span class="mdui-list mdui-typo-text">1.3. 题外话</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#2-%E9%82%A3%E4%B9%88-%E6%88%91%E4%BB%AC%E5%AE%9E%E9%99%85%E4%B8%8A%E8%A6%81%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="mdui-list mdui-typo-text">2. 那么，我们实际上要做什么？</span></a><ol class="mdui-list mdui-typo-child"><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-1-%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="mdui-list mdui-typo-text">2.1. 一些简单的例子</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-2-%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F"><span class="mdui-list mdui-typo-text">2.2. 重新思考记忆系统</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-3"><a class="mdui-list mdui-typo-link" href="#2-3-%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8"><span class="mdui-list mdui-typo-text">2.3. 事件驱动</span></a></li></ol></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#3-%E6%9E%B6%E6%9E%84%E6%8F%90%E6%A1%88"><span class="mdui-list mdui-typo-text">3. 架构提案</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#4-%E4%B8%80%E5%AE%9A%E8%A6%81%E5%BE%88%E5%83%8F%E4%BA%BA%E5%90%97%EF%BC%9F"><span class="mdui-list mdui-typo-text">4. 一定要很像人吗？</span></a></li><li class="mdui-list mdui-typo-item mdui-list mdui-typo-level-2"><a class="mdui-list mdui-typo-link" href="#appendix-a-openclaw-s-memory-context"><span class="mdui-list mdui-typo-text">Appendix A. OpenClaw’s Memory &amp; Context</span></a></li></ol>
                         </div>
                     </div>
                 </div>
