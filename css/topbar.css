@@ -1,0 +1,159 @@
+/* ============================================
+ * 顶栏（最原生 Flex 布局，剔除所有尺寸 var/calc 计算）
+ * ============================================ */
+.app-top-bar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgb(var(--mdui-color-surface)); /* 仅保留必须的主题色变量 */
+  width: 100%;
+  box-sizing: border-box;
+
+  /* 最原生写法：给定固定高度和水平内边距，垂直方向交给 Flex 自动居中 */
+  height: 4rem; /* 标准 64px 高度 */
+  padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  --mdui-comp-ripple-state-layer-color: transparent;
+}
+
+/* 左侧：占据均等 1 份空间，内容靠左 */
+.topbar-home {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+/* 中间：自适应内容宽度，因左右两侧各占 flex:1，所以被绝对挤在正中央 */
+.topbar-nav {
+  flex: 0 1 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  pointer-events: auto;
+}
+
+.topbar-nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* 右侧：占据均等 1 份空间，内容靠右 */
+.topbar-end {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+/* --- 组件细节（使用固定 rem 替代 var 计算） --- */
+
+mdui-button.topbar-nav-btn {
+  flex-shrink: 0;
+  height: 3rem; /* 直接指定 48px，干掉 min-height 和 var */
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+mdui-button.topbar-nav-btn::part(button) {
+  height: 3rem;
+  padding: 0 1rem;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+mdui-button.topbar-nav-btn--active {
+  color: rgb(var(--mdui-color-primary));
+  font-weight: 600;
+}
+
+mdui-button.topbar-nav-btn--active::part(button) {
+  background: transparent;
+  text-decoration: none;
+}
+
+.topbar-profile-cluster {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.2rem;
+}
+
+.topbar-profile-dropdown {
+  --z-index: 200;
+}
+
+.topbar-profile-social-bar {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.05rem;
+}
+
+mdui-button-icon.topbar-profile-social-bar__btn {
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.topbar-profile-social-bar__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .topbar-profile-social-bar {
+    display: none;
+  }
+}
+
+.topbar-profile-trigger__avatar {
+  /* 3rem 可点区减去 2px 双边框 ≈ 2.75rem 内容盒 */
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+  flex-shrink: 0;
+  border: 2px solid rgb(var(--mdui-color-surface-container-high));
+  box-sizing: border-box;
+  display: block;
+}
+
+.topbar-profile-trigger__avatar-icon {
+  font-size: 1.375rem; /* 22px */
+  width: 1.375rem;
+  height: 1.375rem;
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+mdui-button-icon.topbar-search-toggle,
+mdui-button-icon.topbar-theme-toggle,
+mdui-button-icon.topbar-profile-trigger-btn {
+  flex-shrink: 0;
+  color: rgb(var(--mdui-color-on-surface-variant));
+  box-sizing: border-box;
+  width: 3rem;
+  height: 3rem;
+}

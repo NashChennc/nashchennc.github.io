@@ -1,0 +1,201 @@
+/* ============================================
+ * 全局样式（无法用 MDUI 类替代的部分）
+ * ============================================ */
+html {
+  margin: 0;
+  font-family: var(--app-font-stack);
+  scroll-padding-top: var(--app-top-bar-offset);
+  /* scroll-behavior: smooth; 已移除，防止首页自动下滑 */
+}
+
+body#top {
+  margin: 0;
+  font-family: inherit;
+}
+
+.mdui-prose {
+  font-family: inherit;
+
+  /* 长文不在 body 上开 optimizeLegibility；仅标题保留字距/连字观感 */
+  & :is(h1, h2, h3) {
+    text-rendering: optimizeLegibility;
+  }
+
+  /* 链接换行（MDUI 未提供） */
+  & a {
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+
+  /* 去掉鼠标点击后仅 :focus（非 :focus-visible）时 MDUI 残留的底边框/下划线 */
+  & a:focus:not(:focus-visible) {
+    border-bottom: none;
+    text-decoration: none;
+  }
+
+  /* 仅悬停与键盘聚焦时显示下划线（替代 MDUI 的 border-bottom） */
+  & a:hover,
+  & a:focus-visible {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--mdui-color-primary));
+    text-underline-offset: 0.08em;
+    text-decoration-thickness: 0.0625rem;
+  }
+}
+
+/* 横向一排的 mdui-prose 链接（顶栏分类等）：复用 mdui.css 里 .mdui-prose a，仅补布局与不断词 */
+.mdui-prose--inline-nav a {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: var(--app-top-bar-row);
+  padding: 0 0.875rem;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.mdui-prose--inline-nav a[aria-current='page'] {
+  font-weight: 500;
+}
+
+.mdui-prose--inline-nav a:hover,
+.mdui-prose--inline-nav a:focus-visible {
+  text-underline-offset: 0.18em;
+}
+
+/* 图片响应式（MDUI 的 mdui-img-fluid 类已处理，但保留作为兜底） */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================
+ * 页面版心与两栏 Grid（主题自有 .app-container，避免占用 .mdui-* 命名空间）
+ * ============================================ */
+.app-container,
+.app-container-fluid {
+  box-sizing: border-box;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--app-container-gutter);
+  padding-left: var(--app-container-gutter);
+}
+
+.app-container::after,
+.app-container-fluid::after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+.app-container {
+  width: 96%;
+  max-width: 1280px;
+}
+
+/* 字面量 px：@media 内 var() 在部分引擎无效，会导致整段查询被丢弃（文章与 TOC 无法并排） */
+@media (min-width: 600px) {
+  .app-container {
+    width: 94%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    width: 92%;
+  }
+}
+
+/* 原无效 mdui-p-* 的等价间距（版心 gutter 见 --app-container-gutter） */
+.page-shell--pad-index {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+.page-shell--pad-list {
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.page-shell--pad-static-page {
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
+}
+
+.page-grid--post {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.page-main--post,
+.page-sidebar--post {
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+}
+
+.page-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 840px) {
+  /* minmax(0, …) 避免子项 min-content（如超宽图）撑开整列；840px 与 MDUI --mdui-breakpoint-md 一致 */
+  .page-grid:not(.page-grid--single) {
+    grid-template-columns:
+      minmax(0, var(--page-article-column-max-width))
+      minmax(0, var(--page-toc-column-width));
+    justify-content: center;
+    align-items: start;
+  }
+
+  .page-grid--single {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-main {
+  min-width: 0;
+}
+
+@media (min-width: 840px) {
+  .page-grid:not(.page-grid--single) .page-main {
+    max-width: var(--page-article-column-max-width);
+    width: 100%;
+  }
+
+  .page-grid:not(.page-grid--single) .page-sidebar {
+    width: var(--page-toc-column-width);
+    max-width: 100%;
+    min-width: 0;
+    justify-self: stretch;
+  }
+}
+
+/* 侧边栏包装器响应式 */
+#sidebar-wrapper {
+  margin-top: var(--app-sidebar-stack-gap);
+}
+
+@media (min-width: 992px) {
+  /* 与 tokens --app-breakpoint-sidebar 一致；此处不用 var()，原因同上文 */
+  #sidebar-wrapper {
+    margin-top: 0;
+  }
+}
+
+/* ============================================
+ * 粘性侧边栏：top 须含 --app-sticky-stack-gap，与 TOC max-height 共用 --app-sticky-offset
+ * ============================================ */
+.sticky-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--app-sticky-offset);
+  z-index: 1;
+}

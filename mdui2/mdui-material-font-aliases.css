@@ -1,0 +1,51 @@
+/**
+ * MDUI 的 <mdui-icon> 默认使用 font-family: Material Icons / Material Icons Outlined
+ * （见 node_modules/mdui/components/icon），而 outlined.css 只注册了「Material Symbols Outlined」
+ * 这一家族名。未匹配的 @font-face 会导致图标显示为英文 ligature 名或空白。
+ *
+ * 将 MDUI 使用的家族名别名到与 outlined.css 相同的 variable woff2，并补齐 Symbols 的轴设置。
+ */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url("./material-symbols-outlined.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Material Icons Outlined";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url("./material-symbols-outlined.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Material Icons Round";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url("./material-symbols-outlined.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Material Icons Sharp";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url("./material-symbols-outlined.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Material Icons Two Tone";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url("./material-symbols-outlined.woff2") format("woff2");
+}
+
+mdui-icon {
+  font-feature-settings: "liga";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}

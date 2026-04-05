@@ -1,0 +1,309 @@
+/* 分类列表页（archive.ejs）：单栏卡片 + mdui-list，避免多列 collapse 拥挤 */
+.archives-categories .notes-header {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.archives-category-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+mdui-card.archives-category-card {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.archives-category-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.25rem;
+  padding: 1.25rem 1.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.archives-category-card__name {
+  font-size: var(--mdui-typescale-title-large-size, 1.375rem);
+  line-height: var(--mdui-typescale-title-large-line-height, 1.75rem);
+  font-weight: 600;
+  color: rgb(var(--mdui-color-on-surface));
+}
+
+.archives-category-card__count {
+  font-size: var(--mdui-typescale-label-large-size, 0.875rem);
+  line-height: var(--mdui-typescale-label-large-line-height, 1.25rem);
+  color: rgb(var(--mdui-color-on-surface-variant));
+  flex-shrink: 0;
+}
+
+.archives-category-card__list {
+  padding: 0.25rem 0 0.5rem;
+}
+
+.archives-category-card mdui-divider {
+  margin: 0;
+}
+
+/* 文章内上下篇 */
+.post-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.75rem 0;
+}
+
+.post-nav__side {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.post-nav__side--next {
+  text-align: right;
+}
+
+/* 块级链接，避免 mdui-button 内部行高/单行省略把标题挤扁；结构对齐分类页 note-card（标签行 + 标题区） */
+.post-nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--mdui-shape-corner-medium, 8px);
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+  transition: background-color 0.15s ease;
+}
+
+.post-nav__link:hover {
+  background-color: var(--app-hover-on-surface-subtle);
+}
+
+.post-nav__side--next .post-nav__link {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.post-nav__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  flex-shrink: 0;
+  font-size: var(--mdui-typescale-label-medium-size, 0.75rem);
+  line-height: var(--mdui-typescale-label-medium-line-height, 1rem);
+  font-weight: 500;
+  color: rgb(var(--mdui-color-primary));
+}
+
+.post-nav__side--next .post-nav__label {
+  justify-content: flex-end;
+}
+
+.post-nav__label mdui-icon {
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+}
+
+.post-nav__body {
+  display: flex;
+  flex-direction: column;
+  align-items: inherit;
+  gap: 0.2rem;
+  width: 100%;
+  min-width: 0;
+  text-align: inherit;
+}
+
+.post-nav__category {
+  font-size: var(--mdui-typescale-label-medium-size, 0.75rem);
+  line-height: var(--mdui-typescale-label-medium-line-height, 1rem);
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.post-nav__title {
+  font-size: var(--mdui-typescale-title-medium-size, 1rem);
+  line-height: var(--mdui-typescale-title-medium-line-height, 1.5rem);
+  font-weight: 600;
+  color: rgb(var(--mdui-color-primary));
+  word-break: break-word;
+}
+
+/* 分类索引页（category.ejs）：Notes 式页头 + mdui-card 网格 */
+.notes-header {
+  margin: 4rem 0 3rem;
+  padding: 0 1rem;
+}
+
+.notes-title {
+  font-size: var(--mdui-typescale-display-medium-size, 2.8125rem);
+  line-height: var(--mdui-typescale-display-medium-line-height, 3.25rem);
+  font-weight: 700;
+  color: rgb(var(--mdui-color-on-background));
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+.notes-subtitle {
+  font-size: var(--mdui-typescale-title-medium-size, 1rem);
+  line-height: 1.6;
+  color: rgb(var(--mdui-color-on-surface-variant));
+  margin: 0;
+  max-width: 650px;
+}
+
+/* 版心外说明段内 <a>：对齐 MDUI .mdui-prose a 的主色与悬停下划线，不作用于 prose */
+.notes-subtitle a {
+  color: rgb(var(--mdui-color-primary));
+  text-decoration: none;
+}
+
+.notes-subtitle a:hover,
+.notes-subtitle a:focus-visible {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration-color: rgb(var(--mdui-color-primary));
+  text-underline-offset: 0.08em;
+  text-decoration-thickness: 0.0625rem;
+}
+
+.notes-subtitle a:focus:not(:focus-visible) {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.notes-subtitle__row {
+  display: block;
+}
+
+.notes-subtitle__row + .notes-subtitle__row {
+  margin-top: 0.4em;
+}
+
+/* 全屏 Hero 下方首块：略收紧顶距，避免与 banner 区重复感过重 */
+.notes-header--index {
+  margin-top: 1.25rem;
+}
+
+.note-cover {
+  width: 100%;
+  flex-shrink: 0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--app-divider-hairline);
+}
+
+.featured-post .note-cover {
+  aspect-ratio: 21 / 9;
+  max-height: min(400px, 50vw);
+}
+
+.note-cover-placeholder {
+  width: 100%;
+  flex-shrink: 0;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: rgb(var(--mdui-color-surface-container-high));
+  border-bottom: 1px solid var(--app-divider-hairline);
+}
+
+.featured-post .note-cover-placeholder {
+  aspect-ratio: 21 / 9;
+  max-height: min(400px, 50vw);
+}
+
+.note-cover-placeholder__icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+/* 封面下整块：占满卡片剩余高度，meta 用 margin-top:auto 贴底（避免 mdui-card 内部 slot 打断 flex） */
+.note-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.note-content {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  flex: 0 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-card-title {
+  font-size: var(--mdui-typescale-title-large-size, 1.375rem);
+  line-height: var(--mdui-typescale-title-large-line-height, 1.75rem);
+  font-weight: 600;
+  color: rgb(var(--mdui-color-primary));
+  margin: 0 0 0.75rem 0;
+}
+
+.note-excerpt {
+  font-size: var(--mdui-typescale-body-medium-size, 0.875rem);
+  line-height: var(--mdui-typescale-body-medium-line-height, 1.25rem);
+  color: rgb(var(--mdui-color-on-surface-variant));
+  margin: 0;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.note-meta {
+  margin-top: auto;
+  flex-shrink: 0;
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  font-size: var(--mdui-typescale-label-medium-size, 0.75rem);
+  line-height: var(--mdui-typescale-label-medium-line-height, 1rem);
+}
+
+.note-tag {
+  font-size: var(--mdui-typescale-label-medium-size, 0.75rem);
+  line-height: var(--mdui-typescale-label-medium-line-height, 1rem);
+  font-weight: 500;
+  color: rgb(var(--mdui-color-on-surface-variant));
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--mdui-shape-corner-small, 8px);
+  border: 1px solid var(--app-divider-hairline);
+  background-color: transparent;
+}
+
+.note-date,
+.note-read {
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.note-read {
+  margin-left: auto;
+}
+
+.category-index .paginator-wrap {
+  margin-top: 1.25rem;
+}

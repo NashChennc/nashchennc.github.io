@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ccauto-00-index - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/sidebar-footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 49</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 35</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 10</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 9</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    <div class="topbar-profile-cluster">
+  <mdui-dropdown
+    class="topbar-profile-dropdown"
+    trigger="hover focus"
+    placement="bottom-end"
+    open-delay="180"
+    close-delay="280"
+  >
+    <mdui-button-icon
+      slot="trigger"
+      variant="standard"
+      class="topbar-profile-trigger-btn"
+      href="/about"
+      aria-haspopup="true"
+      aria-label="About · Open author profile and social links"
+      
+    >
+      
+        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+      
+    </mdui-button-icon>
+
+    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
+      <div class="sidebar-card-media">
+        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
+      </div>
+
+      <div class="sidebar-card-content--main sidebar-card-body">
+        
+          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
+        
+
+        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
+        <div class="sidebar-bio">
+          吃点好的
+        </div>
+        <div class="topbar-profile-about-wrap">
+          <mdui-button
+            variant="text"
+            href="/about"
+            class="topbar-profile-about"
+            
+          >About</mdui-button>
+        </div>
+      </div>
+    </mdui-card>
+  </mdui-dropdown>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">CC Auto Mode - Auto Mode 安全架构分析报告系列</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Mar 31</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E4%B8%93%E6%A0%8F/" class="note-tag">专栏</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">5 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <h1>Auto Mode 安全架构分析报告系列</h1>
+<blockquote>
+<p>本系列报告基于 Claude Code 代码库，深入分析 auto mode 的安全架构实现。Auto mode 是一种将工具调用审批委托给模型分类器的权限模式——在手动逐条审批与完全跳过审批之间寻找平衡点。</p>
+</blockquote>
+<h2 id="报告索引">报告索引</h2>
+<ul>
+<li><a href="/ccauto-01-entrypoint/" title="">01 - Entry Point 总览</a>：权限模式体系、三层状态管理、入口矩阵、首次同意弹窗</li>
+<li><a href="/ccauto-02-classifier/" title="">02 - 两阶段分类器管道</a>：三层判定优先级、Stage 1/2 设计、transcript 构建、缓存策略</li>
+<li><a href="/ccauto-03-permission-stripping/" title="">03 — 权限剥离与信任边界</a>：危险规则过滤、stash/restore 机制、敏感路径安全检查</li>
+<li><a href="/ccauto-04-multi-agent/" title="">04 - 多 Agent 安全交接</a>：Outbound/Inbound 分类差异、子进程继承、AFK header latch</li>
+<li><a href="/ccauto-05-gate-circuit-breaker/" title="">05 - 门禁、熔断与异步踢出</a>：异步门禁校验、熔断器、kickout 变换、模型支持判定</li>
+<li><a href="/ccauto-06-configuration/" title="">06 - 配置体系与可定制 Slot</a>：allow/soft_deny/environment 三 Slot、设置合并、CLI 子命令</li>
+<li><a href="/ccauto-07-deny-and-resilience/" title="">07 - Deny-and-Continue 韧性设计</a>：deny 循环、denial tracking 阈值、fail-closed/open</li>
+<li><a href="/ccauto-A-单次请求的上下文整形流水线/" title="">附录 A - 单次请求的上下文整形流水线</a>：<code>queryLoop</code> 出站顺序、budget/snip/microcompact/collapse/autocompact、normalizeMessagesForAPI、Harness 边界</li>
+<li><a href="/ccauto-B-长会话压缩与多线程状态隔离/" title="">附录 B - 长会话压缩与多线程状态隔离</a>：<code>autoCompactIfNeeded</code>、compactConversation、Session Memory、PTL、cached MC 隔离、Teammate 沙箱</li>
+<li><a href="/ccauto-C-分类器边界之外的纵深防御/" title="">附录 C - 分类器边界之外的纵深防御</a>：<code>subprocessEnv</code>、输入净化、通道 safetyCheck、系统提示、纵深时间轴、特性/env 全集速查</li>
+</ul>
+<h2 id="全局架构">全局架构</h2>
+<pre class="mermaid">flowchart TB
+    subgraph entry [入口层（决定是否尝试进入 auto mode）]
+        CLI["CLI: --permission-mode auto&lt;br/&gt;命令行显式启用"]
+        ShiftTab["Shift+Tab 轮转&lt;br/&gt;会话内快速切换模式"]
+        Settings["settings: defaultMode&lt;br/&gt;默认权限模式配置项"]
+        SDK["SDK / Bridge&lt;br/&gt;外部调用入口"]
+    end
+
+    subgraph gate [门禁层（集中做可用性与策略校验）]
+        GrowthBook["tengu_auto_mode_config&lt;br/&gt;远端下发 auto 策略"]
+        ModelCheck["modelSupportsAutoMode&lt;br/&gt;模型能力是否支持"]
+        SettingsCheck["disableAutoMode?&lt;br/&gt;本地设置是否禁用"]
+        CircuitBreaker["Circuit Breaker&lt;br/&gt;紧急熔断开关"]
+        GrowthBook --&gt; Verify["verifyAutoModeGateAccess&lt;br/&gt;统一门禁判定函数"]
+        ModelCheck --&gt; Verify
+        SettingsCheck --&gt; Verify
+        CircuitBreaker --&gt; Verify
+    end
+
+    subgraph transition [切换层（进入 auto 前的状态迁移）]
+        Strip["stripDangerousPermissionsForAutoMode&lt;br/&gt;剥离危险 allow 规则"]
+        SetActive["setAutoModeActive(true)&lt;br/&gt;标记当前会话已启用 auto"]
+        OptIn["AutoModeOptInDialog&lt;br/&gt;首次同意/风险告知"]
+    end
+
+    subgraph runtime [运行时判定（对每次工具调用做实时决策）]
+        ToolCall["工具调用请求&lt;br/&gt;待审批的执行单元"]
+        AcceptEdits["Tier 1: acceptEdits 快路径&lt;br/&gt;编辑确认类请求直接放行"]
+        Allowlist["Tier 1: 安全工具白名单&lt;br/&gt;低风险工具短路放行"]
+        Stage1["Tier 3: Stage 1 快速过滤&lt;br/&gt;先判定是否可疑"]
+        Stage2["Tier 3: Stage 2 链式推理&lt;br/&gt;对可疑请求深度分析"]
+        Allow["ALLOW — 执行工具&lt;br/&gt;进入实际执行"]
+        Deny["DENY — 返回错误结果&lt;br/&gt;阻断本次调用"]
+    end
+
+    subgraph agent [多 Agent 安全（跨 Agent 传递时补充防护）]
+        Outbound["Outbound 分类&lt;br/&gt;主 Agent 发起前审查"]
+        SubAgent["Subagent 执行&lt;br/&gt;隔离上下文中运行"]
+        Inbound["Inbound 分类&lt;br/&gt;子 Agent 返回结果复检"]
+        Warning["警告注入&lt;br/&gt;在上下文中标记潜在风险"]
+    end
+
+    entry --&gt; gate
+    gate --&gt;|通过| transition
+    gate --&gt;|拒绝| KickOut["踢出 / 通知"]
+    transition --&gt; runtime
+
+    ToolCall --&gt; AcceptEdits
+    AcceptEdits --&gt;|allow| Allow
+    AcceptEdits --&gt;|不适用| Allowlist
+    Allowlist --&gt;|allow| Allow
+    Allowlist --&gt;|不适用| Stage1
+    Stage1 --&gt;|"no (安全)"| Allow
+    Stage1 --&gt;|"yes (可疑)"| Stage2
+    Stage2 --&gt;|allow| Allow
+    Stage2 --&gt;|block| Deny
+
+    ToolCall --&gt;|Agent 工具| Outbound
+    Outbound --&gt;|allow| SubAgent
+    SubAgent --&gt; Inbound
+    Inbound --&gt; Warning</pre>
+<h2 id="术语表">术语表</h2>
+<ul>
+<li><strong>auto mode</strong>：将工具调用审批委托给 AI 分类器的权限模式，代码中也称 <code>yolo</code> / <code>TRANSCRIPT_CLASSIFIER</code></li>
+<li><strong>yoloClassifier</strong>：auto mode 的分类器实现，通过 sideQuery 调用 Sonnet 模型，判定工具调用的安全性</li>
+<li><strong>transcript classifier</strong>：yoloClassifier 的产品名称，强调其基于对话 transcript 做判定</li>
+<li><strong>circuit breaker</strong>：熔断器，<code>tengu_auto_mode_config.enabled === 'disabled'</code> 时激活（参数 <code>enabled</code> 表示远端总开关状态），阻止进入 auto mode</li>
+<li><strong>AFK header</strong>：<code>AFK_MODE_BETA_HEADER</code>，auto mode 激活后会话级 latch 到 API 请求，触发服务端 PI probes</li>
+<li><strong>PI probe</strong>：Prompt Injection probe，服务端扫描工具输出中的注入攻击，本仓库通过 AFK header 触发</li>
+<li><strong>sideQuery</strong>：独立于主对话循环的 API 调用，分类器通过此通道运行，不计入主会话 token 统计</li>
+<li><strong>GrowthBook</strong>：开源的特性开关 / A/B 测试平台（<a target="_blank" rel="noopener" href="https://www.growthbook.io">growthbook.io</a>），Anthropic 用它作为远端配置下发服务。服务端改一个值，客户端下次拉取即生效，不需要发版。核心用途是<strong>事故响应</strong>：发现安全问题时可在几秒内远端将 <code>enabled</code> 设为 <code>disabled</code>，全球客户端自动熔断 auto mode。本仓库中主要配置项为 <code>tengu_auto_mode_config</code></li>
+<li><strong>strippedDangerousRules</strong>：进入 auto 时被暂存的危险 allow 规则（如 <code>Bash(python:*)</code>），退出时恢复</li>
+<li><strong>denial tracking</strong>：分类器拒绝计数，连续 ≥3 或总计 ≥20 时 fallback 到手动审批或终止</li>
+<li><strong>fail-closed</strong>：分类器不可用时默认拒绝（<code>tengu_iron_gate_closed</code> 控制；参数语义是“铁门关闭时宁可误拒绝”）</li>
+<li><strong>fail-open</strong>：分类器不可用时回退到常规权限流程（手动审批）</li>
+<li><strong>microcompact</strong>：在完整 compact 之前对 tool results 做的轻量收缩；含时间触发清理与（主线程限定的）cached microcompact（cache editing）</li>
+<li><strong>subprocess env scrub</strong>：<code>subprocessEnv</code> 在 CI/不可信工作流场景下从子进程环境中剥离密钥等变量，防 shell 展开外泄</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">Claude Code auto mode: a safer way to skip permissions</a> — Anthropic 官方博客</li>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/harness-design-long-running-apps">Harness design for long-running application development</a> — Anthropic 官方博客</li>
+</ul>
+
+                    </div>
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/Tag/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">专栏</span>
+                                        
+                                        <span class="post-nav__title">软件相关</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Auto Mode 安全架构分析报告系列</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%A5%E5%91%8A%E7%B4%A2%E5%BC%95"><span class="post-toc-text">报告索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%A8%E5%B1%80%E6%9E%B6%E6%9E%84"><span class="post-toc-text">全局架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%AF%E8%AF%AD%E8%A1%A8"><span class="post-toc-text">术语表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="post-toc-text">参考资料</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

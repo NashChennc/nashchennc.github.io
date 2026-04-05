@@ -1,0 +1,114 @@
+/* ============================================
+ * 作者名片（顶栏 dropdown 弹层；沿用 .sidebar-* 类名）
+ * ============================================ */
+.sidebar-avatar-offset {
+  margin-top: 16px;
+}
+
+.sidebar-card-media {
+  height: 120px;
+  overflow: hidden;
+}
+
+.sidebar-card-media__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar-card-content--main {
+  position: relative;
+}
+
+.sidebar-card {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.sidebar-card-body {
+  text-align: center;
+  padding: 0 1rem 1rem;
+}
+
+.sidebar-author {
+  margin-top: 0.5rem;
+  font-size: var(--mdui-typescale-headline-small-size, 1.5rem);
+  font-weight: var(--mdui-typescale-headline-small-weight, 400);
+  line-height: var(--mdui-typescale-headline-small-line-height, 2rem);
+  color: rgb(var(--mdui-color-on-surface));
+}
+
+.sidebar-bio {
+  margin-top: 0.35rem;
+  font-size: var(--mdui-typescale-body-medium-size, 0.875rem);
+  line-height: var(--mdui-typescale-body-medium-line-height, 1.25rem);
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.topbar-profile-about-wrap {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+mdui-button.topbar-profile-about {
+  --mdui-comp-ripple-state-layer-color: transparent;
+  color: rgb(var(--mdui-color-primary));
+  font-size: var(--mdui-typescale-label-large-size, 0.875rem);
+  font-weight: 500;
+}
+
+mdui-button.topbar-profile-about::part(button) {
+  min-height: 44px;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--mdui-shape-corner-medium, 8px);
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+mdui-button.topbar-profile-about[aria-current='page'] {
+  font-weight: 600;
+}
+
+mdui-button.topbar-profile-about[aria-current='page']::part(button) {
+  background: transparent;
+}
+
+.sidebar-avatar {
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgb(var(--mdui-color-surface));
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidebar-avatar--placeholder {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: rgb(var(--mdui-color-surface-container-high));
+}
+
+.sidebar-avatar--placeholder mdui-icon,
+.sidebar-avatar--placeholder .sidebar-avatar__icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.topbar-profile-panel.sidebar-card {
+  width: min(20rem, 92vw);
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}

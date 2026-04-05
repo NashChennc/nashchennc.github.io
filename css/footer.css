@@ -1,0 +1,184 @@
+/* ============================================
+ * 页脚：surface-container-lowest、outline-variant 分割、社交 + 底栏导航
+ * ============================================ */
+
+.site-footer {
+  box-sizing: border-box;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  background-color: rgb(var(--mdui-color-surface-container-lowest));
+  border-top: 1px solid rgb(var(--mdui-color-outline-variant));
+}
+
+.site-footer__container {
+  box-sizing: border-box;
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* 与主内容区之间的留白由 .site-footer margin-top + 本容器 padding-top 共同形成 */
+
+.site-footer__social-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+
+.site-footer__social-intro {
+  margin: 0 0 1rem;
+  max-width: 36rem;
+  font-size: var(--mdui-typescale-body-large-size, 1rem);
+  font-weight: var(--mdui-typescale-body-large-weight, 400);
+  line-height: var(--mdui-typescale-body-large-line-height, 1.5rem);
+  color: rgb(var(--mdui-color-on-surface));
+}
+
+.site-footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.125rem 0.25rem;
+}
+
+mdui-button-icon.site-footer__social-btn {
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.site-footer__social-icon {
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem 2rem;
+}
+
+.site-footer__meta {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.site-footer__copyright {
+  margin: 0;
+  font-size: var(--mdui-typescale-label-medium-size, 0.75rem);
+  line-height: var(--mdui-typescale-label-medium-line-height, 1rem);
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+.site-footer__author {
+  color: inherit;
+  font-weight: 400;
+}
+
+.site-footer__sep {
+  color: inherit;
+}
+
+.site-footer__powered {
+  display: inline;
+  color: inherit;
+}
+
+/* MDUI 2 原生正文链接样式（.mdui-prose a），与周围 label 字号对齐 */
+.site-footer__powered-prose.mdui-prose {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  font-size: inherit;
+  vertical-align: baseline;
+}
+
+.site-footer__powered-prose.mdui-prose a {
+  font-size: inherit;
+  font-weight: 500;
+  vertical-align: baseline;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.site-footer__powered-sep {
+  margin: 0 0.125rem;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* 底栏导航 */
+.site-footer__nav {
+  flex: 0 1 auto;
+}
+
+.site-footer__nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem 1.25rem;
+}
+
+mdui-button.site-footer__nav-btn {
+  flex-shrink: 0;
+  color: rgb(var(--mdui-color-on-surface-variant));
+  --mdui-comp-ripple-state-layer-color: color-mix(
+    in srgb,
+    rgb(var(--mdui-color-on-surface-variant)) 28%,
+    transparent
+  );
+  font-size: var(--mdui-typescale-label-medium-size, 0.75rem);
+  font-weight: 500;
+}
+
+mdui-button.site-footer__nav-btn::part(button) {
+  min-height: 2.75rem;
+  padding: 0 0.5rem;
+  border-radius: var(--mdui-shape-corner-medium, 8px);
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+}
+
+@media (max-width: 600px) {
+  .site-footer__bottom {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .site-footer__meta {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .site-footer__copyright {
+    text-align: center;
+  }
+
+  .site-footer__nav {
+    width: 100%;
+  }
+
+  .site-footer__nav-inner {
+    justify-content: center;
+  }
+
+  .site-footer__social-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .site-footer__social-intro {
+    max-width: none;
+  }
+
+  .site-footer__social {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,146 @@
+/* ============================================
+ * Hero Banner 样式（首页专用）
+ * ============================================ */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 95vh;
+  min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 与下方主内容区留白（margin 才能与绝对定位背景形成可见间隔） */
+  margin-bottom: 2rem;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--banner-bg-image);
+  background-position: center center;
+  background-size: cover;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+}
+
+.hero-content__title {
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.hero-content__subtitle {
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.hero-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.82) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  opacity: 0;
+  animation: heroFadeIn 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.hero-content--index {
+  color: #fff;
+  padding: 1.25rem 1.5rem 2rem;
+  max-width: min(92vw, 42rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-content--index .hero-content__title {
+  font-size: clamp(1.75rem, 5vw, 2.85rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.hero-content--index .hero-content__subtitle {
+  font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+  font-weight: 300;
+  opacity: 0.9;
+  line-height: 1.45;
+}
+
+.hero-content__subtitle--spaced {
+  margin-top: 1rem;
+}
+
+/* Hero 动画 */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 首页 hero 底部：纯装饰「向下滑」提示（不可点击） */
+.hero-scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 2.75rem;
+  z-index: 3;
+  transform: translateX(-50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  animation: heroScrollHintBlink 1.6s ease-in-out infinite;
+}
+
+.hero-scroll-hint__icon {
+  font-size: 2.25rem;
+  width: 1em;
+  height: 1em;
+}
+
+@keyframes heroScrollHintBlink {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content {
+    animation: none;
+    animation-delay: 0s;
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-bg {
+    transition: none;
+  }
+
+  .hero-scroll-hint {
+    animation: none;
+    opacity: 1;
+  }
+}

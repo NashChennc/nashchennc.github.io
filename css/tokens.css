@@ -1,0 +1,53 @@
+/* 主题设计令牌：与 MDUI 语义色配合，减少魔法数 */
+:root {
+  /* 全站字体栈（供 html 使用；body 继承；Shadow 内组件仍可能使用 MDUI 内置字体） */
+  --app-font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --mdui-shape-corner-medium: 8px;
+  /* 顶栏：与 topbar.css `.app-top-bar { height: 4rem }` 一致；行高与顶栏内控件一致 */
+  --app-top-bar-row: 3rem;
+  --app-top-bar-offset: calc(4rem + env(safe-area-inset-top, 0px));
+  /* 文章页：目录 sticky 时与顶栏的缝（须与 max-height 共用 --app-sticky-offset） */
+  --app-sticky-stack-gap: 0.125rem;
+  --app-sticky-offset: calc(var(--app-top-bar-offset) + var(--app-sticky-stack-gap));
+  /* Banner 下方主内容区微量顶距 */
+  --post-page-stack-pad-top: 0.5rem;
+  /* 目录卡片区距离视口底边的留白（长文时内部滚动） */
+  --post-toc-viewport-bottom: 1rem;
+  --post-content-pad: clamp(1.25rem, 5vw, 2rem);
+
+  /* 版心左右 gutter（原 8px）；与 .app-container 共用 */
+  --app-container-gutter: 0.5rem;
+  /* 窄屏下侧栏相对主栏下移的间距（原 16px）；≥ --app-breakpoint-sidebar 时与主栏顶对齐 */
+  --app-sidebar-stack-gap: 1rem;
+  /* 侧栏与主栏并排断点：小于此值时 #sidebar-wrapper 保留顶距。global-layout 内 @media 须写死 992px（var() 在 MQ 中不可靠） */
+  --app-breakpoint-sidebar: 992px;
+
+  /* 独立 Page（about 等）：正文最大可读宽度，在版心内左对齐 */
+  --page-static-prose-max-width: 52rem;
+  /* 文章 + 目录两栏：固定最大正文栏与固定目录栏，避免大图撑开 grid 挤占 TOC */
+  --page-article-column-max-width: 56rem;
+  --page-toc-column-width: 15.5rem;
+
+  /* 交互表面（与顶栏、侧栏社交等共用） */
+  --app-hover-on-surface: color-mix(in srgb, rgb(var(--mdui-color-on-surface)) 14%, transparent);
+  --app-hover-on-surface-subtle: color-mix(in srgb, rgb(var(--mdui-color-on-surface)) 8%, transparent);
+  --app-active-primary-bg: color-mix(in srgb, rgb(var(--mdui-color-primary)) 18%, transparent);
+  --app-active-primary-border: color-mix(in srgb, rgb(var(--mdui-color-primary)) 35%, transparent);
+  --app-active-primary-bg-strong: color-mix(in srgb, rgb(var(--mdui-color-primary)) 24%, transparent);
+  --app-divider-hairline: color-mix(in srgb, rgb(var(--mdui-color-on-surface)) 12%, transparent);
+  --app-hover-primary-subtle: color-mix(in srgb, rgb(var(--mdui-color-primary)) 8%, transparent);
+}
+
+/*
+ * Filled 卡：MDUI 内建为 rgb(--mdui-color-surface-container-highest)，对比偏强。
+ * 仅在宿主上把「highest」槽位指向 surface-container（仍是 MDUI 语义色三元组），
+ * 不篡改 low 等内部阶跃映射；保持 variant=filled，观感更克制。
+ */
+mdui-card.note-card,
+mdui-card.post-page-card,
+mdui-card.post-toc-card,
+mdui-card.sidebar-card,
+mdui-card.archives-category-card {
+  --mdui-color-surface-container-highest: var(--mdui-color-surface-container);
+}

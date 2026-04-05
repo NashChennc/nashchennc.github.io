@@ -1,0 +1,119 @@
+/* ============================================
+ * 列表卡片：note-card + notes-grid（首页与分类页共用）
+ * ============================================ */
+mdui-card.note-card {
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  transition:
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+mdui-card.note-card:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  mdui-card.note-card {
+    transition: none;
+  }
+
+  mdui-card.note-card:hover {
+    transform: none;
+  }
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 首页：分类/标签区与卡片网格之间留白 */
+.notes-grid--index {
+  padding-top: 2rem;
+}
+
+.notes-grid .featured-post {
+  grid-column: 1 / -1;
+}
+
+.notes-grid__cell {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.notes-grid__cell > mdui-card.note-card {
+  flex: 1 1 auto;
+}
+
+.paginator-wrap {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* Hexo 分页：<mdui-button> + <mdui-button-icon>（paginator_mdui helper） */
+.post-paginator {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem 0.35rem;
+}
+
+.post-paginator mdui-button.post-paginator__page {
+  color: rgb(var(--mdui-color-primary));
+  font-size: var(--mdui-typescale-label-large-size, 0.875rem);
+}
+
+.post-paginator mdui-button.post-paginator__page::part(button) {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--mdui-shape-corner-medium, 8px);
+}
+
+.post-paginator mdui-button.post-paginator__page:hover {
+  color: rgb(var(--mdui-color-primary));
+}
+
+.post-paginator mdui-button.post-paginator__page--current {
+  font-weight: 600;
+  color: rgb(var(--mdui-color-primary));
+}
+
+.post-paginator mdui-button.post-paginator__page--current::part(button) {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.post-paginator mdui-button-icon.post-paginator__icon {
+  color: rgb(var(--mdui-color-primary));
+}
+
+.post-paginator mdui-button-icon.post-paginator__icon::part(button) {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border-radius: var(--mdui-shape-corner-medium, 8px);
+}
+
+.post-paginator .post-paginator__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  padding: 0 0.25rem;
+  font-size: var(--mdui-typescale-label-large-size, 0.875rem);
+  color: rgb(var(--mdui-color-on-surface-variant));
+  user-select: none;
+}

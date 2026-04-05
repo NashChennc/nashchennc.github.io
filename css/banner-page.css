@@ -1,0 +1,284 @@
+/* ============================================
+ * Banner 容器样式（通用）
+ * ============================================ */
+.banner-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--banner-bg-image);
+  background-position: top;
+  background-size: cover;
+  z-index: 0;
+}
+
+.banner-container--page {
+  height: 320px;
+}
+
+.banner-container--tall {
+  height: 770px;
+}
+
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.banner-overlay--tint {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.banner-card-title {
+  font-weight: 300;
+}
+
+.banner-card-subtitle {
+  opacity: 0.9;
+}
+/* Banner 标题区：数据来自 YAML，版式由类名控制（Phase 1） */
+.banner-hero-title--index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.banner-hero-title__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.banner-hero-title__row--spaced {
+  margin-bottom: 0.4em;
+}
+
+.banner-hero-title__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-hero-title__upper-wrap,
+.banner-hero-title__lower-wrap {
+  position: relative;
+}
+
+/* 字号设在 wrap 上，使 upper 与法语行比例一致 */
+.banner-hero-title__upper-wrap {
+  font-size: 0.35em;
+}
+
+.banner-hero-title__upper {
+  font-size: 1em;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: -1px;
+  line-height: 1.2;
+}
+
+.banner-hero-title__lower-wrap {
+  font-size: 1em;
+}
+
+.banner-hero-title__lower {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.banner-hero-title--inner {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  white-space: nowrap;
+  gap: var(--banner-layout-gap, 0.28rem);
+  box-sizing: border-box;
+  /* 内页横幅主标题：略大于正文，随视口微调 */
+  font-size: clamp(1.08rem, 2.2vw, 1.2rem);
+}
+
+/* 内页横幅：收紧大写行字距（首页 hero 仍用 .banner-hero-title__upper 默认） */
+.banner-hero-title--inner .banner-hero-title__upper {
+  letter-spacing: 0.03em;
+}
+
+/* JS：data-banner-align 覆盖内页默认 flex-end */
+.banner-hero-title--inner[data-banner-align='start'] {
+  justify-content: flex-start;
+}
+
+.banner-hero-title--inner[data-banner-align='center'] {
+  justify-content: center;
+}
+
+.banner-hero-title--inner[data-banner-align='end'] {
+  justify-content: flex-end;
+}
+
+.banner-hero-title--inner.is-banner-title-wrap {
+  flex-wrap: wrap;
+  white-space: normal;
+  row-gap: var(--banner-layout-gap, 0.28rem);
+}
+
+.banner-hero-title--inner.is-banner-title-stack {
+  flex-direction: column;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  white-space: normal;
+}
+
+.banner-hero-title--inner.is-banner-title-stack .banner-hero-title__col {
+  width: 100%;
+  max-width: 100%;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.banner-hero-subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--banner-layout-gap, 1.5rem);
+  margin-top: 1.8rem;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.banner-hero-subtitle[data-banner-align='start'] {
+  justify-content: flex-start;
+}
+
+.banner-hero-subtitle[data-banner-align='center'] {
+  justify-content: center;
+}
+
+.banner-hero-subtitle[data-banner-align='end'] {
+  justify-content: flex-end;
+}
+
+.banner-hero-subtitle.is-banner-title-wrap {
+  flex-wrap: wrap;
+  white-space: normal;
+  row-gap: var(--banner-layout-gap, 1.5rem);
+}
+
+.banner-hero-subtitle.is-banner-title-stack {
+  flex-direction: column;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  white-space: normal;
+}
+
+.banner-hero-subtitle.is-banner-title-stack .banner-hero-subtitle__aside {
+  text-align: right;
+  max-width: 100%;
+}
+
+.banner-hero-subtitle__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-hero-subtitle__cite-upper {
+  font-size: 0.7em;
+  opacity: 0.7;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.banner-hero-subtitle__cite-lower {
+  font-size: 1.1em;
+  font-weight: 400;
+  line-height: 1;
+  position: relative;
+}
+
+.banner-hero-subtitle__dash {
+  position: absolute;
+  left: -2em;
+}
+
+.banner-hero-subtitle__aside {
+  padding-bottom: 2px;
+  font-size: 0.9em;
+  opacity: 0.8;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+
+.banner-hero-subtitle--inner .banner-hero-subtitle__cite-lower {
+  line-height: 0.8;
+}
+
+.banner-hero-subtitle--inner .banner-hero-subtitle__aside {
+  padding-bottom: 1.6px;
+}
+
+/* 内页顶栏副标题不需要首页 hero 的上边距；整体字号略小于首页 hero */
+.banner-hero-subtitle.banner-hero-subtitle--inner {
+  margin-top: 0;
+  gap: var(--banner-layout-gap, 0.85rem);
+  font-size: 0.75em;
+}
+
+.banner-hero-subtitle.banner-hero-subtitle--inner.is-banner-title-wrap {
+  row-gap: var(--banner-layout-gap, 0.85rem);
+}
+
+.banner-hero-subtitle--inner .banner-hero-subtitle__cite-upper {
+  letter-spacing: 0.03em;
+}
+
+.banner-hero-subtitle--inner .banner-hero-subtitle__aside {
+  letter-spacing: 0.25px;
+  padding-left: 0.35em;
+  padding-right: 0.35em;
+}
+
+/* 内页横幅文案区（替代 MDUI 1 的 mdui-card-primary / float） */
+.banner-inner {
+  width: 100%;
+}
+
+.banner-inner .app-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+.banner-inner__content {
+  text-align: right;
+  color: #fff;
+  max-width: 100%;
+  padding: 0.5rem 0;
+  box-sizing: border-box;
+}
+
+/* 无 JS / 无 data-banner-align 时保持右对齐；有属性时由 [data-banner-align] 规则接管 */
+.banner-inner__content .banner-hero-title--inner:not([data-banner-align]) {
+  justify-content: flex-end;
+}
+
+.banner-inner__content .banner-hero-subtitle:not([data-banner-align]) {
+  justify-content: flex-end;
+}

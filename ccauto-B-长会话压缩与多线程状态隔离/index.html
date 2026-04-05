@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ccauto-B-长会话压缩与多线程状态隔离 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/sidebar-footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 49</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 35</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 10</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 9</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    <div class="topbar-profile-cluster">
+  <mdui-dropdown
+    class="topbar-profile-dropdown"
+    trigger="hover focus"
+    placement="bottom-end"
+    open-delay="180"
+    close-delay="280"
+  >
+    <mdui-button-icon
+      slot="trigger"
+      variant="standard"
+      class="topbar-profile-trigger-btn"
+      href="/about"
+      aria-haspopup="true"
+      aria-label="About · Open author profile and social links"
+      
+    >
+      
+        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+      
+    </mdui-button-icon>
+
+    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
+      <div class="sidebar-card-media">
+        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
+      </div>
+
+      <div class="sidebar-card-content--main sidebar-card-body">
+        
+          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
+        
+
+        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
+        <div class="sidebar-bio">
+          吃点好的
+        </div>
+        <div class="topbar-profile-about-wrap">
+          <mdui-button
+            variant="text"
+            href="/about"
+            class="topbar-profile-about"
+            
+          >About</mdui-button>
+        </div>
+      </div>
+    </mdui-card>
+  </mdui-dropdown>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">CC Auto Mode 附录 B - 长会话压缩与多线程状态隔离</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Mar 31</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">14 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <p>在附录 A 中，我们探讨了出站前轻量级的上下文整形（Shaping）。然而，当一个 Agent 彻夜重构代码，积累了上百轮对话后，轻量级的裁剪终将杯水车薪。此时必须启动真正的<strong>全量压缩（Compaction）</strong>：让模型阅读前半段历史，生成高度浓缩的摘要，并截断旧记录。</p>
+<p>这里的核心技术挑战并非“如何写 Prompt 让模型总结”，而是在一套具备<strong>主进程、后台联想（Prompt Suggestion）、子 Agent（Teammate）并行运行</strong>的架构中，如何保证压缩操作<strong>安全、隔离且不引发雪崩</strong>。</p>
+<h2 id="1-终极防线：全量压缩-autocompactifneeded">1. 终极防线：全量压缩 (<code>autoCompactIfNeeded</code>)</h2>
+<p>全量压缩不是毫无顾忌地触发的，它是一项极其昂贵的操作。触发阈值通常被设定为当前模型有效上下文窗口减去一个安全缓冲带（<code>AUTOCOMPACT_BUFFER_TOKENS</code>，约 13,000 Tokens；常量定义见 <code>src/services/compact/autoCompact.ts</code> 约 L62，阈值计算见同文件 <code>getAutoCompactThreshold</code> 约 L72 起）。</p>
+<p>进入 <code>autoCompactIfNeeded</code>（<code>src/services/compact/autoCompact.ts</code> 约 L241）后，顺序为：先检查 <code>DISABLE_COMPACT</code>（约 L253–255）；再检查 <strong>连续失败熔断</strong> <code>tracking.consecutiveFailures &gt;= MAX_CONSECUTIVE_AUTOCOMPACT_FAILURES</code>（值为 3，约 L67–70、L257–265）；再通过内部 <strong><code>shouldAutoCompact</code></strong>（同文件 <code>shouldAutoCompact</code> / <code>calculateTokenWarningState</code> 一带，约 L225–238）判断当前估算 token 是否真需压缩——<strong>未过阈则直接返回</strong>，不会进入 Session Memory 或 <code>compactConversation</code>。</p>
+<p>若判定需要压缩，则先尝试 <strong><code>trySessionMemoryCompaction</code></strong>（约 L287–292；实现 <code>src/services/compact/sessionMemoryCompact.ts</code> 约 L514）。若返回非空：视为已压缩，执行 <code>setLastSummarizedMessageId(undefined)</code>、<code>runPostCompactCleanup(querySource)</code>；在 <code>PROMPT_CACHE_BREAK_DETECTION</code> 开启时还会 <code>notifyCompaction</code>（约 L302–304），避免 cache break 误报。<strong>否则</strong>再 <code>await compactConversation(...)</code>（约 L312–321）。成功时 <code>consecutiveFailures</code> 归零；<code>catch</code> 中非用户中止的错误递增失败计数，达阈打熔断日志（约 L334–349）。<strong>用户中止</strong>（<code>ERROR_MESSAGE_USER_ABORT</code>）不记入失败链（<code>catch</code> 内过滤）。</p>
+<h3 id="1-1-自动压缩的降级与熔断流水线">1.1 自动压缩的降级与熔断流水线</h3>
+<pre class="mermaid">flowchart TD
+  startNode["autoCompactIfNeeded&lt;br/&gt;自动压缩总入口"]
+  disEnv{是否被环境变量&lt;br/&gt;DISABLE_COMPACT 禁用?}
+  disYes[返回 wasCompacted: false]
+  
+  cb{连续失败次数&lt;br/&gt;consecutiveFailures &gt;= 3 ?}
+  cbYes[触发熔断: 直接返回 false&lt;br/&gt;避免无限重试风暴]
+  
+  shouldC["shouldAutoCompact&lt;br/&gt;估算 token 是否超过自动压缩阈"]
+  shouldNo[未超标，返回 false]
+  
+  smTry["trySessionMemoryCompaction&lt;br/&gt;先试 Session Memory 轻量路径"]
+  smHit{是否成功?}
+  smOk[执行清理与通知]
+  smOut[返回 true]
+  
+  tryCC["compactConversation&lt;br/&gt;全量摘要与截断旧历史"]
+  ccOk[成功: 连续失败计数归零]
+  ccOut[返回 true]
+  
+  ccCatch["Catch 异常&lt;br/&gt;（非用户手动中止）"]
+  incFail[连续失败计数 +1]
+  cbTrip{失败次数 &gt;= 3 ?}
+  logTrip[记录熔断日志]
+  failOut[抛出异常 / 返回 false]
+  
+  startNode --&gt; disEnv --&gt;|是| disYes
+  disEnv --&gt;|否| cb
+  cb --&gt;|是| cbYes
+  cb --&gt;|否| shouldC
+  shouldC --&gt;|否| shouldNo
+  shouldC --&gt;|是| smTry
+  smTry --&gt; smHit
+  smHit --&gt;|是| smOk --&gt; smOut
+  smHit --&gt;|否| tryCC
+  tryCC --&gt;|成功| ccOk --&gt; ccOut
+  tryCC --&gt;|抛出异常| ccCatch --&gt; incFail --&gt; cbTrip
+  cbTrip --&gt;|是| logTrip --&gt; failOut
+  cbTrip --&gt;|否| failOut</pre>
+<p>上述流程与源码同构：<code>catch</code> 分支在 <code>autoCompactIfNeeded</code> 内递增 <code>consecutiveFailures</code> 并在达到阈值时打熔断日志（<code>src/services/compact/autoCompact.ts</code> 约 L334–349）。</p>
+<h3 id="1-2-摘要生成中的-ptl-prompt-too-long-重试自愈">1.2 摘要生成中的 PTL（Prompt Too Long）重试自愈</h3>
+<p>在 <code>compactConversation</code> 内部生成摘要时，系统面临一个“第 22 条军规”式的困境：<strong>用来生成摘要的 Prompt 本身，可能就已经超出了模型的 Context 限制</strong>（即报 <code>prompt_too_long</code> 错误）。主实现位于 <code>src/services/compact/compact.ts</code>（<code>compactConversation</code> 约 L387）。</p>
+<p>Claude Code 在这里实现了一个非常优雅的<strong>退避与自愈循环</strong>：如果 API 报错 PTL，它不会直接放弃，而是通过 <code>truncateHeadForPTLRetry</code>（同文件约 L243）强行切掉最早期的一小段历史，再次重试；摘要流由 <code>streamCompactSummary</code>（同文件约 L1136）发起，直到成功或达到最大重试次数。</p>
+<pre class="mermaid">flowchart TD
+  loopHead[for 循环: 尝试生成摘要]
+  streamCall["streamCompactSummary&lt;br/&gt;流式拉取压缩摘要"]
+  
+  isPtl{返回结果是否以&lt;br/&gt;PTL 错误前缀开头?}
+  leaveLoop[成功生成摘要，跳出循环]
+  
+  ptlIncr[重试次数 ptlAttempts +1]
+  retryOk{是否超最大重试次数&lt;br/&gt;且还能截断头部?}
+  truncate["truncateHeadForPTLRetry&lt;br/&gt;截掉最老一段再重试"]
+  throwPtl[抛出严重错误&lt;br/&gt;PROMPT_TOO_LONG]
+  
+  loopHead --&gt; streamCall
+  streamCall --&gt; isPtl
+  isPtl --&gt;|否| leaveLoop
+  isPtl --&gt;|是| ptlIncr
+  ptlIncr --&gt; retryOk
+  retryOk --&gt;|是| truncate --&gt; loopHead
+  retryOk --&gt;|否| throwPtl
+  
+  leaveLoop --&gt; doneNode["CompactionResult&lt;br/&gt;压缩结果：摘要+附件等"]</pre>
+<h3 id="1-3-compactconversation-内部要点-precompact-缓存前缀与完整摘要分支">1.3 <code>compactConversation</code> 内部要点（PreCompact、缓存前缀与完整摘要分支）</h3>
+<p>摘要前可执行 <strong>PreCompact hooks</strong>（<code>executePreCompactHooks</code>，<code>compact.ts</code> 约 L411–418）。通过 GrowthBook 读取 <strong><code>tengu_compact_cache_prefix</code></strong>，控制压缩请求是否与其它请求 <strong>共享 prompt cache 前缀</strong>（约 L431–437；fork 子路径复用主对话 cache，GB 可作 kill-switch）。</p>
+<p><strong>与源码对齐的完整控制流</strong>（含 PTL、空摘要、API 错误与用户中止；约 L449–515）：</p>
+<pre class="mermaid">flowchart TD
+  preHook["executePreCompactHooks&lt;br/&gt;压缩前用户/项目 hooks"]
+  prefixFeat["tengu_compact_cache_prefix&lt;br/&gt;GrowthBook：是否共享 cache 前缀"]
+  loopHead[for 循环 streamCompactSummary]
+  streamCall["streamCompactSummary&lt;br/&gt;流式生成摘要"]
+  isPtl{summary 以 PTL 错误前缀开头?}
+  leaveLoop[离开循环]
+  emptyChk{summary 空?}
+  apiErrChk["startsWithApiErrorPrefix&lt;br/&gt;是否 API 错误前缀"]
+  throwNoSum[抛错无摘要]
+  throwApi[抛错 API 错误文本]
+  assemble["组装 attachments 与 hookResults&lt;br/&gt;CompactionResult 收尾"]
+  doneNode["CompactionResult&lt;br/&gt;返回压缩结果对象"]
+  ptlIncr[ptlAttempts 加一]
+  retryOk{可截断且未超 MAX_PTL_RETRIES?}
+  truncate["truncateHeadForPTLRetry&lt;br/&gt;截头重试 PTL"]
+  throwPtl[抛错 PROMPT_TOO_LONG]
+  userAbort["AbortError 等&lt;br/&gt;用户中止向上传播"]
+  preHook --&gt; prefixFeat
+  prefixFeat --&gt; loopHead
+  loopHead --&gt; streamCall
+  streamCall --&gt; isPtl
+  isPtl --&gt;|否| leaveLoop
+  isPtl --&gt;|是| ptlIncr
+  ptlIncr --&gt; retryOk
+  retryOk --&gt;|是| truncate
+  truncate --&gt; loopHead
+  retryOk --&gt;|否| throwPtl
+  leaveLoop --&gt; emptyChk
+  emptyChk --&gt;|是| throwNoSum
+  emptyChk --&gt;|否| apiErrChk
+  apiErrChk --&gt;|是| throwApi
+  apiErrChk --&gt;|否| assemble
+  assemble --&gt; doneNode
+  streamCall -.-&gt;|AbortError| userAbort</pre>
+<p><strong>调窗与测试用环境变量</strong>（非默认用户配置）：</p>
+<ul>
+<li><strong><code>CLAUDE_CODE_AUTO_COMPACT_WINDOW</code></strong>：截断有效上下文窗口上限（<code>getEffectiveContextWindowSize</code>，约 L40–45）。</li>
+<li><strong><code>CLAUDE_AUTOCOMPACT_PCT_OVERRIDE</code></strong>：按有效窗口百分比覆盖 autocompact 阈值（约 L79–87）。</li>
+<li><strong><code>DISABLE_COMPACT</code></strong>：关闭 <code>autoCompactIfNeeded</code> 入口（约 L253–255）。</li>
+</ul>
+<p>与 <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/harness-design-long-running-apps">Harness design</a> 的 <strong>compaction</strong> 叙事一致：在<strong>单会话内</strong>延续任务。与 <a href="/ccauto-07-deny-and-resilience/" title="">07 — Deny-and-Continue</a> 中「transcript 超过分类器窗口」的降级对照——<strong>压缩缓解膨胀，但不能保证分类器窗口永不被突破</strong>。</p>
+<hr>
+<h2 id="2-核心隔离架构：microcompact-与全局缓存陷阱">2. 核心隔离架构：Microcompact 与全局缓存陷阱</h2>
+<p>相比于重型的全量总结，<code>microcompact</code>（在 <a href="/ccauto-A-单次请求的上下文整形流水线/" title="">附录 A</a> 提及）是一种极其轻量、高频触发的<strong>缓存编辑与工具结果清理</strong>机制。对外入口为 <code>microcompactMessages</code>（<code>src/services/compact/microCompact.ts</code> 约 L253）。实现上的顺序要点如下：</p>
+<ol>
+<li><strong>时间优先</strong>：若距上一条 assistant 消息间隔超过阈值，认为服务端 cache 已 <strong>冷</strong>，先走 <strong><code>maybeTimeBasedMicrocompact</code></strong>（约 L261–266）清理旧 tool results；此路径 <strong>跳过</strong> cached microcompact（缓存编辑假设 warm cache）。</li>
+<li><strong>Cached microcompact</strong>：特性、模型与 <strong>主线程 <code>querySource</code></strong> 均满足时走 <code>cachedMicrocompactPath</code>（约 L276–285）。</li>
+<li><strong>仅主线程</strong>：fork（如 <code>session_memory</code>、<code>prompt_suggestion</code>）不得把 tool_results 登记进全局 <code>cachedMCState</code>（同文件 L272–275 注释）。</li>
+</ol>
+<p>Claude Code 深度利用了 Anthropic API 的 <strong>Prompt Cache Editing</strong> 能力（通过传入 <code>cache_edits</code> 来按 <code>tool_use_id</code> 精准摘除缓存树中的无用大块文本，而不必重写整个前缀）。模块级全局状态 <code>cachedMCState</code> 与 <code>ensureCachedMCState</code> / <code>getCachedMCModule</code> 等同文件约 L56–80；<strong>仅主线程</strong>在 <code>isMainThreadSource(querySource)</code> 为真且特性开启时才进入 <code>cachedMicrocompactPath</code>（同文件约 L249–251、L272–284、L305）。</p>
+<p>然而，这种对远端 API 缓存状态的操作，在客户端引入了一个巨大的并发隐患。</p>
+<blockquote>
+<p><strong>跨线程缓存污染</strong></p>
+<p>假设主线程正在与用户正常对话。此时，后台静默启动了一个 <strong>Fork 线程</strong>（例如 <code>prompt_suggestion</code>，用于预测用户下一步指令）。
+如果这个 Fork 线程在执行时，也去调用了 Cached Microcompact，它就会把<strong>只在 Fork 会话里存在</strong>的 <code>tool_use_id</code> 登记到客户端的<strong>全局缓存状态表 (<code>cachedMCState</code>)</strong> 中。</p>
+<p>结果灾难性：主线程在下一次发起对话时，读取了被污染的全局表，并向 API 发送指令：“请从缓存中删掉工具 ID: XYZ”。API 会直接报错崩溃，因为在主对话的真实上下文里，根本不存在 XYZ 这个工具调用！</p>
+</blockquote>
+<p>为了解决这个问题，系统强制实行了<strong>基于 <code>QuerySource</code> 的严格路径分流</strong>。</p>
+<h3 id="2-1-主线程与-fork-线程的决断网络">2.1 主线程与 Fork 线程的决断网络</h3>
+<pre class="mermaid">flowchart TB
+  entry["microcompactMessages&lt;br/&gt;microcompact 对外入口"]
+  timeCheck{距离上一次请求&lt;br/&gt;是否间隔过久?}
+  
+  timeCheck --&gt;|"是 (Cache 已冷)"| timePath["maybeTimeBasedMicrocompact&lt;br/&gt;cache 冷则先时间触发清理"]
+  timeCheck --&gt;|"否 (Cache 热)"| route{判断 QuerySource&lt;br/&gt;是否为 'repl_main_thread*'}
+  
+  route --&gt;|"是 (主线程)"| gate{开启了 Cached MC 特性?}
+  route --&gt;|"否 (Fork 分支)"| forkBlock[禁止进入 Cached 路径]
+  forkBlock --&gt; forkWhy[为防止主线程 API 崩溃&lt;br/&gt;绝对禁止向全局状态表注册私有 ID]
+  
+  gate --&gt;|"通过"| cached["cachedMicrocompactPath&lt;br/&gt;cache_edits 摘掉 tool results"]
+  gate --&gt;|"未开启"| noop[原样返回 messages]
+  
+  cached --&gt; gmc["cachedMCState&lt;br/&gt;进程内全局缓存编辑状态"]
+  
+  timePath --&gt; exit[返回出站 Messages]
+  forkWhy --&gt; exit
+  gmc --&gt; exit
+  noop --&gt; exit</pre>
+<p><strong>设计精髓</strong>：这是一种经典的多源并发防撞设计。只有主线程拥有全局抽象状态的“写权限”，所有临时创建的影子线程（Session Memory, 后台 Hook）只能使用不依赖缓存编辑的退化模式，从而物理隔绝了上下文状态污染的可能性。<strong>安全/正确性含义</strong>：这是进程内 <strong>全局抽象状态与多 <code>QuerySource</code> 并发写</strong> 的一致性问题；若做错，主线程与 API cache 状态错位会导致异常或意外前缀重写。</p>
+<h3 id="2-2-延迟的边界确认-deferred-boundary">2.2 延迟的边界确认 (Deferred Boundary)</h3>
+<p>对于主线程，它决定向 API 发送 Cache Edits 请求后，不会立即在本地客户端更新自己的数据结构。它必须<strong>等待 API 流式响应完全结束</strong>，并且确认 API 返回的 <code>cache_deleted_input_tokens</code> 确实产生了收益（减去基线后 Delta &gt; 0），才会在本地 <code>yield</code> 一条 <code>createMicrocompactBoundaryMessage</code>（消息构造见 <code>src/utils/messages.ts</code> 约 L4557；在 <code>query</code> 成功路径上产出见 <code>src/query.ts</code> 约 L870–890，与 <code>pendingCacheEdits</code> 基线相减逻辑一致），完成本地状态机的闭环。</p>
+<p><strong>为何 boundary 要等流结束？</strong> API 的 <code>cache_deleted_input_tokens</code> 为 <strong>累计/粘性</strong> 值，需用 microcompact 返回前记录的 <strong>baseline</strong> 相减得到 <strong>本轮 delta</strong>；仅当 delta &gt; 0 才值得写入边界消息（实现见 <code>query.ts</code> 约 L420–425 与 L866–891）。</p>
+<pre class="mermaid">sequenceDiagram
+  participant Q as "queryLoop&lt;br/&gt;主循环"
+  participant M as "microcompact&lt;br/&gt;轻量收缩"
+  participant API as "queryModelStream&lt;br/&gt;流式请求模型"
+  Q-&gt;&gt;M: microcompact(messages)&lt;br/&gt;计算是否产生 pendingCacheEdits
+  alt pendingCacheEdits 为空
+    M--&gt;&gt;Q: 无 deferred edits&lt;br/&gt;本轮无延迟 boundary
+  else pendingCacheEdits 有值
+    M--&gt;&gt;Q: messages 与 pendingCacheEdits&lt;br/&gt;下请求携带 cache_edits
+  end
+  Q-&gt;&gt;API: 发送本轮请求&lt;br/&gt;含 cache_edits 等
+  API--&gt;&gt;Q: 流式响应与 usage&lt;br/&gt;含累计 cache_deleted_input_tokens
+  alt CACHED_MICROCOMPACT 且 pendingCacheEdits
+    Note over Q: 读 cache_deleted_input_tokens 减 baseline&lt;br/&gt;得到本轮删除 token delta
+    opt delta 大于 0
+      Q-&gt;&gt;Q: yield createMicrocompactBoundaryMessage&lt;br/&gt;写入边界事件闭环
+    end
+  end</pre>
+<hr>
+<h2 id="3-子进程-teammate-的隔离生态墙">3. 子进程 (Teammate) 的隔离生态墙</h2>
+<p>不仅主线程与后台预测线程需要隔离，Claude Code 中的“多 Agent 协作”（主 Agent 唤起一个跑在同一进程中的子 Teammate Agent）同样面临严峻的状态隔离挑战。</p>
+<p>当子 Teammate 在执行一个需要 50 轮迭代的复杂任务时，其内部上下文会极速膨胀并触发 <code>compactConversation</code>。如果此时直接套用全局的压缩逻辑，会发生两件可怕的事情：</p>
+<ol>
+<li>Teammate 会清空<strong>主会话</strong>辛苦建立的文件状态缓存 (<code>readFileState</code>)。</li>
+<li>Teammate 的后台压缩进度，会触发<strong>主会话的用户界面 (UI)</strong> 弹出压缩进度条，导致终端显示错乱。</li>
+</ol>
+<p>因此，<code>runInProcessTeammate</code>（<code>src/utils/swarm/inProcessRunner.ts</code> 约 L883）在每次迭代检查到 Token 超标时，必须构造一个<strong>完全隔离的 <code>ToolUseContext</code>（沙箱上下文）</strong>（同文件约 L1071–1103：在 <code>tokenCountWithEstimation</code> 与 <code>getAutoCompactThreshold</code> 判定之后分支进入压缩）。</p>
+<pre class="mermaid">flowchart TB
+  subgraph parentSession [主会话 Parent Session]
+    parentRFS["readFileState&lt;br/&gt;主会话文件读取缓存"]
+    parentUI[终端 REPL 进度条回调]
+  end
+  
+  subgraph teammateLoop ["队友子代理（Teammate Agent）"]
+    iter[执行单轮工具迭代]
+    overTok["tokenCountWithEstimation&lt;br/&gt;估算是否超 getAutoCompactThreshold"]
+    
+    isoCtx["隔离 ToolUseContext&lt;br/&gt;cloneFileStateCache 等沙箱补丁"]
+    cc["compactConversation&lt;br/&gt;队友内全量压缩"]
+    
+    iter --&gt; overTok
+    overTok --&gt;|"是"| isoCtx
+    isoCtx --&gt; cc
+    cc --&gt; iter
+    overTok --&gt;|"否"| iter
+  end
+  
+  isoCtx -.-&gt;|"克隆 (Clone)&lt;br/&gt;只读不写回"| parentRFS
+  isoCtx -.-&gt;|"抹除回调&lt;br/&gt;静默执行"| parentUI</pre>
+<p><strong>核心防御动作：</strong></p>
+<ul>
+<li><strong>克隆文件树 (<code>cloneFileStateCache</code>)</strong>：实现见 <code>src/utils/fileStateCache.ts</code> 约 L122；在 Teammate 压缩路径上写入隔离上下文（<code>inProcessRunner.ts</code> 约 L1086）。</li>
+<li><strong>屏蔽 UI 副作用 (<code>onCompactProgress: undefined</code>)</strong>：同一段沙箱补丁中一并置 <code>setStreamMode: undefined</code>（<code>inProcessRunner.ts</code> 约 L1087–1088），避免子代理压缩进度回调打扰主会话 UI；压缩仍调用 <code>compactConversation</code>（约 L1090）与 <code>buildPostCompactMessages</code>（约 L1104）刷新 <code>contextMessages</code>。</li>
+</ul>
+<p>压缩成功后还会 <strong><code>resetMicrocompactState</code></strong>（旧 tool id 失效）、必要时重置队友侧 <strong><code>contentReplacementState</code> / <code>teammateReplacementState</code></strong>，并 <strong>更新 task 消息与 AppState 镜像</strong>，避免长时循环中镜像无限增长（同文件约 L1105–1124）。详见 <a href="/ccauto-04-multi-agent/" title="">04 — 多 Agent 安全交接</a> 中 in-process 与 teammate 相关讨论。</p>
+<h2 id="特性与环境变量-压缩与-microcompact">特性与环境变量（压缩与 microcompact）</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+<th>锚点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PROMPT_CACHE_BREAK_DETECTION</code></td>
+<td>Session Memory 压缩后的 cache break 通知</td>
+<td><code>autoCompact.ts</code> 约 L302–304</td>
+</tr>
+<tr>
+<td><code>tengu_compact_cache_prefix</code></td>
+<td>GrowthBook：压缩是否共享 prompt cache 前缀</td>
+<td><code>compact.ts</code> 约 L435–437</td>
+</tr>
+<tr>
+<td><code>CACHED_MICROCOMPACT</code></td>
+<td>deferred boundary；cached 路径另受 GrowthBook/模型约束</td>
+<td><code>query.ts</code> 约 L423；<code>microCompact.ts</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>与上下文整形相关的其它 feature</strong>（如 <code>HISTORY_SNIP</code>、<code>CONTEXT_COLLAPSE</code>）见 <a href="/ccauto-A-单次请求的上下文整形流水线/" title="">附录 A</a>。<strong>全集速查表</strong>见 <a href="/ccauto-C-分类器边界之外的纵深防御/" title="">附录 C</a> 文末。</p>
+<hr>
+<p>通过这三套严密的隔离与防熔断机制（主分支防雪崩、多线程缓存墙、子代理状态沙箱），Claude Code 构建了一个极度强韧的长程运行环境。这正是其能够在数小时的无人值守 Auto Mode 下不崩溃的底层基石。</p>
+
+                    </div>
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">ccauto-A-单次请求的上下文整形流水线</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/ccauto-05-gate-circuit-breaker/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">ccauto-05-gate-circuit-breaker</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E7%BB%88%E6%9E%81%E9%98%B2%E7%BA%BF%EF%BC%9A%E5%85%A8%E9%87%8F%E5%8E%8B%E7%BC%A9-autocompactifneeded"><span class="post-toc-text">1. 终极防线：全量压缩 (autoCompactIfNeeded)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E7%9A%84%E9%99%8D%E7%BA%A7%E4%B8%8E%E7%86%94%E6%96%AD%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="post-toc-text">1.1 自动压缩的降级与熔断流水线</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90%E4%B8%AD%E7%9A%84-ptl-prompt-too-long-%E9%87%8D%E8%AF%95%E8%87%AA%E6%84%88"><span class="post-toc-text">1.2 摘要生成中的 PTL（Prompt Too Long）重试自愈</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-compactconversation-%E5%86%85%E9%83%A8%E8%A6%81%E7%82%B9-precompact-%E7%BC%93%E5%AD%98%E5%89%8D%E7%BC%80%E4%B8%8E%E5%AE%8C%E6%95%B4%E6%91%98%E8%A6%81%E5%88%86%E6%94%AF"><span class="post-toc-text">1.3 compactConversation 内部要点（PreCompact、缓存前缀与完整摘要分支）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%A0%B8%E5%BF%83%E9%9A%94%E7%A6%BB%E6%9E%B6%E6%9E%84%EF%BC%9Amicrocompact-%E4%B8%8E%E5%85%A8%E5%B1%80%E7%BC%93%E5%AD%98%E9%99%B7%E9%98%B1"><span class="post-toc-text">2. 核心隔离架构：Microcompact 与全局缓存陷阱</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E4%B8%BB%E7%BA%BF%E7%A8%8B%E4%B8%8E-fork-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%86%B3%E6%96%AD%E7%BD%91%E7%BB%9C"><span class="post-toc-text">2.1 主线程与 Fork 线程的决断网络</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-%E5%BB%B6%E8%BF%9F%E7%9A%84%E8%BE%B9%E7%95%8C%E7%A1%AE%E8%AE%A4-deferred-boundary"><span class="post-toc-text">2.2 延迟的边界确认 (Deferred Boundary)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%AD%90%E8%BF%9B%E7%A8%8B-teammate-%E7%9A%84%E9%9A%94%E7%A6%BB%E7%94%9F%E6%80%81%E5%A2%99"><span class="post-toc-text">3. 子进程 (Teammate) 的隔离生态墙</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-%E5%8E%8B%E7%BC%A9%E4%B8%8E-microcompact"><span class="post-toc-text">特性与环境变量（压缩与 microcompact）</span></a></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ccauto-A-单次请求的上下文整形流水线 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/sidebar-footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 49</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 35</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 10</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 9</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    <div class="topbar-profile-cluster">
+  <mdui-dropdown
+    class="topbar-profile-dropdown"
+    trigger="hover focus"
+    placement="bottom-end"
+    open-delay="180"
+    close-delay="280"
+  >
+    <mdui-button-icon
+      slot="trigger"
+      variant="standard"
+      class="topbar-profile-trigger-btn"
+      href="/about"
+      aria-haspopup="true"
+      aria-label="About · Open author profile and social links"
+      
+    >
+      
+        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+      
+    </mdui-button-icon>
+
+    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
+      <div class="sidebar-card-media">
+        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
+      </div>
+
+      <div class="sidebar-card-content--main sidebar-card-body">
+        
+          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
+        
+
+        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
+        <div class="sidebar-bio">
+          吃点好的
+        </div>
+        <div class="topbar-profile-about-wrap">
+          <mdui-button
+            variant="text"
+            href="/about"
+            class="topbar-profile-about"
+            
+          >About</mdui-button>
+        </div>
+      </div>
+    </mdui-card>
+  </mdui-dropdown>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">CC Auto Mode 附录 A - 单次请求的上下文整形流水线</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Mar 31</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">15 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <p>在长时 Agentic 会话中，随着工具调用（尤其是涉及大量终端输出、文件读取的操作）的不断累积，上下文（Context）不可避免地会迅速膨胀。如果不加干预，这不仅会带来<strong>极高的 Token 成本与延迟（效率问题）</strong>，还会导致<strong>模型注意力涣散（质量问题）</strong>。</p>
+<p>从架构上看，<strong>上下文如何被裁剪、汇总与发送</strong>还影响第三件事：<strong>transcript 过长时分类器等安全组件是否仍可工作（间接安全）</strong>。Anthropic 在 <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/harness-design-long-running-apps">Harness design for long-running application development</a> 中讨论了 compaction 与长时 harness；本仓库 <strong>并未</strong> 实现博文中那种独立的 planner / generator / evaluator 三智能体闭环，但实现了与之相关的 <strong>客户端上下文工程</strong>（见本篇与 <a href="/ccauto-B-长会话压缩与多线程状态隔离/" title="">附录 B</a>）。与此同时，<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">Claude Code auto mode</a> 强调 <strong>输出层 transcript 分类器</strong> 与 <strong>PI 探针</strong> 的正交互补——<strong>权限与分类器细节</strong>见 <a href="/ccauto-02-classifier/" title="">02 — 两阶段分类器管道</a>，<strong>多 Agent / AFK / PI</strong> 见 <a href="/ccauto-04-multi-agent/" title="">04 — 多 Agent 安全交接</a>，<strong>Deny 与 transcript 过长降级</strong>见 <a href="/ccauto-07-deny-and-resilience/" title="">07 — Deny-and-Continue</a>。</p>
+<p>为此，Claude Code 在主循环（<code>queryLoop</code>）中设计了一条严格的<strong>出站前上下文整形流水线（Context Shaping Pipeline）</strong>。这条流水线的核心设计哲学是<strong>分层处理与正交组合</strong>——将对内容的修改（替换/占位）、对条数的裁剪（Snip），以及对缓存的操作（Microcompact）彻底解耦，按固定顺序依次执行。</p>
+<p>在实现上，流水线挂在 <code>queryLoop</code>（<code>src/query.ts</code> 约 L241）的单次迭代内：出站前先用 <code>getMessagesAfterCompactBoundary(messages)</code> 取 compact 边界之后的消息切片（同文件约 L365，函数定义在 <code>src/utils/messages.ts</code>），再依次执行 budget → snip → microcompact →（可选）context collapse → autocompact（同文件约 L369–467，见下文摘录）。</p>
+<h2 id="核心术语与坐标系">核心术语与坐标系</h2>
+<p>在深入流水线之前，需要先对齐一个决定上下文如何被处理的核心概念：</p>
+<ul>
+<li><strong><code>QuerySource</code>（查询来源）</strong>：系统通过该标识判断当前请求的发起者（类型见 <code>src/constants/querySource</code>，以仓库内实际扩展名为准）。
+<ul>
+<li><strong>主线程（Main Thread）</strong>：例如 <code>repl_main_thread*</code>、<code>agent:*</code>。主线程的请求会影响全局状态，其上下文替换记录会被<strong>持久化</strong>。</li>
+<li><strong>派生分支（Fork / Ephemeral）</strong>：例如后台的 <code>session_memory</code>、<code>prompt_suggestion</code>。分支线程的请求是临时性的，<strong>严禁</strong>写入全局状态或持久化，以免污染主对话上下文。</li>
+</ul>
+</li>
+</ul>
+<h3 id="术语锚点表-与源码对齐">术语锚点表（与源码对齐）</h3>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>含义</th>
+<th>锚点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>QuerySource</code></strong></td>
+<td>标记本次 <code>query</code> 的来源；影响 microcompact 主线程门控、是否持久化替换记录、analytics 等</td>
+<td>类型：<code>src/constants/querySource</code>；<strong>agentic 判定示例</strong>见 <code>src/services/api/claude.ts</code> <code>isAgenticQuery</code>（约 L1065–L1070：<code>repl_main_thread*</code>、<code>agent:*</code>、<code>sdk</code>、<code>hook_agent</code>、<code>verification_agent</code>）</td>
+</tr>
+<tr>
+<td><strong>compact boundary</strong></td>
+<td>进入 <code>queryLoop</code> 时先取 compact 边界之后的消息切片，避免重复发送已汇总段</td>
+<td><code>getMessagesAfterCompactBoundary</code>，<code>src/query.ts</code> 约 L365</td>
+</tr>
+<tr>
+<td><strong>prompt cache / cache editing</strong></td>
+<td>常规模型请求复用前缀缓存；<strong>cached microcompact</strong> 通过 API 层 <code>cache_edits</code> 按 <code>tool_use_id</code> 摘掉 tool results</td>
+<td><code>src/services/compact/microCompact.ts</code> 模块与 <code>cachedMicrocompactPath</code> 注释（约 L295–303）</td>
+</tr>
+<tr>
+<td><strong><code>contentReplacementState</code></strong></td>
+<td>记录哪些 <code>tool_use_id</code> 已被占位替换，与 <code>applyToolResultBudget</code> 组合；resume 时可 <strong><code>reconstructContentReplacementState</code></strong> 重建</td>
+<td><code>src/utils/toolResultStorage.ts</code> 约 L915 起</td>
+</tr>
+<tr>
+<td><strong>autocompact 阈值</strong></td>
+<td>估算超过 <code>getAutoCompactThreshold(model)</code> 时尝试压缩；含 <code>AUTOCOMPACT_BUFFER_TOKENS</code>（13_000）等</td>
+<td><code>src/services/compact/autoCompact.ts</code> <code>getEffectiveContextWindowSize</code>、<code>getAutoCompactThreshold</code>（约 L32–90）</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>isMainThreadSource</code></strong>（<code>microCompact.ts</code> 约 L249–251）：<code>querySource</code> 为空 <strong>或</strong> 以 <code>repl_main_thread</code> 开头视为「主线程」，否则为 fork 侧。fork 侧 <strong>不得</strong> 写入全局 <code>cachedMCState</code> 的 cached microcompact 路径，否则主线程可能在 API 层引用<strong>本对话中不存在</strong>的 <code>tool_use_id</code>（同文件 L272–275 注释）。</p>
+<h2 id="主线程整形流水线：l1-到-l3-的降压过滤">主线程整形流水线：L1 到 L3 的降压过滤</h2>
+<p>当主对话准备向模型发送请求时，消息数组（Messages）会依次穿过三个降压层。这三个层级针对的<strong>修改对象</strong>完全不同。</p>
+<pre class="mermaid">flowchart TB
+  subgraph contentLayer [L1 内容与会话预算]
+    budget["applyToolResultBudget&lt;br/&gt;工具结果预算：按体积占位/替换"]
+    budgetHint[按 tool_use_id 替换或占位超标结果]
+  end
+  subgraph shapeLayer [L2 条数与尾部形状]
+    snip["historySnip&lt;br/&gt;尾部历史条数裁剪"]
+    snipHint["裁剪尾部消息，释放 Token（feature HISTORY_SNIP）"]
+  end
+  subgraph pressureLayer [L3 压力下收缩与出站]
+    mc["microcompactMessages&lt;br/&gt;轻量收缩或 cache_edits 路径"]
+    mcHint[轻量收缩 tool results 或 cache_edits 编辑]
+    collapse["contextCollapse&lt;br/&gt;上下文折叠投影模块"]
+    collapseHint["应用折叠投影（feature CONTEXT_COLLAPSE）"]
+    ac["autocompact&lt;br/&gt;自动触发全量压缩"]
+    acHint[超阈值时触发全量压缩 compactConversation]
+    api["queryModel&lt;br/&gt;组装请求调用模型"]
+    
+    mc --&gt; mcHint
+    mcHint --&gt; collapse
+    collapse --&gt; collapseHint
+    collapseHint --&gt; ac
+    ac --&gt; acHint
+    acHint --&gt; api
+  end
+  
+  budget --&gt; budgetHint
+  budgetHint --&gt; snip
+  snip --&gt; snipHint
+  snipHint --&gt; mc</pre>
+<p>三层按 <strong>改动对象</strong> 划分；<code>snip</code> / <code>collapse</code> 在特性关闭时等价于直通。</p>
+<h4 id="阶段依赖表-src-query-ts">阶段依赖表（<code>src/query.ts</code>）</h4>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>主要改动对象</th>
+<th>与后续组合关系</th>
+<th>feature / 备注</th>
+<th>约行号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>applyToolResultBudget</code></td>
+<td>单条 <code>tool_result</code> 正文</td>
+<td>必须在 microcompact <strong>之前</strong>；cached MC 只按 <code>tool_use_id</code>，与内容替换 <strong>正交</strong></td>
+<td><code>contentReplacementState</code> 缺省则 no-op；持久化仅 <code>agent:*</code>、<code>repl_main_thread*</code></td>
+<td>L369–394</td>
+</tr>
+<tr>
+<td><code>snipCompactIfNeeded</code></td>
+<td>尾部形状、<code>snipTokensFreed</code></td>
+<td><code>snipTokensFreed</code> 传入 autocompact，修正「usage 看不到 snip 节省」</td>
+<td><code>HISTORY_SNIP</code></td>
+<td>L396–410</td>
+</tr>
+<tr>
+<td><code>microcompact</code></td>
+<td>tool results 或 <code>cache_edits</code></td>
+<td><code>pendingCacheEdits</code> 可延至 API 流后再 yield boundary</td>
+<td><code>CACHED_MICROCOMPACT</code>；另受 GrowthBook/模型约束</td>
+<td>L412–426</td>
+</tr>
+<tr>
+<td><code>applyCollapsesIfNeeded</code></td>
+<td>collapse 存储上的投影</td>
+<td>若压到 autocompact 阈下则 <strong>跳过重汇总</strong></td>
+<td><code>CONTEXT_COLLAPSE</code></td>
+<td>L428–447</td>
+</tr>
+<tr>
+<td><code>autocompact</code></td>
+<td>Session Memory 或 <code>compactConversation</code></td>
+<td>见附录 B</td>
+<td><code>DISABLE_COMPACT</code> 等</td>
+<td>L453–468</td>
+</tr>
+</tbody>
+</table>
+<h4 id="queryloop-出站管道-时序示意"><code>queryLoop</code> 出站管道（时序示意）</h4>
+<pre class="mermaid">sequenceDiagram
+  participant Q as "queryLoop&lt;br/&gt;主对话单轮迭代"
+  participant B as "applyToolResultBudget&lt;br/&gt;工具结果预算"
+  participant S as "snipCompactIfNeeded&lt;br/&gt;尾部裁剪"
+  participant M as "microcompact&lt;br/&gt;轻量收缩"
+  participant C as "applyCollapsesIfNeeded&lt;br/&gt;折叠投影"
+  participant A as "autoCompactIfNeeded&lt;br/&gt;自动全量压缩"
+  participant API as "queryModel&lt;br/&gt;请求模型"
+  Q-&gt;&gt;B: applyToolResultBudget(messages)&lt;br/&gt;执行预算与占位替换
+  B--&gt;&gt;Q: messagesAfterBudget&lt;br/&gt;预算后消息数组
+  alt HISTORY_SNIP on
+    Q-&gt;&gt;S: snipCompactIfNeeded&lt;br/&gt;裁剪尾部并算 snipTokensFreed
+    S--&gt;&gt;Q: messagesAfterSnip, snipTokensFreed&lt;br/&gt;裁剪结果与释放 token
+  else HISTORY_SNIP off
+    Note over Q,S: skip snip
+  end
+  Q-&gt;&gt;M: microcompact(messages, querySource)&lt;br/&gt;按来源做 MC / cache 编辑
+  M--&gt;&gt;Q: messagesAfterMC, compactionInfo&lt;br/&gt;收缩后消息与 pending 信息
+  opt CACHED_MICROCOMPACT and pendingCacheEdits
+    Note over Q: hold until after API stream&lt;br/&gt;延迟到流结束再 yield boundary
+  end
+  alt CONTEXT_COLLAPSE on
+    Q-&gt;&gt;C: applyCollapsesIfNeeded&lt;br/&gt;应用折叠存储投影
+    C--&gt;&gt;Q: messagesAfterCollapse&lt;br/&gt;折叠后消息
+  end
+  Q-&gt;&gt;A: autoCompactIfNeeded(..., snipTokensFreed)&lt;br/&gt;必要时 SessionMemory 或 compactConversation
+  A--&gt;&gt;Q: wasCompacted / compactionResult&lt;br/&gt;是否压缩及结果
+  Q-&gt;&gt;API: queryModel(messagesForQuery, ...)&lt;br/&gt;发往模型的本轮请求</pre>
+<p><code>pendingCacheEdits</code> 赋值见 <code>query.ts</code> 约 L420–425；<strong>延迟 yield</strong> <code>createMicrocompactBoundaryMessage</code> 见约 L866–891（用 <code>cache_deleted_input_tokens</code> 减 baseline 得本轮 delta）。</p>
+<p><code>applyToolResultBudget</code> 前注释（源码摘录）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Enforce per-message budget on aggregate tool result size. Runs BEFORE</span><br><span class="line">// microcompact — cached MC operates purely by tool_use_id (never inspects</span><br><span class="line">// content), so content replacement is invisible to it and the two compose</span><br><span class="line">// cleanly. No-ops when contentReplacementState is undefined (feature off).</span><br><span class="line">// Persist only for querySources that read records back on resume: agentId</span><br><span class="line">// routes to sidechain file (AgentTool resume) or session file (/resume).</span><br><span class="line">// Ephemeral runForkedAgent callers (agent_summary etc.) don&#x27;t persist.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Cached Microcompact（缓存编辑）是“内容盲”的，它<strong>仅根据 <code>tool_use_id</code> 进行整块摘除</strong>；而 Budget 是对 <code>tool_result</code> <strong>正文</strong>进行占位符替换。所以 <code>applyToolResultBudget</code> 必须走在 <code>microcompact</code> 之前。如果顺序反转，内容替换就无法与仅按 ID 操作的缓存逻辑干净地组合（Compose cleanly）。</p>
+</blockquote>
+<p>下列摘录与源码注释一致，标出上述顺序在 <code>queryLoop</code> 中的真实落点（行号随版本可能漂移，以符号为准）：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/query.ts L365-467（节选：budget → snip → microcompact → collapse → autocompact）</span></span><br><span class="line"><span class="keyword">let</span> messagesForQuery = [...<span class="title function_">getMessagesAfterCompactBoundary</span>(messages)]</span><br><span class="line">messagesForQuery = <span class="keyword">await</span> <span class="title function_">applyToolResultBudget</span>(<span class="comment">/* ... */</span>)</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_">feature</span>(<span class="string">&#x27;HISTORY_SNIP&#x27;</span>)) &#123;</span><br><span class="line">  <span class="keyword">const</span> snipResult = snipModule!.<span class="title function_">snipCompactIfNeeded</span>(messagesForQuery)</span><br><span class="line">  snipTokensFreed = snipResult.<span class="property">tokensFreed</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> microcompactResult = <span class="keyword">await</span> deps.<span class="title function_">microcompact</span>(</span><br><span class="line">  messagesForQuery,</span><br><span class="line">  toolUseContext,</span><br><span class="line">  querySource,</span><br><span class="line">)</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_">feature</span>(<span class="string">&#x27;CONTEXT_COLLAPSE&#x27;</span>) &amp;&amp; contextCollapse) &#123;</span><br><span class="line">  <span class="keyword">const</span> collapseResult = <span class="keyword">await</span> contextCollapse.<span class="title function_">applyCollapsesIfNeeded</span>(</span><br><span class="line">    messagesForQuery,</span><br><span class="line">    toolUseContext,</span><br><span class="line">    querySource,</span><br><span class="line">  )</span><br><span class="line">  messagesForQuery = collapseResult.<span class="property">messages</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123; compactionResult, consecutiveFailures &#125; = <span class="keyword">await</span> deps.<span class="title function_">autocompact</span>(</span><br><span class="line">  messagesForQuery,</span><br><span class="line">  toolUseContext,</span><br><span class="line">  &#123; <span class="comment">/* systemPrompt, userContext, ... */</span> &#125;,</span><br><span class="line">  querySource,</span><br><span class="line">  tracking,</span><br><span class="line">  snipTokensFreed,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="phase-1-l1-内容层-工具结果预算-applytoolresultbudget">Phase 1: L1 内容层 —— 工具结果预算 (<code>applyToolResultBudget</code>)</h3>
+<p>这是流水线的第一站。Agent 可能执行了一个返回数万行日志的 <code>Bash</code> 命令，这一层负责将其拦截并“瘦身”。入口函数为 <code>applyToolResultBudget</code>（<code>src/utils/toolResultStorage.ts</code> 约 L924），由 <code>queryLoop</code> 在 microcompact 之前调用（<code>src/query.ts</code> 约 L379）。</p>
+<p>如果开启了特性（<code>contentReplacementState</code> 存在），该阶段会执行 <code>enforceToolResultBudget</code>（同文件约 L769），将严重超标的工具输出替换为占位符（Placeholder），告知模型“输出过长已被截断，请使用 grep 等工具精确查找”。</p>
+<pre class="mermaid">flowchart TD
+  entryB["applyToolResultBudget&lt;br/&gt;预算入口：无 state 则直通"]
+  noState{state 未定义?}
+  retIn["直接返回原 messages（no-op）"]
+  enforce["enforceToolResultBudget&lt;br/&gt;对超标 tool_result 写占位内容"]
+  replaced{是否有新替换?}
+  noRep[无新替换]
+  retMsg[返回处理后 messages]
+  hasW{writeToTranscript&lt;br/&gt;是否需持久化?}
+  cb[回调持久化记录&lt;br/&gt;写入磁盘侧链]
+  skipW[跳过持久化]
+  
+  entryB --&gt; noState
+  noState --&gt;|是| retIn
+  noState --&gt;|否| enforce
+  enforce --&gt; replaced
+  replaced --&gt;|否| noRep
+  noRep --&gt; retMsg
+  replaced --&gt;|是| hasW
+  hasW --&gt;|是| cb
+  cb --&gt; retMsg
+  hasW --&gt;|否| skipW
+  skipW --&gt; retMsg</pre>
+<p><strong>正交设计</strong>：“是否发生内容替换”与“是否持久化记录（<code>writeToTranscript</code>）”是完全解耦的。如前所述，只有当 <code>QuerySource</code> 是可恢复的（如主 REPL 或主 Agent）时，才会传入回调将替换动作记录到本地文件中。如果是后台联想（Prompt Suggestion）触发了这套逻辑，即使发生了替换，也绝不会污染磁盘文件。</p>
+<p>持久化规则与 <code>applyToolResultBudget</code> 的 JSDoc（<code>toolResultStorage.ts</code> 约 L915–919）一致：<code>writeToTranscript</code> 仅由 <code>query.ts</code> 在 <strong>可 resume</strong> 的 <code>querySource</code> 上传入；<code>agent_summary</code>、<code>session_memory</code>、<code>/btw</code>、<code>compact</code> 等 <strong>临时</strong> fork 路径传 <code>undefined</code>，避免污染侧链或会话记录。</p>
+<h3 id="phase-2-l2-形状层-尾部裁剪-snipcompactifneeded">Phase 2: L2 形状层 —— 尾部裁剪 (<code>snipCompactIfNeeded</code>)</h3>
+<p>在处理完单条超大消息后，系统开始处理消息列表的“形状”。<code>query.ts</code> 在 <code>HISTORY_SNIP</code> 开启时动态加载 <code>services/compact/snipCompact</code>（约 L115–117），入口为 <code>snipCompactIfNeeded</code>（约 L401–404）；图中 L2 标签写作 history snip，与运行时模块名对应。</p>
+<p>如果开启了 <code>HISTORY_SNIP</code>，系统会根据策略对对话尾部的消息条数进行轻量级修剪，并计算出<strong>因此释放的 Token 数量 (<code>snipTokensFreed</code>)</strong>。</p>
+<p>这个释放量至关重要：它会作为最后一参传入 <code>deps.autocompact(...)</code>（<code>src/query.ts</code> 约 L454–466）。因为模型返回的 <code>usage.input_tokens</code> 无法反映由于 Snip 刚刚省下的额度，传入 <code>snipTokensFreed</code> 可以修正阈值判断，避免系统产生“上下文依然满载”的幻觉而误触发全量压缩。</p>
+<h3 id="phase-3-l3-压力层-增量与全量收缩">Phase 3: L3 压力层 —— 增量与全量收缩</h3>
+<p>到达这一层，系统开始应对真正的 Context 窗口压力。</p>
+<ol>
+<li><strong>Microcompact</strong>：一种极其轻量级的“清理”。<code>queryLoop</code> 通过 <code>deps.microcompact</code> 调用，生产绑定为 <code>microcompactMessages</code>（<code>src/services/compact/microCompact.ts</code> 约 L253；<code>deps</code> 装配见 <code>src/query/deps.ts</code> L26–27、34–37）。它尽可能在不破坏整段前缀缓存的前提下，清理掉冗余的 <code>tool_results</code>（此部分涉及极为复杂的全局状态隔离与 Cache Editing 机制，将在《附录 B》中深入解析）。</li>
+<li><strong>Context Collapse (可选)</strong>：如果开启了 <code>CONTEXT_COLLAPSE</code>，<code>contextCollapse</code> 模块由 <code>src/query.ts</code> 约 L18–19 动态加载，运行时调用 <code>applyCollapsesIfNeeded</code>（同文件约 L440–446）。<strong>精妙之处在于</strong>：如果这一步折叠后，总 Token 降到了 Autocompact 阈值以下，就会<strong>直接跳过</strong>后续重量级的重汇总过程，从而为用户保留下更细粒度的近期上下文。</li>
+<li><strong>Autocompact</strong>：终极防线。<code>deps.autocompact</code> 即 <code>autoCompactIfNeeded</code>（<code>src/services/compact/autoCompact.ts</code> 约 L241）。若估算仍超过 <code>getAutoCompactThreshold(model)</code>（阈值逻辑同文件约 L32–90，含约 13,000 Token 的 <code>AUTOCOMPACT_BUFFER_TOKENS</code> 缓冲），则正式触发全量压缩路径内的 <code>compactConversation</code>（<code>src/services/compact/compact.ts</code> 约 L387），生成对话摘要。</li>
+</ol>
+<hr>
+<h2 id="出站最后一公里：api-规范化-normalizemessagesforapi">出站最后一公里：API 规范化 (<code>normalizeMessagesForAPI</code>)</h2>
+<p>经历了 L1~L3 复杂的语义与上下文容量整形后，<code>messages</code> 数组在逻辑上已经完美，但在物理上却未必符合各个大模型云服务商（如 Bedrock, Vertex, 1P API）的严格格式要求。</p>
+<p>因此，在发起网络请求前的最后一刻，调用 <code>normalizeMessagesForAPI</code>（<code>src/utils/messages.ts</code> 约 L1989）进行“供应商级别的合规清洗”。流程中包含 <code>reorderAttachmentsForAPI</code>（同文件约 L1481）、对连续 <code>user</code> 的 <code>mergeUserMessages</code>（约 L2411）等步骤，与下述流程图节点一一对应。</p>
+<pre class="mermaid">flowchart TD
+  startN["normalizeMessagesForAPI&lt;br/&gt;出站前 API 形态归一"]
+  reorder["reorderAttachmentsForAPI&lt;br/&gt;重排附件顺序"]
+  filterV["过滤虚拟消息&lt;br/&gt;isVirtual: true&lt;br/&gt;去掉仅 REPL 展示用消息"]
+  walk[遍历消息组进行归一化]
+  
+  caseUser{消息类型为 user?}
+  otherCase[...其他类型处理省略...]
+  
+  toolS{Tool Search 已启用?}
+  stripAll["stripToolReferenceBlocks&lt;br/&gt;未开 ToolSearch 时剥光引用"]
+  stripGone["stripUnavailableToolReferences&lt;br/&gt;已开时只剥失效工具引用"]
+  
+  metaMap{是否命中前置 meta 错误?}
+  stripBlk["strip 大块 image/document&lt;br/&gt;防上一轮超大负载死循环"]
+  skipMsg[过滤后若内容为空则跳过整条]
+  
+  mergeU{上一条也是 user 且&lt;br/&gt;Bedrock 等限制环境?}
+  mergeDo["mergeUserMessages&lt;br/&gt;合并连续 user 满足厂商约束"]
+  pushU[压入最终出站数组]
+  
+  startN --&gt; reorder --&gt; filterV --&gt; walk
+  walk --&gt; caseUser
+  caseUser --&gt;|否| otherCase --&gt; walk
+  caseUser --&gt;|是| toolS
+  toolS --&gt;|否| stripAll --&gt; metaMap
+  toolS --&gt;|是| stripGone --&gt; metaMap
+  
+  metaMap --&gt;|是| stripBlk
+  metaMap --&gt;|否| mergeU
+  
+  stripBlk --&gt; emptyAfter{过滤后内容为空?}
+  emptyAfter --&gt;|是| skipMsg --&gt; walk
+  emptyAfter --&gt;|否| mergeU
+  
+  mergeU --&gt;|是| mergeDo --&gt; pushU
+  mergeU --&gt;|否| pushU</pre>
+<p><strong>核心合规动作包含：</strong></p>
+<ol>
+<li><strong>虚拟视图剥离</strong>：将那些只为了在 REPL 终端里显示 UI 效果（<code>isVirtual: true</code>）的消息剔除，不浪费模型 Token。</li>
+<li><strong>Bedrock 等环境连续 User 合并</strong>：部分云厂商的 API 严格禁止连续出现两个 <code>role: 'user'</code> 的消息区块，此处需自动合并。</li>
+<li><strong>Tool Reference 维护</strong>：如果未启用 Tool Search，则彻底清洗 <code>tool_reference</code>；若启用，则剔除当前 Agent 已不再持有的失效工具引用。</li>
+<li><strong>巨型负载截断（防重试死循环）</strong>：如果上一轮 API 报了“图片太大”或“文档过大”的物理错误（生成了 Meta 错误消息），这里会向上回溯，强行把造成错误的 <code>image</code> 或 <code>document</code> 块剥离掉，防止下一轮 Agent 带着同样的超大负载重试继续撞墙。</li>
+</ol>
+<blockquote>
+<p>必须强调的是，<code>normalizeMessagesForAPI</code> 解决的是<strong>物理协议合法性与体积优化</strong>，它处于分类器管道之外。防止 Prompt Injection 等语义攻击的清洗任务并不在这里，而是在更早的解析器入口与更后的服务端探针中完成（详见 <a href="/ccauto-C-分类器边界之外的纵深防御/" title="">附录 C</a>）。</p>
+</blockquote>
+<p>与 <a href="/ccauto-02-classifier/" title="">02 — 两阶段分类器管道</a> 中「分类器侧 transcript 构造」是 <strong>不同平面</strong>：normalize 服务 <strong>主会话发往云厂商的合法性与体积</strong>；分类器另有对 tool results 的剥离与长度策略。其它出站路径（如 <code>claude.ts</code>）还会调用 <code>ensureToolResultPairing</code> 等修复孤儿 <code>tool_use</code> / <code>tool_result</code>（见 <code>src/utils/messages.ts</code>）。</p>
+<h2 id="与-harness-官方博文的边界">与 Harness 官方博文的边界</h2>
+<table>
+<thead>
+<tr>
+<th>Harness 博文中的模式</th>
+<th>本仓库中的对应关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compaction / 长上下文下的连续性</td>
+<td><code>compactConversation</code>、autocompact、microcompact、可选 context collapse（详附录 B）</td>
+</tr>
+<tr>
+<td>Context reset + 结构化交接 artifact</td>
+<td>部分由 <code>/compact</code>、队友 task 状态与子代理侧链 transcript 承担，<strong>非</strong>统一「handoff 文件协议」</td>
+</tr>
+<tr>
+<td>Planner / Generator / Evaluator 三智能体 + QA 闭环</td>
+<td><strong>无</strong>同构实现；质量依赖模型、用户验收与既有工具</td>
+</tr>
+<tr>
+<td>独立 evaluator 循环</td>
+<td>可选 <code>analyzeContextUsage</code>（<code>src/utils/analyzeContext.ts</code>）等，<strong>不属于</strong> auto mode 权限管道</td>
+</tr>
+</tbody>
+</table>
+<h2 id="特性与环境变量-本附录相关">特性与环境变量（本附录相关）</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>含义</th>
+<th>锚点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HISTORY_SNIP</code></td>
+<td>是否执行 <code>snipCompactIfNeeded</code></td>
+<td>上文阶段表</td>
+</tr>
+<tr>
+<td><code>CONTEXT_COLLAPSE</code></td>
+<td>autocompact 前是否 <code>applyCollapsesIfNeeded</code></td>
+<td><code>query.ts</code> 约 L440</td>
+</tr>
+<tr>
+<td><code>CACHED_MICROCOMPACT</code></td>
+<td>deferred boundary；是否走 cache editing 另受 GrowthBook/模型约束</td>
+<td><code>query.ts</code> 约 L423；<code>microCompact.ts</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>全集</strong> feature / env（含压缩、子进程等）见 <a href="/ccauto-C-分类器边界之外的纵深防御/" title="">附录 C</a> 文末「特性与环境变量速查（全集）」表。</p>
+
+                    </div>
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/ccauto-07-deny-and-resilience/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">ccauto-07-deny-and-resilience</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">ccauto-B-长会话压缩与多线程状态隔离</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="post-toc-text">核心术语与坐标系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%AF%E8%AF%AD%E9%94%9A%E7%82%B9%E8%A1%A8-%E4%B8%8E%E6%BA%90%E7%A0%81%E5%AF%B9%E9%BD%90"><span class="post-toc-text">术语锚点表（与源码对齐）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%9Al1-%E5%88%B0-l3-%E7%9A%84%E9%99%8D%E5%8E%8B%E8%BF%87%E6%BB%A4"><span class="post-toc-text">主线程整形流水线：L1 到 L3 的降压过滤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#phase-1-l1-%E5%86%85%E5%AE%B9%E5%B1%82-%E5%B7%A5%E5%85%B7%E7%BB%93%E6%9E%9C%E9%A2%84%E7%AE%97-applytoolresultbudget"><span class="post-toc-text">Phase 1: L1 内容层 —— 工具结果预算 (applyToolResultBudget)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#phase-2-l2-%E5%BD%A2%E7%8A%B6%E5%B1%82-%E5%B0%BE%E9%83%A8%E8%A3%81%E5%89%AA-snipcompactifneeded"><span class="post-toc-text">Phase 2: L2 形状层 —— 尾部裁剪 (snipCompactIfNeeded)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#phase-3-l3-%E5%8E%8B%E5%8A%9B%E5%B1%82-%E5%A2%9E%E9%87%8F%E4%B8%8E%E5%85%A8%E9%87%8F%E6%94%B6%E7%BC%A9"><span class="post-toc-text">Phase 3: L3 压力层 —— 增量与全量收缩</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%BA%E7%AB%99%E6%9C%80%E5%90%8E%E4%B8%80%E5%85%AC%E9%87%8C%EF%BC%9Aapi-%E8%A7%84%E8%8C%83%E5%8C%96-normalizemessagesforapi"><span class="post-toc-text">出站最后一公里：API 规范化 (normalizeMessagesForAPI)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8E-harness-%E5%AE%98%E6%96%B9%E5%8D%9A%E6%96%87%E7%9A%84%E8%BE%B9%E7%95%8C"><span class="post-toc-text">与 Harness 官方博文的边界</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-%E6%9C%AC%E9%99%84%E5%BD%95%E7%9B%B8%E5%85%B3"><span class="post-toc-text">特性与环境变量（本附录相关）</span></a></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>
