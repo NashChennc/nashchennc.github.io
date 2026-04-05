@@ -420,20 +420,20 @@
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi --query-compute-apps=pid --format=csv,noheader | xargs -r ps -up | grep &quot;chennc&quot;</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;0,1,2,3&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="SSH-连接服务器">SSH 连接服务器</h2>
+                        <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi --query-compute-apps=pid --format=csv,noheader | xargs -r ps -up | grep &quot;chennc&quot;</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;0,1,2,3&quot;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="ssh-连接服务器">SSH 连接服务器</h2>
 <h2 id="使用-tmux">使用 <code>tmux</code></h2>
 <p><code>tmux</code> 是一个极其强大的工具，它允许你在服务器后台保持会话活跃，即使 SSH 断开，进程依然在跑。</p>
 <h3 id="1-安装-tmux">1. 安装 tmux</h3>
 <p>在远程服务器的终端中输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu/Debian</span></span><br><span class="line"><span class="built_in">sudo</span> apt update &amp;&amp; <span class="built_in">sudo</span> apt install tmux</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS/RHEL</span></span><br><span class="line"><span class="built_in">sudo</span> yum install tmux</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu/Debian</span></span><br><span class="line"><span class="built_in">sudo</span> apt update &amp;&amp; <span class="built_in">sudo</span> apt install tmux</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS/RHEL</span></span><br><span class="line"><span class="built_in">sudo</span> yum install tmux</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="2-创建并运行任务">2. 创建并运行任务</h3>
 <p>在 VS Code 的终端中：</p>
 <ol>
-<li><strong>新建会话</strong>：给任务起个名字（例如 <code>training</code>），方便后续查找。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s training</span><br></pre></td></tr></table></figure>
+<li><strong>新建会话</strong>：给任务起个名字（例如 <code>training</code>），方便后续查找。<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s training</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><strong>运行代码</strong>：进入 tmux 界面后，像平常一样运行你的脚本。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+<li><strong>运行代码</strong>：进入 tmux 界面后，像平常一样运行你的脚本。<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><strong>分离会话（Detach）</strong>：当你想要关闭 VS Code 或断网时，需要将当前会话“挂起”到后台。
 按下快捷键前缀：<strong><code>Ctrl + b</code></strong> 然后按：<strong><code>d</code></strong> 。<em>此时你会回到原来的普通终端界面，但任务还在后台跑。</em></li>
@@ -441,9 +441,9 @@
 <h3 id="3-断线重连">3. 断线重连</h3>
 <p>当你重新打开 VS Code 连接到服务器后：</p>
 <ol>
-<li><strong>查看现有的会话</strong>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+<li><strong>查看现有的会话</strong>：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux <span class="built_in">ls</span></span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><strong>恢复会话（Attach）</strong>：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach -t training</span><br></pre></td></tr></table></figure>
+<li><strong>恢复会话（Attach）</strong>：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach -t training</span><br></pre></td></tr></tbody></table></figure>
 <em>现在你又回到了之前的界面，可以看到程序的输出进度。</em></li>
 </ol>
 <blockquote>
@@ -481,7 +481,7 @@
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/%E8%B5%84%E6%BA%90%E7%AB%99/">
+                                <a class="post-nav__link" href="/ccauto-01-entrypoint/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -490,7 +490,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">资源站</span>
+                                        <span class="post-nav__title">CC Auto Mode 01 - Entry Point 总览</span>
                                     </span>
                                 </a>
                             
@@ -506,7 +506,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SSH-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-text">SSH 连接服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-tmux"><span class="post-toc-text">使用 tmux</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%AE%89%E8%A3%85-tmux"><span class="post-toc-text">1. 安装 tmux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%BF%90%E8%A1%8C%E4%BB%BB%E5%8A%A1"><span class="post-toc-text">2. 创建并运行任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E6%96%AD%E7%BA%BF%E9%87%8D%E8%BF%9E"><span class="post-toc-text">3. 断线重连</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="post-toc-text">端口映射</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ssh-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-text">SSH 连接服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-tmux"><span class="post-toc-text">使用 tmux</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%AE%89%E8%A3%85-tmux"><span class="post-toc-text">1. 安装 tmux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%BF%90%E8%A1%8C%E4%BB%BB%E5%8A%A1"><span class="post-toc-text">2. 创建并运行任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E6%96%AD%E7%BA%BF%E9%87%8D%E8%BF%9E"><span class="post-toc-text">3. 断线重连</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="post-toc-text">端口映射</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>

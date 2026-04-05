@@ -298,3 +298,26 @@ main.page-shell .mdui-prose .highlight pre {
   white-space: pre;
   word-break: normal;
 }
+
+/* 正文外链后的 open_in_new：mdui-icon 内部为固定字号，用包裹层占位 + scale(0.6) 对齐视觉尺寸 */
+.mdui-prose .post-external-link-icon-wrap {
+  display: inline-block;
+  position: relative;
+  width: 14.4px;
+  height: 14.4px;
+  overflow: hidden;
+  margin-left: 0.2em;
+  vertical-align: middle;
+  flex-shrink: 0;
+  color: rgb(var(--mdui-color-on-surface-variant, 73, 69, 79));
+  opacity: 0.85;
+}
+
+.mdui-prose .post-external-link-icon-wrap mdui-icon.post-external-link-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  transform-origin: center center;
+  color: inherit;
+}

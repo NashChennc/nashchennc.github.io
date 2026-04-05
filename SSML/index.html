@@ -425,45 +425,45 @@
 <h1>1. 核心作用</h1>
 <p>SSML 允许你调整语音的以下方面，使其听起来更自然、更像真人：</p>
 <ul>
-<li><strong>停顿（Breaks）：</strong> 在句子或短语之间插入指定时长的停顿。</li>
-<li><strong>发音（Pronunciation）：</strong> 指定多音字、生僻字或外来语的具体读音（使用音标）。</li>
-<li><strong>韵律（Prosody）：</strong> 调整语速、音高（声调）和音量。</li>
-<li><strong>解释方式（Say-as）：</strong> 告诉引擎如何朗读数字、日期、电话号码或缩写。</li>
-<li><strong>强调（Emphasis）：</strong> 加重语气。</li>
+<li><strong>停顿（Breaks）：</strong>&nbsp;在句子或短语之间插入指定时长的停顿。</li>
+<li><strong>发音（Pronunciation）：</strong>&nbsp;指定多音字、生僻字或外来语的具体读音（使用音标）。</li>
+<li><strong>韵律（Prosody）：</strong>&nbsp;调整语速、音高（声调）和音量。</li>
+<li><strong>解释方式（Say-as）：</strong>&nbsp;告诉引擎如何朗读数字、日期、电话号码或缩写。</li>
+<li><strong>强调（Emphasis）：</strong>&nbsp;加重语气。</li>
 </ul>
 <hr>
 <h1>2. 常用标签详解</h1>
-<p>所有的 SSML 内容都必须包含在 <code>&lt;speak&gt;</code> 根标签内。</p>
-<h4 id="A-停顿-break">A. 停顿 <code>&lt;break&gt;</code></h4>
+<p>所有的 SSML 内容都必须包含在&nbsp;<code>&lt;speak&gt;</code>&nbsp;根标签内。</p>
+<h4 id="a-停顿-break">A. 停顿&nbsp;<code>&lt;break&gt;</code></h4>
 <p>用于控制节奏。</p>
 <p>XML</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这句话说完后，&lt;break time=&quot;2s&quot;/&gt; 停顿了两秒钟。</span><br><span class="line">  或者稍微&lt;break strength=&quot;weak&quot;/&gt; 停顿一下。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="B-调整韵律-prosody">B. 调整韵律 <code>&lt;prosody&gt;</code></h4>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这句话说完后，&lt;break time=&quot;2s&quot;/&gt; 停顿了两秒钟。</span><br><span class="line">  或者稍微&lt;break strength=&quot;weak&quot;/&gt; 停顿一下。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="b-调整韵律-prosody">B. 调整韵律&nbsp;<code>&lt;prosody&gt;</code></h4>
 <p>这是最常用的标签，用于控制语速（rate）、音高（pitch）和音量（volume）。</p>
 <p>XML</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  正常说话。</span><br><span class="line">  &lt;prosody rate=&quot;slow&quot; pitch=&quot;-2st&quot;&gt;这里语速变慢，且音调压低，听起来比较严肃。&lt;/prosody&gt;</span><br><span class="line">  &lt;prosody volume=&quot;loud&quot;&gt;这里大声说话！&lt;/prosody&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="C-指定读法-say-as">C. 指定读法 <code>&lt;say-as&gt;</code></h4>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  正常说话。</span><br><span class="line">  &lt;prosody rate=&quot;slow&quot; pitch=&quot;-2st&quot;&gt;这里语速变慢，且音调压低，听起来比较严肃。&lt;/prosody&gt;</span><br><span class="line">  &lt;prosody volume=&quot;loud&quot;&gt;这里大声说话！&lt;/prosody&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="c-指定读法-say-as">C. 指定读法&nbsp;<code>&lt;say-as&gt;</code></h4>
 <p>解决歧义非常关键。例如 “2024” 是读作 “二零二四” 还是 “两千零二十四”。</p>
 <p>XML</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;say-as interpret-as=&quot;cardinal&quot;&gt;12345&lt;/say-as&gt; &lt;say-as interpret-as=&quot;digits&quot;&gt;12345&lt;/say-as&gt;   &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024-01-01&lt;/say-as&gt; &lt;/speak&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="D-别名-替换-sub">D. 别名/替换 <code>&lt;sub &gt;</code></h4>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;say-as interpret-as=&quot;cardinal&quot;&gt;12345&lt;/say-as&gt; &lt;say-as interpret-as=&quot;digits&quot;&gt;12345&lt;/say-as&gt;   &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024-01-01&lt;/say-as&gt; &lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="d-别名-替换-sub">D. 别名/替换&nbsp;<code>&lt;sub &gt;</code></h4>
 <p>用于朗读缩写或特殊字符的完整含义。</p>
 <p>XML</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  欢迎来到 &lt;sub alias=&quot;万维网联盟&quot;&gt;W3C&lt;/sub&gt; 的介绍页面。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="E-插入音频-audio">E. 插入音频 <code>&lt;audio&gt;</code></h4>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  欢迎来到 &lt;sub alias=&quot;万维网联盟&quot;&gt;W3C&lt;/sub&gt; 的介绍页面。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="e-插入音频-audio">E. 插入音频&nbsp;<code>&lt;audio&gt;</code></h4>
 <p>在语音流中混合背景音效或预录制的音频。</p>
 <p>XML</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;audio src=&quot;soundbank://sound_library/musical/musical_chord_01&quot;&gt;叮！&lt;/audio&gt;</span><br><span class="line">  回答正确。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="F-拼音-音素-phoneme">F. 拼音/音素 <code>&lt;phoneme&gt;</code></h4>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;audio src=&quot;soundbank://sound_library/musical/musical_chord_01&quot;&gt;叮！&lt;/audio&gt;</span><br><span class="line">  回答正确。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="f-拼音-音素-phoneme">F. 拼音/音素&nbsp;<code>&lt;phoneme&gt;</code></h4>
 <p>当引擎读错多音字或人名时，使用国际音标（IPA）或特定平台的注音格式强制指定发音。</p>
 <p>XML</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这件事非常&lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;tʂʰʊŋ&quot;&gt;重&lt;/phoneme&gt;要。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这件事非常&lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;tʂʰʊŋ&quot;&gt;重&lt;/phoneme&gt;要。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
 <p><em>(注：不同厂商对 phoneme 的支持格式可能不同)</em></p>
 <hr>
 <h1>3. 一个完整的示例</h1>
 <p>这就好比给剧本加上了“舞台提示”：</p>
 <p>XML</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;prosody rate=&quot;medium&quot;&gt;</span><br><span class="line">    大家好！</span><br><span class="line">  &lt;/prosody&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;break time=&quot;500ms&quot;/&gt;</span><br><span class="line"></span><br><span class="line">  今天我们要宣布一个&lt;prosody volume=&quot;loud&quot; pitch=&quot;high&quot;&gt;重大消息&lt;/prosody&gt;！</span><br><span class="line">  </span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    我们的新产品将在 &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024-10-05&lt;/say-as&gt; 正式发布。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    如果你有任何疑问，请联系 &lt;say-as interpret-as=&quot;characters&quot;&gt;HR&lt;/say-as&gt; 部门。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;prosody rate=&quot;medium&quot;&gt;</span><br><span class="line">    大家好！</span><br><span class="line">  &lt;/prosody&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;break time=&quot;500ms&quot;/&gt;</span><br><span class="line"></span><br><span class="line">  今天我们要宣布一个&lt;prosody volume=&quot;loud&quot; pitch=&quot;high&quot;&gt;重大消息&lt;/prosody&gt;！</span><br><span class="line">  </span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    我们的新产品将在 &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024-10-05&lt;/say-as&gt; 正式发布。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    如果你有任何疑问，请联系 &lt;say-as interpret-as=&quot;characters&quot;&gt;HR&lt;/say-as&gt; 部门。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
 <p>SSML 是连接“僵硬的机器朗读”与“富有表现力的语音交互”之间的桥梁。虽然现在许多端到端的 AI 模型（如类似 GPT-4o 的语音模式）已经能自动推断语气，但在开发 IVR（电话语音菜单）、有声读物或特定行业应用时，SSML 依然是确保准确性和一致性的最佳工具。</p>
 
                     </div>
@@ -491,7 +491,7 @@
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/SAE%20%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/">
+                                <a class="post-nav__link" href="/Text2Speech/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -500,7 +500,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">SAE 特征筛选</span>
+                                        <span class="post-nav__title">Text2Speech</span>
                                     </span>
                                 </a>
                             

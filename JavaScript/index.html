@@ -429,25 +429,25 @@
 <h2 id="1-npm">1. npm</h2>
 <h1>2. fnm</h1>
 <h1>3. pnpm</h1>
-<p>针对 <code>pnpm</code> 项目，如果你想彻底重装环境（通常是为了解决依赖冲突、莫名其妙的报错或 Native 模块问题），请按照以下步骤操作。</p>
+<p>针对&nbsp;<code>pnpm</code>&nbsp;项目，如果你想彻底重装环境（通常是为了解决依赖冲突、莫名其妙的报错或 Native 模块问题），请按照以下步骤操作。</p>
 <p><strong>请先确保你已经彻底关闭了项目！</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pkill -f @proj-airi</span><br><span class="line"># 或者</span><br><span class="line">pkill -f electron</span><br></pre></td></tr></table></figure>
-<h3 id="方案一：标准重装（推荐）">方案一：标准重装（推荐）</h3>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pkill -f @proj-airi</span><br><span class="line"># 或者</span><br><span class="line">pkill -f electron</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="方案一：标准重装-推荐">方案一：标准重装（推荐）</h3>
 <p>在项目根目录下运行以下命令：
 <strong>Mac / Linux:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf node_modules pnpm-lock.yaml</span><br><span class="line">pnpm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf node_modules pnpm-lock.yaml</span><br><span class="line">pnpm install</span><br></pre></td></tr></tbody></table></figure>
 <p><strong>Windows (PowerShell):</strong>
 PowerShell</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Remove-Item -Recurse -Force node_modules</span><br><span class="line">Remove-Item -Force pnpm-lock.yaml</span><br><span class="line">pnpm install</span><br></pre></td></tr></table></figure>
-<p>如果你的日志报错涉及 leveldb 和 electron，这些通常包含 C++ 编写的原生模块。如果 Node 版本变了，或者环境不一致，需要重新编译。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Remove-Item -Recurse -Force node_modules</span><br><span class="line">Remove-Item -Force pnpm-lock.yaml</span><br><span class="line">pnpm install</span><br></pre></td></tr></tbody></table></figure>
+<p>如果你的日志报错涉及&nbsp;leveldb&nbsp;和&nbsp;electron，这些通常包含 C++ 编写的原生模块。如果 Node 版本变了，或者环境不一致，需要重新编译。</p>
 <p>执行完方案一的重装后。 <strong>强制重新编译原生模块</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm rebuild</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm rebuild</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>
-<p><strong>删除 <code>pnpm-lock.yaml</code></strong>：确保 <code>pnpm</code> 重新解析依赖树，获取 <code>package.json</code> 中允许的最新版本（有时候锁文件里锁定的版本有 Bug）。</p>
+<p><strong>删除&nbsp;<code>pnpm-lock.yaml</code></strong>：确保&nbsp;<code>pnpm</code>&nbsp;重新解析依赖树，获取&nbsp;<code>package.json</code>&nbsp;中允许的最新版本（有时候锁文件里锁定的版本有 Bug）。</p>
 </li>
 <li>
-<p><strong><code>pnpm rebuild</code></strong>：你的报错里有 <code>IO error ... leveldb</code>，这往往是因为原生模块没有针对当前的 Electron 版本正确编译。<code>rebuild</code> 可以解决这个问题。</p>
+<p><strong><code>pnpm rebuild</code></strong>：你的报错里有&nbsp;<code>IO error ... leveldb</code>，这往往是因为原生模块没有针对当前的 Electron 版本正确编译。<code>rebuild</code>&nbsp;可以解决这个问题。</p>
 </li>
 </ul>
 
@@ -476,7 +476,7 @@ PowerShell</p>
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/LLM%20Safety%20%E8%B5%84%E6%BA%90/">
+                                <a class="post-nav__link" href="/SAE%20%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -485,7 +485,7 @@ PowerShell</p>
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">LLM Safety 资源</span>
+                                        <span class="post-nav__title">SAE 特征筛选</span>
                                     </span>
                                 </a>
                             
@@ -501,7 +501,7 @@ PowerShell</p>
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-npm"><span class="post-toc-text">1. npm</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. fnm</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. pnpm</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E6%A0%87%E5%87%86%E9%87%8D%E8%A3%85%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="post-toc-text">方案一：标准重装（推荐）</span></a></li></ol></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-npm"><span class="post-toc-text">1. npm</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. fnm</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. pnpm</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E6%A0%87%E5%87%86%E9%87%8D%E8%A3%85-%E6%8E%A8%E8%8D%90"><span class="post-toc-text">方案一：标准重装（推荐）</span></a></li></ol></li></ol>
                     </div>
                 </div>
             </mdui-card>
