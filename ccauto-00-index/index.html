@@ -508,7 +508,7 @@
 <li><strong>AFK header</strong>：<code>AFK_MODE_BETA_HEADER</code>，auto mode 激活后会话级 latch 到 API 请求，触发服务端 PI probes</li>
 <li><strong>PI probe</strong>：Prompt Injection probe，服务端扫描工具输出中的注入攻击，本仓库通过 AFK header 触发</li>
 <li><strong>sideQuery</strong>：独立于主对话循环的 API 调用，分类器通过此通道运行，不计入主会话 token 统计</li>
-<li><strong>GrowthBook</strong>：开源的特性开关 / A/B 测试平台（<a target="_blank" rel="noopener" href="https://www.growthbook.io">growthbook.io</a><span class="post-external-link-icon-wrap" aria-hidden="true"><mdui-icon name="open_in_new" class="post-external-link-icon"></mdui-icon></span>），Anthropic 用它作为远端配置下发服务。服务端改一个值，客户端下次拉取即生效，不需要发版。核心用途是<strong>事故响应</strong>：发现安全问题时可在几秒内远端将 <code>enabled</code> 设为 <code>disabled</code>，全球客户端自动熔断 auto mode。本仓库中主要配置项为 <code>tengu_auto_mode_config</code></li>
+<li><strong>GrowthBook</strong>：开源的特性开关 / A/B 测试平台（<a target="_blank" rel="noopener" href="https://www.growthbook.io">growthbook.io</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>），Anthropic 用它作为远端配置下发服务。服务端改一个值，客户端下次拉取即生效，不需要发版。核心用途是<strong>事故响应</strong>：发现安全问题时可在几秒内远端将 <code>enabled</code> 设为 <code>disabled</code>，全球客户端自动熔断 auto mode。本仓库中主要配置项为 <code>tengu_auto_mode_config</code></li>
 <li><strong>strippedDangerousRules</strong>：进入 auto 时被暂存的危险 allow 规则（如 <code>Bash(python:*)</code>），退出时恢复</li>
 <li><strong>denial tracking</strong>：分类器拒绝计数，连续 ≥3 或总计 ≥20 时 fallback 到手动审批或终止</li>
 <li><strong>fail-closed</strong>：分类器不可用时默认拒绝（<code>tengu_iron_gate_closed</code> 控制；参数语义是“铁门关闭时宁可误拒绝”）</li>
@@ -518,8 +518,8 @@
 </ul>
 <h2 id="参考资料">参考资料</h2>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">Claude Code auto mode: a safer way to skip permissions</a><span class="post-external-link-icon-wrap" aria-hidden="true"><mdui-icon name="open_in_new" class="post-external-link-icon"></mdui-icon></span> — Anthropic 官方博客</li>
-<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/harness-design-long-running-apps">Harness design for long-running application development</a><span class="post-external-link-icon-wrap" aria-hidden="true"><mdui-icon name="open_in_new" class="post-external-link-icon"></mdui-icon></span> — Anthropic 官方博客</li>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">Claude Code auto mode: a safer way to skip permissions</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> — Anthropic 官方博客</li>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/harness-design-long-running-apps">Harness design for long-running application development</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> — Anthropic 官方博客</li>
 </ul>
 
                     </div>
