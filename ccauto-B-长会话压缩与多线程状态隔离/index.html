@@ -426,7 +426,7 @@
                                 
                             </div>
                         
-                        <span class="note-read">14 min read</span>
+                        <span class="note-read">13 min read</span>
                     </div>
                     <mdui-divider></mdui-divider>
                 </div>
@@ -440,107 +440,107 @@
 <p>若判定需要压缩，则先尝试 <strong><code>trySessionMemoryCompaction</code></strong>（约 L287–292；实现 <code>src/services/compact/sessionMemoryCompact.ts</code> 约 L514）。若返回非空：视为已压缩，执行 <code>setLastSummarizedMessageId(undefined)</code>、<code>runPostCompactCleanup(querySource)</code>；在 <code>PROMPT_CACHE_BREAK_DETECTION</code> 开启时还会 <code>notifyCompaction</code>（约 L302–304），避免 cache break 误报。<strong>否则</strong>再 <code>await compactConversation(...)</code>（约 L312–321）。成功时 <code>consecutiveFailures</code> 归零；<code>catch</code> 中非用户中止的错误递增失败计数，达阈打熔断日志（约 L334–349）。<strong>用户中止</strong>（<code>ERROR_MESSAGE_USER_ABORT</code>）不记入失败链（<code>catch</code> 内过滤）。</p>
 <h3 id="1-1-自动压缩的降级与熔断流水线">1.1 自动压缩的降级与熔断流水线</h3>
 <pre class="mermaid">flowchart TD
-  startNode["autoCompactIfNeeded&lt;br/&gt;自动压缩总入口"]
-  disEnv{是否被环境变量&lt;br/&gt;DISABLE_COMPACT 禁用?}
+  startNode["autoCompactIfNeeded<br/>自动压缩总入口"]
+  disEnv{是否被环境变量<br/>DISABLE_COMPACT 禁用?}
   disYes[返回 wasCompacted: false]
   
-  cb{连续失败次数&lt;br/&gt;consecutiveFailures &gt;= 3 ?}
-  cbYes[触发熔断: 直接返回 false&lt;br/&gt;避免无限重试风暴]
+  cb{连续失败次数<br/>consecutiveFailures >= 3 ?}
+  cbYes[触发熔断: 直接返回 false<br/>避免无限重试风暴]
   
-  shouldC["shouldAutoCompact&lt;br/&gt;估算 token 是否超过自动压缩阈"]
+  shouldC["shouldAutoCompact<br/>估算 token 是否超过自动压缩阈"]
   shouldNo[未超标，返回 false]
   
-  smTry["trySessionMemoryCompaction&lt;br/&gt;先试 Session Memory 轻量路径"]
+  smTry["trySessionMemoryCompaction<br/>先试 Session Memory 轻量路径"]
   smHit{是否成功?}
   smOk[执行清理与通知]
   smOut[返回 true]
   
-  tryCC["compactConversation&lt;br/&gt;全量摘要与截断旧历史"]
+  tryCC["compactConversation<br/>全量摘要与截断旧历史"]
   ccOk[成功: 连续失败计数归零]
   ccOut[返回 true]
   
-  ccCatch["Catch 异常&lt;br/&gt;（非用户手动中止）"]
+  ccCatch["Catch 异常<br/>（非用户手动中止）"]
   incFail[连续失败计数 +1]
-  cbTrip{失败次数 &gt;= 3 ?}
+  cbTrip{失败次数 >= 3 ?}
   logTrip[记录熔断日志]
   failOut[抛出异常 / 返回 false]
   
-  startNode --&gt; disEnv --&gt;|是| disYes
-  disEnv --&gt;|否| cb
-  cb --&gt;|是| cbYes
-  cb --&gt;|否| shouldC
-  shouldC --&gt;|否| shouldNo
-  shouldC --&gt;|是| smTry
-  smTry --&gt; smHit
-  smHit --&gt;|是| smOk --&gt; smOut
-  smHit --&gt;|否| tryCC
-  tryCC --&gt;|成功| ccOk --&gt; ccOut
-  tryCC --&gt;|抛出异常| ccCatch --&gt; incFail --&gt; cbTrip
-  cbTrip --&gt;|是| logTrip --&gt; failOut
-  cbTrip --&gt;|否| failOut</pre>
+  startNode --> disEnv -->|是| disYes
+  disEnv -->|否| cb
+  cb -->|是| cbYes
+  cb -->|否| shouldC
+  shouldC -->|否| shouldNo
+  shouldC -->|是| smTry
+  smTry --> smHit
+  smHit -->|是| smOk --> smOut
+  smHit -->|否| tryCC
+  tryCC -->|成功| ccOk --> ccOut
+  tryCC -->|抛出异常| ccCatch --> incFail --> cbTrip
+  cbTrip -->|是| logTrip --> failOut
+  cbTrip -->|否| failOut</pre>
 <p>上述流程与源码同构：<code>catch</code> 分支在 <code>autoCompactIfNeeded</code> 内递增 <code>consecutiveFailures</code> 并在达到阈值时打熔断日志（<code>src/services/compact/autoCompact.ts</code> 约 L334–349）。</p>
 <h3 id="1-2-摘要生成中的-PTL（Prompt-Too-Long）重试自愈">1.2 摘要生成中的 PTL（Prompt Too Long）重试自愈</h3>
 <p>在 <code>compactConversation</code> 内部生成摘要时，系统面临一个“第 22 条军规”式的困境：<strong>用来生成摘要的 Prompt 本身，可能就已经超出了模型的 Context 限制</strong>（即报 <code>prompt_too_long</code> 错误）。主实现位于 <code>src/services/compact/compact.ts</code>（<code>compactConversation</code> 约 L387）。</p>
 <p>Claude Code 在这里实现了一个非常优雅的<strong>退避与自愈循环</strong>：如果 API 报错 PTL，它不会直接放弃，而是通过 <code>truncateHeadForPTLRetry</code>（同文件约 L243）强行切掉最早期的一小段历史，再次重试；摘要流由 <code>streamCompactSummary</code>（同文件约 L1136）发起，直到成功或达到最大重试次数。</p>
 <pre class="mermaid">flowchart TD
   loopHead[for 循环: 尝试生成摘要]
-  streamCall["streamCompactSummary&lt;br/&gt;流式拉取压缩摘要"]
+  streamCall["streamCompactSummary<br/>流式拉取压缩摘要"]
   
-  isPtl{返回结果是否以&lt;br/&gt;PTL 错误前缀开头?}
+  isPtl{返回结果是否以<br/>PTL 错误前缀开头?}
   leaveLoop[成功生成摘要，跳出循环]
   
   ptlIncr[重试次数 ptlAttempts +1]
-  retryOk{是否超最大重试次数&lt;br/&gt;且还能截断头部?}
-  truncate["truncateHeadForPTLRetry&lt;br/&gt;截掉最老一段再重试"]
-  throwPtl[抛出严重错误&lt;br/&gt;PROMPT_TOO_LONG]
+  retryOk{是否超最大重试次数<br/>且还能截断头部?}
+  truncate["truncateHeadForPTLRetry<br/>截掉最老一段再重试"]
+  throwPtl[抛出严重错误<br/>PROMPT_TOO_LONG]
   
-  loopHead --&gt; streamCall
-  streamCall --&gt; isPtl
-  isPtl --&gt;|否| leaveLoop
-  isPtl --&gt;|是| ptlIncr
-  ptlIncr --&gt; retryOk
-  retryOk --&gt;|是| truncate --&gt; loopHead
-  retryOk --&gt;|否| throwPtl
+  loopHead --> streamCall
+  streamCall --> isPtl
+  isPtl -->|否| leaveLoop
+  isPtl -->|是| ptlIncr
+  ptlIncr --> retryOk
+  retryOk -->|是| truncate --> loopHead
+  retryOk -->|否| throwPtl
   
-  leaveLoop --&gt; doneNode["CompactionResult&lt;br/&gt;压缩结果：摘要+附件等"]</pre>
+  leaveLoop --> doneNode["CompactionResult<br/>压缩结果：摘要+附件等"]</pre>
 <h3 id="1-3-compactConversation-内部要点（PreCompact、缓存前缀与完整摘要分支）">1.3 <code>compactConversation</code> 内部要点（PreCompact、缓存前缀与完整摘要分支）</h3>
 <p>摘要前可执行 <strong>PreCompact hooks</strong>（<code>executePreCompactHooks</code>，<code>compact.ts</code> 约 L411–418）。通过 GrowthBook 读取 <strong><code>tengu_compact_cache_prefix</code></strong>，控制压缩请求是否与其它请求 <strong>共享 prompt cache 前缀</strong>（约 L431–437；fork 子路径复用主对话 cache，GB 可作 kill-switch）。</p>
 <p><strong>与源码对齐的完整控制流</strong>（含 PTL、空摘要、API 错误与用户中止；约 L449–515）：</p>
 <pre class="mermaid">flowchart TD
-  preHook["executePreCompactHooks&lt;br/&gt;压缩前用户/项目 hooks"]
-  prefixFeat["tengu_compact_cache_prefix&lt;br/&gt;GrowthBook：是否共享 cache 前缀"]
+  preHook["executePreCompactHooks<br/>压缩前用户/项目 hooks"]
+  prefixFeat["tengu_compact_cache_prefix<br/>GrowthBook：是否共享 cache 前缀"]
   loopHead[for 循环 streamCompactSummary]
-  streamCall["streamCompactSummary&lt;br/&gt;流式生成摘要"]
+  streamCall["streamCompactSummary<br/>流式生成摘要"]
   isPtl{summary 以 PTL 错误前缀开头?}
   leaveLoop[离开循环]
   emptyChk{summary 空?}
-  apiErrChk["startsWithApiErrorPrefix&lt;br/&gt;是否 API 错误前缀"]
+  apiErrChk["startsWithApiErrorPrefix<br/>是否 API 错误前缀"]
   throwNoSum[抛错无摘要]
   throwApi[抛错 API 错误文本]
-  assemble["组装 attachments 与 hookResults&lt;br/&gt;CompactionResult 收尾"]
-  doneNode["CompactionResult&lt;br/&gt;返回压缩结果对象"]
+  assemble["组装 attachments 与 hookResults<br/>CompactionResult 收尾"]
+  doneNode["CompactionResult<br/>返回压缩结果对象"]
   ptlIncr[ptlAttempts 加一]
   retryOk{可截断且未超 MAX_PTL_RETRIES?}
-  truncate["truncateHeadForPTLRetry&lt;br/&gt;截头重试 PTL"]
+  truncate["truncateHeadForPTLRetry<br/>截头重试 PTL"]
   throwPtl[抛错 PROMPT_TOO_LONG]
-  userAbort["AbortError 等&lt;br/&gt;用户中止向上传播"]
-  preHook --&gt; prefixFeat
-  prefixFeat --&gt; loopHead
-  loopHead --&gt; streamCall
-  streamCall --&gt; isPtl
-  isPtl --&gt;|否| leaveLoop
-  isPtl --&gt;|是| ptlIncr
-  ptlIncr --&gt; retryOk
-  retryOk --&gt;|是| truncate
-  truncate --&gt; loopHead
-  retryOk --&gt;|否| throwPtl
-  leaveLoop --&gt; emptyChk
-  emptyChk --&gt;|是| throwNoSum
-  emptyChk --&gt;|否| apiErrChk
-  apiErrChk --&gt;|是| throwApi
-  apiErrChk --&gt;|否| assemble
-  assemble --&gt; doneNode
-  streamCall -.-&gt;|AbortError| userAbort</pre>
+  userAbort["AbortError 等<br/>用户中止向上传播"]
+  preHook --> prefixFeat
+  prefixFeat --> loopHead
+  loopHead --> streamCall
+  streamCall --> isPtl
+  isPtl -->|否| leaveLoop
+  isPtl -->|是| ptlIncr
+  ptlIncr --> retryOk
+  retryOk -->|是| truncate
+  truncate --> loopHead
+  retryOk -->|否| throwPtl
+  leaveLoop --> emptyChk
+  emptyChk -->|是| throwNoSum
+  emptyChk -->|否| apiErrChk
+  apiErrChk -->|是| throwApi
+  apiErrChk -->|否| assemble
+  assemble --> doneNode
+  streamCall -.->|AbortError| userAbort</pre>
 <p><strong>调窗与测试用环境变量</strong>（非默认用户配置）：</p>
 <ul>
 <li><strong><code>CLAUDE_CODE_AUTO_COMPACT_WINDOW</code></strong>：截断有效上下文窗口上限（<code>getEffectiveContextWindowSize</code>，约 L40–45）。</li>
@@ -567,45 +567,45 @@
 <p>为了解决这个问题，系统强制实行了<strong>基于 <code>QuerySource</code> 的严格路径分流</strong>。</p>
 <h3 id="2-1-主线程与-Fork-线程的决断网络">2.1 主线程与 Fork 线程的决断网络</h3>
 <pre class="mermaid">flowchart TB
-  entry["microcompactMessages&lt;br/&gt;microcompact 对外入口"]
-  timeCheck{距离上一次请求&lt;br/&gt;是否间隔过久?}
+  entry["microcompactMessages<br/>microcompact 对外入口"]
+  timeCheck{距离上一次请求<br/>是否间隔过久?}
   
-  timeCheck --&gt;|"是 (Cache 已冷)"| timePath["maybeTimeBasedMicrocompact&lt;br/&gt;cache 冷则先时间触发清理"]
-  timeCheck --&gt;|"否 (Cache 热)"| route{判断 QuerySource&lt;br/&gt;是否为 'repl_main_thread*'}
+  timeCheck -->|"是 (Cache 已冷)"| timePath["maybeTimeBasedMicrocompact<br/>cache 冷则先时间触发清理"]
+  timeCheck -->|"否 (Cache 热)"| route{判断 QuerySource<br/>是否为 'repl_main_thread*'}
   
-  route --&gt;|"是 (主线程)"| gate{开启了 Cached MC 特性?}
-  route --&gt;|"否 (Fork 分支)"| forkBlock[禁止进入 Cached 路径]
-  forkBlock --&gt; forkWhy[为防止主线程 API 崩溃&lt;br/&gt;绝对禁止向全局状态表注册私有 ID]
+  route -->|"是 (主线程)"| gate{开启了 Cached MC 特性?}
+  route -->|"否 (Fork 分支)"| forkBlock[禁止进入 Cached 路径]
+  forkBlock --> forkWhy[为防止主线程 API 崩溃<br/>绝对禁止向全局状态表注册私有 ID]
   
-  gate --&gt;|"通过"| cached["cachedMicrocompactPath&lt;br/&gt;cache_edits 摘掉 tool results"]
-  gate --&gt;|"未开启"| noop[原样返回 messages]
+  gate -->|"通过"| cached["cachedMicrocompactPath<br/>cache_edits 摘掉 tool results"]
+  gate -->|"未开启"| noop[原样返回 messages]
   
-  cached --&gt; gmc["cachedMCState&lt;br/&gt;进程内全局缓存编辑状态"]
+  cached --> gmc["cachedMCState<br/>进程内全局缓存编辑状态"]
   
-  timePath --&gt; exit[返回出站 Messages]
-  forkWhy --&gt; exit
-  gmc --&gt; exit
-  noop --&gt; exit</pre>
+  timePath --> exit[返回出站 Messages]
+  forkWhy --> exit
+  gmc --> exit
+  noop --> exit</pre>
 <p><strong>设计精髓</strong>：这是一种经典的多源并发防撞设计。只有主线程拥有全局抽象状态的“写权限”，所有临时创建的影子线程（Session Memory, 后台 Hook）只能使用不依赖缓存编辑的退化模式，从而物理隔绝了上下文状态污染的可能性。<strong>安全/正确性含义</strong>：这是进程内 <strong>全局抽象状态与多 <code>QuerySource</code> 并发写</strong> 的一致性问题；若做错，主线程与 API cache 状态错位会导致异常或意外前缀重写。</p>
 <h3 id="2-2-延迟的边界确认-Deferred-Boundary">2.2 延迟的边界确认 (Deferred Boundary)</h3>
 <p>对于主线程，它决定向 API 发送 Cache Edits 请求后，不会立即在本地客户端更新自己的数据结构。它必须<strong>等待 API 流式响应完全结束</strong>，并且确认 API 返回的 <code>cache_deleted_input_tokens</code> 确实产生了收益（减去基线后 Delta &gt; 0），才会在本地 <code>yield</code> 一条 <code>createMicrocompactBoundaryMessage</code>（消息构造见 <code>src/utils/messages.ts</code> 约 L4557；在 <code>query</code> 成功路径上产出见 <code>src/query.ts</code> 约 L870–890，与 <code>pendingCacheEdits</code> 基线相减逻辑一致），完成本地状态机的闭环。</p>
 <p><strong>为何 boundary 要等流结束？</strong> API 的 <code>cache_deleted_input_tokens</code> 为 <strong>累计/粘性</strong> 值，需用 microcompact 返回前记录的 <strong>baseline</strong> 相减得到 <strong>本轮 delta</strong>；仅当 delta &gt; 0 才值得写入边界消息（实现见 <code>query.ts</code> 约 L420–425 与 L866–891）。</p>
 <pre class="mermaid">sequenceDiagram
-  participant Q as "queryLoop&lt;br/&gt;主循环"
-  participant M as "microcompact&lt;br/&gt;轻量收缩"
-  participant API as "queryModelStream&lt;br/&gt;流式请求模型"
-  Q-&gt;&gt;M: microcompact(messages)&lt;br/&gt;计算是否产生 pendingCacheEdits
+  participant Q as "queryLoop<br/>主循环"
+  participant M as "microcompact<br/>轻量收缩"
+  participant API as "queryModelStream<br/>流式请求模型"
+  Q->>M: microcompact(messages)<br/>计算是否产生 pendingCacheEdits
   alt pendingCacheEdits 为空
-    M--&gt;&gt;Q: 无 deferred edits&lt;br/&gt;本轮无延迟 boundary
+    M-->>Q: 无 deferred edits<br/>本轮无延迟 boundary
   else pendingCacheEdits 有值
-    M--&gt;&gt;Q: messages 与 pendingCacheEdits&lt;br/&gt;下请求携带 cache_edits
+    M-->>Q: messages 与 pendingCacheEdits<br/>下请求携带 cache_edits
   end
-  Q-&gt;&gt;API: 发送本轮请求&lt;br/&gt;含 cache_edits 等
-  API--&gt;&gt;Q: 流式响应与 usage&lt;br/&gt;含累计 cache_deleted_input_tokens
+  Q->>API: 发送本轮请求<br/>含 cache_edits 等
+  API-->>Q: 流式响应与 usage<br/>含累计 cache_deleted_input_tokens
   alt CACHED_MICROCOMPACT 且 pendingCacheEdits
-    Note over Q: 读 cache_deleted_input_tokens 减 baseline&lt;br/&gt;得到本轮删除 token delta
+    Note over Q: 读 cache_deleted_input_tokens 减 baseline<br/>得到本轮删除 token delta
     opt delta 大于 0
-      Q-&gt;&gt;Q: yield createMicrocompactBoundaryMessage&lt;br/&gt;写入边界事件闭环
+      Q->>Q: yield createMicrocompactBoundaryMessage<br/>写入边界事件闭环
     end
   end</pre>
 <hr>
@@ -619,26 +619,26 @@
 <p>因此，<code>runInProcessTeammate</code>（<code>src/utils/swarm/inProcessRunner.ts</code> 约 L883）在每次迭代检查到 Token 超标时，必须构造一个<strong>完全隔离的 <code>ToolUseContext</code>（沙箱上下文）</strong>（同文件约 L1071–1103：在 <code>tokenCountWithEstimation</code> 与 <code>getAutoCompactThreshold</code> 判定之后分支进入压缩）。</p>
 <pre class="mermaid">flowchart TB
   subgraph parentSession [主会话 Parent Session]
-    parentRFS["readFileState&lt;br/&gt;主会话文件读取缓存"]
+    parentRFS["readFileState<br/>主会话文件读取缓存"]
     parentUI[终端 REPL 进度条回调]
   end
   
   subgraph teammateLoop ["队友子代理（Teammate Agent）"]
     iter[执行单轮工具迭代]
-    overTok["tokenCountWithEstimation&lt;br/&gt;估算是否超 getAutoCompactThreshold"]
+    overTok["tokenCountWithEstimation<br/>估算是否超 getAutoCompactThreshold"]
     
-    isoCtx["隔离 ToolUseContext&lt;br/&gt;cloneFileStateCache 等沙箱补丁"]
-    cc["compactConversation&lt;br/&gt;队友内全量压缩"]
+    isoCtx["隔离 ToolUseContext<br/>cloneFileStateCache 等沙箱补丁"]
+    cc["compactConversation<br/>队友内全量压缩"]
     
-    iter --&gt; overTok
-    overTok --&gt;|"是"| isoCtx
-    isoCtx --&gt; cc
-    cc --&gt; iter
-    overTok --&gt;|"否"| iter
+    iter --> overTok
+    overTok -->|"是"| isoCtx
+    isoCtx --> cc
+    cc --> iter
+    overTok -->|"否"| iter
   end
   
-  isoCtx -.-&gt;|"克隆 (Clone)&lt;br/&gt;只读不写回"| parentRFS
-  isoCtx -.-&gt;|"抹除回调&lt;br/&gt;静默执行"| parentUI</pre>
+  isoCtx -.->|"克隆 (Clone)<br/>只读不写回"| parentRFS
+  isoCtx -.->|"抹除回调<br/>静默执行"| parentUI</pre>
 <p><strong>核心防御动作：</strong></p>
 <ul>
 <li><strong>克隆文件树 (<code>cloneFileStateCache</code>)</strong>：实现见 <code>src/utils/fileStateCache.ts</code> 约 L122；在 Teammate 压缩路径上写入隔离上下文（<code>inProcessRunner.ts</code> 约 L1086）。</li>

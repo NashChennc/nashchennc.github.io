@@ -437,35 +437,35 @@
 <pre class="mermaid">flowchart TD
     subgraph sync ["同步门禁 isAutoModeGateEnabled"]
         direction TB
-        CB{"circuitBroken?&lt;br/&gt;是否已熔断"}
-        DS{"disableAutoMode?&lt;br/&gt;设置是否禁用"}
-        MS{"modelSupportsAutoMode?&lt;br/&gt;模型是否支持"}
-        CB --&gt;|是| SyncNo["false — 禁止进入"]
-        CB --&gt;|否| DS
-        DS --&gt;|是| SyncNo
-        DS --&gt;|否| MS
-        MS --&gt;|否| SyncNo
-        MS --&gt;|是| SyncYes["true — 允许迁移"]
+        CB{"circuitBroken?<br/>是否已熔断"}
+        DS{"disableAutoMode?<br/>设置是否禁用"}
+        MS{"modelSupportsAutoMode?<br/>模型是否支持"}
+        CB -->|是| SyncNo["false — 禁止进入"]
+        CB -->|否| DS
+        DS -->|是| SyncNo
+        DS -->|否| MS
+        MS -->|否| SyncNo
+        MS -->|是| SyncYes["true — 允许迁移"]
     end
 
     subgraph async ["异步校验 verifyAutoModeGateAccess"]
         direction TB
-        GB["读取 GrowthBook&lt;br/&gt;tengu_auto_mode_config"]
-        Parse["parseAutoModeEnabledState&lt;br/&gt;解析 enabled 三态"]
-        SetCB["setAutoModeCircuitBroken&lt;br/&gt;写入熔断状态"]
-        FastMode{"disableFastMode&lt;br/&gt;断路器?"}
-        ModelOK{"modelSupportsAutoMode?&lt;br/&gt;模型是否支持"}
+        GB["读取 GrowthBook<br/>tengu_auto_mode_config"]
+        Parse["parseAutoModeEnabledState<br/>解析 enabled 三态"]
+        SetCB["setAutoModeCircuitBroken<br/>写入熔断状态"]
+        FastMode{"disableFastMode<br/>断路器?"}
+        ModelOK{"modelSupportsAutoMode?<br/>模型是否支持"}
         Carousel["计算 canEnterAuto"]
-        GB --&gt; Parse --&gt; SetCB --&gt; FastMode
-        FastMode --&gt;|触发| AsyncNo["拒绝进入"]
-        FastMode --&gt;|不触发| ModelOK
-        ModelOK --&gt;|否| AsyncNo
-        ModelOK --&gt;|是| Carousel
+        GB --> Parse --> SetCB --> FastMode
+        FastMode -->|触发| AsyncNo["拒绝进入"]
+        FastMode -->|不触发| ModelOK
+        ModelOK -->|否| AsyncNo
+        ModelOK -->|是| Carousel
     end
 
-    User["用户 Shift+Tab"] -.-&gt;|瞬时判定| sync
-    Mount["挂载 / model 变化"] -.-&gt;|后台运行| async
-    async -.-&gt;|不通过| Kick["kickOutOfAutoIfNeeded"]</pre>
+    User["用户 Shift+Tab"] -.->|瞬时判定| sync
+    Mount["挂载 / model 变化"] -.->|后台运行| async
+    async -.->|不通过| Kick["kickOutOfAutoIfNeeded"]</pre>
 <h2 id="同步门禁：isAutoModeGateEnabled">同步门禁：<code>isAutoModeGateEnabled</code></h2>
 <p>这是一个纯同步函数（<code>src/utils/permissions/permissionSetup.ts</code> L1283-1288），用于 Shift+Tab 轮转和 <code>transitionPermissionMode</code> 入口（职责：在不等待远端请求时给出可进性结论）：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">isAutoModeGateEnabled</span>(<span class="params"></span>): <span class="built_in">boolean</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (autoModeStateModule?.<span class="title function_">isAutoModeCircuitBroken</span>() ?? <span class="literal">false</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">isAutoModeDisabledBySettings</span>()) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">if</span> (!<span class="title function_">modelSupportsAutoMode</span>(<span class="title function_">getMainLoopModel</span>())) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
@@ -509,15 +509,15 @@
     Start["kickOutOfAutoIfNeeded(ctx)"]
     Q1{"在 auto 模式?"}
     Q2{"plan 且 auto 仍活跃?"}
-    A["仅不可用&lt;br/&gt;setAvailable"]
-    B["退出 auto&lt;br/&gt;切到 default"]
-    C["留在 plan&lt;br/&gt;拆掉 auto 挂钩"]
+    A["仅不可用<br/>setAvailable"]
+    B["退出 auto<br/>切到 default"]
+    C["留在 plan<br/>拆掉 auto 挂钩"]
 
-    Start --&gt; Q1
-    Q1 --&gt;|是| B
-    Q1 --&gt;|否| Q2
-    Q2 --&gt;|否| A
-    Q2 --&gt;|是| C</pre>
+    Start --> Q1
+    Q1 -->|是| B
+    Q1 -->|否| Q2
+    Q2 -->|否| A
+    Q2 -->|是| C</pre>
 <p><code>plan 且 auto 仍活跃</code> 在代码里等价于：<code>mode === 'plan'</code> 且（<code>prePlanMode === 'auto'</code> 或存在 <code>strippedDangerousRules</code>，即 opt-in 进入 plan 时仍带着 auto 剥离状态）。</p>
 <p><strong>各分支实际改动的字段</strong>（实现见 <code>permissionSetup.ts</code> L1190-1225）：</p>
 <table>
@@ -638,19 +638,19 @@
     Deny{"黑名单?"}
     Ext{"opus sonnet 4-6?"}
 
-    Start --&gt; S1
-    S1 --&gt;|否| N["false"]
-    S1 --&gt;|是| S2
-    S2 --&gt;|否| N
-    S2 --&gt;|是| S3
-    S3 --&gt;|是| Y["true"]
-    S3 --&gt;|否| Ant
-    Ant --&gt;|是| Deny
-    Deny --&gt;|是| N
-    Deny --&gt;|否| Y
-    Ant --&gt;|否| Ext
-    Ext --&gt;|是| Y
-    Ext --&gt;|否| N</pre>
+    Start --> S1
+    S1 -->|否| N["false"]
+    S1 -->|是| S2
+    S2 -->|否| N
+    S2 -->|是| S3
+    S3 -->|是| Y["true"]
+    S3 -->|否| Ant
+    Ant -->|是| Deny
+    Deny -->|是| N
+    Deny -->|否| Y
+    Ant -->|否| Ext
+    Ext -->|是| Y
+    Ext -->|否| N</pre>
 <p>新模型若应支持 auto，按源码 <code>@[MODEL LAUNCH]</code> 注释在安全流程里改黑名单/白名单或走 <code>allowModels</code> 灰度。</p>
 <h2 id="挂载时和变化时重跑">挂载时和变化时重跑</h2>
 <p>门禁不是只在进入 auto 时查一次：模型、远端配置、fast mode 等会变，若不再满足条件却仍停留在 auto，会有安全风险。本节描述 <strong>REPL 生命周期里何时重新跑异步门禁</strong>（<code>checkAndDisableAutoModeIfNeeded</code>），不通过则同样走 <code>kickOutOfAutoIfNeeded</code> 踢出。</p>

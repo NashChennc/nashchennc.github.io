@@ -441,31 +441,31 @@
 </blockquote>
 <h2 id="Deny-and-Continue-循环">Deny-and-Continue 循环</h2>
 <pre class="mermaid">flowchart TD
-    ToolCall["Agent 发起工具调用&lt;br/&gt;进入权限判定链"]
-    Classifier["分类器判定&lt;br/&gt;给出 allow/block/unavailable"]
-    Allow["ALLOW → 执行工具&lt;br/&gt;正常前进"]
-    Deny["DENY&lt;br/&gt;触发拒绝反馈循环"]
-    ErrorResult["构造 tool_result&lt;br/&gt;is_error: true&lt;br/&gt;+ 拒绝原因"]
-    NextTurn["模型看到错误结果&lt;br/&gt;调整策略并重试"]
-    ConsCheck{"连续拒绝 ≥ 3&lt;br/&gt;或总拒绝 ≥ 20?"}
-    Fallback["Fallback&lt;br/&gt;转人工或终止"]
-    Interactive{"交互模式?&lt;br/&gt;是否可请求人工审批"}
-    ManualApproval["升级为手动审批&lt;br/&gt;(带分类器原因)"]
-    Abort["AbortError&lt;br/&gt;终止进程"]
+    ToolCall["Agent 发起工具调用<br/>进入权限判定链"]
+    Classifier["分类器判定<br/>给出 allow/block/unavailable"]
+    Allow["ALLOW → 执行工具<br/>正常前进"]
+    Deny["DENY<br/>触发拒绝反馈循环"]
+    ErrorResult["构造 tool_result<br/>is_error: true<br/>+ 拒绝原因"]
+    NextTurn["模型看到错误结果<br/>调整策略并重试"]
+    ConsCheck{"连续拒绝 ≥ 3<br/>或总拒绝 ≥ 20?"}
+    Fallback["Fallback<br/>转人工或终止"]
+    Interactive{"交互模式?<br/>是否可请求人工审批"}
+    ManualApproval["升级为手动审批<br/>(带分类器原因)"]
+    Abort["AbortError<br/>终止进程"]
 
-    ToolCall --&gt; Classifier
-    Classifier --&gt;|allow| Allow
-    Classifier --&gt;|block| Deny
-    Deny --&gt; ErrorResult
-    ErrorResult --&gt; NextTurn
-    NextTurn --&gt; ToolCall
+    ToolCall --> Classifier
+    Classifier -->|allow| Allow
+    Classifier -->|block| Deny
+    Deny --> ErrorResult
+    ErrorResult --> NextTurn
+    NextTurn --> ToolCall
 
-    Deny --&gt; ConsCheck
-    ConsCheck --&gt;|否| ErrorResult
-    ConsCheck --&gt;|是| Fallback
-    Fallback --&gt; Interactive
-    Interactive --&gt;|是| ManualApproval
-    Interactive --&gt;|"否 headless"| Abort</pre>
+    Deny --> ConsCheck
+    ConsCheck -->|否| ErrorResult
+    ConsCheck -->|是| Fallback
+    Fallback --> Interactive
+    Interactive -->|是| ManualApproval
+    Interactive -->|"否 headless"| Abort</pre>
 <h3 id="拒绝消息的传递">拒绝消息的传递</h3>
 <p>用 <code>tool_result</code> + <code>is_error: true</code> 把权限决策写进对话流，等价于一次可学习的失败信号，而不是静默丢弃调用。</p>
 <p><code>checkPermissionsAndCallTool</code>（职责：执行前权限检查与工具调用编排；<code>src/services/tools/toolExecution.ts</code> L995-1103）在收到 <code>behavior: 'deny'</code> 后：</p>
@@ -525,14 +525,14 @@
 <p>覆盖「分类器根本没能给出有效判定」（API 错误等）时的策略，与「模型给出了 block」不同。<code>tengu_iron_gate_closed</code> 默认 <strong>fail-closed</strong>（宁可误拒也不在未审查时执行）；远端可改为 <strong>fail-open</strong>，回退到常规权限/人工审批，换取可用性。</p>
 <p>当分类器不可用（API 错误）时，行为由 <code>tengu_iron_gate_closed</code> 控制：</p>
 <pre class="mermaid">flowchart TD
-    Unavail["classifierResult.unavailable&lt;br/&gt;分类器调用不可用"]
-    IronGate{"tengu_iron_gate_closed?&lt;br/&gt;(默认 true)"}
-    FailClosed["Fail-Closed&lt;br/&gt;DENY + 重试引导消息"]
-    FailOpen["Fail-Open&lt;br/&gt;回退到常规权限流程"]
+    Unavail["classifierResult.unavailable<br/>分类器调用不可用"]
+    IronGate{"tengu_iron_gate_closed?<br/>(默认 true)"}
+    FailClosed["Fail-Closed<br/>DENY + 重试引导消息"]
+    FailOpen["Fail-Open<br/>回退到常规权限流程"]
 
-    Unavail --&gt; IronGate
-    IronGate --&gt;|true| FailClosed
-    IronGate --&gt;|false| FailOpen</pre>
+    Unavail --> IronGate
+    IronGate -->|true| FailClosed
+    IronGate -->|false| FailOpen</pre>
 <p><strong><code>tengu_iron_gate_closed</code></strong> 的配置（<code>src/utils/permissions/permissions.ts</code> L107, L847-851）：</p>
 <ul>
 <li>默认值：<code>true</code>（fail-closed）</li>
@@ -544,18 +544,18 @@
 <p>单独处理「对话过长导致分类器无法工作」这一类 <strong>不可自愈</strong> 错误。与 transient API 故障不同，transcript 在会话中只增不减，反复调用分类器无意义；因此必须分流——有 UI 则交还人工审批，无 UI（headless）则直接终止以免空转。</p>
 <p>当 transcript 超过分类器的上下文窗口时（<code>classifierResult.transcriptTooLong</code>），这是一个<strong>确定性错误</strong>——transcript 只会增长不会缩短，重试没有意义。</p>
 <pre class="mermaid">flowchart TD
-    TooLong["transcriptTooLong&lt;br/&gt;上下文窗口超限"]
-    Mode{"交互模式?&lt;br/&gt;是否可走人工审批"}
-    Headless["headless&lt;br/&gt;(shouldAvoidPermissionPrompts)"]
-    Interactive2["交互模式&lt;br/&gt;可提示用户审批"]
+    TooLong["transcriptTooLong<br/>上下文窗口超限"]
+    Mode{"交互模式?<br/>是否可走人工审批"}
+    Headless["headless<br/>(shouldAvoidPermissionPrompts)"]
+    Interactive2["交互模式<br/>可提示用户审批"]
 
-    TooLong --&gt; Mode
-    Mode --&gt;|headless| Headless
-    Mode --&gt;|交互| Interactive2
+    TooLong --> Mode
+    Mode -->|headless| Headless
+    Mode -->|交互| Interactive2
 
-    Headless --&gt; AbortErr["throw AbortError&lt;br/&gt;'transcript exceeded context window&lt;br/&gt;in headless mode'"]
+    Headless --> AbortErr["throw AbortError<br/>'transcript exceeded context window<br/>in headless mode'"]
 
-    Interactive2 --&gt; FallbackAsk["回退到手动审批&lt;br/&gt;decisionReason: 'Auto mode classifier&lt;br/&gt;transcript exceeded context window'"]</pre>
+    Interactive2 --> FallbackAsk["回退到手动审批<br/>decisionReason: 'Auto mode classifier<br/>transcript exceeded context window'"]</pre>
 <p>Headless 模式的处理更严格：由于没有 UI 来手动审批，而 deny-retry-deny 循环只会浪费 token，因此直接终止。</p>
 <h2 id="UI-层：拒绝记录">UI 层：拒绝记录</h2>
 <p>说明运行时拒绝如何进入<strong>人可读</strong>的界面与通知，便于排查与信任。环形缓冲与 <code>/permissions</code> 展示不改变权限判定本身，只增强可观测性；与 analytics 互补（一个面向用户界面，一个面向遥测）。</p>
@@ -571,17 +571,17 @@
 <pre class="mermaid">flowchart TD
     R["分类器 / 解析结果"]
 
-    R --&gt;|allow| OK["执行工具"]
+    R -->|allow| OK["执行工具"]
 
-    R --&gt;|block| Lim{"连续 ≥3 或 总计 ≥20?"}
-    Lim --&gt;|是| FB["fallback · 手动审批或终止"]
-    Lim --&gt;|否| Deny["deny + is_error tool_result"]
-    Deny --&gt; Retry["模型重试"]
-    Retry --&gt; R
+    R -->|block| Lim{"连续 ≥3 或 总计 ≥20?"}
+    Lim -->|是| FB["fallback · 手动审批或终止"]
+    Lim -->|否| Deny["deny + is_error tool_result"]
+    Deny --> Retry["模型重试"]
+    Retry --> R
 
-    R --&gt;|unavailable| IO["iron_gate&lt;br/&gt;fail-closed 拒绝 或 fail-open 回退审批"]
-    R --&gt;|transcriptTooLong| TL["交互手动审批&lt;br/&gt;或 headless AbortError"]
-    R --&gt;|解析 null| Null["保守 block"]</pre>
+    R -->|unavailable| IO["iron_gate<br/>fail-closed 拒绝 或 fail-open 回退审批"]
+    R -->|transcriptTooLong| TL["交互手动审批<br/>或 headless AbortError"]
+    R -->|解析 null| Null["保守 block"]</pre>
 <p>每一层都有明确的降级策略，核心原则是：</p>
 <ol>
 <li><strong>不中断</strong>：拒绝不终止会话，agent 有机会换一条路</li>

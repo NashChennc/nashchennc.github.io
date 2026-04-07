@@ -445,18 +445,18 @@
 <p><strong>威胁模型（整理用）</strong>：攻击面在 <strong>子进程可见的 <code>environ</code></strong>。不可信工作流/仓库诱导模型执行 <code>echo $VAR</code>、<code>curl</code> 拼接环境变量时，若子进程仍带完整密钥，tool result 可能 <strong>回灌模型与用户</strong>。剥离缩小 <strong>Bash / MCP / LSP / hooks</strong> 路径的外泄，与 API 侧 PI <strong>互补</strong>。</p>
 <pre class="mermaid">sequenceDiagram
   participant P as 父进程 (Claude Code)
-  participant E as "subprocessEnv()&lt;br/&gt;子进程环境构造"
+  participant E as "subprocessEnv()<br/>子进程环境构造"
   participant C as 子进程 (Bash / MCP / Hooks)
   
-  P-&gt;&gt;E: subprocessEnv()&lt;br/&gt;取即将传给 spawn 的 env 快照
+  P->>E: subprocessEnv()<br/>取即将传给 spawn 的 env 快照
   alt CLAUDE_CODE_SUBPROCESS_ENV_SCRUB 门控开启
-    E--&gt;&gt;P: 深拷贝并删除 GHA_SUBPROCESS_SCRUB 列键&lt;br/&gt;含 ANTHROPIC_API_KEY 等
+    E-->>P: 深拷贝并删除 GHA_SUBPROCESS_SCRUB 列键<br/>含 ANTHROPIC_API_KEY 等
   else 门控关闭
-    E--&gt;&gt;P: process.env 或合并 proxyEnv&lt;br/&gt;不做敏感键剥离
+    E-->>P: process.env 或合并 proxyEnv<br/>不做敏感键剥离
   end
   
-  P-&gt;&gt;C: spawn 使用返回的 env&lt;br/&gt;子进程看不到已删密钥
-  Note over P,C: echo $ANTHROPIC_API_KEY 在子进程为空&lt;br/&gt;父进程仍可用密钥调 API</pre>
+  P->>C: spawn 使用返回的 env<br/>子进程看不到已删密钥
+  Note over P,C: echo $ANTHROPIC_API_KEY 在子进程为空<br/>父进程仍可用密钥调 API</pre>
 <p><strong>图注</strong>：实现见 <code>subprocessEnv.ts</code> 约 L79–98。门控 <strong>关闭</strong> 时返回 <code>process.env</code>（或与 CCR <strong><code>proxyEnv</code></strong> 合并）且 <strong>不剥离</strong>；父进程仍可用完整密钥调 API。</p>
 <blockquote>
 <p>剥离动作缩小的是<strong>经由外部 Shell 或第三方插件外泄</strong>的物理路径。这与服务端针对 Prompt Injection (PI) 的探测是完全互补的——一个防物理泄露，一个防语义注入。</p>
@@ -493,13 +493,13 @@
 <p>下列拆为两张图：<strong>图 A</strong> 为单次往返主时间线（含 PI 在输出后、阅读前）；<strong>图 B</strong> 把各控制点挂到对应阶段，避免误画成「全部挤在工具执行前一刻」。</p>
 <p><strong>图 A — 单次工具往返主时间线</strong></p>
 <pre class="mermaid">flowchart LR
-  parseStage["parseDeepLink 等&lt;br/&gt;解析用户输入与链接"]
-  clsStage["permissions + yoloClassifier&lt;br/&gt;transcript 分类器门"]
-  execStage["BashTool / MCP spawn&lt;br/&gt;子进程实际执行"]
-  outStage["tool_result 回写会话&lt;br/&gt;输出进入 transcript"]
-  piStage["PI probe + AFK header&lt;br/&gt;服务端扫描注入"]
-  readStage["主模型续写&lt;br/&gt;读结果与下一轮"]
-  parseStage --&gt; clsStage --&gt; execStage --&gt; outStage --&gt; piStage --&gt; readStage</pre>
+  parseStage["parseDeepLink 等<br/>解析用户输入与链接"]
+  clsStage["permissions + yoloClassifier<br/>transcript 分类器门"]
+  execStage["BashTool / MCP spawn<br/>子进程实际执行"]
+  outStage["tool_result 回写会话<br/>输出进入 transcript"]
+  piStage["PI probe + AFK header<br/>服务端扫描注入"]
+  readStage["主模型续写<br/>读结果与下一轮"]
+  parseStage --> clsStage --> execStage --> outStage --> piStage --> readStage</pre>
 <p><strong>图 B — 控制点与时间轴对齐</strong></p>
 <pre class="mermaid">flowchart TB
   subgraph timeAxis [与图 A 同序对照]
@@ -509,20 +509,20 @@
     execStage[执行阶段]
     outStage[输出阶段]
     readStage[模型阅读阶段]
-    parseStage --&gt; clsStage --&gt; execStage --&gt; outStage --&gt; readStage
+    parseStage --> clsStage --> execStage --> outStage --> readStage
   end
-  deeplink["partiallySanitizeUnicode&lt;br/&gt;sanitization + parseDeepLink"]
-  deeplink -.-&gt;|"仅解析入口"| parseStage
-  subprocessEnv["subprocessEnv()&lt;br/&gt;spawn 前剥敏感环境变量"]
-  subprocessEnv -.-&gt;|"子进程创建时"| execStage
-  preClsDetail["acceptEdits / allowlist / yolo&lt;br/&gt;auto mode Tier3 等"]
-  preClsDetail --&gt; clsStage
-  piDetail["PI probes&lt;br/&gt;AFK 会话服务端扫描"]
-  piDetail --&gt; outStage
-  promptsCue["getSimpleSystemSection 等&lt;br/&gt;系统提示注入警觉"]
-  promptsCue -.-&gt;|"多轮阅读约束"| readStage
-  channelRisk["SendMessageTool / ChannelsNotice&lt;br/&gt;跨会话入站"]
-  channelRisk --&gt;|"内容入会话"| readStage</pre>
+  deeplink["partiallySanitizeUnicode<br/>sanitization + parseDeepLink"]
+  deeplink -.->|"仅解析入口"| parseStage
+  subprocessEnv["subprocessEnv()<br/>spawn 前剥敏感环境变量"]
+  subprocessEnv -.->|"子进程创建时"| execStage
+  preClsDetail["acceptEdits / allowlist / yolo<br/>auto mode Tier3 等"]
+  preClsDetail --> clsStage
+  piDetail["PI probes<br/>AFK 会话服务端扫描"]
+  piDetail --> outStage
+  promptsCue["getSimpleSystemSection 等<br/>系统提示注入警觉"]
+  promptsCue -.->|"多轮阅读约束"| readStage
+  channelRisk["SendMessageTool / ChannelsNotice<br/>跨会话入站"]
+  channelRisk -->|"内容入会话"| readStage</pre>
 <ul>
 <li><strong>解析阶段</strong>：deeplink / Unicode 净化与「工具执行」<strong>不同时</strong>发生。</li>
 <li><strong>执行阶段</strong>：<code>subprocessEnv</code> 仅在 <strong>spawn</strong> 时收紧环境，与分类器门 <strong>正交</strong>。</li>
@@ -539,23 +539,23 @@
   participant O as 工具输出 (Tool Result)
   participant M as 主循环模型 (Claude)
   
-  U-&gt;&gt;D: 传入携带恶意载荷的请求
-  D--&gt;&gt;M: 物理字符清洗 (清除不可见 Unicode)
+  U->>D: 传入携带恶意载荷的请求
+  D-->>M: 物理字符清洗 (清除不可见 Unicode)
   
-  M-&gt;&gt;G: tool_use Bash("...")&lt;br/&gt;模型请求执行命令
+  M->>G: tool_use Bash("...")<br/>模型请求执行命令
   
   alt 分类器裁定 Allow
-    G-&gt;&gt;S: subprocessEnv() 后再 spawn&lt;br/&gt;子进程 env 已剥离密钥
-    S-&gt;&gt;O: exec / MCP 子进程&lt;br/&gt;产生 stdout 等
-    O--&gt;&gt;M: tool_result 原文&lt;br/&gt;（或经 PI 附警告）
+    G->>S: subprocessEnv() 后再 spawn<br/>子进程 env 已剥离密钥
+    S->>O: exec / MCP 子进程<br/>产生 stdout 等
+    O-->>M: tool_result 原文<br/>（或经 PI 附警告）
     
     opt 如果当前会话已 Latch AFK Header
-      Note over O,M: PI probe 扫描 tool 输出&lt;br/&gt;可疑则头部注入 WARNING
+      Note over O,M: PI probe 扫描 tool 输出<br/>可疑则头部注入 WARNING
     end
     
   else 分类器裁定 Deny (拦截)
-    G--&gt;&gt;M: deny tool_result&lt;br/&gt;不进入 spawn
-    Note over G,M: 拦截动作短路了整个下游。&lt;br/&gt;恶意请求根本不会触碰 Spawn，也不会产生物理外泄风险。
+    G-->>M: deny tool_result<br/>不进入 spawn
+    Note over G,M: 拦截动作短路了整个下游。<br/>恶意请求根本不会触碰 Spawn，也不会产生物理外泄风险。
   end</pre>
 <p><strong>图注</strong>：分类器细节见 <a href="/ccauto-02-classifier/" title="">02</a>；AFK / PI 见 <a href="/ccauto-04-multi-agent/" title="">04</a>。<strong>deny</strong> 路径不进入 spawn，故 <strong>不经</strong> <code>subprocessEnv</code>。无 AFK latch 时 PI 的 <code>opt</code> 分支不生效，勿画成客户端硬错误。</p>
 <h2 id="特性与环境变量速查（全集）">特性与环境变量速查（全集）</h2>

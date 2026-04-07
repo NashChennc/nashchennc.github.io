@@ -435,16 +435,16 @@
                         <h2 id="Auto-Mode-在权限模式体系中的位置">Auto Mode 在权限模式体系中的位置</h2>
 <p>Claude Code 定义了一组<strong>权限模式</strong>（<code>PermissionMode</code>），用户通过 Shift+Tab 在 REPL 中循环切换。auto mode 是在 <code>TRANSCRIPT_CLASSIFIER</code> 特性开启时追加的内部模式。</p>
 <pre class="mermaid">stateDiagram-v2
-    [*] --&gt; modeDefault
+    [*] --> modeDefault
     state "default" as modeDefault
-    modeDefault --&gt; acceptEdits: Shift+Tab
-    acceptEdits --&gt; plan: Shift+Tab
-    plan --&gt; bypassPermissions: Shift+Tab (如可用)
-    plan --&gt; auto: Shift+Tab (如可用, 无 bypass)
-    bypassPermissions --&gt; auto: Shift+Tab (如可用)
-    bypassPermissions --&gt; modeDefault: Shift+Tab (无 auto)
-    auto --&gt; modeDefault: Shift+Tab
-    plan --&gt; modeDefault: Shift+Tab (无 bypass &amp; 无 auto)</pre>
+    modeDefault --> acceptEdits: Shift+Tab
+    acceptEdits --> plan: Shift+Tab
+    plan --> bypassPermissions: Shift+Tab (如可用)
+    plan --> auto: Shift+Tab (如可用, 无 bypass)
+    bypassPermissions --> auto: Shift+Tab (如可用)
+    bypassPermissions --> modeDefault: Shift+Tab (无 auto)
+    auto --> modeDefault: Shift+Tab
+    plan --> modeDefault: Shift+Tab (无 bypass & 无 auto)</pre>
 <p>轮转逻辑实现在 <code>getNextPermissionMode</code>（职责：基于当前模式与门禁状态计算“下一个可切换模式”）：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/utils/permissions/getNextPermissionMode.ts L17-29</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">canCycleToAuto</span>(<span class="params"><span class="attr">ctx</span>: <span class="title class_">ToolPermissionContext</span></span>): <span class="built_in">boolean</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">feature</span>(<span class="string">&#x27;TRANSCRIPT_CLASSIFIER&#x27;</span>)) &#123;</span><br><span class="line">    <span class="keyword">const</span> gateEnabled = <span class="title function_">isAutoModeGateEnabled</span>()</span><br><span class="line">    <span class="keyword">const</span> can = !!ctx.<span class="property">isAutoModeAvailable</span> &amp;&amp; gateEnabled</span><br><span class="line">    <span class="keyword">return</span> can</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
 <p>轮转到 auto 需要<strong>两个条件同时满足</strong>：</p>
@@ -471,15 +471,15 @@
 <p><code>autoModeState.ts</code> 维护三个模块级变量，各有不同语义：</p>
 <pre class="mermaid">flowchart LR
     subgraph state [autoModeState.ts（会话级 auto 状态存储）]
-        Active["autoModeActive&lt;br/&gt;当前是否在 auto 中"]
-        FlagCli["autoModeFlagCli&lt;br/&gt;本会话用户意图使用 auto"]
-        Broken["autoModeCircuitBroken&lt;br/&gt;远端熔断器已激活"]
+        Active["autoModeActive<br/>当前是否在 auto 中"]
+        FlagCli["autoModeFlagCli<br/>本会话用户意图使用 auto"]
+        Broken["autoModeCircuitBroken<br/>远端熔断器已激活"]
     end
 
-    CLI["CLI 解析&lt;br/&gt;识别用户启动参数"] --&gt;|setAutoModeFlagCli&lt;br/&gt;写入是否意图启用 auto| FlagCli
-    Transition["transitionPermissionMode&lt;br/&gt;执行模式迁移与副作用"] --&gt;|setAutoModeActive&lt;br/&gt;更新当前是否处于 auto| Active
-    Verify["verifyAutoModeGateAccess&lt;br/&gt;异步门禁校验"] --&gt;|setAutoModeCircuitBroken&lt;br/&gt;记录熔断状态| Broken
-    Verify --&gt;|kickOut 时| Active</pre>
+    CLI["CLI 解析<br/>识别用户启动参数"] -->|setAutoModeFlagCli<br/>写入是否意图启用 auto| FlagCli
+    Transition["transitionPermissionMode<br/>执行模式迁移与副作用"] -->|setAutoModeActive<br/>更新当前是否处于 auto| Active
+    Verify["verifyAutoModeGateAccess<br/>异步门禁校验"] -->|setAutoModeCircuitBroken<br/>记录熔断状态| Broken
+    Verify -->|kickOut 时| Active</pre>
 <table>
 <thead>
 <tr>
@@ -550,22 +550,22 @@
 </ol>
 <pre class="mermaid">sequenceDiagram
     participant User as 用户
-    participant Cycle as cyclePermissionMode&lt;br/&gt;发起轮转
-    participant Trans as transitionPermissionMode&lt;br/&gt;执行状态迁移
-    participant State as autoModeState&lt;br/&gt;写入会话状态
-    participant Strip as stripDangerousPermissionsForAutoMode&lt;br/&gt;清理危险 allow 规则
+    participant Cycle as cyclePermissionMode<br/>发起轮转
+    participant Trans as transitionPermissionMode<br/>执行状态迁移
+    participant State as autoModeState<br/>写入会话状态
+    participant Strip as stripDangerousPermissionsForAutoMode<br/>清理危险 allow 规则
 
-    User-&gt;&gt;Cycle: Shift+Tab
-    Cycle-&gt;&gt;Cycle: getNextPermissionMode&lt;br/&gt;计算 next mode = 'auto'
-    Cycle-&gt;&gt;Trans: transitionPermissionMode(fromMode, 'auto', ctx)&lt;br/&gt;参数 fromMode/ctx 描述当前模式与权限上下文
-    Trans-&gt;&gt;Trans: isAutoModeGateEnabled() ?&lt;br/&gt;同步门禁复核
+    User->>Cycle: Shift+Tab
+    Cycle->>Cycle: getNextPermissionMode<br/>计算 next mode = 'auto'
+    Cycle->>Trans: transitionPermissionMode(fromMode, 'auto', ctx)<br/>参数 fromMode/ctx 描述当前模式与权限上下文
+    Trans->>Trans: isAutoModeGateEnabled() ?<br/>同步门禁复核
     alt 门禁未通过
-        Trans--&gt;&gt;Cycle: throw Error
+        Trans-->>Cycle: throw Error
     end
-    Trans-&gt;&gt;State: setAutoModeActive(true)&lt;br/&gt;标记已进入 auto
-    Trans-&gt;&gt;Strip: stripDangerousPermissionsForAutoMode(ctx)&lt;br/&gt;按策略移除高风险规则
-    Strip--&gt;&gt;Trans: 返回清理后的 context
-    Trans--&gt;&gt;Cycle: 返回新 context</pre>
+    Trans->>State: setAutoModeActive(true)<br/>标记已进入 auto
+    Trans->>Strip: stripDangerousPermissionsForAutoMode(ctx)<br/>按策略移除高风险规则
+    Strip-->>Trans: 返回清理后的 context
+    Trans-->>Cycle: 返回新 context</pre>
 <p>离开 auto 时执行逆操作：<code>setAutoModeActive(false)</code> + <code>restoreDangerousPermissions(ctx)</code>（恢复进入前暂存规则）+ <code>setNeedsAutoModeExitAttachment(true)</code>（标记需要附加退出说明）。</p>
 <p>这张图里 5 个参与者（竖列）是：</p>
 <ul>

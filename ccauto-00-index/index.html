@@ -452,65 +452,65 @@
 <h2 id="全局架构">全局架构</h2>
 <pre class="mermaid">flowchart TB
     subgraph entry [入口层（决定是否尝试进入 auto mode）]
-        CLI["CLI: --permission-mode auto&lt;br/&gt;命令行显式启用"]
-        ShiftTab["Shift+Tab 轮转&lt;br/&gt;会话内快速切换模式"]
-        Settings["settings: defaultMode&lt;br/&gt;默认权限模式配置项"]
-        SDK["SDK / Bridge&lt;br/&gt;外部调用入口"]
+        CLI["CLI: --permission-mode auto<br/>命令行显式启用"]
+        ShiftTab["Shift+Tab 轮转<br/>会话内快速切换模式"]
+        Settings["settings: defaultMode<br/>默认权限模式配置项"]
+        SDK["SDK / Bridge<br/>外部调用入口"]
     end
 
     subgraph gate [门禁层（集中做可用性与策略校验）]
-        GrowthBook["tengu_auto_mode_config&lt;br/&gt;远端下发 auto 策略"]
-        ModelCheck["modelSupportsAutoMode&lt;br/&gt;模型能力是否支持"]
-        SettingsCheck["disableAutoMode?&lt;br/&gt;本地设置是否禁用"]
-        CircuitBreaker["Circuit Breaker&lt;br/&gt;紧急熔断开关"]
-        GrowthBook --&gt; Verify["verifyAutoModeGateAccess&lt;br/&gt;统一门禁判定函数"]
-        ModelCheck --&gt; Verify
-        SettingsCheck --&gt; Verify
-        CircuitBreaker --&gt; Verify
+        GrowthBook["tengu_auto_mode_config<br/>远端下发 auto 策略"]
+        ModelCheck["modelSupportsAutoMode<br/>模型能力是否支持"]
+        SettingsCheck["disableAutoMode?<br/>本地设置是否禁用"]
+        CircuitBreaker["Circuit Breaker<br/>紧急熔断开关"]
+        GrowthBook --> Verify["verifyAutoModeGateAccess<br/>统一门禁判定函数"]
+        ModelCheck --> Verify
+        SettingsCheck --> Verify
+        CircuitBreaker --> Verify
     end
 
     subgraph transition [切换层（进入 auto 前的状态迁移）]
-        Strip["stripDangerousPermissionsForAutoMode&lt;br/&gt;剥离危险 allow 规则"]
-        SetActive["setAutoModeActive(true)&lt;br/&gt;标记当前会话已启用 auto"]
-        OptIn["AutoModeOptInDialog&lt;br/&gt;首次同意/风险告知"]
+        Strip["stripDangerousPermissionsForAutoMode<br/>剥离危险 allow 规则"]
+        SetActive["setAutoModeActive(true)<br/>标记当前会话已启用 auto"]
+        OptIn["AutoModeOptInDialog<br/>首次同意/风险告知"]
     end
 
     subgraph runtime [运行时判定（对每次工具调用做实时决策）]
-        ToolCall["工具调用请求&lt;br/&gt;待审批的执行单元"]
-        AcceptEdits["Tier 2: acceptEdits 快路径&lt;br/&gt;编辑确认类请求直接放行"]
-        Allowlist["Tier 1: 安全工具白名单&lt;br/&gt;低风险工具短路放行"]
-        Stage1["Tier 3: Stage 1 快速过滤&lt;br/&gt;先判定是否可疑"]
-        Stage2["Tier 3: Stage 2 链式推理&lt;br/&gt;对可疑请求深度分析"]
-        Allow["ALLOW — 执行工具&lt;br/&gt;进入实际执行"]
-        Deny["DENY — 返回错误结果&lt;br/&gt;阻断本次调用"]
+        ToolCall["工具调用请求<br/>待审批的执行单元"]
+        AcceptEdits["Tier 2: acceptEdits 快路径<br/>编辑确认类请求直接放行"]
+        Allowlist["Tier 1: 安全工具白名单<br/>低风险工具短路放行"]
+        Stage1["Tier 3: Stage 1 快速过滤<br/>先判定是否可疑"]
+        Stage2["Tier 3: Stage 2 链式推理<br/>对可疑请求深度分析"]
+        Allow["ALLOW — 执行工具<br/>进入实际执行"]
+        Deny["DENY — 返回错误结果<br/>阻断本次调用"]
     end
 
     subgraph agent [多 Agent 安全（跨 Agent 传递时补充防护）]
-        Outbound["Outbound 分类&lt;br/&gt;主 Agent 发起前审查"]
-        SubAgent["Subagent 执行&lt;br/&gt;隔离上下文中运行"]
-        Inbound["Inbound 分类&lt;br/&gt;子 Agent 返回结果复检"]
-        Warning["警告注入&lt;br/&gt;在上下文中标记潜在风险"]
+        Outbound["Outbound 分类<br/>主 Agent 发起前审查"]
+        SubAgent["Subagent 执行<br/>隔离上下文中运行"]
+        Inbound["Inbound 分类<br/>子 Agent 返回结果复检"]
+        Warning["警告注入<br/>在上下文中标记潜在风险"]
     end
 
-    entry --&gt; gate
-    gate --&gt;|通过| transition
-    gate --&gt;|拒绝| KickOut["踢出 / 通知"]
-    transition --&gt; runtime
+    entry --> gate
+    gate -->|通过| transition
+    gate -->|拒绝| KickOut["踢出 / 通知"]
+    transition --> runtime
 
-    ToolCall --&gt; AcceptEdits
-    AcceptEdits --&gt;|allow| Allow
-    AcceptEdits --&gt;|不适用| Allowlist
-    Allowlist --&gt;|allow| Allow
-    Allowlist --&gt;|不适用| Stage1
-    Stage1 --&gt;|"no (安全)"| Allow
-    Stage1 --&gt;|"yes (可疑)"| Stage2
-    Stage2 --&gt;|allow| Allow
-    Stage2 --&gt;|block| Deny
+    ToolCall --> AcceptEdits
+    AcceptEdits -->|allow| Allow
+    AcceptEdits -->|不适用| Allowlist
+    Allowlist -->|allow| Allow
+    Allowlist -->|不适用| Stage1
+    Stage1 -->|"no (安全)"| Allow
+    Stage1 -->|"yes (可疑)"| Stage2
+    Stage2 -->|allow| Allow
+    Stage2 -->|block| Deny
 
-    ToolCall --&gt;|Agent 工具| Outbound
-    Outbound --&gt;|allow| SubAgent
-    SubAgent --&gt; Inbound
-    Inbound --&gt; Warning</pre>
+    ToolCall -->|Agent 工具| Outbound
+    Outbound -->|allow| SubAgent
+    SubAgent --> Inbound
+    Inbound --> Warning</pre>
 <h2 id="术语表">术语表</h2>
 <ul>
 <li><strong>auto mode</strong>：将工具调用审批委托给 AI 分类器的权限模式，代码中也称 <code>yolo</code> / <code>TRANSCRIPT_CLASSIFIER</code></li>
@@ -543,7 +543,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/">
+                                <a class="post-nav__link" href="/%E8%B5%84%E6%BA%90%E7%AB%99/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -552,7 +552,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">远程服务器使用</span>
+                                        <span class="post-nav__title">资源站</span>
                                     </span>
                                 </a>
                             

@@ -441,37 +441,37 @@
 <p><code>stripDangerousPermissionsForAutoMode</code> 在进入 auto mode 时执行（职责：剥离危险静态 allow 规则），将这类危险规则从生效集合中移除并暂存，确保它们进入分类器管道接受审查。</p>
 <h2 id="过滤流水线">过滤流水线</h2>
 <pre class="mermaid">flowchart TD
-    Enter["进入 auto mode&lt;br/&gt;transitionPermissionMode 触发迁移"]
-    Load["读取 context.alwaysAllowRules&lt;br/&gt;聚合各来源 allow 规则"]
-    Parse["逐条解析为 PermissionRule&lt;br/&gt;统一到规则对象"]
-    Check{"findDangerousClassifierPermissions&lt;br/&gt;是否命中危险分类规则"}
-    IsBash{"isDangerousBashPermission?&lt;br/&gt;是否为危险 Bash 形状"}
-    IsPS{"isDangerousPowerShellPermission?&lt;br/&gt;是否为危险 PowerShell 形状"}
-    IsAgent{"isDangerousTaskPermission?&lt;br/&gt;是否放行 Agent 通配"}
-    IsTmux{"Tmux? (ant only)&lt;br/&gt;仅 ant 环境额外检查"}
+    Enter["进入 auto mode<br/>transitionPermissionMode 触发迁移"]
+    Load["读取 context.alwaysAllowRules<br/>聚合各来源 allow 规则"]
+    Parse["逐条解析为 PermissionRule<br/>统一到规则对象"]
+    Check{"findDangerousClassifierPermissions<br/>是否命中危险分类规则"}
+    IsBash{"isDangerousBashPermission?<br/>是否为危险 Bash 形状"}
+    IsPS{"isDangerousPowerShellPermission?<br/>是否为危险 PowerShell 形状"}
+    IsAgent{"isDangerousTaskPermission?<br/>是否放行 Agent 通配"}
+    IsTmux{"Tmux? (ant only)<br/>仅 ant 环境额外检查"}
 
-    Enter --&gt; Load --&gt; Parse --&gt; Check
-    Check --&gt; IsBash
-    Check --&gt; IsPS
-    Check --&gt; IsAgent
-    Check --&gt; IsTmux
+    Enter --> Load --> Parse --> Check
+    Check --> IsBash
+    Check --> IsPS
+    Check --> IsAgent
+    Check --> IsTmux
 
-    IsBash --&gt;|命中| Stash["移入 strippedDangerousRules&lt;br/&gt;并从 alwaysAllowRules 移除"]
-    IsPS --&gt;|命中| Stash
-    IsAgent --&gt;|命中| Stash
-    IsTmux --&gt;|命中| Stash
-    IsBash --&gt;|未命中| Keep["保留在 alwaysAllowRules&lt;br/&gt;继续参与常规权限匹配"]
-    IsPS --&gt;|未命中| Keep
-    IsAgent --&gt;|未命中| Keep
-    IsTmux --&gt;|未命中| Keep
+    IsBash -->|命中| Stash["移入 strippedDangerousRules<br/>并从 alwaysAllowRules 移除"]
+    IsPS -->|命中| Stash
+    IsAgent -->|命中| Stash
+    IsTmux -->|命中| Stash
+    IsBash -->|未命中| Keep["保留在 alwaysAllowRules<br/>继续参与常规权限匹配"]
+    IsPS -->|未命中| Keep
+    IsAgent -->|未命中| Keep
+    IsTmux -->|未命中| Keep
 
     subgraph exit [退出 auto mode（恢复进入前暂存规则）]
-        Restore["restoreDangerousPermissions&lt;br/&gt;按来源逐类恢复"]
-        Restore --&gt; Apply["applyPermissionUpdate&lt;br/&gt;addRules + allow&lt;br/&gt;逐源写回"]
-        Apply --&gt; Clear["strippedDangerousRules = undefined&lt;br/&gt;清空暂存态"]
+        Restore["restoreDangerousPermissions<br/>按来源逐类恢复"]
+        Restore --> Apply["applyPermissionUpdate<br/>addRules + allow<br/>逐源写回"]
+        Apply --> Clear["strippedDangerousRules = undefined<br/>清空暂存态"]
     end
 
-    Stash -.-&gt;|退出时| Restore</pre>
+    Stash -.->|退出时| Restore</pre>
 <h2 id="四类危险规则">四类危险规则</h2>
 <h3 id="1-Bash-解释器模式">1. Bash 解释器模式</h3>
 <p><code>isDangerousBashPermission</code>（职责：识别会绕过分类器的 Bash 通配规则；<code>src/utils/permissions/permissionSetup.ts</code>）使用 <code>DANGEROUS_BASH_PATTERNS</code>（<code>src/utils/permissions/dangerousPatterns.ts</code> L44-80）进行匹配。</p>

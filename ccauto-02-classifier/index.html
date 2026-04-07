@@ -459,26 +459,26 @@
 其中 Tier 1 里的“用户规则” <strong>大多在更早阶段已匹配</strong>，不会进入 <code>ask</code> 分支，所以图内主要看到 Tier 1 白名单、Tier 2 快路径与 Tier 3 分类器。</p>
 <p>当权限系统对某个工具调用返回 <code>behavior: 'ask'</code> 且当前处于 auto mode 时，判定按以下优先级依次进行：</p>
 <pre class="mermaid">flowchart TD
-    Ask["权限初判结果: ask&lt;br/&gt;进入 auto 分支后继续细分"]
-    Safety{"safetyCheck 且&lt;br/&gt;非 classifierApprovable?"}
-    Interactive{"requiresUserInteraction?&lt;br/&gt;是否必须用户显式交互"}
-    AE["Tier 2: acceptEdits 快路径&lt;br/&gt;对应 in-project file operations"]
-    AL["Tier 1: 安全工具白名单&lt;br/&gt;只读/协调类工具短路放行"]
-    Classifier["Tier 3: 分类器&lt;br/&gt;其余请求进入两阶段判定"]
+    Ask["权限初判结果: ask<br/>进入 auto 分支后继续细分"]
+    Safety{"safetyCheck 且<br/>非 classifierApprovable?"}
+    Interactive{"requiresUserInteraction?<br/>是否必须用户显式交互"}
+    AE["Tier 2: acceptEdits 快路径<br/>对应 in-project file operations"]
+    AL["Tier 1: 安全工具白名单<br/>只读/协调类工具短路放行"]
+    Classifier["Tier 3: 分类器<br/>其余请求进入两阶段判定"]
 
-    Ask --&gt; Safety
-    Safety --&gt;|是| KeepAsk1["保持 ask&lt;br/&gt;不调用分类器"]
-    Safety --&gt;|否| Interactive
-    Interactive --&gt;|是| KeepAsk2["保持 ask&lt;br/&gt;等待用户审批"]
-    Interactive --&gt;|否| AE
-    AE --&gt;|等价 allow| AllowFast["ALLOW (fastPath: acceptEdits)&lt;br/&gt;减少一次 API 调用"]
-    AE --&gt;|不适用/失败| AL
-    AL --&gt;|工具在白名单| AllowSafe["ALLOW (fastPath: allowlist)&lt;br/&gt;低风险工具直接放行"]
-    AL --&gt;|不在白名单| Classifier
-    Classifier --&gt;|allow| AllowCls["ALLOW (classifier)&lt;br/&gt;分类器确认安全"]
-    Classifier --&gt;|block| DenyFlow["DENY 流程&lt;br/&gt;返回拒绝并引导重试"]
-    Classifier --&gt;|unavailable| FailPolicy["Fail-closed / Fail-open&lt;br/&gt;按铁门配置降级"]
-    Classifier --&gt;|transcriptTooLong| Fallback["回退手动审批&lt;br/&gt;避免无意义重试"]</pre>
+    Ask --> Safety
+    Safety -->|是| KeepAsk1["保持 ask<br/>不调用分类器"]
+    Safety -->|否| Interactive
+    Interactive -->|是| KeepAsk2["保持 ask<br/>等待用户审批"]
+    Interactive -->|否| AE
+    AE -->|等价 allow| AllowFast["ALLOW (fastPath: acceptEdits)<br/>减少一次 API 调用"]
+    AE -->|不适用/失败| AL
+    AL -->|工具在白名单| AllowSafe["ALLOW (fastPath: allowlist)<br/>低风险工具直接放行"]
+    AL -->|不在白名单| Classifier
+    Classifier -->|allow| AllowCls["ALLOW (classifier)<br/>分类器确认安全"]
+    Classifier -->|block| DenyFlow["DENY 流程<br/>返回拒绝并引导重试"]
+    Classifier -->|unavailable| FailPolicy["Fail-closed / Fail-open<br/>按铁门配置降级"]
+    Classifier -->|transcriptTooLong| Fallback["回退手动审批<br/>避免无意义重试"]</pre>
 <h2 id="Tier-1-安全工具白名单（-用户规则）">Tier 1: 安全工具白名单（+ 用户规则）</h2>
 <p>Tier 1 中“用户规则（always-allow）”通常在 <strong>更前面的权限匹配阶段</strong> 就已返回 <code>allow</code>，因此不会进入本节的 <code>ask</code> → auto 分支图。</p>
 <p><code>SAFE_YOLO_ALLOWLISTED_TOOLS</code>（<code>src/utils/permissions/classifierDecision.ts</code> L56-94）列出了所有<strong>只读或协调类</strong>工具：</p>
@@ -857,19 +857,19 @@
     ExceptionCheck{"命中 allow exceptions?"}
     IntentCheck{"符合用户意图?"}
 
-    Action --&gt; BlockCheck
-    BlockCheck --&gt;|否| IntentCheck
-    BlockCheck --&gt;|是| ExceptionCheck
-    ExceptionCheck --&gt;|是| AllowExc["ALLOW — 规则匹配但属于豁免范围"]
-    ExceptionCheck --&gt;|否| IntentCheck
-    IntentCheck --&gt;|用户显式授权| AllowIntent["ALLOW"]
-    IntentCheck --&gt;|未授权/模糊| BlockIntent["BLOCK + reason"]</pre>
+    Action --> BlockCheck
+    BlockCheck -->|否| IntentCheck
+    BlockCheck -->|是| ExceptionCheck
+    ExceptionCheck -->|是| AllowExc["ALLOW — 规则匹配但属于豁免范围"]
+    ExceptionCheck -->|否| IntentCheck
+    IntentCheck -->|用户显式授权| AllowIntent["ALLOW"]
+    IntentCheck -->|未授权/模糊| BlockIntent["BLOCK + reason"]</pre>
 <h5 id="实现方式：纯-prompt-指令，非代码逻辑">实现方式：纯 prompt 指令，非代码逻辑</h5>
 <p>上述分类流程<strong>不是代码中的 if/else 分支</strong>，而是完全通过 system prompt 中的<strong>自然语言指令</strong>实现的。代码层面只负责管道编排：</p>
 <pre class="mermaid">flowchart LR
-    Build["构建 system prompt&lt;br/&gt;+ transcript"] --&gt; Call["sideQuery&lt;br/&gt;发送给 Claude 模型"]
-    Call --&gt; Parse["解析返回的&lt;br/&gt;block yes/no"]
-    Parse --&gt; Decision["yes → block&lt;br/&gt;no → allow&lt;br/&gt;null → block"]</pre>
+    Build["构建 system prompt<br/>+ transcript"] --> Call["sideQuery<br/>发送给 Claude 模型"]
+    Call --> Parse["解析返回的<br/>block yes/no"]
+    Parse --> Decision["yes → block<br/>no → allow<br/>null → block"]</pre>
 <p>代码中实际的判断逻辑只有三分支（<code>yoloClassifier.ts</code> L801-807）——模型说 block 就 block，说 allow 就 allow，解析失败就保守 block。所有"智能判断"（判断命令是否危险、用户是否授权、是否命中豁免规则）都发生在<strong>模型推理过程中</strong>：模型读完 system prompt 中描述的评估规则、用户意图规则和分类步骤后，在生成 <code>&lt;block&gt;yes/no&lt;/block&gt;</code> 之前按照这些指令进行推理。Stage 2 时推理过程在 <code>&lt;thinking&gt;</code> 标签中可见。</p>
 <p>这也解释了为什么 Stage 2 的后缀要特别强调：</p>
 <blockquote>
@@ -1048,19 +1048,19 @@
 <pre class="mermaid">flowchart TD
     Input["待判定 action 进入分类器"]
 
-    Input --&gt; S1["Stage 1: 快速过滤&lt;br/&gt;后缀: Err on the side of blocking&lt;br/&gt;max_tokens: 64, stop: 遇到 &amp;lt;/block&amp;gt; 即停&lt;br/&gt;temperature: 0"]
-    S1 --&gt; S1Parse{"解析 &amp;lt;block&amp;gt;yes/no&amp;lt;/block&amp;gt;"}
+    Input --> S1["Stage 1: 快速过滤<br/>后缀: Err on the side of blocking<br/>max_tokens: 64, stop: 遇到 &lt;/block&gt; 即停<br/>temperature: 0"]
+    S1 --> S1Parse{"解析 &lt;block&gt;yes/no&lt;/block&gt;"}
 
-    S1Parse --&gt;|"no — 安全"| Allow1["✓ ALLOW&lt;br/&gt;直接放行，跳过 Stage 2"]
-    S1Parse --&gt;|"yes — 可疑"| S2
-    S1Parse --&gt;|"null — 解析失败"| Block1["✗ BLOCK&lt;br/&gt;解析失败走保守策略"]
+    S1Parse -->|"no — 安全"| Allow1["✓ ALLOW<br/>直接放行，跳过 Stage 2"]
+    S1Parse -->|"yes — 可疑"| S2
+    S1Parse -->|"null — 解析失败"| Block1["✗ BLOCK<br/>解析失败走保守策略"]
 
-    S2["Stage 2: 链式推理&lt;br/&gt;后缀: Review the classification process...&lt;br/&gt;max_tokens: 4096, 无 stop&lt;br/&gt;允许 &amp;lt;thinking&amp;gt; 推理"]
-    S2 --&gt; S2Parse{"解析 &amp;lt;block&amp;gt; + &amp;lt;reason&amp;gt;"}
+    S2["Stage 2: 链式推理<br/>后缀: Review the classification process...<br/>max_tokens: 4096, 无 stop<br/>允许 &lt;thinking&gt; 推理"]
+    S2 --> S2Parse{"解析 &lt;block&gt; + &lt;reason&gt;"}
 
-    S2Parse --&gt;|"no — 安全"| Allow2["✓ ALLOW&lt;br/&gt;通过深度复核"]
-    S2Parse --&gt;|"yes — 危险"| Block2["✗ BLOCK + reason&lt;br/&gt;返回可解释拒绝信息"]
-    S2Parse --&gt;|"null — 解析失败"| Block3["✗ BLOCK&lt;br/&gt;不确定时保守拦截"]</pre>
+    S2Parse -->|"no — 安全"| Allow2["✓ ALLOW<br/>通过深度复核"]
+    S2Parse -->|"yes — 危险"| Block2["✗ BLOCK + reason<br/>返回可解释拒绝信息"]
+    S2Parse -->|"null — 解析失败"| Block3["✗ BLOCK<br/>不确定时保守拦截"]</pre>
 <p>直观理解：<strong>Stage 1 是粗筛网（宁可多拦），Stage 2 是精筛网（把误拦的放回去）</strong>。大多数操作在 Stage 1 就通过了（<code>&lt;block&gt;no&lt;/block&gt;</code>），不需要付 Stage 2 的推理成本。只有 Stage 1 觉得"可能有问题"时才花 4096 tokens 做深度分析。</p>
 <h3 id="Stage-1-与-Stage-2-的关键差异">Stage 1 与 Stage 2 的关键差异</h3>
 <p>两阶段<strong>共享</strong>同一份 system prompt（上文 Tier 3 所述的决策标准）和 transcript 内容，区别仅在于 <code>&lt;/transcript&gt;</code> 闭合标签之后追加的后缀指令（作为同一条 user 消息的最后一个文本块）：</p>
@@ -1132,24 +1132,24 @@
     Result["classifyYoloAction 返回结果"]
     Block{"shouldBlock?"}
 
-    Result --&gt; Block
+    Result --> Block
 
-    Block --&gt;|false| Allow["✓ ALLOW&lt;br/&gt;recordSuccess&lt;br/&gt;重置连续拒绝计数"]
+    Block -->|false| Allow["✓ ALLOW<br/>recordSuccess<br/>重置连续拒绝计数"]
 
-    Block --&gt;|true| Why{"block 原因？"}
+    Block -->|true| Why{"block 原因？"}
 
-    Why --&gt;|"transcriptTooLong&lt;br/&gt;transcript 超出上下文窗口"| Headless{"headless 模式？"}
-    Headless --&gt;|是| Abort["throw AbortError&lt;br/&gt;transcript 只增不减&lt;br/&gt;重试无意义，直接终止"]
-    Headless --&gt;|否| Manual1["回退手动审批&lt;br/&gt;让用户自行决定"]
+    Why -->|"transcriptTooLong<br/>transcript 超出上下文窗口"| Headless{"headless 模式？"}
+    Headless -->|是| Abort["throw AbortError<br/>transcript 只增不减<br/>重试无意义，直接终止"]
+    Headless -->|否| Manual1["回退手动审批<br/>让用户自行决定"]
 
-    Why --&gt;|"unavailable&lt;br/&gt;分类器 API 报错"| Gate{"tengu_iron_gate_closed?&lt;br/&gt;默认 true"}
-    Gate --&gt;|true| FailClosed["✗ DENY + 重试引导&lt;br/&gt;fail-closed：宁可误拦"]
-    Gate --&gt;|false| FailOpen["回退常规权限流程&lt;br/&gt;fail-open：跳过分类器"]
+    Why -->|"unavailable<br/>分类器 API 报错"| Gate{"tengu_iron_gate_closed?<br/>默认 true"}
+    Gate -->|true| FailClosed["✗ DENY + 重试引导<br/>fail-closed：宁可误拦"]
+    Gate -->|false| FailOpen["回退常规权限流程<br/>fail-open：跳过分类器"]
 
-    Why --&gt;|"正常 block&lt;br/&gt;分类器判定为危险"| Record["recordDenial&lt;br/&gt;更新拒绝计数"]
-    Record --&gt; Limit{"连续 ≥ 3 次 或 累计 ≥ 20 次？"}
-    Limit --&gt;|是| Manual2["回退手动审批 / 终止&lt;br/&gt;避免无限拒绝循环"]
-    Limit --&gt;|否| Deny["✗ DENY&lt;br/&gt;buildYoloRejectionMessage&lt;br/&gt;含拒绝原因 + 更安全路径引导"]</pre>
+    Why -->|"正常 block<br/>分类器判定为危险"| Record["recordDenial<br/>更新拒绝计数"]
+    Record --> Limit{"连续 ≥ 3 次 或 累计 ≥ 20 次？"}
+    Limit -->|是| Manual2["回退手动审批 / 终止<br/>避免无限拒绝循环"]
+    Limit -->|否| Deny["✗ DENY<br/>buildYoloRejectionMessage<br/>含拒绝原因 + 更安全路径引导"]</pre>
 <p>拒绝消息（<code>buildYoloRejectionMessage</code>，<code>src/utils/messages.ts</code> L267-282）包含分类器原因、引导 Agent 寻找更安全路径的指示、以及建议用户通过权限规则允许此类操作。详细的 Deny-and-Continue 韧性机制见 <a href="/ccauto-07-deny-and-resilience/" title="">07-deny-and-resilience</a>。</p>
 <h2 id="Transcript-构建：推理盲设计">Transcript 构建：推理盲设计</h2>
 <blockquote>

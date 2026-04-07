@@ -440,28 +440,28 @@
 <p>分类器的 system prompt 由<strong>固定模板</strong>和<strong>三个可替换 Slot</strong> 组成：</p>
 <pre class="mermaid">flowchart TD
     subgraph template [固定模板（负责分类方法论与流程约束）]
-        EvalRules["评估规则&lt;br/&gt;如何判断命令的真实影响"]
-        IntentRules["用户意图规则&lt;br/&gt;如何判断授权范围"]
-        ClassProcess["分类流程&lt;br/&gt;block → exceptions → intent → 决定"]
+        EvalRules["评估规则<br/>如何判断命令的真实影响"]
+        IntentRules["用户意图规则<br/>如何判断授权范围"]
+        ClassProcess["分类流程<br/>block → exceptions → intent → 决定"]
     end
 
     subgraph slots [可定制 Slot（定义组织侧策略）]
-        Allow["allow&lt;br/&gt;自动批准规则"]
-        SoftDeny["soft_deny&lt;br/&gt;需要确认的规则"]
-        Environment["environment&lt;br/&gt;环境上下文"]
+        Allow["allow<br/>自动批准规则"]
+        SoftDeny["soft_deny<br/>需要确认的规则"]
+        Environment["environment<br/>环境上下文"]
     end
 
     template --- slots
 
     subgraph injection [注入方式（通过 XML 占位标签替换）]
-        AllowTag["&amp;lt;user_allow_rules_to_replace&amp;gt;"]
-        DenyTag["&amp;lt;user_deny_rules_to_replace&amp;gt;"]
-        EnvTag["&amp;lt;user_environment_to_replace&amp;gt;"]
+        AllowTag["&lt;user_allow_rules_to_replace&gt;"]
+        DenyTag["&lt;user_deny_rules_to_replace&gt;"]
+        EnvTag["&lt;user_environment_to_replace&gt;"]
     end
 
-    Allow --&gt; AllowTag
-    SoftDeny --&gt; DenyTag
-    Environment --&gt; EnvTag</pre>
+    Allow --> AllowTag
+    SoftDeny --> DenyTag
+    Environment --> EnvTag</pre>
 <p><code>AutoModeRules</code> 类型定义（<code>src/utils/permissions/yoloClassifier.ts</code> L85-89）：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">AutoModeRules</span> = &#123;</span><br><span class="line">  <span class="attr">allow</span>: <span class="built_in">string</span>[]</span><br><span class="line">  <span class="attr">soft_deny</span>: <span class="built_in">string</span>[]</span><br><span class="line">  <span class="attr">environment</span>: <span class="built_in">string</span>[]</span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="Slot-注入方式">Slot 注入方式</h3>
@@ -490,14 +490,14 @@
     Merge["zod + push"]
     Result["AutoModeConfig"]
 
-    US --&gt; Merge
-    LS --&gt; Merge
-    FS --&gt; Merge
-    PS --&gt; Merge
-    Merge --&gt; Result
+    US --> Merge
+    LS --> Merge
+    FS --> Merge
+    PS --> Merge
+    Merge --> Result
 
     Skip["projectSettings 排除"]
-    Skip -.-&gt;|不进入合并| Merge</pre>
+    Skip -.->|不进入合并| Merge</pre>
 <p>路径对照：<code>userSettings</code> → <code>~/.claude/settings.json</code>；<code>localSettings</code> → <code>.claude/local-settings.json</code>；<code>flagSettings</code> → GrowthBook；<code>policySettings</code> → MDM / 远端策略。<code>projectSettings</code>（<code>.claude/settings.json</code>）<strong>不在</strong> <code>for</code> 数组内，防恶意项目注入分类器规则（RCE）。</p>
 <p><code>getAutoModeConfig</code>（职责：聚合多来源 autoMode 配置并做安全过滤；<code>src/utils/settings/settings.ts</code> L936-982）的合并逻辑：</p>
 <ol>

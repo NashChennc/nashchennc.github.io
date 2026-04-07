@@ -488,34 +488,34 @@
 <p>当主对话准备向模型发送请求时，消息数组（Messages）会依次穿过三个降压层。这三个层级针对的<strong>修改对象</strong>完全不同。</p>
 <pre class="mermaid">flowchart TB
   subgraph contentLayer [L1 内容与会话预算]
-    budget["applyToolResultBudget&lt;br/&gt;工具结果预算：按体积占位/替换"]
+    budget["applyToolResultBudget<br/>工具结果预算：按体积占位/替换"]
     budgetHint[按 tool_use_id 替换或占位超标结果]
   end
   subgraph shapeLayer [L2 条数与尾部形状]
-    snip["historySnip&lt;br/&gt;尾部历史条数裁剪"]
+    snip["historySnip<br/>尾部历史条数裁剪"]
     snipHint["裁剪尾部消息，释放 Token（feature HISTORY_SNIP）"]
   end
   subgraph pressureLayer [L3 压力下收缩与出站]
-    mc["microcompactMessages&lt;br/&gt;轻量收缩或 cache_edits 路径"]
+    mc["microcompactMessages<br/>轻量收缩或 cache_edits 路径"]
     mcHint[轻量收缩 tool results 或 cache_edits 编辑]
-    collapse["contextCollapse&lt;br/&gt;上下文折叠投影模块"]
+    collapse["contextCollapse<br/>上下文折叠投影模块"]
     collapseHint["应用折叠投影（feature CONTEXT_COLLAPSE）"]
-    ac["autocompact&lt;br/&gt;自动触发全量压缩"]
+    ac["autocompact<br/>自动触发全量压缩"]
     acHint[超阈值时触发全量压缩 compactConversation]
-    api["queryModel&lt;br/&gt;组装请求调用模型"]
+    api["queryModel<br/>组装请求调用模型"]
     
-    mc --&gt; mcHint
-    mcHint --&gt; collapse
-    collapse --&gt; collapseHint
-    collapseHint --&gt; ac
-    ac --&gt; acHint
-    acHint --&gt; api
+    mc --> mcHint
+    mcHint --> collapse
+    collapse --> collapseHint
+    collapseHint --> ac
+    ac --> acHint
+    acHint --> api
   end
   
-  budget --&gt; budgetHint
-  budgetHint --&gt; snip
-  snip --&gt; snipHint
-  snipHint --&gt; mc</pre>
+  budget --> budgetHint
+  budgetHint --> snip
+  snip --> snipHint
+  snipHint --> mc</pre>
 <p>三层按 <strong>改动对象</strong> 划分；<code>snip</code> / <code>collapse</code> 在特性关闭时等价于直通。</p>
 <h4 id="阶段依赖表（src-query-ts）">阶段依赖表（<code>src/query.ts</code>）</h4>
 <table>
@@ -568,33 +568,33 @@
 </table>
 <h4 id="queryLoop-出站管道（时序示意）"><code>queryLoop</code> 出站管道（时序示意）</h4>
 <pre class="mermaid">sequenceDiagram
-  participant Q as "queryLoop&lt;br/&gt;主对话单轮迭代"
-  participant B as "applyToolResultBudget&lt;br/&gt;工具结果预算"
-  participant S as "snipCompactIfNeeded&lt;br/&gt;尾部裁剪"
-  participant M as "microcompact&lt;br/&gt;轻量收缩"
-  participant C as "applyCollapsesIfNeeded&lt;br/&gt;折叠投影"
-  participant A as "autoCompactIfNeeded&lt;br/&gt;自动全量压缩"
-  participant API as "queryModel&lt;br/&gt;请求模型"
-  Q-&gt;&gt;B: applyToolResultBudget(messages)&lt;br/&gt;执行预算与占位替换
-  B--&gt;&gt;Q: messagesAfterBudget&lt;br/&gt;预算后消息数组
+  participant Q as "queryLoop<br/>主对话单轮迭代"
+  participant B as "applyToolResultBudget<br/>工具结果预算"
+  participant S as "snipCompactIfNeeded<br/>尾部裁剪"
+  participant M as "microcompact<br/>轻量收缩"
+  participant C as "applyCollapsesIfNeeded<br/>折叠投影"
+  participant A as "autoCompactIfNeeded<br/>自动全量压缩"
+  participant API as "queryModel<br/>请求模型"
+  Q->>B: applyToolResultBudget(messages)<br/>执行预算与占位替换
+  B-->>Q: messagesAfterBudget<br/>预算后消息数组
   alt HISTORY_SNIP on
-    Q-&gt;&gt;S: snipCompactIfNeeded&lt;br/&gt;裁剪尾部并算 snipTokensFreed
-    S--&gt;&gt;Q: messagesAfterSnip, snipTokensFreed&lt;br/&gt;裁剪结果与释放 token
+    Q->>S: snipCompactIfNeeded<br/>裁剪尾部并算 snipTokensFreed
+    S-->>Q: messagesAfterSnip, snipTokensFreed<br/>裁剪结果与释放 token
   else HISTORY_SNIP off
     Note over Q,S: skip snip
   end
-  Q-&gt;&gt;M: microcompact(messages, querySource)&lt;br/&gt;按来源做 MC / cache 编辑
-  M--&gt;&gt;Q: messagesAfterMC, compactionInfo&lt;br/&gt;收缩后消息与 pending 信息
+  Q->>M: microcompact(messages, querySource)<br/>按来源做 MC / cache 编辑
+  M-->>Q: messagesAfterMC, compactionInfo<br/>收缩后消息与 pending 信息
   opt CACHED_MICROCOMPACT and pendingCacheEdits
-    Note over Q: hold until after API stream&lt;br/&gt;延迟到流结束再 yield boundary
+    Note over Q: hold until after API stream<br/>延迟到流结束再 yield boundary
   end
   alt CONTEXT_COLLAPSE on
-    Q-&gt;&gt;C: applyCollapsesIfNeeded&lt;br/&gt;应用折叠存储投影
-    C--&gt;&gt;Q: messagesAfterCollapse&lt;br/&gt;折叠后消息
+    Q->>C: applyCollapsesIfNeeded<br/>应用折叠存储投影
+    C-->>Q: messagesAfterCollapse<br/>折叠后消息
   end
-  Q-&gt;&gt;A: autoCompactIfNeeded(..., snipTokensFreed)&lt;br/&gt;必要时 SessionMemory 或 compactConversation
-  A--&gt;&gt;Q: wasCompacted / compactionResult&lt;br/&gt;是否压缩及结果
-  Q-&gt;&gt;API: queryModel(messagesForQuery, ...)&lt;br/&gt;发往模型的本轮请求</pre>
+  Q->>A: autoCompactIfNeeded(..., snipTokensFreed)<br/>必要时 SessionMemory 或 compactConversation
+  A-->>Q: wasCompacted / compactionResult<br/>是否压缩及结果
+  Q->>API: queryModel(messagesForQuery, ...)<br/>发往模型的本轮请求</pre>
 <p><code>pendingCacheEdits</code> 赋值见 <code>query.ts</code> 约 L420–425；<strong>延迟 yield</strong> <code>createMicrocompactBoundaryMessage</code> 见约 L866–891（用 <code>cache_deleted_input_tokens</code> 减 baseline 得本轮 delta）。</p>
 <p><code>applyToolResultBudget</code> 前注释（源码摘录）：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Enforce per-message budget on aggregate tool result size. Runs BEFORE</span><br><span class="line">// microcompact — cached MC operates purely by tool_use_id (never inspects</span><br><span class="line">// content), so content replacement is invisible to it and the two compose</span><br><span class="line">// cleanly. No-ops when contentReplacementState is undefined (feature off).</span><br><span class="line">// Persist only for querySources that read records back on resume: agentId</span><br><span class="line">// routes to sidechain file (AgentTool resume) or session file (/resume).</span><br><span class="line">// Ephemeral runForkedAgent callers (agent_summary etc.) don&#x27;t persist.</span><br></pre></td></tr></tbody></table></figure>
@@ -608,28 +608,28 @@
 <p>这是流水线的第一站。Agent 可能执行了一个返回数万行日志的 <code>Bash</code> 命令，这一层负责将其拦截并“瘦身”。入口函数为 <code>applyToolResultBudget</code>（<code>src/utils/toolResultStorage.ts</code> 约 L924），由 <code>queryLoop</code> 在 microcompact 之前调用（<code>src/query.ts</code> 约 L379）。</p>
 <p>如果开启了特性（<code>contentReplacementState</code> 存在），该阶段会执行 <code>enforceToolResultBudget</code>（同文件约 L769），将严重超标的工具输出替换为占位符（Placeholder），告知模型“输出过长已被截断，请使用 grep 等工具精确查找”。</p>
 <pre class="mermaid">flowchart TD
-  entryB["applyToolResultBudget&lt;br/&gt;预算入口：无 state 则直通"]
+  entryB["applyToolResultBudget<br/>预算入口：无 state 则直通"]
   noState{state 未定义?}
   retIn["直接返回原 messages（no-op）"]
-  enforce["enforceToolResultBudget&lt;br/&gt;对超标 tool_result 写占位内容"]
+  enforce["enforceToolResultBudget<br/>对超标 tool_result 写占位内容"]
   replaced{是否有新替换?}
   noRep[无新替换]
   retMsg[返回处理后 messages]
-  hasW{writeToTranscript&lt;br/&gt;是否需持久化?}
-  cb[回调持久化记录&lt;br/&gt;写入磁盘侧链]
+  hasW{writeToTranscript<br/>是否需持久化?}
+  cb[回调持久化记录<br/>写入磁盘侧链]
   skipW[跳过持久化]
   
-  entryB --&gt; noState
-  noState --&gt;|是| retIn
-  noState --&gt;|否| enforce
-  enforce --&gt; replaced
-  replaced --&gt;|否| noRep
-  noRep --&gt; retMsg
-  replaced --&gt;|是| hasW
-  hasW --&gt;|是| cb
-  cb --&gt; retMsg
-  hasW --&gt;|否| skipW
-  skipW --&gt; retMsg</pre>
+  entryB --> noState
+  noState -->|是| retIn
+  noState -->|否| enforce
+  enforce --> replaced
+  replaced -->|否| noRep
+  noRep --> retMsg
+  replaced -->|是| hasW
+  hasW -->|是| cb
+  cb --> retMsg
+  hasW -->|否| skipW
+  skipW --> retMsg</pre>
 <p><strong>正交设计</strong>：“是否发生内容替换”与“是否持久化记录（<code>writeToTranscript</code>）”是完全解耦的。如前所述，只有当 <code>QuerySource</code> 是可恢复的（如主 REPL 或主 Agent）时，才会传入回调将替换动作记录到本地文件中。如果是后台联想（Prompt Suggestion）触发了这套逻辑，即使发生了替换，也绝不会污染磁盘文件。</p>
 <p>持久化规则与 <code>applyToolResultBudget</code> 的 JSDoc（<code>toolResultStorage.ts</code> 约 L915–919）一致：<code>writeToTranscript</code> 仅由 <code>query.ts</code> 在 <strong>可 resume</strong> 的 <code>querySource</code> 上传入；<code>agent_summary</code>、<code>session_memory</code>、<code>/btw</code>、<code>compact</code> 等 <strong>临时</strong> fork 路径传 <code>undefined</code>，避免污染侧链或会话记录。</p>
 <h3 id="Phase-2-L2-形状层-——-尾部裁剪-snipCompactIfNeeded">Phase 2: L2 形状层 —— 尾部裁剪 (<code>snipCompactIfNeeded</code>)</h3>
@@ -648,42 +648,42 @@
 <p>经历了 L1~L3 复杂的语义与上下文容量整形后，<code>messages</code> 数组在逻辑上已经完美，但在物理上却未必符合各个大模型云服务商（如 Bedrock, Vertex, 1P API）的严格格式要求。</p>
 <p>因此，在发起网络请求前的最后一刻，调用 <code>normalizeMessagesForAPI</code>（<code>src/utils/messages.ts</code> 约 L1989）进行“供应商级别的合规清洗”。流程中包含 <code>reorderAttachmentsForAPI</code>（同文件约 L1481）、对连续 <code>user</code> 的 <code>mergeUserMessages</code>（约 L2411）等步骤，与下述流程图节点一一对应。</p>
 <pre class="mermaid">flowchart TD
-  startN["normalizeMessagesForAPI&lt;br/&gt;出站前 API 形态归一"]
-  reorder["reorderAttachmentsForAPI&lt;br/&gt;重排附件顺序"]
-  filterV["过滤虚拟消息&lt;br/&gt;isVirtual: true&lt;br/&gt;去掉仅 REPL 展示用消息"]
+  startN["normalizeMessagesForAPI<br/>出站前 API 形态归一"]
+  reorder["reorderAttachmentsForAPI<br/>重排附件顺序"]
+  filterV["过滤虚拟消息<br/>isVirtual: true<br/>去掉仅 REPL 展示用消息"]
   walk[遍历消息组进行归一化]
   
   caseUser{消息类型为 user?}
   otherCase[...其他类型处理省略...]
   
   toolS{Tool Search 已启用?}
-  stripAll["stripToolReferenceBlocks&lt;br/&gt;未开 ToolSearch 时剥光引用"]
-  stripGone["stripUnavailableToolReferences&lt;br/&gt;已开时只剥失效工具引用"]
+  stripAll["stripToolReferenceBlocks<br/>未开 ToolSearch 时剥光引用"]
+  stripGone["stripUnavailableToolReferences<br/>已开时只剥失效工具引用"]
   
   metaMap{是否命中前置 meta 错误?}
-  stripBlk["strip 大块 image/document&lt;br/&gt;防上一轮超大负载死循环"]
+  stripBlk["strip 大块 image/document<br/>防上一轮超大负载死循环"]
   skipMsg[过滤后若内容为空则跳过整条]
   
-  mergeU{上一条也是 user 且&lt;br/&gt;Bedrock 等限制环境?}
-  mergeDo["mergeUserMessages&lt;br/&gt;合并连续 user 满足厂商约束"]
+  mergeU{上一条也是 user 且<br/>Bedrock 等限制环境?}
+  mergeDo["mergeUserMessages<br/>合并连续 user 满足厂商约束"]
   pushU[压入最终出站数组]
   
-  startN --&gt; reorder --&gt; filterV --&gt; walk
-  walk --&gt; caseUser
-  caseUser --&gt;|否| otherCase --&gt; walk
-  caseUser --&gt;|是| toolS
-  toolS --&gt;|否| stripAll --&gt; metaMap
-  toolS --&gt;|是| stripGone --&gt; metaMap
+  startN --> reorder --> filterV --> walk
+  walk --> caseUser
+  caseUser -->|否| otherCase --> walk
+  caseUser -->|是| toolS
+  toolS -->|否| stripAll --> metaMap
+  toolS -->|是| stripGone --> metaMap
   
-  metaMap --&gt;|是| stripBlk
-  metaMap --&gt;|否| mergeU
+  metaMap -->|是| stripBlk
+  metaMap -->|否| mergeU
   
-  stripBlk --&gt; emptyAfter{过滤后内容为空?}
-  emptyAfter --&gt;|是| skipMsg --&gt; walk
-  emptyAfter --&gt;|否| mergeU
+  stripBlk --> emptyAfter{过滤后内容为空?}
+  emptyAfter -->|是| skipMsg --> walk
+  emptyAfter -->|否| mergeU
   
-  mergeU --&gt;|是| mergeDo --&gt; pushU
-  mergeU --&gt;|否| pushU</pre>
+  mergeU -->|是| mergeDo --> pushU
+  mergeU -->|否| pushU</pre>
 <p><strong>核心合规动作包含：</strong></p>
 <ol>
 <li><strong>虚拟视图剥离</strong>：将那些只为了在 REPL 终端里显示 UI 效果（<code>isVirtual: true</code>）的消息剔除，不浪费模型 Token。</li>

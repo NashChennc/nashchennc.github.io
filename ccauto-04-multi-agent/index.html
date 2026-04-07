@@ -450,22 +450,22 @@
     participant IC as Inbound 分类器
     participant U as 主 Agent 上下文
 
-    M -&gt;&gt; OC: 委派前审查
+    M ->> OC: 委派前审查
     alt BLOCK
-        OC --&gt;&gt; M: DENY — 子代理不会被创建
+        OC -->> M: DENY — 子代理不会被创建
     else ALLOW
-        OC -&gt;&gt; S: 启动 subagent
+        OC ->> S: 启动 subagent
     end
 
-    S -&gt;&gt; S: 执行任务&lt;br/&gt;内部工具调用各自走分类器
-    S -&gt;&gt; IC: 交回结果前复检
+    S ->> S: 执行任务<br/>内部工具调用各自走分类器
+    S ->> IC: 交回结果前复检
 
     alt shouldBlock
-        IC --&gt;&gt; U: SECURITY WARNING + 子结果
+        IC -->> U: SECURITY WARNING + 子结果
     else unavailable
-        IC --&gt;&gt; U: Note 前缀 + 子结果
+        IC -->> U: Note 前缀 + 子结果
     else ALLOW
-        IC --&gt;&gt; U: 直接返回子结果
+        IC -->> U: 直接返回子结果
     end</pre>
 <h2 id="Outbound：委派前拦截">Outbound：委派前拦截</h2>
 <p>Outbound 分类发生在 <code>hasPermissionsToUseTool</code> 的 auto 分支（<code>src/utils/permissions/permissions.ts</code> L688-699）。AgentTool 的调用与其他工具调用一样进入 <a href="/ccauto-02-classifier/" title="">02-classifier-pipeline</a> 的三层判定管道。</p>
@@ -603,16 +603,16 @@
     Mode{"当前权限模式？"}
     Plan{"planModeRequired?"}
 
-    Mode --&gt;|auto| Plan
-    Plan --&gt;|否| AutoFlag["--permission-mode auto"]
-    Plan --&gt;|是| NoFlag["不继承（plan 优先于 auto）"]
+    Mode -->|auto| Plan
+    Plan -->|否| AutoFlag["--permission-mode auto"]
+    Plan -->|是| NoFlag["不继承（plan 优先于 auto）"]
 
-    Mode --&gt;|bypassPermissions| Plan2{"planModeRequired?"}
-    Plan2 --&gt;|否| BypassFlag["--dangerously-skip-permissions"]
-    Plan2 --&gt;|是| NoFlag
+    Mode -->|bypassPermissions| Plan2{"planModeRequired?"}
+    Plan2 -->|否| BypassFlag["--dangerously-skip-permissions"]
+    Plan2 -->|是| NoFlag
 
-    Mode --&gt;|acceptEdits| AEFlag["--permission-mode acceptEdits"]
-    Mode --&gt;|default| NoFlag2["不传权限参数"]</pre>
+    Mode -->|acceptEdits| AEFlag["--permission-mode acceptEdits"]
+    Mode -->|default| NoFlag2["不传权限参数"]</pre>
 <p>关键设计：</p>
 <ul>
 <li><strong>plan 模式覆盖</strong>：当 <code>planModeRequired</code> 为 true 时，不继承任何 bypass / auto 权限——安全优先于便利</li>
@@ -630,15 +630,15 @@
 <p>实现在 <code>src/services/api/claude.ts</code> L1405-1422：</p>
 <pre class="mermaid">flowchart TD
     Check{"已经 latch?"}
-    Check --&gt;|是| Gated
-    Check --&gt;|否| Cond{"isAgenticQuery&lt;br/&gt;且 isAutoModeActive?"}
-    Cond --&gt;|否| Skip["不设 latch"]
-    Cond --&gt;|是| Set["setAfkModeHeaderLatched(true)&lt;br/&gt;会话级锁存，不可逆"]
-    Set --&gt; Gated
+    Check -->|是| Gated
+    Check -->|否| Cond{"isAgenticQuery<br/>且 isAutoModeActive?"}
+    Cond -->|否| Skip["不设 latch"]
+    Cond -->|是| Set["setAfkModeHeaderLatched(true)<br/>会话级锁存，不可逆"]
+    Set --> Gated
 
-    Gated{"本次请求&lt;br/&gt;isAgenticQuery?"}
-    Gated --&gt;|是| Send["携带 AFK header"]
-    Gated --&gt;|否| Skip2["不携带&lt;br/&gt;分类器 / compaction 等请求"]</pre>
+    Gated{"本次请求<br/>isAgenticQuery?"}
+    Gated -->|是| Send["携带 AFK header"]
+    Gated -->|否| Skip2["不携带<br/>分类器 / compaction 等请求"]</pre>
 <h3 id="请求级门控">请求级门控</h3>
 <p>即使 latch 了，也要逐请求检查 <code>isAgenticQuery</code>（<code>src/services/api/claude.ts</code> L1065-1071）：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/services/api/claude.ts L1065-1071</span></span><br><span class="line"><span class="keyword">const</span> isAgenticQuery =</span><br><span class="line">  options.<span class="property">querySource</span>.<span class="title function_">startsWith</span>(<span class="string">&#x27;repl_main_thread&#x27;</span>) ||</span><br><span class="line">  options.<span class="property">querySource</span>.<span class="title function_">startsWith</span>(<span class="string">&#x27;agent:&#x27;</span>) ||</span><br><span class="line">  options.<span class="property">querySource</span> === <span class="string">&#x27;sdk&#x27;</span> ||</span><br><span class="line">  options.<span class="property">querySource</span> === <span class="string">&#x27;hook_agent&#x27;</span> ||</span><br><span class="line">  options.<span class="property">querySource</span> === <span class="string">&#x27;verification_agent&#x27;</span></span><br></pre></td></tr></tbody></table></figure>
@@ -648,32 +648,32 @@
 <pre class="mermaid">flowchart TD
     subgraph main ["主 Agent 侧"]
         User["用户消息"]
-        Out["① Outbound 分类器&lt;br/&gt;拦截未授权委派"]
-        Receive["④ 主 Agent 接收结果&lt;br/&gt;可能带 WARNING 前缀"]
+        Out["① Outbound 分类器<br/>拦截未授权委派"]
+        Receive["④ 主 Agent 接收结果<br/>可能带 WARNING 前缀"]
     end
 
     subgraph sub ["Subagent 侧"]
         Task["子任务指令"]
-        Inner["② 内部工具分类器&lt;br/&gt;各工具调用独立判定"]
+        Inner["② 内部工具分类器<br/>各工具调用独立判定"]
         Done["执行完成"]
     end
 
     subgraph inbound ["交接层"]
-        In["③ Inbound 分类器&lt;br/&gt;检测结果中的 PI 污染"]
+        In["③ Inbound 分类器<br/>检测结果中的 PI 污染"]
     end
 
     subgraph server ["服务端"]
-        PI["⑤ PI Probe&lt;br/&gt;AFK header 触发&lt;br/&gt;输入层注入扫描"]
+        PI["⑤ PI Probe<br/>AFK header 触发<br/>输入层注入扫描"]
     end
 
-    User --&gt; Out
-    Out --&gt;|ALLOW| Task
-    Task --&gt; Inner
-    Inner --&gt; Done
-    Done --&gt; In
-    In --&gt; Receive
-    Receive -.-&gt;|"AFK header"| PI
-    PI -.-&gt;|"警告注入响应"| Receive</pre>
+    User --> Out
+    Out -->|ALLOW| Task
+    Task --> Inner
+    Inner --> Done
+    Done --> In
+    In --> Receive
+    Receive -.->|"AFK header"| PI
+    PI -.->|"警告注入响应"| Receive</pre>
 <table>
 <thead>
 <tr>
