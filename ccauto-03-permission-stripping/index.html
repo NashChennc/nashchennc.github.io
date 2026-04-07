@@ -71,6 +71,17 @@
   <link rel="stylesheet" href="/css/custom.css">
 
   <meta name="theme-color" content="#6750A4">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LV49J0P7YC');
+  </script>
+
 <meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 <body id="top">
   
@@ -462,7 +473,7 @@
 
     Stash -.-&gt;|退出时| Restore</pre>
 <h2 id="四类危险规则">四类危险规则</h2>
-<h3 id="1-bash-解释器模式">1. Bash 解释器模式</h3>
+<h3 id="1-Bash-解释器模式">1. Bash 解释器模式</h3>
 <p><code>isDangerousBashPermission</code>（职责：识别会绕过分类器的 Bash 通配规则；<code>src/utils/permissions/permissionSetup.ts</code>）使用 <code>DANGEROUS_BASH_PATTERNS</code>（<code>src/utils/permissions/dangerousPatterns.ts</code> L44-80）进行匹配。</p>
 <p><strong>跨平台代码执行器</strong>（<code>CROSS_PLATFORM_CODE_EXEC</code>）：</p>
 <table>
@@ -582,13 +593,13 @@
 </tr>
 </tbody>
 </table>
-<h3 id="2-powershell-cmdlets">2. PowerShell cmdlets</h3>
+<h3 id="2-PowerShell-cmdlets">2. PowerShell cmdlets</h3>
 <p><code>isDangerousPowerShellPermission</code>（职责：识别 Windows 侧可执行链条）对 PowerShell 工具做类似检查，额外覆盖 Windows 特有的危险命令：<code>pwsh</code>, <code>powershell</code>, <code>cmd</code>, <code>wsl</code>, <code>iex</code>, <code>invoke-expression</code>, <code>start-process</code>, <code>add-type</code>, <code>new-object</code> 等，以及所有 <code>CROSS_PLATFORM_CODE_EXEC</code> 的 <code>.exe</code> 变体（如 <code>python.exe</code>）。</p>
-<h3 id="3-agent-通配">3. Agent 通配</h3>
+<h3 id="3-Agent-通配">3. Agent 通配</h3>
 <p><code>isDangerousTaskPermission</code>（职责：拦截 Agent 级递归放行）：<strong>任何</strong> Agent 工具的 allow 规则都被视为危险。子代理可以执行任意工具调用，allow Agent 等同于递归绕过分类器。</p>
-<h3 id="4-tmux-ant-限定">4. Tmux（Ant 限定）</h3>
+<h3 id="4-Tmux（Ant-限定）">4. Tmux（Ant 限定）</h3>
 <p><code>isDangerousClassifierPermission</code>（总分发函数）中：仅在 <code>USER_TYPE === 'ant'</code> 时，Tmux 被视为危险——它可以在后台启动任意 Shell 会话。</p>
-<h2 id="stash-restore-机制">Stash/Restore 机制</h2>
+<h2 id="Stash-Restore-机制">Stash/Restore 机制</h2>
 <p><code>strippedDangerousRules</code> 的类型为 <code>ToolPermissionRulesBySource</code>（与 <code>alwaysAllowRules</code> 同构的字典）：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">userSettings</span>?: <span class="built_in">string</span>[],    <span class="comment">// 用户设置中的危险规则</span></span><br><span class="line">  <span class="attr">projectSettings</span>?: <span class="built_in">string</span>[], <span class="comment">// 项目设置中的危险规则</span></span><br><span class="line">  <span class="attr">localSettings</span>?: <span class="built_in">string</span>[],   <span class="comment">// 本地设置中的危险规则</span></span><br><span class="line">  <span class="attr">session</span>?: <span class="built_in">string</span>[],         <span class="comment">// 会话中的危险规则</span></span><br><span class="line">  <span class="attr">cliArg</span>?: <span class="built_in">string</span>[],          <span class="comment">// CLI 参数中的危险规则</span></span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
 <p><strong>注意</strong>：<code>flagSettings</code> 和 <code>policySettings</code> 上的危险规则会被<strong>移除</strong>但<strong>不会进入 stash</strong>——这些来源不是用户可编辑的 <code>PermissionUpdateDestination</code>。</p>
@@ -678,7 +689,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%9D%83%E9%99%90%E5%89%A5%E7%A6%BB"><span class="post-toc-text">为什么需要权限剥离</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%87%E6%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="post-toc-text">过滤流水线</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9B%E7%B1%BB%E5%8D%B1%E9%99%A9%E8%A7%84%E5%88%99"><span class="post-toc-text">四类危险规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-bash-%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">1. Bash 解释器模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8C%B9%E9%85%8D%E5%BD%A2%E7%8A%B6"><span class="post-toc-text">匹配形状</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-powershell-cmdlets"><span class="post-toc-text">2. PowerShell cmdlets</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-agent-%E9%80%9A%E9%85%8D"><span class="post-toc-text">3. Agent 通配</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-tmux-ant-%E9%99%90%E5%AE%9A"><span class="post-toc-text">4. Tmux（Ant 限定）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#stash-restore-%E6%9C%BA%E5%88%B6"><span class="post-toc-text">Stash&#x2F;Restore 机制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%8F%E6%84%9F%E8%B7%AF%E5%BE%84%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5"><span class="post-toc-text">敏感路径安全检查</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%9D%83%E9%99%90%E5%89%A5%E7%A6%BB"><span class="post-toc-text">为什么需要权限剥离</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%87%E6%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="post-toc-text">过滤流水线</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9B%E7%B1%BB%E5%8D%B1%E9%99%A9%E8%A7%84%E5%88%99"><span class="post-toc-text">四类危险规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Bash-%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">1. Bash 解释器模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8C%B9%E9%85%8D%E5%BD%A2%E7%8A%B6"><span class="post-toc-text">匹配形状</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-PowerShell-cmdlets"><span class="post-toc-text">2. PowerShell cmdlets</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Agent-%E9%80%9A%E9%85%8D"><span class="post-toc-text">3. Agent 通配</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Tmux%EF%BC%88Ant-%E9%99%90%E5%AE%9A%EF%BC%89"><span class="post-toc-text">4. Tmux（Ant 限定）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Stash-Restore-%E6%9C%BA%E5%88%B6"><span class="post-toc-text">Stash&#x2F;Restore 机制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%8F%E6%84%9F%E8%B7%AF%E5%BE%84%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5"><span class="post-toc-text">敏感路径安全检查</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>

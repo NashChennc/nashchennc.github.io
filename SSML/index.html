@@ -71,6 +71,17 @@
   <link rel="stylesheet" href="/css/custom.css">
 
   <meta name="theme-color" content="#6750A4">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LV49J0P7YC');
+  </script>
+
 <meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 <body id="top">
   
@@ -435,27 +446,27 @@
 <hr>
 <h1>2. 常用标签详解</h1>
 <p>所有的 SSML 内容都必须包含在&nbsp;<code>&lt;speak&gt;</code>&nbsp;根标签内。</p>
-<h4 id="a-停顿-break">A. 停顿&nbsp;<code>&lt;break&gt;</code></h4>
+<h4 id="A-停顿-break">A. 停顿&nbsp;<code>&lt;break&gt;</code></h4>
 <p>用于控制节奏。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这句话说完后，&lt;break time=&quot;2s&quot;/&gt; 停顿了两秒钟。</span><br><span class="line">  或者稍微&lt;break strength=&quot;weak&quot;/&gt; 停顿一下。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="b-调整韵律-prosody">B. 调整韵律&nbsp;<code>&lt;prosody&gt;</code></h4>
+<h4 id="B-调整韵律-prosody">B. 调整韵律&nbsp;<code>&lt;prosody&gt;</code></h4>
 <p>这是最常用的标签，用于控制语速（rate）、音高（pitch）和音量（volume）。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  正常说话。</span><br><span class="line">  &lt;prosody rate=&quot;slow&quot; pitch=&quot;-2st&quot;&gt;这里语速变慢，且音调压低，听起来比较严肃。&lt;/prosody&gt;</span><br><span class="line">  &lt;prosody volume=&quot;loud&quot;&gt;这里大声说话！&lt;/prosody&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="c-指定读法-say-as">C. 指定读法&nbsp;<code>&lt;say-as&gt;</code></h4>
+<h4 id="C-指定读法-say-as">C. 指定读法&nbsp;<code>&lt;say-as&gt;</code></h4>
 <p>解决歧义非常关键。例如 “2024” 是读作 “二零二四” 还是 “两千零二十四”。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;say-as interpret-as=&quot;cardinal&quot;&gt;12345&lt;/say-as&gt; &lt;say-as interpret-as=&quot;digits&quot;&gt;12345&lt;/say-as&gt;   &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024-01-01&lt;/say-as&gt; &lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="d-别名-替换-sub">D. 别名/替换&nbsp;<code>&lt;sub &gt;</code></h4>
+<h4 id="D-别名-替换-sub">D. 别名/替换&nbsp;<code>&lt;sub &gt;</code></h4>
 <p>用于朗读缩写或特殊字符的完整含义。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  欢迎来到 &lt;sub alias=&quot;万维网联盟&quot;&gt;W3C&lt;/sub&gt; 的介绍页面。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="e-插入音频-audio">E. 插入音频&nbsp;<code>&lt;audio&gt;</code></h4>
+<h4 id="E-插入音频-audio">E. 插入音频&nbsp;<code>&lt;audio&gt;</code></h4>
 <p>在语音流中混合背景音效或预录制的音频。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;audio src=&quot;soundbank://sound_library/musical/musical_chord_01&quot;&gt;叮！&lt;/audio&gt;</span><br><span class="line">  回答正确。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="f-拼音-音素-phoneme">F. 拼音/音素&nbsp;<code>&lt;phoneme&gt;</code></h4>
+<h4 id="F-拼音-音素-phoneme">F. 拼音/音素&nbsp;<code>&lt;phoneme&gt;</code></h4>
 <p>当引擎读错多音字或人名时，使用国际音标（IPA）或特定平台的注音格式强制指定发音。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这件事非常&lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;tʂʰʊŋ&quot;&gt;重&lt;/phoneme&gt;要。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
@@ -492,7 +503,7 @@
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/Text2Speech/">
+                                <a class="post-nav__link" href="/Transformer/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -501,7 +512,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">Text2Speech</span>
+                                        <span class="post-nav__title">Transformer</span>
                                     </span>
                                 </a>
                             

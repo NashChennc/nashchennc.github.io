@@ -71,6 +71,17 @@
   <link rel="stylesheet" href="/css/custom.css">
 
   <meta name="theme-color" content="#6750A4">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LV49J0P7YC');
+  </script>
+
 <meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 <body id="top">
   
@@ -429,7 +440,7 @@
 <ul>
 <li><a href="/ccauto-01-entrypoint/" title="">01 - Entry Point 总览</a>：权限模式体系、三层状态管理、入口矩阵、首次同意弹窗</li>
 <li><a href="/ccauto-02-classifier/" title="">02 - 两阶段分类器管道</a>：三层判定优先级、Stage 1/2 设计、transcript 构建、缓存策略</li>
-<li><a href="/ccauto-03-permission-stripping/" title="">03 — 权限剥离与信任边界</a>：危险规则过滤、stash/restore 机制、敏感路径安全检查</li>
+<li><a href="/ccauto-03-permission-stripping/" title="">03 - 权限剥离与信任边界</a>：危险规则过滤、stash/restore 机制、敏感路径安全检查</li>
 <li><a href="/ccauto-04-multi-agent/" title="">04 - 多 Agent 安全交接</a>：Outbound/Inbound 分类差异、子进程继承、AFK header latch</li>
 <li><a href="/ccauto-05-gate-circuit-breaker/" title="">05 - 门禁、熔断与异步踢出</a>：异步门禁校验、熔断器、kickout 变换、模型支持判定</li>
 <li><a href="/ccauto-06-configuration/" title="">06 - 配置体系与可定制 Slot</a>：allow/soft_deny/environment 三 Slot、设置合并、CLI 子命令</li>

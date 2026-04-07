@@ -71,6 +71,17 @@
   <link rel="stylesheet" href="/css/custom.css">
 
   <meta name="theme-color" content="#6750A4">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LV49J0P7YC');
+  </script>
+
 <meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 <body id="top">
   
@@ -423,7 +434,7 @@
                     <div class="mdui-prose">
                         <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi --query-compute-apps=pid --format=csv,noheader | xargs -r ps -up | grep &quot;chennc&quot;</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;0,1,2,3&quot;</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="ssh-连接服务器">SSH 连接服务器</h2>
+<h2 id="SSH-连接服务器">SSH 连接服务器</h2>
 <h2 id="使用-tmux">使用 <code>tmux</code></h2>
 <p><code>tmux</code> 是一个极其强大的工具，它允许你在服务器后台保持会话活跃，即使 SSH 断开，进程依然在跑。</p>
 <h3 id="1-安装-tmux">1. 安装 tmux</h3>
@@ -466,7 +477,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/%E8%A3%85%E6%9C%BA%E7%9B%B8%E5%85%B3/">
+                                <a class="post-nav__link" href="/%E8%B4%9D%E4%B9%9D%E5%94%B1%E8%AF%8D/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -475,7 +486,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">硬件/系统/网络相关</span>
+                                        <span class="post-nav__title">贝九唱词</span>
                                     </span>
                                 </a>
                             
@@ -507,7 +518,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ssh-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-text">SSH 连接服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-tmux"><span class="post-toc-text">使用 tmux</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%AE%89%E8%A3%85-tmux"><span class="post-toc-text">1. 安装 tmux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%BF%90%E8%A1%8C%E4%BB%BB%E5%8A%A1"><span class="post-toc-text">2. 创建并运行任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E6%96%AD%E7%BA%BF%E9%87%8D%E8%BF%9E"><span class="post-toc-text">3. 断线重连</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="post-toc-text">端口映射</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SSH-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-text">SSH 连接服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-tmux"><span class="post-toc-text">使用 tmux</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%AE%89%E8%A3%85-tmux"><span class="post-toc-text">1. 安装 tmux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%BF%90%E8%A1%8C%E4%BB%BB%E5%8A%A1"><span class="post-toc-text">2. 创建并运行任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E6%96%AD%E7%BA%BF%E9%87%8D%E8%BF%9E"><span class="post-toc-text">3. 断线重连</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="post-toc-text">端口映射</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
