@@ -22,7 +22,8 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>ccauto-B-长会话压缩与多线程状态隔离 - 生猛活海鲜大排档</title>
+  
+  <title>CC Auto Mode 附录 B - 长会话压缩与多线程状态隔离 - 生猛活海鲜大排档</title>
 
   <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
   <link rel="stylesheet" href="/mdui2/mdui.css">
@@ -422,7 +423,7 @@
                     <div class="mdui-prose">
                         <p>在附录 A 中，我们探讨了出站前轻量级的上下文整形（Shaping）。然而，当一个 Agent 彻夜重构代码，积累了上百轮对话后，轻量级的裁剪终将杯水车薪。此时必须启动真正的<strong>全量压缩（Compaction）</strong>：让模型阅读前半段历史，生成高度浓缩的摘要，并截断旧记录。</p>
 <p>这里的核心技术挑战并非“如何写 Prompt 让模型总结”，而是在一套具备<strong>主进程、后台联想（Prompt Suggestion）、子 Agent（Teammate）并行运行</strong>的架构中，如何保证压缩操作<strong>安全、隔离且不引发雪崩</strong>。</p>
-<h2 id="1-终极防线：全量压缩-autoCompactIfNeeded">1. 终极防线：全量压缩 (<code>autoCompactIfNeeded</code>)</h2>
+<h2 id="1-终极防线：全量压缩-autocompactifneeded">1. 终极防线：全量压缩 (<code>autoCompactIfNeeded</code>)</h2>
 <p>全量压缩不是毫无顾忌地触发的，它是一项极其昂贵的操作。触发阈值通常被设定为当前模型有效上下文窗口减去一个安全缓冲带（<code>AUTOCOMPACT_BUFFER_TOKENS</code>，约 13,000 Tokens；常量定义见 <code>src/services/compact/autoCompact.ts</code> 约 L62，阈值计算见同文件 <code>getAutoCompactThreshold</code> 约 L72 起）。</p>
 <p>进入 <code>autoCompactIfNeeded</code>（<code>src/services/compact/autoCompact.ts</code> 约 L241）后，顺序为：先检查 <code>DISABLE_COMPACT</code>（约 L253–255）；再检查 <strong>连续失败熔断</strong> <code>tracking.consecutiveFailures &gt;= MAX_CONSECUTIVE_AUTOCOMPACT_FAILURES</code>（值为 3，约 L67–70、L257–265）；再通过内部 <strong><code>shouldAutoCompact</code></strong>（同文件 <code>shouldAutoCompact</code> / <code>calculateTokenWarningState</code> 一带，约 L225–238）判断当前估算 token 是否真需压缩——<strong>未过阈则直接返回</strong>，不会进入 Session Memory 或 <code>compactConversation</code>。</p>
 <p>若判定需要压缩，则先尝试 <strong><code>trySessionMemoryCompaction</code></strong>（约 L287–292；实现 <code>src/services/compact/sessionMemoryCompact.ts</code> 约 L514）。若返回非空：视为已压缩，执行 <code>setLastSummarizedMessageId(undefined)</code>、<code>runPostCompactCleanup(querySource)</code>；在 <code>PROMPT_CACHE_BREAK_DETECTION</code> 开启时还会 <code>notifyCompaction</code>（约 L302–304），避免 cache break 误报。<strong>否则</strong>再 <code>await compactConversation(...)</code>（约 L312–321）。成功时 <code>consecutiveFailures</code> 归零；<code>catch</code> 中非用户中止的错误递增失败计数，达阈打熔断日志（约 L334–349）。<strong>用户中止</strong>（<code>ERROR_MESSAGE_USER_ABORT</code>）不记入失败链（<code>catch</code> 内过滤）。</p>
@@ -467,7 +468,7 @@
   cbTrip --&gt;|是| logTrip --&gt; failOut
   cbTrip --&gt;|否| failOut</pre>
 <p>上述流程与源码同构：<code>catch</code> 分支在 <code>autoCompactIfNeeded</code> 内递增 <code>consecutiveFailures</code> 并在达到阈值时打熔断日志（<code>src/services/compact/autoCompact.ts</code> 约 L334–349）。</p>
-<h3 id="1-2-摘要生成中的-PTL（Prompt-Too-Long）重试自愈">1.2 摘要生成中的 PTL（Prompt Too Long）重试自愈</h3>
+<h3 id="1-2-摘要生成中的-ptl-prompt-too-long-重试自愈">1.2 摘要生成中的 PTL（Prompt Too Long）重试自愈</h3>
 <p>在 <code>compactConversation</code> 内部生成摘要时，系统面临一个“第 22 条军规”式的困境：<strong>用来生成摘要的 Prompt 本身，可能就已经超出了模型的 Context 限制</strong>（即报 <code>prompt_too_long</code> 错误）。主实现位于 <code>src/services/compact/compact.ts</code>（<code>compactConversation</code> 约 L387）。</p>
 <p>Claude Code 在这里实现了一个非常优雅的<strong>退避与自愈循环</strong>：如果 API 报错 PTL，它不会直接放弃，而是通过 <code>truncateHeadForPTLRetry</code>（同文件约 L243）强行切掉最早期的一小段历史，再次重试；摘要流由 <code>streamCompactSummary</code>（同文件约 L1136）发起，直到成功或达到最大重试次数。</p>
 <pre class="mermaid">flowchart TD
@@ -491,7 +492,7 @@
   retryOk --&gt;|否| throwPtl
   
   leaveLoop --&gt; doneNode["CompactionResult&lt;br/&gt;压缩结果：摘要+附件等"]</pre>
-<h3 id="1-3-compactConversation-内部要点（PreCompact、缓存前缀与完整摘要分支）">1.3 <code>compactConversation</code> 内部要点（PreCompact、缓存前缀与完整摘要分支）</h3>
+<h3 id="1-3-compactconversation-内部要点-precompact-缓存前缀与完整摘要分支">1.3 <code>compactConversation</code> 内部要点（PreCompact、缓存前缀与完整摘要分支）</h3>
 <p>摘要前可执行 <strong>PreCompact hooks</strong>（<code>executePreCompactHooks</code>，<code>compact.ts</code> 约 L411–418）。通过 GrowthBook 读取 <strong><code>tengu_compact_cache_prefix</code></strong>，控制压缩请求是否与其它请求 <strong>共享 prompt cache 前缀</strong>（约 L431–437；fork 子路径复用主对话 cache，GB 可作 kill-switch）。</p>
 <p><strong>与源码对齐的完整控制流</strong>（含 PTL、空摘要、API 错误与用户中止；约 L449–515）：</p>
 <pre class="mermaid">flowchart TD
@@ -537,7 +538,7 @@
 </ul>
 <p>与 <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/harness-design-long-running-apps">Harness design</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 的 <strong>compaction</strong> 叙事一致：在<strong>单会话内</strong>延续任务。与 <a href="/ccauto-07-deny-and-resilience/" title="">07 — Deny-and-Continue</a> 中「transcript 超过分类器窗口」的降级对照——<strong>压缩缓解膨胀，但不能保证分类器窗口永不被突破</strong>。</p>
 <hr>
-<h2 id="2-核心隔离架构：Microcompact-与全局缓存陷阱">2. 核心隔离架构：Microcompact 与全局缓存陷阱</h2>
+<h2 id="2-核心隔离架构：microcompact-与全局缓存陷阱">2. 核心隔离架构：Microcompact 与全局缓存陷阱</h2>
 <p>相比于重型的全量总结，<code>microcompact</code>（在 <a href="/ccauto-A-单次请求的上下文整形流水线/" title="">附录 A</a> 提及）是一种极其轻量、高频触发的<strong>缓存编辑与工具结果清理</strong>机制。对外入口为 <code>microcompactMessages</code>（<code>src/services/compact/microCompact.ts</code> 约 L253）。实现上的顺序要点如下：</p>
 <ol>
 <li><strong>时间优先</strong>：若距上一条 assistant 消息间隔超过阈值，认为服务端 cache 已 <strong>冷</strong>，先走 <strong><code>maybeTimeBasedMicrocompact</code></strong>（约 L261–266）清理旧 tool results；此路径 <strong>跳过</strong> cached microcompact（缓存编辑假设 warm cache）。</li>
@@ -553,7 +554,7 @@
 <p>结果灾难性：主线程在下一次发起对话时，读取了被污染的全局表，并向 API 发送指令：“请从缓存中删掉工具 ID: XYZ”。API 会直接报错崩溃，因为在主对话的真实上下文里，根本不存在 XYZ 这个工具调用！</p>
 </blockquote>
 <p>为了解决这个问题，系统强制实行了<strong>基于 <code>QuerySource</code> 的严格路径分流</strong>。</p>
-<h3 id="2-1-主线程与-Fork-线程的决断网络">2.1 主线程与 Fork 线程的决断网络</h3>
+<h3 id="2-1-主线程与-fork-线程的决断网络">2.1 主线程与 Fork 线程的决断网络</h3>
 <pre class="mermaid">flowchart TB
   entry["microcompactMessages&lt;br/&gt;microcompact 对外入口"]
   timeCheck{距离上一次请求&lt;br/&gt;是否间隔过久?}
@@ -575,7 +576,7 @@
   gmc --&gt; exit
   noop --&gt; exit</pre>
 <p><strong>设计精髓</strong>：这是一种经典的多源并发防撞设计。只有主线程拥有全局抽象状态的“写权限”，所有临时创建的影子线程（Session Memory, 后台 Hook）只能使用不依赖缓存编辑的退化模式，从而物理隔绝了上下文状态污染的可能性。<strong>安全/正确性含义</strong>：这是进程内 <strong>全局抽象状态与多 <code>QuerySource</code> 并发写</strong> 的一致性问题；若做错，主线程与 API cache 状态错位会导致异常或意外前缀重写。</p>
-<h3 id="2-2-延迟的边界确认-Deferred-Boundary">2.2 延迟的边界确认 (Deferred Boundary)</h3>
+<h3 id="2-2-延迟的边界确认-deferred-boundary">2.2 延迟的边界确认 (Deferred Boundary)</h3>
 <p>对于主线程，它决定向 API 发送 Cache Edits 请求后，不会立即在本地客户端更新自己的数据结构。它必须<strong>等待 API 流式响应完全结束</strong>，并且确认 API 返回的 <code>cache_deleted_input_tokens</code> 确实产生了收益（减去基线后 Delta &gt; 0），才会在本地 <code>yield</code> 一条 <code>createMicrocompactBoundaryMessage</code>（消息构造见 <code>src/utils/messages.ts</code> 约 L4557；在 <code>query</code> 成功路径上产出见 <code>src/query.ts</code> 约 L870–890，与 <code>pendingCacheEdits</code> 基线相减逻辑一致），完成本地状态机的闭环。</p>
 <p><strong>为何 boundary 要等流结束？</strong> API 的 <code>cache_deleted_input_tokens</code> 为 <strong>累计/粘性</strong> 值，需用 microcompact 返回前记录的 <strong>baseline</strong> 相减得到 <strong>本轮 delta</strong>；仅当 delta &gt; 0 才值得写入边界消息（实现见 <code>query.ts</code> 约 L420–425 与 L866–891）。</p>
 <pre class="mermaid">sequenceDiagram
@@ -597,7 +598,7 @@
     end
   end</pre>
 <hr>
-<h2 id="3-子进程-Teammate-的隔离生态墙">3. 子进程 (Teammate) 的隔离生态墙</h2>
+<h2 id="3-子进程-teammate-的隔离生态墙">3. 子进程 (Teammate) 的隔离生态墙</h2>
 <p>不仅主线程与后台预测线程需要隔离，Claude Code 中的“多 Agent 协作”（主 Agent 唤起一个跑在同一进程中的子 Teammate Agent）同样面临严峻的状态隔离挑战。</p>
 <p>当子 Teammate 在执行一个需要 50 轮迭代的复杂任务时，其内部上下文会极速膨胀并触发 <code>compactConversation</code>。如果此时直接套用全局的压缩逻辑，会发生两件可怕的事情：</p>
 <ol>
@@ -633,7 +634,7 @@
 <li><strong>屏蔽 UI 副作用 (<code>onCompactProgress: undefined</code>)</strong>：同一段沙箱补丁中一并置 <code>setStreamMode: undefined</code>（<code>inProcessRunner.ts</code> 约 L1087–1088），避免子代理压缩进度回调打扰主会话 UI；压缩仍调用 <code>compactConversation</code>（约 L1090）与 <code>buildPostCompactMessages</code>（约 L1104）刷新 <code>contextMessages</code>。</li>
 </ul>
 <p>压缩成功后还会 <strong><code>resetMicrocompactState</code></strong>（旧 tool id 失效）、必要时重置队友侧 <strong><code>contentReplacementState</code> / <code>teammateReplacementState</code></strong>，并 <strong>更新 task 消息与 AppState 镜像</strong>，避免长时循环中镜像无限增长（同文件约 L1105–1124）。详见 <a href="/ccauto-04-multi-agent/" title="">04 — 多 Agent 安全交接</a> 中 in-process 与 teammate 相关讨论。</p>
-<h2 id="特性与环境变量（压缩与-microcompact）">特性与环境变量（压缩与 microcompact）</h2>
+<h2 id="特性与环境变量-压缩与-microcompact">特性与环境变量（压缩与 microcompact）</h2>
 <table>
 <thead>
 <tr>
@@ -714,7 +715,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E7%BB%88%E6%9E%81%E9%98%B2%E7%BA%BF%EF%BC%9A%E5%85%A8%E9%87%8F%E5%8E%8B%E7%BC%A9-autoCompactIfNeeded"><span class="post-toc-text">1. 终极防线：全量压缩 (autoCompactIfNeeded)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E7%9A%84%E9%99%8D%E7%BA%A7%E4%B8%8E%E7%86%94%E6%96%AD%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="post-toc-text">1.1 自动压缩的降级与熔断流水线</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90%E4%B8%AD%E7%9A%84-PTL%EF%BC%88Prompt-Too-Long%EF%BC%89%E9%87%8D%E8%AF%95%E8%87%AA%E6%84%88"><span class="post-toc-text">1.2 摘要生成中的 PTL（Prompt Too Long）重试自愈</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-compactConversation-%E5%86%85%E9%83%A8%E8%A6%81%E7%82%B9%EF%BC%88PreCompact%E3%80%81%E7%BC%93%E5%AD%98%E5%89%8D%E7%BC%80%E4%B8%8E%E5%AE%8C%E6%95%B4%E6%91%98%E8%A6%81%E5%88%86%E6%94%AF%EF%BC%89"><span class="post-toc-text">1.3 compactConversation 内部要点（PreCompact、缓存前缀与完整摘要分支）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%A0%B8%E5%BF%83%E9%9A%94%E7%A6%BB%E6%9E%B6%E6%9E%84%EF%BC%9AMicrocompact-%E4%B8%8E%E5%85%A8%E5%B1%80%E7%BC%93%E5%AD%98%E9%99%B7%E9%98%B1"><span class="post-toc-text">2. 核心隔离架构：Microcompact 与全局缓存陷阱</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E4%B8%BB%E7%BA%BF%E7%A8%8B%E4%B8%8E-Fork-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%86%B3%E6%96%AD%E7%BD%91%E7%BB%9C"><span class="post-toc-text">2.1 主线程与 Fork 线程的决断网络</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-%E5%BB%B6%E8%BF%9F%E7%9A%84%E8%BE%B9%E7%95%8C%E7%A1%AE%E8%AE%A4-Deferred-Boundary"><span class="post-toc-text">2.2 延迟的边界确认 (Deferred Boundary)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%AD%90%E8%BF%9B%E7%A8%8B-Teammate-%E7%9A%84%E9%9A%94%E7%A6%BB%E7%94%9F%E6%80%81%E5%A2%99"><span class="post-toc-text">3. 子进程 (Teammate) 的隔离生态墙</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%88%E5%8E%8B%E7%BC%A9%E4%B8%8E-microcompact%EF%BC%89"><span class="post-toc-text">特性与环境变量（压缩与 microcompact）</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E7%BB%88%E6%9E%81%E9%98%B2%E7%BA%BF%EF%BC%9A%E5%85%A8%E9%87%8F%E5%8E%8B%E7%BC%A9-autocompactifneeded"><span class="post-toc-text">1. 终极防线：全量压缩 (autoCompactIfNeeded)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E7%9A%84%E9%99%8D%E7%BA%A7%E4%B8%8E%E7%86%94%E6%96%AD%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="post-toc-text">1.1 自动压缩的降级与熔断流水线</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90%E4%B8%AD%E7%9A%84-ptl-prompt-too-long-%E9%87%8D%E8%AF%95%E8%87%AA%E6%84%88"><span class="post-toc-text">1.2 摘要生成中的 PTL（Prompt Too Long）重试自愈</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-compactconversation-%E5%86%85%E9%83%A8%E8%A6%81%E7%82%B9-precompact-%E7%BC%93%E5%AD%98%E5%89%8D%E7%BC%80%E4%B8%8E%E5%AE%8C%E6%95%B4%E6%91%98%E8%A6%81%E5%88%86%E6%94%AF"><span class="post-toc-text">1.3 compactConversation 内部要点（PreCompact、缓存前缀与完整摘要分支）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%A0%B8%E5%BF%83%E9%9A%94%E7%A6%BB%E6%9E%B6%E6%9E%84%EF%BC%9Amicrocompact-%E4%B8%8E%E5%85%A8%E5%B1%80%E7%BC%93%E5%AD%98%E9%99%B7%E9%98%B1"><span class="post-toc-text">2. 核心隔离架构：Microcompact 与全局缓存陷阱</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E4%B8%BB%E7%BA%BF%E7%A8%8B%E4%B8%8E-fork-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%86%B3%E6%96%AD%E7%BD%91%E7%BB%9C"><span class="post-toc-text">2.1 主线程与 Fork 线程的决断网络</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-%E5%BB%B6%E8%BF%9F%E7%9A%84%E8%BE%B9%E7%95%8C%E7%A1%AE%E8%AE%A4-deferred-boundary"><span class="post-toc-text">2.2 延迟的边界确认 (Deferred Boundary)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%AD%90%E8%BF%9B%E7%A8%8B-teammate-%E7%9A%84%E9%9A%94%E7%A6%BB%E7%94%9F%E6%80%81%E5%A2%99"><span class="post-toc-text">3. 子进程 (Teammate) 的隔离生态墙</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-%E5%8E%8B%E7%BC%A9%E4%B8%8E-microcompact"><span class="post-toc-text">特性与环境变量（压缩与 microcompact）</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>

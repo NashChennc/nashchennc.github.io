@@ -22,7 +22,8 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>ccauto-01-entrypoint - 生猛活海鲜大排档</title>
+  
+  <title>CC Auto Mode 01 - Entry Point 总览 - 生猛活海鲜大排档</title>
 
   <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
   <link rel="stylesheet" href="/mdui2/mdui.css">
@@ -420,7 +421,7 @@
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <h2 id="Auto-Mode-在权限模式体系中的位置">Auto Mode 在权限模式体系中的位置</h2>
+                        <h2 id="auto-mode-在权限模式体系中的位置">Auto Mode 在权限模式体系中的位置</h2>
 <p>Claude Code 定义了一组<strong>权限模式</strong>（<code>PermissionMode</code>），用户通过 Shift+Tab 在 REPL 中循环切换。auto mode 是在 <code>TRANSCRIPT_CLASSIFIER</code> 特性开启时追加的内部模式。</p>
 <pre class="mermaid">stateDiagram-v2
     [*] --&gt; modeDefault
@@ -530,7 +531,7 @@
 </table>
 <p>当 CLI 解析判定用户意图使用 auto 时（包括 <code>--enable-auto-mode</code>、<code>--permission-mode auto</code>、resolved mode 为 auto、或 defaultMode 为 auto 但被门禁拒绝），会设置 <code>autoModeFlagCli</code>（参数语义：记录“用户想用 auto”，而非“当前已在 auto”）：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main.tsx L1399-1410</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_">feature</span>(<span class="string">&#x27;TRANSCRIPT_CLASSIFIER&#x27;</span>)) &#123;</span><br><span class="line">  <span class="keyword">if</span> (enableAutoMode || permissionModeCli === <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">      || permissionMode === <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">      || !permissionModeCli &amp;&amp; <span class="title function_">isDefaultPermissionModeAuto</span>()) &#123;</span><br><span class="line">    autoModeStateModule?.<span class="title function_">setAutoModeFlagCli</span>(<span class="literal">true</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="进入-Auto-Mode-的副作用">进入 Auto Mode 的副作用</h2>
+<h2 id="进入-auto-mode-的副作用">进入 Auto Mode 的副作用</h2>
 <p><code>transitionPermissionMode</code>（<code>src/utils/permissions/permissionSetup.ts</code> L597-640）在切换到 auto 时执行两个关键副作用：</p>
 <ol>
 <li><strong><code>setAutoModeActive(true)</code></strong> — 激活运行时标记</li>
@@ -686,7 +687,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Auto-Mode-%E5%9C%A8%E6%9D%83%E9%99%90%E6%A8%A1%E5%BC%8F%E4%BD%93%E7%B3%BB%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="post-toc-text">Auto Mode 在权限模式体系中的位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E5%B1%82%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="post-toc-text">三层状态管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%A5%E5%8F%A3%E7%9F%A9%E9%98%B5"><span class="post-toc-text">入口矩阵</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%9B%E5%85%A5-Auto-Mode-%E7%9A%84%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="post-toc-text">进入 Auto Mode 的副作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A6%96%E6%AC%A1%E5%90%8C%E6%84%8F%E5%BC%B9%E7%AA%97"><span class="post-toc-text">首次同意弹窗</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#auto-mode-%E5%9C%A8%E6%9D%83%E9%99%90%E6%A8%A1%E5%BC%8F%E4%BD%93%E7%B3%BB%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="post-toc-text">Auto Mode 在权限模式体系中的位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E5%B1%82%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="post-toc-text">三层状态管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%A5%E5%8F%A3%E7%9F%A9%E9%98%B5"><span class="post-toc-text">入口矩阵</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%9B%E5%85%A5-auto-mode-%E7%9A%84%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="post-toc-text">进入 Auto Mode 的副作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A6%96%E6%AC%A1%E5%90%8C%E6%84%8F%E5%BC%B9%E7%AA%97"><span class="post-toc-text">首次同意弹窗</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
