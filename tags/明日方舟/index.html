@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/sidebar-footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LV49J0P7YC');
+  </script>
+
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 51</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 399</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 10</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 14</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    <div class="topbar-profile-cluster">
+  <mdui-dropdown
+    class="topbar-profile-dropdown"
+    trigger="hover focus"
+    placement="bottom-end"
+    open-delay="180"
+    close-delay="280"
+  >
+    <mdui-button-icon
+      slot="trigger"
+      variant="standard"
+      class="topbar-profile-trigger-btn"
+      href="/about"
+      aria-haspopup="true"
+      aria-label="About · Open author profile and social links"
+      
+    >
+      
+        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+      
+    </mdui-button-icon>
+
+    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
+      <div class="sidebar-card-media">
+        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
+      </div>
+
+      <div class="sidebar-card-content--main sidebar-card-body">
+        
+          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
+        
+
+        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
+        <div class="sidebar-bio">
+          吃点好的
+        </div>
+        <div class="topbar-profile-about-wrap">
+          <mdui-button
+            variant="text"
+            href="/about"
+            class="topbar-profile-about"
+            
+          >About</mdui-button>
+        </div>
+      </div>
+    </mdui-card>
+  </mdui-dropdown>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <div class="page-shell app-container page-shell--pad-list">
+    <div class="page-grid page-grid--single">
+        <main class="page-main">
+            <div class="category-index">
+                
+                <header class="notes-header">
+                    <h1 class="notes-title">明日方舟</h1>
+                    
+                </header>
+                
+
+<section class="index-taxonomy" aria-label="Categories and tags">
+  
+  
+  <div class="index-taxonomy__block index-taxonomy__block--tags" aria-label="Tags">
+    <div class="index-taxonomy__tags-panel">
+      <div class="index-taxonomy__tags-flow">
+        <div class="index-taxonomy__chips index-taxonomy__chips--in-flow" role="list">
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/"
+        aria-current="page"
+      >明日方舟 · 17</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
+        
+      >QQ空间 · 17</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%B4%A9%E5%B4%A9%E5%B4%A9/"
+        
+      >崩崩崩 · 1</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%B4%A9%E9%93%81/"
+        
+      >崩铁 · 1</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%8A%A8%E6%BC%AB/"
+        
+      >动漫 · 1</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E7%94%9F%E6%B4%BB/"
+        
+      >生活 · 1</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%8E%9F%E7%A5%9E/"
+        
+      >原神 · 1</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E9%87%8D%E8%BF%94%E6%9C%AA%E6%9D%A51999/"
+        
+      >重返未来1999 · 1</a>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+
+                <div class="notes-grid">
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20260215%20%E4%BE%9D%E6%97%A7%E5%B9%B4%E5%BA%A6%E4%BF%9D%E7%95%99%E8%8A%82%E7%9B%AE/" class="note-card">
+  
+  <img src="/files/qzone-20260215-174413-01.jpg" class="note-cover" alt="20260215 依旧年度保留节目" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20260215 依旧年度保留节目</h2>
+      
+      <p class="note-excerpt">依旧年度保留节目 明日方舟年活标题</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2026 Feb 15</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20250125%20%E5%87%86%E5%A4%87%E5%BC%80%E5%B7%A5/" class="note-card">
+  
+  <img src="/files/qzone-20250125-122049-01.jpg" class="note-cover" alt="20250125 准备开工" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20250125 准备开工</h2>
+      
+      <p class="note-excerpt">准备开工 一年就握这一次笔</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2025 Jan 25</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240212%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/" class="note-card">
+  
+  <img src="/files/qzone-20240212-130430-01.jpg" class="note-cover" alt="20240212 我觉得空友应该需要这个" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240212 我觉得空友应该需要这个</h2>
+      
+      <p class="note-excerpt">我觉得空友应该需要这个 几行代码的事，别的游戏你们自己算去 BA概率不变建议自己手算 大小保底机制建议手算 舟和韭的数据是严格按照概率详情里的 原的武器池...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Feb 12</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240211%20%E5%8E%BB%E5%B9%B4%E7%8E%A9%E7%94%9F%E6%81%AF%E6%BC%94%E7%AE%97%E6%AF%8F%E5%A4%A9%E4%B8%8D%E7%8E%A9%E5%B0%B1%E7%9D%A1%E4%B8%8D%E7%9D%80/" class="note-card">
+  
+  <img src="/image/banner/nozomizo22.JPG" class="note-cover" alt="20240211 去年玩生息演算每天不玩就睡不着" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240211 去年玩生息演算每天不玩就睡不着</h2>
+      
+      <p class="note-excerpt">去年玩生息演算每天不玩就睡不着 今年的新生息演算玩得我想睡觉 某种程度上来说达到了相同的效果</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Feb 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240208%20%E8%81%94%E5%8A%A8%E5%86%85%E5%AE%B9/" class="note-card">
+  
+  <img src="/files/qzone-20240208-121023-01.jpg" class="note-cover" alt="20240208 联动内容" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240208 联动内容</h2>
+      
+      <p class="note-excerpt">联动内容 陈辉洁：龙纹 诗怀雅：虎符 林雨霞：竹简：王宫鼠患，全员捉鼠，不得鼠者笞之 博物馆里憋笑可不容易</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Feb 08</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240208%20%E5%90%AC%E4%BA%86%E5%8D%81%E5%87%A0%E5%B9%B4%E5%9C%B0%E9%93%81%E6%8A%A5%E7%AB%99/" class="note-card">
+  
+  <img src="/files/qzone-20240208-102835-01.jpg" class="note-cover" alt="20240208 听了十几年地铁报站" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240208 听了十几年地铁报站</h2>
+      
+      <p class="note-excerpt">听了十几年地铁报站 路过了不知道多少次 居然还是第一次来 伟大的联动！</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Feb 08</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240207%20%E9%BB%8D%E6%9D%A5%EF%BC%81%E9%BB%8D%E4%BB%8E%E5%9B%9B%E9%9D%A2%E5%85%AB%E6%96%B9%E6%9D%A5%EF%BC%81%E9%AD%82%E5%85%AE%E5%BD%92%E6%9D%A5%EF%BC%81%E9%AD%82%E5%85%AE%E5%BD%92%E6%9D%A5/" class="note-card">
+  
+  <img src="/files/qzone-20240207-125631-01.jpg" class="note-cover" alt="20240207 黍来！黍从四面八方来！魂兮归来！魂兮归来" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240207 黍来！黍从四面八方来！魂兮归来！魂兮归来</h2>
+      
+      <p class="note-excerpt">黍来！黍从四面八方来！魂兮归来！魂兮归来！啊啊...黍！啊啊.....魂兮归来！（做法）（跳大神）（围炉转圈）（上香）𓀀𓀁𓀃𓀅𓀇𓀋𓀌𓀎（做法）𓀙𓀠𓀤𓀥𓀫（...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Feb 07</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240203%20%E8%A2%AB%E5%8D%96%E5%88%B0%E8%90%A8%E5%B0%94%E8%B4%A1%E7%A0%8D%E6%A0%91%E4%BA%86/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet4.JPG" class="note-cover" alt="20240203 被卖到萨尔贡砍树了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240203 被卖到萨尔贡砍树了</h2>
+      
+      <p class="note-excerpt">被卖到萨尔贡砍树了 勿念</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Feb 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240110%20%E5%85%AC%E6%8B%9B%E5%87%BA%E4%BA%86%E5%8D%95%E6%8E%A8%E4%BA%86%E4%B8%89%E5%B9%B4%E5%8D%8A%E6%B2%A1%E6%8A%BD%E5%88%B0%E7%9A%84%E6%97%A9%E9%9C%B2/" class="note-card">
+  
+  <img src="/files/qzone-20240110-224252-01.jpg" class="note-cover" alt="20240110 公招出了单推了三年半没抽到的早露" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240110 公招出了单推了三年半没抽到的早露</h2>
+      
+      <p class="note-excerpt">公招出了单推了三年半没抽到的早露 烈夏也终于落地了 于是去补了半年前日服的熊孩子广播剧 上大人的哭戏感染力好强[em]e104[/em] 想起了和zmj唱...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Jan 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20231014%20%E8%83%BD%E4%B8%8D%E8%83%BD%EF%BC%81%E4%B8%8D%E8%A6%81%EF%BC%81%E5%9C%A8%EF%BC%81%E8%8B%A6%E5%A4%A7%E4%BB%87%E6%B7%B1%EF%BC%81%E7%9A%84%E6%88%98%E4%BA%89%E7%89%87%EF%BC%81%E9%87%8C/" class="note-card">
+  
+  <img src="/files/qzone-20231014-010236-01.jpg" class="note-cover" alt="20231014 能不能！不要！在！苦大仇深！的战争片！里" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20231014 能不能！不要！在！苦大仇深！的战争片！里</h2>
+      
+      <p class="note-excerpt">能不能！不要！在！苦大仇深！的战争片！里面！谈！恋爱！ 别的就不剧透了 不得不说要是将来红旗插遍全世界 有明日方舟一份功劳</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Oct 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230702%20%E6%AF%8F%E6%AC%A1%E5%9C%A8%E6%99%9A%E4%B8%8A%E6%83%B3%E8%A6%81%E7%9C%8B%E8%88%9F%E7%9A%84%E5%89%A7%E6%83%85%E6%9C%80%E5%90%8E%E9%83%BD%E4%BC%9A%E5%8F%98%E6%88%90%E5%80%92%E6%97%B6/" class="note-card">
+  
+  <img src="/files/qzone-20230702-194020-01.jpg" class="note-cover" alt="20230702 每次在晚上想要看舟的剧情最后都会变成倒时" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230702 每次在晚上想要看舟的剧情最后都会变成倒时</h2>
+      
+      <p class="note-excerpt">每次在晚上想要看舟的剧情最后都会变成倒时差 想问问蕾缪安小姐缺靶子缺沙包吗 想被铳口狠狠摁在墙上[em]e154[/em] 以及首通水月15 完了 十遍函...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Jul 02</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230130%20%E4%BD%A0%E8%AF%B4%E7%9A%84%E6%9C%80%E5%A5%BD%E6%98%AF%E6%B5%81%E6%B2%99%E5%8A%9B%E5%AD%A6/" class="note-card">
+  
+  <img src="/files/qzone-20230130-234854-01.jpg" class="note-cover" alt="20230130 你说的最好是流沙力学" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230130 你说的最好是流沙力学</h2>
+      
+      <p class="note-excerpt">你说的最好是流沙力学</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Jan 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230118%20%E9%B9%B0%E8%A7%92%E5%88%AB%E4%BB%A5%E4%B8%BA%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BD%A0%E5%9C%A8%E5%89%A7%E6%83%85%E9%87%8C%E6%94%BE%E5%8E%BB%E5%B9%B4%E7%9A%84%E6%88%98%E6%96%97/" class="note-card">
+  
+  <img src="/image/banner/nozomizo41.JPG" class="note-cover" alt="20230118 鹰角别以为我不知道你在剧情里放去年的战斗" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230118 鹰角别以为我不知道你在剧情里放去年的战斗</h2>
+      
+      <p class="note-excerpt">鹰角别以为我不知道你在剧情里放去年的战斗bgm 还有 我看的这是什么二次元金庸吗 不剧透了 好戏好戏</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Jan 18</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230117%20%E8%BF%BD%E5%8A%A0/" class="note-card">
+  
+  <img src="/files/qzone-20230117-164034-01.jpg" class="note-cover" alt="20230117 追加" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230117 追加</h2>
+      
+      <p class="note-excerpt">追加 小号的一发入魂 怎么跟去年剧本一模一样 先是来个大的，然后来个更大的</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Jan 17</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230117%2055%E6%8A%BD%E6%9E%97%E9%9B%A8%E9%9C%9E/" class="note-card">
+  
+  <img src="/files/qzone-20230117-163511-01.jpg" class="note-cover" alt="20230117 55抽林雨霞" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230117 55抽林雨霞</h2>
+      
+      <p class="note-excerpt">55抽林雨霞 歪得最合适的一次 重岳什么玩意，不熟 嘿嘿…香港母老鼠 以后肉鸽看见老林得喊声岳父请进蓝门</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Jan 17</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20220202%20%E5%8F%8D%E8%BD%AC%E4%BA%86%E5%99%AB%E5%98%BB%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E4%BB%A4%E5%A7%90%E5%A7%90%E2%80%A6%E2%80%A6%E5%98%BB%E5%98%BB%E2%80%A6/" class="note-card">
+  
+  <img src="/files/qzone-20220202-160849-01.jpg" class="note-cover" alt="20220202 反转了噫嘻哈哈哈哈哈哈哈令姐姐……嘻嘻…" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20220202 反转了噫嘻哈哈哈哈哈哈哈令姐姐……嘻嘻…</h2>
+      
+      <p class="note-excerpt">反转了噫嘻哈哈哈哈哈哈哈令姐姐……嘻嘻……令姐姐……嘿嘿 追加，顺手抽了隔壁池子 53抽 透支一整年阳寿了</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 Feb 02</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20220202%20%E4%BD%A0%E4%BD%A0%E4%BD%A0%E4%BD%A0%E4%BD%A0%E4%B8%8D%E8%A6%81%E8%BF%87%E6%9D%A5%E5%95%8A%E5%95%8A%E5%95%8A%E5%95%8A%E5%95%8A%E5%95%8A/" class="note-card">
+  
+  <img src="/files/qzone-20220202-115129-01.jpg" class="note-cover" alt="20220202 你你你你你不要过来啊啊啊啊啊啊" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20220202 你你你你你不要过来啊啊啊啊啊啊</h2>
+      
+      <p class="note-excerpt">你你你你你不要过来啊啊啊啊啊啊 米……不是，鹰角你坏事做尽！ 令姐姐……呜……我的令姐姐……</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 Feb 02</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                </div>
+                
+            </div>
+        </main>
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

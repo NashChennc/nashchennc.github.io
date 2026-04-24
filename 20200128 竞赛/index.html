@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>20200128 竞赛 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/sidebar-footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LV49J0P7YC');
+  </script>
+
+<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 51</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 399</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 10</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 14</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    <div class="topbar-profile-cluster">
+  <mdui-dropdown
+    class="topbar-profile-dropdown"
+    trigger="hover focus"
+    placement="bottom-end"
+    open-delay="180"
+    close-delay="280"
+  >
+    <mdui-button-icon
+      slot="trigger"
+      variant="standard"
+      class="topbar-profile-trigger-btn"
+      href="/about"
+      aria-haspopup="true"
+      aria-label="About · Open author profile and social links"
+      
+    >
+      
+        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+      
+    </mdui-button-icon>
+
+    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
+      <div class="sidebar-card-media">
+        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
+      </div>
+
+      <div class="sidebar-card-content--main sidebar-card-body">
+        
+          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
+        
+
+        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
+        <div class="sidebar-bio">
+          吃点好的
+        </div>
+        <div class="topbar-profile-about-wrap">
+          <mdui-button
+            variant="text"
+            href="/about"
+            class="topbar-profile-about"
+            
+          >About</mdui-button>
+        </div>
+      </div>
+    </mdui-card>
+  </mdui-dropdown>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">20200128 竞赛</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2020 Jan 28</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="note-tag">碎碎念</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">11 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <blockquote>
+<p>转发自 天天
+To 广东几大所所有看见的老师和竞赛党们：
+最近听到很多人，尤其是一些老师，总是满口华附多牛，稳稳的广东第一，完全不需要和深中之流搞好关系什么的；又瞧不起人家衡水之类的，说什么死板教育啊，一无是处啊，一幅华附好像已经跻身竞赛强校的样子。而就我所知，深中也不乏这类言论在流传，执信好像也并不是很看得起华附和深中，所以以至于现在整个广东的竞赛氛围都不是很好，几个学校之间弄得很僵，甚至还有不少的不良竞争行为，以至于朱<em>伟甚至明言发布了“禁华令”，明确禁止深圳的教练跟华附有任何来往。
+以上种种，我作为一个竞赛生都看在眼中，也听到外省对广东的评价越来越差，所以我觉得，广东需要醒醒了，而我作为华附的一个学生，对其他几所并不算很了解，所以先就华附自身情况来谈。 按姚</em>琪的话说，华附近年来并没有很走下坡路，高考和竞赛还是都能稳居省第一。但其实深中等校近几年和华附的差距都在不断的缩短，而且事实上，如果把眼界放大一些，华附（包括整个广东的省队），近年来，除了数学仍能有一席之地，理、化、生、信都遭受了前所未有的滑铁卢，甚至一度出现了连金牌都一个没有的情况——而在三五年前，广东谁出去拿不到金牌，是要被人笑话的——就算不排除一些外省的人有不当行为，但这还是一个非常值得人深思的现象。 那么现在的华附，比之外省正牌的竞赛强校，究竟差了些什么呢。我想了很久，最后觉得，差可能就差在我们瞧不起别人的地方：华附追求自由，追求综合发展，总瞧不起那些死读书的学校，但这就意味着我们不可能像衡水一样出去外培还是军训式作息，吃住都统一。而这就意味着我们能有一往无前的锐气，但我们不会有赌上一切的勇气，有不惧一切的底气，有抗住一切的毅力。本来，这未必是很大一个问题，有人这么形容的，传统竞赛强校像一柄无坚不摧的大铁锤，而华附，就是锋利无比的刺刀，有谁也挡不住的刀尖，但也有无比脆弱的刀背。这就是说，我们本身是很强的，但我们的韧性会很不好，我们经受不住侧面的压力，当我们分心于两侧的重压时，我们的刀尖就失去了一往无前的底气。所以，一旦处理不好侧面的压力，华附便永远不可能成为一所稳定的竞赛强校。
+有人就会认为，那把侧面补起来不就好了。这是对的，我们也看得出学校正在努力，但是，“十年树木百年树人”，一个学校的缺陷绝不是几年内能弥补的。但那又为什么在之前的十几年内这个缺陷几乎完全没有暴露呢，这就要回首前十几年广东的竞赛格局了：几十年来，特殊的历史原因造就了广东几乎所有强校都选择了自由发展而非死板教育的路线，其中就是华附、深中为首，紧跟着还有执信、纪中等，而从十几年前开始，广东就形成了以华附为核心，一边是深中，一边是执信的格局，背后还有省实这堵坚实的后盾，形成了一柄三尖的类似于三叉戟的格式。这就意味着，在十几年内，华附作为中间那把刺刀，虽然稍长一些，但几乎没有迎来过侧边的风雨，而深中、执信亦都只经历过一小部分风雨（毕竟三所中强校联手的阵容也不是谁都惹得起的），所以自然都没有做好单独直面两侧的大风大雨的准备。
+但自从两年前，华附就彭、蔡两张王牌拱手送给深圳，又因为童、林的事和执信有了一些分歧，这个联盟就摇摇欲坠了。毕竟深中早就想要这老大的位置很久了，只是因为忌惮华附后面站着一个省实，又没有合适的契机，所以才没有轻举妄动，而执信也并非很满意做华附和深中斗争中的陪衬，加之现在又和华附有了一些矛盾，于是站边便不是非常明确了。于是在校领导一次可以称为导火索的争执中，华附和深中彻底闹僵了，谁也不愿意给对方再提供任何帮助，彻底进入了冷战期。但与其说这是这次争执导致的，不如说是华附做了十几年的第一，国榜又刚有一些进步；而深中刚拿到一张王牌，都有些飘，认为自己不再需要对方的帮助了（而且据我所知，深中一直认为在联盟中自己付出的多，收获却不如华附）。
+而在华附和深中彻底闹掰之后，执信和纪中的态度就变得十分暧昧了，几乎从不跟哪一方走得特别近，又像是在自己酝酿着变强。于是现在的华附就处于一个极度尴尬的处境，四面无帮手，只有背后一个省实还一直坚定的各方面都和华附站在一起。但事实上，省实十几年习惯了在几大所的后面做后盾，在竞赛上，省实已经没有独当一面的能力了，只能在背后顶住华附，让华附不摔的那么惨。但总而言之，华附虽然看上去还是有那无比锋利的刀刃，但我们的刀背已经暴露在了风雨中，谁都可以来捶一下，所以虽然我们的刀刃一时间不会破损，但我们其实短时间内，已经再难有抗住压力而继续进步的机会了，反而可能陷入不断地倒退之中。与此同时，深中和执信也面临类似的环境，突然猛烈的风雨让他们措手不及，虽然他们有一定经历风雨的经验，但他们却没有省实这堵后盾，所以也有着肉眼可见的倒退。反倒是纪中和二中等习惯了独来独往的“小学校”，没有怎么受到影响，反而有趁机站起来的迹象。
+但无论广东内部谁好受一些，谁难受一些，我觉得我们都不应该高兴——难道说我们华附如果用这种方法弄垮了深中，从而多了几个省队名额，但去冬令营却没有什么好的发挥，我们就应该高兴吗？——我们应该看到的是，因为华附和深中两大巨头谁也不服谁的闹掰，广东各竞赛学校几乎都受到了或大或小的冲击，广东整体的竞赛水平——在全国都在前进的环境下——反而有退步的趋势，这对于一个省份，尤其是广东这种高不成低不就的竞赛中强省来说，是非常的不好的——我相信，这也是每一个广东竞赛生都不愿意看到的——那为什么要这样呢，为什么从老师到学生都要死犟死犟地拉不下脸皮，都不能去尝试和对方和解，从而取得一个双赢的局面，而要用连自己的内心都瞒不过的语言和想法去藐视对方，以获得不和对方和解的理由和心理安慰呢？ 我觉得，广东该醒醒了，如果那些身居高位的领导者们舍不下面子，就从学生开始做起，无论谁曾得罪过谁，在大是大非面前，在整个省的进步面前，都先放下矛盾，携手共进，取得双赢的局面！不要继续冷战，而让外省那些小兔崽子们瞧不起我们广东，笑话我们广东。 后记：写这篇文章，一方面是因为校内有很多引战的不良言论出现，试图再度恶化华附和深中本就不好的关系，而其中不乏身居高位者所说；另一方面是有不少外省的人告诉我广东的竞赛环境和成绩越来越差了，我仔细一想，发现确有其事。这篇文章写得匆忙，或许有不少错漏，或是没能表达清楚我想表达的意思的地方，也或许有惹一些人不高兴的地方，但我还是希望有更多的广东竞赛党能看见这篇文章，所以希望大家愿意的能转发一下。当然，如果有什么问题的也欢迎联系我
+姜</p>
+</blockquote>
+<!-- qzone-import: tid=d6c57b29fb832f5e04980800 -->
+
+                    </div>
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/20200128%20%E5%87%BA%E5%8E%BB%E9%81%9B%E4%BA%86%E4%B8%80%E5%9C%88/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">碎碎念</span>
+                                        
+                                        <span class="post-nav__title">20200128 出去遛了一圈</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/20200124%20%E6%98%A5%E8%81%94%202020/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">碎碎念</span>
+                                        
+                                        <span class="post-nav__title">20200124 春联 2020</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>
