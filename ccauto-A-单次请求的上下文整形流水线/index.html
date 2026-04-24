@@ -446,7 +446,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="术语锚点表（与源码对齐）">术语锚点表（与源码对齐）</h3>
+<h3 id="术语锚点表-与源码对齐">术语锚点表（与源码对齐）</h3>
 <table>
 <thead>
 <tr>
@@ -484,7 +484,7 @@
 </tbody>
 </table>
 <p><strong><code>isMainThreadSource</code></strong>（<code>microCompact.ts</code> 约 L249–251）：<code>querySource</code> 为空 <strong>或</strong> 以 <code>repl_main_thread</code> 开头视为「主线程」，否则为 fork 侧。fork 侧 <strong>不得</strong> 写入全局 <code>cachedMCState</code> 的 cached microcompact 路径，否则主线程可能在 API 层引用<strong>本对话中不存在</strong>的 <code>tool_use_id</code>（同文件 L272–275 注释）。</p>
-<h2 id="主线程整形流水线：L1-到-L3-的降压过滤">主线程整形流水线：L1 到 L3 的降压过滤</h2>
+<h2 id="主线程整形流水线：l1-到-l3-的降压过滤">主线程整形流水线：L1 到 L3 的降压过滤</h2>
 <p>当主对话准备向模型发送请求时，消息数组（Messages）会依次穿过三个降压层。这三个层级针对的<strong>修改对象</strong>完全不同。</p>
 <pre class="mermaid">flowchart TB
   subgraph contentLayer [L1 内容与会话预算]
@@ -517,7 +517,7 @@
   snip --> snipHint
   snipHint --> mc</pre>
 <p>三层按 <strong>改动对象</strong> 划分；<code>snip</code> / <code>collapse</code> 在特性关闭时等价于直通。</p>
-<h4 id="阶段依赖表（src-query-ts）">阶段依赖表（<code>src/query.ts</code>）</h4>
+<h4 id="阶段依赖表-src-query-ts">阶段依赖表（<code>src/query.ts</code>）</h4>
 <table>
 <thead>
 <tr>
@@ -566,7 +566,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="queryLoop-出站管道（时序示意）"><code>queryLoop</code> 出站管道（时序示意）</h4>
+<h4 id="queryloop-出站管道-时序示意"><code>queryLoop</code> 出站管道（时序示意）</h4>
 <pre class="mermaid">sequenceDiagram
   participant Q as "queryLoop<br/>主对话单轮迭代"
   participant B as "applyToolResultBudget<br/>工具结果预算"
@@ -604,7 +604,7 @@
 <p>下列摘录与源码注释一致，标出上述顺序在 <code>queryLoop</code> 中的真实落点（行号随版本可能漂移，以符号为准）：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/query.ts L365-467（节选：budget → snip → microcompact → collapse → autocompact）</span></span><br><span class="line"><span class="keyword">let</span> messagesForQuery = [...<span class="title function_">getMessagesAfterCompactBoundary</span>(messages)]</span><br><span class="line">messagesForQuery = <span class="keyword">await</span> <span class="title function_">applyToolResultBudget</span>(<span class="comment">/* ... */</span>)</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_">feature</span>(<span class="string">&#x27;HISTORY_SNIP&#x27;</span>)) &#123;</span><br><span class="line">  <span class="keyword">const</span> snipResult = snipModule!.<span class="title function_">snipCompactIfNeeded</span>(messagesForQuery)</span><br><span class="line">  snipTokensFreed = snipResult.<span class="property">tokensFreed</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> microcompactResult = <span class="keyword">await</span> deps.<span class="title function_">microcompact</span>(</span><br><span class="line">  messagesForQuery,</span><br><span class="line">  toolUseContext,</span><br><span class="line">  querySource,</span><br><span class="line">)</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_">feature</span>(<span class="string">&#x27;CONTEXT_COLLAPSE&#x27;</span>) &amp;&amp; contextCollapse) &#123;</span><br><span class="line">  <span class="keyword">const</span> collapseResult = <span class="keyword">await</span> contextCollapse.<span class="title function_">applyCollapsesIfNeeded</span>(</span><br><span class="line">    messagesForQuery,</span><br><span class="line">    toolUseContext,</span><br><span class="line">    querySource,</span><br><span class="line">  )</span><br><span class="line">  messagesForQuery = collapseResult.<span class="property">messages</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123; compactionResult, consecutiveFailures &#125; = <span class="keyword">await</span> deps.<span class="title function_">autocompact</span>(</span><br><span class="line">  messagesForQuery,</span><br><span class="line">  toolUseContext,</span><br><span class="line">  &#123; <span class="comment">/* systemPrompt, userContext, ... */</span> &#125;,</span><br><span class="line">  querySource,</span><br><span class="line">  tracking,</span><br><span class="line">  snipTokensFreed,</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
 <hr>
-<h3 id="Phase-1-L1-内容层-——-工具结果预算-applyToolResultBudget">Phase 1: L1 内容层 —— 工具结果预算 (<code>applyToolResultBudget</code>)</h3>
+<h3 id="phase-1-l1-内容层-工具结果预算-applytoolresultbudget">Phase 1: L1 内容层 —— 工具结果预算 (<code>applyToolResultBudget</code>)</h3>
 <p>这是流水线的第一站。Agent 可能执行了一个返回数万行日志的 <code>Bash</code> 命令，这一层负责将其拦截并“瘦身”。入口函数为 <code>applyToolResultBudget</code>（<code>src/utils/toolResultStorage.ts</code> 约 L924），由 <code>queryLoop</code> 在 microcompact 之前调用（<code>src/query.ts</code> 约 L379）。</p>
 <p>如果开启了特性（<code>contentReplacementState</code> 存在），该阶段会执行 <code>enforceToolResultBudget</code>（同文件约 L769），将严重超标的工具输出替换为占位符（Placeholder），告知模型“输出过长已被截断，请使用 grep 等工具精确查找”。</p>
 <pre class="mermaid">flowchart TD
@@ -632,11 +632,11 @@
   skipW --> retMsg</pre>
 <p><strong>正交设计</strong>：“是否发生内容替换”与“是否持久化记录（<code>writeToTranscript</code>）”是完全解耦的。如前所述，只有当 <code>QuerySource</code> 是可恢复的（如主 REPL 或主 Agent）时，才会传入回调将替换动作记录到本地文件中。如果是后台联想（Prompt Suggestion）触发了这套逻辑，即使发生了替换，也绝不会污染磁盘文件。</p>
 <p>持久化规则与 <code>applyToolResultBudget</code> 的 JSDoc（<code>toolResultStorage.ts</code> 约 L915–919）一致：<code>writeToTranscript</code> 仅由 <code>query.ts</code> 在 <strong>可 resume</strong> 的 <code>querySource</code> 上传入；<code>agent_summary</code>、<code>session_memory</code>、<code>/btw</code>、<code>compact</code> 等 <strong>临时</strong> fork 路径传 <code>undefined</code>，避免污染侧链或会话记录。</p>
-<h3 id="Phase-2-L2-形状层-——-尾部裁剪-snipCompactIfNeeded">Phase 2: L2 形状层 —— 尾部裁剪 (<code>snipCompactIfNeeded</code>)</h3>
+<h3 id="phase-2-l2-形状层-尾部裁剪-snipcompactifneeded">Phase 2: L2 形状层 —— 尾部裁剪 (<code>snipCompactIfNeeded</code>)</h3>
 <p>在处理完单条超大消息后，系统开始处理消息列表的“形状”。<code>query.ts</code> 在 <code>HISTORY_SNIP</code> 开启时动态加载 <code>services/compact/snipCompact</code>（约 L115–117），入口为 <code>snipCompactIfNeeded</code>（约 L401–404）；图中 L2 标签写作 history snip，与运行时模块名对应。</p>
 <p>如果开启了 <code>HISTORY_SNIP</code>，系统会根据策略对对话尾部的消息条数进行轻量级修剪，并计算出<strong>因此释放的 Token 数量 (<code>snipTokensFreed</code>)</strong>。</p>
 <p>这个释放量至关重要：它会作为最后一参传入 <code>deps.autocompact(...)</code>（<code>src/query.ts</code> 约 L454–466）。因为模型返回的 <code>usage.input_tokens</code> 无法反映由于 Snip 刚刚省下的额度，传入 <code>snipTokensFreed</code> 可以修正阈值判断，避免系统产生“上下文依然满载”的幻觉而误触发全量压缩。</p>
-<h3 id="Phase-3-L3-压力层-——-增量与全量收缩">Phase 3: L3 压力层 —— 增量与全量收缩</h3>
+<h3 id="phase-3-l3-压力层-增量与全量收缩">Phase 3: L3 压力层 —— 增量与全量收缩</h3>
 <p>到达这一层，系统开始应对真正的 Context 窗口压力。</p>
 <ol>
 <li><strong>Microcompact</strong>：一种极其轻量级的“清理”。<code>queryLoop</code> 通过 <code>deps.microcompact</code> 调用，生产绑定为 <code>microcompactMessages</code>（<code>src/services/compact/microCompact.ts</code> 约 L253；<code>deps</code> 装配见 <code>src/query/deps.ts</code> L26–27、34–37）。它尽可能在不破坏整段前缀缓存的前提下，清理掉冗余的 <code>tool_results</code>（此部分涉及极为复杂的全局状态隔离与 Cache Editing 机制，将在《附录 B》中深入解析）。</li>
@@ -644,7 +644,7 @@
 <li><strong>Autocompact</strong>：终极防线。<code>deps.autocompact</code> 即 <code>autoCompactIfNeeded</code>（<code>src/services/compact/autoCompact.ts</code> 约 L241）。若估算仍超过 <code>getAutoCompactThreshold(model)</code>（阈值逻辑同文件约 L32–90，含约 13,000 Token 的 <code>AUTOCOMPACT_BUFFER_TOKENS</code> 缓冲），则正式触发全量压缩路径内的 <code>compactConversation</code>（<code>src/services/compact/compact.ts</code> 约 L387），生成对话摘要。</li>
 </ol>
 <hr>
-<h2 id="出站最后一公里：API-规范化-normalizeMessagesForAPI">出站最后一公里：API 规范化 (<code>normalizeMessagesForAPI</code>)</h2>
+<h2 id="出站最后一公里：api-规范化-normalizemessagesforapi">出站最后一公里：API 规范化 (<code>normalizeMessagesForAPI</code>)</h2>
 <p>经历了 L1~L3 复杂的语义与上下文容量整形后，<code>messages</code> 数组在逻辑上已经完美，但在物理上却未必符合各个大模型云服务商（如 Bedrock, Vertex, 1P API）的严格格式要求。</p>
 <p>因此，在发起网络请求前的最后一刻，调用 <code>normalizeMessagesForAPI</code>（<code>src/utils/messages.ts</code> 约 L1989）进行“供应商级别的合规清洗”。流程中包含 <code>reorderAttachmentsForAPI</code>（同文件约 L1481）、对连续 <code>user</code> 的 <code>mergeUserMessages</code>（约 L2411）等步骤，与下述流程图节点一一对应。</p>
 <pre class="mermaid">flowchart TD
@@ -695,7 +695,7 @@
 <p>必须强调的是，<code>normalizeMessagesForAPI</code> 解决的是<strong>物理协议合法性与体积优化</strong>，它处于分类器管道之外。防止 Prompt Injection 等语义攻击的清洗任务并不在这里，而是在更早的解析器入口与更后的服务端探针中完成（详见 <a href="/ccauto-C-分类器边界之外的纵深防御/" title="">附录 C</a>）。</p>
 </blockquote>
 <p>与 <a href="/ccauto-02-classifier/" title="">02 — 两阶段分类器管道</a> 中「分类器侧 transcript 构造」是 <strong>不同平面</strong>：normalize 服务 <strong>主会话发往云厂商的合法性与体积</strong>；分类器另有对 tool results 的剥离与长度策略。其它出站路径（如 <code>claude.ts</code>）还会调用 <code>ensureToolResultPairing</code> 等修复孤儿 <code>tool_use</code> / <code>tool_result</code>（见 <code>src/utils/messages.ts</code>）。</p>
-<h2 id="与-Harness-官方博文的边界">与 Harness 官方博文的边界</h2>
+<h2 id="与-harness-官方博文的边界">与 Harness 官方博文的边界</h2>
 <table>
 <thead>
 <tr>
@@ -722,7 +722,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="特性与环境变量（本附录相关）">特性与环境变量（本附录相关）</h2>
+<h2 id="特性与环境变量-本附录相关">特性与环境变量（本附录相关）</h2>
 <table>
 <thead>
 <tr>
@@ -801,7 +801,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="post-toc-text">核心术语与坐标系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%AF%E8%AF%AD%E9%94%9A%E7%82%B9%E8%A1%A8%EF%BC%88%E4%B8%8E%E6%BA%90%E7%A0%81%E5%AF%B9%E9%BD%90%EF%BC%89"><span class="post-toc-text">术语锚点表（与源码对齐）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%9AL1-%E5%88%B0-L3-%E7%9A%84%E9%99%8D%E5%8E%8B%E8%BF%87%E6%BB%A4"><span class="post-toc-text">主线程整形流水线：L1 到 L3 的降压过滤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Phase-1-L1-%E5%86%85%E5%AE%B9%E5%B1%82-%E2%80%94%E2%80%94-%E5%B7%A5%E5%85%B7%E7%BB%93%E6%9E%9C%E9%A2%84%E7%AE%97-applyToolResultBudget"><span class="post-toc-text">Phase 1: L1 内容层 —— 工具结果预算 (applyToolResultBudget)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Phase-2-L2-%E5%BD%A2%E7%8A%B6%E5%B1%82-%E2%80%94%E2%80%94-%E5%B0%BE%E9%83%A8%E8%A3%81%E5%89%AA-snipCompactIfNeeded"><span class="post-toc-text">Phase 2: L2 形状层 —— 尾部裁剪 (snipCompactIfNeeded)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Phase-3-L3-%E5%8E%8B%E5%8A%9B%E5%B1%82-%E2%80%94%E2%80%94-%E5%A2%9E%E9%87%8F%E4%B8%8E%E5%85%A8%E9%87%8F%E6%94%B6%E7%BC%A9"><span class="post-toc-text">Phase 3: L3 压力层 —— 增量与全量收缩</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%BA%E7%AB%99%E6%9C%80%E5%90%8E%E4%B8%80%E5%85%AC%E9%87%8C%EF%BC%9AAPI-%E8%A7%84%E8%8C%83%E5%8C%96-normalizeMessagesForAPI"><span class="post-toc-text">出站最后一公里：API 规范化 (normalizeMessagesForAPI)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8E-Harness-%E5%AE%98%E6%96%B9%E5%8D%9A%E6%96%87%E7%9A%84%E8%BE%B9%E7%95%8C"><span class="post-toc-text">与 Harness 官方博文的边界</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%88%E6%9C%AC%E9%99%84%E5%BD%95%E7%9B%B8%E5%85%B3%EF%BC%89"><span class="post-toc-text">特性与环境变量（本附录相关）</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="post-toc-text">核心术语与坐标系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%AF%E8%AF%AD%E9%94%9A%E7%82%B9%E8%A1%A8-%E4%B8%8E%E6%BA%90%E7%A0%81%E5%AF%B9%E9%BD%90"><span class="post-toc-text">术语锚点表（与源码对齐）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%9Al1-%E5%88%B0-l3-%E7%9A%84%E9%99%8D%E5%8E%8B%E8%BF%87%E6%BB%A4"><span class="post-toc-text">主线程整形流水线：L1 到 L3 的降压过滤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#phase-1-l1-%E5%86%85%E5%AE%B9%E5%B1%82-%E5%B7%A5%E5%85%B7%E7%BB%93%E6%9E%9C%E9%A2%84%E7%AE%97-applytoolresultbudget"><span class="post-toc-text">Phase 1: L1 内容层 —— 工具结果预算 (applyToolResultBudget)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#phase-2-l2-%E5%BD%A2%E7%8A%B6%E5%B1%82-%E5%B0%BE%E9%83%A8%E8%A3%81%E5%89%AA-snipcompactifneeded"><span class="post-toc-text">Phase 2: L2 形状层 —— 尾部裁剪 (snipCompactIfNeeded)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#phase-3-l3-%E5%8E%8B%E5%8A%9B%E5%B1%82-%E5%A2%9E%E9%87%8F%E4%B8%8E%E5%85%A8%E9%87%8F%E6%94%B6%E7%BC%A9"><span class="post-toc-text">Phase 3: L3 压力层 —— 增量与全量收缩</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%BA%E7%AB%99%E6%9C%80%E5%90%8E%E4%B8%80%E5%85%AC%E9%87%8C%EF%BC%9Aapi-%E8%A7%84%E8%8C%83%E5%8C%96-normalizemessagesforapi"><span class="post-toc-text">出站最后一公里：API 规范化 (normalizeMessagesForAPI)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8E-harness-%E5%AE%98%E6%96%B9%E5%8D%9A%E6%96%87%E7%9A%84%E8%BE%B9%E7%95%8C"><span class="post-toc-text">与 Harness 官方博文的边界</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-%E6%9C%AC%E9%99%84%E5%BD%95%E7%9B%B8%E5%85%B3"><span class="post-toc-text">特性与环境变量（本附录相关）</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
