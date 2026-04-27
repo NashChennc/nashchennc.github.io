@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -418,7 +394,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">Agentic RL Safety</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Apr 03</span>
+                        <span class="note-date">2026 Apr 25</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -434,7 +410,7 @@
                     <div class="mdui-prose">
                         <h1>Agentic RL Safety</h1>
 <h1>背景</h1>
-<h2 id="po">*PO</h2>
+<h2 id="PO">*PO</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://medium.com/@mandeep0405/ppo-dpo-grpo-reinforcement-learning-techniques-for-training-llms-193459ffc14e">https://medium.com/@mandeep0405/ppo-dpo-grpo-reinforcement-learning-techniques-for-training-llms-193459ffc14e</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 <li><a target="_blank" rel="noopener" href="https://pub.towardsai.net/mastering-llm-fine-tuning-grpo-ppo-and-dpo-compared-e362257d4036">https://pub.towardsai.net/mastering-llm-fine-tuning-grpo-ppo-and-dpo-compared-e362257d4036</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
@@ -444,7 +420,7 @@
 </ul>
 <p>反思 Agent <a target="_blank" rel="noopener" href="https://blog.langchain.com/reflection-agents/">https://blog.langchain.com/reflection-agents/</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 <h1>Agent Safety</h1>
-<h2 id="current-limitations">Current Limitations</h2>
+<h2 id="Current-Limitations">Current Limitations</h2>
 <ul>
 <li>[Anthropic Alignment 2506] <a target="_blank" rel="noopener" href="https://www.anthropic.com/research/agentic-misalignment">Agentic Misalignment </a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>| <a target="_blank" rel="noopener" href="https://www.anthropic.com/research/shade-arena-sabotage-monitoring">SHADE-Arena</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 </ul>
@@ -487,6 +463,20 @@
 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2510.06445">https://arxiv.org/abs/2510.06445</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/LLM%E7%9B%B8%E5%85%B3/">LLM相关</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/%E7%A7%91%E7%A0%94%E7%9B%B8%E5%85%B3/">科研相关</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -495,7 +485,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/Transformer/">
+                                <a class="post-nav__link" href="/Anti-Sycophancy%20Prompts/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -504,14 +494,14 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">Transformer</span>
+                                        <span class="post-nav__title">Anti-Sycophancy Prompts</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/%E4%BB%8E%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%E5%88%B0%E5%B9%BF%E4%B9%89%E5%8D%B7%E7%A7%AF/">
+                                <a class="post-nav__link" href="/JavaScript/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -520,7 +510,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">从容斥原理到广义卷积</span>
+                                        <span class="post-nav__title">JavaScript</span>
                                     </span>
                                 </a>
                             
@@ -536,7 +526,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Agentic RL Safety</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">背景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#po"><span class="post-toc-text">*PO</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Agent Safety</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#current-limitations"><span class="post-toc-text">Current Limitations</span></a></li></ol></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Agentic RL Safety</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">背景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PO"><span class="post-toc-text">*PO</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Agent Safety</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Current-Limitations"><span class="post-toc-text">Current Limitations</span></a></li></ol></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -565,6 +555,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -576,7 +571,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -589,7 +590,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -602,7 +609,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -615,6 +628,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

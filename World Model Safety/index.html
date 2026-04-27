@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -450,13 +426,13 @@
 <li><a target="_blank" rel="noopener" href="https://vlabench.github.io">https://vlabench.github.io</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 </ul>
 <h2 id="1-生成视频">1. 生成视频</h2>
-<h3 id="opensora">OpenSora</h3>
+<h3 id="OpenSora">OpenSora</h3>
 <p>Sora的开源复刻。</p>
 <p>显存要求 50-80 GB</p>
 <ul>
 <li>Github Repo <a target="_blank" rel="noopener" href="https://github.com/hpcaitech/Open-Sora">https://github.com/hpcaitech/Open-Sora</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 </ul>
-<h3 id="streamingt2v">StreamingT2V</h3>
+<h3 id="StreamingT2V">StreamingT2V</h3>
 <p>StreamingSVD 是一种先进的自回归技术，用于文本转视频和图像转视频的生成，能够生成具有丰富运动动态的高质量长视频，将 SVD 转化为长视频生成器。</p>
 <p>底层自回归方法的有效性并不局限于所使用的特定基础模型，这表明基础模型的改进可以生成更高质量的视频。StreamingSVD 是 StreamingT2V 系列的一部分。</p>
 <p>在默认配置下，我们的代码生成 200 帧时需要 60 GB 的显存。内存优化版本显著降低显存需求至 24 GB，但运行速度比默认配置慢约 50%。为了进一步减少内存占用，可以考虑降低帧数或启用随机混合。我们的代码在 Linux 上测试，使用 Python 3.9 和 CUDA &gt;= 11.8。</p>
@@ -473,12 +449,12 @@
 </ul>
 <p>ModelScope 服务平台，可以使用其中的 T2V api</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/modelscope/modelscope">https://github.com/modelscope/modelscope</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
-<h3 id="stable-video-diffusion-svd">Stable Video Diffusion (SVD)</h3>
+<h3 id="Stable-Video-Diffusion-SVD">Stable Video Diffusion (SVD)</h3>
 <p>a latent video diffusion model for multi-frame and multi-view consistent dynamic 3D content generation.<a target="_blank" rel="noopener" href="https://github.com/Stability-AI/generative-models">https://github.com/Stability-AI/generative-models</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 <ul>
 <li>Website(SV4D) <a target="_blank" rel="noopener" href="https://sv4d.github.io">https://sv4d.github.io</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 </ul>
-<h3 id="animatediff">AnimateDiff</h3>
+<h3 id="AnimateDiff">AnimateDiff</h3>
 <p>此代码库是 AnimateDiff [ICLR2024 Spotlight] 的官方实现。它是一个即插即用的模块，可以将大多数社区文本转图像模型转换为动画生成器，无需额外训练。</p>
 <ul>
 <li>
@@ -494,7 +470,7 @@
 <p>Tutorial <a target="_blank" rel="noopener" href="https://cgmi.com/archives/481">https://cgmi.com/archives/481</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 </li>
 </ul>
-<h3 id="lavie">LaVie</h3>
+<h3 id="LaVie">LaVie</h3>
 <p>LaVie 是一个文本转视频 (T2V) 生成框架，也是视频生成系统 Vchitect 的重要组成部分。您还可以查看我们精心调优的图像转视频 (I2V) 模型 SEINE 。</p>
 <ul>
 <li>
@@ -504,7 +480,7 @@
 <p>Github Repo <a target="_blank" rel="noopener" href="https://github.com/Vchitect/LaVie">https://github.com/Vchitect/LaVie</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 </li>
 </ul>
-<h3 id="dynamicrafter">DynamiCrafter</h3>
+<h3 id="DynamiCrafter">DynamiCrafter</h3>
 <p>显存 10-20GB</p>
 <ul>
 <li>Github Repo <a target="_blank" rel="noopener" href="https://github.com/Doubiiu/DynamiCrafter">https://github.com/Doubiiu/DynamiCrafter</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
@@ -516,10 +492,22 @@
 <li><strong>OpenVLA</strong> <a target="_blank" rel="noopener" href="https://openvla.github.io">https://openvla.github.io</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 <li><strong>DreamGen</strong> <a target="_blank" rel="noopener" href="https://github.com/nvidia/GR00T-dreams">https://github.com/nvidia/GR00T-dreams</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon><a target="_blank" rel="noopener" href="https://dreamgen-u8q2hhdcu.brevlab.com">https://dreamgen-u8q2hhdcu.brevlab.com</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 </ul>
-<h3 id="video2action">Video2Action</h3>
+<h3 id="Video2Action">Video2Action</h3>
 <p><a target="_blank" rel="noopener" href="https://video-to-action.github.io">https://video-to-action.github.io</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/%E7%A7%91%E7%A0%94%E7%9B%B8%E5%85%B3/">科研相关</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -528,7 +516,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/SAE%20%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/">
+                                <a class="post-nav__link" href="/LLM%20Safety%20%E8%B5%84%E6%BA%90/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -537,14 +525,14 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">SAE 特征筛选</span>
+                                        <span class="post-nav__title">LLM Safety 资源</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/SSML/">
+                                <a class="post-nav__link" href="/%E6%96%87%E6%A1%A3/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -553,7 +541,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">SSML</span>
+                                        <span class="post-nav__title">文档</span>
                                     </span>
                                 </a>
                             
@@ -569,7 +557,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">1 World Models</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Benchmarks</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E7%94%9F%E6%88%90%E8%A7%86%E9%A2%91"><span class="post-toc-text">1. 生成视频</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#opensora"><span class="post-toc-text">OpenSora</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#streamingt2v"><span class="post-toc-text">StreamingT2V</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#stable-video-diffusion-svd"><span class="post-toc-text">Stable Video Diffusion (SVD)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#animatediff"><span class="post-toc-text">AnimateDiff</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lavie"><span class="post-toc-text">LaVie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dynamicrafter"><span class="post-toc-text">DynamiCrafter</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD"><span class="post-toc-text">2. 具身智能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#video2action"><span class="post-toc-text">Video2Action</span></a></li></ol></li></ol></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">1 World Models</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Benchmarks</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E7%94%9F%E6%88%90%E8%A7%86%E9%A2%91"><span class="post-toc-text">1. 生成视频</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenSora"><span class="post-toc-text">OpenSora</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#StreamingT2V"><span class="post-toc-text">StreamingT2V</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Stable-Video-Diffusion-SVD"><span class="post-toc-text">Stable Video Diffusion (SVD)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AnimateDiff"><span class="post-toc-text">AnimateDiff</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LaVie"><span class="post-toc-text">LaVie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DynamiCrafter"><span class="post-toc-text">DynamiCrafter</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD"><span class="post-toc-text">2. 具身智能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Video2Action"><span class="post-toc-text">Video2Action</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -598,6 +586,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -609,7 +602,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -622,7 +621,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -635,7 +640,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -648,6 +659,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

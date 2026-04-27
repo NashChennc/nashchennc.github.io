@@ -96,6 +96,43 @@ mdui-card.post-page-card {
   max-width: 100%;
 }
 
+.post-backlinks {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--app-divider-hairline);
+}
+
+.post-backlinks__title {
+  margin: 0 0 0.75rem;
+  font-size: var(--mdui-typescale-title-medium-size, 1rem);
+  line-height: var(--mdui-typescale-title-medium-line-height, 1.5rem);
+  font-weight: 600;
+  color: rgb(var(--mdui-color-on-surface));
+}
+
+.post-backlinks__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.post-backlinks__link {
+  max-width: 100%;
+  color: rgb(var(--mdui-color-primary));
+  font-size: var(--mdui-typescale-body-medium-size, 0.875rem);
+  line-height: var(--mdui-typescale-body-medium-line-height, 1.25rem);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.post-backlinks__link:hover,
+.post-backlinks__link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 /* 独立 Page 模板：横向滚动放在 main，避免 .mdui-prose 成滚动容器影响表后段落 */
 main.page-shell:has(.page-page__prose) {
   overflow-x: auto;

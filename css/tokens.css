@@ -47,7 +47,6 @@
 mdui-card.note-card,
 mdui-card.post-page-card,
 mdui-card.post-toc-card,
-mdui-card.sidebar-card,
 mdui-card.archives-category-card {
   --mdui-color-surface-container-highest: var(--mdui-color-surface-container);
 }

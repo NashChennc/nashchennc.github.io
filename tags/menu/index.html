@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -319,7 +293,7 @@
         class="index-taxonomy__chip"
         href="/tags/menu/"
         aria-current="page"
-      >menu · 18</a>
+      >menu · 11</a>
           
       <a
         role="listitem"
@@ -369,6 +343,81 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/Blog%20Category/%E7%A2%8E%E7%A2%8E%E5%BF%B5%20-%20%E7%9B%AE%E5%BD%95/" class="note-card">
+  
+  <img src="/files/IMG_0138.jpeg" class="note-cover" alt="碎碎念 - 目录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">碎碎念 - 目录</h2>
+      
+      <p class="note-excerpt">「碎碎念」分类文章索引页（Dataview 自动列表）。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">menu</span>
+      
+      <span class="note-date">2026 Apr 27</span>
+      <span class="note-read">29 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/Tag/LLM%E7%9B%B8%E5%85%B3/" class="note-card">
+  
+  <img src="/files/126281615_p0_%E5%A4%A7%E9%BB%91%E5%A1%94.jpg" class="note-cover" alt="LLM相关" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">LLM相关</h2>
+      
+      <p class="note-excerpt">带 #LLM 标签的文章索引（Dataview），聚合大模型相关笔记与随笔。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">menu</span>
+      
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/Tag/%E7%A7%91%E7%A0%94%E7%9B%B8%E5%85%B3/" class="note-card">
+  
+  <img src="/image/banner/nozomizo23.JPG" class="note-cover" alt="科研相关" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">科研相关</h2>
+      
+      <p class="note-excerpt">带 #科研 标签的文章索引（Dataview），聚合研究札记与项目笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">menu</span>
+      
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/" class="note-card">
   
   <img src="/files/1761333850160.jpeg" class="note-cover" alt="笔记 - 目录" loading="lazy">
@@ -396,7 +445,7 @@
                         
 <mdui-card clickable variant="filled" href="/Tag/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/" class="note-card">
   
-  <img src="/files/111095834_p0_黑塔.jpg" class="note-cover" alt="软件相关" loading="lazy">
+  <img src="/files/111095834_p0_%E9%BB%91%E5%A1%94.jpg" class="note-cover" alt="软件相关" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
@@ -410,56 +459,6 @@
       <span class="note-tag">menu</span>
       
       <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Blog%20Category/%E7%A2%8E%E7%A2%8E%E5%BF%B5%20-%20%E7%9B%AE%E5%BD%95/" class="note-card">
-  
-  <img src="/files/IMG_0138.jpeg" class="note-cover" alt="碎碎念 - 目录" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">碎碎念 - 目录</h2>
-      
-      <p class="note-excerpt">「碎碎念」分类文章索引页（Dataview 自动列表）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 24</span>
-      <span class="note-read">27 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/%E9%9A%8F%E7%AC%94%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/image/banner/Image_1758434264021.jpeg" class="note-cover" alt="随笔相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">随笔相关</h2>
-      
-      <p class="note-excerpt">带 #随笔 标签的文章索引（Dataview）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 24</span>
       <span class="note-read">2 min read</span>
     </div>
   </div>
@@ -469,147 +468,22 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/Tag/%E5%8F%8D%E6%80%9D%E7%9B%B8%E5%85%B3/" class="note-card">
+<mdui-card clickable variant="filled" href="/Blog%20Category/%E6%95%A3%E6%96%87%20-%20%E7%9B%AE%E5%BD%95/" class="note-card">
   
-  <img src="/image/banner/nozomizo44.JPG" class="note-cover" alt="反思相关" loading="lazy">
+  <img src="/files/rafa_96131093_p0_%E7%A5%9E%E7%AC%94%E9%A9%AC%E8%89%AF.jpg" class="note-cover" alt="散文 - 目录" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">反思相关</h2>
+      <h2 class="note-card-title">散文 - 目录</h2>
       
-      <p class="note-excerpt">带 #反思 标签的文章索引（Dataview）。</p>
+      <p class="note-excerpt">「散文」分类文章索引页（Dataview 自动列表）。</p>
       
     </div>
     <div class="note-meta">
       
       <span class="note-tag">menu</span>
       
-      <span class="note-date">2026 Apr 24</span>
-      <span class="note-read">2 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/%E5%8E%9F%E7%A5%9E%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/image/banner/nozomizo33.JPG" class="note-cover" alt="原神相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">原神相关</h2>
-      
-      <p class="note-excerpt">带 #原神 标签的文章索引（Dataview）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 24</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/AI%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/image/banner/Image_1758434082525.jpeg" class="note-cover" alt="AI相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">AI相关</h2>
-      
-      <p class="note-excerpt">带 #AI 标签的文章索引（Dataview）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 24</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/%E5%8A%A8%E6%BC%AB%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/image/banner/nozomizo39.JPG" class="note-cover" alt="动漫相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">动漫相关</h2>
-      
-      <p class="note-excerpt">带 #动漫 标签的文章索引（Dataview）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 24</span>
-      <span class="note-read">2 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/%E7%A7%91%E7%A0%94%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/image/banner/nozomizo23.JPG" class="note-cover" alt="科研相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">科研相关</h2>
-      
-      <p class="note-excerpt">带 #科研 标签的文章索引（Dataview），聚合研究札记与项目笔记。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 24</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/LLM%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/files/126281615_p0_大黑塔.jpg" class="note-cover" alt="LLM相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">LLM相关</h2>
-      
-      <p class="note-excerpt">带 #LLM 标签的文章索引（Dataview），聚合大模型相关笔记与随笔。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 03</span>
+      <span class="note-date">2026 Apr 25</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -634,108 +508,8 @@
       
       <span class="note-tag">menu</span>
       
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/%E9%9F%B3%E4%B9%90%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/files/1761333218204.jpeg" class="note-cover" alt="音乐相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">音乐相关</h2>
-      
-      <p class="note-excerpt">带 #音乐 标签的文章索引（Dataview），乐理、赏析与音频工具笔记入口。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Blog%20Category/%E6%95%A3%E6%96%87%20-%20%E7%9B%AE%E5%BD%95/" class="note-card">
-  
-  <img src="/files/rafa_96131093_p0_神笔马良.jpg" class="note-cover" alt="散文 - 目录" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">散文 - 目录</h2>
-      
-      <p class="note-excerpt">「散文」分类文章索引页（Dataview 自动列表）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" class="note-card">
-  
-  <img src="/files/rafa_93414308_p0_冬春之交.jpg" class="note-cover" alt="生活随笔" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">生活随笔</h2>
-      
-      <p class="note-excerpt">带 #生活 或 #哲学 标签的文章索引（Dataview）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/%E8%AF%AD%E8%A8%80%E5%AD%A6%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/files/rafa_107676065_p0_一起学习.jpg" class="note-cover" alt="语言学相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">语言学相关</h2>
-      
-      <p class="note-excerpt">带 #语言学 标签的文章索引（Dataview）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">1 min read</span>
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">3 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -759,7 +533,32 @@
       
       <span class="note-tag">menu</span>
       
-      <span class="note-date">2026 Apr 03</span>
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/Tag/%E8%AF%AD%E8%A8%80%E5%AD%A6%E7%9B%B8%E5%85%B3/" class="note-card">
+  
+  <img src="/files/rafa_107676065_p0_%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0.jpg" class="note-cover" alt="语言学相关" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">语言学相关</h2>
+      
+      <p class="note-excerpt">带 #语言学 标签的文章索引（Dataview）。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">menu</span>
+      
+      <span class="note-date">2026 Apr 25</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -844,6 +643,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -855,7 +659,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -868,7 +678,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -881,7 +697,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -894,6 +716,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

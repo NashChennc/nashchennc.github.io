@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -434,7 +410,7 @@
                     <div class="mdui-prose">
                         <p>基于 Planner-Worker 与 TDD 的 Agent 协作流</p>
 <p><strong>核心思想</strong>：大脑与肢体分离。旗舰模型（Planner）负责全局架构与测试编写，非旗舰模型（Worker）在极度受限的上下文中基于 TDD 闭环执行代码。</p>
-<h2 id="一-核心工作流-d-p-e">一、 核心工作流 (D-P-E)</h2>
+<h2 id="一、-核心工作流-D-P-E">一、 核心工作流 (D-P-E)</h2>
 <ol>
 <li>
 <p><strong>诊断 (Diagnose) -&nbsp;<code>report.md</code></strong></p>
@@ -462,19 +438,31 @@
 </li>
 </ol>
 <hr>
-<h2 id="二-手动操作与-prompt-组装指南">二、 手动操作与 Prompt 组装指南</h2>
+<h2 id="二、-手动操作与-Prompt-组装指南">二、 手动操作与 Prompt 组装指南</h2>
 <p>在实际工程中，完全自动化的全自动 Agent 往往容易失控。推荐采用 **“人类/脚本串联 + 旗舰大模型规划 + 廉价模型执行”**的半自动流水线。</p>
 <h3 id="阶段一：生成全局诊断-调用旗舰模型">阶段一：生成全局诊断 (调用旗舰模型)</h3>
 <p><strong>操作</strong>：将项目的目录结构和核心配置文件喂给顶级模型（如 Claude 3.5 Sonnet / GPT-4o），生成&nbsp;<code>report.md</code>。</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[System]</span><br><span class="line">你是一个资深的架构师 Planner Agent。请阅读以下项目的当前状态，并生成一份 markdown 格式的架构诊断与演进报告。</span><br><span class="line"></span><br><span class="line">[Context]</span><br><span class="line">1. 目录结构：</span><br><span class="line">&#123;tree_output&#125;</span><br><span class="line"></span><br><span class="line">2. 核心依赖 (package.json):</span><br><span class="line">&#123;package_json_content&#125;</span><br><span class="line"></span><br><span class="line">3. 入口文件 (src/index.ts):</span><br><span class="line">&#123;index_ts_content&#125;</span><br><span class="line"></span><br><span class="line">[Task]</span><br><span class="line">请指出当前架构的风险点（高/中/低），并给出下一步的重构/优化技术选型。输出为 `report.md` 的内容。</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="阶段二：任务切片与-tdd-契约生成-调用旗舰模型">阶段二：任务切片与 TDD 契约生成 (调用旗舰模型)</h3>
+<h3 id="阶段二：任务切片与-TDD-契约生成-调用旗舰模型">阶段二：任务切片与 TDD 契约生成 (调用旗舰模型)</h3>
 <p><strong>操作</strong>：基于上一步的报告，让顶级模型输出&nbsp;<code>todolist.md</code>&nbsp;的增量内容，并强制要求它先写测试。</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[System]</span><br><span class="line">你是 Planner Agent。你需要将重构目标转化为极细粒度的原子任务，并采用 TDD（测试驱动开发）模式。</span><br><span class="line"></span><br><span class="line">[Context]</span><br><span class="line">当前 report.md 的演进目标：&#123;report_section&#125;</span><br><span class="line"></span><br><span class="line">[Task]</span><br><span class="line">1. 请拆解出 3 个以内的原子任务，追加到 todolist.md 中。</span><br><span class="line">2. 对于每个任务，严格规定 Worker 需要阅读的“上下文白名单”。</span><br><span class="line">3. 给出验证该任务的测试代码（例如 Vitest 测试用例）。</span><br><span class="line"></span><br><span class="line">输出格式要求：先输出 todolist.md 的片段，再输出对应的 xxx.spec.ts 代码。</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="阶段三：局部挂载与-worker-执行-调用非旗舰-开源模型">阶段三：局部挂载与 Worker 执行 (调用非旗舰/开源模型)</h3>
+<h3 id="阶段三：局部挂载与-Worker-执行-调用非旗舰-开源模型">阶段三：局部挂载与 Worker 执行 (调用非旗舰/开源模型)</h3>
 <p><strong>操作</strong>：通过脚本提取&nbsp;<code>todolist.md</code>&nbsp;中的单条任务，拼接对应的源码和测试报错信息，喂给廉价且速度快的模型（如 Gemini Flash / Llama 3 等）。</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[System]</span><br><span class="line">你是 Worker Agent。你的唯一目标是修改指定的目标文件，让当前失败的测试通过（Red转Green）。</span><br><span class="line">绝对禁止修改测试文件本身。绝对禁止修改“上下文白名单”之外的代码。如果缺少依赖或无法实现，请回复 [BLOCKED] 及原因。</span><br><span class="line"></span><br><span class="line">[Context]</span><br><span class="line">1. 你的任务：</span><br><span class="line">&#123;todolist_single_item&#125;</span><br><span class="line"></span><br><span class="line">2. 你的沙箱（仅限阅读的依赖）：</span><br><span class="line">&#123;dependency_file_1_content&#125;</span><br><span class="line"></span><br><span class="line">3. 你要修改的目标文件当前代码：</span><br><span class="line">&#123;target_file_content&#125;</span><br><span class="line"></span><br><span class="line">4. 测试用例及当前的报错信息 (Red 状态)：</span><br><span class="line">&#123;test_file_content&#125;</span><br><span class="line">&#123;test_error_output&#125;</span><br><span class="line"></span><br><span class="line">[Task]</span><br><span class="line">请输出修改后的目标文件代码。只需要给出完整的代码块，不需要任何解释。</span><br></pre></td></tr></tbody></table></figure>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/">软件相关</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -483,7 +471,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/Latent%20Memory%20%E8%B0%83%E7%A0%94/">
+                                <a class="post-nav__link" href="/SSML/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -492,14 +480,14 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">Latent Memory 调研</span>
+                                        <span class="post-nav__title">SSML</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">
+                                <a class="post-nav__link" href="/Transformer/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -508,7 +496,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">笔记 - 目录</span>
+                                        <span class="post-nav__title">Transformer</span>
                                     </span>
                                 </a>
                             
@@ -524,7 +512,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80-%E6%A0%B8%E5%BF%83%E5%B7%A5%E4%BD%9C%E6%B5%81-d-p-e"><span class="post-toc-text">一、 核心工作流 (D-P-E)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C-%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C%E4%B8%8E-prompt-%E7%BB%84%E8%A3%85%E6%8C%87%E5%8D%97"><span class="post-toc-text">二、 手动操作与 Prompt 组装指南</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%EF%BC%9A%E7%94%9F%E6%88%90%E5%85%A8%E5%B1%80%E8%AF%8A%E6%96%AD-%E8%B0%83%E7%94%A8%E6%97%97%E8%88%B0%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">阶段一：生成全局诊断 (调用旗舰模型)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%EF%BC%9A%E4%BB%BB%E5%8A%A1%E5%88%87%E7%89%87%E4%B8%8E-tdd-%E5%A5%91%E7%BA%A6%E7%94%9F%E6%88%90-%E8%B0%83%E7%94%A8%E6%97%97%E8%88%B0%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">阶段二：任务切片与 TDD 契约生成 (调用旗舰模型)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%89%EF%BC%9A%E5%B1%80%E9%83%A8%E6%8C%82%E8%BD%BD%E4%B8%8E-worker-%E6%89%A7%E8%A1%8C-%E8%B0%83%E7%94%A8%E9%9D%9E%E6%97%97%E8%88%B0-%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">阶段三：局部挂载与 Worker 执行 (调用非旗舰&#x2F;开源模型)</span></a></li></ol></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E3%80%81-%E6%A0%B8%E5%BF%83%E5%B7%A5%E4%BD%9C%E6%B5%81-D-P-E"><span class="post-toc-text">一、 核心工作流 (D-P-E)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E3%80%81-%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C%E4%B8%8E-Prompt-%E7%BB%84%E8%A3%85%E6%8C%87%E5%8D%97"><span class="post-toc-text">二、 手动操作与 Prompt 组装指南</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%EF%BC%9A%E7%94%9F%E6%88%90%E5%85%A8%E5%B1%80%E8%AF%8A%E6%96%AD-%E8%B0%83%E7%94%A8%E6%97%97%E8%88%B0%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">阶段一：生成全局诊断 (调用旗舰模型)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%EF%BC%9A%E4%BB%BB%E5%8A%A1%E5%88%87%E7%89%87%E4%B8%8E-TDD-%E5%A5%91%E7%BA%A6%E7%94%9F%E6%88%90-%E8%B0%83%E7%94%A8%E6%97%97%E8%88%B0%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">阶段二：任务切片与 TDD 契约生成 (调用旗舰模型)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%89%EF%BC%9A%E5%B1%80%E9%83%A8%E6%8C%82%E8%BD%BD%E4%B8%8E-Worker-%E6%89%A7%E8%A1%8C-%E8%B0%83%E7%94%A8%E9%9D%9E%E6%97%97%E8%88%B0-%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">阶段三：局部挂载与 Worker 执行 (调用非旗舰&#x2F;开源模型)</span></a></li></ol></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -553,6 +541,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -564,7 +557,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -577,7 +576,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -590,7 +595,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -603,6 +614,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

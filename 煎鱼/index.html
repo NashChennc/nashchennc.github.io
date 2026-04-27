@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -435,9 +411,9 @@
                         <p>做出一道正宗的“法式煎鳕鱼”，最经典且不易出错的做法是&nbsp;<strong>“Meunière”</strong>（也就是“名媛式”或“磨坊主娘子式”）。这种做法的核心在于<strong>黄油焦香（Beurre Noisette）<strong>和</strong>柠檬</strong>的结合，能完美衬托鳕鱼的鲜嫩。</p>
 <p>以下是制作法式煎鳕鱼的详细步骤、关键技巧以及相关的法语表达小贴士。</p>
 <hr>
-<h3 id="🇫🇷-经典做法：法式黄油柠檬煎鳕鱼-cabillaud-à-la-meunière">🇫🇷 经典做法：法式黄油柠檬煎鳕鱼 (Cabillaud à la Meunière)</h3>
+<h3 id="🇫🇷-经典做法：法式黄油柠檬煎鳕鱼-Cabillaud-a-la-Meuniere">🇫🇷 经典做法：法式黄油柠檬煎鳕鱼 (Cabillaud à la Meunière)</h3>
 <p>这种做法的精髓在于“外酥里嫩”：鱼表面有一层极薄的面粉壳，锁住了鱼肉的水分，最后淋上带着坚果香气的焦化黄油。</p>
-<h4 id="1-准备食材-ingrédients">1. 准备食材 (Ingrédients)</h4>
+<h4 id="1-准备食材-Ingredients">1. 准备食材 (Ingrédients)</h4>
 <ul>
 <li>
 <p><strong>鳕鱼 (Cabillaud):</strong>&nbsp;最好选用鱼柳（Dos de cabillaud），这个部位肉质最厚实，煎起来不易散。</p>
@@ -458,7 +434,7 @@
 <p><strong>调味:</strong>&nbsp;盐、黑胡椒、少许橄榄油。</p>
 </li>
 </ul>
-<h4 id="2-烹饪步骤-préparation">2. 烹饪步骤 (Préparation)</h4>
+<h4 id="2-烹饪步骤-Preparation">2. 烹饪步骤 (Préparation)</h4>
 <p><strong>第一步：处理鱼肉（最关键的一步）</strong></p>
 <ul>
 <li>
@@ -502,7 +478,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="💡-成功秘籍-tips">💡 成功秘籍 (Tips)</h3>
+<h3 id="💡-成功秘籍-Tips">💡 成功秘籍 (Tips)</h3>
 <ol>
 <li>
 <p><strong>防止鱼肉散开：</strong></p>
@@ -523,7 +499,7 @@
 </li>
 </ol>
 <hr>
-<h3 id="🍽-搭配建议-accompagnements">🍽️ 搭配建议 (Accompagnements)</h3>
+<h3 id="🍽️-搭配建议-Accompagnements">🍽️ 搭配建议 (Accompagnements)</h3>
 <p>为了让这顿饭更像在巴黎小馆子里吃的，建议搭配以下配菜：</p>
 <ul>
 <li>
@@ -538,6 +514,16 @@
 </ul>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -546,7 +532,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/%E6%AC%A7%E6%B4%B2%E8%AF%AD%E8%A8%80%E5%AF%BC%E8%AE%BA/">
+                                <a class="post-nav__link" href="/%E4%B8%80%E4%BA%9B%E9%9F%B3%E4%B9%90%E7%BD%91%E7%AB%99/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -555,7 +541,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">欧洲语言导论</span>
+                                        <span class="post-nav__title">一些音乐网站</span>
                                     </span>
                                 </a>
                             
@@ -587,7 +573,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%87%AB%F0%9F%87%B7-%E7%BB%8F%E5%85%B8%E5%81%9A%E6%B3%95%EF%BC%9A%E6%B3%95%E5%BC%8F%E9%BB%84%E6%B2%B9%E6%9F%A0%E6%AA%AC%E7%85%8E%E9%B3%95%E9%B1%BC-cabillaud-%C3%A0-la-meuni%C3%A8re"><span class="post-toc-text">🇫🇷 经典做法：法式黄油柠檬煎鳕鱼 (Cabillaud à la Meunière)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%92%A1-%E6%88%90%E5%8A%9F%E7%A7%98%E7%B1%8D-tips"><span class="post-toc-text">💡 成功秘籍 (Tips)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%8D%BD-%E6%90%AD%E9%85%8D%E5%BB%BA%E8%AE%AE-accompagnements"><span class="post-toc-text">🍽️ 搭配建议 (Accompagnements)</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%87%AB%F0%9F%87%B7-%E7%BB%8F%E5%85%B8%E5%81%9A%E6%B3%95%EF%BC%9A%E6%B3%95%E5%BC%8F%E9%BB%84%E6%B2%B9%E6%9F%A0%E6%AA%AC%E7%85%8E%E9%B3%95%E9%B1%BC-Cabillaud-a-la-Meuniere"><span class="post-toc-text">🇫🇷 经典做法：法式黄油柠檬煎鳕鱼 (Cabillaud à la Meunière)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%92%A1-%E6%88%90%E5%8A%9F%E7%A7%98%E7%B1%8D-Tips"><span class="post-toc-text">💡 成功秘籍 (Tips)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%8D%BD%EF%B8%8F-%E6%90%AD%E9%85%8D%E5%BB%BA%E8%AE%AE-Accompagnements"><span class="post-toc-text">🍽️ 搭配建议 (Accompagnements)</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -616,6 +602,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -627,7 +618,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -640,7 +637,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -653,7 +656,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -666,6 +675,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

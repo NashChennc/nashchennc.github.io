@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -433,7 +409,7 @@
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
                         <h1>信息源</h1>
-<h2 id="1-三大ai顶会-nlp顶会">1. 三大AI顶会 &amp; NLP顶会</h2>
+<h2 id="1-三大AI顶会-NLP顶会">1. 三大AI顶会 &amp; NLP顶会</h2>
 <p>顶会的文章通常比较严谨，开源可复现。并且通常学术界的文章实验条件接近，容易参考。但质量并非都很好。因此要留意划分的oral/spotlight/poster级别，以及审稿人意见和rebuttal过程，以此参考文章质量。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://openreview.net/group?id=ICLR.cc">Openreview | ICLR</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
@@ -616,6 +592,20 @@ openaimod 1.68k</p>
 </ul>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/LLM%E7%9B%B8%E5%85%B3/">LLM相关</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/%E7%A7%91%E7%A0%94%E7%9B%B8%E5%85%B3/">科研相关</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -624,7 +614,7 @@ openaimod 1.68k</p>
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/Polya%20%E8%AE%A1%E6%95%B0%E7%90%86%E8%AE%BA/">
+                                <a class="post-nav__link" href="/Advice%20From%20Anthropic/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -633,14 +623,14 @@ openaimod 1.68k</p>
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">Polya 计数理论</span>
+                                        <span class="post-nav__title">Advice From Anthropic</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/SAE%20%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/">
+                                <a class="post-nav__link" href="/World%20Model%20Safety/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -649,7 +639,7 @@ openaimod 1.68k</p>
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">SAE 特征筛选</span>
+                                        <span class="post-nav__title">World Model Safety</span>
                                     </span>
                                 </a>
                             
@@ -665,7 +655,7 @@ openaimod 1.68k</p>
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">信息源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E4%B8%89%E5%A4%A7ai%E9%A1%B6%E4%BC%9A-nlp%E9%A1%B6%E4%BC%9A"><span class="post-toc-text">1. 三大AI顶会 &amp; NLP顶会</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%A0%B8%E5%BF%83%E5%AE%9E%E9%AA%8C%E5%AE%A4"><span class="post-toc-text">2. 核心实验室</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-%E7%A4%BE%E5%8C%BA%E4%B8%8E%E9%A2%84%E5%8D%B0%E6%9C%AC%E5%B9%B3%E5%8F%B0"><span class="post-toc-text">1.3. 社区与预印本平台</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. 学习资源</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. 关键词</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">4. 建议的起步路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%92%A1-%E7%A7%91%E7%A0%94%E6%96%B0%E6%89%8B%E5%AE%9E%E6%93%8D%E5%BB%BA%E8%AE%AE%EF%BC%9A%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9F"><span class="post-toc-text">💡 科研新手实操建议：如何开始第一周？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">数据集</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">信息源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E4%B8%89%E5%A4%A7AI%E9%A1%B6%E4%BC%9A-NLP%E9%A1%B6%E4%BC%9A"><span class="post-toc-text">1. 三大AI顶会 &amp; NLP顶会</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%A0%B8%E5%BF%83%E5%AE%9E%E9%AA%8C%E5%AE%A4"><span class="post-toc-text">2. 核心实验室</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-%E7%A4%BE%E5%8C%BA%E4%B8%8E%E9%A2%84%E5%8D%B0%E6%9C%AC%E5%B9%B3%E5%8F%B0"><span class="post-toc-text">1.3. 社区与预印本平台</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. 学习资源</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. 关键词</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">4. 建议的起步路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%92%A1-%E7%A7%91%E7%A0%94%E6%96%B0%E6%89%8B%E5%AE%9E%E6%93%8D%E5%BB%BA%E8%AE%AE%EF%BC%9A%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9F"><span class="post-toc-text">💡 科研新手实操建议：如何开始第一周？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">数据集</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -694,6 +684,11 @@ openaimod 1.68k</p>
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -705,7 +700,13 @@ openaimod 1.68k</p>
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -718,7 +719,13 @@ openaimod 1.68k</p>
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -731,7 +738,13 @@ openaimod 1.68k</p>
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -744,6 +757,7 @@ openaimod 1.68k</p>
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

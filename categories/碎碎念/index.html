@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         aria-current="page"
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -440,37 +414,37 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/%E9%9F%B3%E4%B9%90/"
-        
-      >音乐 · 60</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
         href="/tags/%E5%8A%A8%E6%BC%AB/"
         
-      >动漫 · 42</a>
+      >动漫 · 65</a>
           
       <a
         role="listitem"
         class="index-taxonomy__chip"
         href="/tags/%E7%94%9F%E6%B4%BB/"
         
-      >生活 · 41</a>
+      >生活 · 65</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E9%9F%B3%E4%B9%90/"
+        
+      >音乐 · 61</a>
           
       <a
         role="listitem"
         class="index-taxonomy__chip"
         href="/tags/%E5%8E%9F%E7%A5%9E/"
         
-      >原神 · 33</a>
+      >原神 · 35</a>
           
       <a
         role="listitem"
         class="index-taxonomy__chip"
         href="/tags/%E6%97%85%E6%B8%B8/"
         
-      >旅游 · 30</a>
+      >旅游 · 31</a>
           
       <a
         role="listitem"
@@ -490,7 +464,7 @@
         
         <details class="index-taxonomy__tags-details">
           <summary class="index-taxonomy__tags-summary">
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 26 more tags</span>
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 27 more tags</span>
             <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
           </summary>
           <div class="index-taxonomy__tags-overflow-sleeve">
@@ -501,7 +475,7 @@
         class="index-taxonomy__chip"
         href="/tags/Coding/"
         
-      >Coding · 19</a>
+      >Coding · 20</a>
               
       <a
         role="listitem"
@@ -543,7 +517,7 @@
         class="index-taxonomy__chip"
         href="/tags/%E7%AE%97%E6%B3%95/"
         
-      >算法 · 12</a>
+      >算法 · 14</a>
               
       <a
         role="listitem"
@@ -555,23 +529,23 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/%E5%B4%A9%E9%93%81/"
-        
-      >崩铁 · 7</a>
-              
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
         href="/tags/%E5%90%B9%E5%93%8D%E5%90%A7%EF%BC%81%E4%B8%8A%E4%BD%8E%E9%9F%B3%E5%8F%B7/"
         
-      >吹响吧！上低音号 · 7</a>
+      >吹响吧！上低音号 · 9</a>
               
       <a
         role="listitem"
         class="index-taxonomy__chip"
         href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"
         
-      >软件工程 · 7</a>
+      >软件工程 · 8</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%B4%A9%E9%93%81/"
+        
+      >崩铁 · 7</a>
               
       <a
         role="listitem"
@@ -621,6 +595,13 @@
         href="/tags/%E7%99%BE%E5%90%88/"
         
       >百合 · 2</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E8%94%9A%E8%93%9D%E6%A1%A3%E6%A1%88/"
+        
+      >蔚蓝档案 · 2</a>
               
       <a
         role="listitem"
@@ -709,8 +690,58 @@
       
       <span class="note-tag">menu</span>
       
-      <span class="note-date">2026 Apr 24</span>
-      <span class="note-read">27 min read</span>
+      <span class="note-date">2026 Apr 27</span>
+      <span class="note-read">29 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%85%B3%E4%BA%8Exp%E7%9A%84%E5%8F%91%E7%99%AB/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi7.JPG" class="note-cover" alt="关于xp的发癫" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">关于xp的发癫</h2>
+      
+      <p class="note-excerpt">以「爱具体的人」开篇，对自我审美、角色厨力与判准分层的超长剖析（纯属个人记录，勿作现实依据）。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">随笔</span>
+      
+      <span class="note-date">2026 Apr 27</span>
+      <span class="note-read">12 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/0/" class="note-card">
+  
+  <img src="/files/%E6%88%AA%E5%B1%8F2025-12-24%2019.20.30.png" class="note-cover" alt="0" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">0</h2>
+      
+      <p class="note-excerpt">2025 年初归家后的断续回忆录：无意写励志叙事，记下静坐、围棋与难以拼成主线的记忆碎片。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">反思</span>
+      
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">1 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -734,7 +765,57 @@
       
       <span class="note-tag">反思</span>
       
-      <span class="note-date">2026 Apr 24</span>
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%96%AF/" class="note-card">
+  
+  <img src="/image/banner/nozomizo3.JPG" class="note-cover" alt="疯" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">疯</h2>
+      
+      <p class="note-excerpt">以碎片章节描写极端心境：对「喜欢之物」唤不起冲动时的惊恐与自我掏空感。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">Note</span>
+      
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E9%A3%8E%E9%99%A9%E3%80%81%E6%94%B6%E7%9B%8A%E4%B8%8E%E8%A7%86%E9%87%8E/" class="note-card">
+  
+  <img src="/image/banner/nozomizo21.JPG" class="note-cover" alt="风险、收益与视野" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">风险、收益与视野</h2>
+      
+      <p class="note-excerpt">借 RL 折扣因子与信用维护隐喻短记短视、成瘾、算力与 scaling 等随想提纲。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">Note</span>
+      
+      <span class="note-date">2026 Apr 25</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -780,7 +861,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">反思</span>
+      <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2026 Apr 23</span>
       <span class="note-read">1 min read</span>
@@ -942,81 +1023,6 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
-  
-  <img src="/image/banner/nozomizo11.JPG" class="note-cover" alt="看番记录" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">看番记录</h2>
-      
-      <p class="note-excerpt">看番站点与磁链工具索引，兼个人补番列表与 Bangumi 嵌入（资源向备忘）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">生活</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">7 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/0/" class="note-card">
-  
-  <img src="/files/截屏2025-12-24 19.20.30.png" class="note-cover" alt="0" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">0</h2>
-      
-      <p class="note-excerpt">2025 年初归家后的断续回忆录：无意写励志叙事，记下静坐、围棋与难以拼成主线的记忆碎片。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">反思</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E5%85%B3%E4%BA%8Exp%E7%9A%84%E5%8F%91%E7%99%AB/" class="note-card">
-  
-  <img src="/image/banner/nakayoshi7.JPG" class="note-cover" alt="关于xp的发癫" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">关于xp的发癫</h2>
-      
-      <p class="note-excerpt">以「爱具体的人」开篇，对自我审美、角色厨力与判准分层的超长剖析（纯属个人记录，勿作现实依据）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">随笔</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">12 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
 <mdui-card clickable variant="filled" href="/%E5%9E%83%E5%9C%BE%E5%A0%86/" class="note-card">
   
   <img src="/image/banner/nakayoshi8.JPG" class="note-cover" alt="垃圾堆" loading="lazy">
@@ -1034,56 +1040,6 @@
       
       <span class="note-date">2026 Apr 03</span>
       <span class="note-read">19 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E7%96%AF/" class="note-card">
-  
-  <img src="/image/banner/nozomizo3.JPG" class="note-cover" alt="疯" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">疯</h2>
-      
-      <p class="note-excerpt">以碎片章节描写极端心境：对「喜欢之物」唤不起冲动时的惊恐与自我掏空感。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">Note</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">2 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E9%A3%8E%E9%99%A9%E3%80%81%E6%94%B6%E7%9B%8A%E4%B8%8E%E8%A7%86%E9%87%8E/" class="note-card">
-  
-  <img src="/image/banner/nozomizo21.JPG" class="note-cover" alt="风险、收益与视野" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">风险、收益与视野</h2>
-      
-      <p class="note-excerpt">借 RL 折扣因子与信用维护隐喻短记短视、成瘾、算力与 scaling 等随想提纲。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">Note</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">1 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -1155,10 +1111,60 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">音乐</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 09</span>
       <span class="note-read">3 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2026.2%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo19.JPG" class="note-cover" alt="2026.2 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2026.2 看番记录</h2>
+      
+      <p class="note-excerpt">2026.2 的 Bangumi 准确看番记录：超时空辉夜姬。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2026 Feb 25</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo11.JPG" class="note-cover" alt="看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">看番记录</h2>
+      
+      <p class="note-excerpt">看番站点与磁链工具索引，兼个人补番列表、Bangumi 嵌入与 2024.10 后准确收藏记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2026 Feb 25</span>
+      <span class="note-read">1 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -1342,6 +1348,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2025.9%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi3.jpg" class="note-cover" alt="2025.9 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2025.9 看番记录</h2>
+      
+      <p class="note-excerpt">2025.9 的 Bangumi 准确看番记录：终将成为你、转生公主、わたなれ与京吹三期。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2025 Sep 29</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20250915%20%E8%BD%AC%E5%8F%91/" class="note-card">
   
   <img src="/image/banner/nakayoshi4.jpg" class="note-cover" alt="20250915 转发" loading="lazy">
@@ -1417,6 +1448,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2025.8%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo9.JPG" class="note-cover" alt="2025.8 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2025.8 看番记录</h2>
+      
+      <p class="note-excerpt">2025.8 的 Bangumi 准确看番记录：凉宫春日的消失。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2025 Aug 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20250804%20%E5%A4%A7%E5%9D%82%20%E5%88%B0%E7%9D%80/" class="note-card">
   
   <img src="/files/qzone-20250804-131925-01.jpg" class="note-cover" alt="20250804 大坂 到着" loading="lazy">
@@ -1433,6 +1489,31 @@
       <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2025 Aug 04</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2025.7%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo4.JPG" class="note-cover" alt="2025.7 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2025.7 看番记录</h2>
+      
+      <p class="note-excerpt">2025.7 的 Bangumi 准确看番记录：小市民系列。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2025 Jul 23</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -1692,6 +1773,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2025.4%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="2025.4 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2025.4 看番记录</h2>
+      
+      <p class="note-excerpt">2025.4 的 Bangumi 准确看番记录：Ave Mujica、GIRLS BAND CRY 与来自新世界。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2025 Apr 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20250126%20%EF%BC%9F/" class="note-card">
   
   <img src="/files/qzone-20250126-141254-01.jpg" class="note-cover" alt="20250126 ？" loading="lazy">
@@ -1942,6 +2048,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2024.12%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo32.JPG" class="note-cover" alt="2024.12 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.12 看番记录</h2>
+      
+      <p class="note-excerpt">2024.12 的 Bangumi 准确看番记录：双子恋爱、别当欧尼酱了与总之就是非常可爱系列。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2024 Dec 28</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20241221%20%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%AD%A6%E6%9C%9F%E4%B8%AD%E5%9B%9E%E5%AE%B6/" class="note-card">
   
   <img src="/files/qzone-20241221-151850-01.jpg" class="note-cover" alt="20241221 第一次在学期中回家" loading="lazy">
@@ -1980,7 +2111,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">反思</span>
+      <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2024 Dec 21</span>
       <span class="note-read">2 min read</span>
@@ -2033,6 +2164,31 @@
       <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2024 Dec 16</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2024.11%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo5.JPG" class="note-cover" alt="2024.11 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.11 看番记录</h2>
+      
+      <p class="note-excerpt">2024.11 的 Bangumi 准确看番记录：派对浪客诸葛孔明、我推第二季与狂赌之渊。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2024 Nov 19</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -2442,6 +2598,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2024.8%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi1.jpg" class="note-cover" alt="2024.8 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.8 看番记录</h2>
+      
+      <p class="note-excerpt">2024.8 的看番日志：凉宫、义妹生活、败犬女主太多了和 ATri 记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2024 Aug 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20240720%20%5Bem%5De128%5B%20em%5D/" class="note-card">
   
   <img src="/image/banner/nakayoshi2.jpg" class="note-cover" alt="20240720 [em]e128[ em]" loading="lazy">
@@ -2633,6 +2814,31 @@
       <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2024 Jun 04</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2024.6%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo38.JPG" class="note-cover" alt="2024.6 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.6 看番记录</h2>
+      
+      <p class="note-excerpt">2024.6 的看番日志：末日三问、BanG Dream、MyGO、Angel Beats 和魔法少女小圆记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2024 Jun 01</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -2919,7 +3125,7 @@
                         
 <mdui-card clickable variant="filled" href="/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E6%B8%B8%E8%AE%B0/" class="note-card">
   
-  <img src="/files/rafa_115952605_p0_午夜的前一刻.jpg" class="note-cover" alt="匹诺康尼游记" loading="lazy">
+  <img src="/files/rafa_115952605_p0_%E5%8D%88%E5%A4%9C%E7%9A%84%E5%89%8D%E4%B8%80%E5%88%BB.jpg" class="note-cover" alt="匹诺康尼游记" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
@@ -2981,6 +3187,31 @@
     <div class="note-meta">
       
       <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Apr 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2024.4%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi6.JPG" class="note-cover" alt="2024.4 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.4 看番记录</h2>
+      
+      <p class="note-excerpt">2024.4 的看番日志：《迷宫饭》和《少女歌剧》补番记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2024 Apr 01</span>
       <span class="note-read">1 min read</span>
@@ -3892,6 +4123,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2023.12%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo25.JPG" class="note-cover" alt="2023.12 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.12 看番记录</h2>
+      
+      <p class="note-excerpt">2023.12 的看番日志：五等分、Charlotte 和この素晴系列补番记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2023 Dec 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20231113%20%E4%BD%A0%E5%96%9D%E7%9A%84%E6%AF%8F%E4%B8%80%E5%8D%87%E5%AE%9D%E7%9F%BF%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9D%A5%E8%87%AA%E8%8A%99%E5%AE%81%E5%A8%9C%E8%BF%87%E4%BA%8E%E5%85%85%E6%B2%9B/" class="note-card">
   
   <img src="/files/qzone-20231113-225616-01.jpg" class="note-cover" alt="20231113 你喝的每一升宝矿力，都来自芙宁娜过于充沛" loading="lazy">
@@ -3933,6 +4189,31 @@
       <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2023 Nov 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.11%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo10.PNG" class="note-cover" alt="2023.11 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.11 看番记录</h2>
+      
+      <p class="note-excerpt">2023.11 的看番日志：《葬送的芙莉莲》、当季作品和《Clannad》补番记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2023 Nov 01</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -4131,6 +4412,31 @@
     <div class="note-meta">
       
       <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Oct 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.10%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet2.JPG" class="note-cover" alt="2023.10 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.10 看番记录</h2>
+      
+      <p class="note-excerpt">2023.10 的看番日志：《推しの子》和《侦探已死》简评。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2023 Oct 01</span>
       <span class="note-read">1 min read</span>
@@ -6217,6 +6523,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2023.1%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi4.jpg" class="note-cover" alt="2023.1 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.1 看番记录</h2>
+      
+      <p class="note-excerpt">2023.1 的看番日志：遣返发烧摆烂时期的补番、党争番和《G 弦上的魔王》记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2023 Jan 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20221229/" class="note-card">
   
   <img src="/image/banner/nozomizo46.JPG" class="note-cover" alt="20221229" loading="lazy">
@@ -6533,6 +6864,31 @@
       <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2022 Nov 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.11%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo24.JPG" class="note-cover" alt="2022.11 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.11 看番记录</h2>
+      
+      <p class="note-excerpt">2022.11 的看番日志：《あの花》和一批京阿尼作品补番记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2022 Nov 01</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -6867,6 +7223,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2022.9%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo32.JPG" class="note-cover" alt="2022.9 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.9 看番记录</h2>
+      
+      <p class="note-excerpt">2022.9 的看番日志：回校隔离期间补《租借女友》和《連れカノ》。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2022 Sep 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/%E4%B9%90%E7%BB%B7%E8%B5%A2/" class="note-card">
   
   <img src="/image/banner/nozomizo28.JPG" class="note-cover" alt="乐绷赢" loading="lazy">
@@ -7092,6 +7473,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2022.8%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo18.JPG" class="note-cover" alt="2022.8 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.8 看番记录</h2>
+      
+      <p class="note-excerpt">2022.8 的看番日志：京吹系列连看，以及关于真实、美好、青春和乐团题材的长段感想。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2022 Aug 01</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20220722%20%E5%A5%BD%E5%93%A6/" class="note-card">
   
   <img src="/files/qzone-20220722-223555-01.jpg" class="note-cover" alt="20220722 好哦" loading="lazy">
@@ -7208,6 +7614,31 @@
       <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2022 Jul 06</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.7%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi2.jpg" class="note-cover" alt="2022.7 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.7 看番记录</h2>
+      
+      <p class="note-excerpt">2022.7 的看番日志：暑假初补《魔女の旅》和《Happy Sugar Life》。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2022 Jul 01</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -7358,6 +7789,31 @@
       <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2022 Jun 06</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.6%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo8.JPG" class="note-cover" alt="2022.6 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.6 看番记录</h2>
+      
+      <p class="note-excerpt">2022.6 的看番日志：期末考试期间补完《四月は君の嘘》，古典音乐好评。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2022 Jun 01</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -8780,7 +9236,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">反思</span>
+      <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2021 Nov 27</span>
       <span class="note-read">1 min read</span>
@@ -8955,7 +9411,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">反思</span>
+      <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2021 Oct 15</span>
       <span class="note-read">1 min read</span>
@@ -9567,6 +10023,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2021.4%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi8.JPG" class="note-cover" alt="2021.4 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2021.4 看番记录</h2>
+      
+      <p class="note-excerpt">2021.4 的看番日志：《Darling in the Franxx》恋爱启蒙课与观感扣分点。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2021 Apr 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20210211%20%E6%98%A5%E8%81%94%202021/" class="note-card">
   
   <img src="/files/qzone-20210211-225346-01.jpg" class="note-cover" alt="20210211 春联 2021" loading="lazy">
@@ -9658,6 +10139,31 @@
       <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2021 Feb 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2021.1%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo9.JPG" class="note-cover" alt="2021.1 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2021.1 看番记录</h2>
+      
+      <p class="note-excerpt">2021.1 的看番日志：半夜补完《樱花庄的宠物女孩》，年轻人的第一部励志番。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2021 Jan 01</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -10317,6 +10823,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/2019.5-2020.1%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo28.JPG" class="note-cover" alt="2019.5-2020.1 看番记录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2019.5-2020.1 看番记录</h2>
+      
+      <p class="note-excerpt">2019.5 / 2020.1 的看番日志：魔禁、超炮系列入门，以及机巧少女不会受伤的遗忘备注。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2020 Jan 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20190827%20%E8%BF%99%E4%B8%AA%E6%B5%8B%E8%AF%84%E7%BB%93%E6%9E%9C%E6%98%AF%E7%94%9A%E4%B9%88%E9%B8%9F/" class="note-card">
   
   <img src="/files/qzone-20190827-234153-01.jpg" class="note-cover" alt="20190827 这个测评结果是甚么鸟" loading="lazy">
@@ -10330,7 +10861,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">反思</span>
+      <span class="note-tag">QQ空间</span>
       
       <span class="note-date">2019 Aug 27</span>
       <span class="note-read">1 min read</span>
@@ -10344,7 +10875,7 @@
                         
 <mdui-card clickable variant="filled" href="/20190809%20IOI2019%E5%9C%86%E6%BB%A1%E7%BB%93%E6%9D%9F/" class="note-card">
   
-  <img src="/files/Pasted image 20260424123828.png" class="note-cover" alt="20190809 IOI2019圆满结束" loading="lazy">
+  <img src="/files/Pasted%20image%2020260424123828.png" class="note-cover" alt="20190809 IOI2019圆满结束" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
@@ -10692,6 +11223,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -10703,7 +11239,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -10716,7 +11258,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -10729,7 +11277,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -10742,6 +11296,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

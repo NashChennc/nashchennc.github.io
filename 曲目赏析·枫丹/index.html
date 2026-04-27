@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -432,9 +408,9 @@
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <img src="/files/rafa_112073737_p0_大法官.jpg" alt="">
-<img src="/files/rafa_110879550_p0_大魔术师.jpg" alt="">
-<img src="/files/rafa_112096197_p0_跨越海洋.jpg" alt="">
+                        <img src="/files/rafa_112073737_p0_%E5%A4%A7%E6%B3%95%E5%AE%98.jpg" alt="">
+<img src="/files/rafa_110879550_p0_%E5%A4%A7%E9%AD%94%E6%9C%AF%E5%B8%88.jpg" alt="">
+<img src="/files/rafa_112096197_p0_%E8%B7%A8%E8%B6%8A%E6%B5%B7%E6%B4%8B.jpg" alt="">
 <p>从第一次想写这篇赏析，到现在已经过了很长很长时间了。这个剧情大约是2023.11的，初次听印象就非常深刻。《枫丹》就更早了，2023.08的原神FES以及预告。那时预告出来之后我就每天循环听那两首预告的曲子。后来经历了一些变故。想来本科生涯的每次暑假都是一条分界线。那时大概是我 最后 能够沉下心来 过剧情的时光了。直至现在。</p>
 <p>既然过去了这么久，网上的赏析应该已经到处都是了吧。不过为了真实反映我自己的想法，我决定先写下来再去看。所谓赏析，不只是要有分析；还要有主观的赏，才能叫作赏析。其实重点是赏，毕竟这是我的个人博客。</p>
 <p>我确实是芙宁娜厨。嗯，对的。好几个朋友都说我整天念叨着芙芙。但就不在这写一些痴汉言论了。</p>
@@ -446,12 +422,12 @@
 <li>《珍珠之歌4》中的《曲终奏雅》以及《她曾梦见过的晴空》</li>
 </ul>
 <p>如果放在浪漫主义歌剧里，我想，这三首曲子大概对应的是歌剧的序曲、第三幕前奏曲以及终曲。这大概是整部歌剧中最重要的几个部分了。首先要讨论的就是枫丹篇的序曲。</p>
-<h2 id="主题-枫丹-与-预言">主题 “枫丹” 与 “预言”</h2>
+<h2 id="主题-“枫丹”-与-“预言”">主题 “枫丹” 与 “预言”</h2>
 <p>主题，也就是贯穿全曲乃至全剧、用于展现核心主旨、奠定基调的一段旋律。在古典主义的曲式分析中我们一般会称这为一个“动机”。我想，原神配乐的组织形式和大多数游戏不同。它是一部交响诗，所以大概也具有一些最基本的浪漫主义作品的特点。</p>
 <blockquote>
 <p>说实话我其实只想写《曲终奏雅》前一分钟的双人舞。要不是这个片段我也不会写这篇赏析。不过既然写都写了，唉。</p>
 </blockquote>
-<h3 id="预言">“预言”</h3>
+<h3 id="“预言”">“预言”</h3>
 <p>枫丹篇的序曲《枫丹》中首先出现的就是水杯（真的是水杯）奏出的“预言”主题。</p>
 <blockquote>
 <p>所有人都会溶解在水里，只留下水神在王座上哭泣。</p>
@@ -461,7 +437,7 @@
 <blockquote>
 <p>不得不提这首曲子的三次铜管轰鸣。这首曲子的三次情绪下降，包括引子结束、呈示部结束和全曲结束，都是以这样的形式完成的，而非完满的终止式。这种轰鸣给人一种非常严重的“未解决”感。这使得紧张感和悬疑感贯穿整首序曲。尤其是在尾声之前，小号重复着本调高音区的主音，一次比一次弱。似乎在故事的最后还在坚持问着同一个问题，却无力地被落下的帷幕吞没。音乐发展始终没有去解决那个潜藏的问题，把悬疑感留到了最后。</p>
 </blockquote>
-<h3 id="钢琴-正义和-枫丹">钢琴、正义和“枫丹”</h3>
+<h3 id="钢琴、正义和“枫丹”">钢琴、正义和“枫丹”</h3>
 <p>引子结束后，随着铜管的轰鸣逐渐平息，华尔兹的底色逐渐铺好。“枫丹”主题第一次出现，由钢琴和羽管键琴重奏出来。相当华丽而又有力量感的华尔兹。</p>
 <blockquote>
 <p>旁白我都想好了：遥远的央陆有一座宏伟的枫丹城……</p>
@@ -479,6 +455,18 @@
 <p>本来写了个逐小节的分析，写完发现读着实在太无聊了，就改成现在这样了。</p>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E6%95%A3%E6%96%87%20-%20%E7%9B%AE%E5%BD%95/">散文 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E8%8A%99%E5%8D%A1%E6%B4%9B%E6%96%AF%E4%B9%8B%E8%88%9E/">曲目赏析·芙卡洛斯之舞</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -528,7 +516,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B3%E4%BA%8E%E6%9E%AB%E4%B8%B9%E7%AF%87"><span class="post-toc-text">关于枫丹篇</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BB%E9%A2%98-%E6%9E%AB%E4%B8%B9-%E4%B8%8E-%E9%A2%84%E8%A8%80"><span class="post-toc-text">主题 “枫丹” 与 “预言”</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A2%84%E8%A8%80"><span class="post-toc-text">“预言”</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%92%A2%E7%90%B4-%E6%AD%A3%E4%B9%89%E5%92%8C-%E6%9E%AB%E4%B8%B9"><span class="post-toc-text">钢琴、正义和“枫丹”</span></a></li></ol></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B3%E4%BA%8E%E6%9E%AB%E4%B8%B9%E7%AF%87"><span class="post-toc-text">关于枫丹篇</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BB%E9%A2%98-%E2%80%9C%E6%9E%AB%E4%B8%B9%E2%80%9D-%E4%B8%8E-%E2%80%9C%E9%A2%84%E8%A8%80%E2%80%9D"><span class="post-toc-text">主题 “枫丹” 与 “预言”</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%80%9C%E9%A2%84%E8%A8%80%E2%80%9D"><span class="post-toc-text">“预言”</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%92%A2%E7%90%B4%E3%80%81%E6%AD%A3%E4%B9%89%E5%92%8C%E2%80%9C%E6%9E%AB%E4%B8%B9%E2%80%9D"><span class="post-toc-text">钢琴、正义和“枫丹”</span></a></li></ol></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -557,6 +545,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -568,7 +561,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -581,7 +580,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -594,7 +599,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -607,6 +618,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

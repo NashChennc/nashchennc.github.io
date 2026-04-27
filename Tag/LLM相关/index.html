@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -418,7 +394,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">LLM相关</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Apr 03</span>
+                        <span class="note-date">2026 Apr 25</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -432,7 +408,7 @@
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <img src="/files/126281615_p0_大黑塔.jpg" alt="">
+                        <img src="/files/126281615_p0_%E5%A4%A7%E9%BB%91%E5%A1%94.jpg" alt="">
 <!-- QueryToSerialize: TABLE join(file.tags, " ") AS Tags, default(updated, file.mtime) AS "时间", categories FROM <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> AND -<a href="/tags/menu/" class="index-taxonomy__chip" rel="tag">#menu</a> WHERE file.name != this.file.name SORT default(updated, file.mtime) DESC -->
 <!-- SerializedQuery: TABLE join(file.tags, " ") AS Tags, default(updated, file.mtime) AS "时间", categories FROM <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> AND -<a href="/tags/menu/" class="index-taxonomy__chip" rel="tag">#menu</a> WHERE file.name != this.file.name SORT default(updated, file.mtime) DESC -->
 <table>
@@ -446,38 +422,44 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="/Envisioning a Human Like AI/" title="">Envisioning a Human Like AI</a></td>
+<td><a href="/Anti-Sycophancy%20Prompts/" title="">Anti-Sycophancy Prompts</a></td>
+<td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a></td>
+<td>2026/04/25 5:48 PM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/Agentic%20RL%20Safety/" title="">Agentic RL Safety</a></td>
+<td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/%E7%A7%91%E7%A0%94/" class="index-taxonomy__chip" rel="tag">#科研</a></td>
+<td>2026/04/25 5:48 PM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/Latent%20Memory%20%E8%B0%83%E7%A0%94/" title="">Latent Memory 调研</a></td>
+<td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a></td>
+<td>2026/04/25 2:26 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/Envisioning%20a%20Human%20Like%20AI/" title="">Envisioning a Human Like AI</a></td>
 <td><a href="/tags/NLP/" class="index-taxonomy__chip" rel="tag">#NLP</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a></td>
-<td>2026/04/03 11:50 PM</td>
+<td>2026/04/04 12:24 AM</td>
 <td><ul><li>散文</li></ul></td>
 </tr>
 <tr>
-<td><a href="/文档/" title="">文档</a></td>
+<td><a href="/%E6%96%87%E6%A1%A3/" title="">文档</a></td>
 <td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/%E7%A7%91%E7%A0%94/" class="index-taxonomy__chip" rel="tag">#科研</a></td>
 <td>2026/04/03 11:48 PM</td>
 <td><ul><li>笔记</li></ul></td>
 </tr>
 <tr>
-<td><a href="/SAE 特征筛选/" title="">SAE 特征筛选</a></td>
+<td><a href="/SAE%20%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/" title="">SAE 特征筛选</a></td>
 <td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/NLP/" class="index-taxonomy__chip" rel="tag">#NLP</a> <a href="/tags/Interpretability/" class="index-taxonomy__chip" rel="tag">#Interpretability</a> <a href="/tags/%E7%A7%91%E7%A0%94/" class="index-taxonomy__chip" rel="tag">#科研</a></td>
 <td>2026/04/03 11:48 PM</td>
 <td><ul><li>笔记</li></ul></td>
 </tr>
 <tr>
-<td><a href="/LLM Safety 资源/" title="">LLM Safety 资源</a></td>
+<td><a href="/LLM%20Safety%20%E8%B5%84%E6%BA%90/" title="">LLM Safety 资源</a></td>
 <td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/%E7%A7%91%E7%A0%94/" class="index-taxonomy__chip" rel="tag">#科研</a></td>
-<td>2026/04/03 11:48 PM</td>
-<td><ul><li>笔记</li></ul></td>
-</tr>
-<tr>
-<td><a href="/Agentic RL Safety/" title="">Agentic RL Safety</a></td>
-<td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/%E7%A7%91%E7%A0%94/" class="index-taxonomy__chip" rel="tag">#科研</a></td>
-<td>2026/04/03 11:48 PM</td>
-<td><ul><li>笔记</li></ul></td>
-</tr>
-<tr>
-<td><a href="/Anti-Sycophancy Prompts/" title="">Anti-Sycophancy Prompts</a></td>
-<td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a></td>
 <td>2026/04/03 11:48 PM</td>
 <td><ul><li>笔记</li></ul></td>
 </tr>
@@ -488,25 +470,91 @@
 <td><ul><li>笔记</li></ul></td>
 </tr>
 <tr>
-<td><a href="/后训练/" title="">后训练</a></td>
+<td><a href="/%E5%90%8E%E8%AE%AD%E7%BB%83/" title="">后训练</a></td>
 <td><a href="/tags/%E7%AC%94%E8%AE%B0/" class="index-taxonomy__chip" rel="tag">#笔记</a> <a href="/tags/RL/" class="index-taxonomy__chip" rel="tag">#RL</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/AI/" class="index-taxonomy__chip" rel="tag">#AI</a></td>
 <td>2026/04/03 11:48 PM</td>
 <td><ul><li>笔记</li></ul></td>
 </tr>
 <tr>
-<td><a href="/Interpretable Interpretability &amp; LLM Safety/" title="">Interpretable Interpretability &amp; LLM Safety</a></td>
+<td><a href="/Interpretable%20Interpretability%20&amp;%20LLM%20Safety/" title="">Interpretable Interpretability &amp; LLM Safety</a></td>
 <td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/%E7%A7%91%E7%A0%94/" class="index-taxonomy__chip" rel="tag">#科研</a></td>
 <td>2026/04/03 11:48 PM</td>
 <td><ul><li>笔记</li></ul></td>
 </tr>
 <tr>
-<td><a href="/Advice From Anthropic/" title="">Advice From Anthropic</a></td>
+<td><a href="/Advice%20From%20Anthropic/" title="">Advice From Anthropic</a></td>
 <td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/%E7%A7%91%E7%A0%94/" class="index-taxonomy__chip" rel="tag">#科研</a></td>
 <td>2026/04/03 11:48 PM</td>
 <td><ul><li>笔记</li></ul></td>
 </tr>
 <tr>
-<td><a href="/关于LLM的胡扯/" title="">关于LLM的胡扯</a></td>
+<td><a href="/ccauto-01-entrypoint/" title="">ccauto-01-entrypoint</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31 12:09 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/ccauto-02-classifier/" title="">ccauto-02-classifier</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31 12:08 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/ccauto-03-permission-stripping/" title="">ccauto-03-permission-stripping</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31 12:07 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/ccauto-04-multi-agent/" title="">ccauto-04-multi-agent</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31 12:06 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/ccauto-05-gate-circuit-breaker/" title="">ccauto-05-gate-circuit-breaker</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31 12:05 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/ccauto-06-configuration/" title="">ccauto-06-configuration</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31 12:04 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/ccauto-07-deny-and-resilience/" title="">ccauto-07-deny-and-resilience</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31 12:03 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/" title="">ccauto-A-单次请求的上下文整形流水线</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31 12:02 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/" title="">ccauto-B-长会话压缩与多线程状态隔离</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31 12:01 AM</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/ccauto-C-%E5%88%86%E7%B1%BB%E5%99%A8%E8%BE%B9%E7%95%8C%E4%B9%8B%E5%A4%96%E7%9A%84%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1/" title="">ccauto-C-分类器边界之外的纵深防御</a></td>
+<td><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" class="index-taxonomy__chip" rel="tag">#软件工程</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/Agent/" class="index-taxonomy__chip" rel="tag">#Agent</a> <a href="/tags/Safety/" class="index-taxonomy__chip" rel="tag">#Safety</a> <a href="/tags/Anthropic/" class="index-taxonomy__chip" rel="tag">#Anthropic</a></td>
+<td>2026/03/31</td>
+<td><ul><li>笔记</li></ul></td>
+</tr>
+<tr>
+<td><a href="/20260115/" title="">20260115</a></td>
+<td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/%E7%A7%91%E7%A0%94/" class="index-taxonomy__chip" rel="tag">#科研</a> <a href="/tags/Interpretability/" class="index-taxonomy__chip" rel="tag">#Interpretability</a></td>
+<td>2026/01/15</td>
+<td><ul><li>碎碎念</li></ul></td>
+</tr>
+<tr>
+<td><a href="/%E5%85%B3%E4%BA%8ELLM%E7%9A%84%E8%83%A1%E6%89%AF/" title="">关于LLM的胡扯</a></td>
 <td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" class="index-taxonomy__chip" rel="tag">#随笔</a></td>
 <td>2023/07/12</td>
 <td><ul><li>散文</li></ul></td>
@@ -516,6 +564,16 @@
 <!-- SerializedQuery END -->
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E6%80%BB%E7%9B%AE%E5%BD%95/">总目录</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -524,23 +582,10 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/Tag/%E7%A7%91%E7%A0%94%E7%9B%B8%E5%85%B3/">
-                                    <span class="post-nav__label">
-                                        <mdui-icon name="arrow_back"></mdui-icon>
-                                        Previous
-                                    </span>
-                                    <span class="post-nav__body">
-                                        
-                                        <span class="post-nav__category">专栏</span>
-                                        
-                                        <span class="post-nav__title">科研相关</span>
-                                    </span>
-                                </a>
-                            
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/Tag/%E6%95%B0%E5%AD%A6%E7%9B%B8%E5%85%B3/">
+                                <a class="post-nav__link" href="/Tag/%E7%A7%91%E7%A0%94%E7%9B%B8%E5%85%B3/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -549,7 +594,7 @@
                                         
                                         <span class="post-nav__category">专栏</span>
                                         
-                                        <span class="post-nav__title">数学</span>
+                                        <span class="post-nav__title">科研相关</span>
                                     </span>
                                 </a>
                             
@@ -594,6 +639,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -605,7 +655,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -618,7 +674,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -631,7 +693,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -644,6 +712,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

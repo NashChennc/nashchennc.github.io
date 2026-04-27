@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -418,7 +394,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">散文 - 目录</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Apr 03</span>
+                        <span class="note-date">2026 Apr 25</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -432,7 +408,7 @@
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <img src="/files/rafa_96131093_p0_神笔马良.jpg" alt="">
+                        <img src="/files/rafa_96131093_p0_%E7%A5%9E%E7%AC%94%E9%A9%AC%E8%89%AF.jpg" alt="">
 <!-- QueryToSerialize: TABLE join(file.tags, " ") AS Tags, default(updated, file.mtime) AS "时间" WHERE file.name != this.file.name WHERE contains(categories, "散文") SORT default(updated, file.mtime) DESC -->
 <!-- SerializedQuery: TABLE join(file.tags, " ") AS Tags, default(updated, file.mtime) AS "时间" WHERE file.name != this.file.name WHERE contains(categories, "散文") SORT default(updated, file.mtime) DESC -->
 <table>
@@ -445,47 +421,47 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="/Envisioning a Human Like AI/" title="">Envisioning a Human Like AI</a></td>
+<td><a href="/Envisioning%20a%20Human%20Like%20AI/" title="">Envisioning a Human Like AI</a></td>
 <td><a href="/tags/NLP/" class="index-taxonomy__chip" rel="tag">#NLP</a> <a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a></td>
-<td>2026/04/03 11:50 PM</td>
+<td>2026/04/04 12:24 AM</td>
 </tr>
 <tr>
-<td><a href="/曲目赏析·芙卡洛斯之舞/" title="">曲目赏析·芙卡洛斯之舞</a></td>
+<td><a href="/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E8%8A%99%E5%8D%A1%E6%B4%9B%E6%96%AF%E4%B9%8B%E8%88%9E/" title="">曲目赏析·芙卡洛斯之舞</a></td>
 <td><a href="/tags/%E9%9F%B3%E4%B9%90/" class="index-taxonomy__chip" rel="tag">#音乐</a> <a href="/tags/%E5%8E%9F%E7%A5%9E/" class="index-taxonomy__chip" rel="tag">#原神</a></td>
 <td>2026/01/15 11:17 PM</td>
 </tr>
 <tr>
-<td><a href="/曲目赏析·枫丹/" title="">曲目赏析·枫丹</a></td>
+<td><a href="/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E6%9E%AB%E4%B8%B9/" title="">曲目赏析·枫丹</a></td>
 <td><a href="/tags/%E9%9F%B3%E4%B9%90/" class="index-taxonomy__chip" rel="tag">#音乐</a> <a href="/tags/%E5%8E%9F%E7%A5%9E/" class="index-taxonomy__chip" rel="tag">#原神</a></td>
 <td>2026/01/14 11:16 PM</td>
 </tr>
 <tr>
-<td><a href="/匹诺康尼音阶/" title="">匹诺康尼音阶</a></td>
+<td><a href="/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E9%9F%B3%E9%98%B6/" title="">匹诺康尼音阶</a></td>
 <td><a href="/tags/%E9%9F%B3%E4%B9%90/" class="index-taxonomy__chip" rel="tag">#音乐</a> <a href="/tags/%E5%B4%A9%E9%93%81/" class="index-taxonomy__chip" rel="tag">#崩铁</a></td>
 <td>2024/04/03 12:30 AM</td>
 </tr>
 <tr>
-<td><a href="/正统汉语在客家/" title="">正统汉语在客家</a></td>
+<td><a href="/%E6%AD%A3%E7%BB%9F%E6%B1%89%E8%AF%AD%E5%9C%A8%E5%AE%A2%E5%AE%B6/" title="">正统汉语在客家</a></td>
 <td><a href="/tags/%E9%9A%8F%E7%AC%94/" class="index-taxonomy__chip" rel="tag">#随笔</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" class="index-taxonomy__chip" rel="tag">#语言学</a></td>
 <td>2024/01/20</td>
 </tr>
 <tr>
-<td><a href="/茶与健康感想/" title="">茶与健康感想</a></td>
+<td><a href="/%E8%8C%B6%E4%B8%8E%E5%81%A5%E5%BA%B7%E6%84%9F%E6%83%B3/" title="">茶与健康感想</a></td>
 <td><a href="/tags/%E7%94%9F%E6%B4%BB/" class="index-taxonomy__chip" rel="tag">#生活</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" class="index-taxonomy__chip" rel="tag">#随笔</a></td>
 <td>2024/01/05</td>
 </tr>
 <tr>
-<td><a href="/少说抽象话/" title="">少说抽象话</a></td>
+<td><a href="/%E5%B0%91%E8%AF%B4%E6%8A%BD%E8%B1%A1%E8%AF%9D/" title="">少说抽象话</a></td>
 <td><a href="/tags/%E9%9A%8F%E7%AC%94/" class="index-taxonomy__chip" rel="tag">#随笔</a></td>
 <td>2023/11/01</td>
 </tr>
 <tr>
-<td><a href="/关于LLM的胡扯/" title="">关于LLM的胡扯</a></td>
+<td><a href="/%E5%85%B3%E4%BA%8ELLM%E7%9A%84%E8%83%A1%E6%89%AF/" title="">关于LLM的胡扯</a></td>
 <td><a href="/tags/LLM/" class="index-taxonomy__chip" rel="tag">#LLM</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" class="index-taxonomy__chip" rel="tag">#随笔</a></td>
 <td>2023/07/12</td>
 </tr>
 <tr>
-<td><a href="/退役记/" title="">退役记</a></td>
+<td><a href="/%E9%80%80%E5%BD%B9%E8%AE%B0/" title="">退役记</a></td>
 <td><a href="/tags/OI/" class="index-taxonomy__chip" rel="tag">#OI</a> <a href="/tags/%E5%9B%9E%E5%BF%86%E5%BD%95/" class="index-taxonomy__chip" rel="tag">#回忆录</a></td>
 <td>2021/06/01</td>
 </tr>
@@ -494,6 +470,16 @@
 <!-- SerializedQuery END -->
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E6%80%BB%E7%9B%AE%E5%BD%95/">总目录</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -572,6 +558,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -583,7 +574,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -596,7 +593,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -609,7 +612,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -622,6 +631,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

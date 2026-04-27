@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -418,7 +394,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">写给首调选手的视唱练耳进阶知识</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Apr 03</span>
+                        <span class="note-date">2026 Apr 25</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -457,9 +433,17 @@
 <td>La</td>
 <td>Ti</td>
 </tr>
+<tr>
+<td>基础要求：能够识别简单主调音乐的首调谱。</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p>基础要求：能够识别简单主调音乐的首调谱。</p>
 <h1>1. 首调唱名法</h1>
 <h2 id="1-大调">1. 大调</h2>
 <p>首调唱名法大调的主音唱 Do，小调的主音唱 La，或者 Do，取决于具体的派别。通常自然小调主音唱 La。</p>
@@ -478,22 +462,22 @@
 <p>如果曲子中出现了调号以外的升降号，需要修改元音来改变唱名。</p>
 <ul>
 <li>
-<p><strong>升音 (Sharps,&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">♯</mi></mrow><annotation encoding="application/x-tex">\sharp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">♯</span></span></span></span>):</strong>&nbsp;将元音改为&nbsp;<strong>“i”</strong>。</p>
+<p><strong>升音 (Sharps,&nbsp;$\sharp$):</strong>&nbsp;将元音改为&nbsp;<strong>“i”</strong>。</p>
 <ul>
-<li>Do&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>&nbsp;<strong>Di</strong>&nbsp;(升Do)</li>
-<li>Re&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>&nbsp;<strong>Ri</strong>&nbsp;(升Re)</li>
-<li>Fa&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>&nbsp;<strong>Fi</strong>&nbsp;(升Fa)</li>
-<li>Sol&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>&nbsp;<strong>Si</strong>&nbsp;(升Sol)</li>
-<li>La&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>&nbsp;<strong>Li</strong>&nbsp;(升La)</li>
+<li>Do&nbsp;$\to$&nbsp;<strong>Di</strong>&nbsp;(升Do)</li>
+<li>Re&nbsp;$\to$&nbsp;<strong>Ri</strong>&nbsp;(升Re)</li>
+<li>Fa&nbsp;$\to$&nbsp;<strong>Fi</strong>&nbsp;(升Fa)</li>
+<li>Sol&nbsp;$\to$&nbsp;<strong>Si</strong>&nbsp;(升Sol)</li>
+<li>La&nbsp;$\to$&nbsp;<strong>Li</strong>&nbsp;(升La)</li>
 </ul>
 </li>
 <li>
-<p><strong>降音 (Flats,&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">♭</mi></mrow><annotation encoding="application/x-tex">\flat</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:0em;"></span><span class="mord">♭</span></span></span></span>):</strong>&nbsp;将元音改为&nbsp;<strong>“e”</strong> 或&nbsp;<strong>“a”</strong>。</p>
+<p><strong>降音 (Flats,&nbsp;$\flat$):</strong>&nbsp;将元音改为&nbsp;<strong>“e”</strong> 或&nbsp;<strong>“a”</strong>。</p>
 <ul>
-<li>Ti&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>&nbsp;<strong>Te</strong>&nbsp;(降Ti) /&nbsp;<strong>Ta</strong></li>
-<li>Mi&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>&nbsp;<strong>Me</strong>&nbsp;(降Mi) /&nbsp;<strong>Ma</strong></li>
-<li>La&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>&nbsp;<strong>Le</strong>&nbsp;(降La) /&nbsp;<strong>Lo</strong></li>
-<li>Re&nbsp;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>&nbsp;<strong>Ra</strong>&nbsp;(降Re)</li>
+<li>Ti&nbsp;$\to$&nbsp;<strong>Te</strong>&nbsp;(降Ti) /&nbsp;<strong>Ta</strong></li>
+<li>Mi&nbsp;$\to$&nbsp;<strong>Me</strong>&nbsp;(降Mi) /&nbsp;<strong>Ma</strong></li>
+<li>La&nbsp;$\to$&nbsp;<strong>Le</strong>&nbsp;(降La) /&nbsp;<strong>Lo</strong></li>
+<li>Re&nbsp;$\to$&nbsp;<strong>Ra</strong>&nbsp;(降Re)</li>
 </ul>
 </li>
 <li>
@@ -503,7 +487,7 @@
 <p><strong>难点 (Cons):</strong>&nbsp;转调频繁的音乐（如晚期浪漫派作品）会非常难唱，因为 1 的位置一直在变，大脑需要不断切换参考系。</p>
 </li>
 </ul>
-<h2 id="1-2-la-based-minor">1.2. La-based Minor</h2>
+<h2 id="1-2-La-based-Minor">1.2. La-based Minor</h2>
 <p>这是目前国内中小学音乐课、柯达伊教学法 (Kodály) 最常用的方法。</p>
 <ul>
 <li>
@@ -536,7 +520,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="1-3-do-based-minor">1.3. Do-based Minor</h2>
+<h2 id="1-3-Do-based-Minor">1.3. Do-based Minor</h2>
 <p>无论大调小调，<strong>主音永远是 Do</strong>。小调只是大调的“变体”（降了第3、6、7级音）。<strong>自然小调唱成：</strong>&nbsp;Do - Re -&nbsp;<strong>Me</strong>&nbsp;- Fa - Sol -&nbsp;<strong>Le</strong>&nbsp;-&nbsp;<strong>Te</strong>&nbsp;- Do</p>
 <ul>
 <li>
@@ -784,9 +768,15 @@
 <td>史诗感 / 庄重感</td>
 <td>誇りと驕り - starlight 九九组</td>
 </tr>
+<tr>
+<td>另一个常用的是升降半音。比起升降全音，升降半音属于远关系转调，割裂感非常强。</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p>另一个常用的是升降半音。比起升降全音，升降半音属于远关系转调，割裂感非常强。</p>
 <p>《化けの花》的结尾有一个降半音转调，渲染了一种非常独特而鲜明的感觉：它就像是从一个轻飘飘的美梦（物理高但色彩暗淡的 C 小调）瞬间跌落到了坚硬冰冷的水泥地上（物理低但色彩极其尖锐的 B 小调）。因此它极少用于常规的情感升华，而是多用于叙事曲中表达“梦醒”、“打破幻想”或“直面残酷现实”的转折点。</p>
 <table>
 <thead>
@@ -841,11 +831,27 @@
 <td>明显地变阴暗</td>
 <td>古典到处都是</td>
 </tr>
+<tr>
+<td>更复杂的转调就不在这里提及了。转调还可以涉及一些复杂编排，就留到专门的章节来讲吧。</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p>更复杂的转调就不在这里提及了。转调还可以涉及一些复杂编排，就留到专门的章节来讲吧。</p>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -870,7 +876,7 @@
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/%E4%B8%80%E4%BA%9B%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E5%86%85%E5%AE%B9/">
+                                <a class="post-nav__link" href="/%E5%90%8E%E8%AE%AD%E7%BB%83/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -879,7 +885,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">一些有意思的内容</span>
+                                        <span class="post-nav__title">后训练</span>
                                     </span>
                                 </a>
                             
@@ -895,7 +901,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">0. 说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">1. 首调唱名法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%A4%A7%E8%B0%83"><span class="post-toc-text">1. 大调</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-la-based-minor"><span class="post-toc-text">1.2. La-based Minor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-do-based-minor"><span class="post-toc-text">1.3. Do-based Minor</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. 变化音的处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-%E5%A4%A7%E8%B0%83%E4%B8%AD%E7%9A%84%E5%8F%98%E5%8C%96%E9%9F%B3"><span class="post-toc-text">2.1. 大调中的变化音</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-%E5%B0%8F%E8%B0%83%E4%B8%AD%E7%9A%84%E5%8F%98%E5%8C%96%E9%9F%B3"><span class="post-toc-text">2.3. 小调中的变化音</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. 近关系转调</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">4. 常见的远关系调</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">0. 说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">1. 首调唱名法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%A4%A7%E8%B0%83"><span class="post-toc-text">1. 大调</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-La-based-Minor"><span class="post-toc-text">1.2. La-based Minor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-Do-based-Minor"><span class="post-toc-text">1.3. Do-based Minor</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. 变化音的处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-%E5%A4%A7%E8%B0%83%E4%B8%AD%E7%9A%84%E5%8F%98%E5%8C%96%E9%9F%B3"><span class="post-toc-text">2.1. 大调中的变化音</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-%E5%B0%8F%E8%B0%83%E4%B8%AD%E7%9A%84%E5%8F%98%E5%8C%96%E9%9F%B3"><span class="post-toc-text">2.3. 小调中的变化音</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. 近关系转调</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">4. 常见的远关系调</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -924,6 +930,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -935,7 +946,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -948,7 +965,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -961,7 +984,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -974,6 +1003,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -309,20 +283,12 @@
                     <mdui-card variant="filled" class="archives-category-card">
                         <div class="archives-category-card__head">
                             <span class="archives-category-card__name">专栏</span>
-                            <span class="archives-category-card__count">14 posts</span>
+                            <span class="archives-category-card__count">7 posts</span>
                         </div>
                         <mdui-divider></mdui-divider>
                         <mdui-list class="archives-category-card__list">
                             
-                            <mdui-list-item rounded href="/Tag/AI%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="AI相关"></mdui-list-item>
-                            
                             <mdui-list-item rounded href="/Tag/LLM%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="LLM相关"></mdui-list-item>
-                            
-                            <mdui-list-item rounded href="/Tag/%E5%8A%A8%E6%BC%AB%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="动漫相关"></mdui-list-item>
-                            
-                            <mdui-list-item rounded href="/Tag/%E5%8E%9F%E7%A5%9E%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="原神相关"></mdui-list-item>
-                            
-                            <mdui-list-item rounded href="/Tag/%E5%8F%8D%E6%80%9D%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="反思相关"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/Blog%20Category/%E6%80%BB%E7%9B%AE%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="总目录"></mdui-list-item>
                             
@@ -330,17 +296,11 @@
                             
                             <mdui-list-item rounded href="/Blog%20Category/%E6%9C%AA%E5%88%86%E7%B1%BB/" headline-line="2" end-icon="arrow_forward" headline="未分类"></mdui-list-item>
                             
-                            <mdui-list-item rounded href="/Tag/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" headline-line="2" end-icon="arrow_forward" headline="生活随笔"></mdui-list-item>
-                            
                             <mdui-list-item rounded href="/Tag/%E7%A7%91%E7%A0%94%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="科研相关"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/Tag/%E8%AF%AD%E8%A8%80%E5%AD%A6%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="语言学相关"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/Tag/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="软件相关"></mdui-list-item>
-                            
-                            <mdui-list-item rounded href="/Tag/%E9%9A%8F%E7%AC%94%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="随笔相关"></mdui-list-item>
-                            
-                            <mdui-list-item rounded href="/Tag/%E9%9F%B3%E4%B9%90%E7%9B%B8%E5%85%B3/" headline-line="2" end-icon="arrow_forward" headline="音乐相关"></mdui-list-item>
                             
                         </mdui-list>
                     </mdui-card>
@@ -383,7 +343,7 @@
                     <mdui-card variant="filled" class="archives-category-card">
                         <div class="archives-category-card__head">
                             <span class="archives-category-card__name">碎碎念</span>
-                            <span class="archives-category-card__count">399 posts</span>
+                            <span class="archives-category-card__count">421 posts</span>
                         </div>
                         <mdui-divider></mdui-divider>
                         <mdui-list class="archives-category-card__list">
@@ -393,6 +353,8 @@
                             <mdui-list-item rounded href="/20170124%20%E6%98%A5%E8%81%94%202017/" headline-line="2" end-icon="arrow_forward" headline="20170124 春联 2017"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20180610%20%E6%B0%B4%E6%B7%B9%E7%9F%B3%E4%B8%AD/" headline-line="2" end-icon="arrow_forward" headline="20180610 水淹石中"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2019.5-2020.1%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2019.5-2020.1 看番记录"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20190118%20%E5%8D%97%E4%B9%A1%E5%AD%90%C2%B7%E7%9C%8B%E7%9D%80%E8%AF%95%E5%8D%B7%E4%B9%B1%E5%86%99%E4%B8%80%E9%80%9A/" headline-line="2" end-icon="arrow_forward" headline="20190118 南乡子·看着试卷乱写一通"></mdui-list-item>
                             
@@ -469,6 +431,10 @@
                             <mdui-list-item rounded href="/20201110%20%E7%B4%AF%E6%AD%BB%E4%BA%86%EF%BC%882000%E5%AD%97%EF%BC%8C%E6%80%BB%E4%B8%AA%E9%AC%BC%E7%BB%93%EF%BC%89/" headline-line="2" end-icon="arrow_forward" headline="20201110 累死了（2000字，总个鬼结）"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20201209%20%E6%B6%88%E3%81%88%E3%81%AA%E3%81%84%E5%A4%A2%E3%82%92%E8%A6%8B%E3%81%A6%E3%81%84%E3%81%9F%E5%B0%91%E5%B9%B4%E3%81%AF/" headline-line="2" end-icon="arrow_forward" headline="20201209 消えない夢を見ていた少年は"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2021.1%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2021.1 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2021.4%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2021.4 看番记录"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20210203%20%E4%BB%8A%E6%99%9A%E6%8A%8A%E5%8E%9F%E7%A5%9E%E7%9A%84%E7%92%83%E6%9C%88%E7%AB%A0%E9%9F%B3%E4%B9%90%E5%85%A8%E9%83%A8%E5%90%AC%E5%AE%8C%E4%BA%86/" headline-line="2" end-icon="arrow_forward" headline="20210203 今晚把原神的璃月章音乐全部听完了"></mdui-list-item>
                             
@@ -557,6 +523,16 @@
                             <mdui-list-item rounded href="/20211225%20%E6%88%91%E2%80%A6%E2%80%A6/" headline-line="2" end-icon="arrow_forward" headline="20211225 我……"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20211227%20%E9%82%A3%E4%B9%88%E9%97%AE%E9%A2%98%E6%9D%A5%E4%BA%86/" headline-line="2" end-icon="arrow_forward" headline="20211227 那么问题来了"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2022.11%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2022.11 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2022.6%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2022.6 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2022.7%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2022.7 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2022.8%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2022.8 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2022.9%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2022.9 看番记录"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20220105%20HOYO-MIX%E4%B8%80%E6%AC%A1%E9%83%BD%E6%B2%A1%E8%AE%A9%E6%88%91%E5%A4%B1%E6%9C%9B%E8%BF%87/" headline-line="2" end-icon="arrow_forward" headline="20220105 HOYO-MIX一次都没让我失望过"></mdui-list-item>
                             
@@ -737,6 +713,14 @@
                             <mdui-list-item rounded href="/20221221%20%E6%97%A0%E8%8D%AF%E5%8D%95%E4%BA%BA%E4%B8%89%E6%97%A5%E9%80%9F%E9%80%9A%E6%96%B0%E5%86%A0%E7%BA%AA%E5%BF%B5/" headline-line="2" end-icon="arrow_forward" headline="20221221 无药单人三日速通新冠纪念"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20221229/" headline-line="2" end-icon="arrow_forward" headline="20221229"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2023.1%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2023.1 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2023.10%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2023.10 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2023.11%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2023.11 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2023.12%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2023.12 看番记录"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20230117%2055%E6%8A%BD%E6%9E%97%E9%9B%A8%E9%9C%9E/" headline-line="2" end-icon="arrow_forward" headline="20230117 55抽林雨霞"></mdui-list-item>
                             
@@ -922,6 +906,16 @@
                             
                             <mdui-list-item rounded href="/20231227%20%E4%BA%BA%E4%B8%8D%E8%83%BD%E4%B8%8D%E7%9C%8B%E4%BA%AC%E5%90%B9%EF%BC%8C%E5%90%8E%E9%9D%A2%E5%BF%98%E4%BA%86%E3%80%82/" headline-line="2" end-icon="arrow_forward" headline="20231227 人不能不看京吹，后面忘了。"></mdui-list-item>
                             
+                            <mdui-list-item rounded href="/2024.11%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2024.11 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2024.12%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2024.12 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2024.4%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2024.4 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2024.6%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2024.6 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2024.8%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2024.8 看番记录"></mdui-list-item>
+                            
                             <mdui-list-item rounded href="/20240103%20%E7%9B%AE%E5%89%8D%E7%B2%BE%E7%A5%9E%E7%8A%B6%E6%80%81%EF%BC%9A/" headline-line="2" end-icon="arrow_forward" headline="20240103 目前精神状态："></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20240104%20%E5%BF%AB%E6%9D%A5%E6%8A%A5%EF%BC%8C%E5%8C%85%E6%95%99%E5%8C%85%E4%BC%9A/" headline-line="2" end-icon="arrow_forward" headline="20240104 快来报，包教包会"></mdui-list-item>
@@ -1072,6 +1066,14 @@
                             
                             <mdui-list-item rounded href="/20241231%20%E8%B7%A8%E5%B9%B4%E4%BB%8E%E4%B8%8B%E5%8D%88%E5%88%B0%E6%99%9A%E4%B8%8A%E4%B8%8A%E5%AE%8C%E4%BA%86%E6%9C%AC%E7%A7%91%E9%98%B6%E6%AE%B5%E6%9C%80%E5%90%8E%E4%B8%80%E9%97%A8%E8%AF%BE/" headline-line="2" end-icon="arrow_forward" headline="20241231 跨年从下午到晚上上完了本科阶段最后一门课"></mdui-list-item>
                             
+                            <mdui-list-item rounded href="/2025.4%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2025.4 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2025.7%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2025.7 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2025.8%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2025.8 看番记录"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2025.9%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2025.9 看番记录"></mdui-list-item>
+                            
                             <mdui-list-item rounded href="/20250101%202025%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/" headline-line="2" end-icon="arrow_forward" headline="20250101 2025的第一天"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20250102%20%E5%8E%9F%E4%BD%9C%EF%BC%81/" headline-line="2" end-icon="arrow_forward" headline="20250102 原作！"></mdui-list-item>
@@ -1123,6 +1125,8 @@
                             <mdui-list-item rounded href="/20251203/" headline-line="2" end-icon="arrow_forward" headline="20251203"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20251203%20%E7%AA%81%E7%84%B6%E5%A4%B1%E7%9C%A0/" headline-line="2" end-icon="arrow_forward" headline="20251203 突然失眠"></mdui-list-item>
+                            
+                            <mdui-list-item rounded href="/2026.2%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" headline-line="2" end-icon="arrow_forward" headline="2026.2 看番记录"></mdui-list-item>
                             
                             <mdui-list-item rounded href="/20260115/" headline-line="2" end-icon="arrow_forward" headline="20260115"></mdui-list-item>
                             
@@ -1332,6 +1336,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -1343,7 +1352,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -1356,7 +1371,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -1369,7 +1390,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -1382,6 +1409,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

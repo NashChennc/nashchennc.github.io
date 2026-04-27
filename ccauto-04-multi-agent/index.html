@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -467,12 +443,12 @@
     else ALLOW
         IC -->> U: 直接返回子结果
     end</pre>
-<h2 id="outbound：委派前拦截">Outbound：委派前拦截</h2>
+<h2 id="Outbound：委派前拦截">Outbound：委派前拦截</h2>
 <p>Outbound 分类发生在 <code>hasPermissionsToUseTool</code> 的 auto 分支（<code>src/utils/permissions/permissions.ts</code> L688-699）。AgentTool 的调用与其他工具调用一样进入 <a href="/ccauto-02-classifier/" title="">02-classifier-pipeline</a> 的三层判定管道。</p>
 <h3 id="action-的构造">action 的构造</h3>
 <p><code>formatActionForClassifier</code>（<code>src/utils/permissions/yoloClassifier.ts</code> L1482-1495）将工具名和输入包装为标准的 <code>assistant + tool_use</code> 格式：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/utils/permissions/yoloClassifier.ts L1487-1495</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">formatActionForClassifier</span>(<span class="params"></span></span><br><span class="line"><span class="params">  <span class="attr">toolName</span>: <span class="built_in">string</span>,</span></span><br><span class="line"><span class="params">  <span class="attr">toolInput</span>: <span class="built_in">unknown</span>,</span></span><br><span class="line"><span class="params"></span>): <span class="title class_">TranscriptEntry</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">role</span>: <span class="string">&#x27;assistant&#x27;</span>,</span><br><span class="line">    <span class="attr">content</span>: [&#123; <span class="attr">type</span>: <span class="string">&#x27;tool_use&#x27;</span>, <span class="attr">name</span>: toolName, <span class="attr">input</span>: toolInput &#125;],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="agent-工具的分类器投影">Agent 工具的分类器投影</h3>
+<h3 id="Agent-工具的分类器投影">Agent 工具的分类器投影</h3>
 <p>每个工具通过 <code>toAutoClassifierInput</code> 控制暴露给分类器的字段。AgentTool 的实现（<code>src/tools/AgentTool/AgentTool.tsx</code> L1267-1271）将子代理类型和 prompt 拼成简洁字符串，让分类器聚焦于"用户要委派什么任务"：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/tools/AgentTool/AgentTool.tsx L1267-1271</span></span><br><span class="line"><span class="title function_">toAutoClassifierInput</span>(<span class="params">input</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> i = input <span class="keyword">as</span> <span class="title class_">AgentToolInput</span>;</span><br><span class="line">  <span class="keyword">const</span> tags = [i.<span class="property">subagent_type</span>, i.<span class="property">mode</span> ? <span class="string">`mode=<span class="subst">$&#123;i.mode&#125;</span>`</span> : <span class="literal">undefined</span>]</span><br><span class="line">    .<span class="title function_">filter</span>((t): t is <span class="built_in">string</span> =&gt; t !== <span class="literal">undefined</span>);</span><br><span class="line">  <span class="keyword">const</span> prefix = tags.<span class="property">length</span> &gt; <span class="number">0</span> ? <span class="string">`(<span class="subst">$&#123;tags.join(<span class="string">&#x27;, &#x27;</span>)&#125;</span>): `</span> : <span class="string">&#x27;: &#x27;</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;prefix&#125;</span><span class="subst">$&#123;i.prompt&#125;</span>`</span>;</span><br><span class="line">&#125;,</span><br></pre></td></tr></tbody></table></figure>
 <p>例如分类器看到的 action 可能是 <code>(code, mode=plan): 重构 utils 模块的错误处理</code>，而不是完整的 AgentToolInput 对象。</p>
@@ -486,7 +462,7 @@
 <p>The outbound check exists because, without it, the transcript classifier that monitors the subagent may not have the full context to know if the task it was given was originally intended by the user. Inside the subagent, the orchestrator’s instruction <em>is</em> the user message, so tasks look fully authorized.</p>
 <p>— <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">Claude Code auto mode</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 </blockquote>
-<h2 id="inbound：交回时警告">Inbound：交回时警告</h2>
+<h2 id="Inbound：交回时警告">Inbound：交回时警告</h2>
 <p>Inbound 分类由 <code>classifyHandoffIfNeeded</code>（<code>src/tools/AgentTool/agentToolUtils.ts</code> L389-481）实现，在 subagent <strong>完成执行后</strong>、结果返回主 Agent <strong>之前</strong>调用。</p>
 <h3 id="前置条件">前置条件</h3>
 <p>两个守卫确保只在需要时运行：</p>
@@ -555,7 +531,7 @@
 <p><strong>同步路径</strong>（<code>AgentTool.tsx</code> L1235-1251）：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AgentTool.tsx L1235-1251 (简化)</span></span><br><span class="line"><span class="keyword">const</span> agentResult = <span class="title function_">finalizeAgentTool</span>(agentMessages, syncAgentId, metadata)</span><br><span class="line"><span class="keyword">const</span> handoffWarning = <span class="keyword">await</span> <span class="title function_">classifyHandoffIfNeeded</span>(&#123; agentMessages, ... &#125;)</span><br><span class="line"><span class="keyword">if</span> (handoffWarning) &#123;</span><br><span class="line">  agentResult.<span class="property">content</span> = [&#123; <span class="attr">type</span>: <span class="string">&#x27;text&#x27;</span>, <span class="attr">text</span>: handoffWarning &#125;, ...agentResult.<span class="property">content</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
 <p>同步路径将警告作为 content 数组的<strong>第一个 text 元素</strong>插入，确保主 Agent 在读取子结果前先看到警告。</p>
-<h2 id="outbound-vs-inbound-对照">Outbound vs Inbound 对照</h2>
+<h2 id="Outbound-vs-Inbound-对照">Outbound vs Inbound 对照</h2>
 <table>
 <thead>
 <tr>
@@ -597,7 +573,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="子进程-auto-mode-继承">子进程 Auto Mode 继承</h2>
+<h2 id="子进程-Auto-Mode-继承">子进程 Auto Mode 继承</h2>
 <p>主 Agent 通过 <code>spawnTeammate</code> 创建子进程时（<code>src/tools/shared/spawnMultiAgent.ts</code>），<code>buildInheritedCliFlags</code>（L208-260）将当前权限模式传递给子进程 CLI：</p>
 <pre class="mermaid">flowchart TD
     Mode{"当前权限模式？"}
@@ -619,14 +595,14 @@
 <li><strong>独立门禁</strong>：子进程启动后由自己的 <code>permissionSetup.ts</code> 独立执行 GrowthBook 校验和 <code>setAutoModeActive(true)</code>，不直接复用父进程状态</li>
 <li><strong>隔离上下文</strong>：in-process 路径不会把父对话 <code>messages</code> 传给子代理，防止 <code>/clear</code>、<code>/compact</code> 等行为异常</li>
 <li><strong>输入清洗</strong>：<code>sanitizeAgentName</code> 对子代理名称做清洗，防止注入</li>
-<li><strong>长时 teammate 与压缩</strong>：进程内队友（<code>inProcessRunner</code>）在估算 token 超过自动压缩阈值时会调用 <code>compactConversation</code>，并使用 <strong>隔离的 <code>ToolUseContext</code></strong>（克隆 <code>readFileState</code>、去掉主会话 UI 回调），避免队友压缩污染主会话缓存或界面状态；详见 <a href="/ccauto-B-长会话压缩与多线程状态隔离/" title="">附录 B — 长会话压缩与多线程状态隔离</a>（索引见 <a href="/ccauto-00-index/" title="">00-index</a> 附录表）。</li>
-<li><strong>主线程 microcompact 隔离</strong>：<code>microcompactMessages</code> 仅在主线程类 <code>querySource</code> 上启用 cached microcompact，防止 fork 会话（如 <code>session_memory</code>）把 tool_results 登记进全局状态、导致主线程误删不存在的 <code>tool_use_id</code>；详见 <a href="/ccauto-B-长会话压缩与多线程状态隔离/" title="">附录 B</a>。</li>
+<li><strong>长时 teammate 与压缩</strong>：进程内队友（<code>inProcessRunner</code>）在估算 token 超过自动压缩阈值时会调用 <code>compactConversation</code>，并使用 <strong>隔离的 <code>ToolUseContext</code></strong>（克隆 <code>readFileState</code>、去掉主会话 UI 回调），避免队友压缩污染主会话缓存或界面状态；详见 <a href="/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/" title="">附录 B — 长会话压缩与多线程状态隔离</a>（索引见 <a href="/ccauto-00-index/" title="">00-index</a> 附录表）。</li>
+<li><strong>主线程 microcompact 隔离</strong>：<code>microcompactMessages</code> 仅在主线程类 <code>querySource</code> 上启用 cached microcompact，防止 fork 会话（如 <code>session_memory</code>）把 tool_results 登记进全局状态、导致主线程误删不存在的 <code>tool_use_id</code>；详见 <a href="/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/" title="">附录 B</a>。</li>
 </ul>
 <p>传递给子进程的还有 <code>--model</code>、<code>--settings</code>、<code>--plugin-dir</code>、<code>--parent-session-id</code> 等标志，以及通过 <code>buildInheritedEnvVars()</code> 传递的环境变量。</p>
-<h2 id="afk-header-latch">AFK Header Latch</h2>
+<h2 id="AFK-Header-Latch">AFK Header Latch</h2>
 <p><strong>AFK</strong>（Away From Keyboard，离开键盘）：auto mode 下用户不逐条审批，相当于"人不在键盘前"。客户端在 API 请求里带上 <code>afk-mode-2026-01-31</code> 这个 HTTP header，<strong>告诉服务端启用 PI probes</strong>（Prompt Injection 探针）扫描工具返回内容中的注入攻击。客户端分类器在工具<strong>执行前</strong>拦截，PI probe 在工具<strong>执行后</strong>扫描——两者正交互补。</p>
 <p><strong>Latch</strong>（锁存）：为什么不直接"auto mode 开着就带 header，关了就不带"？因为 API 的 prompt cache key 包含 header 集合——用户每次 Shift+Tab 切换 auto mode 都会改变 header 集，导致约 50-70K tokens 的缓存失效。所以用 latch：<strong>一旦本会话发过一次 AFK header，之后所有 agentic 请求都带，不管 auto mode 当前开没开</strong>。Cache key 始终稳定。只有 <code>/clear</code> 或 <code>/compact</code>（本来就会清空对话历史）时才重置。</p>
-<h3 id="latch-流程">Latch 流程</h3>
+<h3 id="Latch-流程">Latch 流程</h3>
 <p>实现在 <code>src/services/api/claude.ts</code> L1405-1422：</p>
 <pre class="mermaid">flowchart TD
     Check{"已经 latch?"}
@@ -713,6 +689,30 @@
 <p>即使 Outbound 未拦截、subagent 内部分类器被绕过，Inbound 分类器仍能在主 Agent 接收结果前发出警告。而服务端 PI probe 作为完全独立的输入层防御，与客户端分类器正交——攻击者需要同时绕过所有层才能成功注入。</p>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/LLM%E7%9B%B8%E5%85%B3/">LLM相关</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/">软件相关</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-00-index/">CC Auto Mode - Auto Mode 安全架构分析报告系列</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-02-classifier/">CC Auto Mode 02 - 安全判定分类管道</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/">CC Auto Mode 附录 A - 单次请求的上下文整形流水线</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/">CC Auto Mode 附录 B - 长会话压缩与多线程状态隔离</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-C-%E5%88%86%E7%B1%BB%E5%99%A8%E8%BE%B9%E7%95%8C%E4%B9%8B%E5%A4%96%E7%9A%84%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1/">CC Auto Mode 附录 C - 分类器边界之外的纵深防御</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -762,7 +762,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8C%E7%AB%AF%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84"><span class="post-toc-text">双端分类架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#outbound%EF%BC%9A%E5%A7%94%E6%B4%BE%E5%89%8D%E6%8B%A6%E6%88%AA"><span class="post-toc-text">Outbound：委派前拦截</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#action-%E7%9A%84%E6%9E%84%E9%80%A0"><span class="post-toc-text">action 的构造</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#agent-%E5%B7%A5%E5%85%B7%E7%9A%84%E5%88%86%E7%B1%BB%E5%99%A8%E6%8A%95%E5%BD%B1"><span class="post-toc-text">Agent 工具的分类器投影</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A4%E5%AE%9A%E9%80%BB%E8%BE%91"><span class="post-toc-text">判定逻辑</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#inbound%EF%BC%9A%E4%BA%A4%E5%9B%9E%E6%97%B6%E8%AD%A6%E5%91%8A"><span class="post-toc-text">Inbound：交回时警告</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="post-toc-text">前置条件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E8%B0%83%E7%94%A8"><span class="post-toc-text">分类器调用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AD%A6%E5%91%8A%E6%96%87%E6%A1%88"><span class="post-toc-text">警告文案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AD%A6%E5%91%8A%E6%B3%A8%E5%85%A5%E7%9A%84%E4%B8%A4%E6%9D%A1%E8%B7%AF%E5%BE%84"><span class="post-toc-text">警告注入的两条路径</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#outbound-vs-inbound-%E5%AF%B9%E7%85%A7"><span class="post-toc-text">Outbound vs Inbound 对照</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AD%90%E8%BF%9B%E7%A8%8B-auto-mode-%E7%BB%A7%E6%89%BF"><span class="post-toc-text">子进程 Auto Mode 继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#afk-header-latch"><span class="post-toc-text">AFK Header Latch</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#latch-%E6%B5%81%E7%A8%8B"><span class="post-toc-text">Latch 流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AF%B7%E6%B1%82%E7%BA%A7%E9%97%A8%E6%8E%A7"><span class="post-toc-text">请求级门控</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%89%E5%85%A8%E7%BA%B5%E6%B7%B1"><span class="post-toc-text">安全纵深</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8C%E7%AB%AF%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84"><span class="post-toc-text">双端分类架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Outbound%EF%BC%9A%E5%A7%94%E6%B4%BE%E5%89%8D%E6%8B%A6%E6%88%AA"><span class="post-toc-text">Outbound：委派前拦截</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#action-%E7%9A%84%E6%9E%84%E9%80%A0"><span class="post-toc-text">action 的构造</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Agent-%E5%B7%A5%E5%85%B7%E7%9A%84%E5%88%86%E7%B1%BB%E5%99%A8%E6%8A%95%E5%BD%B1"><span class="post-toc-text">Agent 工具的分类器投影</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A4%E5%AE%9A%E9%80%BB%E8%BE%91"><span class="post-toc-text">判定逻辑</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inbound%EF%BC%9A%E4%BA%A4%E5%9B%9E%E6%97%B6%E8%AD%A6%E5%91%8A"><span class="post-toc-text">Inbound：交回时警告</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="post-toc-text">前置条件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E8%B0%83%E7%94%A8"><span class="post-toc-text">分类器调用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AD%A6%E5%91%8A%E6%96%87%E6%A1%88"><span class="post-toc-text">警告文案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AD%A6%E5%91%8A%E6%B3%A8%E5%85%A5%E7%9A%84%E4%B8%A4%E6%9D%A1%E8%B7%AF%E5%BE%84"><span class="post-toc-text">警告注入的两条路径</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Outbound-vs-Inbound-%E5%AF%B9%E7%85%A7"><span class="post-toc-text">Outbound vs Inbound 对照</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AD%90%E8%BF%9B%E7%A8%8B-Auto-Mode-%E7%BB%A7%E6%89%BF"><span class="post-toc-text">子进程 Auto Mode 继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AFK-Header-Latch"><span class="post-toc-text">AFK Header Latch</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Latch-%E6%B5%81%E7%A8%8B"><span class="post-toc-text">Latch 流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AF%B7%E6%B1%82%E7%BA%A7%E9%97%A8%E6%8E%A7"><span class="post-toc-text">请求级门控</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%89%E5%85%A8%E7%BA%B5%E6%B7%B1"><span class="post-toc-text">安全纵深</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -791,6 +791,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -802,7 +807,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -815,7 +826,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -828,7 +845,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -841,6 +864,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

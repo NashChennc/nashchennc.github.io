@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -319,7 +293,7 @@
         class="index-taxonomy__chip"
         href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"
         aria-current="page"
-      >软件工程 · 27</a>
+      >软件工程 · 28</a>
           
       <a
         role="listitem"
@@ -354,7 +328,7 @@
         class="index-taxonomy__chip"
         href="/tags/QQ%E7%A9%BA%E9%97%B4/"
         
-      >QQ空间 · 7</a>
+      >QQ空间 · 8</a>
           
       <a
         role="listitem"
@@ -374,7 +348,7 @@
         
         <details class="index-taxonomy__tags-details">
           <summary class="index-taxonomy__tags-summary">
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 3 more tags</span>
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 4 more tags</span>
             <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
           </summary>
           <div class="index-taxonomy__tags-overflow-sleeve">
@@ -393,6 +367,13 @@
         href="/tags/%E8%AF%AD%E9%9F%B3/"
         
       >语音 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%8E%9F%E7%A5%9E/"
+        
+      >原神 · 1</a>
               
       <a
         role="listitem"
@@ -417,6 +398,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/JavaScript/" class="note-card">
+  
+  <img src="/image/banner/nozomizo18.JPG" class="note-cover" alt="JavaScript" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">JavaScript</h2>
+      
+      <p class="note-excerpt">临时上手 Node/TS 生态备忘：npm、fnm、pnpm 彻底重装与常用前端/机器人项目依赖排错。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">软件工程</span>
+      
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/Test%20Driven%20Development/" class="note-card">
   
   <img src="/image/banner/nozomizo35.JPG" class="note-cover" alt="Test Driven Development" loading="lazy">
@@ -434,6 +440,56 @@
       
       <span class="note-date">2026 Apr 25</span>
       <span class="note-read">4 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/Text2Speech/" class="note-card">
+  
+  <img src="/image/banner/nozomizo19.JPG" class="note-cover" alt="Text2Speech" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">Text2Speech</h2>
+      
+      <p class="note-excerpt">语音合成与歌姬管线备忘：GPT-SoVITS、Azure、So-VITS-SVC 及人声分离环境要点。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">软件工程</span>
+      
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E9%82%AE%E7%AE%B1%E4%BB%A3%E6%94%B6%E8%AE%BE%E7%BD%AE/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet5.JPG" class="note-cover" alt="邮箱代收设置" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">邮箱代收设置</h2>
+      
+      <p class="note-excerpt">POP3 与 IMAP 差异简述，以及 QQ、Coremail 等邮箱在客户端代收时的配置要点。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">软件工程</span>
+      
+      <span class="note-date">2026 Apr 25</span>
+      <span class="note-read">1 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -476,31 +532,6 @@
       <h2 class="note-card-title">硬件/系统/网络相关</h2>
       
       <p class="note-excerpt">个人 Windows 新机与环境重装备忘：系统设置、硬件排错、常用软件与上网工具清单。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">软件工程</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Text2Speech/" class="note-card">
-  
-  <img src="/image/banner/nozomizo19.JPG" class="note-cover" alt="Text2Speech" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">Text2Speech</h2>
-      
-      <p class="note-excerpt">语音合成与歌姬管线备忘：GPT-SoVITS、Azure、So-VITS-SVC 及人声分离环境要点。</p>
       
     </div>
     <div class="note-meta">
@@ -576,56 +607,6 @@
       <h2 class="note-card-title">QQ 无头客户端</h2>
       
       <p class="note-excerpt">用 NapCat、NoneBot2、Koishi 等搭建 QQ 机器人：安装、反向 WebSocket 与插件配置备忘。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">软件工程</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E9%82%AE%E7%AE%B1%E4%BB%A3%E6%94%B6%E8%AE%BE%E7%BD%AE/" class="note-card">
-  
-  <img src="/image/banner/minamiquartet5.JPG" class="note-cover" alt="邮箱代收设置" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">邮箱代收设置</h2>
-      
-      <p class="note-excerpt">POP3 与 IMAP 差异简述，以及 QQ、Coremail 等邮箱在客户端代收时的配置要点。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">软件工程</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/JavaScript/" class="note-card">
-  
-  <img src="/image/banner/nozomizo18.JPG" class="note-cover" alt="JavaScript" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">JavaScript</h2>
-      
-      <p class="note-excerpt">临时上手 Node/TS 生态备忘：npm、fnm、pnpm 彻底重装与常用前端/机器人项目依赖排错。</p>
       
     </div>
     <div class="note-meta">
@@ -917,6 +898,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/20240214%20%E5%8E%A8%E5%8A%9B%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B%EF%BC%81%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" class="note-card">
+  
+  <img src="/files/qzone-20240214-211034-01.jpg" class="note-cover" alt="20240214 厨力是第一生产力！伟大的开源社区" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240214 厨力是第一生产力！伟大的开源社区</h2>
+      
+      <p class="note-excerpt">厨力是第一生产力！伟大的开源社区 悬赏一下谁看得懂我写了什么 以前是以前，现在是现在，今年有芙宁娜陪我过节[em]e105[/em][em]e105[/e...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Feb 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/20231113%20%E5%86%99%E4%BA%86%E4%B8%AA%E5%88%B7%E5%9B%9B%E5%8F%B2%E7%BD%91%E8%AF%BE%E7%9A%84%E8%84%9A%E6%9C%AC/" class="note-card">
   
   <img src="/image/banner/nozomizo10.PNG" class="note-cover" alt="20231113 写了个刷四史网课的脚本" loading="lazy">
@@ -1117,6 +1123,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -1128,7 +1139,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -1141,7 +1158,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -1154,7 +1177,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -1167,6 +1196,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -479,7 +455,7 @@
     Classifier -->|block| DenyFlow["DENY 流程<br/>返回拒绝并引导重试"]
     Classifier -->|unavailable| FailPolicy["Fail-closed / Fail-open<br/>按铁门配置降级"]
     Classifier -->|transcriptTooLong| Fallback["回退手动审批<br/>避免无意义重试"]</pre>
-<h2 id="tier-1-安全工具白名单-用户规则">Tier 1: 安全工具白名单（+ 用户规则）</h2>
+<h2 id="Tier-1-安全工具白名单（-用户规则）">Tier 1: 安全工具白名单（+ 用户规则）</h2>
 <p>Tier 1 中“用户规则（always-allow）”通常在 <strong>更前面的权限匹配阶段</strong> 就已返回 <code>allow</code>，因此不会进入本节的 <code>ask</code> → auto 分支图。</p>
 <p><code>SAFE_YOLO_ALLOWLISTED_TOOLS</code>（<code>src/utils/permissions/classifierDecision.ts</code> L56-94）列出了所有<strong>只读或协调类</strong>工具：</p>
 <table>
@@ -513,10 +489,10 @@
 </tbody>
 </table>
 <p>注意：<strong>编辑类工具不在白名单中</strong>（源码注释 L51-54），即使是项目内写入也走 acceptEdits 快路径而非白名单。</p>
-<h2 id="tier-2-项目内文件操作-acceptedits-快路径">Tier 2: 项目内文件操作（acceptEdits 快路径）</h2>
+<h2 id="Tier-2-项目内文件操作（acceptEdits-快路径）">Tier 2: 项目内文件操作（acceptEdits 快路径）</h2>
 <p>在 auto 分支中，对于非 Agent、非 REPL 的工具，系统会以 <code>mode: 'acceptEdits'</code> 临时伪造上下文重跑一次<strong>模拟权限检查</strong> ；如果该模式下结果为 <code>allow</code>，则直接放行并 <strong>跳过分类器 API 调用</strong>（<code>src/utils/permissions/permissions.ts</code> L601-656）。这一步用于快速判断“该调用是否属于 Tier 2 可直接放行”的范围，把大量 repo 内低风险读写从分类器中分流出去，降低延迟与 token 成本，同时把高风险调用继续留给后续层判定。</p>
 <blockquote>
-<h4 id="acceptedits-mode">acceptEdits mode</h4>
+<h4 id="acceptEdits-mode">acceptEdits mode</h4>
 <p><code>acceptEdits</code> 是一个正式 PermissionMode，在文件权限检查中放宽"项目内写入"。</p>
 <p>它的目的是让“项目内常规改代码”这类低风险操作更顺滑，避免每一步都触发审批或分类器调用。它在受控范围内（主要是工作目录内编辑/写入）更倾向直接 <code>allow</code>。在工作目录外、敏感路径、需显式交互或高风险调用，仍会保持 <code>ask</code> / <code>deny</code> 或进入更严格判定。</p>
 <p>核心在 <code>filesystem.ts</code> 的写权限判断顺序（<code>checkWritePermissionForTool</code>），包含：</p>
@@ -565,11 +541,11 @@
 <li><strong>具体判定来源</strong>：每个工具自己的 <code>tool.checkPermissions(...)</code> 实现（归属于工具模块），文件类工具大量复用 <code>src/utils/permissions/filesystem.ts</code> 与 <code>src/utils/permissions/pathValidation.ts</code>。</li>
 </ul>
 </blockquote>
-<h3 id="auto-mode-里的-acceptedits-快路径：复用语义但不改真实模式">auto mode 里的 acceptEdits 快路径：复用语义但不改真实模式</h3>
+<h3 id="auto-mode-里的-acceptEdits-快路径：复用语义但不改真实模式">auto mode 里的 acceptEdits 快路径：复用语义但不改真实模式</h3>
 <p>在 <code>permissions.ts</code> L600-656，auto 分支里的做法：</p>
 <figure class="highlight typescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 临时覆写 getAppState，把 mode 改成 &#x27;acceptEdits&#x27; 试跑一次</span></span><br><span class="line"><span class="keyword">const</span> acceptEditsResult = <span class="keyword">await</span> tool.<span class="title function_">checkPermissions</span>(parsedInput, &#123;</span><br><span class="line">  ...context,</span><br><span class="line">  <span class="attr">getAppState</span>: <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    ...state,</span><br><span class="line">    <span class="attr">toolPermissionContext</span>: &#123; ...state.<span class="property">toolPermissionContext</span>, <span class="attr">mode</span>: <span class="string">&#x27;acceptEdits&#x27;</span> &#125;,</span><br><span class="line">  &#125;),</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">if</span> (acceptEditsResult.<span class="property">behavior</span> === <span class="string">&#x27;allow&#x27;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">behavior</span>: <span class="string">&#x27;allow&#x27;</span>, <span class="attr">fastPath</span>: <span class="string">&#x27;acceptEdits&#x27;</span>, ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 否则继续走白名单和分类器</span></span><br></pre></td></tr></tbody></table></figure>
 <p><strong>这只是临时模拟</strong>，不会把会话真实模式切成 <code>acceptEdits</code>。</p>
-<h4 id="快路径的保护条件-防止过宽放行">快路径的保护条件（防止过宽放行）</h4>
+<h4 id="快路径的保护条件（防止过宽放行）">快路径的保护条件（防止过宽放行）</h4>
 <p>以下情况会跳过 acceptEdits 快路径，直接走白名单或分类器：</p>
 <table>
 <thead>
@@ -597,9 +573,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="tier-3-transcript-classifier">Tier 3: Transcript Classifier</h2>
+<h2 id="Tier-3-Transcript-Classifier">Tier 3: Transcript Classifier</h2>
 <p>不属于上述两层的工具调用进入分类器管道——这是 auto mode 安全架构中<strong>开销最高但判定最精准</strong>的一层。本节聚焦分类器 <strong>“判定什么、依据什么”</strong>（决策标准）；其实现机制（两阶段调用、transcript 构建、缓存策略）在后续章节展开。</p>
-<h3 id="什么流量会到达-tier-3">什么流量会到达 Tier 3</h3>
+<h3 id="什么流量会到达-Tier-3">什么流量会到达 Tier 3</h3>
 <p>根据<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">博客</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>的定义：</p>
 <blockquote>
 <p>Only actions with real downside potential reach the final tier.</p>
@@ -684,10 +660,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="分类器的决策标准-system-prompt">分类器的决策标准（System Prompt）</h3>
+<h3 id="分类器的决策标准（System-Prompt）">分类器的决策标准（System Prompt）</h3>
 <p>分类器通过 <code>sideQuery</code> 发起独立 API 调用来判定每个 action。</p>
 <blockquote>
-<h4 id="sidequery">sideQuery</h4>
+<h4 id="sideQuery">sideQuery</h4>
 <p><code>sideQuery</code>（<code>src/utils/sideQuery.ts</code>）是 Claude Code 中<strong>独立于主对话循环的轻量 API 调用通道</strong>，不计入主会话的 token 统计，不影响对话上下文。通常用于权限分类、会话搜索、模型校验等辅助任务。
 从  <code>getClassifierModel</code>（<code>yoloClassifier.ts</code> L1334-1347）可以看到，分类器模型的选择优先级是：</p>
 <ul>
@@ -782,7 +758,7 @@
 <blockquote>
 <p><strong>外部模板 vs Anthropic 模板的关键差异</strong>（<code>yoloClassifier.ts</code> L511-516）：外部模板将默认 bullet 写在标签<strong>内</strong>，用户配置会<strong>整段替换</strong>默认值；Anthropic 模板将默认值写在标签<strong>外</strong>，标签为空，用户项是<strong>追加</strong>的。</p>
 </blockquote>
-<h4 id="评估规则-evaluation-rules">评估规则（Evaluation Rules）</h4>
+<h4 id="评估规则（Evaluation-Rules）">评估规则（Evaluation Rules）</h4>
 <p>评估规则告诉分类器<strong>如何判断命令的真实世界影响</strong>，而不仅仅是表面文本。核心原则（<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">博客</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>）：</p>
 <blockquote>
 <p>The principle is to evaluate the real-world impact of an action, rather than just the surface text of the invocation. The agent shouldn’t be able to hide a dangerous operation behind a benign-looking wrapper.</p>
@@ -809,7 +785,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="用户意图规则-user-intent-rules">用户意图规则（User Intent Rules）</h4>
+<h4 id="用户意图规则（User-Intent-Rules）">用户意图规则（User Intent Rules）</h4>
 <p>用户意图规则是分类器中<strong>最难校准的部分</strong>，也是过度热心行为防御的核心所在。分类器判断的是——操作是否是用户<strong>授权的</strong>，而非仅仅与用户目标<strong>相关</strong>。</p>
 <blockquote>
 <p>The classifier is deliberately conservative. The prompt establishes what is authorized; everything the agent chooses on its own is unauthorized until the user says otherwise.</p>
@@ -849,7 +825,7 @@
 <blockquote>
 <p>In the majority of misses we examined, the classifier correctly identifies the danger… What it gets wrong is whether a real consent signal in the session actually covers <em>this</em> action.</p>
 </blockquote>
-<h4 id="分类流程-classification-process">分类流程（Classification Process）</h4>
+<h4 id="分类流程（Classification-Process）">分类流程（Classification Process）</h4>
 <p>分类器的 prompt 中写了一个步骤式的判定流程：</p>
 <pre class="mermaid">flowchart TD
     Action["接收待判定 action"]
@@ -864,7 +840,7 @@
     ExceptionCheck -->|否| IntentCheck
     IntentCheck -->|用户显式授权| AllowIntent["ALLOW"]
     IntentCheck -->|未授权/模糊| BlockIntent["BLOCK + reason"]</pre>
-<h5 id="实现方式：纯-prompt-指令-非代码逻辑">实现方式：纯 prompt 指令，非代码逻辑</h5>
+<h5 id="实现方式：纯-prompt-指令，非代码逻辑">实现方式：纯 prompt 指令，非代码逻辑</h5>
 <p>上述分类流程<strong>不是代码中的 if/else 分支</strong>，而是完全通过 system prompt 中的<strong>自然语言指令</strong>实现的。代码层面只负责管道编排：</p>
 <pre class="mermaid">flowchart LR
     Build["构建 system prompt<br/>+ transcript"] --> Call["sideQuery<br/>发送给 Claude 模型"]
@@ -876,7 +852,7 @@
 <p>Review the classification process and <strong>follow it carefully</strong>, making sure you deny actions that should be blocked.</p>
 </blockquote>
 <p>——它在提醒模型严格按照 prompt 中描述的步骤走，而不是自由发挥。</p>
-<h5 id="为什么用-llm-而非规则引擎">为什么用 LLM 而非规则引擎</h5>
+<h5 id="为什么用-LLM-而非规则引擎">为什么用 LLM 而非规则引擎</h5>
 <table>
 <thead>
 <tr>
@@ -921,7 +897,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="prompt-文件来源">Prompt 文件来源</h5>
+<h5 id="Prompt-文件来源">Prompt 文件来源</h5>
 <p>分类流程、评估规则、用户意图规则的<strong>具体 prompt 内容</strong>存储在三个 <code>.txt</code> 文件中，但它们在开源代码库中<strong>不存在</strong>：</p>
 <table>
 <thead>
@@ -960,7 +936,7 @@
 <li><strong><code>classify_result</code> 工具 schema</strong>：<code>thinking</code> 字段描述为 <code>'Brief step-by-step reasoning.'</code>，表明 prompt 要求按步骤推理</li>
 <li><strong><code>claude auto-mode defaults</code> 命令</strong>：在正式构建产物中可输出默认的 block rules / allow exceptions / environment 条目（通过 <code>getDefaultExternalAutoModeRules</code> 从模板标签内提取）</li>
 </ul>
-<h4 id="默认拦截规则-block-rules-soft-deny">默认拦截规则（Block Rules / soft_deny）</h4>
+<h4 id="默认拦截规则（Block-Rules-soft-deny）">默认拦截规则（Block Rules / soft_deny）</h4>
 <p>默认超过 20 条拦截规则，按<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">博客</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>分为四大类：</p>
 <table>
 <thead>
@@ -994,7 +970,7 @@
 </tbody>
 </table>
 <p>规则存储在 <code>permissions_external.txt</code> 的 <code>&lt;user_deny_rules_to_replace&gt;</code> 标签内。可通过 <code>claude auto-mode defaults</code> 查看完整列表（仅在正式构建产物中可用）。</p>
-<h4 id="默认允许例外-allow-exceptions">默认允许例外（Allow Exceptions）</h4>
+<h4 id="默认允许例外（Allow-Exceptions）">默认允许例外（Allow Exceptions）</h4>
 <p>允许例外是<strong>强制豁免</strong>——block rule 技术上匹配但操作实际无害。默认范围很窄：</p>
 <ul>
 <li>安装项目 manifest 中已声明的依赖包</li>
@@ -1002,7 +978,7 @@
 <li>推送到当前会话的工作分支</li>
 </ul>
 <p>规则存储在 <code>permissions_external.txt</code> 的 <code>&lt;user_allow_rules_to_replace&gt;</code> 标签内。</p>
-<h4 id="环境信任边界-environment">环境信任边界（Environment）</h4>
+<h4 id="环境信任边界（Environment）">环境信任边界（Environment）</h4>
 <p>环境定义了哪些域名、云存储桶、源码管理组织和内部服务算作"内部"。默认情况下分类器<strong>仅信任当前 git 仓库</strong>。用户可通过 <code>autoMode.environment</code> 扩展信任范围（如 GitHub org、云存储桶、内部 API），使分类器能识别可信基础设施。边界之外的一切都可能构成外泄风险。</p>
 <h3 id="性能指标">性能指标</h3>
 <p>博客公布了分类器在三个数据集上的评估结果：</p>
@@ -1062,7 +1038,7 @@
     S2Parse -->|"yes — 危险"| Block2["✗ BLOCK + reason<br/>返回可解释拒绝信息"]
     S2Parse -->|"null — 解析失败"| Block3["✗ BLOCK<br/>不确定时保守拦截"]</pre>
 <p>直观理解：<strong>Stage 1 是粗筛网（宁可多拦），Stage 2 是精筛网（把误拦的放回去）</strong>。大多数操作在 Stage 1 就通过了（<code>&lt;block&gt;no&lt;/block&gt;</code>），不需要付 Stage 2 的推理成本。只有 Stage 1 觉得"可能有问题"时才花 4096 tokens 做深度分析。</p>
-<h3 id="stage-1-与-stage-2-的关键差异">Stage 1 与 Stage 2 的关键差异</h3>
+<h3 id="Stage-1-与-Stage-2-的关键差异">Stage 1 与 Stage 2 的关键差异</h3>
 <p>两阶段<strong>共享</strong>同一份 system prompt（上文 Tier 3 所述的决策标准）和 transcript 内容，区别仅在于 <code>&lt;/transcript&gt;</code> 闭合标签之后追加的后缀指令（作为同一条 user 消息的最后一个文本块）：</p>
 <table>
 <thead>
@@ -1100,7 +1076,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="完整-api-调用结构">完整 API 调用结构</h3>
+<h3 id="完整-API-调用结构">完整 API 调用结构</h3>
 <p>每次分类器调用通过 <code>sideQuery</code>（独立于主对话循环的 API 调用）发送，消息结构如下：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────────┐</span><br><span class="line">│ System: 分类器 prompt（Tier 3 决策标准）      [cache_control] │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│ User 0（可选）: CLAUDE.md 内容               [cache_control] │</span><br><span class="line">│   → 包裹在 &lt;user_claude_md&gt; 中                              │</span><br><span class="line">│   → 告知分类器这是用户配置，应视为用户意图的一部分           │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│ User 1: &lt;transcript&gt;                                        │</span><br><span class="line">│   User: &quot;用户消息 1&quot;                                        │</span><br><span class="line">│   ToolName &#123;&quot;param&quot;: &quot;value&quot;&#125;   ← 历史 tool_use             │</span><br><span class="line">│   User: &quot;用户消息 2&quot;                                        │</span><br><span class="line">│   ...                                                       │</span><br><span class="line">│   当前待判定 action              [cache_control]             │</span><br><span class="line">│ &lt;/transcript&gt;                                               │</span><br><span class="line">│                                                             │</span><br><span class="line">│ ← Stage 后缀在此追加 ─────────────────────────────────────→ │</span><br><span class="line">│   Stage 1: &quot;Err on the side of blocking. &lt;block&gt;...&quot;        │</span><br><span class="line">│   Stage 2: &quot;Review the classification process...&quot;           │</span><br><span class="line">└─────────────────────────────────────────────────────────────┘</span><br></pre></td></tr></tbody></table></figure>
 <p>Stage 2 与 Stage 1 的消息<strong>仅最后的后缀不同</strong>，前面的 system + <a target="_blank" rel="noopener" href="http://CLAUDE.md">CLAUDE.md</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> + transcript 完全一致，利用 cache_control 实现 Stage 2 对 Stage 1 前缀的缓存命中。</p>
@@ -1151,7 +1127,7 @@
     Limit -->|是| Manual2["回退手动审批 / 终止<br/>避免无限拒绝循环"]
     Limit -->|否| Deny["✗ DENY<br/>buildYoloRejectionMessage<br/>含拒绝原因 + 更安全路径引导"]</pre>
 <p>拒绝消息（<code>buildYoloRejectionMessage</code>，<code>src/utils/messages.ts</code> L267-282）包含分类器原因、引导 Agent 寻找更安全路径的指示、以及建议用户通过权限规则允许此类操作。详细的 Deny-and-Continue 韧性机制见 <a href="/ccauto-07-deny-and-resilience/" title="">07-deny-and-resilience</a>。</p>
-<h2 id="transcript-构建：推理盲设计">Transcript 构建：推理盲设计</h2>
+<h2 id="Transcript-构建：推理盲设计">Transcript 构建：推理盲设计</h2>
 <blockquote>
 <p>We strip assistant text so the agent can’t talk the classifier into making a bad call… Stripping tool results is the primary prompt-injection defense.</p>
 <p>— <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">Claude Code auto mode</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
@@ -1194,7 +1170,7 @@
 </tbody>
 </table>
 <p>推理盲有一个有用的副效应：行为层拦截与 CoT 监控正交互补。一个隐藏恶意推理的模型若最终行为触发 block rule 仍会被分类器拦截；一个行为看似无害但推理暴露意图的模型则会被 CoT 监控捕获。</p>
-<h3 id="claude-md-前缀"><a target="_blank" rel="noopener" href="http://CLAUDE.md">CLAUDE.md</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 前缀</h3>
+<h3 id="CLAUDE-md-前缀"><a target="_blank" rel="noopener" href="http://CLAUDE.md">CLAUDE.md</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 前缀</h3>
 <p>如果会话中存在 <a target="_blank" rel="noopener" href="http://CLAUDE.md">CLAUDE.md</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 配置，<code>buildClaudeMdMessage</code>（L460-477）会将其作为<strong>独立的前缀消息</strong>（在 transcript 之前）注入分类器调用，包裹在 <code>&lt;user_claude_md&gt;</code> 标签中并标注为用户意图的一部分。这确保分类器在判读用户意图时将 <a target="_blank" rel="noopener" href="http://CLAUDE.md">CLAUDE.md</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 中的指令视为用户授权。</p>
 <h3 id="序列化格式">序列化格式</h3>
 <p>由 <code>toCompactBlock</code>（L384-424）处理，支持两种编码：</p>
@@ -1290,6 +1266,28 @@
 </table>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/LLM%E7%9B%B8%E5%85%B3/">LLM相关</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/">软件相关</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-00-index/">CC Auto Mode - Auto Mode 安全架构分析报告系列</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-04-multi-agent/">CC Auto Mode - 04 - 多 Agent 安全交接</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/">CC Auto Mode 附录 A - 单次请求的上下文整形流水线</a>
+                            
+                                <a class="post-backlinks__link" href="/ccauto-C-%E5%88%86%E7%B1%BB%E5%99%A8%E8%BE%B9%E7%95%8C%E4%B9%8B%E5%A4%96%E7%9A%84%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1/">CC Auto Mode 附录 C - 分类器边界之外的纵深防御</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -1339,7 +1337,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E5%B1%82%E5%AE%89%E5%85%A8%E5%88%A4%E5%AE%9A%E6%9C%BA%E5%88%B6"><span class="post-toc-text">三层安全判定机制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tier-1-%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7%E7%99%BD%E5%90%8D%E5%8D%95-%E7%94%A8%E6%88%B7%E8%A7%84%E5%88%99"><span class="post-toc-text">Tier 1: 安全工具白名单（+ 用户规则）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tier-2-%E9%A1%B9%E7%9B%AE%E5%86%85%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C-acceptedits-%E5%BF%AB%E8%B7%AF%E5%BE%84"><span class="post-toc-text">Tier 2: 项目内文件操作（acceptEdits 快路径）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#auto-mode-%E9%87%8C%E7%9A%84-acceptedits-%E5%BF%AB%E8%B7%AF%E5%BE%84%EF%BC%9A%E5%A4%8D%E7%94%A8%E8%AF%AD%E4%B9%89%E4%BD%86%E4%B8%8D%E6%94%B9%E7%9C%9F%E5%AE%9E%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">auto mode 里的 acceptEdits 快路径：复用语义但不改真实模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tier-3-transcript-classifier"><span class="post-toc-text">Tier 3: Transcript Classifier</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%B5%81%E9%87%8F%E4%BC%9A%E5%88%B0%E8%BE%BE-tier-3"><span class="post-toc-text">什么流量会到达 Tier 3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A8%81%E8%83%81%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">威胁模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E7%9A%84%E5%86%B3%E7%AD%96%E6%A0%87%E5%87%86-system-prompt"><span class="post-toc-text">分类器的决策标准（System Prompt）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="post-toc-text">性能指标</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%88%86%E7%B1%BB%E5%99%A8%E8%AE%BE%E8%AE%A1"><span class="post-toc-text">两阶段分类器设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#stage-1-%E4%B8%8E-stage-2-%E7%9A%84%E5%85%B3%E9%94%AE%E5%B7%AE%E5%BC%82"><span class="post-toc-text">Stage 1 与 Stage 2 的关键差异</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%8C%E6%95%B4-api-%E8%B0%83%E7%94%A8%E7%BB%93%E6%9E%84"><span class="post-toc-text">完整 API 调用结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BE%93%E5%87%BA%E8%A7%A3%E6%9E%90"><span class="post-toc-text">输出解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA%E6%8E%A5%E5%8F%A3"><span class="post-toc-text">输入&#x2F;输出接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E7%BB%93%E6%9E%9C%E7%9A%84%E6%B6%88%E8%B4%B9"><span class="post-toc-text">分类器结果的消费</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#transcript-%E6%9E%84%E5%BB%BA%EF%BC%9A%E6%8E%A8%E7%90%86%E7%9B%B2%E8%AE%BE%E8%AE%A1"><span class="post-toc-text">Transcript 构建：推理盲设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-md-%E5%89%8D%E7%BC%80"><span class="post-toc-text">CLAUDE.md 前缀</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E6%A0%BC%E5%BC%8F"><span class="post-toc-text">序列化格式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%BA%90%E7%A0%81%E8%B0%83%E7%94%A8%E9%93%BE%E9%80%9F%E6%9F%A5"><span class="post-toc-text">源码调用链速查</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E5%B1%82%E5%AE%89%E5%85%A8%E5%88%A4%E5%AE%9A%E6%9C%BA%E5%88%B6"><span class="post-toc-text">三层安全判定机制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tier-1-%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7%E7%99%BD%E5%90%8D%E5%8D%95%EF%BC%88-%E7%94%A8%E6%88%B7%E8%A7%84%E5%88%99%EF%BC%89"><span class="post-toc-text">Tier 1: 安全工具白名单（+ 用户规则）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tier-2-%E9%A1%B9%E7%9B%AE%E5%86%85%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%EF%BC%88acceptEdits-%E5%BF%AB%E8%B7%AF%E5%BE%84%EF%BC%89"><span class="post-toc-text">Tier 2: 项目内文件操作（acceptEdits 快路径）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#auto-mode-%E9%87%8C%E7%9A%84-acceptEdits-%E5%BF%AB%E8%B7%AF%E5%BE%84%EF%BC%9A%E5%A4%8D%E7%94%A8%E8%AF%AD%E4%B9%89%E4%BD%86%E4%B8%8D%E6%94%B9%E7%9C%9F%E5%AE%9E%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">auto mode 里的 acceptEdits 快路径：复用语义但不改真实模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tier-3-Transcript-Classifier"><span class="post-toc-text">Tier 3: Transcript Classifier</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%B5%81%E9%87%8F%E4%BC%9A%E5%88%B0%E8%BE%BE-Tier-3"><span class="post-toc-text">什么流量会到达 Tier 3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A8%81%E8%83%81%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">威胁模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E7%9A%84%E5%86%B3%E7%AD%96%E6%A0%87%E5%87%86%EF%BC%88System-Prompt%EF%BC%89"><span class="post-toc-text">分类器的决策标准（System Prompt）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="post-toc-text">性能指标</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%88%86%E7%B1%BB%E5%99%A8%E8%AE%BE%E8%AE%A1"><span class="post-toc-text">两阶段分类器设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Stage-1-%E4%B8%8E-Stage-2-%E7%9A%84%E5%85%B3%E9%94%AE%E5%B7%AE%E5%BC%82"><span class="post-toc-text">Stage 1 与 Stage 2 的关键差异</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%8C%E6%95%B4-API-%E8%B0%83%E7%94%A8%E7%BB%93%E6%9E%84"><span class="post-toc-text">完整 API 调用结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BE%93%E5%87%BA%E8%A7%A3%E6%9E%90"><span class="post-toc-text">输出解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA%E6%8E%A5%E5%8F%A3"><span class="post-toc-text">输入&#x2F;输出接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E7%BB%93%E6%9E%9C%E7%9A%84%E6%B6%88%E8%B4%B9"><span class="post-toc-text">分类器结果的消费</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Transcript-%E6%9E%84%E5%BB%BA%EF%BC%9A%E6%8E%A8%E7%90%86%E7%9B%B2%E8%AE%BE%E8%AE%A1"><span class="post-toc-text">Transcript 构建：推理盲设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CLAUDE-md-%E5%89%8D%E7%BC%80"><span class="post-toc-text">CLAUDE.md 前缀</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E6%A0%BC%E5%BC%8F"><span class="post-toc-text">序列化格式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%BA%90%E7%A0%81%E8%B0%83%E7%94%A8%E9%93%BE%E9%80%9F%E6%9F%A5"><span class="post-toc-text">源码调用链速查</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -1368,6 +1366,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -1379,7 +1382,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -1392,7 +1401,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -1405,7 +1420,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -1418,6 +1439,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
 
   <!-- Font Awesome 6 for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 
   
   <!-- KaTeX CSS -->
@@ -60,8 +66,6 @@
   
   <link rel="stylesheet" href="/css/banner-page.css">
   
-  <link rel="stylesheet" href="/css/sidebar-footer.css">
-  
   <link rel="stylesheet" href="/css/article-prose.css">
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
@@ -72,17 +76,9 @@
 
   <meta name="theme-color" content="#6750A4">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LV49J0P7YC');
-  </script>
-
-<meta name="generator" content="Hexo 8.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -112,7 +108,7 @@
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 399</a>
+      >碎碎念 · 421</a>
         
       
         
@@ -126,7 +122,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 14</a>
+      >专栏 · 7</a>
         
       
     </nav>
@@ -154,57 +150,25 @@
       data-label-follow="Use system theme (Shift+click to restore)"
       aria-label="Switch to dark mode"
     ></mdui-button-icon>
-    <div class="topbar-profile-cluster">
-  <mdui-dropdown
-    class="topbar-profile-dropdown"
-    trigger="hover focus"
-    placement="bottom-end"
-    open-delay="180"
-    close-delay="280"
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
   >
-    <mdui-button-icon
-      slot="trigger"
-      variant="standard"
-      class="topbar-profile-trigger-btn"
-      href="/about"
-      aria-haspopup="true"
-      aria-label="About · Open author profile and social links"
-      
-    >
-      
-        <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
-      
-    </mdui-button-icon>
-
-    <mdui-card variant="filled" class="sidebar-card topbar-profile-panel">
-      <div class="sidebar-card-media">
-        <img src="/image/card.png" class="sidebar-card-media__img" alt="">
-      </div>
-
-      <div class="sidebar-card-content--main sidebar-card-body">
-        
-          <img src="/image/avatar.jpeg" class="sidebar-avatar-offset sidebar-avatar" alt="AAA爆炒生猛活海鲜">
-        
-
-        <div class="sidebar-author">AAA爆炒生猛活海鲜</div>
-        <div class="sidebar-bio">
-          吃点好的
-        </div>
-        <div class="topbar-profile-about-wrap">
-          <mdui-button
-            variant="text"
-            href="/about"
-            class="topbar-profile-about"
-            
-          >About</mdui-button>
-        </div>
-      </div>
-    </mdui-card>
-  </mdui-dropdown>
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
 
   
     <nav class="topbar-profile-social-bar" aria-label="Social links">
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -216,7 +180,10 @@
         >
           <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -228,7 +195,10 @@
         >
           <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -240,7 +210,10 @@
         >
           <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
+        
+        
         <mdui-button-icon
           class="topbar-profile-social-bar__btn"
           variant="standard"
@@ -252,6 +225,7 @@
         >
           <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
         </mdui-button-icon>
+        
       
     </nav>
   
@@ -301,7 +275,7 @@
   data-banner-layout-root
   data-banner-layout-config="/js/banner-title-layout.json"
 >
-  <div class="banner-bg" style="--banner-bg-image: url(/image/banner.jpeg);"></div>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
 
   <div class="banner-overlay banner-overlay--tint">
     <div class="banner-inner">
@@ -409,6 +383,8 @@
 <script src="/js/banner-title-layout.js" defer></script>
 
 
+
+
 <div class="page-shell app-container">
     <div class="page-grid page-grid--post">
         <!-- 文章内容 -->
@@ -418,7 +394,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">SSML</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Apr 03</span>
+                        <span class="note-date">2026 Apr 25</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -446,27 +422,27 @@
 <hr>
 <h1>2. 常用标签详解</h1>
 <p>所有的 SSML 内容都必须包含在&nbsp;<code>&lt;speak&gt;</code>&nbsp;根标签内。</p>
-<h4 id="a-停顿-break">A. 停顿&nbsp;<code>&lt;break&gt;</code></h4>
+<h4 id="A-停顿-break">A. 停顿&nbsp;<code>&lt;break&gt;</code></h4>
 <p>用于控制节奏。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这句话说完后，&lt;break time=&quot;2s&quot;/&gt; 停顿了两秒钟。</span><br><span class="line">  或者稍微&lt;break strength=&quot;weak&quot;/&gt; 停顿一下。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="b-调整韵律-prosody">B. 调整韵律&nbsp;<code>&lt;prosody&gt;</code></h4>
+<h4 id="B-调整韵律-prosody">B. 调整韵律&nbsp;<code>&lt;prosody&gt;</code></h4>
 <p>这是最常用的标签，用于控制语速（rate）、音高（pitch）和音量（volume）。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  正常说话。</span><br><span class="line">  &lt;prosody rate=&quot;slow&quot; pitch=&quot;-2st&quot;&gt;这里语速变慢，且音调压低，听起来比较严肃。&lt;/prosody&gt;</span><br><span class="line">  &lt;prosody volume=&quot;loud&quot;&gt;这里大声说话！&lt;/prosody&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="c-指定读法-say-as">C. 指定读法&nbsp;<code>&lt;say-as&gt;</code></h4>
+<h4 id="C-指定读法-say-as">C. 指定读法&nbsp;<code>&lt;say-as&gt;</code></h4>
 <p>解决歧义非常关键。例如 “2024” 是读作 “二零二四” 还是 “两千零二十四”。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;say-as interpret-as=&quot;cardinal&quot;&gt;12345&lt;/say-as&gt; &lt;say-as interpret-as=&quot;digits&quot;&gt;12345&lt;/say-as&gt;   &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024-01-01&lt;/say-as&gt; &lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="d-别名-替换-sub">D. 别名/替换&nbsp;<code>&lt;sub &gt;</code></h4>
+<h4 id="D-别名-替换-sub">D. 别名/替换&nbsp;<code>&lt;sub &gt;</code></h4>
 <p>用于朗读缩写或特殊字符的完整含义。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  欢迎来到 &lt;sub alias=&quot;万维网联盟&quot;&gt;W3C&lt;/sub&gt; 的介绍页面。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="e-插入音频-audio">E. 插入音频&nbsp;<code>&lt;audio&gt;</code></h4>
+<h4 id="E-插入音频-audio">E. 插入音频&nbsp;<code>&lt;audio&gt;</code></h4>
 <p>在语音流中混合背景音效或预录制的音频。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;audio src=&quot;soundbank://sound_library/musical/musical_chord_01&quot;&gt;叮！&lt;/audio&gt;</span><br><span class="line">  回答正确。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="f-拼音-音素-phoneme">F. 拼音/音素&nbsp;<code>&lt;phoneme&gt;</code></h4>
+<h4 id="F-拼音-音素-phoneme">F. 拼音/音素&nbsp;<code>&lt;phoneme&gt;</code></h4>
 <p>当引擎读错多音字或人名时，使用国际音标（IPA）或特定平台的注音格式强制指定发音。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这件事非常&lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;tʂʰʊŋ&quot;&gt;重&lt;/phoneme&gt;要。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
@@ -479,6 +455,18 @@
 <p>SSML 是连接“僵硬的机器朗读”与“富有表现力的语音交互”之间的桥梁。虽然现在许多端到端的 AI 模型（如类似 GPT-4o 的语音模式）已经能自动推断语气，但在开发 IVR（电话语音菜单）、有声读物或特定行业应用时，SSML 依然是确保准确性和一致性的最佳工具。</p>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
+                            
+                                <a class="post-backlinks__link" href="/Tag/%E8%AF%AD%E8%A8%80%E5%AD%A6%E7%9B%B8%E5%85%B3/">语言学相关</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -487,7 +475,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/World%20Model%20Safety/">
+                                <a class="post-nav__link" href="/SAE%20%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -496,14 +484,14 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">World Model Safety</span>
+                                        <span class="post-nav__title">SAE 特征筛选</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/Transformer/">
+                                <a class="post-nav__link" href="/Test%20Driven%20Development/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -512,7 +500,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">Transformer</span>
+                                        <span class="post-nav__title">Test Driven Development</span>
                                     </span>
                                 </a>
                             
@@ -557,6 +545,11 @@
     <nav class="site-footer__social" aria-label="Social links">
       
         
+        
+        
+        
+        
+        
       <mdui-button-icon
         class="site-footer__social-btn"
         variant="standard"
@@ -568,7 +561,13 @@
       >
         <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -581,7 +580,13 @@
       >
         <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -594,7 +599,13 @@
       >
         <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
+        
+        
+        
+        
+        
         
       <mdui-button-icon
         class="site-footer__social-btn"
@@ -607,6 +618,7 @@
       >
         <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
       </mdui-button-icon>
+        
       
     </nav>
     </div>

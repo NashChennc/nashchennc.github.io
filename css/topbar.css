@@ -102,10 +102,6 @@ mdui-button.topbar-nav-btn--active::part(button) {
   gap: 0.2rem;
 }
 
-.topbar-profile-dropdown {
-  --z-index: 200;
-}
-
 .topbar-profile-social-bar {
   display: flex;
   align-items: center;
