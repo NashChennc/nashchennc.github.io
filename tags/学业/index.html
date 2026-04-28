@@ -1,0 +1,4081 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 51</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 422</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 118</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 10</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 7</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <div class="page-shell app-container page-shell--pad-list">
+    <div class="page-grid page-grid--single">
+        <main class="page-main">
+            <div class="category-index">
+                
+                <header class="notes-header">
+                    <h1 class="notes-title">学业</h1>
+                    
+                </header>
+                
+
+<section class="index-taxonomy" aria-label="Categories and tags">
+  
+  
+  <div class="index-taxonomy__block index-taxonomy__block--tags" aria-label="Tags">
+    <div class="index-taxonomy__tags-panel">
+      <div class="index-taxonomy__tags-flow">
+        <div class="index-taxonomy__chips index-taxonomy__chips--in-flow" role="list">
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E8%AF%BE%E7%A8%8B/"
+        
+      >课程 · 139</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%AD%A6%E4%B8%9A/"
+        aria-current="page"
+      >学业 · 139</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E8%80%83%E8%AF%95/"
+        
+      >考试 · 48</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
+        
+      >QQ空间 · 21</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%95%B0%E5%AD%A6/"
+        
+      >数学 · 9</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E7%AE%97%E6%B3%95/"
+        
+      >算法 · 8</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/Coding/"
+        
+      >Coding · 3</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"
+        
+      >软件工程 · 2</a>
+          
+        </div>
+        
+        <details class="index-taxonomy__tags-details">
+          <summary class="index-taxonomy__tags-summary">
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 5 more tags</span>
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
+          </summary>
+          <div class="index-taxonomy__tags-overflow-sleeve">
+            <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E7%94%9F%E6%B4%BB/"
+        
+      >生活 · 2</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%B4%A9%E5%B4%A9%E5%B4%A9/"
+        
+      >崩崩崩 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%B4%A9%E9%93%81/"
+        
+      >崩铁 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%8F%8D%E6%80%9D/"
+        
+      >反思 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E9%9A%8F%E7%AC%94/"
+        
+      >随笔 · 1</a>
+              
+            </div>
+            <button type="button" class="index-taxonomy__tags-less">Show fewer tags</button>
+          </div>
+        </details>
+        
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+
+                <div class="notes-grid">
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%EF%BC%8825%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo35.JPG" class="note-cover" alt="组合数学（25秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合数学（25秋期末考试）</h2>
+      
+      <p class="note-excerpt">2025年秋季学期组合数学期末考试安排：2026-01-21 09:30~11:30，高新区 图书教育中心B楼 GT-B212。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 Jan 21</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8825%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo13.JPG" class="note-cover" alt="高级人工智能（25秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">高级人工智能（25秋期末考试）</h2>
+      
+      <p class="note-excerpt">2025年秋季学期高级人工智能期末考试安排：2025-12-30 19:00~21:00，高新区 3号学科楼 G3-110。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2025 Dec 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/25%E7%A7%8B%E8%AF%BE%E8%A1%A8/" class="note-card">
+  
+  <img src="/image/banner/nozomizo53.PNG" class="note-cover" alt="25秋课表" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">25秋课表</h2>
+      
+      <p class="note-excerpt">2025 年秋季学期课程考试通知汇总，包含高级人工智能与组合数学的期末考试安排。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2025 Aug 31</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" class="note-card">
+  
+  <img src="/image/banner/nozomizo3.JPG" class="note-cover" alt="组合数学" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合数学</h2>
+      
+      <p class="note-excerpt">组合数学的课程条目，用于连接课表记录、考试记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2025 Aug 31</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet5.JPG" class="note-cover" alt="高级人工智能" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">高级人工智能</h2>
+      
+      <p class="note-excerpt">高级人工智能的课程条目，用于连接课表记录、考试记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2025 Aug 31</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20250110%20%E5%91%8A%E5%88%AB%E6%88%98%EF%BC%9A%E7%BB%84%E5%90%88%E5%AD%A6%E8%BF%9B%E9%98%B6/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi8.JPG" class="note-cover" alt="20250110 告别战：组合学进阶" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20250110 告别战：组合学进阶</h2>
+      
+      <p class="note-excerpt">告别战：组合学进阶</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2025 Jan 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6%E8%BF%9B%E9%98%B6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo14.JPG" class="note-cover" alt="组合学进阶（24秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学进阶（24秋期末考试）</h2>
+      
+      <p class="note-excerpt">2024年秋季学期组合学进阶期末考试安排：2025-01-10 14:30~16:30，东区 第五教学楼 5403。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2025 Jan 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%90%E7%AD%B9%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi8.JPG" class="note-cover" alt="运筹学（24秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">运筹学（24秋期末考试）</h2>
+      
+      <p class="note-excerpt">2024年秋季学期运筹学期末考试安排：2025-01-07 19:00~21:00，东区 第五教学楼 5104。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2025 Jan 07</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo4.JPG" class="note-cover" alt="离散数学（24秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">离散数学（24秋期末考试）</h2>
+      
+      <p class="note-excerpt">2024年秋季学期离散数学期末考试安排：2025-01-06 08:30~10:30，西区 第三教学楼 3C101。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2025 Jan 06</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20241231%20%E8%B7%A8%E5%B9%B4%E4%BB%8E%E4%B8%8B%E5%8D%88%E5%88%B0%E6%99%9A%E4%B8%8A%E4%B8%8A%E5%AE%8C%E4%BA%86%E6%9C%AC%E7%A7%91%E9%98%B6%E6%AE%B5%E6%9C%80%E5%90%8E%E4%B8%80%E9%97%A8%E8%AF%BE/" class="note-card">
+  
+  <img src="/image/banner/nozomizo10.PNG" class="note-cover" alt="20241231 跨年从下午到晚上上完了本科阶段最后一门课" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20241231 跨年从下午到晚上上完了本科阶段最后一门课</h2>
+      
+      <p class="note-excerpt">跨年从下午到晚上上完了本科阶段最后一门课 组合进阶 感谢助教的棒棒糖和mj的随堂小测（？） 明年就不在数学系了，学分也已经超了一些，选这1学分的课也不知道...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2024 Dec 31</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20241218%20%E4%BD%99%E8%87%AA%E5%B9%BC%E4%B9%A0%E7%AE%97%E6%B3%95%E3%80%82%E4%B8%80%E6%97%A5%EF%BC%8C%E9%97%BB%E9%A9%AC%E6%B0%8F%E7%BB%84%E5%90%88%E7%8E%84%E5%A6%99%E4%B8%8D%E5%A0%AA%E3%80%81/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet7.PNG" class="note-cover" alt="20241218 余自幼习算法。一日，闻马氏组合玄妙不堪、" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20241218 余自幼习算法。一日，闻马氏组合玄妙不堪、</h2>
+      
+      <p class="note-excerpt">余自幼习算法。一日，闻马氏组合玄妙不堪、天下独绝。人皆称：“噫！臭不可闻！”遂闻香而来。果然其味无穷。拼尽全力无法战胜。特记此事，以昭后人。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Dec 18</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi1.jpg" class="note-cover" alt="组合学（24秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学（24秋期末考试）</h2>
+      
+      <p class="note-excerpt">2024年秋季学期组合学期末考试安排：2024-12-18 16:00~18:00，东区 第五教学楼 5102。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Dec 18</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6%E8%BF%9B%E9%98%B6/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi8.JPG" class="note-cover" alt="组合学进阶" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学进阶</h2>
+      
+      <p class="note-excerpt">组合学进阶的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Dec 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%90%E7%AD%B9%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo8.JPG" class="note-cover" alt="运筹学（24秋期中考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">运筹学（24秋期中考试）</h2>
+      
+      <p class="note-excerpt">2024年秋季学期运筹学期中考试安排：2024-11-01 16:00~17:20，东区 第五教学楼 5301。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Nov 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo47.PNG" class="note-cover" alt="组合学（24秋期中考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学（24秋期中考试）</h2>
+      
+      <p class="note-excerpt">2024年秋季学期组合学期中考试安排：2024-10-31 09:45~11:45，东区 第二教学楼 2209。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Oct 31</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6/" class="note-card">
+  
+  <img src="/image/banner/nozomizo10.PNG" class="note-cover" alt="组合学" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学</h2>
+      
+      <p class="note-excerpt">组合学的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Sep 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi5.jpg" class="note-cover" alt="离散数学" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">离散数学</h2>
+      
+      <p class="note-excerpt">离散数学的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Sep 02</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%A5%BF%E6%96%B9%E6%96%87%E6%98%8E%E5%8F%B2/" class="note-card">
+  
+  <img src="/image/banner/nozomizo25.JPG" class="note-cover" alt="西方文明史" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">西方文明史</h2>
+      
+      <p class="note-excerpt">西方文明史的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Sep 02</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%90%E7%AD%B9%E5%AD%A6/" class="note-card">
+  
+  <img src="/image/banner/nozomizo17.JPG" class="note-cover" alt="运筹学" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">运筹学</h2>
+      
+      <p class="note-excerpt">运筹学的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Sep 02</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/24%E7%A7%8B%E8%AF%BE%E8%A1%A8/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="24秋课表" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">24秋课表</h2>
+      
+      <p class="note-excerpt">2024 年秋季学期本科课程修读记录，开始日期为 2024-09-01，包含课程安排、考试安排与课程调整申请。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Sep 01</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%80%9D%E6%83%B3%E6%94%BF%E6%B2%BB%E7%90%86%E8%AE%BA%E8%AF%BE%E5%AE%9E%E8%B7%B5/" class="note-card">
+  
+  <img src="/image/banner/nozomizo42.JPG" class="note-cover" alt="思想政治理论课实践" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">思想政治理论课实践</h2>
+      
+      <p class="note-excerpt">思想政治理论课实践的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Sep 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%EF%BC%8824%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo38.JPG" class="note-cover" alt="计算机图形学（24春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">计算机图形学（24春期末考试）</h2>
+      
+      <p class="note-excerpt">2024年春季学期计算机图形学期末考试安排：2024-06-23 08:30~10:30，东区 第二教学楼 2105。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Jun 23</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%EF%BC%8824%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo29.JPG" class="note-cover" alt="数值分析（24春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数值分析（24春期末考试）</h2>
+      
+      <p class="note-excerpt">2024年春季学期数值分析期末考试安排：2024-05-15 14:00~16:00，东区 第五教学楼 5503。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 May 15</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240327%20%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%AD%A3%E8%AF%BE%E4%B8%8A%E8%AE%B2%E4%BA%86FHQ%20Treap/" class="note-card">
+  
+  <img src="/files/qzone-20240327-091407-01.png" class="note-cover" alt="20240327 算法基础正课上讲了FHQ Treap" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240327 算法基础正课上讲了FHQ Treap</h2>
+      
+      <p class="note-excerpt">算法基础正课上讲了FHQ Treap Splay的证明你们一定要去看啊太优美了啊啊啊啊啊啊</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Mar 27</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240323%20%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E8%8A%82%E4%B9%A0%E9%A2%98%E8%AF%BE/" class="note-card">
+  
+  <img src="/files/qzone-20240323-231331-01.jpg" class="note-cover" alt="20240323 年轻人的第一节习题课" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240323 年轻人的第一节习题课</h2>
+      
+      <p class="note-excerpt">年轻人的第一节习题课 讲得这么烂ので真的大変申し訳ございません[em]e150[/em]</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Mar 23</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="note-card">
+  
+  <img src="/image/banner/Image_1758434082525.jpeg" class="note-cover" alt="数学建模" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学建模</h2>
+      
+      <p class="note-excerpt">数学建模的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Mar 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AF%BC%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo26.JPG" class="note-cover" alt="深度学习导论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">深度学习导论</h2>
+      
+      <p class="note-excerpt">深度学习导论的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Feb 29</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2/" class="note-card">
+  
+  <img src="/image/banner/nozomizo48.JPG" class="note-cover" alt="电子信息检索" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">电子信息检索</h2>
+      
+      <p class="note-excerpt">电子信息检索的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Feb 29</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240228%20%E6%97%B6%E9%9A%94%E5%87%A0%E4%B8%87%E5%B9%B4%E7%BB%88%E4%BA%8E%E5%8F%88%E6%88%90%E5%8A%9F%E8%B5%B7%E4%BA%86%E4%B8%80%E6%AC%A1%E6%97%A9%E5%85%AB/" class="note-card">
+  
+  <img src="/image/banner/nozomizo28.JPG" class="note-cover" alt="20240228 时隔几万年终于又成功起了一次早八" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240228 时隔几万年终于又成功起了一次早八</h2>
+      
+      <p class="note-excerpt">时隔几万年终于又成功起了一次早八 这次是算法导论助教随堂</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2024 Feb 28</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%A5%BF%E6%96%B9%E5%93%B2%E5%AD%A6%E5%90%8D%E8%91%97%E5%AF%BC%E8%AF%BB/" class="note-card">
+  
+  <img src="/image/banner/nozomizo48.JPG" class="note-cover" alt="西方哲学名著导读" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">西方哲学名著导读</h2>
+      
+      <p class="note-excerpt">西方哲学名著导读的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Feb 27</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet7.PNG" class="note-cover" alt="计算机图形学" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">计算机图形学</h2>
+      
+      <p class="note-excerpt">计算机图形学的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Feb 27</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/" class="note-card">
+  
+  <img src="/image/banner/nozomizo42.JPG" class="note-cover" alt="数值分析" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数值分析</h2>
+      
+      <p class="note-excerpt">数值分析的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Feb 26</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%8E%B0%E4%BB%A3%E6%97%A5%E6%9C%AC%E8%AF%AD%E8%A8%80%E4%B8%8E%E6%96%87%E5%8C%96(%E5%88%9D%E7%BA%A7)/" class="note-card">
+  
+  <img src="/image/banner/nozomizo28.JPG" class="note-cover" alt="现代日本语言与文化(初级)" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">现代日本语言与文化(初级)</h2>
+      
+      <p class="note-excerpt">现代日本语言与文化(初级)的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Feb 26</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/24%E6%98%A5%E8%AF%BE%E8%A1%A8/" class="note-card">
+  
+  <img src="/image/banner/nozomizo32.JPG" class="note-cover" alt="24春课表" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">24春课表</h2>
+      
+      <p class="note-excerpt">2024 年春季学期本科课程修读记录，开始日期为 2024-02-25，包含课程安排、考试安排、助教记录与课程调整申请。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Feb 25</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)%EF%BC%8823%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo26.JPG" class="note-cover" alt="线性代数(B2)（23秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数(B2)（23秋期末考试）</h2>
+      
+      <p class="note-excerpt">2023年秋季学期线性代数(B2)重修期末考试安排：2024-01-16 14:30~16:30，东区 第五教学楼 5204。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Jan 16</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)%EF%BC%8823%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo16.JPG" class="note-cover" alt="数学分析(B1)（23秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学分析(B1)（23秋期末考试）</h2>
+      
+      <p class="note-excerpt">2023年秋季学期数学分析(B1)重修期末考试安排：2024-01-14 14:30~16:30，东区 第二教学楼 2321。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Jan 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%8823%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo41.JPG" class="note-cover" alt="数理统计（23秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数理统计（23秋期末考试）</h2>
+      
+      <p class="note-excerpt">2023年秋季学期数理统计期末考试安排：2024-01-06 19:00~21:00，东区 第五教学楼 5503。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2024 Jan 06</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20240104%20%E5%BF%AB%E6%9D%A5%E6%8A%A5%EF%BC%8C%E5%8C%85%E6%95%99%E5%8C%85%E4%BC%9A/" class="note-card">
+  
+  <img src="/files/qzone-20240104-115441-01.jpg" class="note-cover" alt="20240104 快来报，包教包会" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20240104 快来报，包教包会</h2>
+      
+      <p class="note-excerpt">快来报，算法导论包教包会 张老师给分超奶[em]e105[/em] 在东区，21计数主修，东区计科人可报 但是这种大课一个助教带70个人怎么带，救命</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2024 Jan 04</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)%EF%BC%8823%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo48.JPG" class="note-cover" alt="线性代数(B2)（23秋期中考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数(B2)（23秋期中考试）</h2>
+      
+      <p class="note-excerpt">2023年秋季学期线性代数(B2)重修期中考试安排：2023-12-03 14:30~16:30，东区 第五教学楼 5503。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Dec 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20231113%20%E5%86%99%E4%BA%86%E4%B8%AA%E5%88%B7%E5%9B%9B%E5%8F%B2%E7%BD%91%E8%AF%BE%E7%9A%84%E8%84%9A%E6%9C%AC/" class="note-card">
+  
+  <img src="/image/banner/nozomizo10.PNG" class="note-cover" alt="20231113 写了个刷四史网课的脚本" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20231113 写了个刷四史网课的脚本</h2>
+      
+      <p class="note-excerpt">写了个刷四史网课的脚本 不可扩展不修bug 自己能调可以来找我要源码 req：pyautogui，opencv-python</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Nov 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230914%20%E6%88%91%E6%98%AF%E4%BB%80%E4%B9%88%E6%8E%92%E8%AF%BE%E5%A4%A9%E6%89%8D/" class="note-card">
+  
+  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="20230914 我是什么排课天才" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230914 我是什么排课天才</h2>
+      
+      <p class="note-excerpt">我是什么排课天才 怎么会在同一个学期（数学实验、符号计算软件、数理统计……）需要用 matlab mma R python C++ javascript mysql 写作业</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Sep 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%80%BC%E4%BB%A3%E6%95%B0/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet7.PNG" class="note-cover" alt="数值代数" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数值代数</h2>
+      
+      <p class="note-excerpt">数值代数的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Sep 12</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" class="note-card">
+  
+  <img src="/image/banner/nozomizo44.JPG" class="note-cover" alt="数理统计" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数理统计</h2>
+      
+      <p class="note-excerpt">数理统计的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Sep 06</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97%E8%BD%AF%E4%BB%B6/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="符号计算软件" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">符号计算软件</h2>
+      
+      <p class="note-excerpt">符号计算软件的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Sep 05</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%AE%9E%E9%AA%8C/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi7.JPG" class="note-cover" alt="数学实验" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学实验</h2>
+      
+      <p class="note-excerpt">数学实验的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Sep 04</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%8C%B6%E4%B8%8E%E5%81%A5%E5%BA%B7/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="茶与健康" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">茶与健康</h2>
+      
+      <p class="note-excerpt">茶与健康的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Sep 04</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/23%E7%A7%8B%E8%AF%BE%E8%A1%A8/" class="note-card">
+  
+  <img src="/image/banner/nozomizo17.JPG" class="note-cover" alt="23秋课表" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">23秋课表</h2>
+      
+      <p class="note-excerpt">2023 年秋季学期本科课程修读记录，开始日期为 2023-09-03，包含课程安排、考试安排与课程调整申请。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Sep 03</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%BD%A2%E5%8A%BF%E4%B8%8E%E6%94%BF%E7%AD%96(%E8%AE%B2%E5%BA%A7)/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet8.PNG" class="note-cover" alt="形势与政策(讲座)" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">形势与政策(讲座)</h2>
+      
+      <p class="note-excerpt">形势与政策(讲座)的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Sep 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%96%B0%E4%B8%AD%E5%9B%BD%E5%8F%B2/" class="note-card">
+  
+  <img src="/image/banner/nozomizo2.jpg" class="note-cover" alt="新中国史" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">新中国史</h2>
+      
+      <p class="note-excerpt">新中国史的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Sep 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo47.PNG" class="note-cover" alt="近世代数（23春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">近世代数（23春期末考试）</h2>
+      
+      <p class="note-excerpt">2023年春季学期近世代数期末考试安排：2023-07-12 14:30~16:30，东区 第二教学楼 2106。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Jul 12</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230709%20%E6%84%9F%E8%B0%A2%E5%AE%9E%E5%88%86%E6%9E%90%E7%9A%84%E5%8A%9D%E9%80%80/" class="note-card">
+  
+  <img src="/image/banner/nozomizo41.JPG" class="note-cover" alt="20230709 感谢实分析的劝退" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230709 感谢实分析的劝退</h2>
+      
+      <p class="note-excerpt">感谢实分析的劝退 干回老本行的家伙什前几天已经收拾好了捏 我翻开周民强一查，这习题册没有年代，工工整整的每页上都写着‘习题解答’四个字。 我横竖睡不着，仔...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Jul 09</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%AE%9E%E5%88%86%E6%9E%90%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo3.JPG" class="note-cover" alt="实分析（23春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">实分析（23春期末考试）</h2>
+      
+      <p class="note-excerpt">2023年春季学期实分析期末考试安排：2023-07-09 08:30~10:30，东区 第一教学楼 1101。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Jul 09</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%8D%E5%88%86%E6%9E%90%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo8.JPG" class="note-cover" alt="复分析（23春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">复分析（23春期末考试）</h2>
+      
+      <p class="note-excerpt">2023年春季学期复分析期末考试安排：2023-06-29 08:30~10:30，西区 第三教学楼 3C204。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Jun 29</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230628%20%E6%88%91%E5%8F%AA%E4%B8%8D%E8%BF%87%E6%98%AF%E4%B8%8A%E8%AF%BE%E6%B2%A1%E5%90%AC%EF%BC%8C%E4%BD%9C%E4%B8%9A%E6%B2%A1%E5%81%9A%EF%BC%8C%E8%80%83%E5%89%8D%E4%B9%9F%E6%B2%A1%E9%A2%84/" class="note-card">
+  
+  <img src="/files/qzone-20230628-233328-01.jpg" class="note-cover" alt="20230628 我只不过是上课没听，作业没做，考前也没预" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230628 我只不过是上课没听，作业没做，考前也没预</h2>
+      
+      <p class="note-excerpt">我只不过是上课没听，作业没做，考前也没预习，怎么就像是没学过这门课一样呢[em]e10265[/em]</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Jun 28</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/IMG_0138.jpeg" class="note-cover" alt="毛泽东思想和中国特色社会主义理论体系概论（23春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">毛泽东思想和中国特色社会主义理论体系概论（23春期末考试）</h2>
+      
+      <p class="note-excerpt">2023年春季学期毛泽东思想和中国特色社会主义理论体系概论期末考试安排：2023-06-26 14:30~16:30，东区 第一教学楼 1301。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Jun 26</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230620%20%E4%BB%8A%E3%81%AF%E5%85%AD%E6%9C%88%E3%81%AF%E3%81%A4%E3%81%8B%E3%81%9F%E3%82%99%20%E7%8E%B0%E5%9C%A8%E6%98%AF%E5%85%AD%E6%9C%88%E4%BA%8C%E5%8D%81%E6%97%A5/" class="note-card">
+  
+  <img src="/files/qzone-20230620-151018-01.jpg" class="note-cover" alt="20230620 今は六月はつかだ 现在是六月二十日" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230620 今は六月はつかだ 现在是六月二十日</h2>
+      
+      <p class="note-excerpt">今は六月はつかだ 现在是六月二十日 午後の15: 10 下午的15: 10 火曜日 星期二 クソ 艹 くらえ MD 二十九日 二十九号 複素解析 复分析...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Jun 20</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%A6%82%E7%8E%87%E8%AE%BA%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi6.JPG" class="note-cover" alt="概率论（23春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">概率论（23春期末考试）</h2>
+      
+      <p class="note-excerpt">2023年春季学期概率论期末考试安排：2023-06-04 14:30~16:30，东区 第五教学楼 5306。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Jun 04</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%85%89%E5%AD%A6B%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo53.PNG" class="note-cover" alt="光学B（23春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">光学B（23春期末考试）</h2>
+      
+      <p class="note-excerpt">2023年春季学期光学B期末考试安排：2023-06-03 09:37~11:36，东区 第五教学楼 5302。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Jun 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%AE%9E%E5%88%86%E6%9E%90%EF%BC%8823%E6%98%A5%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo6.JPEG" class="note-cover" alt="实分析（23春期中考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">实分析（23春期中考试）</h2>
+      
+      <p class="note-excerpt">2023年春季学期实分析期中考试安排：2023-05-21 09:00~11:00，东区 第五教学楼 5203。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 May 21</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0%EF%BC%8823%E6%98%A5%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi1.jpg" class="note-cover" alt="近世代数（23春期中考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">近世代数（23春期中考试）</h2>
+      
+      <p class="note-excerpt">2023年春季学期近世代数期中考试安排：2023-05-14 14:30~16:30，东区 第五教学楼 5501。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 May 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230507/" class="note-card">
+  
+  <img src="/image/banner/nozomizo15.JPG" class="note-cover" alt="20230507" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230507</h2>
+      
+      <p class="note-excerpt">五一后学业崩盘、翘课失眠与虚无感交织的超长流水账；夹杂星铁、概率论挫败与自我剖析。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">反思</span>
+      
+      <span class="note-date">2023 May 07</span>
+      <span class="note-read">13 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%8D%E5%88%86%E6%9E%90%EF%BC%8823%E6%98%A5%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo31.JPG" class="note-cover" alt="复分析（23春期中考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">复分析（23春期中考试）</h2>
+      
+      <p class="note-excerpt">2023年春季学期复分析期中考试安排：2023-04-22 08:30~10:30，东区 第五教学楼 5201。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Apr 22</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%96%87%E6%9C%AC%E8%A1%A8%E5%BE%81%E5%AD%A6%E4%B9%A0/" class="note-card">
+  
+  <img src="/image/banner/nozomizo41.JPG" class="note-cover" alt="文本表征学习" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">文本表征学习</h2>
+      
+      <p class="note-excerpt">文本表征学习的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%AE%9E%E5%88%86%E6%9E%90/" class="note-card">
+  
+  <img src="/image/banner/nozomizo25.JPG" class="note-cover" alt="实分析" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">实分析</h2>
+      
+      <p class="note-excerpt">实分析的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 08</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="近世代数" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">近世代数</h2>
+      
+      <p class="note-excerpt">近世代数的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 08</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo26.JPG" class="note-cover" alt="毛泽东思想和中国特色社会主义理论体系概论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">毛泽东思想和中国特色社会主义理论体系概论</h2>
+      
+      <p class="note-excerpt">毛泽东思想和中国特色社会主义理论体系概论的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 07</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%85%89%E5%AD%A6B/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi2.jpg" class="note-cover" alt="光学B" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">光学B</h2>
+      
+      <p class="note-excerpt">光学B的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 06</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="概率论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">概率论</h2>
+      
+      <p class="note-excerpt">概率论的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 06</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%B8%B8%E6%B3%B3/" class="note-card">
+  
+  <img src="/image/banner/nozomizo8.JPG" class="note-cover" alt="游泳" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">游泳</h2>
+      
+      <p class="note-excerpt">游泳的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 06</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/23%E6%98%A5%E8%AF%BE%E8%A1%A8/" class="note-card">
+  
+  <img src="/image/banner/nozomizo52.PNG" class="note-cover" alt="23春课表" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">23春课表</h2>
+      
+      <p class="note-excerpt">2023 年春季学期本科课程修读记录，开始日期为 2023-03-05，包含课程安排、考试安排与课程调整申请。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 05</span>
+      <span class="note-read">3 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%8D%E5%88%86%E6%9E%90/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet8.PNG" class="note-cover" alt="复分析" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">复分析</h2>
+      
+      <p class="note-excerpt">复分析的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 05</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86B%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo24.JPG" class="note-cover" alt="原子物理B（22秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">原子物理B（22秋期末考试）</h2>
+      
+      <p class="note-excerpt">2022年秋季学期原子物理B期末考试安排：2023-03-03 19:00~21:00，东区 第五教学楼 5104。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B3)%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo15.JPG" class="note-cover" alt="数学分析(B3)（22秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学分析(B3)（22秋期末考试）</h2>
+      
+      <p class="note-excerpt">2022年秋季学期数学分析(B3)期末考试安排：2023-03-01 08:30~10:30，东区 第五教学楼 5201。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Mar 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20230228%20%E7%BB%A7%E6%9C%9F%E4%B8%AD%E9%80%9F%E9%80%9A%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91%E5%90%8E%E5%A6%84%E5%9B%BE%E9%80%9F%E9%80%9A%E5%BE%AE%E5%88%86%E5%BD%A2%E5%BC%8F/" class="note-card">
+  
+  <img src="/files/qzone-20230228-232535-01.jpg" class="note-cover" alt="20230228 继期中速通点集拓扑后妄图速通微分形式" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20230228 继期中速通点集拓扑后妄图速通微分形式</h2>
+      
+      <p class="note-excerpt">继期中速通点集拓扑后妄图速通微分形式 考试周人哪有不疯的 考完pde崩溃得想转系 再看看罢</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2023 Feb 28</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo14.JPG" class="note-cover" alt="线性代数(B2)（22秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数(B2)（22秋期末考试）</h2>
+      
+      <p class="note-excerpt">2022年秋季学期线性代数(B2)期末考试安排：2023-02-23 14:30~16:30，东区 第五教学楼 5401。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Feb 23</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%BC%95%E8%AE%BA%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet6.JPG" class="note-cover" alt="微分方程引论（22秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">微分方程引论（22秋期末考试）</h2>
+      
+      <p class="note-excerpt">2022年秋季学期微分方程引论期末考试安排：2023-02-22 14:30~16:30，东区 第五教学楼 5204。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Feb 22</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="马克思主义基本原理（22秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">马克思主义基本原理（22秋期末考试）</h2>
+      
+      <p class="note-excerpt">2022年秋季学期马克思主义基本原理期末考试安排：2023-02-21 14:30~16:30，东区 第五教学楼 5303。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2023 Feb 21</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20221205%20%E6%88%91%E8%83%A1%E5%88%86%E6%9E%90%E4%B8%80%E6%9E%9D%E7%8B%AC%E7%A7%80/" class="note-card">
+  
+  <img src="/files/qzone-20221205-170113-01.jpg" class="note-cover" alt="20221205 我胡分析一枝独秀" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20221205 我胡分析一枝独秀</h2>
+      
+      <p class="note-excerpt">我胡分析一枝独秀 没错就是我们班</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 Dec 05</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)%EF%BC%8822%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo34.JPG" class="note-cover" alt="线性代数(B2)（22秋期中考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数(B2)（22秋期中考试）</h2>
+      
+      <p class="note-excerpt">2022年秋季学期线性代数(B2)期中考试安排：2022-11-20 08:30~10:30，东区 第五教学楼 5104。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Nov 20</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20220930%20%E9%A9%AC%E5%8E%9F%E8%AF%BE%E6%94%BE%E8%BF%99%E4%B8%AA%E4%BB%80%E4%B9%88%E9%AC%BC%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8A%A8%E7%94%BB%E7%89%87/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="20220930 马原课放这个什么鬼机器人动画片" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20220930 马原课放这个什么鬼机器人动画片</h2>
+      
+      <p class="note-excerpt">马原课放这个什么鬼机器人动画片 太反智了 从头到尾整整恶心了我50分钟 写剧本的人是不是既没有常识又没有常识 怎么做到任选一句话都弱智的 有这么点钱给你科...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 Sep 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86-%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8CB/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="大学物理-综合实验B" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">大学物理-综合实验B</h2>
+      
+      <p class="note-excerpt">大学物理-综合实验B的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Sep 15</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86B/" class="note-card">
+  
+  <img src="/image/banner/nozomizo16.JPG" class="note-cover" alt="原子物理B" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">原子物理B</h2>
+      
+      <p class="note-excerpt">原子物理B的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Sep 06</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/" class="note-card">
+  
+  <img src="/image/banner/nozomizo26.JPG" class="note-cover" alt="马克思主义基本原理" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">马克思主义基本原理</h2>
+      
+      <p class="note-excerpt">马克思主义基本原理的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Sep 02</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B3)/" class="note-card">
+  
+  <img src="/image/banner/nozomizo5.JPG" class="note-cover" alt="数学分析(B3)" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学分析(B3)</h2>
+      
+      <p class="note-excerpt">数学分析(B3)的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Aug 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%B6%B3%E7%90%83II/" class="note-card">
+  
+  <img src="/image/banner/nozomizo18.JPG" class="note-cover" alt="足球II" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">足球II</h2>
+      
+      <p class="note-excerpt">足球II的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Aug 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%BC%95%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet7.PNG" class="note-cover" alt="微分方程引论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">微分方程引论</h2>
+      
+      <p class="note-excerpt">微分方程引论的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Aug 29</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)/" class="note-card">
+  
+  <img src="/image/banner/nozomizo29.JPG" class="note-cover" alt="线性代数(B2)" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数(B2)</h2>
+      
+      <p class="note-excerpt">线性代数(B2)的课程条目，包含 2022 年秋季学期首修与 2023 年秋季学期重修记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Aug 29</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/22%E7%A7%8B%E8%AF%BE%E8%A1%A8/" class="note-card">
+  
+  <img src="/image/banner/nozomizo32.JPG" class="note-cover" alt="22秋课表" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">22秋课表</h2>
+      
+      <p class="note-excerpt">2022 年秋季学期本科课程修读记录，开始日期为 2022-08-28，包含课程安排、考试安排与课程调整申请。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Aug 28</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B1)%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="线性代数(B1)（22春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数(B1)（22春期末考试）</h2>
+      
+      <p class="note-excerpt">2022年春季学期线性代数(B1)期末考试安排：2022-07-03 14:30~16:30，东区 第五教学楼 5504。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jul 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B2)%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo35.JPG" class="note-cover" alt="数学分析(B2)（22春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学分析(B2)（22春期末考试）</h2>
+      
+      <p class="note-excerpt">2022年春季学期数学分析(B2)期末考试安排：2022-07-01 08:30~10:30，西区 第三教学楼 3C301。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jul 01</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%94%B5%E7%A3%81%E5%AD%A6A%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo17.JPG" class="note-cover" alt="电磁学A（22春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">电磁学A（22春期末考试）</h2>
+      
+      <p class="note-excerpt">2022年春季学期电磁学A期末考试安排：2022-06-30 08:30~10:30，东区 第五教学楼 5502。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jun 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%83%AD%E5%AD%A6B%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo42.JPG" class="note-cover" alt="热学B（22春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">热学B（22春期末考试）</h2>
+      
+      <p class="note-excerpt">2022年春季学期热学B期末考试安排：2022-06-29 08:30~10:30，东区 第五教学楼 5103。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jun 29</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E4%B8%AD%E5%9B%BD%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2%E7%BA%B2%E8%A6%81%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo23.JPG" class="note-cover" alt="中国近现代史纲要（22春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">中国近现代史纲要（22春期末考试）</h2>
+      
+      <p class="note-excerpt">2022年春季学期中国近现代史纲要期末考试安排：2022-06-27 14:30~16:30，东区 第五教学楼 5306。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jun 27</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%8B%B1%E8%AF%AD%E4%BA%A4%E6%B5%81II%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo23.JPG" class="note-cover" alt="英语交流II（22春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">英语交流II（22春期末考试）</h2>
+      
+      <p class="note-excerpt">2022年春季学期英语交流II期末考试安排：2022-06-27 11:10~11:50，东区 第五教学楼 5104。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jun 27</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%8B%B1%E8%AF%AD%E8%AF%BB%E5%86%99II%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo53.PNG" class="note-cover" alt="英语读写II（22春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">英语读写II（22春期末考试）</h2>
+      
+      <p class="note-excerpt">2022年春季学期英语读写II期末考试安排：2022-06-27 08:30~10:30，东区 第五教学楼 5202。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jun 27</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo22.JPG" class="note-cover" alt="算法基础（22春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">算法基础（22春期末考试）</h2>
+      
+      <p class="note-excerpt">2022年春季学期算法基础期末考试安排：2022-06-14 08:30~10:30，东区 第五教学楼 5204。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jun 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo8.JPG" class="note-cover" alt="数据结构与数据库（22春期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数据结构与数据库（22春期末考试）</h2>
+      
+      <p class="note-excerpt">2022年春季学期数据结构与数据库期末考试安排：2022-06-08 19:00~21:00，西区 第三教学楼 3A112。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jun 08</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20220526%20%E5%81%9A%E4%BA%86%E6%97%A0%E4%BA%BA%E6%8C%91%E6%88%98%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E5%AE%9E%E9%AA%8C%E6%8B%93%E5%B1%95/" class="note-card">
+  
+  <img src="/files/qzone-20220526-015344-01.jpg" class="note-cover" alt="20220526 做了无人挑战的数据库课实验拓展" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20220526 做了无人挑战的数据库课实验拓展</h2>
+      
+      <p class="note-excerpt">做了无人挑战的数据库课实验拓展 好歹是自己搭的第一个服务器，建的第一个数据库，写的第一份网页 今日起脱离洛谷博客[em]e10277[/em] 好了，现在...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 May 26</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20220520%20520%E4%BA%86%EF%BC%8C%E6%9D%A5%E7%BB%99npy%E6%95%B4%E4%B8%80%E4%B8%AA/" class="note-card">
+  
+  <img src="/files/qzone-20220520-002131-01.jpg" class="note-cover" alt="20220520 520了，来给npy整一个" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20220520 520了，来给npy整一个</h2>
+      
+      <p class="note-excerpt">520了，来给npy整一个 Real-ESRGAN高清修复 +交互式背景去除 +纹理合成 的CV套餐（写代码制头像（确信 事实上是明天ddl的算导大作业...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 May 20</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%83%AD%E5%AD%A6B/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi5.jpg" class="note-cover" alt="热学B" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">热学B</h2>
+      
+      <p class="note-excerpt">热学B的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 May 17</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20220323%20%E7%AE%97%E5%AF%BC%E8%AF%BE%E4%BD%9C%E4%B8%9A%E5%A4%AA%E6%81%B6%E6%AF%92%E4%BA%86/" class="note-card">
+  
+  <img src="/files/qzone-20220323-171919-01.jpg" class="note-cover" alt="20220323 算导课作业太恶毒了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20220323 算导课作业太恶毒了</h2>
+      
+      <p class="note-excerpt">算导课作业太恶毒了 你卡Splay的常数也就算了 卡FHQTreap几个意思？ 最后因为不给用c++，被迫写了一棵红黑树 太恶毒了 太恶毒了 太恶毒了！</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 Mar 23</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%A7%91%E6%8A%80%E5%86%99%E4%BD%9C%E4%B8%8E%E8%A1%A8%E8%BE%BE/" class="note-card">
+  
+  <img src="/image/banner/nozomizo14.JPG" class="note-cover" alt="科技写作与表达" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">科技写作与表达</h2>
+      
+      <p class="note-excerpt">科技写作与表达的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Mar 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86-%E5%9F%BA%E7%A1%80%E5%AE%9E%E9%AA%8CA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo42.JPG" class="note-cover" alt="大学物理-基础实验A" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">大学物理-基础实验A</h2>
+      
+      <p class="note-excerpt">大学物理-基础实验A的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Mar 08</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%8B%B1%E8%AF%AD%E4%BA%A4%E6%B5%81II/" class="note-card">
+  
+  <img src="/image/banner/nozomizo21.JPG" class="note-cover" alt="英语交流II" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">英语交流II</h2>
+      
+      <p class="note-excerpt">英语交流II的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 25</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E4%B8%AD%E5%9B%BD%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2%E7%BA%B2%E8%A6%81/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet8.PNG" class="note-cover" alt="中国近现代史纲要" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">中国近现代史纲要</h2>
+      
+      <p class="note-excerpt">中国近现代史纲要的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 24</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20220223%20%E5%92%8C%E6%95%B0%E5%88%86%E5%8A%A9%E6%95%99%E4%B8%8A%E5%90%8C%E4%B8%80%E9%97%A8%E8%AF%BE/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="20220223 和数分助教上同一门课" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20220223 和数分助教上同一门课</h2>
+      
+      <p class="note-excerpt">和数分助教上同一门课 绝了</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 Feb 23</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" class="note-card">
+  
+  <img src="/image/banner/nozomizo34.JPG" class="note-cover" alt="算法基础" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">算法基础</h2>
+      
+      <p class="note-excerpt">算法基础的课程条目，区分 2022 年春季学期修读记录与 2024 年春季学期助教记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 23</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%94%B5%E7%A3%81%E5%AD%A6A/" class="note-card">
+  
+  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="电磁学A" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">电磁学A</h2>
+      
+      <p class="note-excerpt">电磁学A的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 22</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B1)/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="线性代数(B1)" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数(B1)</h2>
+      
+      <p class="note-excerpt">线性代数(B1)的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 22</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%B6%B3%E7%90%83I/" class="note-card">
+  
+  <img src="/image/banner/nozomizo2.jpg" class="note-cover" alt="足球I" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">足球I</h2>
+      
+      <p class="note-excerpt">足球I的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 22</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B2)/" class="note-card">
+  
+  <img src="/image/banner/nozomizo12.PNG" class="note-cover" alt="数学分析(B2)" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学分析(B2)</h2>
+      
+      <p class="note-excerpt">数学分析(B2)的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 21</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93/" class="note-card">
+  
+  <img src="/image/banner/nozomizo21.JPG" class="note-cover" alt="数据结构与数据库" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数据结构与数据库</h2>
+      
+      <p class="note-excerpt">数据结构与数据库的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 21</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%8B%B1%E8%AF%AD%E8%AF%BB%E5%86%99II/" class="note-card">
+  
+  <img src="/image/banner/nozomizo33.JPG" class="note-cover" alt="英语读写II" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">英语读写II</h2>
+      
+      <p class="note-excerpt">英语读写II的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 21</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/22%E6%98%A5%E8%AF%BE%E8%A1%A8/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet8.PNG" class="note-cover" alt="22春课表" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">22春课表</h2>
+      
+      <p class="note-excerpt">2022 年春季学期本科课程修读记录，开始日期为 2022-02-20，包含课程安排、考试安排与课程调整申请。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Feb 20</span>
+      <span class="note-read">3 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20220116%20%E7%9B%9B%E8%8C%82%E8%80%81%E5%B8%88%E8%AE%B2%E7%9A%84%E8%AF%BE%E7%9C%9F%E6%98%AF%E5%A5%BD%E6%9E%81%E4%BA%86/" class="note-card">
+  
+  <img src="/image/banner/nozomizo44.JPG" class="note-cover" alt="20220116 盛茂老师讲的课真是好极了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20220116 盛茂老师讲的课真是好极了</h2>
+      
+      <p class="note-excerpt">盛茂老师讲的几何学基础真是好极了 射影几何的性质真是美极了 几何学这门课的分也是寄了呢！</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 Jan 16</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%87%A0%E4%BD%95%E5%AD%A6%E5%9F%BA%E7%A1%80%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="几何学基础（21秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">几何学基础（21秋期末考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期几何学基础期末考试安排：2022-01-16 08:30~10:30，东区 第二教学楼 2105。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jan 16</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/20220113%20%E4%B8%AD%E7%AD%BE/" class="note-card">
+  
+  <img src="/files/qzone-20220113-114244-01.jpg" class="note-cover" alt="20220113 中签" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">20220113 中签</h2>
+      
+      <p class="note-excerpt">中签 数院的算导 寄！ 都可以寄！</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">QQ空间</span>
+      
+      <span class="note-date">2022 Jan 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="数学分析(B1)（21秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学分析(B1)（21秋期末考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期数学分析(B1)期末考试安排：2022-01-13 08:30~10:30，东区 第五教学楼 5104。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jan 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8A%9B%E5%AD%A6A%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo18.JPG" class="note-cover" alt="力学A（21秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">力学A（21秋期末考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期力学A期末考试安排：2022-01-11 14:30~16:30，东区 第五教学楼 5303。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jan 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%80%9D%E6%83%B3%E9%81%93%E5%BE%B7%E4%B8%8E%E6%B3%95%E6%B2%BB%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo45.JPG" class="note-cover" alt="思想道德与法治（21秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">思想道德与法治（21秋期末考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期思想道德与法治期末考试安排：2022-01-10 14:30~16:30，东区 第二教学楼 2121。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jan 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%8B%B1%E8%AF%AD%E4%BA%A4%E6%B5%81I%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi6.JPG" class="note-cover" alt="英语交流I（21秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">英语交流I（21秋期末考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期英语交流I期末考试安排：2022-01-10 11:00~11:30，东区 第五教学楼 5202。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jan 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%8B%B1%E8%AF%AD%E8%AF%BB%E5%86%99I%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo45.JPG" class="note-cover" alt="英语读写I（21秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">英语读写I（21秋期末考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期英语读写I期末考试安排：2022-01-10 08:30~10:30，东区 第五教学楼 5102。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jan 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1A%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo34.JPG" class="note-cover" alt="计算机程序设计A（21秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">计算机程序设计A（21秋期末考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期计算机程序设计A期末考试安排：2022-01-02 14:30~16:30，东区 第五教学楼 5102。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2022 Jan 02</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%A7%91%E5%AD%A6%E3%80%81%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi7.JPG" class="note-cover" alt="科学、技术与工程导论（21秋期末考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">科学、技术与工程导论（21秋期末考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期科学、技术与工程导论期末考试安排：2021-12-22 15:55~17:30，东区 第二教学楼 2421。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Dec 22</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8A%9B%E5%AD%A6A%EF%BC%8821%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo4.JPG" class="note-cover" alt="力学A（21秋期中考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">力学A（21秋期中考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期力学A期中考试安排：2021-11-30 09:45~11:45，东区 第二教学楼 2121。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Nov 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)%EF%BC%8821%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/" class="note-card">
+  
+  <img src="/image/banner/nozomizo14.JPG" class="note-cover" alt="数学分析(B1)（21秋期中考试）" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学分析(B1)（21秋期中考试）</h2>
+      
+      <p class="note-excerpt">2021年秋季学期数学分析(B1)期中考试安排：2021-11-20 08:30~10:30，东区 第五教学楼 5102。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Nov 20</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%A7%91%E5%AD%A6%E3%80%81%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo13.JPG" class="note-cover" alt="科学、技术与工程导论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">科学、技术与工程导论</h2>
+      
+      <p class="note-excerpt">科学、技术与工程导论的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 22</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%9F%BA%E7%A1%80%E4%BD%93%E8%82%B2/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi8.JPG" class="note-cover" alt="基础体育" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">基础体育</h2>
+      
+      <p class="note-excerpt">基础体育的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 17</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%8B%B1%E8%AF%AD%E4%BA%A4%E6%B5%81I/" class="note-card">
+  
+  <img src="/image/banner/nozomizo6.JPEG" class="note-cover" alt="英语交流I" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">英语交流I</h2>
+      
+      <p class="note-excerpt">英语交流I的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 17</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%87%A0%E4%BD%95%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="note-card">
+  
+  <img src="/image/banner/nozomizo19.JPG" class="note-cover" alt="几何学基础" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">几何学基础</h2>
+      
+      <p class="note-excerpt">几何学基础的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 16</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%A7%91%E5%AD%A6%E4%B8%8E%E7%A4%BE%E4%BC%9A%E7%A0%94%E8%AE%A8%E8%AF%BE/" class="note-card">
+  
+  <img src="/image/banner/nozomizo38.JPG" class="note-cover" alt="科学与社会研讨课" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">科学与社会研讨课</h2>
+      
+      <p class="note-excerpt">“科学与社会”研讨课的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 16</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%8B%B1%E8%AF%AD%E8%AF%BB%E5%86%99I/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="英语读写I" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">英语读写I</h2>
+      
+      <p class="note-excerpt">英语读写I的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 15</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8A%9B%E5%AD%A6A/" class="note-card">
+  
+  <img src="/image/banner/nozomizo34.JPG" class="note-cover" alt="力学A" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">力学A</h2>
+      
+      <p class="note-excerpt">力学A的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%80%9D%E6%83%B3%E9%81%93%E5%BE%B7%E4%B8%8E%E6%B3%95%E6%B2%BB/" class="note-card">
+  
+  <img src="/image/banner/nozomizo28.JPG" class="note-cover" alt="思想道德与法治" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">思想道德与法治</h2>
+      
+      <p class="note-excerpt">思想道德与法治的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1A/" class="note-card">
+  
+  <img src="/image/banner/nozomizo33.JPG" class="note-cover" alt="计算机程序设计A" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">计算机程序设计A</h2>
+      
+      <p class="note-excerpt">计算机程序设计A的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)/" class="note-card">
+  
+  <img src="/image/banner/nozomizo42.JPG" class="note-cover" alt="数学分析(B1)" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学分析(B1)</h2>
+      
+      <p class="note-excerpt">数学分析(B1)的课程条目，包含 2021 年秋季学期首修与 2023 年秋季学期重修记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/21%E7%A7%8B%E8%AF%BE%E8%A1%A8/" class="note-card">
+  
+  <img src="/image/banner/nozomizo52.PNG" class="note-cover" alt="21秋课表" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">21秋课表</h2>
+      
+      <p class="note-excerpt">2021 年秋季学期本科课程修读记录，开始日期为 2021-09-05，包含课程安排、考试安排与课程调整申请。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 05</span>
+      <span class="note-read">4 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%86%9B%E4%BA%8B%E6%8A%80%E8%83%BD/" class="note-card">
+  
+  <img src="/image/banner/nozomizo16.JPG" class="note-cover" alt="军事技能" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">军事技能</h2>
+      
+      <p class="note-excerpt">军事技能的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 05</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%86%9B%E4%BA%8B%E7%90%86%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo34.JPG" class="note-cover" alt="军事理论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">军事理论</h2>
+      
+      <p class="note-excerpt">军事理论的课程条目，用于连接课表记录与相关碎碎念。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2021 Sep 05</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                </div>
+                
+            </div>
+        </main>
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>
