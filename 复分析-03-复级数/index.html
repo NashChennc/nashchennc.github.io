@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>复分析-03-复级数 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 77</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 453</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 162</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 11</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 4</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">复分析-03-复级数</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 May 15</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">9 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <blockquote>
+<p>本笔记所属课程：<a href="/%E5%A4%8D%E5%88%86%E6%9E%90/" title="">复分析</a></p>
+</blockquote>
+<h2 id="textrm-Weierstrass">\textrm{Weierstrass</h2>
+<p>我们在实分析中有</p>
+<ul>
+<li>
+<p>有 $\mathrm{Cauchy}$ 列，则一致收敛</p>
+</li>
+<li>
+<p>$(\mathrm{Weierstrass})$ 有收敛常数列界，则一致收敛</p>
+</li>
+</ul>
+<p>没有出现求导和乘法运算的情况下，$\mathbb C$ 和 $\mathbb R^2$ 的情况是一样的，可以套用实数的结果。我们下面写点新的。</p>
+<ul>
+<li>$\mathbf{Def}\ 1.1:$ 如果 $\sum f_n$ 在 $D$ 的任意紧子集一致收敛，则称在 $D$ <strong>内闭一致收敛</strong></li>
+</ul>
+<p>一致收敛 $\Rightarrow$ 内闭一致收敛 $\Rightarrow$ 逐点收敛</p>
+<ul>
+<li>
+<p>$\mathbf{Ex}\ 1:$ $f_n(z)=z^n$ 在单位圆盘是内闭一致收敛的，但不一致收敛</p>
+</li>
+<li>
+<p>$\mathbf{Lem}\ 1.1:$ 设 $K\subset G\subset D$ ，$K$ 是紧的，$G$ 是的开的而 $\overline G$ 是紧的，则对 $f\in H(D)$ ， $\exists C&gt;0$</p>
+</li>
+</ul>
+<p>$$\sup_{z\in K}|f^{(k)}(z)|\leq C\sup_{z\in G}|f(z)|$$</p>
+<p>$\mathrm{Proof}.\quad$ $K,G$ 的嵌套实际上是为了得到 $d(K,\partial G)&gt;0$</p>
+<p>$\mathrm{Cauchy}$ 不等式立得。$□$</p>
+<ul>
+<li>$\mathbf{Thm}\ 1.1\rm(Weierstrass):$ 内闭一致连续保全纯导数。</li>
+</ul>
+<p>$\mathrm{Proof}.$ $□$</p>
+<ul>
+<li>$\mathbf{Ex}\ 2:$</li>
+</ul>
+<p>$$\zeta(z)=\sum_{n=1}^{\infty}n^{-z}$$</p>
+<p>咕</p>
+<h2 id="幂级数">幂级数</h2>
+<ul>
+<li>$\mathbf{Thm}\ 2.1:$ 对于级数</li>
+</ul>
+<p>$$\sum_{n=1}^{\infty} a_n z^n$$</p>
+<p>设</p>
+<p>$$R=\frac 1{\limsup_{n\to\infty}\sqrt[n]{|a_n|}}$$</p>
+<p>$R&gt;0$ 时 $|z|&lt;R$ 收敛而 $|z|&gt;R$ 不收敛</p>
+<p>$\mathrm{Proof}.\quad$</p>
+<p>按 $\limsup$ 的定义写开，根据方根判别法的步骤即得。</p>
+<p>称 $R$ 是该级数的 <strong>收敛半径</strong></p>
+<p>$□$</p>
+<ul>
+<li>$\mathbf{Thm}\ 2.2\ \rm(Abel):$ 若 $\sum_{n\geq 0} a_nz^n$ 在 $z_0\not =0$ 处收敛，则在 $B(0,|z_0|)$ 内闭一致收敛。这意味着幂级数在其收敛圆内确定一个全纯函数，即</li>
+</ul>
+<p>$$\sum_{n\geq 0} a_nz^n\in H(B(0,R))$$</p>
+<p>$\mathrm{Proof}.\quad$ 注意到任意 $K\subset B(0,|z_0|)$ 如果是紧集，那么 $d(K,\partial B)&gt;0$ ，即 $\forall z\in K,|z|&lt;|z_0|$</p>
+<p>由 $\mathrm{T1}.1$ ，$□$</p>
+<p>在收敛圆上，收敛性是不确定的。</p>
+<p>$$\sum z^n,\sum \frac {z^n}n,\sum\frac{z^n}{n^2}$$</p>
+<p>的收敛半径都是 $1$ 。但在 $|z|=1$ 上，$\sum z^n$ 发散，$\sum \dfrac {z^n}n$ 在 $z\neqq1$ 时收敛，$z=1$ 发散，$\sum \dfrac {z^n}{n^2}$ 收敛。</p>
+<p>现若 $\sum a_nz^n$ 在收敛圆周上某点 $\zeta$ 收敛，有</p>
+<p>$$\sum (a_n\zeta^n)\left(\frac z{\zeta}\right)^n$$</p>
+<p>作为 $\dfrac z{\zeta}$ 的幂级数收敛半径为 $1$ ，且在 $1$ 处收敛。</p>
+<ul>
+<li>$\mathbf{Thm}\ 2.3\ \rm(Abel,II):$ 如果幂级数收敛半径为 $1$ 且 在 $1$ 处收敛于 $S$，则在 $1$ 处有非切向的极限，即</li>
+</ul>
+<p>$$\exists{z_k:\arg (1-z_k)\in(-\alpha,\alpha),\alpha&lt;\frac {\pi}2},f(z_k)\to S$$</p>
+<p>有点没看懂</p>
+<p>研究</p>
+<p>[\sum_{n=1}^{\infty}\frac {z^n}n=\int\sum_{n=0}^{\infty}z^n=\int \frac {1}{1-z}=-\log(1-z)]</p>
+<p>$z\neqq 1,|z|&lt;1$ 收敛。</p>
+<p>设 $z^n=e^{in\theta}=\cos(n\theta)+i\sin(n\theta)$ ，$\theta\in(0,2\pi)$
+[\sum_{n=1}^{\infty}\frac {e^{in\theta}}n=-\log|1-e^{i\theta}|-i\arg(1-e^{i\theta})]</p>
+<p>作图得 $\arg(1-e^{i\theta})=-\frac{\pi-\theta}2,|1-e^{i\theta}|=2\sin\frac {\theta}2$ 。
+[\sum_{n=1}^{\infty}\frac{\cos(n\theta)}n=-\log\left(2\sin\frac{\theta}2\right),\sum_{n=1}^{\infty}\frac{\sin(n\theta)}n=\frac{\pi-\theta}2]</p>
+<h2 id="复-Taylor-级数">复 Taylor 级数</h2>
+<ul>
+<li>$\mathbf{Thm}\ 3.1:$ 若 $f\in H(B(z_0,R))$ ，则可以展开成 Taylor 级数</li>
+</ul>
+<p>$$f(z)=\sum_{n\geq 0}\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n$$</p>
+<p>$\mathrm{Proof}.\quad$ 写出 $\mathrm{Cauchy}$ 积分，在 $z_0$ 展开 $\dfrac 1{\zeta-z}$ ，可证一致收敛，换序整理即得。$□$</p>
+<ul>
+<li>
+<p>$\mathbf{Inf}\ 3.1(1):$ $f$ 可以在 $B(z_0,\varepsilon)$ 展开成 $\mathrm{Taylor}$ 级数 $\Leftrightarrow$ $f\in H(z_0)$</p>
+</li>
+<li>
+<p>$\mathbf{Inf}\ 3.1(2):$ $f$ 可以在 $B(z_0,\varepsilon)$ 展开成 $(z-z_0)^mg_m(z),g_m(z)\in H(z_0),g_m(z)\neqq0$ $\Leftrightarrow$ $f(z_0)$ 是 $m$ 阶零点</p>
+</li>
+<li>
+<p>$\mathbf{Inf}\ 3.1(3):$ $f\in H(D)$ 在 $B(z_0,\varepsilon)\subset D$ 有 $\equiv 0$ ，则在 $D$ 上 $f\equiv 0$</p>
+</li>
+<li>
+<p>$\mathbf{Inf}\ 3.1(4):$ 全纯非常值函数的零点是孤立的，因此在紧集中仅有有限零点</p>
+</li>
+</ul>
+<p>于是有下面的唯一性定理</p>
+<ul>
+<li>$\mathbf{Thm}\ 3.2:$ 设 $f,g\in H(D)$ ，如果在 $D$ 中有 $\exists z_n\to z,f(z_n)=g(z_n)$ ，则在 $D$ 中 $f\equiv g$ 。</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ $f-g$ 的零点 $z$ 不孤立。 $□$</p>
+<p>这意味着一列收敛点上的取值可以完全确定一个全纯函数。这是很深刻的结果。</p>
+<p>$$e^z,\sin z,\cos z,\log(1+z),(1+z)^{\alpha}$$</p>
+<h2 id="Laurent-展开">Laurent 展开</h2>
+<p>$$\begin{aligned}f(z)&amp;=\sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n\cr
+&amp;=\sum_{n=0}^{+\infty} a_n(z-z_0)^n+\sum_{n=1}^{+\infty} a_{-n}\frac 1{(z-z_0)^n}\end{aligned}$$</p>
+<p>对 $\mathrm{Taylor}$ 展开算上负次项，称为 $\mathrm{Laurent}$ 展开。由收敛判准知收敛域是</p>
+<p>$$|z-z_0|&lt;R=\limsup_{n\to\infty}\sqrt[n]{a_n}$$</p>
+<p>$$\frac 1{|z-z_0|}&lt;r=\limsup_{n\to\infty}\sqrt[n]{a_{-n}}$$</p>
+<p>于是，该式在以 $z_0$ 为圆心的圆环 $|z-z_0|\in(\frac 1r,R)$ 上内闭一致收敛。其中非负次项称为 <strong>全纯部分</strong>，负次项称为 <strong>主要部分</strong>。</p>
+<p>观察下面的例子</p>
+<p>$$\frac 1{z-a}=\begin{cases}
+-\frac 1a\cdot\frac 1{1-(1/a)z}=\sum_{n=0}^{\infty}-\frac 1{a^{n+1}}z^n,&amp; |z/a|&lt;1\cr
+\frac 1z\cdot\frac 1{1-az^{-1}}=\sum_{n=1}^{\infty}a^{n-1}z^{-n},&amp; |a/z|&lt;1
+\end{cases}$$</p>
+<p>设一个函数可以写成若干一次分式之和，将复平面用零点划分成一层层圆环。在圆环内时，用负次项的展开，否则就直接用 $\mathrm{Taylor}$ 展开。这是有理分式的 $\mathrm{Laurent}$ 展开。</p>
+<p>利用 $\mathrm{Cauchy}$ 积分公式，我们可以得到在圆环上的 $\mathrm{Laurent}$ 展开。这就像是 $\mathrm{Taylor}+Cauchy$ 的推广。</p>
+<ul>
+<li>$\mathbf{Thm}\ 1.1:$ 设 $f$ 在圆环 $|z-z_0|\in (\frac 1r,R)$ 上全纯，则在圆周 $\gamma_{\rho}:|z-z_0|=\rho,\rho\in(\frac 1r, R)$ 上有 $\mathrm{Laurent}$ 展开</li>
+</ul>
+<p>$$a_n=\frac 1{2\pi i}\int_{\gamma_{\rho} }\frac {f(\zeta)}{(\zeta-z_0)^{n+1} }{\mathrm{d}} \zeta$$</p>
+<p>$\mathrm{Proof}.$ 由 $\zeta$ 和 $z$ 的大小关系写出 $\frac 1{\zeta-z}$ 的展开，在外圈写成 非负次项，内圈写成负次项。 $□$</p>
+<ul>
+<li>$\mathbf{Inf}\ 1.1(1):$ 设 $f$ 在圆环 $|z-z_0|\in (0,R)$ 上全纯，则在 $z_0$ 附近的圆周 $\gamma_{\rho}:|z-z_0|=\rho,\rho\in(0, R)$ 上有 $\mathrm{Laurent}$ 展开</li>
+</ul>
+<p>$$a_n=\frac 1{2\pi i}\int_{\gamma_{\rho} }\frac {f(\zeta)}{(\zeta-z_0)^{n+1} }{\mathrm{d}} \zeta$$</p>
+<ul>
+<li>$\mathbf{Inf}\ 1.1(2):$</li>
+</ul>
+<p>$$|a_n|=\left|\frac 1{2\pi i}\int_{\gamma_{\rho} }\frac {f(\zeta)}{(\zeta-z_0)^{n+1} }{\mathrm{d}} \zeta\right|\leq\frac {\max |f(\zeta)|}{\rho^n}$$</p>
+<h2 id="孤立奇点">孤立奇点</h2>
+<p>设 $f$ 在 $z_0$ 处无定义。如果 $f$ 在 $z_0$ 处的去心圆盘上全纯，则称 $z_0$ 是 $f$ 的 <strong>孤立奇点</strong> 。</p>
+<ul>
+<li>
+<p>如果 $\lim_{z\to z_0}f(z)=a$ ，称为 <strong>可去奇点</strong> 。</p>
+</li>
+<li>
+<p>如果 $\lim_{z\to z_0}f(z)= \infty$ ，称为 <strong>极点</strong></p>
+</li>
+<li>
+<p>如果 $\lim_{z\to z_0}f(z)$ 不存在 ，称为 <strong>本性奇点</strong></p>
+</li>
+</ul>
+<p>下面我们可以看到判断奇点的等价条件</p>
+<ul>
+<li>$\mathbf{Thm}\ 2.1(1)\ \rm(Riemann):$ $z_0$ 是 $f$ 的可去奇点 $\Leftrightarrow$ $f$ 在 $z_0$ 附近有界。</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ $(\Rightarrow)$ 由定义立得。$(\Leftarrow)$ 结合上一节的两个推论，$\rho\to 0$ 可知负次项为 $0$ 。 $□$</p>
+<ul>
+<li>$\mathbf{Thm}\ 2.1(2):$ $z_0$ 是 $f$ 的极点 $\Leftrightarrow$ $z_0$ 是 $\dfrac 1f$ 的零点。称极点的阶数为零点的阶数。</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ $(\Leftarrow)$ 显然。$(\Rightarrow)$ $□$</p>
+<p>极点的 $\mathrm{Laurent}$ 展开负次项有限。我们顺便得到了在本性奇点处有无穷负次项。</p>
+<ul>
+<li>$\mathbf{Thm}\ 2.2\ \rm(Weierstrass):$ $z_0$ 是 $f$ 的本性奇点，则 $f(z)$ 可以 在 $z\to z_0$ 收敛到任意 $A\in C_{\infty}$</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ $□$</p>
+<ul>
+<li>$\mathbf{Thm}\ 2.3\ \rm(Picard):$ 全纯函数在本性奇点的邻域内无穷多次取到每个有穷复值，至多只有一个例外</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ $□$</p>
+<p>考虑无穷远点 $f(\infty)$ 为孤立奇点的情况。这是在说在 $\exists R,|z|&gt;R$ 上函数 $f(z)$ 全纯。</p>
+<p>令 $g(z)=f(\frac 1z),0&lt;|z|&lt;\frac 1R$ ，易得 $g(0)$ 是孤立奇点。在 $|z|&gt;R$ ，$f$ 有 $\mathrm{Laurent}$ 展开</p>
+<p>$$f(z)=\sum_{n=-\infty}^{+\infty} a^{(g)}_{-n}z^n$$</p>
+<p>我们将 $g(0)$ 的说法移植到 $f(\infty)$ 上。那么 $f(\infty)$ 的奇点性质就和这个级数的正次项项数相关。研究 $\infty$ 附近的展开时，我们称正次项是主要部分，和有限点的说法恰好相反。</p>
+<p>考虑到整函数的 $\mathrm{Laurent}$ 展开没有负次项，我们立即得到下面的结论</p>
+<ul>
+<li>
+<p>$\mathbf{Thm}\ 2.4(1):$ 若在整函数 $f$ 上 $\infty$ 是可去奇点，则 $f$ 为常数。</p>
+</li>
+<li>
+<p>$\mathbf{Thm}\ 2.4(2):$ 若在整函数 $f$ 上 $\infty$ 是 $m$ 阶极点，则 $f$ 为 $m$ 次多项式</p>
+</li>
+</ul>
+<p>剩下一种 $\infty$ 为本性奇点的情况，就称 $f$ 是超越整函数。</p>
+<p>只有极点一种奇点，称为亚纯函数 。如果亚纯函数的 $\infty$ 也是是可去奇点或极点，则 $f$ 是有理函数</p>
+<p>${\mathrm{Aut}}(\mathbb C)$ 是所有线性变换，即一次多项式</p>
+<p>${\mathrm{Aut}}(\mathbb C_{\infty})$ 是所有分式线性变换</p>
+<h2 id="留数定理">留数定理</h2>
+<ul>
+<li>$\mathbf{Def}\ 4.1:$ 设 $a$ 是 $f(z)$ 的一个孤立奇点，则称 <strong>留数</strong></li>
+</ul>
+<p>$${\mathrm{Res}}(f,a)=\frac 1{2\pi i}\int_{\gamma_a}f(z){\mathrm{d}}z$$</p>
+<p>这是 $f$ 在 $a$ 附近的 $\mathrm{Laurent}$ 展开的第 $-1$ 次项。对 $\infty$ ，注意是在逆时针积分基础上加上负号，或者干脆顺时针积。</p>
+<ul>
+<li>$\mathbf{Thm}\ 4.1:$</li>
+</ul>
+<p>$${\mathrm{Res}}(f,a)=\frac 1{(m-1)!}\lim_{z\to a}\left(\frac {\mathrm{d}}{ {\mathrm{d}} z}\right)^{m-1}{(z-a)^mf(z)}$$</p>
+<p>$${\mathrm{Res}}(f,a)=\lim_{z\to a}(z-a)f(z)$$</p>
+<ul>
+<li>$\mathbf{Thm}\ 4.2:$ 设 $f=\dfrac gh$ ，且 $g(a)\neqq0,h(a)=0$ ，则在有意义的情况下 $(h’(a)\neqq0)$</li>
+</ul>
+<p>$${\mathrm{Res}}(f,a)=\frac{g(a)}{h’(a)}$$</p>
+<p>如果是本性奇点就没那么多简便方法了。</p>
+<ul>
+<li>$\mathbf{Thm}\ 4.3\ \rm (Residue\ Theorem):$ 若函数 $f$ 在区域 $D$ 内除了孤立奇点全纯且连续到 $D$ 边界，则</li>
+</ul>
+<p>$$\int_{\gamma}f(z){\mathrm{d}}z=2\pi i\sum_{k=1}^n{\mathrm{Res}}(f,z_k)$$</p>
+<p>如果我们证明在半圆上随着半径 $R\to+\infty$ 积分 $\to 0$ ，就可以计算 $\int_{\mathbb R}f(z){\mathrm{d}}z$ 。下面给出几个条件</p>
+<ul>
+<li>$\mathbf{Lem}:$ $zf(z)\to 0$ ，则在半圆上 $\int f(z){\mathrm{d}}z\to 0,R\to+\infty$</li>
+</ul>
+<p>例如 $f=\frac PQ\in o(\frac 1{x^2})$ ，$Q$ 没有实零点。</p>
+<ul>
+<li>$\mathbf{Lem}\ \rm(Jordon):$ $f$ 在半平面半圆外 $\to 0$ ，则在半圆上 $\int e^{i\alpha z}f(z){\mathrm{d}}z\to 0,R\to+\infty$</li>
+</ul>
+<p>去实部虚部又可以得到 $\sin,\cos$ 的积分</p>
+<hr>
+<p>← 上一篇：<a href="/%E5%A4%8D%E5%88%86%E6%9E%90-02-%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/" title="">复分析-02-柯西积分公式</a></p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E5%88%86%E6%9E%90%E5%AD%A6/">分析学</a>
+                            
+                                <a class="post-backlinks__link" href="/%E5%A4%8D%E5%88%86%E6%9E%90-04-%E5%85%A8%E7%BA%AF%E5%BC%80%E6%8B%93/">复分析-04-全纯开拓</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E5%A4%8D%E5%88%86%E6%9E%90-02-%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">复分析-02-柯西积分公式</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/%E5%A4%8D%E5%88%86%E6%9E%90-01-%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">复分析-01-复变函数</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#textrm-Weierstrass"><span class="post-toc-text">\textrm{Weierstrass</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="post-toc-text">幂级数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%8D-Taylor-%E7%BA%A7%E6%95%B0"><span class="post-toc-text">复 Taylor 级数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Laurent-%E5%B1%95%E5%BC%80"><span class="post-toc-text">Laurent 展开</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AD%A4%E7%AB%8B%E5%A5%87%E7%82%B9"><span class="post-toc-text">孤立奇点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86"><span class="post-toc-text">留数定理</span></a></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

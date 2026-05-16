@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"数学分析(B1)（21秋期中考试）","url":"/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)%EF%BC%8821%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/","date":"2021-11-20","tags":["考试","课程","学业"]},{"title":"力学A（21秋期中考试）","url":"/%E5%8A%9B%E5%AD%A6A%EF%BC%8821%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/","date":"2021-11-30","tags":["考试","课程","学业"]},{"title":"科学、技术与工程导论（21秋期末考试）","url":"/%E7%A7%91%E5%AD%A6%E3%80%81%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2021-12-22","tags":["考试","课程","学业"]},{"title":"计算机程序设计A（21秋期末考试）","url":"/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1A%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-01-02","tags":["考试","课程","学业"]},{"title":"思想道德与法治（21秋期末考试）","url":"/%E6%80%9D%E6%83%B3%E9%81%93%E5%BE%B7%E4%B8%8E%E6%B3%95%E6%B2%BB%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-01-10","tags":["考试","课程","学业"]},{"title":"英语读写I（21秋期末考试）","url":"/%E8%8B%B1%E8%AF%AD%E8%AF%BB%E5%86%99I%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-01-10","tags":["考试","课程","学业"]},{"title":"英语交流I（21秋期末考试）","url":"/%E8%8B%B1%E8%AF%AD%E4%BA%A4%E6%B5%81I%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-01-10","tags":["考试","课程","学业"]},{"title":"力学A（21秋期末考试）","url":"/%E5%8A%9B%E5%AD%A6A%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-01-11","tags":["考试","课程","学业"]},{"title":"数学分析(B1)（21秋期末考试）","url":"/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-01-13","tags":["考试","课程","学业"]},{"title":"几何学基础（21秋期末考试）","url":"/%E5%87%A0%E4%BD%95%E5%AD%A6%E5%9F%BA%E7%A1%80%EF%BC%8821%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-01-16","tags":["考试","课程","学业"]},{"title":"数据结构与数据库（22春期末考试）","url":"/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-06-08","tags":["考试","课程","学业"]},{"title":"算法基础（22春期末考试）","url":"/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-06-14","tags":["考试","课程","学业"]},{"title":"英语读写II（22春期末考试）","url":"/%E8%8B%B1%E8%AF%AD%E8%AF%BB%E5%86%99II%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-06-27","tags":["考试","课程","学业"]},{"title":"英语交流II（22春期末考试）","url":"/%E8%8B%B1%E8%AF%AD%E4%BA%A4%E6%B5%81II%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-06-27","tags":["考试","课程","学业"]},{"title":"中国近现代史纲要（22春期末考试）","url":"/%E4%B8%AD%E5%9B%BD%E8%BF%91%E7%8E%B0%E4%BB%A3%E5%8F%B2%E7%BA%B2%E8%A6%81%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-06-27","tags":["考试","课程","学业"]},{"title":"热学B（22春期末考试）","url":"/%E7%83%AD%E5%AD%A6B%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-06-29","tags":["考试","课程","学业"]},{"title":"电磁学A（22春期末考试）","url":"/%E7%94%B5%E7%A3%81%E5%AD%A6A%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-06-30","tags":["考试","课程","学业"]},{"title":"数学分析(B2)（22春期末考试）","url":"/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B2)%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-07-01","tags":["考试","课程","学业"]},{"title":"线性代数(B1)（22春期末考试）","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B1)%EF%BC%8822%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-07-03","tags":["考试","课程","学业"]},{"title":"线性代数(B2)（22秋期中考试）","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)%EF%BC%8822%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/","date":"2022-11-20","tags":["考试","课程","学业"]},{"title":"马克思主义基本原理（22秋期末考试）","url":"/%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-02-21","tags":["考试","课程","学业"]},{"title":"微分方程引论（22秋期末考试）","url":"/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%BC%95%E8%AE%BA%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-02-22","tags":["考试","课程","学业"]},{"title":"线性代数(B2)（22秋期末考试）","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-02-23","tags":["考试","课程","学业"]},{"title":"数学分析(B3)（22秋期末考试）","url":"/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B3)%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-03-01","tags":["考试","课程","学业"]},{"title":"原子物理B（22秋期末考试）","url":"/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86B%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-03-03","tags":["考试","课程","学业"]},{"title":"复分析（23春期中考试）","url":"/%E5%A4%8D%E5%88%86%E6%9E%90%EF%BC%8823%E6%98%A5%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-04-22","tags":["考试","课程","学业"]},{"title":"近世代数（23春期中考试）","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0%EF%BC%8823%E6%98%A5%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-05-14","tags":["考试","课程","学业"]},{"title":"实分析（23春期中考试）","url":"/%E5%AE%9E%E5%88%86%E6%9E%90%EF%BC%8823%E6%98%A5%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-05-21","tags":["考试","课程","学业"]},{"title":"光学B（23春期末考试）","url":"/%E5%85%89%E5%AD%A6B%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-06-03","tags":["考试","课程","学业"]},{"title":"概率论（23春期末考试）","url":"/%E6%A6%82%E7%8E%87%E8%AE%BA%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-06-04","tags":["考试","课程","学业"]},{"title":"毛泽东思想和中国特色社会主义理论体系概论（23春期末考试）","url":"/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-06-26","tags":["考试","课程","学业"]},{"title":"复分析（23春期末考试）","url":"/%E5%A4%8D%E5%88%86%E6%9E%90%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-06-29","tags":["考试","课程","学业"]},{"title":"实分析（23春期末考试）","url":"/%E5%AE%9E%E5%88%86%E6%9E%90%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-07-09","tags":["考试","课程","学业"]},{"title":"近世代数（23春期末考试）","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0%EF%BC%8823%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-07-12","tags":["考试","课程","学业"]},{"title":"线性代数(B2)（23秋期中考试）","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)%EF%BC%8823%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/","date":"2023-12-03","tags":["考试","课程","学业"]},{"title":"数理统计（23秋期末考试）","url":"/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%8823%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2024-01-06","tags":["考试","课程","学业"]},{"title":"数学分析(B1)（23秋期末考试）","url":"/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)%EF%BC%8823%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2024-01-14","tags":["考试","课程","学业"]},{"title":"线性代数(B2)（23秋期末考试）","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)%EF%BC%8823%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2024-01-16","tags":["考试","课程","学业"]},{"title":"数值分析（24春期末考试）","url":"/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%EF%BC%8824%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2024-05-15","tags":["考试","课程","学业"]},{"title":"计算机图形学（24春期末考试）","url":"/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%EF%BC%8824%E6%98%A5%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2024-06-23","tags":["考试","课程","学业"]},{"title":"组合学（24秋期中考试）","url":"/%E7%BB%84%E5%90%88%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/","date":"2024-10-31","tags":["考试","课程","学业"]},{"title":"运筹学（24秋期中考试）","url":"/%E8%BF%90%E7%AD%B9%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E4%B8%AD%E8%80%83%E8%AF%95%EF%BC%89/","date":"2024-11-01","tags":["考试","课程","学业"]},{"title":"组合学（24秋期末考试）","url":"/%E7%BB%84%E5%90%88%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2024-12-18","tags":["考试","课程","学业"]},{"title":"离散数学（24秋期末考试）","url":"/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2025-01-06","tags":["考试","课程","学业"]},{"title":"运筹学（24秋期末考试）","url":"/%E8%BF%90%E7%AD%B9%E5%AD%A6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2025-01-07","tags":["考试","课程","学业"]},{"title":"组合学进阶（24秋期末考试）","url":"/%E7%BB%84%E5%90%88%E5%AD%A6%E8%BF%9B%E9%98%B6%EF%BC%8824%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2025-01-10","tags":["考试","课程","学业"]},{"title":"高级人工智能（25秋期末考试）","url":"/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8825%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2025-12-30","tags":["考试","课程","学业"]},{"title":"组合数学（25秋期末考试）","url":"/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%EF%BC%8825%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/","date":"2026-01-21","tags":["考试","课程","学业"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -337,7 +406,7 @@
     <div class="note-content">
       <h2 class="note-card-title">组合数学（25秋期末考试）</h2>
       
-      <p class="note-excerpt">2025年秋季学期组合数学期末考试安排：2026-01-21 09:30~11:30，高新区 图书教育中心B楼 GT-B212。</p>
+      <p class="note-excerpt">2025年秋季学期组合数学期末考试安排：2026.01.21 09:30~11:30，高新区 图书教育中心B楼 GT-B212。</p>
       
     </div>
     <div class="note-meta">
@@ -362,7 +431,7 @@
     <div class="note-content">
       <h2 class="note-card-title">高级人工智能（25秋期末考试）</h2>
       
-      <p class="note-excerpt">2025年秋季学期高级人工智能期末考试安排：2025-12-30 19:00~21:00，高新区 3号学科楼 G3-110。</p>
+      <p class="note-excerpt">2025年秋季学期高级人工智能期末考试安排：2025.12.30 19:00~21:00，高新区 3号学科楼 G3-110。</p>
       
     </div>
     <div class="note-meta">
@@ -387,7 +456,7 @@
     <div class="note-content">
       <h2 class="note-card-title">组合学进阶（24秋期末考试）</h2>
       
-      <p class="note-excerpt">2024年秋季学期组合学进阶期末考试安排：2025-01-10 14:30~16:30，东区 第五教学楼 5403。</p>
+      <p class="note-excerpt">2024年秋季学期组合学进阶期末考试安排：2025.01.10 14:30~16:30，东区 第五教学楼 5403。</p>
       
     </div>
     <div class="note-meta">
@@ -412,7 +481,7 @@
     <div class="note-content">
       <h2 class="note-card-title">运筹学（24秋期末考试）</h2>
       
-      <p class="note-excerpt">2024年秋季学期运筹学期末考试安排：2025-01-07 19:00~21:00，东区 第五教学楼 5104。</p>
+      <p class="note-excerpt">2024年秋季学期运筹学期末考试安排：2025.01.07 19:00~21:00，东区 第五教学楼 5104。</p>
       
     </div>
     <div class="note-meta">
@@ -437,7 +506,7 @@
     <div class="note-content">
       <h2 class="note-card-title">离散数学（24秋期末考试）</h2>
       
-      <p class="note-excerpt">2024年秋季学期离散数学期末考试安排：2025-01-06 08:30~10:30，西区 第三教学楼 3C101。</p>
+      <p class="note-excerpt">2024年秋季学期离散数学期末考试安排：2025.01.06 08:30~10:30，西区 第三教学楼 3C101。</p>
       
     </div>
     <div class="note-meta">
@@ -462,7 +531,7 @@
     <div class="note-content">
       <h2 class="note-card-title">组合学（24秋期末考试）</h2>
       
-      <p class="note-excerpt">2024年秋季学期组合学期末考试安排：2024-12-18 16:00~18:00，东区 第五教学楼 5102。</p>
+      <p class="note-excerpt">2024年秋季学期组合学期末考试安排：2024.12.18 16:00~18:00，东区 第五教学楼 5102。</p>
       
     </div>
     <div class="note-meta">
@@ -487,7 +556,7 @@
     <div class="note-content">
       <h2 class="note-card-title">运筹学（24秋期中考试）</h2>
       
-      <p class="note-excerpt">2024年秋季学期运筹学期中考试安排：2024-11-01 16:00~17:20，东区 第五教学楼 5301。</p>
+      <p class="note-excerpt">2024年秋季学期运筹学期中考试安排：2024.11.01 16:00~17:20，东区 第五教学楼 5301。</p>
       
     </div>
     <div class="note-meta">
@@ -512,7 +581,7 @@
     <div class="note-content">
       <h2 class="note-card-title">组合学（24秋期中考试）</h2>
       
-      <p class="note-excerpt">2024年秋季学期组合学期中考试安排：2024-10-31 09:45~11:45，东区 第二教学楼 2209。</p>
+      <p class="note-excerpt">2024年秋季学期组合学期中考试安排：2024.10.31 09:45~11:45，东区 第二教学楼 2209。</p>
       
     </div>
     <div class="note-meta">
@@ -537,7 +606,7 @@
     <div class="note-content">
       <h2 class="note-card-title">计算机图形学（24春期末考试）</h2>
       
-      <p class="note-excerpt">2024年春季学期计算机图形学期末考试安排：2024-06-23 08:30~10:30，东区 第二教学楼 2105。</p>
+      <p class="note-excerpt">2024年春季学期计算机图形学期末考试安排：2024.06.23 08:30~10:30，东区 第二教学楼 2105。</p>
       
     </div>
     <div class="note-meta">
@@ -562,7 +631,7 @@
     <div class="note-content">
       <h2 class="note-card-title">数值分析（24春期末考试）</h2>
       
-      <p class="note-excerpt">2024年春季学期数值分析期末考试安排：2024-05-15 14:00~16:00，东区 第五教学楼 5503。</p>
+      <p class="note-excerpt">2024年春季学期数值分析期末考试安排：2024.05.15 14:00~16:00，东区 第五教学楼 5503。</p>
       
     </div>
     <div class="note-meta">
@@ -587,7 +656,7 @@
     <div class="note-content">
       <h2 class="note-card-title">线性代数(B2)（23秋期末考试）</h2>
       
-      <p class="note-excerpt">2023年秋季学期线性代数(B2)重修期末考试安排：2024-01-16 14:30~16:30，东区 第五教学楼 5204。</p>
+      <p class="note-excerpt">2023年秋季学期线性代数(B2)重修期末考试安排：2024.01.16 14:30~16:30，东区 第五教学楼 5204。</p>
       
     </div>
     <div class="note-meta">
@@ -612,7 +681,7 @@
     <div class="note-content">
       <h2 class="note-card-title">数学分析(B1)（23秋期末考试）</h2>
       
-      <p class="note-excerpt">2023年秋季学期数学分析(B1)重修期末考试安排：2024-01-14 14:30~16:30，东区 第二教学楼 2321。</p>
+      <p class="note-excerpt">2023年秋季学期数学分析(B1)重修期末考试安排：2024.01.14 14:30~16:30，东区 第二教学楼 2321。</p>
       
     </div>
     <div class="note-meta">
@@ -637,7 +706,7 @@
     <div class="note-content">
       <h2 class="note-card-title">数理统计（23秋期末考试）</h2>
       
-      <p class="note-excerpt">2023年秋季学期数理统计期末考试安排：2024-01-06 19:00~21:00，东区 第五教学楼 5503。</p>
+      <p class="note-excerpt">2023年秋季学期数理统计期末考试安排：2024.01.06 19:00~21:00，东区 第五教学楼 5503。</p>
       
     </div>
     <div class="note-meta">
@@ -662,7 +731,7 @@
     <div class="note-content">
       <h2 class="note-card-title">线性代数(B2)（23秋期中考试）</h2>
       
-      <p class="note-excerpt">2023年秋季学期线性代数(B2)重修期中考试安排：2023-12-03 14:30~16:30，东区 第五教学楼 5503。</p>
+      <p class="note-excerpt">2023年秋季学期线性代数(B2)重修期中考试安排：2023.12.03 14:30~16:30，东区 第五教学楼 5503。</p>
       
     </div>
     <div class="note-meta">
@@ -687,7 +756,7 @@
     <div class="note-content">
       <h2 class="note-card-title">近世代数（23春期末考试）</h2>
       
-      <p class="note-excerpt">2023年春季学期近世代数期末考试安排：2023-07-12 14:30~16:30，东区 第二教学楼 2106。</p>
+      <p class="note-excerpt">2023年春季学期近世代数期末考试安排：2023.07.12 14:30~16:30，东区 第二教学楼 2106。</p>
       
     </div>
     <div class="note-meta">
@@ -712,7 +781,7 @@
     <div class="note-content">
       <h2 class="note-card-title">实分析（23春期末考试）</h2>
       
-      <p class="note-excerpt">2023年春季学期实分析期末考试安排：2023-07-09 08:30~10:30，东区 第一教学楼 1101。</p>
+      <p class="note-excerpt">2023年春季学期实分析期末考试安排：2023.07.09 08:30~10:30，东区 第一教学楼 1101。</p>
       
     </div>
     <div class="note-meta">
@@ -737,7 +806,7 @@
     <div class="note-content">
       <h2 class="note-card-title">复分析（23春期末考试）</h2>
       
-      <p class="note-excerpt">2023年春季学期复分析期末考试安排：2023-06-29 08:30~10:30，西区 第三教学楼 3C204。</p>
+      <p class="note-excerpt">2023年春季学期复分析期末考试安排：2023.06.29 08:30~10:30，西区 第三教学楼 3C204。</p>
       
     </div>
     <div class="note-meta">
@@ -762,7 +831,7 @@
     <div class="note-content">
       <h2 class="note-card-title">毛泽东思想和中国特色社会主义理论体系概论（23春期末考试）</h2>
       
-      <p class="note-excerpt">2023年春季学期毛泽东思想和中国特色社会主义理论体系概论期末考试安排：2023-06-26 14:30~16:30，东区 第一教学楼 1301。</p>
+      <p class="note-excerpt">2023年春季学期毛泽东思想和中国特色社会主义理论体系概论期末考试安排：2023.06.26 14:30~16:30，东区 第一教学楼 1301。</p>
       
     </div>
     <div class="note-meta">
@@ -787,7 +856,7 @@
     <div class="note-content">
       <h2 class="note-card-title">概率论（23春期末考试）</h2>
       
-      <p class="note-excerpt">2023年春季学期概率论期末考试安排：2023-06-04 14:30~16:30，东区 第五教学楼 5306。</p>
+      <p class="note-excerpt">2023年春季学期概率论期末考试安排：2023.06.04 14:30~16:30，东区 第五教学楼 5306。</p>
       
     </div>
     <div class="note-meta">
@@ -812,7 +881,7 @@
     <div class="note-content">
       <h2 class="note-card-title">光学B（23春期末考试）</h2>
       
-      <p class="note-excerpt">2023年春季学期光学B期末考试安排：2023-06-03 09:37~11:36，东区 第五教学楼 5302。</p>
+      <p class="note-excerpt">2023年春季学期光学B期末考试安排：2023.06.03 09:37~11:36，东区 第五教学楼 5302。</p>
       
     </div>
     <div class="note-meta">
@@ -837,7 +906,7 @@
     <div class="note-content">
       <h2 class="note-card-title">实分析（23春期中考试）</h2>
       
-      <p class="note-excerpt">2023年春季学期实分析期中考试安排：2023-05-21 09:00~11:00，东区 第五教学楼 5203。</p>
+      <p class="note-excerpt">2023年春季学期实分析期中考试安排：2023.05.21 09:00~11:00，东区 第五教学楼 5203。</p>
       
     </div>
     <div class="note-meta">
@@ -862,7 +931,7 @@
     <div class="note-content">
       <h2 class="note-card-title">近世代数（23春期中考试）</h2>
       
-      <p class="note-excerpt">2023年春季学期近世代数期中考试安排：2023-05-14 14:30~16:30，东区 第五教学楼 5501。</p>
+      <p class="note-excerpt">2023年春季学期近世代数期中考试安排：2023.05.14 14:30~16:30，东区 第五教学楼 5501。</p>
       
     </div>
     <div class="note-meta">
@@ -887,7 +956,7 @@
     <div class="note-content">
       <h2 class="note-card-title">复分析（23春期中考试）</h2>
       
-      <p class="note-excerpt">2023年春季学期复分析期中考试安排：2023-04-22 08:30~10:30，东区 第五教学楼 5201。</p>
+      <p class="note-excerpt">2023年春季学期复分析期中考试安排：2023.04.22 08:30~10:30，东区 第五教学楼 5201。</p>
       
     </div>
     <div class="note-meta">
@@ -912,7 +981,7 @@
     <div class="note-content">
       <h2 class="note-card-title">原子物理B（22秋期末考试）</h2>
       
-      <p class="note-excerpt">2022年秋季学期原子物理B期末考试安排：2023-03-03 19:00~21:00，东区 第五教学楼 5104。</p>
+      <p class="note-excerpt">2022年秋季学期原子物理B期末考试安排：2023.03.03 19:00~21:00，东区 第五教学楼 5104。</p>
       
     </div>
     <div class="note-meta">
@@ -937,7 +1006,7 @@
     <div class="note-content">
       <h2 class="note-card-title">数学分析(B3)（22秋期末考试）</h2>
       
-      <p class="note-excerpt">2022年秋季学期数学分析(B3)期末考试安排：2023-03-01 08:30~10:30，东区 第五教学楼 5201。</p>
+      <p class="note-excerpt">2022年秋季学期数学分析(B3)期末考试安排：2023.03.01 08:30~10:30，东区 第五教学楼 5201。</p>
       
     </div>
     <div class="note-meta">
@@ -962,7 +1031,7 @@
     <div class="note-content">
       <h2 class="note-card-title">线性代数(B2)（22秋期末考试）</h2>
       
-      <p class="note-excerpt">2022年秋季学期线性代数(B2)期末考试安排：2023-02-23 14:30~16:30，东区 第五教学楼 5401。</p>
+      <p class="note-excerpt">2022年秋季学期线性代数(B2)期末考试安排：2023.02.23 14:30~16:30，东区 第五教学楼 5401。</p>
       
     </div>
     <div class="note-meta">
@@ -987,7 +1056,7 @@
     <div class="note-content">
       <h2 class="note-card-title">微分方程引论（22秋期末考试）</h2>
       
-      <p class="note-excerpt">2022年秋季学期微分方程引论期末考试安排：2023-02-22 14:30~16:30，东区 第五教学楼 5204。</p>
+      <p class="note-excerpt">2022年秋季学期微分方程引论期末考试安排：2023.02.22 14:30~16:30，东区 第五教学楼 5204。</p>
       
     </div>
     <div class="note-meta">
@@ -1012,7 +1081,7 @@
     <div class="note-content">
       <h2 class="note-card-title">马克思主义基本原理（22秋期末考试）</h2>
       
-      <p class="note-excerpt">2022年秋季学期马克思主义基本原理期末考试安排：2023-02-21 14:30~16:30，东区 第五教学楼 5303。</p>
+      <p class="note-excerpt">2022年秋季学期马克思主义基本原理期末考试安排：2023.02.21 14:30~16:30，东区 第五教学楼 5303。</p>
       
     </div>
     <div class="note-meta">
@@ -1037,7 +1106,7 @@
     <div class="note-content">
       <h2 class="note-card-title">线性代数(B2)（22秋期中考试）</h2>
       
-      <p class="note-excerpt">2022年秋季学期线性代数(B2)期中考试安排：2022-11-20 08:30~10:30，东区 第五教学楼 5104。</p>
+      <p class="note-excerpt">2022年秋季学期线性代数(B2)期中考试安排：2022.11.20 08:30~10:30，东区 第五教学楼 5104。</p>
       
     </div>
     <div class="note-meta">
@@ -1062,7 +1131,7 @@
     <div class="note-content">
       <h2 class="note-card-title">线性代数(B1)（22春期末考试）</h2>
       
-      <p class="note-excerpt">2022年春季学期线性代数(B1)期末考试安排：2022-07-03 14:30~16:30，东区 第五教学楼 5504。</p>
+      <p class="note-excerpt">2022年春季学期线性代数(B1)期末考试安排：2022.07.03 14:30~16:30，东区 第五教学楼 5504。</p>
       
     </div>
     <div class="note-meta">
@@ -1087,7 +1156,7 @@
     <div class="note-content">
       <h2 class="note-card-title">数学分析(B2)（22春期末考试）</h2>
       
-      <p class="note-excerpt">2022年春季学期数学分析(B2)期末考试安排：2022-07-01 08:30~10:30，西区 第三教学楼 3C301。</p>
+      <p class="note-excerpt">2022年春季学期数学分析(B2)期末考试安排：2022.07.01 08:30~10:30，西区 第三教学楼 3C301。</p>
       
     </div>
     <div class="note-meta">
@@ -1112,7 +1181,7 @@
     <div class="note-content">
       <h2 class="note-card-title">电磁学A（22春期末考试）</h2>
       
-      <p class="note-excerpt">2022年春季学期电磁学A期末考试安排：2022-06-30 08:30~10:30，东区 第五教学楼 5502。</p>
+      <p class="note-excerpt">2022年春季学期电磁学A期末考试安排：2022.06.30 08:30~10:30，东区 第五教学楼 5502。</p>
       
     </div>
     <div class="note-meta">
@@ -1137,7 +1206,7 @@
     <div class="note-content">
       <h2 class="note-card-title">热学B（22春期末考试）</h2>
       
-      <p class="note-excerpt">2022年春季学期热学B期末考试安排：2022-06-29 08:30~10:30，东区 第五教学楼 5103。</p>
+      <p class="note-excerpt">2022年春季学期热学B期末考试安排：2022.06.29 08:30~10:30，东区 第五教学楼 5103。</p>
       
     </div>
     <div class="note-meta">
@@ -1162,7 +1231,7 @@
     <div class="note-content">
       <h2 class="note-card-title">中国近现代史纲要（22春期末考试）</h2>
       
-      <p class="note-excerpt">2022年春季学期中国近现代史纲要期末考试安排：2022-06-27 14:30~16:30，东区 第五教学楼 5306。</p>
+      <p class="note-excerpt">2022年春季学期中国近现代史纲要期末考试安排：2022.06.27 14:30~16:30，东区 第五教学楼 5306。</p>
       
     </div>
     <div class="note-meta">
@@ -1187,7 +1256,7 @@
     <div class="note-content">
       <h2 class="note-card-title">英语交流II（22春期末考试）</h2>
       
-      <p class="note-excerpt">2022年春季学期英语交流II期末考试安排：2022-06-27 11:10~11:50，东区 第五教学楼 5104。</p>
+      <p class="note-excerpt">2022年春季学期英语交流II期末考试安排：2022.06.27 11:10~11:50，东区 第五教学楼 5104。</p>
       
     </div>
     <div class="note-meta">
@@ -1212,7 +1281,7 @@
     <div class="note-content">
       <h2 class="note-card-title">英语读写II（22春期末考试）</h2>
       
-      <p class="note-excerpt">2022年春季学期英语读写II期末考试安排：2022-06-27 08:30~10:30，东区 第五教学楼 5202。</p>
+      <p class="note-excerpt">2022年春季学期英语读写II期末考试安排：2022.06.27 08:30~10:30，东区 第五教学楼 5202。</p>
       
     </div>
     <div class="note-meta">
@@ -1237,7 +1306,7 @@
     <div class="note-content">
       <h2 class="note-card-title">算法基础（22春期末考试）</h2>
       
-      <p class="note-excerpt">2022年春季学期算法基础期末考试安排：2022-06-14 08:30~10:30，东区 第五教学楼 5204。</p>
+      <p class="note-excerpt">2022年春季学期算法基础期末考试安排：2022.06.14 08:30~10:30，东区 第五教学楼 5204。</p>
       
     </div>
     <div class="note-meta">
@@ -1262,7 +1331,7 @@
     <div class="note-content">
       <h2 class="note-card-title">数据结构与数据库（22春期末考试）</h2>
       
-      <p class="note-excerpt">2022年春季学期数据结构与数据库期末考试安排：2022-06-08 19:00~21:00，西区 第三教学楼 3A112。</p>
+      <p class="note-excerpt">2022年春季学期数据结构与数据库期末考试安排：2022.06.08 19:00~21:00，西区 第三教学楼 3A112。</p>
       
     </div>
     <div class="note-meta">
@@ -1287,7 +1356,7 @@
     <div class="note-content">
       <h2 class="note-card-title">几何学基础（21秋期末考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期几何学基础期末考试安排：2022-01-16 08:30~10:30，东区 第二教学楼 2105。</p>
+      <p class="note-excerpt">2021年秋季学期几何学基础期末考试安排：2022.01.16 08:30~10:30，东区 第二教学楼 2105。</p>
       
     </div>
     <div class="note-meta">
@@ -1312,7 +1381,7 @@
     <div class="note-content">
       <h2 class="note-card-title">数学分析(B1)（21秋期末考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期数学分析(B1)期末考试安排：2022-01-13 08:30~10:30，东区 第五教学楼 5104。</p>
+      <p class="note-excerpt">2021年秋季学期数学分析(B1)期末考试安排：2022.01.13 08:30~10:30，东区 第五教学楼 5104。</p>
       
     </div>
     <div class="note-meta">
@@ -1337,7 +1406,7 @@
     <div class="note-content">
       <h2 class="note-card-title">力学A（21秋期末考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期力学A期末考试安排：2022-01-11 14:30~16:30，东区 第五教学楼 5303。</p>
+      <p class="note-excerpt">2021年秋季学期力学A期末考试安排：2022.01.11 14:30~16:30，东区 第五教学楼 5303。</p>
       
     </div>
     <div class="note-meta">
@@ -1362,7 +1431,7 @@
     <div class="note-content">
       <h2 class="note-card-title">思想道德与法治（21秋期末考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期思想道德与法治期末考试安排：2022-01-10 14:30~16:30，东区 第二教学楼 2121。</p>
+      <p class="note-excerpt">2021年秋季学期思想道德与法治期末考试安排：2022.01.10 14:30~16:30，东区 第二教学楼 2121。</p>
       
     </div>
     <div class="note-meta">
@@ -1387,7 +1456,7 @@
     <div class="note-content">
       <h2 class="note-card-title">英语交流I（21秋期末考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期英语交流I期末考试安排：2022-01-10 11:00~11:30，东区 第五教学楼 5202。</p>
+      <p class="note-excerpt">2021年秋季学期英语交流I期末考试安排：2022.01.10 11:00~11:30，东区 第五教学楼 5202。</p>
       
     </div>
     <div class="note-meta">
@@ -1412,7 +1481,7 @@
     <div class="note-content">
       <h2 class="note-card-title">英语读写I（21秋期末考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期英语读写I期末考试安排：2022-01-10 08:30~10:30，东区 第五教学楼 5102。</p>
+      <p class="note-excerpt">2021年秋季学期英语读写I期末考试安排：2022.01.10 08:30~10:30，东区 第五教学楼 5102。</p>
       
     </div>
     <div class="note-meta">
@@ -1437,7 +1506,7 @@
     <div class="note-content">
       <h2 class="note-card-title">计算机程序设计A（21秋期末考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期计算机程序设计A期末考试安排：2022-01-02 14:30~16:30，东区 第五教学楼 5102。</p>
+      <p class="note-excerpt">2021年秋季学期计算机程序设计A期末考试安排：2022.01.02 14:30~16:30，东区 第五教学楼 5102。</p>
       
     </div>
     <div class="note-meta">
@@ -1462,7 +1531,7 @@
     <div class="note-content">
       <h2 class="note-card-title">科学、技术与工程导论（21秋期末考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期科学、技术与工程导论期末考试安排：2021-12-22 15:55~17:30，东区 第二教学楼 2421。</p>
+      <p class="note-excerpt">2021年秋季学期科学、技术与工程导论期末考试安排：2021.12.22 15:55~17:30，东区 第二教学楼 2421。</p>
       
     </div>
     <div class="note-meta">
@@ -1487,7 +1556,7 @@
     <div class="note-content">
       <h2 class="note-card-title">力学A（21秋期中考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期力学A期中考试安排：2021-11-30 09:45~11:45，东区 第二教学楼 2121。</p>
+      <p class="note-excerpt">2021年秋季学期力学A期中考试安排：2021.11.30 09:45~11:45，东区 第二教学楼 2121。</p>
       
     </div>
     <div class="note-meta">
@@ -1512,7 +1581,7 @@
     <div class="note-content">
       <h2 class="note-card-title">数学分析(B1)（21秋期中考试）</h2>
       
-      <p class="note-excerpt">2021年秋季学期数学分析(B1)期中考试安排：2021-11-20 08:30~10:30，东区 第五教学楼 5102。</p>
+      <p class="note-excerpt">2021年秋季学期数学分析(B1)期中考试安排：2021.11.20 08:30~10:30，东区 第五教学楼 5102。</p>
       
     </div>
     <div class="note-meta">
@@ -1686,6 +1755,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

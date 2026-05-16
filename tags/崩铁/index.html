@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"希儿","url":"/%E5%B8%8C%E5%84%BF/","date":"2020-02-23","tags":["崩崩崩","崩铁","角色","游戏"]},{"title":"2022.11.22 flag：下次打开游戏只能是星穹铁道","url":"/2022.11.22%20flag%EF%BC%9A%E4%B8%8B%E6%AC%A1%E6%89%93%E5%BC%80%E6%B8%B8%E6%88%8F%E5%8F%AA%E8%83%BD%E6%98%AF%E6%98%9F%E7%A9%B9%E9%93%81%E9%81%93/","date":"2022-11-22","tags":["崩铁"]},{"title":"2023.01.19 版号来力！","url":"/2023.01.19%20%E7%89%88%E5%8F%B7%E6%9D%A5%E5%8A%9B%EF%BC%81/","date":"2023-01-19","tags":["崩铁"]},{"title":"2023.03.25 我看你也挺急的，不如明天开服吧","url":"/2023.03.25%20%E6%88%91%E7%9C%8B%E4%BD%A0%E4%B9%9F%E6%8C%BA%E6%80%A5%E7%9A%84%EF%BC%8C%E4%B8%8D%E5%A6%82%E6%98%8E%E5%A4%A9%E5%BC%80%E6%9C%8D%E5%90%A7/","date":"2023-03-25","tags":["崩铁"]},{"title":"崩坏：星穹铁道","url":"/%E5%B4%A9%E5%9D%8F%EF%BC%9A%E6%98%9F%E7%A9%B9%E9%93%81%E9%81%93/","date":"2023-04-26","tags":["崩铁","游戏"]},{"title":"2023.04.27 21抽希儿","url":"/2023.04.27%2021%E6%8A%BD%E5%B8%8C%E5%84%BF/","date":"2023-04-27","tags":["崩铁"]},{"title":"2023.05.07","url":"/2023.05.07/","date":"2023-05-07","tags":["崩铁","反思","课程","数学","学业"]},{"title":"2024.02.12 我觉得空友应该需要这个","url":"/2024.02.12%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/","date":"2024-02-12","tags":["崩崩崩","崩铁","明日方舟","原神","重返未来1999"]},{"title":"匹诺康尼游记","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E6%B8%B8%E8%AE%B0/","date":"2024-04-02","tags":["崩铁","读后感","随笔"]},{"title":"匹诺康尼音阶","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E9%9F%B3%E9%98%B6/","date":"2024-04-03","tags":["崩铁","音乐"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -300,21 +369,21 @@
         class="index-taxonomy__chip"
         href="/tags/%E5%B4%A9%E9%93%81/"
         aria-current="page"
-      >崩铁 · 9</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 5</a>
+      >崩铁 · 10</a>
           
       <a
         role="listitem"
         class="index-taxonomy__chip"
         href="/tags/%E5%B4%A9%E5%B4%A9%E5%B4%A9/"
         
-      >崩崩崩 · 1</a>
+      >崩崩崩 · 2</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%B8%B8%E6%88%8F/"
+        
+      >游戏 · 2</a>
           
       <a
         role="listitem"
@@ -333,6 +402,13 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
+        href="/tags/%E8%A7%92%E8%89%B2/"
+        
+      >角色 · 1</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
         href="/tags/%E8%AF%BE%E7%A8%8B/"
         
       >课程 · 1</a>
@@ -344,13 +420,6 @@
         
       >明日方舟 · 1</a>
           
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/%E6%95%B0%E5%AD%A6/"
-        
-      >数学 · 1</a>
-          
         </div>
         
         <details class="index-taxonomy__tags-details">
@@ -360,6 +429,13 @@
           </summary>
           <div class="index-taxonomy__tags-overflow-sleeve">
             <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%95%B0%E5%AD%A6/"
+        
+      >数学 · 1</a>
               
       <a
         role="listitem"
@@ -381,13 +457,6 @@
         href="/tags/%E9%9F%B3%E4%B9%90/"
         
       >音乐 · 1</a>
-              
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/%E6%B8%B8%E6%88%8F/"
-        
-      >游戏 · 1</a>
               
       <a
         role="listitem"
@@ -469,20 +538,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20240212%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.02.12%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/" class="note-card">
   
-  <img src="/files/qzone-20240212-130430-01.jpg" class="note-cover" alt="20240212 我觉得空友应该需要这个" loading="lazy">
+  <img src="/files/qzone-20240212-130430-01.jpg" class="note-cover" alt="2024.02.12 我觉得空友应该需要这个" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20240212 我觉得空友应该需要这个</h2>
+      <h2 class="note-card-title">2024.02.12 我觉得空友应该需要这个</h2>
       
       <p class="note-excerpt">我觉得空友应该需要这个 几行代码的事，别的游戏你们自己算去 BA概率不变建议自己手算 大小保底机制建议手算 舟和韭的数据是严格按照概率详情里的 原的武器池...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">原神</span>
       
       <span class="note-date">2024 Feb 12</span>
       <span class="note-read">1 min read</span>
@@ -494,13 +563,13 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230507/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.05.07/" class="note-card">
   
-  <img src="/image/banner/nozomizo15.JPG" class="note-cover" alt="20230507" loading="lazy">
+  <img src="/image/banner/minamiquartet2.JPG" class="note-cover" alt="2023.05.07" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230507</h2>
+      <h2 class="note-card-title">2023.05.07</h2>
       
       <p class="note-excerpt">五一后学业崩盘、翘课失眠与虚无感交织的超长流水账；夹杂星铁、概率论挫败与自我剖析。</p>
       
@@ -519,20 +588,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230427%2021%E6%8A%BD%E5%B8%8C%E5%84%BF/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.04.27%2021%E6%8A%BD%E5%B8%8C%E5%84%BF/" class="note-card">
   
-  <img src="/files/qzone-20230427-001735-01.jpg" class="note-cover" alt="20230427 21抽希儿" loading="lazy">
+  <img src="/files/qzone-20230427-001735-01.jpg" class="note-cover" alt="2023.04.27 21抽希儿" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230427 21抽希儿</h2>
+      <h2 class="note-card-title">2023.04.27 21抽希儿</h2>
       
       <p class="note-excerpt">21抽希儿 绀海一生推！ 看图</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">崩铁</span>
       
       <span class="note-date">2023 Apr 27</span>
       <span class="note-read">1 min read</span>
@@ -552,7 +621,7 @@
     <div class="note-content">
       <h2 class="note-card-title">崩坏：星穹铁道</h2>
       
-      <p class="note-excerpt">《崩坏：星穹铁道》开服玩家入坑记录。</p>
+      <p class="note-excerpt">《崩坏：星穹铁道》版本记录。</p>
       
     </div>
     <div class="note-meta">
@@ -560,7 +629,7 @@
       <span class="note-tag">崩铁</span>
       
       <span class="note-date">2023 Apr 26</span>
-      <span class="note-read">1 min read</span>
+      <span class="note-read">5 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -569,20 +638,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230325%20%E6%88%91%E7%9C%8B%E4%BD%A0%E4%B9%9F%E6%8C%BA%E6%80%A5%E7%9A%84%EF%BC%8C%E4%B8%8D%E5%A6%82%E6%98%8E%E5%A4%A9%E5%BC%80%E6%9C%8D%E5%90%A7/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.03.25%20%E6%88%91%E7%9C%8B%E4%BD%A0%E4%B9%9F%E6%8C%BA%E6%80%A5%E7%9A%84%EF%BC%8C%E4%B8%8D%E5%A6%82%E6%98%8E%E5%A4%A9%E5%BC%80%E6%9C%8D%E5%90%A7/" class="note-card">
   
-  <img src="/files/qzone-20230325-195932-01.jpg" class="note-cover" alt="20230325 我看你也挺急的，不如明天开服吧" loading="lazy">
+  <img src="/files/qzone-20230325-195932-01.jpg" class="note-cover" alt="2023.03.25 我看你也挺急的，不如明天开服吧" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230325 我看你也挺急的，不如明天开服吧</h2>
+      <h2 class="note-card-title">2023.03.25 我看你也挺急的，不如明天开服吧</h2>
       
       <p class="note-excerpt">我看你也挺急的，不如明天开服吧</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">崩铁</span>
       
       <span class="note-date">2023 Mar 25</span>
       <span class="note-read">1 min read</span>
@@ -594,20 +663,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230119%20%E7%89%88%E5%8F%B7%E6%9D%A5%E5%8A%9B%EF%BC%81/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.01.19%20%E7%89%88%E5%8F%B7%E6%9D%A5%E5%8A%9B%EF%BC%81/" class="note-card">
   
-  <img src="/files/qzone-20230119-105734-01.jpg" class="note-cover" alt="20230119 版号来力！" loading="lazy">
+  <img src="/files/qzone-20230119-105734-01.jpg" class="note-cover" alt="2023.01.19 版号来力！" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230119 版号来力！</h2>
+      <h2 class="note-card-title">2023.01.19 版号来力！</h2>
       
       <p class="note-excerpt">版号来力！</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">崩铁</span>
       
       <span class="note-date">2023 Jan 19</span>
       <span class="note-read">1 min read</span>
@@ -619,22 +688,47 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20221122%20flag%EF%BC%9A%E4%B8%8B%E6%AC%A1%E6%89%93%E5%BC%80%E6%B8%B8%E6%88%8F%E5%8F%AA%E8%83%BD%E6%98%AF%E6%98%9F%E7%A9%B9%E9%93%81%E9%81%93/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.11.22%20flag%EF%BC%9A%E4%B8%8B%E6%AC%A1%E6%89%93%E5%BC%80%E6%B8%B8%E6%88%8F%E5%8F%AA%E8%83%BD%E6%98%AF%E6%98%9F%E7%A9%B9%E9%93%81%E9%81%93/" class="note-card">
   
-  <img src="/files/qzone-20221122-172838-01.jpg" class="note-cover" alt="20221122 flag：下次打开游戏只能是星穹铁道" loading="lazy">
+  <img src="/files/qzone-20221122-172838-01.jpg" class="note-cover" alt="2022.11.22 flag：下次打开游戏只能是星穹铁道" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20221122 flag：下次打开游戏只能是星穹铁道</h2>
+      <h2 class="note-card-title">2022.11.22 flag：下次打开游戏只能是星穹铁道</h2>
       
       <p class="note-excerpt">flag：下次打开游戏只能是星穹铁道 （让广电总局帮我戒网瘾 急急急急急急急急急急急急急急急我很急 测一年了还没拿到版号 我要玩开放世界回合制游戏！（破音</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">崩铁</span>
       
       <span class="note-date">2022 Nov 22</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%B8%8C%E5%84%BF/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi1.jpg" class="note-cover" alt="希儿" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">希儿</h2>
+      
+      <p class="note-excerpt">希儿条目，连接头像、绀海组、抽卡与《崩坏3》《崩坏：星穹铁道》相关笔记。。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">崩崩崩</span>
+      
+      <span class="note-date">2020 Feb 23</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -801,6 +895,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

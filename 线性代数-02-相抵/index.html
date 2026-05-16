@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>线性代数-02-相抵 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 77</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 453</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 162</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 11</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 4</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">线性代数-02-相抵</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 May 15</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">7 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <blockquote>
+<p>本笔记所属课程：<a href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B1)/" title="">线性代数(B1)</a></p>
+</blockquote>
+<h2 id="初等变换">初等变换</h2>
+<p><strong>初等矩阵</strong> 是指</p>
+<p>$$\begin{aligned}S_{ij}&amp;&amp;=I+E_{ij}+E_{ji}-E_{ii}-E_{jj}&amp;&amp;=\begin{pmatrix}
+⋱\
+&amp; 0 &amp;&amp; 1\
+&amp;&amp;⋱\
+&amp; 1 &amp;&amp; 0\
+&amp;&amp;&amp;&amp; ⋱\
+\end{pmatrix}&amp;&amp;
+\begin{aligned}
+\
+\leftarrow i^{th}\\
+\leftarrow j^{th}\\
+\end{aligned}\
+D_i(\lambda)&amp;&amp;=I+(\lambda-1)E_{ii}&amp;&amp;=\begin{pmatrix}
+⋱\
+&amp; 1\
+&amp;&amp;\lambda\
+&amp;&amp;&amp; 1\
+&amp;&amp;&amp;&amp; ⋱\
+\end{pmatrix}&amp;&amp;
+\begin{aligned}
+\\
+\leftarrow i^{th}\\\
+\end{aligned}\
+T_{ij}(\lambda)&amp;&amp;=I+\lambda E_{ij}&amp;&amp;=\begin{pmatrix}
+⋱\
+&amp; 1 &amp;&amp; \lambda\
+&amp;&amp;⋱\
+&amp;&amp;&amp; 1\
+&amp;&amp;&amp;&amp; ⋱\
+\end{pmatrix}&amp;&amp;
+\begin{aligned}
+\
+\leftarrow i^{th}\\
+\leftarrow j^{th}\\
+\end{aligned}\end{aligned}$$</p>
+<p>它们都是方阵。</p>
+<p>以下三种操作被称为 <strong>初等行变换</strong></p>
+<ul>
+<li>$r_i\leftrightarrow r_j$ ：交换第 $i$ 和第 $j$ 行</li>
+<li>$\lambda r_i$ ：对第 $i$ 行全部乘以非零常数 $\lambda$</li>
+<li>$\lambda r_i\to r_j$ ：将第 $i$ 行的非零常数 $\lambda$ 倍加至第 $j$ 行</li>
+</ul>
+<p>初等列变换同理</p>
+<ul>
+<li>$c_i\leftrightarrow c_j$ ：交换第 $i$ 和第 $j$ 列</li>
+<li>$\lambda c_i$ ：对第 $i$ 行全部乘以非零常数 $\lambda$</li>
+<li>$\lambda c_i\to c_j$ ：将第 $i$ 行的非零常数 $\lambda$ 倍加至第 $j$ 列</li>
+</ul>
+<p>矩阵 $A$ 与初等矩阵相乘可以实现初等变换</p>
+<p>$$\begin{aligned}
+A_{n\times m} &amp;&amp; \mathop{\longrightarrow}\limits^{r_i\leftrightarrow r_j } &amp;&amp; S_{ij,n\times n}\times A_{n\times m}\
+A_{n\times m} &amp;&amp; \mathop{\longrightarrow}\limits^{\lambda r_i } &amp;&amp; D_i(\lambda)<em>{n\times n}\times A</em>{n\times m}\
+A_{n\times m} &amp;&amp; \mathop{\longrightarrow}\limits^{\lambda r_i\to r_j} &amp;&amp; T_{ji}(\lambda)<em>{n\times n}\times A</em>{n\times m}
+\end{aligned}$$</p>
+<p>列变换则是</p>
+<p>$$\begin{aligned}
+A_{n\times m} &amp;&amp; \mathop{\longrightarrow}\limits^{c_i\leftrightarrow c_j} &amp;&amp; A_{n\times m}\times S_{ij,m\times m}\
+A_{n\times m} &amp;&amp; \mathop{\longrightarrow}\limits^{\lambda c_i} &amp;&amp; A_{n\times m}\times D_i(\lambda)<em>{m\times m}\
+A</em>{n\times m} &amp;&amp; \mathop{\longrightarrow}\limits^{\lambda c_i\to c_j} &amp;&amp; A_{n\times m}\times T_{ij}(\lambda)_{m\times m}
+\end{aligned}$$</p>
+<p>需要指出，左乘一个初等矩阵可以实现行变换，右乘初等矩阵就是列变换。</p>
+<p>引入初等矩阵的一个原因是，它们的逆是显然的(如果存在)</p>
+<p>$$S_{ij}^{-1}=S_{ij},\quad D_i(\lambda)^{-1}=D_{i}(\lambda^{-1}),\quad T_{ij}(\lambda)^{-1}=T_{ij}(-\lambda)$$</p>
+<p>容易发现，在域 $\mathbb F$ 上，可以利用非零对角元 $aE_{ii}$ 通过 $T_{ij}(-a^{-1}b)$ 消去 $bE_{ij}$，为零的对角元通过 $S_{ij}$ 交换到末尾，再通过 $D_i(a^{-1})$ 归一化。于是任意矩阵 $A\in\mathrm M_{n,m}(\mathbb F)$ 都可以写成</p>
+<p>$$A=P\begin{pmatrix}
+I_r\
+&amp; O_{n-r,m-r}
+\end{pmatrix}Q$$</p>
+<p>的形式。其中，$P,Q$ 是若干初等矩阵的乘积。但如果 $A\in\mathrm M_{n,m}(\mathbb R)$ ，由于 $a^{-1}$ 不一定存在，以上构造不成立。我们在 $\mathbb R$ 为整环时提供了一种基于辗转相除的讨论。见 $\mathrm{Smith}$ 标准形一节。</p>
+<p>初等矩阵的乘积当然可逆。可逆矩阵可以表示成初等矩阵的乘积 $A=PIQ=PQ$ ，否则 $X=P^{-1}AQ^{-1}$ 不是满射，当然不可逆。于是</p>
+<p><strong>定理</strong>
+可逆矩阵 $\Leftrightarrow$ 可以表示成初等矩阵的乘积</p>
+<p>事实上，仿照初等矩阵的构造方式可以对分块矩阵进行变换。下面给出一些例子</p>
+<p>若 $A_{n\times n}$ 可逆，下式是一种没什么鬼用的行列式计算方法</p>
+<p>$$\begin{pmatrix}I &amp; O\-CA^{-1} &amp; I\end{pmatrix}\begin{pmatrix}A &amp; B\C &amp; D\end{pmatrix}=\begin{pmatrix}A &amp; B\O &amp; D-CA^{-1}B\end{pmatrix}$$</p>
+<p>下式也是常见的变换。</p>
+<p>$$\begin{pmatrix}I_n &amp; A_{n\times m}\B_{m\times n} &amp; I_m\end{pmatrix}\begin{pmatrix}I \-B &amp; I\end{pmatrix}=\begin{pmatrix}I_n-AB &amp; A\ &amp; I_m\end{pmatrix}$$</p>
+<p>$$\begin{pmatrix}I \-B &amp; I\end{pmatrix}\begin{pmatrix}I_n &amp; A_{n\times m}\B_{m\times n} &amp; I_m\end{pmatrix}=\begin{pmatrix}I_n &amp; A\ &amp; I_m-BA\end{pmatrix}$$</p>
+<p>值得一提的是，乘法的方向需要保留。即行变换只能乘在左边，列变换只能乘在右边。</p>
+<h2 id="秩与相抵">秩与相抵</h2>
+<p><strong>定义</strong>
+矩阵 $A$ 具有的非零子式的最高阶数称为矩阵的秩，记作 $rA$</p>
+<p><strong>定理</strong>
+$$r(AB)\leq\min(rA,rB)$$
+<strong>证明</strong>
+用 $rA$ 和 $rB$ 阶的 Caucht-Binet 公式即得 $AB$ 的 $rA,rB$ 阶子式均为 $0$。</p>
+<p><strong>注</strong>
+可逆矩阵行列式非零，故满秩。乘以可逆矩阵不改变矩阵的秩，这一点由上述定理不等号夹逼即得。</p>
+<p>因为初等矩阵均可逆，所以我们上一节得到的 $I_r$ 就表明矩阵的秩和 $I_r$ 相同，为 $r$ 。</p>
+<p>因此，秩相等的矩阵构成一个等价类，称为 <strong>相抵</strong></p>
+<p><strong>定理</strong>
+$$A=P\mathrm{diag}(I_r,O)Q$$</p>
+<p>注意 $P,Q$ 不唯一</p>
+<p>行满秩 $A=P(I_n,O)^T$ 列满秩 $A=(I_m,O)Q$</p>
+<p><strong>定理</strong> [满秩分解定理]
+$rA=r\Leftrightarrow A=PQ$ ，$P$ $r$ 行满秩，$Q$ $r$ 列满秩</p>
+<p><strong>定义</strong></p>
+<p>设有一个线性映射 $\mathcal A:\mathbb V_1\to \mathbb V_2$ ，则</p>
+<p>核
+$$\mathcal{Ker} \mathcal A={x\in \mathbb V_1\mid \mathcal A(x)=0}\subset \mathbb V_1$$</p>
+<p>像
+$$\mathcal{Im} \mathcal A={\mathcal A(x)\in\mathbb V_2\mid x\in\mathbb V_1}\subset \mathbb V_2$$</p>
+<p><strong>定理</strong> [线性映射基本定理]
+$$\dim \mathbb V_1=\dim\mathcal{Im}\mathcal A+\dim\mathcal{Ker}\mathcal A$$</p>
+<p>且存在一组基 $M_1,M_2$ 使得 $\mathcal A$ 在这组基下的矩阵是</p>
+<p>$$\begin{pmatrix}I_r \ &amp; O\end{pmatrix},r=\mathrm{rank}\mathcal A$$</p>
+<p>证明：咕</p>
+<p>我们记 $\mathrm{rank}\mathcal A=\dim\mathcal{Im}\mathcal A$ 为线性映射 $\mathcal A:\mathbb V_1\to \mathbb V_2$ 的 <strong>秩</strong> 。</p>
+<ul>
+<li>初等变换不改变矩阵的秩</li>
+</ul>
+<h2 id="秩的等式与不等式">秩的等式与不等式</h2>
+<p>$$rank\begin{pmatrix}A &amp; C\ &amp; B\end{pmatrix}\geqrank\begin{pmatrix}A \ &amp; B\end{pmatrix}=rank(A)+rank(B)$$</p>
+<p>$$rank(AB)+rank(BC)\geqrank(ABC)+rank(B)$$</p>
+<p>$$rank(A)+rank(B)\geqrank(AB)+n$$</p>
+<p>此处要注意到，行变换是左乘，列变换是右乘。如果矩阵元素不交换，例如是矩阵，此时会有区别。</p>
+<h2 id="广义逆">广义逆</h2>
+<h2 id="textrm-Smith">\textrm {Smith</h2>
+<p>我们研究整环上的矩阵 $\mathrm M_{n,m}(\mathbb Z)$ 的可逆性。我们知道，辗转相除法是整环上的重要处理方法。于是可以想到，任意矩阵 $A\in\mathrm M_{n,m}(\mathbb Z)$ 可以通过辗转相除使得 $\textrm {gcd}$ 位于 $E_{1,1}$ 处。形式化地，设 $a_{1,1}\neqq0$ ，否则与矩阵中任意不为 $0$ 的项交换。设带余除法</p>
+<p>$$a_{1,j}=qa_{1,1}+r$$</p>
+<p>那么，通过 $T_{1,j}(-q)$ 和 $S_{1,j}$ 可以实现第一行中所有元素的辗转相除，</p>
+<p>最后使得 $\mathrm{gcd} (a_{1,j})$ 位于 $E_{1,1}$ 处。</p>
+<p>此时，$a_{1,1}$ 整除第一行和第一列的所有元素，于是可以消去第一行第一列的其他元素。然后将第二行和第二列加至第一行第一列，则又能得到前两行前两列的 gcd 。最后可以使 $a_{1,1}=gcd (a_{i,j})$ ，再将第一行第一列消去。</p>
+<p>对 $a_{2,2}$ 也如上操作，可以得到 $a_{2,2}=gcd(a_{ij}),\quad i\geq 2,j\geq 2$ 。最后我们得到一个对角阵</p>
+<p>$$A=P\begin{pmatrix}diag_r(d_k) &amp; O_{r,m-r}\ O_{n-r,r} &amp; O_{n-r,m-r}\end{pmatrix}Q$$</p>
+<p>其中 $d_k\mid d_{k+1}\quad (1\leq k\leq r-1)$ 。在这里，初等变换是 $S_{i,j}$ 和 $T_{i,j}(\lambda)$ 。</p>
+<p>我们下面证明这个形式，以及 ${d_k}$ 是唯一的。这个形式就称为 $\mathrm{Smith}$ <strong>标准形</strong> 。
+<strong>定理</strong>
+<strong>证明</strong>
+考虑矩阵 $A,B\in M_{n,m}(\mathbb Z)$ 满足 $B=PAQ$ ，其中 $P,Q$ 是若干初等矩阵乘积。两边取 $k$ 阶子式，得到</p>
+<p>$$B(i,j)_k=\sum_s\sum_t P(i,s)_kA(s,t)_kQ(t,j)_k$$</p>
+<p>设矩阵所有 $k$ 阶子式的 $gcd$ 为 $D_k$ ，由于 $B$ 的子式由 $A$ 的子式组合而来，所以有 $D_k(A)\mid D_k(B)$ 。反过来也有 $A=P^{-1}BQ^{-1}$ ，于是 $D_k(B)\mid D_k(A)$。这说明</p>
+<p>$$D_k(B)=D_k(PAQ)=D_k(A)$$</p>
+<p>即可逆变换不改变 $D_k$ ，或者说，初等变换不改变 $D_k$ 。我们称 $D_k(A)$ 是矩阵 $A\in\mathrm M(\mathbb Z)$ 的 <strong>行列式因子</strong>。而 $\mathrm{Smith}$ 标准形的 $k$ 阶子式只有一个值 $d_1d_2… d_k$ ，于是</p>
+<p>$$D_k=d_1d_2… d_k$$</p>
+<p>约定 $D_0=1$ ，于是 $d_k=\dfrac {D_k}{D_{k-1}}$ 是唯一确定的。$d_k$ 称为 $A$ 的 <strong>不变因子</strong>。其中</p>
+<p>$$D_1=d_1=gcd(a_{ij})$$</p>
+<p>$$D_n=\det A$$</p>
+<p>$A$ 的 <strong>初等因子组</strong> 指 $d_k$ 的初等因子分解组成的序列。这个序列形如</p>
+<p>$$\begin{aligned}d_1 &amp;= p_1^{c_{1,1}}p_2^{c_{1,2}}…\ d_2&amp;=p_1^{c_{2,1}}p_2^{c_{2,2}}… \&amp;…\ d_n&amp;= p_1^{c_{n,1}}p_2^{c_{n,2}}p_3^{c_{n,3}}…\end{aligned}$$</p>
+<p>其中 $c_{1,1}\leq c_{2,1}\leq…$。</p>
+<p>对角阵一定可以由初等因子组重新排列次数得到</p>
+<hr>
+<p>← 上一篇：<a href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-01-%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4/" title="">线性代数-01-线性空间</a></p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E4%BB%A3%E6%95%B0%E5%AD%A6/">代数学</a>
+                            
+                                <a class="post-backlinks__link" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-03-%E7%9B%B8%E4%BC%BC/">线性代数-03-相似</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E5%AE%9E%E5%88%86%E6%9E%90-01-%E6%B5%8B%E5%BA%A6%E8%AE%BA/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">实分析-01-测度论</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-03-%E7%9B%B8%E4%BC%BC/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">线性代数-03-相似</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2"><span class="post-toc-text">初等变换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A7%A9%E4%B8%8E%E7%9B%B8%E6%8A%B5"><span class="post-toc-text">秩与相抵</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A7%A9%E7%9A%84%E7%AD%89%E5%BC%8F%E4%B8%8E%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="post-toc-text">秩的等式与不等式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B9%BF%E4%B9%89%E9%80%86"><span class="post-toc-text">广义逆</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#textrm-Smith"><span class="post-toc-text">\textrm {Smith</span></a></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

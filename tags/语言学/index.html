@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2023.08.22 赞美所有读写高度对应的语言","url":"/2023.08.22%20%E8%B5%9E%E7%BE%8E%E6%89%80%E6%9C%89%E8%AF%BB%E5%86%99%E9%AB%98%E5%BA%A6%E5%AF%B9%E5%BA%94%E7%9A%84%E8%AF%AD%E8%A8%80/","date":"2023-08-22","tags":["语言学"]},{"title":"正统汉语在客家","url":"/%E6%AD%A3%E7%BB%9F%E6%B1%89%E8%AF%AD%E5%9C%A8%E5%AE%A2%E5%AE%B6/","date":"2024-01-20","tags":["随笔","语言学"]},{"title":"欧洲语言导论","url":"/%E6%AC%A7%E6%B4%B2%E8%AF%AD%E8%A8%80%E5%AF%BC%E8%AE%BA/","date":"2026-05-14","tags":["语言学"]},{"title":"SSML","url":"/SSML/","date":"2026-05-14","tags":["语言学","语音"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -316,13 +385,6 @@
         
       >语音 · 1</a>
           
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 1</a>
-          
         </div>
         
       </div>
@@ -333,6 +395,31 @@
 
 
                 <div class="notes-grid">
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%AC%A7%E6%B4%B2%E8%AF%AD%E8%A8%80%E5%AF%BC%E8%AE%BA/" class="note-card">
+  
+  <img src="/files/rafa_107676065_p0_%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0.jpg" class="note-cover" alt="欧洲语言导论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">欧洲语言导论</h2>
+      
+      <p class="note-excerpt">学术英语中的拉丁词根、法语罗曼语联系，以及拉丁语屈折、变格与欧洲主要语族关系的入门梳理。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">语言学</span>
+      
+      <span class="note-date">2026 May 14</span>
+      <span class="note-read">11 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
                 
                     <div class="notes-grid__cell">
                         
@@ -351,33 +438,8 @@
       
       <span class="note-tag">语言学</span>
       
-      <span class="note-date">2026 Apr 25</span>
+      <span class="note-date">2026 May 14</span>
       <span class="note-read">3 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E6%AC%A7%E6%B4%B2%E8%AF%AD%E8%A8%80%E5%AF%BC%E8%AE%BA/" class="note-card">
-  
-  <img src="/image/banner/nozomizo33.JPG" class="note-cover" alt="欧洲语言导论" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">欧洲语言导论</h2>
-      
-      <p class="note-excerpt">学术英语中的拉丁词根、法语罗曼语联系，以及拉丁语屈折、变格与欧洲主要语族关系的入门梳理。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">语言学</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">11 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -411,20 +473,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230822%20%E8%B5%9E%E7%BE%8E%E6%89%80%E6%9C%89%E8%AF%BB%E5%86%99%E9%AB%98%E5%BA%A6%E5%AF%B9%E5%BA%94%E7%9A%84%E8%AF%AD%E8%A8%80/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.22%20%E8%B5%9E%E7%BE%8E%E6%89%80%E6%9C%89%E8%AF%BB%E5%86%99%E9%AB%98%E5%BA%A6%E5%AF%B9%E5%BA%94%E7%9A%84%E8%AF%AD%E8%A8%80/" class="note-card">
   
-  <img src="/image/banner/nozomizo31.JPG" class="note-cover" alt="20230822 赞美所有读写高度对应的语言" loading="lazy">
+  <img src="/image/banner/nozomizo28.JPG" class="note-cover" alt="2023.08.22 赞美所有读写高度对应的语言" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230822 赞美所有读写高度对应的语言</h2>
+      <h2 class="note-card-title">2023.08.22 赞美所有读写高度对应的语言</h2>
       
       <p class="note-excerpt">赞美所有读写高度对应的语言</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">语言学</span>
       
       <span class="note-date">2023 Aug 22</span>
       <span class="note-read">1 min read</span>
@@ -593,6 +655,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

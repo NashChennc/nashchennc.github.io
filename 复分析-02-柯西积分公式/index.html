@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>复分析-02-柯西积分公式 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 77</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 453</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 162</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 11</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 4</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">复分析-02-柯西积分公式</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 May 15</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">8 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <blockquote>
+<p>本笔记所属课程：<a href="/%E5%A4%8D%E5%88%86%E6%9E%90/" title="">复分析</a></p>
+</blockquote>
+<p>直接用 $\mathrm{Riemann}$ 积分定义，参考曲线积分。</p>
+<p>$$\int_{\gamma}fdz=\int_{\gamma}(u+iv)d(x+iy)=\int_{\gamma}(udx-vdy)+i\int_{\gamma}(vdx+udy)$$</p>
+<ul>
+<li>$\mathbf{Theorem}\ 0.0:$ 设 $f\in C(D)$ ，$\forall\gamma \subset D,\int_{\gamma}fdz=0$ ，则</li>
+</ul>
+<p>$$\exists F(z)=\int_{z_0}^z f(\zeta)d\zeta,\quad F’(z)=f(z)$$</p>
+<p>于是</p>
+<p>$$\int_a^b f(\zeta)d\zeta=F(b)-F(a)$$</p>
+<ul>
+<li>计算：如果 $\gamma:[0,1]\to\mathbb C$ 光滑，则</li>
+</ul>
+<p>$$\int_{\gamma}f(z)dz=\int_0^1f(z(t))z’(t)dt$$</p>
+<ul>
+<li>长大不等式：由三角不等式可知</li>
+</ul>
+<p>$$|\int_{\gamma}fdz|\leq \int_{\gamma}|fdz|=\int_{\gamma}|f|\cdot |dz|\leq ML$$</p>
+<p>其中 $M=\max_{\gamma} f,\quad L=|\gamma|$</p>
+<ul>
+<li>面积公式</li>
+</ul>
+<p>$$|D|=-\frac 12i\int_{\partial D}\overline z dz$$</p>
+<p>注意 $d\overline z\land dz=2i dx\land dy$ 。读者自证不难。</p>
+<h2 id="textrm-Cauchy">\textrm{Cauchy</h2>
+<ul>
+<li>${\mathbf{Theorem}\ 1.0}\ \mathrm{(Cauchy,1825)}:$ 对于一个单连通区域 $D\subset \mathbb C$ ，可求长简单闭曲线 $\gamma\subset D$，如果 $f\in H(D)\cap C^1(D)$ ，那么</li>
+</ul>
+<p>$$\int_{\partial D}fdz=0$$</p>
+<p>上式由 $\mathrm{C}-R$ 方程和 $\mathrm{Green}$ 公式立证。注意，我们未证 $H(D)\subset C^{\infty}(D)$ ，这在后一节才有证明。
+$$\begin{aligned}\int_{\partial D}fdz&amp;=\int_{\partial D}(udx-vdy)+i\int_{\partial D}(vdx+udy)\
+&amp;=-\iint_D((\partial_xv+\partial_yu)+i(\partial_xu-\partial_yv))dxdy\
+&amp;=0\end{aligned}$$</p>
+<p>$\mathrm{Goursat}$ 发现，我们不必假设 $f\in C^1(D)$ 也可推得边界积分为 $0$ 。并且由此还可以推得 $H(D)\subset C^{\infty}(D)$ 。
+我们先证引理</p>
+<ul>
+<li>${\mathbf{Lemma}\ 1.1(1)}:$ 积分意义下，曲线有折线逼近</li>
+</ul>
+<p>$\mathrm{Proof}.$ 直接写 $\varepsilon$ 可证。$□$</p>
+<ul>
+<li>${\mathbf{Theorem}\ 1.1}\ \mathrm{(Goursat,1900)}:$ 对于一个单连通区域 $D\subset \mathbb C$ ，可求长简单闭曲线 $\gamma\subset D$，如果 $f\in H(D)$ ，那么</li>
+</ul>
+<p>$$\int_{\gamma}fdz=0$$</p>
+<p>$\mathrm{Proof}.\quad$ 先假设 $D$ 是三角形区域。考虑连接三角形中点，划分为 $4$ 部分，则</p>
+<p>$$\int_{\partial D}fdz=\sum_{k=1}^4\int_{\partial D^{(k)}}fdz\leq4 \max\int_{\partial D^{(k)}} fdz$$</p>
+<p>记沿其中一个三角形的积分最大，迭代取三角形，记作 $D\supset D_1\supset D_2\supset…$ ，有</p>
+<p>$$|\partial D_n|=2^{-n}|\partial D|$$</p>
+<p>$$\int_{\partial D}fdz\leq 4^n\int_{\partial D_n} fdz$$</p>
+<p>由于 $D_n$ 直径 $\to 0$ ，由闭集套定理，</p>
+<p>$$\exists !z_0\in\lim_{n\to \infty} D_n\subset D$$</p>
+<p>$\forall z\in D$ ，有 $f(z)=f(z_0)+f’(z_0)\cdot(z-z_0)+o(z-z_0)$</p>
+<p>$$\begin{aligned}
+|\int_{\partial D_n} fdz|&amp;=|\int_{\partial D_n} (f(z_0)+f’(z_0)\cdot(z-z_0)+o(z-z_0))dz|\
+&amp;=|\int_{\partial D_n} o(z-z_0)dz|\
+&amp;\leq 4^{-n}L^2\sup|o(1)|
+\end{aligned}$$</p>
+<p>于是
+$$\int_{\partial D}fdz\leq L^2\sup|o(1)|\to 0$$</p>
+<p>容易证明多边形上是成立的。</p>
+<p>由 $\mathrm{Lemma}\ 1.1(1)$ 知任意闭曲线内部成立。 $□$</p>
+<p>事实上这个结论有加强，在曲线上（边界）不必是全纯的，只需在边界上连续。但证明需要用到额外知识，不证。</p>
+<ul>
+<li>${\mathbf{Theorem}\ 1.2}:$ 若 $D\subset \mathbb C$ 是可求长简单闭曲线 $\gamma$ 围成的区域，如果 $f\in H(D)\cap C(\overline D)$ ，那么</li>
+</ul>
+<p>$$\int_{\gamma}fdz=0$$</p>
+<p>证明单连通之后，我们可以证明挖去若干区域也是成立的。</p>
+<ul>
+<li>${\mathbf{Theorem}\ 1.3}:$ 若 $D\subset \mathbb C$ 是曲线围成的区域挖去曲线围成的区域， $f\in H(D)\cap C(\overline D)$ ，那么</li>
+</ul>
+<p>$$\int_{\partial D}fdz=0$$</p>
+<p>$\mathrm{Proof}.\quad$ 类似 $\mathrm{Green}$ 公式，对区域边界诱导定向，连接辅助线，即得。$□$</p>
+<ul>
+<li>$\mathbf{Inference}\ 1.3(1):$ 设有两条可求长简单闭曲线 $\gamma_0,\gamma_1$ ，内部 $D_1\subset D_0$ ，如果 $f$ 在这之间全纯， 则</li>
+</ul>
+<p>$$\int_{\gamma_0}fdz=\int_{\gamma_1}fdz$$</p>
+<p>这条推论很多时候都是很有用的。例如可以得到</p>
+<ul>
+<li>$\mathbf{Inference}\ 1.3(2):$</li>
+</ul>
+<p>$$\int_{\gamma}\frac 1{z-a}dz=2\pi i\cdot[a\in D(\gamma)]$$</p>
+<p>$\mathrm{Proof}.\quad$ $\forall \gamma,a\in D(\gamma)$ 时沿包围 $\gamma$ 的圆积分一圈。$□$</p>
+<p>这是凑复积分时的核心公式之一。</p>
+<ul>
+<li>$\mathbf{Inference}\ 1.3(3):$ 设 $f(z)\in H(\mathbb C),{\mathrm{e}.g.\ }\mathbb C[z],e^z,\sin z$</li>
+</ul>
+<p>$$\int_{\gamma}f(z)dz=0$$</p>
+<ul>
+<li>$\mathbf{Inference}\ 1.3(4):$ 设 $f\in H(B(a,R))$ ，$\forall r&lt;R$</li>
+</ul>
+<p>$$f(a)=\frac 1{2\pi}\int_0^{2\pi}f(a+re^{i\theta}){\mathrm{d}}\theta$$</p>
+<p>取实部，就得到调和函数的平均值公式。</p>
+<ul>
+<li>换元时要注意转圈圈数。事实上，如果换元时没有转满整数圈，处理会变得麻烦，不如后面的 $\mathrm{Cauchy}$ 公式方便。</li>
+</ul>
+<h2 id="textrm-Cauchy-2">\textrm{Cauchy</h2>
+<ul>
+<li>$\mathbf{Theorem}\ 2.1\ (Cauchy 积分公式):$ 若 $D\subset \mathbb C$ 是可求长简单闭曲线 $\gamma$ 围成的区域，如果 $f\in H(D)\cap C(\overline D)$ ，那么 $\forall z\in D$ ，</li>
+</ul>
+<p>$$f(z)=\frac 1{2\pi i}\int_{\gamma}\frac {f(\zeta)}{\zeta -z} d\zeta$$</p>
+<p>$\mathrm{Proof}.\quad$ 在 $D$ 中取 $B(z,r\to 0)$ 。由于 $\dfrac {f(\zeta)}{\zeta -z}$ 在 $r_1&lt;|\zeta|&lt;r_2$ 之间全纯。由 $\mathrm{I1}.4(1)$ ，任取 $r$ 积分结果相同，简记作 $I(\gamma)=I®=I$ 。</p>
+<p>$$|I®-f(z)|=\left|\frac 1{2\pi i}\int_{\partial B}\frac {f(\zeta)}{\zeta -z} d\zeta-f(z)\right|=\left|\frac 1{2\pi i}\int_{\partial B}\frac {f(\zeta)-f(z)}{\zeta -z} d\zeta\right|\leq \frac 1{2\pi}\cdot\frac{\varepsilon}r\cdot 2\pi r=\varepsilon$$</p>
+<p>于是 $I®\to f(z)$ ，即 $I=f(z)$ 。$□$</p>
+<ul>
+<li>$\mathbf{Theorem}\ 2.2:$ 若 $D\subset \mathbb C$ 是可求长简单闭曲线 $\gamma$ 围成的区域，如果 $f\in H(D)\cap C(\overline D)$ ，那么 $f^{(n)}\in H(D)$ ，且</li>
+</ul>
+<p>$$f^{(n)}(z)=\frac {n!}{2\pi i}\int_{\gamma}\frac {f(\zeta)}{(\zeta -z)^{n+1}} d\zeta$$</p>
+<p>$\mathrm{Proof}.\quad$</p>
+<p>证明好长（咕）</p>
+<p>这个证明证明了现在的情况下求导和积分可以交换。 $□(?)$</p>
+<ul>
+<li>$\mathbf{Inference}\ 2.2(1)\ \mathrm{(Morera)}:$ $f\in C^0(D)$ ，且对任意简单可求长闭合曲线 $\gamma\subset D$ ，使得 $\int_{\gamma}f(z)dz=0$ ，则 $f\in H(D)$</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ 由于有势，由于势复可微，由 $\mathrm{T2}.2$ 知本身也复可微。 $□$</p>
+<p>事实上有加强：只需 $\gamma$ 是 $D$ 内的三角形。</p>
+<ul>
+<li>$\mathbf{Theorem}\ 2.3:$ 在 $\mathrm{T} 1.4$ 的条件（挖洞）中，$\mathrm{T2}.1,T2.2$ 也成立</li>
+</ul>
+<p>证明是直接缝合，不赘</p>
+<ul>
+<li>$\mathbf{Inference}\ 2.3(1):$ $H(D)\subset C^{\infty}(D)$ 。</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ $f\in H(D)\subset C(D)$ 。$\forall n,f^{(n)}\in H(D)\subset C(D)$ ，于是 $H(D)\subset C^{\infty}(D)$ 。 $□$</p>
+<p>联立前面的积分定理，可得</p>
+<p>$$
+\int_{\gamma}\frac {f(\zeta)}{(\zeta -z)^{n+1}} d\zeta=
+\begin{cases}
+\frac{2\pi i}{n!}f^{(n)}(z) &amp; z\in D\cr
+0 &amp;z\in D^e
+\end{cases}
+$$</p>
+<ul>
+<li>$\mathbf{Algorithm}\ 2.1:$ 我们现在给出分式复积分（分子可包含整函数）的方法。对积分</li>
+</ul>
+<p>$$\int_{\gamma}f(\zeta) d\zeta$$</p>
+<p>设</p>
+<p>$$f(\zeta)=\frac {f_j(\zeta)}{(\zeta -z_j)^{r_j+1}}$$</p>
+<p>利用挖洞 $B(z_j,r)$ ，从而将支点 $z_j$ 挖出 $\gamma$ 。设</p>
+<p>$$\int <em>{\gamma}=\int</em>{B(z_j)}+\int_{\gamma_j}$$</p>
+<p>那么支点不在 $\gamma_j$ 内。</p>
+<p>$$\int_{\gamma}f(\zeta) d\zeta=\frac{2\pi i}{r_j!}f_j^{(r_j)}(z_j)+\int_{\gamma_j}f(\zeta) d\zeta$$</p>
+<p>重复该步骤，直到曲线内部没有支点时积分得 $0$ ，结果已经全部提出积分符号。</p>
+<ul>
+<li>$\mathbf{Theorem}\ 2.4:$ 无界域的 $\mathrm{Cauchy}$ 公式。设 $\gamma$ 是可求长简单闭曲线，设内部为 $G$ 。如果 $f\in H(G_1)\cap C(\overline G_1)$ ，而且</li>
+</ul>
+<p>$$\lim_{z\to \infty}f(z)=A$$</p>
+<p>那么</p>
+<p>$$\frac 1{2\pi i}\int_{\gamma}\frac {f(\zeta)}{\zeta -z} d\zeta=\begin{cases}A-f(z) &amp;z\in G^e\cr A &amp; z\in G\end{cases}$$</p>
+<p>$\mathrm{Proof}.\quad$ 将 $\mathrm{Cauchy}$ 积分公式证明中的 $B(z,r\to 0)$ 改成了 $B(z,r\to \infty)$即可。</p>
+<p>取充分大 $r$ ，使 $B(z,r)$ 包含 $G$ ，此时 $\dfrac 1{\zeta-z}f(\zeta)$ 在 $r&lt;r_1&lt;|\zeta|&lt;r_2$ 之间全纯。由 $\mathrm{I1}.4(1)$ ，任取 $r$ 积分结果相同，简记作 $I®=I$ 。</p>
+<p>$$|I®-A|=\left|\frac 1{2\pi i}\int_{\partial B}\frac {f(\zeta)-A}{\zeta -z} d\zeta\right|\leq \frac 1{2\pi}\cdot\frac{\varepsilon}r\cdot 2\pi r=\varepsilon$$</p>
+<p>$I®\to A$ ，于是 $I=A$。</p>
+<p>对 $z\in G$ ， $\dfrac {f(\zeta)}{\zeta -z}$ 在 $\gamma$ 和 $B(a,r)$ 之间全纯，直接有</p>
+<p>$$\int_{\gamma}=I=A\quad$$</p>
+<p>对 $z\in G^e$ ，由 $\mathrm{T2}.3$ 有 $f(z)=I-\int_{\gamma}$ ，所以</p>
+<p>$$\int_{\gamma}=I-f(z)=A-f(z)$$</p>
+<p>$□$</p>
+<h2 id="一些有用的结论">一些有用的结论</h2>
+<ul>
+<li>$\mathbf{Theorem}\ 3.1\ (Cauchy 不等式):$ 设 $a\in\mathbb C$ ，如果 $f\in H(B(a,R))$ 那么</li>
+</ul>
+<p>$$\left|f^{(n)}(a)\right|\leq\frac{n!}{R^n}\sup_{|z-a|&lt;R}|f(z)|$$</p>
+<p>$\mathrm{Proof}.\quad$ 取 $r\to R^-$ 由长大不等式立得</p>
+<p>$$\left|f^{(n)}(a)\right|=\frac {n!}{2\pi}\left|\int_{\partial B®}\frac {f(\zeta)}{(\zeta -a)^{n+1}} d\zeta\right|\leq\frac {n!}{2\pi}\frac 1{R^{n+1}}\sup_{|z-a|&lt;R}|f(z)|\cdot 2\pi R=\frac{n!}{R^n}\sup_{|z-a|&lt;R}|f(z)|$$</p>
+<p>$□$</p>
+<ul>
+<li>$\mathbf{Theorem}\ 3.2\ \mathrm{(Liouville)}:$ 有界整函数是常数</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ $\forall a\in\mathbb C$ ，由 $\mathrm{Cauchy}$ 不等式 ，取 $n=1$ ，令 $R\to +\infty$ ，若 $M=\sup |f|$ ，可知</p>
+<p>$$\left|f’(a)\right|\leq\frac MR\to 0$$</p>
+<p>因此 $f’\equiv 0$ 。即 $f\equiv C$ 。$□$</p>
+<p>注意，这不意味着非常值整函数在 $\infty$ 处 $\to\infty$ ，也可能不存在。例如 $e^z$ 沿负实轴 $\to 0$ 。</p>
+<ul>
+<li>$\mathbf{Inference}\ 3.2(1):$ $\mathbb C$ 上非常值整函数 $f$ 的像在 $\mathbb C$ 稠密。</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ 设 $f(\mathbb C)$ 在某 $B(w_0,r)$ 内无取值，这意味着 $|f(z)-w_0|&gt;r$ 。</p>
+<p>构造 $g=\dfrac{1}{f-w_0},|g|\leq \dfrac 1r$ 是有界整函数，于是 $g,f$ 是常数，矛盾！ $□$</p>
+<ul>
+<li>$\mathbf{Inference}\ 3.2(2):$ $\mathbb R^2$ 上非负调和函数 $u$ 是常数。</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ 设 $f=u+iv\in H(\mathbb C)$ ，由 $u\geq 0$ 构造 $g=\dfrac 1{f+1},|g|\leq 1$ 是有界整函数。于是 $g,f,u$ 是常数。 $□$</p>
+<ul>
+<li>$\mathbf{Theorem}\ 3.3\ (代数学基本定理):$ $\mathbb C$ 上非常值多项式 $P(z)$ 必有零点。</li>
+</ul>
+<p>$\mathrm{Proof}.\quad$ 反证法。如果 $P(z)$ 无零点，那么 $\dfrac 1{P(z)}$ 是整函数。</p>
+<p>因为 $P(z)\to \infty$ ，因此 $\dfrac 1{P(z)}\to 0$ 讨论某 $B(0,R)$ 内外可知 $\dfrac 1{P(z)}$ 有界。由 $\mathrm{Liouville}$ 定理知 $P(z)$ 是常数，矛盾！ $□$</p>
+<p>作为补充，增加一个例子</p>
+<ul>
+<li>$\mathbf{Example}\ 1:$ 复变中没有微分中值定理</li>
+</ul>
+<p>考虑 $f(z)=(z-a)(z-b)(z-c)$ ，$a,b,c$ 是三角形。</p>
+<p>驻点 $f’(z)=0$ 只有至多两个，显然与 $\mathbb R^2$ 上的微分中值定理冲突。事实上可以证明驻点在三角形内。</p>
+<h2 id="非齐次-textrm-Cauchy">非齐次 \textrm{Cauchy</h2>
+<p>定义形式算子</p>
+<p>$$\partial:\partial f=\frac{\partial f}{\partial z}\textrm d z,\quad\overline \partial:\overline\partial f=\frac{\partial f}{\partial \overline z} \textrm d \overline z$$</p>
+<p>$$\textrm d=\partial+\overline{\partial}$$</p>
+<ul>
+<li>$\mathbf{Theorem}\ 4.1\rm (Pompeiu,1912):$ 设 $D$ 是单连通挖洞，对 $f\in C^1(\overline D)$ ，$\forall z\in D$</li>
+</ul>
+<p>$$f(z)=\frac 1{2\pi i}\int_{\partial D}\frac 1{\zeta-z}f(\zeta)\textrm d\zeta+\frac 1{2\pi i}\int_{D}\frac 1{\zeta-z}\frac{\partial f(\zeta)}{\partial\overline{\zeta}}\textrm d\zeta\land\textrm d\overline{\zeta}$$</p>
+<p>证明书上有，不抄了。</p>
+<p>当 $f\in H(D)$ 时，$\dfrac{\partial f}{\partial\overline{\zeta}}=0$ ，此时右半部分为 $0$ ，即为柯西公式。</p>
+<p>顺便，右半部分是 $\overline{\partial}$ 问题的解。</p>
+<hr>
+<p>← 上一篇：<a href="/%E5%A4%8D%E5%88%86%E6%9E%90-01-%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/" title="">复分析-01-复变函数</a></p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E5%88%86%E6%9E%90%E5%AD%A6/">分析学</a>
+                            
+                                <a class="post-backlinks__link" href="/%E5%A4%8D%E5%88%86%E6%9E%90-03-%E5%A4%8D%E7%BA%A7%E6%95%B0/">复分析-03-复级数</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E5%88%86%E6%9E%90-07-%E5%BC%A0%E9%87%8F/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">分析-07-张量</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/%E5%A4%8D%E5%88%86%E6%9E%90-03-%E5%A4%8D%E7%BA%A7%E6%95%B0/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">复分析-03-复级数</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#textrm-Cauchy"><span class="post-toc-text">\textrm{Cauchy</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#textrm-Cauchy-2"><span class="post-toc-text">\textrm{Cauchy</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E7%BB%93%E8%AE%BA"><span class="post-toc-text">一些有用的结论</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9D%9E%E9%BD%90%E6%AC%A1-textrm-Cauchy"><span class="post-toc-text">非齐次 \textrm{Cauchy</span></a></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

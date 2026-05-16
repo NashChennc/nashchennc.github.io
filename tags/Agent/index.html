@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -285,6 +287,73 @@
                     <h1 class="notes-title">Agent</h1>
                     
                 </header>
+                
+
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-Agent-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"CC Auto Mode - 03 - 权限剥离与信任边界","url":"/ccauto-03-permission-stripping/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode - 04 - 多 Agent 安全交接","url":"/ccauto-04-multi-agent/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode - Auto Mode 安全架构分析报告系列","url":"/ccauto-00-index/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","menu","Safety"]},{"title":"CC Auto Mode 01 - Entry Point 总览","url":"/ccauto-01-entrypoint/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 02 - 安全判定分类管道","url":"/ccauto-02-classifier/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 05 - 门禁、熔断与异步踢出","url":"/ccauto-05-gate-circuit-breaker/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 06 - 配置体系与可定制 Slot","url":"/ccauto-06-configuration/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 07 - Deny-and-Continue 韧性设计","url":"/ccauto-07-deny-and-resilience/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 A - 单次请求的上下文整形流水线","url":"/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 B - 长会话压缩与多线程状态隔离","url":"/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 C - 分类器边界之外的纵深防御","url":"/ccauto-C-%E5%88%86%E7%B1%BB%E5%99%A8%E8%BE%B9%E7%95%8C%E4%B9%8B%E5%A4%96%E7%9A%84%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]}]}</script>
+</div>
+
+
                 
 
 <section class="index-taxonomy" aria-label="Categories and tags">
@@ -782,6 +851,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

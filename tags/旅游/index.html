@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2019.06.23 竟然不提前告诉我","url":"/2019.06.23%20%E7%AB%9F%E7%84%B6%E4%B8%8D%E6%8F%90%E5%89%8D%E5%91%8A%E8%AF%89%E6%88%91/","date":"2019-06-23","tags":["旅游"]},{"title":"2019.06.24 补发一下吃的","url":"/2019.06.24%20%E8%A1%A5%E5%8F%91%E4%B8%80%E4%B8%8B%E5%90%83%E7%9A%84/","date":"2019-06-24","tags":["旅游"]},{"title":"2019.06.24 天皇の花园","url":"/2019.06.24%20%E5%A4%A9%E7%9A%87%E3%81%AE%E8%8A%B1%E5%9B%AD/","date":"2019-06-24","tags":["旅游"]},{"title":"2019.06.25 忍野八海","url":"/2019.06.25%20%E5%BF%8D%E9%87%8E%E5%85%AB%E6%B5%B7/","date":"2019-06-25","tags":["旅游"]},{"title":"2019.06.25 Mt. Fuji","url":"/2019.06.25%20Mt.%20Fuji/","date":"2019-06-25","tags":["旅游"]},{"title":"2019.06.26 大阪古城","url":"/2019.06.26%20%E5%A4%A7%E9%98%AA%E5%8F%A4%E5%9F%8E/","date":"2019-06-26","tags":["旅游"]},{"title":"2019.06.27 到京都","url":"/2019.06.27%20%E5%88%B0%E4%BA%AC%E9%83%BD/","date":"2019-06-27","tags":["旅游"]},{"title":"2023.08.05 闪击上海","url":"/2023.08.05%20%E9%97%AA%E5%87%BB%E4%B8%8A%E6%B5%B7/","date":"2023-08-05","tags":["旅游"]},{"title":"2023.08.08 虽然这几天一直没发说说","url":"/2023.08.08%20%E8%99%BD%E7%84%B6%E8%BF%99%E5%87%A0%E5%A4%A9%E4%B8%80%E7%9B%B4%E6%B2%A1%E5%8F%91%E8%AF%B4%E8%AF%B4/","date":"2023-08-08","tags":["旅游"]},{"title":"2023.08.09 徐家汇","url":"/2023.08.09%20%E5%BE%90%E5%AE%B6%E6%B1%87/","date":"2023-08-09","tags":["旅游","原神"]},{"title":"2023.08.10 8.10 原神FES2023","url":"/2023.08.10%208.10%20%E5%8E%9F%E7%A5%9EFES2023/","date":"2023-08-10","tags":["旅游","原神"]},{"title":"2023.08.10 第三弹","url":"/2023.08.10%20%E7%AC%AC%E4%B8%89%E5%BC%B9/","date":"2023-08-10","tags":["旅游","原神"]},{"title":"2023.08.10 第四弹","url":"/2023.08.10%20%E7%AC%AC%E5%9B%9B%E5%BC%B9/","date":"2023-08-10","tags":["旅游","原神"]},{"title":"2023.08.10 原神 启动！","url":"/2023.08.10%20%E5%8E%9F%E7%A5%9E%20%E5%90%AF%E5%8A%A8%EF%BC%81/","date":"2023-08-10","tags":["旅游","原神"]},{"title":"2023.08.10 在漫展上练钢琴，以及","url":"/2023.08.10%20%E5%9C%A8%E6%BC%AB%E5%B1%95%E4%B8%8A%E7%BB%83%E9%92%A2%E7%90%B4%EF%BC%8C%E4%BB%A5%E5%8F%8A/","date":"2023-08-10","tags":["旅游","音乐","原神"]},{"title":"2023.08.11 回家了","url":"/2023.08.11%20%E5%9B%9E%E5%AE%B6%E4%BA%86/","date":"2023-08-11","tags":["旅游","生活","原神"]},{"title":"无题 - 24 过年","url":"/%E6%97%A0%E9%A2%98%20-%2024%20%E8%BF%87%E5%B9%B4/","date":"2024-01-20","tags":["旅游","生活"]},{"title":"2024.10.11 如图","url":"/2024.10.11%20%E5%A6%82%E5%9B%BE/","date":"2024-10-11","tags":["旅游","生活"]},{"title":"2024.10.12 到了那就先发一个","url":"/2024.10.12%20%E5%88%B0%E4%BA%86%E9%82%A3%E5%B0%B1%E5%85%88%E5%8F%91%E4%B8%80%E4%B8%AA/","date":"2024-10-12","tags":["旅游","音乐"]},{"title":"2024.10.12 玩太爽忘拍照了","url":"/2024.10.12%20%E7%8E%A9%E5%A4%AA%E7%88%BD%E5%BF%98%E6%8B%8D%E7%85%A7%E4%BA%86/","date":"2024-10-12","tags":["旅游","音乐"]},{"title":"2024.10.24 如图","url":"/2024.10.24%20%E5%A6%82%E5%9B%BE/","date":"2024-10-24","tags":["旅游","生活"]},{"title":"2024.10.25 7点吃完早餐，到12点每小时摄入三块点心","url":"/2024.10.25%207%E7%82%B9%E5%90%83%E5%AE%8C%E6%97%A9%E9%A4%90%EF%BC%8C%E5%88%B012%E7%82%B9%E6%AF%8F%E5%B0%8F%E6%97%B6%E6%91%84%E5%85%A5%E4%B8%89%E5%9D%97%E7%82%B9%E5%BF%83/","date":"2024-10-25","tags":["旅游"]},{"title":"2024.10.26 华为小镇 三丫坡A区","url":"/2024.10.26%20%E5%8D%8E%E4%B8%BA%E5%B0%8F%E9%95%87%20%E4%B8%89%E4%B8%AB%E5%9D%A1A%E5%8C%BA/","date":"2024-10-26","tags":["旅游"]},{"title":"2024.10.26 三丫坡 B区","url":"/2024.10.26%20%E4%B8%89%E4%B8%AB%E5%9D%A1%20B%E5%8C%BA/","date":"2024-10-26","tags":["旅游"]},{"title":"2024.10.27 报名时听说是来吃吃喝喝逛逛街的于是就跟着","url":"/2024.10.27%20%E6%8A%A5%E5%90%8D%E6%97%B6%E5%90%AC%E8%AF%B4%E6%98%AF%E6%9D%A5%E5%90%83%E5%90%83%E5%96%9D%E5%96%9D%E9%80%9B%E9%80%9B%E8%A1%97%E7%9A%84%E4%BA%8E%E6%98%AF%E5%B0%B1%E8%B7%9F%E7%9D%80/","date":"2024-10-27","tags":["旅游"]},{"title":"2024.11.08 又出来了","url":"/2024.11.08%20%E5%8F%88%E5%87%BA%E6%9D%A5%E4%BA%86/","date":"2024-11-08","tags":["旅游"]},{"title":"2024.12.16 这下过家门而不入了","url":"/2024.12.16%20%E8%BF%99%E4%B8%8B%E8%BF%87%E5%AE%B6%E9%97%A8%E8%80%8C%E4%B8%8D%E5%85%A5%E4%BA%86/","date":"2024-12-16","tags":["旅游","生活"]},{"title":"2024.12.21 第一次在学期中回家","url":"/2024.12.21%20%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%AD%A6%E6%9C%9F%E4%B8%AD%E5%9B%9E%E5%AE%B6/","date":"2024-12-21","tags":["旅游","生活"]},{"title":"2025.06.22 边寨人即刻返京夺嫡","url":"/2025.06.22%20%E8%BE%B9%E5%AF%A8%E4%BA%BA%E5%8D%B3%E5%88%BB%E8%BF%94%E4%BA%AC%E5%A4%BA%E5%AB%A1/","date":"2025-06-22","tags":["旅游","生活"]},{"title":"2025.06.27 也是听上俄国人演的俄国曲儿了","url":"/2025.06.27%20%E4%B9%9F%E6%98%AF%E5%90%AC%E4%B8%8A%E4%BF%84%E5%9B%BD%E4%BA%BA%E6%BC%94%E7%9A%84%E4%BF%84%E5%9B%BD%E6%9B%B2%E5%84%BF%E4%BA%86/","date":"2025-06-27","tags":["旅游","音乐"]},{"title":"2025.09.03 关于毕业旅行","url":"/2025.09.03%20%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E6%97%85%E8%A1%8C/","date":"2025-09-03","tags":["旅游"]},{"title":"2025.10.08 据说在8.17来到北高就可以进入漫无止境","url":"/2025.10.08%20%E6%8D%AE%E8%AF%B4%E5%9C%A88.17%E6%9D%A5%E5%88%B0%E5%8C%97%E9%AB%98%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%BF%9B%E5%85%A5%E6%BC%AB%E6%97%A0%E6%AD%A2%E5%A2%83/","date":"2025-10-08","tags":["动漫","旅游"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -300,14 +369,14 @@
         class="index-taxonomy__chip"
         href="/tags/%E6%97%85%E6%B8%B8/"
         aria-current="page"
-      >旅游 · 31</a>
+      >旅游 · 32</a>
           
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
+        href="/tags/%E7%94%9F%E6%B4%BB/"
         
-      >QQ空间 · 31</a>
+      >生活 · 7</a>
           
       <a
         role="listitem"
@@ -315,13 +384,6 @@
         href="/tags/%E5%8E%9F%E7%A5%9E/"
         
       >原神 · 7</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/%E7%94%9F%E6%B4%BB/"
-        
-      >生活 · 6</a>
           
       <a
         role="listitem"
@@ -350,20 +412,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20251008%20%E6%8D%AE%E8%AF%B4%E5%9C%A88.17%E6%9D%A5%E5%88%B0%E5%8C%97%E9%AB%98%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%BF%9B%E5%85%A5%E6%BC%AB%E6%97%A0%E6%AD%A2%E5%A2%83/" class="note-card">
+<mdui-card clickable variant="filled" href="/2025.10.08%20%E6%8D%AE%E8%AF%B4%E5%9C%A88.17%E6%9D%A5%E5%88%B0%E5%8C%97%E9%AB%98%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%BF%9B%E5%85%A5%E6%BC%AB%E6%97%A0%E6%AD%A2%E5%A2%83/" class="note-card">
   
-  <img src="/files/qzone-20251008-100128-01.jpg" class="note-cover" alt="20251008 据说在8.17来到北高就可以进入漫无止境" loading="lazy">
+  <img src="/files/qzone-20251008-100128-01.jpg" class="note-cover" alt="2025.10.08 据说在8.17来到北高就可以进入漫无止境" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20251008 据说在8.17来到北高就可以进入漫无止境</h2>
+      <h2 class="note-card-title">2025.10.08 据说在8.17来到北高就可以进入漫无止境</h2>
       
       <p class="note-excerpt">据说在8.17来到北高就可以进入漫无止境的八月，伟大的团长会来和你一起过一个永远不会结束的暑假，还能遇到外星人未来人和超能力者。我试过了，是假的，但是伟大...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2025 Oct 08</span>
       <span class="note-read">1 min read</span>
@@ -375,20 +437,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20250903%20%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E6%97%85%E8%A1%8C/" class="note-card">
+<mdui-card clickable variant="filled" href="/2025.09.03%20%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E6%97%85%E8%A1%8C/" class="note-card">
   
-  <img src="/files/qzone-20250903-222534-01.png" class="note-cover" alt="20250903 关于毕业旅行" loading="lazy">
+  <img src="/files/qzone-20250903-222534-01.png" class="note-cover" alt="2025.09.03 关于毕业旅行" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20250903 关于毕业旅行</h2>
+      <h2 class="note-card-title">2025.09.03 关于毕业旅行</h2>
       
       <p class="note-excerpt">关于毕业旅行 拖了一个月终于整理好了 那正好明天开始发吧</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2025 Sep 03</span>
       <span class="note-read">1 min read</span>
@@ -400,20 +462,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20250627%20%E4%B9%9F%E6%98%AF%E5%90%AC%E4%B8%8A%E4%BF%84%E5%9B%BD%E4%BA%BA%E6%BC%94%E7%9A%84%E4%BF%84%E5%9B%BD%E6%9B%B2%E5%84%BF%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/2025.06.27%20%E4%B9%9F%E6%98%AF%E5%90%AC%E4%B8%8A%E4%BF%84%E5%9B%BD%E4%BA%BA%E6%BC%94%E7%9A%84%E4%BF%84%E5%9B%BD%E6%9B%B2%E5%84%BF%E4%BA%86/" class="note-card">
   
-  <img src="/files/qzone-20250627-221419-01.jpg" class="note-cover" alt="20250627 也是听上俄国人演的俄国曲儿了" loading="lazy">
+  <img src="/files/qzone-20250627-221419-01.jpg" class="note-cover" alt="2025.06.27 也是听上俄国人演的俄国曲儿了" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20250627 也是听上俄国人演的俄国曲儿了</h2>
+      <h2 class="note-card-title">2025.06.27 也是听上俄国人演的俄国曲儿了</h2>
       
       <p class="note-excerpt">也是听上俄国人演的俄国曲儿了 返了好多首只认得节日序曲[em]e105[/em]才疏学浅了</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2025 Jun 27</span>
       <span class="note-read">1 min read</span>
@@ -425,20 +487,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20250622%20%E8%BE%B9%E5%AF%A8%E4%BA%BA%E5%8D%B3%E5%88%BB%E8%BF%94%E4%BA%AC%E5%A4%BA%E5%AB%A1/" class="note-card">
+<mdui-card clickable variant="filled" href="/2025.06.22%20%E8%BE%B9%E5%AF%A8%E4%BA%BA%E5%8D%B3%E5%88%BB%E8%BF%94%E4%BA%AC%E5%A4%BA%E5%AB%A1/" class="note-card">
   
-  <img src="/files/qzone-20250622-164810-01.jpg" class="note-cover" alt="20250622 边寨人即刻返京夺嫡" loading="lazy">
+  <img src="/files/qzone-20250622-164810-01.jpg" class="note-cover" alt="2025.06.22 边寨人即刻返京夺嫡" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20250622 边寨人即刻返京夺嫡</h2>
+      <h2 class="note-card-title">2025.06.22 边寨人即刻返京夺嫡</h2>
       
       <p class="note-excerpt">边寨人即刻返京夺嫡 前情提要：早上毕业典礼开场节目《北京喜讯到边寨》，报幕话音刚落众人皆笑</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2025 Jun 22</span>
       <span class="note-read">1 min read</span>
@@ -450,20 +512,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241221%20%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%AD%A6%E6%9C%9F%E4%B8%AD%E5%9B%9E%E5%AE%B6/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.12.21%20%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9C%A8%E5%AD%A6%E6%9C%9F%E4%B8%AD%E5%9B%9E%E5%AE%B6/" class="note-card">
   
-  <img src="/files/qzone-20241221-151850-01.jpg" class="note-cover" alt="20241221 第一次在学期中回家" loading="lazy">
+  <img src="/files/qzone-20241221-151850-01.jpg" class="note-cover" alt="2024.12.21 第一次在学期中回家" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241221 第一次在学期中回家</h2>
+      <h2 class="note-card-title">2024.12.21 第一次在学期中回家</h2>
       
       <p class="note-excerpt">第一次在学期中回家 这学期第四次出省 太美丽了广州我爱广州 以后想回广州[em]e10298[/em]</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2024 Dec 21</span>
       <span class="note-read">1 min read</span>
@@ -475,20 +537,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241216%20%E8%BF%99%E4%B8%8B%E8%BF%87%E5%AE%B6%E9%97%A8%E8%80%8C%E4%B8%8D%E5%85%A5%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.12.16%20%E8%BF%99%E4%B8%8B%E8%BF%87%E5%AE%B6%E9%97%A8%E8%80%8C%E4%B8%8D%E5%85%A5%E4%BA%86/" class="note-card">
   
-  <img src="/files/qzone-20241216-232838-01.jpg" class="note-cover" alt="20241216 这下过家门而不入了" loading="lazy">
+  <img src="/files/qzone-20241216-232838-01.jpg" class="note-cover" alt="2024.12.16 这下过家门而不入了" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241216 这下过家门而不入了</h2>
+      <h2 class="note-card-title">2024.12.16 这下过家门而不入了</h2>
       
       <p class="note-excerpt">这下过家门而不入了 闪击广州大学城 有无约饭面基 没想到这学期继1逛展2公费旅游3演出 还能有dlc 公费回家旅游 鸭大待我不薄[em]e154[/em]...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2024 Dec 16</span>
       <span class="note-read">1 min read</span>
@@ -500,20 +562,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241108%20%E5%8F%88%E5%87%BA%E6%9D%A5%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.11.08%20%E5%8F%88%E5%87%BA%E6%9D%A5%E4%BA%86/" class="note-card">
   
-  <img src="/files/qzone-20241108-170904-01.jpg" class="note-cover" alt="20241108 又出来了" loading="lazy">
+  <img src="/files/qzone-20241108-170904-01.jpg" class="note-cover" alt="2024.11.08 又出来了" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241108 又出来了</h2>
+      <h2 class="note-card-title">2024.11.08 又出来了</h2>
       
       <p class="note-excerpt">又出来了</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2024 Nov 08</span>
       <span class="note-read">1 min read</span>
@@ -525,20 +587,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241027%20%E6%8A%A5%E5%90%8D%E6%97%B6%E5%90%AC%E8%AF%B4%E6%98%AF%E6%9D%A5%E5%90%83%E5%90%83%E5%96%9D%E5%96%9D%E9%80%9B%E9%80%9B%E8%A1%97%E7%9A%84%E4%BA%8E%E6%98%AF%E5%B0%B1%E8%B7%9F%E7%9D%80/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.10.27%20%E6%8A%A5%E5%90%8D%E6%97%B6%E5%90%AC%E8%AF%B4%E6%98%AF%E6%9D%A5%E5%90%83%E5%90%83%E5%96%9D%E5%96%9D%E9%80%9B%E9%80%9B%E8%A1%97%E7%9A%84%E4%BA%8E%E6%98%AF%E5%B0%B1%E8%B7%9F%E7%9D%80/" class="note-card">
   
-  <img src="/files/qzone-20241027-184642-01.jpg" class="note-cover" alt="20241027 报名时听说是来吃吃喝喝逛逛街的于是就跟着" loading="lazy">
+  <img src="/files/qzone-20241027-184642-01.jpg" class="note-cover" alt="2024.10.27 报名时听说是来吃吃喝喝逛逛街的于是就跟着" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241027 报名时听说是来吃吃喝喝逛逛街的于是就跟着</h2>
+      <h2 class="note-card-title">2024.10.27 报名时听说是来吃吃喝喝逛逛街的于是就跟着</h2>
       
       <p class="note-excerpt">报名时听说是来吃吃喝喝逛逛街的于是就跟着来了 多谢款待 吃得很饱[em]e10294[/em] 三个人凑不出一个计科/信智学部的，选了一个传统软工题鞭打g...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2024 Oct 27</span>
       <span class="note-read">1 min read</span>
@@ -550,20 +612,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241026%20%E4%B8%89%E4%B8%AB%E5%9D%A1%20B%E5%8C%BA/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.10.26%20%E4%B8%89%E4%B8%AB%E5%9D%A1%20B%E5%8C%BA/" class="note-card">
   
-  <img src="/files/qzone-20241026-180903-01.jpg" class="note-cover" alt="20241026 三丫坡 B区" loading="lazy">
+  <img src="/files/qzone-20241026-180903-01.jpg" class="note-cover" alt="2024.10.26 三丫坡 B区" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241026 三丫坡 B区</h2>
+      <h2 class="note-card-title">2024.10.26 三丫坡 B区</h2>
       
       <p class="note-excerpt">三丫坡 B区</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2024 Oct 26</span>
       <span class="note-read">1 min read</span>
@@ -575,20 +637,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241026%20%E5%8D%8E%E4%B8%BA%E5%B0%8F%E9%95%87%20%E4%B8%89%E4%B8%AB%E5%9D%A1A%E5%8C%BA/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.10.26%20%E5%8D%8E%E4%B8%BA%E5%B0%8F%E9%95%87%20%E4%B8%89%E4%B8%AB%E5%9D%A1A%E5%8C%BA/" class="note-card">
   
-  <img src="/files/qzone-20241026-145558-01.jpg" class="note-cover" alt="20241026 华为小镇 三丫坡A区" loading="lazy">
+  <img src="/files/qzone-20241026-145558-01.jpg" class="note-cover" alt="2024.10.26 华为小镇 三丫坡A区" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241026 华为小镇 三丫坡A区</h2>
+      <h2 class="note-card-title">2024.10.26 华为小镇 三丫坡A区</h2>
       
       <p class="note-excerpt">华为小镇 三丫坡A区 布拉格之春（不是 德/斯化身门神</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2024 Oct 26</span>
       <span class="note-read">1 min read</span>
@@ -600,20 +662,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241025%207%E7%82%B9%E5%90%83%E5%AE%8C%E6%97%A9%E9%A4%90%EF%BC%8C%E5%88%B012%E7%82%B9%E6%AF%8F%E5%B0%8F%E6%97%B6%E6%91%84%E5%85%A5%E4%B8%89%E5%9D%97%E7%82%B9%E5%BF%83/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.10.25%207%E7%82%B9%E5%90%83%E5%AE%8C%E6%97%A9%E9%A4%90%EF%BC%8C%E5%88%B012%E7%82%B9%E6%AF%8F%E5%B0%8F%E6%97%B6%E6%91%84%E5%85%A5%E4%B8%89%E5%9D%97%E7%82%B9%E5%BF%83/" class="note-card">
   
-  <img src="/image/banner/nozomizo26.JPG" class="note-cover" alt="20241025 7点吃完早餐，到12点每小时摄入三块点心" loading="lazy">
+  <img src="/image/banner/nozomizo42.JPG" class="note-cover" alt="2024.10.25 7点吃完早餐，到12点每小时摄入三块点心" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241025 7点吃完早餐，到12点每小时摄入三块点心</h2>
+      <h2 class="note-card-title">2024.10.25 7点吃完早餐，到12点每小时摄入三块点心</h2>
       
       <p class="note-excerpt">7点吃完早餐，到12点每小时摄入三块点心，然后去吃了顿午饭 学术饕餮不过如此</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2024 Oct 25</span>
       <span class="note-read">1 min read</span>
@@ -625,20 +687,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241024%20%E5%A6%82%E5%9B%BE/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.10.24%20%E5%A6%82%E5%9B%BE/" class="note-card">
   
-  <img src="/files/qzone-20241024-212232-01.jpg" class="note-cover" alt="20241024 如图" loading="lazy">
+  <img src="/files/qzone-20241024-212232-01.jpg" class="note-cover" alt="2024.10.24 如图" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241024 如图</h2>
+      <h2 class="note-card-title">2024.10.24 如图</h2>
       
       <p class="note-excerpt">QQ 空间说说迁入：图片记录。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2024 Oct 24</span>
       <span class="note-read">1 min read</span>
@@ -650,20 +712,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241012%20%E7%8E%A9%E5%A4%AA%E7%88%BD%E5%BF%98%E6%8B%8D%E7%85%A7%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.10.12%20%E7%8E%A9%E5%A4%AA%E7%88%BD%E5%BF%98%E6%8B%8D%E7%85%A7%E4%BA%86/" class="note-card">
   
-  <img src="/files/qzone-20241012-231709-01.jpg" class="note-cover" alt="20241012 玩太爽忘拍照了" loading="lazy">
+  <img src="/files/qzone-20241012-231709-01.jpg" class="note-cover" alt="2024.10.12 玩太爽忘拍照了" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241012 玩太爽忘拍照了</h2>
+      <h2 class="note-card-title">2024.10.12 玩太爽忘拍照了</h2>
       
       <p class="note-excerpt">玩太爽忘拍照了 将就着写个流水账 - 吹了一堆次中音号上低音号瓦格纳号长号 吹到了YEP-321 / 621 口感丝滑真的爽啊[em]e109[/em]一...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2024 Oct 12</span>
       <span class="note-read">1 min read</span>
@@ -675,20 +737,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241012%20%E5%88%B0%E4%BA%86%E9%82%A3%E5%B0%B1%E5%85%88%E5%8F%91%E4%B8%80%E4%B8%AA/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.10.12%20%E5%88%B0%E4%BA%86%E9%82%A3%E5%B0%B1%E5%85%88%E5%8F%91%E4%B8%80%E4%B8%AA/" class="note-card">
   
-  <img src="/files/qzone-20241012-091904-01.jpg" class="note-cover" alt="20241012 到了那就先发一个" loading="lazy">
+  <img src="/files/qzone-20241012-091904-01.jpg" class="note-cover" alt="2024.10.12 到了那就先发一个" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241012 到了那就先发一个</h2>
+      <h2 class="note-card-title">2024.10.12 到了那就先发一个</h2>
       
       <p class="note-excerpt">到了那就先发一个</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2024 Oct 12</span>
       <span class="note-read">1 min read</span>
@@ -700,20 +762,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241011%20%E5%A6%82%E5%9B%BE/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.10.11%20%E5%A6%82%E5%9B%BE/" class="note-card">
   
-  <img src="/files/qzone-20241011-230350-01.jpg" class="note-cover" alt="20241011 如图" loading="lazy">
+  <img src="/files/qzone-20241011-230350-01.jpg" class="note-cover" alt="2024.10.11 如图" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241011 如图</h2>
+      <h2 class="note-card-title">2024.10.11 如图</h2>
       
       <p class="note-excerpt">QQ 空间说说迁入：图片记录。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2024 Oct 11</span>
       <span class="note-read">1 min read</span>
@@ -725,20 +787,45 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230811%20%E5%9B%9E%E5%AE%B6%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/%E6%97%A0%E9%A2%98%20-%2024%20%E8%BF%87%E5%B9%B4/" class="note-card">
   
-  <img src="/files/qzone-20230811-090711-01.jpg" class="note-cover" alt="20230811 回家了" loading="lazy">
+  <img src="/files/rafa_96131093_p0_%E7%A5%9E%E7%AC%94%E9%A9%AC%E8%89%AF.jpg" class="note-cover" alt="无题 - 24 过年" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230811 回家了</h2>
+      <h2 class="note-card-title">无题 - 24 过年</h2>
+      
+      <p class="note-excerpt">过年随笔：逛城区当「浅旅行」、浅尝式学习与把求知当成低上界收益函数的随想。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">生活</span>
+      
+      <span class="note-date">2024 Jan 20</span>
+      <span class="note-read">4 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08.11%20%E5%9B%9E%E5%AE%B6%E4%BA%86/" class="note-card">
+  
+  <img src="/files/qzone-20230811-090711-01.jpg" class="note-cover" alt="2023.08.11 回家了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08.11 回家了</h2>
       
       <p class="note-excerpt">回家了 这次在上海的成就列表 逛书店隐藏区域 逛黑市 逛展 躺草坪 混进光华楼 半夜在市区飙车（单车 被当作本地学生 第一次打maimai（？</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2023 Aug 11</span>
       <span class="note-read">1 min read</span>
@@ -750,20 +837,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230810%20%E7%AC%AC%E5%9B%9B%E5%BC%B9/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.10%20%E7%AC%AC%E5%9B%9B%E5%BC%B9/" class="note-card">
   
-  <img src="/files/qzone-20230810-173727-01.jpg" class="note-cover" alt="20230810 第四弹" loading="lazy">
+  <img src="/files/qzone-20230810-173727-01.jpg" class="note-cover" alt="2023.08.10 第四弹" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230810 第四弹</h2>
+      <h2 class="note-card-title">2023.08.10 第四弹</h2>
       
       <p class="note-excerpt">第四弹 逛完了 别指望我把集邮发出来 这次弹钢琴扩了一只琦良良 下次我得整点什么小提拉小提 说不定能上热门</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2023 Aug 10</span>
       <span class="note-read">1 min read</span>
@@ -775,20 +862,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230810%20%E5%9C%A8%E6%BC%AB%E5%B1%95%E4%B8%8A%E7%BB%83%E9%92%A2%E7%90%B4%EF%BC%8C%E4%BB%A5%E5%8F%8A/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.10%20%E5%9C%A8%E6%BC%AB%E5%B1%95%E4%B8%8A%E7%BB%83%E9%92%A2%E7%90%B4%EF%BC%8C%E4%BB%A5%E5%8F%8A/" class="note-card">
   
-  <img src="/files/qzone-20230810-134727-01.jpg" class="note-cover" alt="20230810 在漫展上练钢琴，以及" loading="lazy">
+  <img src="/files/qzone-20230810-134727-01.jpg" class="note-cover" alt="2023.08.10 在漫展上练钢琴，以及" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230810 在漫展上练钢琴，以及</h2>
+      <h2 class="note-card-title">2023.08.10 在漫展上练钢琴，以及</h2>
       
       <p class="note-excerpt">在漫展上练钢琴，以及......</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2023 Aug 10</span>
       <span class="note-read">1 min read</span>
@@ -800,20 +887,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230810%20%E7%AC%AC%E4%B8%89%E5%BC%B9/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.10%20%E7%AC%AC%E4%B8%89%E5%BC%B9/" class="note-card">
   
-  <img src="/files/qzone-20230810-123117-01.jpg" class="note-cover" alt="20230810 第三弹" loading="lazy">
+  <img src="/files/qzone-20230810-123117-01.jpg" class="note-cover" alt="2023.08.10 第三弹" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230810 第三弹</h2>
+      <h2 class="note-card-title">2023.08.10 第三弹</h2>
       
       <p class="note-excerpt">第三弹</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2023 Aug 10</span>
       <span class="note-read">1 min read</span>
@@ -825,20 +912,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230810%20%E5%8E%9F%E7%A5%9E%20%E5%90%AF%E5%8A%A8%EF%BC%81/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.10%20%E5%8E%9F%E7%A5%9E%20%E5%90%AF%E5%8A%A8%EF%BC%81/" class="note-card">
   
-  <img src="/files/qzone-20230810-091629-01.jpg" class="note-cover" alt="20230810 原神 启动！" loading="lazy">
+  <img src="/files/qzone-20230810-091629-01.jpg" class="note-cover" alt="2023.08.10 原神 启动！" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230810 原神 启动！</h2>
+      <h2 class="note-card-title">2023.08.10 原神 启动！</h2>
       
       <p class="note-excerpt">原神 启动！</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2023 Aug 10</span>
       <span class="note-read">1 min read</span>
@@ -850,20 +937,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230810%208.10%20%E5%8E%9F%E7%A5%9EFES2023/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.10%208.10%20%E5%8E%9F%E7%A5%9EFES2023/" class="note-card">
   
-  <img src="/files/qzone-20230810-090617-01.jpg" class="note-cover" alt="20230810 8.10 原神FES2023" loading="lazy">
+  <img src="/files/qzone-20230810-090617-01.jpg" class="note-cover" alt="2023.08.10 8.10 原神FES2023" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230810 8.10 原神FES2023</h2>
+      <h2 class="note-card-title">2023.08.10 8.10 原神FES2023</h2>
       
       <p class="note-excerpt">8.10 原神FES2023 第一弹 排上队了先发一发</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2023 Aug 10</span>
       <span class="note-read">1 min read</span>
@@ -875,20 +962,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230809%20%E5%BE%90%E5%AE%B6%E6%B1%87/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.09%20%E5%BE%90%E5%AE%B6%E6%B1%87/" class="note-card">
   
-  <img src="/files/qzone-20230809-182518-01.jpg" class="note-cover" alt="20230809 徐家汇" loading="lazy">
+  <img src="/files/qzone-20230809-182518-01.jpg" class="note-cover" alt="2023.08.09 徐家汇" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230809 徐家汇</h2>
+      <h2 class="note-card-title">2023.08.09 徐家汇</h2>
       
       <p class="note-excerpt">徐家汇 明天去原fes 列表有无捎东西的需求</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2023 Aug 09</span>
       <span class="note-read">1 min read</span>
@@ -900,20 +987,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230808%20%E8%99%BD%E7%84%B6%E8%BF%99%E5%87%A0%E5%A4%A9%E4%B8%80%E7%9B%B4%E6%B2%A1%E5%8F%91%E8%AF%B4%E8%AF%B4/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.08%20%E8%99%BD%E7%84%B6%E8%BF%99%E5%87%A0%E5%A4%A9%E4%B8%80%E7%9B%B4%E6%B2%A1%E5%8F%91%E8%AF%B4%E8%AF%B4/" class="note-card">
   
-  <img src="/files/qzone-20230808-194553-01.jpg" class="note-cover" alt="20230808 虽然这几天一直没发说说" loading="lazy">
+  <img src="/files/qzone-20230808-194553-01.jpg" class="note-cover" alt="2023.08.08 虽然这几天一直没发说说" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230808 虽然这几天一直没发说说</h2>
+      <h2 class="note-card-title">2023.08.08 虽然这几天一直没发说说</h2>
       
       <p class="note-excerpt">虽然这几天一直没发说说 但我觉得这张有必要发一下</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2023 Aug 08</span>
       <span class="note-read">1 min read</span>
@@ -925,20 +1012,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230805%20%E9%97%AA%E5%87%BB%E4%B8%8A%E6%B5%B7/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.05%20%E9%97%AA%E5%87%BB%E4%B8%8A%E6%B5%B7/" class="note-card">
   
-  <img src="/image/banner/minamiquartet8.PNG" class="note-cover" alt="20230805 闪击上海" loading="lazy">
+  <img src="/image/banner/nozomizo22.JPG" class="note-cover" alt="2023.08.05 闪击上海" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230805 闪击上海</h2>
+      <h2 class="note-card-title">2023.08.05 闪击上海</h2>
       
       <p class="note-excerpt">闪击上海</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2023 Aug 05</span>
       <span class="note-read">1 min read</span>
@@ -950,20 +1037,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20190627%20%E5%88%B0%E4%BA%AC%E9%83%BD/" class="note-card">
+<mdui-card clickable variant="filled" href="/2019.06.27%20%E5%88%B0%E4%BA%AC%E9%83%BD/" class="note-card">
   
-  <img src="/files/qzone-20190627-104710-01.jpg" class="note-cover" alt="20190627 到京都" loading="lazy">
+  <img src="/files/qzone-20190627-104710-01.jpg" class="note-cover" alt="2019.06.27 到京都" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20190627 到京都</h2>
+      <h2 class="note-card-title">2019.06.27 到京都</h2>
       
       <p class="note-excerpt">到京都 清水寺 这泡芙什么都好 就是看起来怪怪的</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2019 Jun 27</span>
       <span class="note-read">1 min read</span>
@@ -975,20 +1062,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20190626%20%E5%A4%A7%E9%98%AA%E5%8F%A4%E5%9F%8E/" class="note-card">
+<mdui-card clickable variant="filled" href="/2019.06.26%20%E5%A4%A7%E9%98%AA%E5%8F%A4%E5%9F%8E/" class="note-card">
   
-  <img src="/files/qzone-20190626-144706-01.jpg" class="note-cover" alt="20190626 大阪古城" loading="lazy">
+  <img src="/files/qzone-20190626-144706-01.jpg" class="note-cover" alt="2019.06.26 大阪古城" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20190626 大阪古城</h2>
+      <h2 class="note-card-title">2019.06.26 大阪古城</h2>
       
       <p class="note-excerpt">大阪古城 去买章鱼烧尴尬了 我拿出600yen买一份 老板问 :“いち？” 我一急说出一句英语 yes 老板顿了一下 tips：日语的“不是”读「いいえ」...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2019 Jun 26</span>
       <span class="note-read">1 min read</span>
@@ -1000,20 +1087,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20190625%20%E5%BF%8D%E9%87%8E%E5%85%AB%E6%B5%B7/" class="note-card">
+<mdui-card clickable variant="filled" href="/2019.06.25%20%E5%BF%8D%E9%87%8E%E5%85%AB%E6%B5%B7/" class="note-card">
   
-  <img src="/files/qzone-20190625-145007-01.jpg" class="note-cover" alt="20190625 忍野八海" loading="lazy">
+  <img src="/files/qzone-20190625-145007-01.jpg" class="note-cover" alt="2019.06.25 忍野八海" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20190625 忍野八海</h2>
+      <h2 class="note-card-title">2019.06.25 忍野八海</h2>
       
       <p class="note-excerpt">忍野八海 我摄影技术真不错（逃） 买雪糕的时候只会说まっちゃ...... 这是不是说明我这几天买东西只能吃抹茶......</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2019 Jun 25</span>
       <span class="note-read">1 min read</span>
@@ -1025,20 +1112,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20190625%20Mt.%20Fuji/" class="note-card">
+<mdui-card clickable variant="filled" href="/2019.06.25%20Mt.%20Fuji/" class="note-card">
   
-  <img src="/files/qzone-20190625-131357-01.jpg" class="note-cover" alt="20190625 Mt. Fuji" loading="lazy">
+  <img src="/files/qzone-20190625-131357-01.jpg" class="note-cover" alt="2019.06.25 Mt. Fuji" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20190625 Mt. Fuji</h2>
+      <h2 class="note-card-title">2019.06.25 Mt. Fuji</h2>
       
       <p class="note-excerpt">Mt. Fuji 终于拍到了</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2019 Jun 25</span>
       <span class="note-read">1 min read</span>
@@ -1050,20 +1137,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20190624%20%E8%A1%A5%E5%8F%91%E4%B8%80%E4%B8%8B%E5%90%83%E7%9A%84/" class="note-card">
+<mdui-card clickable variant="filled" href="/2019.06.24%20%E8%A1%A5%E5%8F%91%E4%B8%80%E4%B8%8B%E5%90%83%E7%9A%84/" class="note-card">
   
-  <img src="/files/qzone-20190624-190105-01.jpg" class="note-cover" alt="20190624 补发一下吃的" loading="lazy">
+  <img src="/files/qzone-20190624-190105-01.jpg" class="note-cover" alt="2019.06.24 补发一下吃的" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20190624 补发一下吃的</h2>
+      <h2 class="note-card-title">2019.06.24 补发一下吃的</h2>
       
       <p class="note-excerpt">补发一下吃的 下午吃的饭团来不及拍就被我吃掉了 炭烧牛肉馅你们自己想象一下吧 太好吃了啊 就是天天啃饭团我也能活一年</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2019 Jun 24</span>
       <span class="note-read">1 min read</span>
@@ -1075,20 +1162,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20190624%20%E5%A4%A9%E7%9A%87%E3%81%AE%E8%8A%B1%E5%9B%AD/" class="note-card">
+<mdui-card clickable variant="filled" href="/2019.06.24%20%E5%A4%A9%E7%9A%87%E3%81%AE%E8%8A%B1%E5%9B%AD/" class="note-card">
   
-  <img src="/files/qzone-20190624-122347-01.jpg" class="note-cover" alt="20190624 天皇の花园" loading="lazy">
+  <img src="/files/qzone-20190624-122347-01.jpg" class="note-cover" alt="2019.06.24 天皇の花园" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20190624 天皇の花园</h2>
+      <h2 class="note-card-title">2019.06.24 天皇の花园</h2>
       
       <p class="note-excerpt">天皇の花园</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2019 Jun 24</span>
       <span class="note-read">1 min read</span>
@@ -1100,20 +1187,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20190623%20%E7%AB%9F%E7%84%B6%E4%B8%8D%E6%8F%90%E5%89%8D%E5%91%8A%E8%AF%89%E6%88%91/" class="note-card">
+<mdui-card clickable variant="filled" href="/2019.06.23%20%E7%AB%9F%E7%84%B6%E4%B8%8D%E6%8F%90%E5%89%8D%E5%91%8A%E8%AF%89%E6%88%91/" class="note-card">
   
-  <img src="/files/qzone-20190623-103743-01.jpg" class="note-cover" alt="20190623 竟然不提前告诉我" loading="lazy">
+  <img src="/files/qzone-20190623-103743-01.jpg" class="note-cover" alt="2019.06.23 竟然不提前告诉我" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20190623 竟然不提前告诉我</h2>
+      <h2 class="note-card-title">2019.06.23 竟然不提前告诉我</h2>
       
       <p class="note-excerpt">竟然不提前告诉我 不会日语怎么去日本...... 临时抱一下佛脚 回来就是社会人了</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">旅游</span>
       
       <span class="note-date">2019 Jun 23</span>
       <span class="note-read">1 min read</span>
@@ -1282,6 +1369,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

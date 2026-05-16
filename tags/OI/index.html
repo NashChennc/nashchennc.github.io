@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-OI-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2019.08.09 IOI2019圆满结束","url":"/2019.08.09%20IOI2019%E5%9C%86%E6%BB%A1%E7%BB%93%E6%9D%9F/","date":"2019-08-09","tags":["OI"]},{"title":"2019-2020 信息学竞赛纪实","url":"/2019-2020%20%E4%BF%A1%E6%81%AF%E5%AD%A6%E7%AB%9E%E8%B5%9B%E7%BA%AA%E5%AE%9E/","date":"2019-08-16","tags":["竞赛","CSP","NOIP","OI"]},{"title":"2019.08.16 NOIP停办通知","url":"/2019.08.16%20NOIP%E5%81%9C%E5%8A%9E%E9%80%9A%E7%9F%A5/","date":"2019-08-16","tags":["NOIP","OI"]},{"title":"2020.08.10 智力康复训练day1我是不是对“化简”的","url":"/2020.08.10%20%E6%99%BA%E5%8A%9B%E5%BA%B7%E5%A4%8D%E8%AE%AD%E7%BB%83day1%E6%88%91%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AF%B9%E2%80%9C%E5%8C%96%E7%AE%80%E2%80%9D%E7%9A%84/","date":"2020-08-10","tags":["OI"]},{"title":"2020.11.09 所以CSP2020 T1到底给人造成了多","url":"/2020.11.09%20%E6%89%80%E4%BB%A5CSP2020%20T1%E5%88%B0%E5%BA%95%E7%BB%99%E4%BA%BA%E9%80%A0%E6%88%90%E4%BA%86%E5%A4%9A/","date":"2020-11-09","tags":["OI"]},{"title":"2021.02.05 退役成功了罢。大概这个世界上没有比我更菜","url":"/2021.02.05%20%E9%80%80%E5%BD%B9%E6%88%90%E5%8A%9F%E4%BA%86%E7%BD%A2%E3%80%82%E5%A4%A7%E6%A6%82%E8%BF%99%E4%B8%AA%E4%B8%96%E7%95%8C%E4%B8%8A%E6%B2%A1%E6%9C%89%E6%AF%94%E6%88%91%E6%9B%B4%E8%8F%9C/","date":"2021-02-05","tags":["OI"]},{"title":"2021.02.06 Cu滚粗","url":"/2021.02.06%20Cu%E6%BB%9A%E7%B2%97/","date":"2021-02-06","tags":["OI"]},{"title":"2021.04.18 迟到的退役记","url":"/2021.04.18%20%E8%BF%9F%E5%88%B0%E7%9A%84%E9%80%80%E5%BD%B9%E8%AE%B0/","date":"2021-04-18","tags":["OI"]},{"title":"退役记","url":"/%E9%80%80%E5%BD%B9%E8%AE%B0/","date":"2021-06-01","tags":["回忆录","OI"]},{"title":"2021.07.13 我学了4年信息","url":"/2021.07.13%20%E6%88%91%E5%AD%A6%E4%BA%864%E5%B9%B4%E4%BF%A1%E6%81%AF/","date":"2021-07-13","tags":["OI"]},{"title":"2021.08.10 在洛谷因为题解有点问题被人at了","url":"/2021.08.10%20%E5%9C%A8%E6%B4%9B%E8%B0%B7%E5%9B%A0%E4%B8%BA%E9%A2%98%E8%A7%A3%E6%9C%89%E7%82%B9%E9%97%AE%E9%A2%98%E8%A2%AB%E4%BA%BAat%E4%BA%86/","date":"2021-08-10","tags":["OI"]},{"title":"2021.11.27 最近给几个朋友展示了一下初高中学竞赛时写","url":"/2021.11.27%20%E6%9C%80%E8%BF%91%E7%BB%99%E5%87%A0%E4%B8%AA%E6%9C%8B%E5%8F%8B%E5%B1%95%E7%A4%BA%E4%BA%86%E4%B8%80%E4%B8%8B%E5%88%9D%E9%AB%98%E4%B8%AD%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%97%B6%E5%86%99/","date":"2021-11-27","tags":["反思","随笔","OI"]},{"title":"2024.11.10 。","url":"/2024.11.10%20%E3%80%82/","date":"2024-11-10","tags":["算法","OI"]},{"title":"2024.11.10 走远了","url":"/2024.11.10%20%E8%B5%B0%E8%BF%9C%E4%BA%86/","date":"2024-11-10","tags":["算法","OI"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -300,14 +369,7 @@
         class="index-taxonomy__chip"
         href="/tags/OI/"
         aria-current="page"
-      >OI · 12</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 11</a>
+      >OI · 14</a>
           
       <a
         role="listitem"
@@ -315,6 +377,13 @@
         href="/tags/%E7%AE%97%E6%B3%95/"
         
       >算法 · 2</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/NOIP/"
+        
+      >NOIP · 2</a>
           
       <a
         role="listitem"
@@ -333,9 +402,23 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
+        href="/tags/%E7%AB%9E%E8%B5%9B/"
+        
+      >竞赛 · 1</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
         href="/tags/%E9%9A%8F%E7%AC%94/"
         
       >随笔 · 1</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/CSP/"
+        
+      >CSP · 1</a>
           
         </div>
         
@@ -350,20 +433,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241110%20%E8%B5%B0%E8%BF%9C%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.11.10%20%E8%B5%B0%E8%BF%9C%E4%BA%86/" class="note-card">
   
-  <img src="/files/qzone-20241110-200809-01.jpg" class="note-cover" alt="20241110 走远了" loading="lazy">
+  <img src="/files/qzone-20241110-200809-01.jpg" class="note-cover" alt="2024.11.10 走远了" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241110 走远了</h2>
+      <h2 class="note-card-title">2024.11.10 走远了</h2>
       
       <p class="note-excerpt">走远了 不知道说什么好，那就到此一游吧</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2024 Nov 10</span>
       <span class="note-read">1 min read</span>
@@ -375,20 +458,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241110%20%E3%80%82/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.11.10%20%E3%80%82/" class="note-card">
   
-  <img src="/image/banner/nozomizo47.PNG" class="note-cover" alt="20241110 。" loading="lazy">
+  <img src="/image/banner/nozomizo3.JPG" class="note-cover" alt="2024.11.10 。" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241110 。</h2>
+      <h2 class="note-card-title">2024.11.10 。</h2>
       
       <p class="note-excerpt">。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2024 Nov 10</span>
       <span class="note-read">1 min read</span>
@@ -400,20 +483,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20211127%20%E6%9C%80%E8%BF%91%E7%BB%99%E5%87%A0%E4%B8%AA%E6%9C%8B%E5%8F%8B%E5%B1%95%E7%A4%BA%E4%BA%86%E4%B8%80%E4%B8%8B%E5%88%9D%E9%AB%98%E4%B8%AD%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%97%B6%E5%86%99/" class="note-card">
+<mdui-card clickable variant="filled" href="/2021.11.27%20%E6%9C%80%E8%BF%91%E7%BB%99%E5%87%A0%E4%B8%AA%E6%9C%8B%E5%8F%8B%E5%B1%95%E7%A4%BA%E4%BA%86%E4%B8%80%E4%B8%8B%E5%88%9D%E9%AB%98%E4%B8%AD%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%97%B6%E5%86%99/" class="note-card">
   
-  <img src="/image/banner/minamiquartet8.PNG" class="note-cover" alt="20211127 最近给几个朋友展示了一下初高中学竞赛时写" loading="lazy">
+  <img src="/image/banner/nozomizo25.JPG" class="note-cover" alt="2021.11.27 最近给几个朋友展示了一下初高中学竞赛时写" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20211127 最近给几个朋友展示了一下初高中学竞赛时写</h2>
+      <h2 class="note-card-title">2021.11.27 最近给几个朋友展示了一下初高中学竞赛时写</h2>
       
       <p class="note-excerpt">最近给几个朋友展示了一下初高中学竞赛时写下的博客 讲几点 1. 我一般只是想让别人知道信竞都学了些什么，因为我确实很难一两句讲清楚信竞到底学了什么。也有可...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2021 Nov 27</span>
       <span class="note-read">1 min read</span>
@@ -425,20 +508,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20210810%20%E5%9C%A8%E6%B4%9B%E8%B0%B7%E5%9B%A0%E4%B8%BA%E9%A2%98%E8%A7%A3%E6%9C%89%E7%82%B9%E9%97%AE%E9%A2%98%E8%A2%AB%E4%BA%BAat%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/2021.08.10%20%E5%9C%A8%E6%B4%9B%E8%B0%B7%E5%9B%A0%E4%B8%BA%E9%A2%98%E8%A7%A3%E6%9C%89%E7%82%B9%E9%97%AE%E9%A2%98%E8%A2%AB%E4%BA%BAat%E4%BA%86/" class="note-card">
   
-  <img src="/files/qzone-20210810-235650-01.jpg" class="note-cover" alt="20210810 在洛谷因为题解有点问题被人at了" loading="lazy">
+  <img src="/files/qzone-20210810-235650-01.jpg" class="note-cover" alt="2021.08.10 在洛谷因为题解有点问题被人at了" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20210810 在洛谷因为题解有点问题被人at了</h2>
+      <h2 class="note-card-title">2021.08.10 在洛谷因为题解有点问题被人at了</h2>
       
       <p class="note-excerpt">在洛谷因为题解有点问题被人at了 点开，发现是好久好久之前初学时写的题解 当时还不会LaTeX，排版极其混乱 改完有漏洞的讨论之后，顺手给整篇文章大翻新一...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2021 Aug 10</span>
       <span class="note-read">1 min read</span>
@@ -450,20 +533,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20210713%20%E6%88%91%E5%AD%A6%E4%BA%864%E5%B9%B4%E4%BF%A1%E6%81%AF/" class="note-card">
+<mdui-card clickable variant="filled" href="/2021.07.13%20%E6%88%91%E5%AD%A6%E4%BA%864%E5%B9%B4%E4%BF%A1%E6%81%AF/" class="note-card">
   
-  <img src="/image/banner/nozomizo6.JPEG" class="note-cover" alt="20210713 我学了4年信息" loading="lazy">
+  <img src="/image/banner/nozomizo40.JPG" class="note-cover" alt="2021.07.13 我学了4年信息" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20210713 我学了4年信息</h2>
+      <h2 class="note-card-title">2021.07.13 我学了4年信息</h2>
       
       <p class="note-excerpt">我学了4年信息 直到退役之后才知道 信息里面学组合数学的部分分为两种 一种叫 代数组合（生成函数之类） 另一种叫 组合代数（卷积反演之类）</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2021 Jul 13</span>
       <span class="note-read">1 min read</span>
@@ -500,20 +583,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20210418%20%E8%BF%9F%E5%88%B0%E7%9A%84%E9%80%80%E5%BD%B9%E8%AE%B0/" class="note-card">
+<mdui-card clickable variant="filled" href="/2021.04.18%20%E8%BF%9F%E5%88%B0%E7%9A%84%E9%80%80%E5%BD%B9%E8%AE%B0/" class="note-card">
   
-  <img src="/image/banner/minamiquartet6.JPG" class="note-cover" alt="20210418 迟到的退役记" loading="lazy">
+  <img src="/image/banner/minamiquartet6.JPG" class="note-cover" alt="2021.04.18 迟到的退役记" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20210418 迟到的退役记</h2>
+      <h2 class="note-card-title">2021.04.18 迟到的退役记</h2>
       
       <p class="note-excerpt">迟到的退役记 断断续续写了好久 写出来果然舒服很多 全文7700+字，如果你不打算看完，请不要留下你的赞 但是，如果你看完了，我会很感动的。 电脑食用效果...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2021 Apr 18</span>
       <span class="note-read">1 min read</span>
@@ -525,20 +608,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20210206%20Cu%E6%BB%9A%E7%B2%97/" class="note-card">
+<mdui-card clickable variant="filled" href="/2021.02.06%20Cu%E6%BB%9A%E7%B2%97/" class="note-card">
   
-  <img src="/image/banner/nozomizo38.JPG" class="note-cover" alt="20210206 Cu滚粗" loading="lazy">
+  <img src="/image/banner/nozomizo26.JPG" class="note-cover" alt="2021.02.06 Cu滚粗" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20210206 Cu滚粗</h2>
+      <h2 class="note-card-title">2021.02.06 Cu滚粗</h2>
       
       <p class="note-excerpt">Cu滚粗 从今天开始正式退役 还是太菜了</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2021 Feb 06</span>
       <span class="note-read">1 min read</span>
@@ -550,20 +633,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20210205%20%E9%80%80%E5%BD%B9%E6%88%90%E5%8A%9F%E4%BA%86%E7%BD%A2%E3%80%82%E5%A4%A7%E6%A6%82%E8%BF%99%E4%B8%AA%E4%B8%96%E7%95%8C%E4%B8%8A%E6%B2%A1%E6%9C%89%E6%AF%94%E6%88%91%E6%9B%B4%E8%8F%9C/" class="note-card">
+<mdui-card clickable variant="filled" href="/2021.02.05%20%E9%80%80%E5%BD%B9%E6%88%90%E5%8A%9F%E4%BA%86%E7%BD%A2%E3%80%82%E5%A4%A7%E6%A6%82%E8%BF%99%E4%B8%AA%E4%B8%96%E7%95%8C%E4%B8%8A%E6%B2%A1%E6%9C%89%E6%AF%94%E6%88%91%E6%9B%B4%E8%8F%9C/" class="note-card">
   
-  <img src="/image/banner/nakayoshi5.jpg" class="note-cover" alt="20210205 退役成功了罢。大概这个世界上没有比我更菜" loading="lazy">
+  <img src="/image/banner/nozomizo26.JPG" class="note-cover" alt="2021.02.05 退役成功了罢。大概这个世界上没有比我更菜" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20210205 退役成功了罢。大概这个世界上没有比我更菜</h2>
+      <h2 class="note-card-title">2021.02.05 退役成功了罢。大概这个世界上没有比我更菜</h2>
       
       <p class="note-excerpt">退役成功了罢。大概这个世界上没有比我更菜的人了。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2021 Feb 05</span>
       <span class="note-read">1 min read</span>
@@ -575,20 +658,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20201109%20%E6%89%80%E4%BB%A5CSP2020%20T1%E5%88%B0%E5%BA%95%E7%BB%99%E4%BA%BA%E9%80%A0%E6%88%90%E4%BA%86%E5%A4%9A/" class="note-card">
+<mdui-card clickable variant="filled" href="/2020.11.09%20%E6%89%80%E4%BB%A5CSP2020%20T1%E5%88%B0%E5%BA%95%E7%BB%99%E4%BA%BA%E9%80%A0%E6%88%90%E4%BA%86%E5%A4%9A/" class="note-card">
   
-  <img src="/files/qzone-20201109-201723-01.png" class="note-cover" alt="20201109 所以CSP2020 T1到底给人造成了多" loading="lazy">
+  <img src="/files/qzone-20201109-201723-01.png" class="note-cover" alt="2020.11.09 所以CSP2020 T1到底给人造成了多" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20201109 所以CSP2020 T1到底给人造成了多</h2>
+      <h2 class="note-card-title">2020.11.09 所以CSP2020 T1到底给人造成了多</h2>
       
       <p class="note-excerpt">所以CSP2020 T1到底给人造成了多大的心理阴影 小朋友......你知道儒略历吗......(心力交瘁) hhhh图2笑死我了 (图2为洛谷CSP2...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2020 Nov 09</span>
       <span class="note-read">1 min read</span>
@@ -600,20 +683,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20200810%20%E6%99%BA%E5%8A%9B%E5%BA%B7%E5%A4%8D%E8%AE%AD%E7%BB%83day1%E6%88%91%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AF%B9%E2%80%9C%E5%8C%96%E7%AE%80%E2%80%9D%E7%9A%84/" class="note-card">
+<mdui-card clickable variant="filled" href="/2020.08.10%20%E6%99%BA%E5%8A%9B%E5%BA%B7%E5%A4%8D%E8%AE%AD%E7%BB%83day1%E6%88%91%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AF%B9%E2%80%9C%E5%8C%96%E7%AE%80%E2%80%9D%E7%9A%84/" class="note-card">
   
-  <img src="/files/qzone-20200810-150733-01.png" class="note-cover" alt="20200810 智力康复训练day1我是不是对“化简”的" loading="lazy">
+  <img src="/files/qzone-20200810-150733-01.png" class="note-cover" alt="2020.08.10 智力康复训练day1我是不是对“化简”的" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20200810 智力康复训练day1我是不是对“化简”的</h2>
+      <h2 class="note-card-title">2020.08.10 智力康复训练day1我是不是对“化简”的</h2>
       
       <p class="note-excerpt">智力康复训练day1我是不是对“化简”的理解有些偏差。。。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2020 Aug 10</span>
       <span class="note-read">1 min read</span>
@@ -625,20 +708,70 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20190809%20IOI2019%E5%9C%86%E6%BB%A1%E7%BB%93%E6%9D%9F/" class="note-card">
+<mdui-card clickable variant="filled" href="/2019.08.16%20NOIP%E5%81%9C%E5%8A%9E%E9%80%9A%E7%9F%A5/" class="note-card">
   
-  <img src="/files/Pasted%20image%2020260424123828.png" class="note-cover" alt="20190809 IOI2019圆满结束" loading="lazy">
+  <img src="/image/banner/nozomizo22.JPG" class="note-cover" alt="2019.08.16 NOIP停办通知" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20190809 IOI2019圆满结束</h2>
+      <h2 class="note-card-title">2019.08.16 NOIP停办通知</h2>
+      
+      <p class="note-excerpt">CCF宣布从2019年起暂停NOIP竞赛的通知。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">OI</span>
+      
+      <span class="note-date">2019 Aug 16</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2019-2020%20%E4%BF%A1%E6%81%AF%E5%AD%A6%E7%AB%9E%E8%B5%9B%E7%BA%AA%E5%AE%9E/" class="note-card">
+  
+  <img src="/image/banner/nozomizo38.JPG" class="note-cover" alt="2019-2020 信息学竞赛纪实" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2019-2020 信息学竞赛纪实</h2>
+      
+      <p class="note-excerpt">2019-2020年信息学竞赛纪实 MOC 聚合页</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">竞赛</span>
+      
+      <span class="note-date">2019 Aug 16</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2019.08.09%20IOI2019%E5%9C%86%E6%BB%A1%E7%BB%93%E6%9D%9F/" class="note-card">
+  
+  <img src="/files/Pasted%20image%2020260424123828.png" class="note-cover" alt="2019.08.09 IOI2019圆满结束" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2019.08.09 IOI2019圆满结束</h2>
       
       <p class="note-excerpt">IOI2019圆满结束 美国总分冠军，去年捧杯的BenQ(他是个华人)再次捧杯 中国三金一银获得第三 自此中国四大竞赛全部获得世界冠军（不要急，往下看）...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2019 Aug 09</span>
       <span class="note-read">1 min read</span>
@@ -807,6 +940,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>近世代数-01-群论 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 77</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 453</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 162</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 11</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 4</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">近世代数-01-群论</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 May 15</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">21 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <blockquote>
+<p>本笔记所属课程：<a href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/" title="">近世代数</a></p>
+</blockquote>
+<h2 id="群">群</h2>
+<h3 id="群的定义">群的定义</h3>
+<p><strong>定义</strong>
+对于一个集合 $S$ 和元素间的二元运算 $\oplus$ ，对于以下 $4$ 条性质</p>
+<p>$$\begin{aligned}
+封闭性 &amp;&amp; \forall a,b\in S, &amp;&amp; a\oplus b\in S \
+结合律 &amp;&amp; \forall a,b,c\in S, &amp;&amp; (a\oplus b)\oplus c=a\oplus (b\oplus c)\
+幺元 &amp;&amp; \exists 1\in S,s.t.\forall a\in S, &amp;&amp; a1=1a=a\
+逆元 &amp;&amp; \forall a\in S, \exists a^{-1},s.t. &amp;&amp; aa^{-1}=a^{-1} a=1\
+\end{aligned}$$</p>
+<p>满足第一条性质，则称 $(S,\oplus)$ 是 <strong>原群</strong> 或 $\frac 14$ <strong>群</strong>。</p>
+<p>满足前两条性质，则称 $(S,\oplus)$ 是 <strong>半群</strong> 或 $\frac 12$ <strong>群</strong>。</p>
+<p>满足前三条性质，则称 $(S,\oplus,1)$ 是 <strong>亚群</strong> 或 <strong>幺半群</strong> 或 $\frac 34$ <strong>群</strong>。</p>
+<p>满足全部四条性质，则称 $(S,\oplus,1)$ 是 <strong>群</strong>。</p>
+<p>在不至于引起歧义的情况下，有时以集合 $S$ 或其他简写直接指代。$n$ 个元素的群称为 $n$ 阶群。</p>
+<p>自然数集关于加法 $(\mathbb N,+,0)$ 是一个亚群。</p>
+<p>整数集关于加法 $(\mathbb Z,+,0)$ 是一个群。</p>
+<p>另外要注意，下面两条性质不是默认满足的</p>
+<p>$$\begin{aligned}
+交换律 &amp;&amp; \forall a,b\in S &amp;&amp; ab=ba\
+零元 &amp;&amp; \exists 0\in S,s.t.\forall a\in S &amp;&amp;a0=0a=0
+\end{aligned}$$</p>
+<p>eg 咕</p>
+<p>若一个亚群不是交换群，则 $(ab)^m=a^mb^m$ 一般不能普遍成立。</p>
+<p><strong>定理</strong>
+乘积的逆。在亚群 $G$ 中，如果 $\exists a,b\in G$ 可逆，则 $ab$ 可逆，且
+[(ab)^{-1}=b^{-1}a^{-1}]</p>
+<p><strong>定理</strong>
+有逆元蕴含消去律。在亚群 $G$ 中，对 $a,b,c\in G$ ，如果 $a$ 可逆，则 $ab=ac$ 和 $ba=ca$ 皆可推得 $b=c$</p>
+<p><strong>定理</strong>
+有限双消半群 = 群</p>
+<p>幺元、逆元、零元的唯一性</p>
+<p><strong>定义</strong>
+如果 $(G,\oplus,1)$ 是群， $A\subset G$ ， $(A,\oplus)$ 也是群，则称 $A$ 是 $G$ 的 <strong>子群</strong> ，记作 $A\leq G$ 。若 $A\neqqG$ ，称 $A$ 是 $G$ 的 <strong>真子群</strong> ，记作 $A&lt;G$ 。</p>
+<p>结合律是对任意元素自然满足的，因此需要检验另外三条性质</p>
+<p>检验封闭性</p>
+<p>群的幺元也是子群的幺元</p>
+<p>群中每个元素的逆元在子群中也是该元素的逆元。</p>
+<p>显然，一元群 ${1_G}\leq G$ 是 $G$ 最小的子群。</p>
+<h3 id="等价关系">等价关系</h3>
+<p><strong>定义</strong></p>
+<p>对一个集合 $S$ 上的二元关系 $\sim$ ，如果满足</p>
+<p>$$\begin{aligned}
+自反 &amp;&amp; a\sim a\
+对称 &amp;&amp; a\sim b \Rightarrow b\sim a\
+传递 &amp;&amp; a\sim b,b\sim c\Rightarrow a\sim c\
+\end{aligned}$$</p>
+<p>则称为一个 <strong>等价关系</strong> 。由分类公理，记
+[[x]={y\in S:x\sim y}]</p>
+<p>易见 $[x_1]=[x_2]\Leftrightarrow x_1\sim x_2$ ，并且 $S=\bigcup_{x\in S} [x]$ 。去重，记
+[(S/\sim)=\bigcup_{x\in S}{[x]}]</p>
+<p>称为 $S$ 关于等价关系 $\sim$ 的 <strong>商集</strong>。此时 $S=\bigsqcup_{H\in(S/\sim)}H$ ，根据选择公理 ，我们可以选出一个代表元系 $R$ ，写成
+[S=\bigsqcup_{x\in R} [x]]</p>
+<p>有 $|S/\sim|=|R|$ 。</p>
+<p>后面我们会看到，等价关系和群关系有一个对应。用群的置换表示，可知</p>
+<ul>
+<li>
+<p>自反 幺元</p>
+</li>
+<li>
+<p>对称 逆元</p>
+</li>
+<li>
+<p>传递 结合</p>
+</li>
+</ul>
+<p>是对应的。</p>
+<h3 id="同态与同构">同态与同构</h3>
+<p>在群论中，最重要的是研究元素之间的结构关系。所以，我们很多时候不关心集合里的元素到底是什么。于是有</p>
+<p><strong>定义</strong>
+对于半群 $(G_1,\oplus_1)$ 和 $(G_2,\oplus_2)$ ，如果存在一个映射 $\sigma:G_1\to G_2$ ，使得
+[\sigma(x\oplus_1 y)=\sigma(x)\oplus_2\sigma(y)]</p>
+<p>那么我们称映射 $\sigma$ 是一个 $G_1$ 到 $G_2$ 的 <strong>同态</strong>。</p>
+<p>如果 $\sigma$ 是一个双射，那么称这是一个 <strong>同构</strong> 。此时我们会说，$G_1$ 和 $G_2$ 同构，记 $G_1\cong G_2$ 。</p>
+<p><strong>定理</strong>
+同态将幺元映到幺元，逆映到逆。</p>
+<p><strong>定义</strong>
+设 $f:A\to B$ 是一个群同态，$f$ 的 <strong>像</strong>
+[\mathrm{Im}f=f(A)]</p>
+<p>$f$ 的 <strong>核</strong>
+[\mathrm{Ker}f=f^{-1}(1_B)={a\in A:f(a)=1_B}]</p>
+<p><strong>定理</strong>
+同态是单射当且仅当 $\mathrm{Ker} f={1_A}$</p>
+<p><strong>证明</strong>
+$\Rightarrow$ 由于 $f(1_A)=1_B$ ，由于 $f$ 是单射，显然。
+$\Leftarrow$ 设 $f(a)=f(b)$ ，那么 $f(ab^{-1})=f(a)f(b^{-1})=f(a)f(b)^{-1}=1_B$ ，$ab^{-1}=1_A,a=b$ 故 $f$ 是单射。</p>
+<p>如果 $G_1\cong G_2$ ，我们也会直接说它们就是同一个群。例如</p>
+<p>$({2^k:k\in \mathbb Z},\cdot)\cong(\mathbb Z,+)$</p>
+<p>$(M_n(\mathbb R),+)\cong(\mathbb R^{n^2},+)$</p>
+<p>$K_4\cong \mathbb Z_2\times \mathbb Z_2$ ，其中 $K_4$ 是 Klein 四元群，$\mathbb Z_2$ 是 $\bmod 2$ 加法群。</p>
+<p>[
+K_4={1,a_1,a_2,a_3},a_ia_j=\begin{cases}1 &amp; i=j\cr a_k &amp; i\neqq j\neqq k\end{cases}
+]</p>
+<p>类似的例子还有很多。证明同构是群论的基本问题之一，我们会在后面继续讨论。</p>
+<h3 id="生成元与循环群">生成元与循环群</h3>
+<p>记 $S$ 生成的群为 $\langle S\rangle$ 。如果 $G=\langle S\rangle$ ，称 $S$ 是 $G$ 的一个 <strong>生成元系</strong> ，若 $|S|$ 有限，称 $G$ 为 <strong>有限生成群</strong> 。</p>
+<p>$G=\langle a\rangle={1,a,…}$ 称为 <strong>循环群</strong>。</p>
+<ul>
+<li>
+<p>$\langle a\rangle={1,a,…}\cong\mathbb Z$</p>
+</li>
+<li>
+<p>$\langle a\rangle={1,a,…,a^{n-1}}\cong\mathbb Z_n$</p>
+</li>
+</ul>
+<p>于是我们只需研究 $\mathbb Z$</p>
+<ul>
+<li>
+<p>$\mathbb Z$ 只有子群 $m\mathbb Z(m\in \mathbb Z,m\geq 0)$ ，且 $m\mathbb Z=-m\mathbb Z$</p>
+</li>
+<li>
+<p>$\mathbb Z_n$ 只有子群 $m\mathbb Z_n(m\mid n)$ ，且 $m\mathbb Z={\mathrm{gcd}}(m,n)\mathbb Z$</p>
+</li>
+</ul>
+<p>小学数论就是研究 $\mathbb Z_n$ 上的群论，所以应该很熟了。</p>
+<ul>
+<li>
+<p>无限循环群的生成元只有 $a,a^{-1}$ 共 $2$ 个。</p>
+</li>
+<li>
+<p>有限循环群的生成元只有 $a^m,m\perp n$ 共 $\varphi (n)$ 个。</p>
+</li>
+</ul>
+<h3 id="阶">阶</h3>
+<p><strong>定义</strong>
+设 $G$ 是一个亚群，$g\in G$ 。若 $\exists n\in \mathbb N_+$ 使得 $x^n=1$ ，记
+[{\mathrm{ord}}(x)=n_{min}]</p>
+<p>称为 $a$ 的 <strong>阶</strong>，并称 $x$ 是有限阶。如果不存在，称 $x$ 是 <strong>无限阶</strong> 的，记作 ${\mathrm{ord}}(x)=+\infty$ 。</p>
+<p>设 $a$ 是有限阶元素，阶为 $n$ ，易见</p>
+<ul>
+<li>
+<p>如果 $x^a=1$ ，那么 $n\mid a$ （蕴含 $n\leq a$）。如果 $x^a=x^b$ ，那么 $n\mid (a-b)$</p>
+</li>
+<li>
+<p>$ord(x^k)=\dfrac{n}{gcd(n,k)}$ 。小学数论可证。</p>
+</li>
+<li>
+<p>$xy$ 的阶并不易得。因为如果 $x,y$ 不可交换，就没办法拆开序列 $xyxyxy…$ 。交换且阶数互质则阶为 $x,y$ 阶的乘积。</p>
+</li>
+<li>
+<p>由 $x^n=xx^{n-1}=x^{n-1}x=1$ ，由逆元的唯一性立得 $x^{n-1}=x^{-1}$ 。这说明有限阶元素可逆，这在亚群中即成立。同时这也是求逆的一种方法。但可逆元素不一定是有限阶的，例如 $(\mathbb Z,+,0)$ 中除了 $0$ 以外的元素（注意数字 $0$ 是幺元）。</p>
+</li>
+</ul>
+<p>然而逆元的阶不那么显然。</p>
+<p><strong>定理</strong>
+逆元的阶。若 $a$ 是亚群 $G$ 中的一个 $n$ 阶元素，则</p>
+<p>[ord(x^{-1})=ord(x)=n]</p>
+<p><strong>证明</strong>
+由 $a^n=1$
+[
+(x^{-1})^n=(x^{-1})^nx^n=(x^{-1})^{n-1}x^{n-1}=…=1
+]</p>
+<p>得到 $ord(x^{-1})\leq n=ord(x)$ 。同时 $ord(x)=ord((x^{-1})^{-1})\leq ord(x^{-1})$</p>
+<p>于是 $ord(x)=ord(x^{-1})$ 。</p>
+<p><strong>定理</strong>
+设 $x$ 是有限群 $G$ 的一个元素。</p>
+<ul>
+<li>
+<p>因为 $1,x,x^2,…$ 总有 $x^a,x^b$ 重复，于是 $x^{|b-a|}=1$ ，所以有限亚群的元素必有（有限）阶。于是在有限亚群中元素均可逆</p>
+</li>
+<li>
+<p>$\mathbf{Inf}\ 2.2.1(3):$ 有限群中元素的阶 $n$ 必是 $|G|$ 的一个因子。</p>
+</li>
+<li>
+<p>$\mathbf{Inf}\ 2.2.1(4):$ 对任何素数阶群 $G$ ， 除了幺元的阶是 $1$ ，其余的阶都是 $|G|=p$ ，并且 $G\cong \mathbb Z_p$ 。也即 $p$ 阶群只有一个，就是 $\mathbb Z_p$ 。</p>
+</li>
+</ul>
+<h3 id="自同构群">自同构群</h3>
+<p>我们在群论中将同构的群视作同一个群，也就是说，一个群上所有的同构映射也构成一个置换群，我们称这个群为 <strong>自同构群</strong> ，记作</p>
+<p>[{\mathrm{Aut}}(S)={\sigma:S\to S}]</p>
+<p>我们要求 $\sigma$ 是一个同构，即保运算，这是一个双射之外的要求。可以验证自同构群是置换群 $S(\Sigma)$ 的一个子群。</p>
+<p>除了复合之外，同构之间也可以更平凡地定义一个运算 $(f+g)(a)=f(a)g(a)$ 。这就引出后面我们关于环的讨论。</p>
+<ul>
+<li>
+<p>${\mathrm{Aut}}(\mathbb Z)=({\pm 1},\cdot)\cong\mathbb Z_2$</p>
+</li>
+<li>
+<p>${\mathrm{Aut}}(\mathbb Z_n)\cong{m\mid m\perp n}$ ，就是 $\bmod n$ 缩系。</p>
+</li>
+<li>
+<p>${\mathrm{Aut}}(\mathbb Z_8)\cong\mathbb Z_2\times\mathbb Z_2\cong K_4$</p>
+</li>
+</ul>
+<p>下面我们给出一个优美的不平凡同构。</p>
+<ul>
+<li>$\mathbf{Thm}\ 1.4:$ 有理数 加法群的自同构群 和 乘法群同构</li>
+</ul>
+<p>[{\mathrm{Aut}}(\mathbb Q)\cong\bf (\mathbb Q^*,\cdot)]</p>
+<p><strong>证明</strong>
+设 $\sigma\in{\mathrm{Aut}}(\mathbb Q)$ ，那么 $\sigma(0)=0$ 。设 $\sigma(1)=q\in\mathbb Q$ ，数归知
+[
+\forall x\in\mathbb Q,\quad\sigma(nx)=\sigma((n-1)x)+\sigma(x)=n\sigma(x)
+]</p>
+<p>于是 $\sigma(x)=\dfrac 1n\sigma(nx)$ ，$\sigma(n)=nq$ 。这意味着当 $n,m\in \mathbb N$
+[
+\sigma(\frac nm)=\frac nmq,\quad\forall \sigma\in{\mathrm{Aut}}(\mathbb Q)
+]</p>
+<p>也即 $\sigma(x)=qx$ 。当且仅当 $\sigma(1)=q\neqq0$ 时这是一个同构。即
+[
+{\mathrm{Aut}}(\mathbb Q)={\sigma(x)=qx,q\in \mathbb Q^<em>}\cong (\mathbb Q^</em>,\cdot)
+]</p>
+<p>这里体现了研究同构或自同构群的一个重要的切入点：$f(1)$</p>
+<h2 id="陪集分解">陪集分解</h2>
+<h3 id="陪集分解-2">陪集分解</h3>
+<p><strong>定义</strong>
+设 $x\in G,H\leq G$ ，$Hx={hx\mid h\in H}$ 称为子群 $H$ 关于 $x$ 的 <strong>右陪集</strong> 。</p>
+<p>同理有左陪集。</p>
+<p><strong>定理</strong>
+子群 $H\leq G$ 的陪集上有等价关系
+[y\equiv_r x\pmod H:y\in Hx(yx^{-1}\in H)]</p>
+<p>并且</p>
+<p>[[x]=Hx=[x’],\quad \forall x’\in Ax]</p>
+<p><strong>证明</strong>
+自反 $xx^{-1}=e\in H$</p>
+<p>对称 $xy^{-1}=(yx^{-1})^{-1}\in H$</p>
+<p>传递 $zx^{-1}=(zy^{-1})(yx^{-1})\in H$</p>
+<p>这里 $G/\equiv_r$ 称为群 $G$ 关于子群 $H$ 的一个 <strong>右陪集分解</strong>，并记 $[G:H]=|G/\equiv_r|$ ，称作 $H$ 对于 $G$ 的 <strong>指数</strong>。</p>
+<p><strong>定理</strong>
+左右陪集分解可以得到相同的指数。</p>
+<p><strong>证明</strong>
+考虑映射 $Ha\mapsto a^{-1}H$ 。证明这是左右陪集的一个一一对应。注意到 $ab^{-1}\in H\Leftrightarrow (b^{-1})^{-1}(a^{-1})\in H$ ，这意味着 $a\equiv_r b \pmod H\Leftrightarrow a^{-1} \equiv_l b^{-1}\pmod H$ 。</p>
+<p>$H=m\mathbb Z,[aH]=\overline a+km$</p>
+<p><strong>定理</strong> [Lagrange]
+陪集分解定理。有限群 $G$ 有一个子群 $H$ ，则
+[[G:H]=|G|/|H|]</p>
+<p><strong>证明</strong>
+注意到 $|Hx|\leq|H|,|Hx|\geq |(Hx)x^{-1}|$ ，故 $|H|=|Hx|$。
+[
+|G|=\sum_{H\in (G/\equiv_r)}|H|=|G/\equiv_r|\cdot|A|=[G:A]\cdot|A|
+]</p>
+<p><strong>推论</strong>
+有限群 $G$ 的子群 $A$ 的元素个数必为 $G$ 元素个数的因子。</p>
+<p><strong>推论</strong>
+素数阶群只有平凡子群。</p>
+<p><strong>定理</strong>
+如果 $A\leq B\leq G$ ，则
+[[G:A]=[G:B][B:A]]</p>
+<p><strong>证明</strong>
+取 $Hb$ 和 $Ba$ 代表元 $b_i,a_j$ 。考虑 $\bigcup \left(\bigsqcup Hb_i\right)a_j$ 。下证 $Hb_ia_j=Hb_ra_t\Rightarrow i=r,j=t$ 。</p>
+<p><strong>定理</strong></p>
+<p>有限群 $G$ 有子群 $A,B\leq G$ ，那么</p>
+<p>[|AB|=\frac{|A|\cdot|B|}{|A\cap B|}]
+<strong>证明</strong>
+设 $C=A\cap B$ ，$B=\bigsqcup Cb_i$ ，那么由于 $b_ib_j^{-1}\notin C,(\in B)$ 所以 $b_ib_j^{-1}\notin A$ 。所以 $Ab_i,Ab_j$ 无交。所以
+$AB=\bigsqcup ACb_i=\bigsqcup Ab_i$ 。</p>
+<p><strong>定理</strong></p>
+<p>有限群 $G$ 有子群 $A,B\leq G$ ，那么
+[[B:A\cap B]\leq [G:A]]</p>
+<p>[[G:A\cap B]\leq [G:A][G:B]]</p>
+<p>右侧互质时取等，此时 $AB=G$</p>
+<p><strong>证明</strong> 我们证明子群的子群的陪集到子群的陪集之间有单射，即 $hk^{-1}\in A\cap B\subset A$，于是 [h\equiv_r k\pmod {A\cap B}\Rightarrow\pmod A]</p>
+<p>那么有 $(A\cap B)b_i\mapsto Ab_i\in {Ag_i}$ 是良定的单射，于是 $[B:A\cap B]\leq[G:A]$。满射时即 $Ab_i=AB=G$ 时取等。</p>
+<p>第二条式子两边同乘 $[G:B]$ 即可。</p>
+<p>这些定理的证明都是利用类似的子群包含关系。</p>
+<h3 id="同态基本定理">同态基本定理</h3>
+<p><strong>定义</strong></p>
+<p>下述定义等价</p>
+<ul>
+<li>$N$ 的每个左陪集都是 $N$ 的右陪集</li>
+<li>$\forall g\in G,gN=Ng$</li>
+<li>$\forall g\in G,g^{-1}Ng\subset N$</li>
+<li>$\forall g\in G,g^{-1}Ng=N$</li>
+</ul>
+<p>我们称子群 $A$ 是 $G$ 的 <strong>正规子群</strong> ，记作 $A\lhd G$ 。</p>
+<p><strong>证明</strong>
+如果左陪集也是右陪集，由于 $g\in gN,g\in Ng$ ，如果 $g\in gN=Nh$ ，那么 $g\equiv_r h\pmod N$ 。即 $gN=Nh=Ng$</p>
+<p>$gn_1=n_2g\rightarrow gn_1g^{-1}=n_2$</p>
+<p>取逆。</p>
+<p>显然</p>
+<p>对正规子群我们可以省略陪集的左右。</p>
+<p>正规子群的关系不能传递。</p>
+<p><strong>定理</strong>
+设 $N\lhd G,H\leq G$ ，有
+[(H\cap N)\lhd H]
+[NH=HN=\langle N\cup H\rangle]
+[N\lhd NH(\leq G)]</p>
+<p>如果 $N,M\lhd G,N\cap M={e}$ ，那么 $nm=mn$
+<strong>证明</strong>
+设 $x\in H\cap N$ ，显然 $hxh^{-1}\in H$ 。由于 $N\lhd G,h\in H\leq G,x\in N$ 所以 也有 $hxh^{-1}\in N$ 故 $h(N\cap H)h^{-1}\subset(N\cap H)$ ，即 $(H\cap N)\lhd H$</p>
+<p>咕</p>
+<p>设 $A\leq G$ ，$G$ 对 $A$ 的右陪集分解为 $(G/\equiv_r)={Ag}$ ，我们想要研究 $G/\equiv_r$ 上的群关系。首先考虑定义
+[[g]\cdot[h]=[gh]=A(gh)]</p>
+<p>我们在研究的是用元素来定义其等价类的运算，这不可避免地遇到一个问题：代入公理
+[g\equiv g’,h\equiv h’\pmod A\overset {?}{\longrightarrow} gh\equiv g’h’\pmod A]</p>
+<p>在运算中是否仍成立？</p>
+<p>我们提出的要求是一个关于 $A$ 的条件。这相当于 $\forall g’\in Ag,h’\in Ah$ ，都要有
+[A(gh)=A(g’h’)]</p>
+<p>这也就相当于 $Agh=AgAh$ ，进而可以写成
+[\forall g,Ag=AgA \Leftrightarrow A=(g^{-1}Ag)A]</p>
+<p>而这也意味着 $g^{-1}Ag\subset A$ 。由于 $g$ 取遍 $G$ ，这也是 $gAg^{-1}\subset A$ ，再反过来就有 $A\subset gAg^{-1}$ ，即</p>
+<p>经过这个条件之后，我们可以放心使用陪集等价类之间的运算。如果 $A$ 是正规子群，那么其陪集等价商集 $G/\equiv$ 也是一个群，称为 <strong>商群</strong>，记 $G/A$ 。</p>
+<p>注意到 $\mathrm{Ker}(N\to G/N)=N$</p>
+<p><strong>引理</strong>
+设 $f:A\to B$ 是一个群同态，则 $\mathrm {Im}f\leq B$ ，且 $\mathrm{Ker}f\lhd A$ 。</p>
+<p><strong>证明</strong></p>
+<p>[f(axa^{-1})=f(a)f(x)f(a^{-1})=f(a)1_Bf(a)^{-1}=1_B]</p>
+<p>故 $\mathrm{Ker} f\lhd A$</p>
+<p><strong>引理</strong>
+如果 $N\lhd A$ ，那么 $\pi(a)\pi(b)=aNbN=abN=\pi(ab)$ ，
+[\pi:A\to A/N,\pi(a)=aN]</p>
+<p>是一个满同态。</p>
+<p>设 $f:A\to B$ 是一个群同态，$N\lhd G,N\leq \mathrm{Ker}f$ 。由于 $\forall x\in aN,\exists n_0\in N\leq\mathrm{Ker}f,x=an_0$ ，故 $f(x)=f(a)f(n_0)=f(a)$ ，于是可以定义
+[\overline f:A/N\to B,\overline f(aN)=f(a)]</p>
+<p>由 $\overline f(aNbN)=\overline f(abN)=f(ab)=f(a)f(b)=\overline f(aN)\overline f(bN)$ ，这是一个同态。</p>
+<p>对比 $\pi,\overline f$ 显然有 $\mathrm{Im} f=\mathrm{Im}\overline f$ ，$f,\overline f$ 满射等价。</p>
+<p>对比 $f,\overline f$ ，有 $\mathrm{Ker}\overline f=(\mathrm{Ker}f)/N$ 。$\overline f$ 是单射等价于 $(\mathrm{Ker}f)/N={1N}$</p>
+<p><strong>定理</strong> [同态基本定理]
+当 $N=\mathrm{Ker}f$ 时 $\overline f$ 是单射。又因为 $\overline f$ 射满 $\mathrm{Im} f$ ，因此是一个同构，称为 <strong>正则同构</strong>，即 [A/\mathrm{Ker}f\cong\mathrm{Im}f]</p>
+<p><strong>定理</strong> [同态基本定理2]</p>
+<p>设 $N,H\leq G,N\lhd G$ ，有</p>
+<p>[\frac{H}{N\cap H}\cong\frac{NH}{N}]
+<strong>证明</strong>
+注意 $NH=HN=\langle N\cup H\rangle$ 。</p>
+<p>考虑 $f:H\to NH/N$ 。由于 $H\subset NH$ ，$\mathrm{Ker}(NH\to NH/N)=N$ ，故 $\mathrm{Ker}(H\to NH/N)=N\cap H$ 。只要证射满即可。</p>
+<p>$NH/N$ 的每个元素形如 $nhN$ ，由 $N$ 正规性，$nh=hn’$ ，故为 $hn’N=hN$ 。所以也是 $f(h)$ 中的元素。故为满射。</p>
+<p><strong>定理</strong> [同态基本定理3]</p>
+<p>设 $N,M\lhd G,N\leq M$ ，有
+[\frac{G/N}{M/N}\cong \frac GM]
+<strong>证明</strong></p>
+<p>令 $I:G/N\to G/M,I(gN)=gM$ ，由于 $N\leq M$ ，是满射。</p>
+<p>考虑 $I(gN)=M$ ，需要 $gn\in M$ 即 $g\in M$</p>
+<p>所以 $\mathrm{Ker} I={gN:g\in M}=M/N$</p>
+<p><strong>定理</strong></p>
+<p>设 $N\lhd G$ 。设 $M:N\leq M\leq G$ ，有
+[M/N\leq G/N]</p>
+<p>$G/N$ 的每一个子群和每一个 $M$ 对应。</p>
+<p>并且 $M\lhd G\Leftrightarrow M/N\lhd G/N$</p>
+<p><strong>证明</strong>
+考虑 $\pi:G\to G/N$</p>
+<p><strong>定理</strong>
+指数为 2 的子群正规</p>
+<h2 id="共轭">共轭</h2>
+<h3 id="置换群">置换群</h3>
+<p><strong>定义</strong>
+一个集合到自身的双射 $f:\Sigma\to \Sigma$ 称为一个 <strong>置换</strong> 或 <strong>重排</strong> 。记作 $S(\Sigma)$</p>
+<p>容易验证，一个集合的所有置换关于复合运算 $(S(\Sigma),\circ,id)$ 构成一个群，就称为集合 $\Sigma$ 上的 <strong>对称群</strong> 。其任意子群可以称为一个 <strong>置换群</strong>。</p>
+<p>易知任意有限集合的置换群同构，因此可以谈 $n$ 元集合上的对称群，记作 $S_n$ 。显然 $|S_n|=n!$</p>
+<p>轮换 对换 奇偶性。可以认为奇偶性就是群 $\mathbb Z_2$ ，置换的奇偶性是一个满同态。其中 全体偶置换 $\mathrm {Ker} f$ 是 $S_n$ 的正规子群，被称为交错群 $A_n$。</p>
+<p>任意置换是有限对换积</p>
+<p>$(12),(13),…,(1n)$ 构成 $S_n$ 生成元系</p>
+<p>$(ij1),(ij2),… (ijn)$ 生成 $A_n$</p>
+<p>$(ijk)$ 构成 $S_n$ 生成元系</p>
+<p>多边形旋转翻转群 $D_n$</p>
+<p><strong>定义</strong>
+置换唯一被表示成无交轮换积。统计其中轮换的长度，称为形，记 $1^{i_1}2^{i_2}… n^{i_n}$</p>
+<p><strong>定义</strong>
+只有平凡正规子群的群称为 <strong>单群</strong> 。素数阶群是单群。</p>
+<p><strong>定理</strong>
+交换单群只有一阶群和素数阶群
+<strong>证明</strong>
+交换群的子群都正规。</p>
+<p><strong>引理</strong>
+交错群 $A_n$ 的正规子群 $N$ 有长为 3 的轨道，则只能是它本身。</p>
+<p><strong>定理</strong>
+$n=4$ 时，交错群 $A_n$ 是单群</p>
+<h3 id="共轭类">共轭类</h3>
+<p><strong>定义</strong>
+设 $A,B$ 是群 $G$ 的两个子集，如果 $\exists g\in G,g^{-1}Ag=B$ ，则称子集 $A,B$ <strong>共轭</strong> ，记 $A\sim B$。如果 $A$ 是子群，则称 $A,B$ 为 <strong>共轭子群</strong> 。</p>
+<p>记 $G$ 的所有子群为 $\Gamma\subset 2^G$ ，就有商集 $\Gamma/\sim$ 将 $\Gamma$ 划分为若干共轭类
+[[A]={B\subset G\mid B=g^{-1}Ag}={g^{-1}Ag}]</p>
+<p><strong>定理</strong>
+置换共轭 当且仅当 形相同</p>
+<p><strong>证明</strong>
+设 $f=(ab…)…,f’=gfg^{-1}$ ，注意到
+[f’(g(a))=g(f(a))=g(b)]</p>
+<p>这意味着
+[f’=gfg^{-1}=(g(a)g(b)…)…]</p>
+<p>于是形类就是共轭类。</p>
+<p>现研究共轭类的元素个数。设有两个不同的过渡元素 $g,h$
+[B=g^{-1}Ag=h^{-1}Ah\Leftrightarrow (gh^{-1})^{-1}A(gh^{-1})=A]</p>
+<p><strong>定义</strong>
+子集 $A$ 的 <strong>正规化子</strong> 是指</p>
+<p>[N_G(A)={g\in G\mid A=g^{-1}Ag}]</p>
+<p>正规化子里的元素 $g$ 使得 $A$ 自共轭。正规化子是一个子群。</p>
+<p>另外，同样可以称元素 $a\sim b$ 共轭。也有 <strong>中心化子</strong></p>
+<p>[C_G(A)={g\in G\mid a=g^{-1}ag,\forall a\in A}]</p>
+<p>称 $C_G(G)$ 为 <strong>中心</strong> 。其中的元素称为 <strong>中心元素</strong>。中心刻画了群的可交换程度。</p>
+<ul>
+<li>
+<p>$N_G(a)=C_G(a)$</p>
+</li>
+<li>
+<p>$C_G(A)\leq N_G(A)$</p>
+</li>
+<li>
+<p>$C(G)\leq G$</p>
+</li>
+</ul>
+<p><strong>定理</strong>
+$A$ 的共轭类和它的正规化子 $N_G(A)$ 的陪集元系有一一对应。特别地，有限群 $G$ 中，子集 $A\subset G$ 的共轭类的大小</p>
+<p>[|[A]|=[G:N_G(A)]]</p>
+<p><strong>证明</strong></p>
+<p>考虑每个 $g,h\in G$ ，</p>
+<p>[g^{-1}Ag=h^{-1}Ah\Leftrightarrow gh^{-1}\in N_G(A)]</p>
+<ul>
+<li>
+<p>$\mathbf{Inf}\ 2.4.1(1):$ 共轭类的大小 $|[A]|=\dfrac{|G|}{|N_G(A)|}$ 也是 $|G|$ 的因子</p>
+</li>
+<li>
+<p>$\mathbf{Inf}\ 2.4.1(2):$ $|[a]|=[G:N_G(a)]=[G:C_G(a)]$</p>
+</li>
+<li>
+<p>$\mathbf{Thm}\ 2.4.2:$ $p^n(p\in\mathbb P)$ 阶群有非平凡中心元素，即 $|C(G)|&gt;1$</p>
+</li>
+</ul>
+<p><strong>证明</strong>
+$a\in C(G)$ 当且仅当 ${a}$ 自成一个共轭类。由上面的推论，其余的共轭类大小至少是 $p^1$ ，于是</p>
+<p>[|C(G)|\equiv 0\pmod p]</p>
+<p>而 $|C(G)|\geq 1$ ，于是 $|C(G)|\geq p$ 。</p>
+<ul>
+<li>$\mathbf{Thm}\ 2.4.3:$ $p^2$ 阶群是可交换群。</li>
+</ul>
+<p><strong>证明</strong>
+若 $G\cong\mathbb Z_{p^2}$ 当然可交换。设 $G \ncong \mathbb Z_{p^2}$ ，则每个非幺元的元素阶均为 $p$ 。</p>
+<p>由 $\mathrm{T2}.4.2$ 任取中心元素 $a\not =1$ ，记 $A={1,a,…,a^{p-1}}$ ，则 $A\subset C(G)$ 。设 $b\notin A$ ，易知</p>
+<p>[A,Ab,…,Ab^{p-1}]</p>
+<p>是 $G$ 对 $A$ 的陪集分解，(否则 $1\neqqb^{n-m}\in A$ )。由于 $a$ 可交换，于是 $a^nb^m$ 可交换，这意味着 $G={a^nb^m}$ 均可交换。这是在说，$p^2$ 阶群只有 $\mathbb Z_{p^2}$ 和 $\mathbb Z_p\times \mathbb Z_p$ 。</p>
+<ul>
+<li>$\mathbf{Inf}\ 2.4.3:$ 非交换群的最小阶数是 $6$ 。</li>
+</ul>
+<p><strong>证明</strong>
+$1$ 元群平凡成立。素数 $2,3,5$ 阶群 $G\cong\mathbb Z_p$ 可交换。$4=2^2$ 阶群可交换。$6$ 阶群 $S_3={I,(12),(13),(23),(123),(132)}$ 是 $3$ 元集合的对称群，它不是交换群。</p>
+<p><strong>定义</strong>
+共轭作用 $\sigma_g(x)=g^{-1}xg$ 是一个自同态。而它关于 $g$ 给出了一个群同态
+[\pi:G\to{\mathrm{Aut}}(G),\pi(g)=\sigma_g]</p>
+<p>称 ${\mathrm{Inn}}(G)=\mathrm{Im}\pi$ 为 <strong>内自同构群</strong> 。
+[\mathrm{Ker}\pi={g\in G\mid \pi(g)=id}={g\in G\mid \sigma_g(a)=g^{-1}ag=a,\forall a}=C(G)]</p>
+<p>也就是说， ${\mathrm{Inn}}\pi\cong G/C(G)$ 。又可以说明，${\mathrm{Inn}}(G)$ 就是保中心的 ${\mathrm{Aut}}(G)$</p>
+<h3 id="置换表示">置换表示</h3>
+<ul>
+<li>$\mathbf{Def}\ 3.2:$ 如果映射 $\pi:G\to S(\Sigma)$ 是一个同态，则称为群 $G$ 的一个 <strong>置换表示</strong>。这意味着将群 $G$ 中的元素视作一个置换 $g(a)=\pi_g(a)$ 。如果这是一个单同态，则称为 <strong>忠实表示</strong> 。此时 $G\cong\mathrm{Im}\pi\leq S(\Sigma)$ ，即 $G$ 和某个置换群同构。</li>
+</ul>
+<p>对 $a\in \Sigma$ ，可以验证 $\pi(G)a$ 是一个等价类，称为 <strong>G-轨道</strong> 。</p>
+<ul>
+<li>$\mathbf{Thm}\ 3.2\ (\mathrm{Cayley}):$ 每个群均同构于某个置换群。</li>
+</ul>
+<p><strong>证明</strong>
+如果我们取 $\Sigma=G$ ，考虑置换表示</p>
+<p>[\rho:G\to S(G),g\mapsto \sigma_g,\sigma_g(a)=ga]</p>
+<p>称为群 $G$ 的 <strong>左正则表示</strong>。同理有右正则表示。容易验证这是一个同态，且由消去律知这是一个单同态，于是这是一个忠实表示，有</p>
+<p>[G\cong\mathrm{Im}\pi\leq S(G)]</p>
+<p>取某子群 $A\leq G$ ，考虑左陪集 $hA$，取商集（不一定是群） $\Sigma=G/\sim$ ，可以得到</p>
+<p>[\rho:G\to S(G/\sim),g\mapsto \sigma_g,\sigma_g(hA)=ghA]</p>
+<p>称为群 $G$ 对子群 $A$ 的 <strong>左诱导表示</strong> 。左右诱导表示都有</p>
+<p>[\mathrm{Ker}\rho=\bigcap_{a\in G} a^{-1}Ha]</p>
+<ul>
+<li>选出保某些子集的置换，则构成置换群的子群</li>
+</ul>
+<p>要求保更多的性质会产生更小的子群，而保运算是其中基本的一条。在其他地方，我们会要求 $\sigma$ 保更多的性质，例如保流形结构的李群和保几何结构的几何变换群。这要视 $S$ 上的结构而定。</p>
+<h2 id="自由群和群的表现">自由群和群的表现</h2>
+<h3 id="自由群">自由群</h3>
+<p>设字符集 $S$ 的所有字符串为 $\Sigma*(S)$ ，它关于拼接运算是一个幺半群。就称为 $S$ 上的 <strong>自由幺半群</strong> ，其中的字符串称为 <strong>字</strong> 。如果给每个元素扩展定义一个逆元素，沿用逆的运算法则，则构成 <strong>自由群</strong> ，记 $F(S)$ ，$S$ 称为 <strong>基</strong>。</p>
+<p>看定义就很自由，什么性质都没有。特别 $S={a}$ 时，$F(S)$ 就是无限循环群 $\mathbb Z$ 。</p>
+<ul>
+<li>每个群都是自由群的商群，每个有限生成群都是有限生成自由群的商群。</li>
+</ul>
+<p>设</p>
+<p>[K\lhd F(S),F(S)/K\cong G]</p>
+<p>如果 $K$ 有一个最小生成元组，例如</p>
+<p>[K=\langle a^3,(ab)^2\rangle,G=\langle A,B\mid A^3=(AB)^2=1\rangle]</p>
+<p>这种写法称为 群的 <strong>表现</strong></p>
+<ul>
+<li>
+<p>$\mathbb Z_n=\langle a\mid a^n=1\rangle$</p>
+</li>
+<li>
+<p>正 $n$ 边形对称群 $D_n=\langle a,b\mid a^n=1,b^2=1,(ba)^2=1\rangle$</p>
+</li>
+<li>
+<p>自由交换群 $F_a(S)=\langle S\mid ab=ba,\forall a,b\in S\rangle$</p>
+</li>
+</ul>
+<p>有如下定理</p>
+<ul>
+<li>$\mathbf{Thm}:$ 设 $H,K\leq G,H\cap K={1},HK=G,hk=kh$ 则</li>
+</ul>
+<p>[G\cong H\times K]</p>
+<ul>
+<li>
+<p>$\mathbf{Thm}:$</p>
+</li>
+<li>
+<p>$\mathbf{Thm}:$ 有限生成自由交换群 $F\cong Z^r$ ，称 $r$ 为 ${\mathrm{rank}}(F)$</p>
+</li>
+</ul>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E4%BB%A3%E6%95%B0%E5%AD%A6/">代数学</a>
+                            
+                                <a class="post-backlinks__link" href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-02-%E7%BE%A4%E7%9A%84%E7%BB%93%E6%9E%84/">近世代数-02-群的结构</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-03-%E7%8E%AF%E5%92%8C%E5%9F%9F/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">近世代数-03-环和域</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/%E7%BB%84%E5%90%88%E5%AD%A6-05-Polya%E8%AE%A1%E6%95%B0%E7%90%86%E8%AE%BA/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">组合学-05-Polya计数理论</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BE%A4"><span class="post-toc-text">群</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BE%A4%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="post-toc-text">群的定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AD%89%E4%BB%B7%E5%85%B3%E7%B3%BB"><span class="post-toc-text">等价关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%90%8C%E6%80%81%E4%B8%8E%E5%90%8C%E6%9E%84"><span class="post-toc-text">同态与同构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%94%9F%E6%88%90%E5%85%83%E4%B8%8E%E5%BE%AA%E7%8E%AF%E7%BE%A4"><span class="post-toc-text">生成元与循环群</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6"><span class="post-toc-text">阶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%87%AA%E5%90%8C%E6%9E%84%E7%BE%A4"><span class="post-toc-text">自同构群</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%99%AA%E9%9B%86%E5%88%86%E8%A7%A3"><span class="post-toc-text">陪集分解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%99%AA%E9%9B%86%E5%88%86%E8%A7%A3-2"><span class="post-toc-text">陪集分解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%90%8C%E6%80%81%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="post-toc-text">同态基本定理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B1%E8%BD%AD"><span class="post-toc-text">共轭</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BD%AE%E6%8D%A2%E7%BE%A4"><span class="post-toc-text">置换群</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%B1%E8%BD%AD%E7%B1%BB"><span class="post-toc-text">共轭类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BD%AE%E6%8D%A2%E8%A1%A8%E7%A4%BA"><span class="post-toc-text">置换表示</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%87%AA%E7%94%B1%E7%BE%A4%E5%92%8C%E7%BE%A4%E7%9A%84%E8%A1%A8%E7%8E%B0"><span class="post-toc-text">自由群和群的表现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%87%AA%E7%94%B1%E7%BE%A4"><span class="post-toc-text">自由群</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

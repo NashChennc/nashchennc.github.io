@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         aria-current="page"
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -403,6 +405,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-categories-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"category","posts":[{"title":"组合学-01-组合数的严格化","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-01-%E7%BB%84%E5%90%88%E6%95%B0%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%8C%96/","date":"2024-12-31","tags":["卡特兰数","数学","斯特林数","组合学"]},{"title":"组合学-02-生成函数","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-02-%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/","date":"2024-12-31","tags":["卡特兰数","生成函数","数学","组合学"]},{"title":"组合学-03-容斥和卷积","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-03-%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8D%B7%E7%A7%AF/","date":"2024-12-31","tags":["反演","卷积","容斥原理","数学","组合学"]},{"title":"组合学-04-相异表示系SDR","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-04-%E7%9B%B8%E5%BC%82%E8%A1%A8%E7%A4%BA%E7%B3%BBSDR/","date":"2024-12-31","tags":["棋盘多项式","数学","组合学","SDR"]},{"title":"组合学-06-零点定理","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-06-%E9%9B%B6%E7%82%B9%E5%AE%9A%E7%90%86/","date":"2024-12-31","tags":["代数组合","零点定理","数学","组合学","Cauchy-Davenport"]},{"title":"组合学-07-谱图理论","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-07-%E8%B0%B1%E5%9B%BE%E7%90%86%E8%AE%BA/","date":"2024-12-31","tags":["谱图理论","数学","特征值","图论","组合学"]},{"title":"CC Auto Mode - 03 - 权限剥离与信任边界","url":"/ccauto-03-permission-stripping/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode - 04 - 多 Agent 安全交接","url":"/ccauto-04-multi-agent/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode - Auto Mode 安全架构分析报告系列","url":"/ccauto-00-index/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","menu","Safety"]},{"title":"CC Auto Mode 01 - Entry Point 总览","url":"/ccauto-01-entrypoint/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 02 - 安全判定分类管道","url":"/ccauto-02-classifier/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 05 - 门禁、熔断与异步踢出","url":"/ccauto-05-gate-circuit-breaker/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 06 - 配置体系与可定制 Slot","url":"/ccauto-06-configuration/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 07 - Deny-and-Continue 韧性设计","url":"/ccauto-07-deny-and-resilience/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 A - 单次请求的上下文整形流水线","url":"/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 B - 长会话压缩与多线程状态隔离","url":"/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 C - 分类器边界之外的纵深防御","url":"/ccauto-C-%E5%88%86%E7%B1%BB%E5%99%A8%E8%BE%B9%E7%95%8C%E4%B9%8B%E5%A4%96%E7%9A%84%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"打谱扒谱","url":"/%E6%89%93%E8%B0%B1%E6%89%92%E8%B0%B1/","date":"2026-04-03","tags":["音乐","音频"]},{"title":"煎鱼","url":"/%E7%85%8E%E9%B1%BC/","date":"2026-04-03","tags":["烹饪"]},{"title":"纽结","url":"/%E7%BA%BD%E7%BB%93/","date":"2026-04-03","tags":["数学"]},{"title":"神人公式","url":"/%E7%A5%9E%E4%BA%BA%E5%85%AC%E5%BC%8F/","date":"2026-04-03","tags":["摘抄"]},{"title":"文档","url":"/%E6%96%87%E6%A1%A3/","date":"2026-04-03","tags":["科研","LLM"]},{"title":"一些音乐网站","url":"/%E4%B8%80%E4%BA%9B%E9%9F%B3%E4%B9%90%E7%BD%91%E7%AB%99/","date":"2026-04-03","tags":["音乐"]},{"title":"粤菜烹饪例","url":"/%E7%B2%A4%E8%8F%9C%E7%83%B9%E9%A5%AA%E4%BE%8B/","date":"2026-04-03","tags":["烹饪"]},{"title":"Advice From Anthropic","url":"/Advice%20From%20Anthropic/","date":"2026-04-03","tags":["科研","LLM"]},{"title":"LLM Safety 资源","url":"/LLM%20Safety%20%E8%B5%84%E6%BA%90/","date":"2026-04-03","tags":["科研","LLM"]},{"title":"World Model Safety","url":"/World%20Model%20Safety/","date":"2026-04-03","tags":["科研","CV","vLLM"]},{"title":"贝九唱词","url":"/%E8%B4%9D%E4%B9%9D%E5%94%B1%E8%AF%8D/","date":"2026-04-25","tags":["音乐","摘抄"]},{"title":"从容斥原理到广义卷积","url":"/%E4%BB%8E%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%E5%88%B0%E5%B9%BF%E4%B9%89%E5%8D%B7%E7%A7%AF/","date":"2026-04-25","tags":["笔记","数学","组合学"]},{"title":"后训练","url":"/%E5%90%8E%E8%AE%AD%E7%BB%83/","date":"2026-04-25","tags":["笔记","AI","LLM","RL"]},{"title":"烹饪基本原理","url":"/%E7%83%B9%E9%A5%AA%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/","date":"2026-04-25","tags":["烹饪"]},{"title":"强化学习","url":"/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/","date":"2026-04-25","tags":["笔记","RL"]},{"title":"写给首调选手的视唱练耳进阶知识","url":"/%E5%86%99%E7%BB%99%E9%A6%96%E8%B0%83%E9%80%89%E6%89%8B%E7%9A%84%E8%A7%86%E5%94%B1%E7%BB%83%E8%80%B3%E8%BF%9B%E9%98%B6%E7%9F%A5%E8%AF%86/","date":"2026-04-25","tags":["音乐"]},{"title":"一些有意思的内容","url":"/%E4%B8%80%E4%BA%9B%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E5%86%85%E5%AE%B9/","date":"2026-04-25","tags":["摘抄"]},{"title":"硬件/系统/网络相关","url":"/%E8%A3%85%E6%9C%BA%E7%9B%B8%E5%85%B3/","date":"2026-04-25","tags":["软件工程"]},{"title":"邮箱代收设置","url":"/%E9%82%AE%E7%AE%B1%E4%BB%A3%E6%94%B6%E8%AE%BE%E7%BD%AE/","date":"2026-04-25","tags":["笔记","软件工程"]},{"title":"远程服务器使用","url":"/%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/","date":"2026-04-25","tags":["软件工程"]},{"title":"Agentic RL Safety","url":"/Agentic%20RL%20Safety/","date":"2026-04-25","tags":["科研","LLM"]},{"title":"Anti-Sycophancy Prompts","url":"/Anti-Sycophancy%20Prompts/","date":"2026-04-25","tags":["LLM"]},{"title":"Github使用简介","url":"/Github%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/","date":"2026-04-25","tags":["笔记","软件工程"]},{"title":"Hexo Github 博客搭建","url":"/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/","date":"2026-04-25","tags":["软件工程"]},{"title":"JavaScript","url":"/JavaScript/","date":"2026-04-25","tags":["软件工程"]},{"title":"SAE 特征筛选","url":"/SAE%20%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/","date":"2026-04-25","tags":["科研","Interpretability","LLM","NLP"]},{"title":"Test Driven Development","url":"/Test%20Driven%20Development/","date":"2026-04-25","tags":["软件工程"]},{"title":"Text2Speech","url":"/Text2Speech/","date":"2026-04-25","tags":["软件工程","音频","语音"]},{"title":"Transformer","url":"/Transformer/","date":"2026-04-25","tags":["笔记","LLM","NLP"]},{"title":"看番工具","url":"/%E7%9C%8B%E7%95%AA%E5%B7%A5%E5%85%B7/","date":"2026-04-30","tags":["动漫"]},{"title":"QQ 无头客户端","url":"/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/","date":"2026-05-13","tags":["软件工程"]},{"title":"博客主题参考","url":"/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E5%8F%82%E8%80%83/","date":"2026-05-14","tags":["前端","设计"]},{"title":"欧洲语言导论","url":"/%E6%AC%A7%E6%B4%B2%E8%AF%AD%E8%A8%80%E5%AF%BC%E8%AE%BA/","date":"2026-05-14","tags":["语言学"]},{"title":"音视频处理相关","url":"/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%E7%9B%B8%E5%85%B3/","date":"2026-05-14","tags":["音乐","音频"]},{"title":"资源站","url":"/%E8%B5%84%E6%BA%90%E7%AB%99/","date":"2026-05-14","tags":["资源"]},{"title":"Latent Memory 调研","url":"/Latent%20Memory%20%E8%B0%83%E7%A0%94/","date":"2026-05-14","tags":["LLM"]},{"title":"LaTeX 常用符号","url":"/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/","date":"2026-05-14","tags":["数学","Coding"]},{"title":"SSML","url":"/SSML/","date":"2026-05-14","tags":["语言学","语音"]},{"title":"分析-01-集合论","url":"/%E5%88%86%E6%9E%90-01-%E9%9B%86%E5%90%88%E8%AE%BA/","date":"2026-05-15","tags":["数学","学业"]},{"title":"分析-02-实数","url":"/%E5%88%86%E6%9E%90-02-%E5%AE%9E%E6%95%B0/","date":"2026-05-15","tags":["数学","学业"]},{"title":"分析-03-级数","url":"/%E5%88%86%E6%9E%90-03-%E7%BA%A7%E6%95%B0/","date":"2026-05-15","tags":["数学","学业"]},{"title":"分析-04-单变量微积分","url":"/%E5%88%86%E6%9E%90-04-%E5%8D%95%E5%8F%98%E9%87%8F%E5%BE%AE%E7%A7%AF%E5%88%86/","date":"2026-05-15","tags":["数学","学业"]},{"title":"分析-05-拓扑空间","url":"/%E5%88%86%E6%9E%90-05-%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4/","date":"2026-05-15","tags":["数学","学业"]},{"title":"分析-06-流形","url":"/%E5%88%86%E6%9E%90-06-%E6%B5%81%E5%BD%A2/","date":"2026-05-15","tags":["数学","学业"]},{"title":"分析-07-张量","url":"/%E5%88%86%E6%9E%90-07-%E5%BC%A0%E9%87%8F/","date":"2026-05-15","tags":["数学","学业"]},{"title":"复分析-01-复变函数","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-01-%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/","date":"2026-05-15","tags":["数学","学业"]},{"title":"复分析-02-柯西积分公式","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-02-%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/","date":"2026-05-15","tags":["数学","学业"]},{"title":"复分析-03-复级数","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-03-%E5%A4%8D%E7%BA%A7%E6%95%B0/","date":"2026-05-15","tags":["数学","学业"]},{"title":"复分析-04-全纯开拓","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-04-%E5%85%A8%E7%BA%AF%E5%BC%80%E6%8B%93/","date":"2026-05-15","tags":["数学","学业"]},{"title":"近世代数-01-群论","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-01-%E7%BE%A4%E8%AE%BA/","date":"2026-05-15","tags":["数学","学业"]},{"title":"近世代数-02-群的结构","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-02-%E7%BE%A4%E7%9A%84%E7%BB%93%E6%9E%84/","date":"2026-05-15","tags":["数学","学业"]},{"title":"近世代数-03-环和域","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-03-%E7%8E%AF%E5%92%8C%E5%9F%9F/","date":"2026-05-15","tags":["数学","学业"]},{"title":"实分析-01-测度论","url":"/%E5%AE%9E%E5%88%86%E6%9E%90-01-%E6%B5%8B%E5%BA%A6%E8%AE%BA/","date":"2026-05-15","tags":["数学","学业"]},{"title":"实分析-02-积分","url":"/%E5%AE%9E%E5%88%86%E6%9E%90-02-%E7%A7%AF%E5%88%86/","date":"2026-05-15","tags":["数学","学业"]},{"title":"线性代数-01-线性空间","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-01-%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4/","date":"2026-05-15","tags":["数学","学业"]},{"title":"线性代数-02-相抵","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-02-%E7%9B%B8%E6%8A%B5/","date":"2026-05-15","tags":["数学","学业"]},{"title":"线性代数-03-相似","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-03-%E7%9B%B8%E4%BC%BC/","date":"2026-05-15","tags":["数学","学业"]},{"title":"线性代数-04-相合","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-04-%E7%9B%B8%E5%90%88/","date":"2026-05-15","tags":["数学","学业"]},{"title":"组合学-05-Polya计数理论","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-05-Polya%E8%AE%A1%E6%95%B0%E7%90%86%E8%AE%BA/","date":"2026-05-15","tags":["笔记","数学","组合学"]},{"title":"Interpretable Interpretability \u0026 LLM Safety","url":"/Interpretable%20Interpretability%20\u0026%20LLM%20Safety/","date":"2026-05-16","tags":["科研","LLM"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -410,6 +479,13 @@
     <div class="index-taxonomy__tags-panel">
       <div class="index-taxonomy__tags-flow">
         <div class="index-taxonomy__chips index-taxonomy__chips--in-flow" role="list">
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%95%B0%E5%AD%A6/"
+        
+      >数学 · 30</a>
           
       <a
         role="listitem"
@@ -424,6 +500,13 @@
         href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"
         
       >软件工程 · 20</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%AD%A6%E4%B8%9A/"
+        
+      >学业 · 20</a>
           
       <a
         role="listitem"
@@ -449,29 +532,15 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/%E7%AC%94%E8%AE%B0/"
+        href="/tags/%E7%BB%84%E5%90%88%E5%AD%A6/"
         
-      >笔记 · 7</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/%E7%A7%91%E7%A0%94/"
-        
-      >科研 · 7</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/%E9%9F%B3%E4%B9%90/"
-        
-      >音乐 · 5</a>
+      >组合学 · 8</a>
           
         </div>
         
         <details class="index-taxonomy__tags-details">
           <summary class="index-taxonomy__tags-summary">
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 18 more tags</span>
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 34 more tags</span>
             <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
           </summary>
           <div class="index-taxonomy__tags-overflow-sleeve">
@@ -480,9 +549,23 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/%E6%95%B0%E5%AD%A6/"
+        href="/tags/%E7%AC%94%E8%AE%B0/"
         
-      >数学 · 4</a>
+      >笔记 · 7</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E7%A7%91%E7%A0%94/"
+        
+      >科研 · 7</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E9%9F%B3%E4%B9%90/"
+        
+      >音乐 · 5</a>
               
       <a
         role="listitem"
@@ -508,6 +591,13 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
+        href="/tags/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/"
+        
+      >卡特兰数 · 2</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
         href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/"
         
       >语言学 · 2</a>
@@ -518,20 +608,6 @@
         href="/tags/%E8%AF%AD%E9%9F%B3/"
         
       >语音 · 2</a>
-              
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/%E7%BB%84%E5%90%88%E5%AD%A6/"
-        
-      >组合学 · 2</a>
-              
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/menu/"
-        
-      >menu · 2</a>
               
       <a
         role="listitem"
@@ -550,6 +626,55 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
+        href="/tags/%E4%BB%A3%E6%95%B0%E7%BB%84%E5%90%88/"
+        
+      >代数组合 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%8A%A8%E6%BC%AB/"
+        
+      >动漫 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%8F%8D%E6%BC%94/"
+        
+      >反演 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%8D%B7%E7%A7%AF/"
+        
+      >卷积 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E9%9B%B6%E7%82%B9%E5%AE%9A%E7%90%86/"
+        
+      >零点定理 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E8%B0%B1%E5%9B%BE%E7%90%86%E8%AE%BA/"
+        
+      >谱图理论 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%A3%8B%E7%9B%98%E5%A4%9A%E9%A1%B9%E5%BC%8F/"
+        
+      >棋盘多项式 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
         href="/tags/%E5%89%8D%E7%AB%AF/"
         
       >前端 · 1</a>
@@ -557,9 +682,44 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
+        href="/tags/%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86/"
+        
+      >容斥原理 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
         href="/tags/%E8%AE%BE%E8%AE%A1/"
         
       >设计 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/"
+        
+      >生成函数 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0/"
+        
+      >斯特林数 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E7%89%B9%E5%BE%81%E5%80%BC/"
+        
+      >特征值 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%9B%BE%E8%AE%BA/"
+        
+      >图论 · 1</a>
               
       <a
         role="listitem"
@@ -574,6 +734,13 @@
         href="/tags/AI/"
         
       >AI · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/Cauchy-Davenport/"
+        
+      >Cauchy-Davenport · 1</a>
               
       <a
         role="listitem"
@@ -599,6 +766,20 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
+        href="/tags/menu/"
+        
+      >menu · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/SDR/"
+        
+      >SDR · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
         href="/tags/vLLM/"
         
       >vLLM · 1</a>
@@ -619,23 +800,773 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/" class="note-card">
+<mdui-card clickable variant="filled" href="/Interpretable%20Interpretability%20&%20LLM%20Safety/" class="note-card">
   
-  <img src="/files/1761333850160.jpeg" class="note-cover" alt="笔记 - 目录" loading="lazy">
+  <img src="/image/banner/nozomizo42.JPG" class="note-cover" alt="Interpretable Interpretability &amp; LLM Safety" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">笔记 - 目录</h2>
+      <h2 class="note-card-title">Interpretable Interpretability &amp; LLM Safety</h2>
       
-      <p class="note-excerpt">「笔记」分类文章索引页（Dataview 自动列表）。</p>
+      <p class="note-excerpt">可解释性如何服务 LLM 安全：基础模型、微调、MechInterp 工具与对齐资料索引长文。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">menu</span>
+      <span class="note-tag">LLM</span>
       
-      <span class="note-date">2026 Apr 25</span>
+      <span class="note-date">2026 May 16</span>
+      <span class="note-read">13 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-01-%E9%9B%86%E5%90%88%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo12.PNG" class="note-cover" alt="分析-01-集合论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">分析-01-集合论</h2>
+      
+      <p class="note-excerpt">集合论公理体系（ZFC）、基数、可数集、选择公理的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">5 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-02-%E5%AE%9E%E6%95%B0/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="分析-02-实数" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">分析-02-实数</h2>
+      
+      <p class="note-excerpt">实数的构造、确界、数列极限、上下极限、完备性与收敛判别法的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">10 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-03-%E7%BA%A7%E6%95%B0/" class="note-card">
+  
+  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="分析-03-级数" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">分析-03-级数</h2>
+      
+      <p class="note-excerpt">数项级数的收敛判准、绝对收敛与重排、Abel求和的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">5 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-04-%E5%8D%95%E5%8F%98%E9%87%8F%E5%BE%AE%E7%A7%AF%E5%88%86/" class="note-card">
+  
+  <img src="/image/banner/nozomizo19.JPG" class="note-cover" alt="分析-04-单变量微积分" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">分析-04-单变量微积分</h2>
+      
+      <p class="note-excerpt">连续函数、微分、黎曼积分与微积分基本定理的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-05-%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="分析-05-拓扑空间" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">分析-05-拓扑空间</h2>
+      
+      <p class="note-excerpt">拓扑空间、连续性、紧致性、连通性、一致收敛与可数性公理的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">14 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-06-%E6%B5%81%E5%BD%A2/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi2.jpg" class="note-cover" alt="分析-06-流形" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">分析-06-流形</h2>
+      
+      <p class="note-excerpt">微分流形、切向量、切空间、向量场与Lie导数的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">5 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-07-%E5%BC%A0%E9%87%8F/" class="note-card">
+  
+  <img src="/image/banner/Image_1758434082525.jpeg" class="note-cover" alt="分析-07-张量" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">分析-07-张量</h2>
+      
+      <p class="note-excerpt">张量空间、外微分形式、De Rham上同调、Stokes公式与流形定向的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">5 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%8D%E5%88%86%E6%9E%90-01-%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/" class="note-card">
+  
+  <img src="/image/banner/nozomizo8.JPG" class="note-cover" alt="复分析-01-复变函数" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">复分析-01-复变函数</h2>
+      
+      <p class="note-excerpt">全纯函数、Cauchy-Riemann方程、共轭调和函数、初等函数与分式线性变换的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">7 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%8D%E5%88%86%E6%9E%90-02-%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi5.jpg" class="note-cover" alt="复分析-02-柯西积分公式" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">复分析-02-柯西积分公式</h2>
+      
+      <p class="note-excerpt">Cauchy积分定理、Cauchy积分公式、Liouville定理与代数学基本定理的复分析证明。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">8 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%8D%E5%88%86%E6%9E%90-03-%E5%A4%8D%E7%BA%A7%E6%95%B0/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet6.JPG" class="note-cover" alt="复分析-03-复级数" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">复分析-03-复级数</h2>
+      
+      <p class="note-excerpt">Weierstrass定理、幂级数、Taylor展开、Laurent展开与孤立奇点的分类。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">9 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%8D%E5%88%86%E6%9E%90-04-%E5%85%A8%E7%BA%AF%E5%BC%80%E6%8B%93/" class="note-card">
+  
+  <img src="/image/banner/nozomizo9.JPG" class="note-cover" alt="复分析-04-全纯开拓" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">复分析-04-全纯开拓</h2>
+      
+      <p class="note-excerpt">辐角原理、Rouché定理、开映射定理、最大模原理与Schwarz引理的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">5 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%AE%9E%E5%88%86%E6%9E%90-01-%E6%B5%8B%E5%BA%A6%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi3.jpg" class="note-cover" alt="实分析-01-测度论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">实分析-01-测度论</h2>
+      
+      <p class="note-excerpt">Lebesgue测度的构造、外测度、可测集与可测函数的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">21 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%AE%9E%E5%88%86%E6%9E%90-02-%E7%A7%AF%E5%88%86/" class="note-card">
+  
+  <img src="/image/banner/nozomizo42.JPG" class="note-cover" alt="实分析-02-积分" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">实分析-02-积分</h2>
+      
+      <p class="note-excerpt">Lebesgue积分理论、收敛定理、L^1空间、度量空间与Fubini理论的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
       <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-01-%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4/" class="note-card">
+  
+  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="线性代数-01-线性空间" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数-01-线性空间</h2>
+      
+      <p class="note-excerpt">线性空间、子空间、线性映射、坐标与矩阵表示、行列式的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">10 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-02-%E7%9B%B8%E6%8A%B5/" class="note-card">
+  
+  <img src="/image/banner/nozomizo17.JPG" class="note-cover" alt="线性代数-02-相抵" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数-02-相抵</h2>
+      
+      <p class="note-excerpt">初等变换、矩阵的秩与相抵、线性映射基本定理与Smith标准形的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">7 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-03-%E7%9B%B8%E4%BC%BC/" class="note-card">
+  
+  <img src="/image/banner/nozomizo52.PNG" class="note-cover" alt="线性代数-03-相似" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数-03-相似</h2>
+      
+      <p class="note-excerpt">相似矩阵、特征值与特征向量、Jordan标准形与有理标准形的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">6 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-04-%E7%9B%B8%E5%90%88/" class="note-card">
+  
+  <img src="/image/banner/nozomizo13.JPG" class="note-cover" alt="线性代数-04-相合" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">线性代数-04-相合</h2>
+      
+      <p class="note-excerpt">内积空间、正交变换、伴随变换、规范变换、二次型与奇异值分解的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">9 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-01-%E7%BE%A4%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo23.JPG" class="note-cover" alt="近世代数-01-群论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">近世代数-01-群论</h2>
+      
+      <p class="note-excerpt">群的定义、同态与同构、循环群、陪集分解、同态基本定理与置换群的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">21 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-02-%E7%BE%A4%E7%9A%84%E7%BB%93%E6%9E%84/" class="note-card">
+  
+  <img src="/image/banner/nozomizo31.JPG" class="note-cover" alt="近世代数-02-群的结构" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">近世代数-02-群的结构</h2>
+      
+      <p class="note-excerpt">有限生成交换群、Sylow定理与小阶群分类的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-03-%E7%8E%AF%E5%92%8C%E5%9F%9F/" class="note-card">
+  
+  <img src="/image/banner/nozomizo17.JPG" class="note-cover" alt="近世代数-03-环和域" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">近世代数-03-环和域</h2>
+      
+      <p class="note-excerpt">环与域的定义、理想、环同态、因子分解与多项式环的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">学业</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">4 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6-05-Polya%E8%AE%A1%E6%95%B0%E7%90%86%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo14.JPG" class="note-cover" alt="组合学-05-Polya计数理论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学-05-Polya计数理论</h2>
+      
+      <p class="note-excerpt">Pólya 计数与 Burnside 引理：在群对称下染色方案轨道数的系统推导与六边形示例。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">5 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/Latent%20Memory%20%E8%B0%83%E7%A0%94/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi8.JPG" class="note-cover" alt="Latent Memory 调研" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">Latent Memory 调研</h2>
+      
+      <p class="note-excerpt">隐空间推理（Latent Reasoning）的底层架构与多路径并发算法调研。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">LLM</span>
+      
+      <span class="note-date">2026 May 14</span>
+      <span class="note-read">68 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E5%8F%82%E8%80%83/" class="note-card">
+  
+  <img src="/image/banner/banner.jpg" class="note-cover" alt="博客主题参考" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">博客主题参考</h2>
+      
+      <p class="note-excerpt">博客主题重写时的设计参考与灵感来源汇总。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">设计</span>
+      
+      <span class="note-date">2026 May 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%AC%A7%E6%B4%B2%E8%AF%AD%E8%A8%80%E5%AF%BC%E8%AE%BA/" class="note-card">
+  
+  <img src="/files/rafa_107676065_p0_%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0.jpg" class="note-cover" alt="欧洲语言导论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">欧洲语言导论</h2>
+      
+      <p class="note-excerpt">学术英语中的拉丁词根、法语罗曼语联系，以及拉丁语屈折、变格与欧洲主要语族关系的入门梳理。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">语言学</span>
+      
+      <span class="note-date">2026 May 14</span>
+      <span class="note-read">11 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%B5%84%E6%BA%90%E7%AB%99/" class="note-card">
+  
+  <img src="/image/banner/nozomizo21.JPG" class="note-cover" alt="资源站" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">资源站</h2>
+      
+      <p class="note-excerpt">电子书、影视、学术下载与博主链接等常用资源站书签汇总。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">资源</span>
+      
+      <span class="note-date">2026 May 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%E7%9B%B8%E5%85%B3/" class="note-card">
+  
+  <img src="/image/banner/nozomizo33.JPG" class="note-cover" alt="音视频处理相关" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">音视频处理相关</h2>
+      
+      <p class="note-excerpt">录音、分轨、切片、转码、剪辑与录屏等音视频软件一句话索引（Au、UVR、ffmpeg、PR、OBS 等）。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2026 May 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/" class="note-card">
+  
+  <img src="/files/latex1.png" class="note-cover" alt="LaTeX常用符号" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">LaTeX 常用符号</h2>
+      
+      <p class="note-excerpt">LaTeX 与 KaTeX 文档入口、常用符号截图与组合数记号备忘（含 Detexify）。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">Coding</span>
+      
+      <span class="note-date">2026 May 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/SSML/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi4.jpg" class="note-cover" alt="SSML" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">SSML</h2>
+      
+      <p class="note-excerpt">SSML 入门：用 XML 标签控制 TTS 的停顿、发音、韵律、数字读法与强调等。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">语言学</span>
+      
+      <span class="note-date">2026 May 14</span>
+      <span class="note-read">3 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="note-card">
+  
+  <img src="/files/111095834_p0_%E9%BB%91%E5%A1%94.jpg" class="note-cover" alt="QQ 无头客户端" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">QQ 无头客户端</h2>
+      
+      <p class="note-excerpt">用 NapCat、NoneBot2、Koishi 等搭建 QQ 机器人：安装、反向 WebSocket 与插件配置备忘。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">软件工程</span>
+      
+      <span class="note-date">2026 May 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%9C%8B%E7%95%AA%E5%B7%A5%E5%85%B7/" class="note-card">
+  
+  <img src="/image/banner/Image_1758434264021.jpeg" class="note-cover" alt="看番工具" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">看番工具</h2>
+      
+      <p class="note-excerpt">看番工具</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">动漫</span>
+      
+      <span class="note-date">2026 Apr 30</span>
+      <span class="note-read">1 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -657,7 +1588,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 25</span>
       <span class="note-read">1 min read</span>
@@ -694,31 +1625,6 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/Interpretable%20Interpretability%20&%20LLM%20Safety/" class="note-card">
-  
-  <img src="/image/banner/nozomizo42.JPG" class="note-cover" alt="Interpretable Interpretability &amp; LLM Safety" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">Interpretable Interpretability &amp; LLM Safety</h2>
-      
-      <p class="note-excerpt">可解释性如何服务 LLM 安全：基础模型、微调、MechInterp 工具与对齐资料索引长文。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">科研</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">13 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
 <mdui-card clickable variant="filled" href="/JavaScript/" class="note-card">
   
   <img src="/image/banner/nozomizo18.JPG" class="note-cover" alt="JavaScript" loading="lazy">
@@ -744,56 +1650,6 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/Latent%20Memory%20%E8%B0%83%E7%A0%94/" class="note-card">
-  
-  <img src="/image/banner/nakayoshi8.JPG" class="note-cover" alt="Latent Memory 调研" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">Latent Memory 调研</h2>
-      
-      <p class="note-excerpt">第一部分：隐空间推理（Latent Reasoning）的底层架构与多路径并发算法 连续思维链（Coconut）的机制突破与广度优先搜索的涌现 显式思维链的一个致命弱点在于其自回归生成的单向不可逆性。一旦部分推理模板被解码为固定词元，模型的推理轨迹便被物理锁定，无法在后续生成过程中进行步级别的动态回溯与修正，这在需要复杂规划的场景中导致了严重的错误累积&amp;nb...</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">LLM</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">68 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Polya%20%E8%AE%A1%E6%95%B0%E7%90%86%E8%AE%BA/" class="note-card">
-  
-  <img src="/image/banner/nakayoshi5.jpg" class="note-cover" alt="Polya 计数理论" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">Polya 计数理论</h2>
-      
-      <p class="note-excerpt">Pólya 计数与 Burnside 引理：在群对称下染色方案轨道数的系统推导与六边形示例。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">数学</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">5 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
 <mdui-card clickable variant="filled" href="/SAE%20%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/" class="note-card">
   
   <img src="/image/banner/Image_1758434264021.jpeg" class="note-cover" alt="SAE 特征筛选" loading="lazy">
@@ -807,35 +1663,10 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 25</span>
       <span class="note-read">12 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/SSML/" class="note-card">
-  
-  <img src="/image/banner/nakayoshi4.jpg" class="note-cover" alt="SSML" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">SSML</h2>
-      
-      <p class="note-excerpt">SSML 入门：用 XML 标签控制 TTS 的停顿、发音、韵律、数字读法与强调等。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">语言学</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">3 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -994,31 +1825,6 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E5%8F%82%E8%80%83/" class="note-card">
-  
-  <img src="/image/banner/banner.jpg" class="note-cover" alt="博客主题参考" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">博客主题参考</h2>
-      
-      <p class="note-excerpt">最近正在重写博客主题，以下是参考的设计 https://blog.maximeheckel.com https://www.joshwcomeau.com https://maggieappleton.com https://antfu.me https://www.anthropic.com</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">设计</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
 <mdui-card clickable variant="filled" href="/%E5%90%8E%E8%AE%AD%E7%BB%83/" class="note-card">
   
   <img src="/image/banner/nozomizo40.JPG" class="note-cover" alt="后训练" loading="lazy">
@@ -1061,31 +1867,6 @@
       
       <span class="note-date">2026 Apr 25</span>
       <span class="note-read">20 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E6%AC%A7%E6%B4%B2%E8%AF%AD%E8%A8%80%E5%AF%BC%E8%AE%BA/" class="note-card">
-  
-  <img src="/image/banner/nozomizo33.JPG" class="note-cover" alt="欧洲语言导论" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">欧洲语言导论</h2>
-      
-      <p class="note-excerpt">学术英语中的拉丁词根、法语罗曼语联系，以及拉丁语屈折、变格与欧洲主要语族关系的入门梳理。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">语言学</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">11 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -1219,31 +2000,6 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/%E8%B5%84%E6%BA%90%E7%AB%99/" class="note-card">
-  
-  <img src="/image/banner/nozomizo21.JPG" class="note-cover" alt="资源站" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">资源站</h2>
-      
-      <p class="note-excerpt">电子书、影视、学术下载与博主链接等常用资源站书签汇总。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">资源</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
 <mdui-card clickable variant="filled" href="/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="note-card">
   
   <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="hexo博客搭建" loading="lazy">
@@ -1278,56 +2034,6 @@
       <h2 class="note-card-title">远程服务器使用</h2>
       
       <p class="note-excerpt">服务器速查：CUDA 进程排查、环境变量指定 GPU，以及 SSH 与 tmux 会话管理。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">软件工程</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/" class="note-card">
-  
-  <img src="/files/latex1.png" class="note-cover" alt="LaTeX常用符号" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">LaTeX 常用符号</h2>
-      
-      <p class="note-excerpt">LaTeX 与 KaTeX 文档入口、常用符号截图与组合数记号备忘（含 Detexify）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">Coding</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="note-card">
-  
-  <img src="/image/banner/nozomizo18.JPG" class="note-cover" alt="QQ 无头客户端" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">QQ 无头客户端</h2>
-      
-      <p class="note-excerpt">用 NapCat、NoneBot2、Koishi 等搭建 QQ 机器人：安装、反向 WebSocket 与插件配置备忘。</p>
       
     </div>
     <div class="note-meta">
@@ -1419,31 +2125,6 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/image/banner/nozomizo33.JPG" class="note-cover" alt="音视频处理相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">音视频处理相关</h2>
-      
-      <p class="note-excerpt">录音、分轨、切片、转码、剪辑与录屏等音视频软件一句话索引（Au、UVR、ffmpeg、PR、OBS 等）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">音乐</span>
-      
-      <span class="note-date">2026 Apr 03</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
 <mdui-card clickable variant="filled" href="/Advice%20From%20Anthropic/" class="note-card">
   
   <img src="/image/banner/nozomizo40.JPG" class="note-cover" alt="Advice From Anthropic" loading="lazy">
@@ -1457,7 +2138,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 03</span>
       <span class="note-read">1 min read</span>
@@ -1482,7 +2163,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 03</span>
       <span class="note-read">4 min read</span>
@@ -1557,7 +2238,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 03</span>
       <span class="note-read">1 min read</span>
@@ -1892,6 +2573,156 @@
 
                     </div>
                 
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6-01-%E7%BB%84%E5%90%88%E6%95%B0%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%8C%96/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet1.jpg" class="note-cover" alt="组合学-01-组合数的严格化" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学-01-组合数的严格化</h2>
+      
+      <p class="note-excerpt">组合数的严格化：映射计数、组合数、斯特林数、不相邻组合、圆排列、错排与多重集。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2024 Dec 31</span>
+      <span class="note-read">4 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6-02-%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/" class="note-card">
+  
+  <img src="/image/banner/nozomizo24.JPG" class="note-cover" alt="组合学-02-生成函数" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学-02-生成函数</h2>
+      
+      <p class="note-excerpt">生成函数：OGF、EGF、二项式定理、卡特兰数、图的生成函数、色多项式、离散概率生成函数与特征函数。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2024 Dec 31</span>
+      <span class="note-read">6 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6-03-%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8D%B7%E7%A7%AF/" class="note-card">
+  
+  <img src="/image/banner/nozomizo43.JPG" class="note-cover" alt="组合学-03-容斥和卷积" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学-03-容斥和卷积</h2>
+      
+      <p class="note-excerpt">容斥与卷积：二项式反演、莫比乌斯反演、集合反演、离散傅里叶反演、斯特林反演及各类卷积总结。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2024 Dec 31</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6-04-%E7%9B%B8%E5%BC%82%E8%A1%A8%E7%A4%BA%E7%B3%BBSDR/" class="note-card">
+  
+  <img src="/image/banner/nozomizo22.JPG" class="note-cover" alt="组合学-04-相异表示系SDR" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学-04-相异表示系SDR</h2>
+      
+      <p class="note-excerpt">相异表示系 (SDR) 与棋盘多项式：填入转移、棋盘变换与容斥公式。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2024 Dec 31</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6-06-%E9%9B%B6%E7%82%B9%E5%AE%9A%E7%90%86/" class="note-card">
+  
+  <img src="/image/banner/nozomizo52.PNG" class="note-cover" alt="组合学-06-零点定理" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学-06-零点定理</h2>
+      
+      <p class="note-excerpt">组合零点定理：多项式零点定理、积和式、Cauchy-Davenport 定理与 Chevally-Warning 定理。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2024 Dec 31</span>
+      <span class="note-read">7 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6-07-%E8%B0%B1%E5%9B%BE%E7%90%86%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi8.JPG" class="note-cover" alt="组合学-07-谱图理论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学-07-谱图理论</h2>
+      
+      <p class="note-excerpt">谱图理论：邻接矩阵特征值、正则图、二部图、Kneser 图与 Peterson 图的谱性质。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2024 Dec 31</span>
+      <span class="note-read">4 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
                 </div>
                 
             </div>
@@ -2051,6 +2882,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

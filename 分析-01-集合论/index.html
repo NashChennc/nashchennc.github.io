@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>分析-01-集合论 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 77</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 453</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 162</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 11</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 4</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">分析-01-集合论</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 May 15</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">5 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <blockquote>
+<p>本笔记所属课程：<a href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)/" title="">数学分析(B1)</a></p>
+</blockquote>
+<h2 id="集合论公理">集合论公理</h2>
+<p><strong>定义</strong> [H1]
+集合是对象</p>
+<p><strong>定义</strong> [H2:空集]
+存在一个被称为空集 $\varnothing$ 的对象
+$$
+\forall x\notin \varnothing
+$$</p>
+<p><strong>定义</strong> [H3:元素]
+给定一个元素 $a$ ，存在一个集合 ${a}$ ，使得
+$$
+x\in{a}\Leftrightarrow x=a
+$$</p>
+<p><strong>定义</strong> [H4:双并公理]
+给定两个集合 $A,B$ ，存在一个集合 $A\cup B$ ，使得
+$$
+x\in A\cup B\Leftrightarrow x\in A\lor x\in B
+$$</p>
+<p><strong>定义</strong> [H5:分类公理]
+给定一个集合 $A$ 和一个命题 $P(a)$，存在一个集合 ${a\in A:P(a)}$ ，使得
+$$
+x\in{a\in A:P(a)}\Leftrightarrow x\in A\land P(x)
+$$</p>
+<p><strong>定义</strong> [H6:替换]
+给定一个集合 $A$ ，如果 $\forall a\in A$ 只有 <strong>至多一个</strong>
+$b$ 使得性质 $P(a,b)$ 成立，则存在一个集合 ${b:\exists a\in A, P(a,b)}$ ，使得
+$$
+x\in{b:\exists a\in A,P(a,b)}\Leftrightarrow \exists a\in A,P(a,b)
+$$</p>
+<h3 id="公理与数学归纳法">公理与数学归纳法</h3>
+<p>数学归纳公理的存在保证了只有 $0$ 不断增长得到的元素是自然数</p>
+<p><strong>定义</strong> [H7:自然数集,$\mathrm{Peano}$ 公理]
+存在一个被称为自然数集 $\mathbb N$ 的集合，其中的元素满足 $5$ 条 $\mathrm{Peano}$ 公理</p>
+<ul>
+<li>$0$ 是自然数</li>
+<li>自然数的后继是自然数</li>
+<li>$0$ 不是任何数的后继</li>
+<li>两个自然数的后继相同，则它们也相同</li>
+<li>(数学归纳原理) 对于任意关于自然数的性质 $P(n)$
+$$
+P(0)\land (P(k)\to P(k++))\Rightarrow\forall n\in\mathbb N,P(n)
+$$</li>
+</ul>
+<p>由 $\mathrm{Peano}$ 公理，我们建立了自然数、整数、有理数、实数、复数的算术体系。</p>
+<h3 id="悖论">悖论</h3>
+<p>我们或许可以假设</p>
+<p><strong>不正式的定义</strong> [万有之集]
+存在一个被称为万有之集 $\Omega$ 的集合，使得
+$$
+\forall x,x\in\Omega
+$$</p>
+<p>依据万有之集和分类公理，我们得到</p>
+<p><strong>不正式的定义</strong> [万有分类]
+给定一个命题 $P(a)$ ，存在一个集合 ${a:P(a)}$ ，使得
+$$
+x\in{a:P(a)}\Leftrightarrow P(x)
+$$</p>
+<p>注意到如果万有之集存在，那么 $\Omega\in\Omega$ 。我们尝试研究这类包含自身的集合，得到了 $\mathrm{Russell}$ 悖论。设有一条命题叙述如下</p>
+<p>$$
+P(x)\Leftrightarrow x\notin x
+$$</p>
+<p>这条命题看起来好像是(最好是，然而它不得不是)永真式，因为它看起来对所有初等的集合都成立。但其实我们不那么确定，所以我们尝试用这条命题构建一个集合。</p>
+<p>[$\mathrm{Russell}$ 悖论] 根据万有分类公理，存在一个集合 $\Omega={x:x\notin x}$</p>
+<p>此处我们导出悖论：$\Omega\in\Omega\Leftrightarrow\Omega\notin\Omega$ 。这与一阶逻辑是不相容的。后来 $\mathrm{Russell}$ 将这个命题通俗化为理发师悖论，即 $\exists\Omega={x:x\notin\Omega}$ 。事实上，通俗命题中集合的构建是自递归定义的，这样写更使人迷惑。</p>
+<p>事实上，如果万有分类成立，它将蕴含前面除了 [集合是对象] 和 [自然数集] 的其它所有公理，这将惊人地大大简化集合论的基础。不幸的是，如我们所见，[万有分类] 公理是“好过头了”！(Tao)</p>
+<p>为了解决这个问题，我们不得不引入以下不那么直观的公理</p>
+<p><strong>定义</strong> [H8:基础公理]
+如果集合 $A$ 不是空集，那么至少有一个对象 $x\in A$ ，它要么不是集合，要么是与 $A$ 不同的集合。</p>
+<p><strong>注</strong>
+感觉其实等价于对所有的集合有 $A\notin A$</p>
+<h3 id="函数">函数</h3>
+<p><strong>定义</strong> [H9:幂集公理]</p>
+<p>对集合 $X,Y$ ，存在一个集合 $Y^X:X\to Y$</p>
+<p><strong>定义</strong> [H10:并公理]</p>
+<p>H1~H10 就是 $\mathrm{Zermelo}-Fraenkel$ 公理。另外有一条[H11:选择公理]，称作 $\mathrm{ZF}$ 选择公理，即 $\mathrm{ZFC}$ 公理。但有人称这有时不是必要的。</p>
+<h3 id="笛卡尔积">笛卡尔积</h3>
+<p>咕</p>
+<h2 id="基数">基数</h2>
+<p><strong>定义</strong> [基数相等]
+如果两个集合间存在双射，那么称这两个集合基数相等</p>
+<p>一个集合 $X$ 和 ${i \in\mathbb N:1\leq i\leq n}$ 具有相同基数，则称其具有基数 $n$ ，记 $#(X)=n$ ，$X$ 是 <strong>有限的</strong> 。</p>
+<p>如果不存在 $n\in\mathbb N$ 使得 $#(X)=n$ ，则称 $X$ 是 <strong>无限的</strong>。</p>
+<p><strong>注</strong>
+我们尚未证明基数的唯一性，这里留做习题。(使用数学归纳法)</p>
+<p>基数的算术参考 $\mathrm{Peano}$ 算术。</p>
+<h3 id="可数集">可数集</h3>
+<p>容易知道 $\mathbb N$ 是无限的。</p>
+<p>良序原理</p>
+<p>设 $A,B$ 是可数集，那么</p>
+<p>$A\cup B$ 是可数集</p>
+<p>$A\times B$ 是可数集</p>
+<h3 id="无限集合的求和">无限集合的求和</h3>
+<h3 id="不可数的集合">不可数的集合</h3>
+<p><strong>定理</strong> [Cantor]
+$X$ 和 $2^X$ 不能具有相同的基数
+<strong>证明</strong></p>
+<p>假设存在双射 $f:X\to 2^X={A:A\subset X}$ ，构造集合
+$$
+A\subset X(\in 2^X):\forall x\in X,
+\begin{cases}
+x\in A &amp; x\notin f(x)\cr
+x\notin A &amp; x\in f(x)
+\end{cases}
+$$</p>
+<p>考虑 $\forall S\in 2^{X}$ ，因为要么 $f^{-1}(S)\in S(\notin A)$ ，要么 $f^{-1}(S)\notin S(\in A)$</p>
+<p>于是 $\forall S\in 2^{X},S\neqq A$ ，这意味着 $A\notin 2^X$，矛盾！于是
+$$|X|\neqq |2^X|$$</p>
+<p><strong>推论</strong>
+进一步，有
+$$|\mathbb N|\neqq|2^{\mathbb N}|=|\mathbb R|$$</p>
+<h3 id="选择公理">选择公理</h3>
+<p><strong>定义</strong> [H11:选择公理]
+$\rm (Axiom\ of\ Choice, AC)$ 一组不相交非空集合可以各选出一个元素构成集合。形式化地
+$$
+\exists Y\subset\bigsqcup_{\alpha\in I} E_{\alpha},\quads.t. \forall \alpha\in I,Y\cap E_{\alpha}={x_{\alpha}}
+$$</p>
+<p>我们经常提到的选出代表元这一行为就是由选择公理确定的</p>
+<p>Zorn 引理/良序原理/超限归纳法原理。</p>
+<p>咕 Banach 分球</p>
+<h3 id="序集">序集</h3>
+<p>咕</p>
+<p>$$\mathcal I$$</p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E5%88%86%E6%9E%90-02-%E5%AE%9E%E6%95%B0/">分析-02-实数</a>
+                            
+                                <a class="post-backlinks__link" href="/%E5%88%86%E6%9E%90%E5%AD%A6/">分析学</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/Interpretable%20Interpretability%20&%20LLM%20Safety/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">Interpretable Interpretability &amp; LLM Safety</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/%E5%88%86%E6%9E%90-04-%E5%8D%95%E5%8F%98%E9%87%8F%E5%BE%AE%E7%A7%AF%E5%88%86/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">分析-04-单变量微积分</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9B%86%E5%90%88%E8%AE%BA%E5%85%AC%E7%90%86"><span class="post-toc-text">集合论公理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%AC%E7%90%86%E4%B8%8E%E6%95%B0%E5%AD%A6%E5%BD%92%E7%BA%B3%E6%B3%95"><span class="post-toc-text">公理与数学归纳法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%82%96%E8%AE%BA"><span class="post-toc-text">悖论</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%87%BD%E6%95%B0"><span class="post-toc-text">函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF"><span class="post-toc-text">笛卡尔积</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%95%B0"><span class="post-toc-text">基数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%AF%E6%95%B0%E9%9B%86"><span class="post-toc-text">可数集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%A0%E9%99%90%E9%9B%86%E5%90%88%E7%9A%84%E6%B1%82%E5%92%8C"><span class="post-toc-text">无限集合的求和</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%8D%E5%8F%AF%E6%95%B0%E7%9A%84%E9%9B%86%E5%90%88"><span class="post-toc-text">不可数的集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%89%E6%8B%A9%E5%85%AC%E7%90%86"><span class="post-toc-text">选择公理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BA%8F%E9%9B%86"><span class="post-toc-text">序集</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

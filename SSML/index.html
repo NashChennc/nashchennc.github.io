@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -401,7 +403,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">SSML</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Apr 25</span>
+                        <span class="note-date">2026 May 14</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -440,7 +442,7 @@
 <h4 id="C-指定读法-say-as">C. 指定读法&nbsp;<code>&lt;say-as&gt;</code></h4>
 <p>解决歧义非常关键。例如 “2024” 是读作 “二零二四” 还是 “两千零二十四”。</p>
 <p>XML</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;say-as interpret-as=&quot;cardinal&quot;&gt;12345&lt;/say-as&gt; &lt;say-as interpret-as=&quot;digits&quot;&gt;12345&lt;/say-as&gt;   &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024-01-01&lt;/say-as&gt; &lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;say-as interpret-as=&quot;cardinal&quot;&gt;12345&lt;/say-as&gt; &lt;say-as interpret-as=&quot;digits&quot;&gt;12345&lt;/say-as&gt;   &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024.01.01&lt;/say-as&gt; &lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="D-别名-替换-sub">D. 别名/替换&nbsp;<code>&lt;sub &gt;</code></h4>
 <p>用于朗读缩写或特殊字符的完整含义。</p>
 <p>XML</p>
@@ -458,21 +460,10 @@
 <h1>3. 一个完整的示例</h1>
 <p>这就好比给剧本加上了“舞台提示”：</p>
 <p>XML</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;prosody rate=&quot;medium&quot;&gt;</span><br><span class="line">    大家好！</span><br><span class="line">  &lt;/prosody&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;break time=&quot;500ms&quot;/&gt;</span><br><span class="line"></span><br><span class="line">  今天我们要宣布一个&lt;prosody volume=&quot;loud&quot; pitch=&quot;high&quot;&gt;重大消息&lt;/prosody&gt;！</span><br><span class="line">  </span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    我们的新产品将在 &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024-10-05&lt;/say-as&gt; 正式发布。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    如果你有任何疑问，请联系 &lt;say-as interpret-as=&quot;characters&quot;&gt;HR&lt;/say-as&gt; 部门。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;prosody rate=&quot;medium&quot;&gt;</span><br><span class="line">    大家好！</span><br><span class="line">  &lt;/prosody&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;break time=&quot;500ms&quot;/&gt;</span><br><span class="line"></span><br><span class="line">  今天我们要宣布一个&lt;prosody volume=&quot;loud&quot; pitch=&quot;high&quot;&gt;重大消息&lt;/prosody&gt;！</span><br><span class="line">  </span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    我们的新产品将在 &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024.10.05&lt;/say-as&gt; 正式发布。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    如果你有任何疑问，请联系 &lt;say-as interpret-as=&quot;characters&quot;&gt;HR&lt;/say-as&gt; 部门。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
 <p>SSML 是连接“僵硬的机器朗读”与“富有表现力的语音交互”之间的桥梁。虽然现在许多端到端的 AI 模型（如类似 GPT-4o 的语音模式）已经能自动推断语气，但在开发 IVR（电话语音菜单）、有声读物或特定行业应用时，SSML 依然是确保准确性和一致性的最佳工具。</p>
 
                     </div>
-                    
-                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
-                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
-                        <div class="post-backlinks__list">
-                            
-                                <a class="post-backlinks__link" href="/Blog%20Category/%E7%AC%94%E8%AE%B0%20-%20%E7%9B%AE%E5%BD%95/">笔记 - 目录</a>
-                            
-                                <a class="post-backlinks__link" href="/Tag/%E8%AF%AD%E8%A8%80%E5%AD%A6%E7%9B%B8%E5%85%B3/">语言学相关</a>
-                            
-                        </div>
-                    </section>
                     
                 </div>
                 
@@ -482,7 +473,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/Interpretable%20Interpretability%20&%20LLM%20Safety/">
+                                <a class="post-nav__link" href="/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -491,14 +482,14 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">Interpretable Interpretability &amp; LLM Safety</span>
+                                        <span class="post-nav__title">LaTeX 常用符号</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/Latent%20Memory%20%E8%B0%83%E7%A0%94/">
+                                <a class="post-nav__link" href="/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -507,7 +498,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">Latent Memory 调研</span>
+                                        <span class="post-nav__title">QQ 无头客户端</span>
                                     </span>
                                 </a>
                             
@@ -684,6 +675,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

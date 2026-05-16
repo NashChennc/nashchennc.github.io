@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2021.05.04 我断言物理题完全等价于解析几何题","url":"/2021.05.04%20%E6%88%91%E6%96%AD%E8%A8%80%E7%89%A9%E7%90%86%E9%A2%98%E5%AE%8C%E5%85%A8%E7%AD%89%E4%BB%B7%E4%BA%8E%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95%E9%A2%98/","date":"2021-05-04","tags":["物理"]},{"title":"2022.04.06 安徽合肥某某某某技术大学两名男子因为实验","url":"/2022.04.06%20%E5%AE%89%E5%BE%BD%E5%90%88%E8%82%A5%E6%9F%90%E6%9F%90%E6%9F%90%E6%9F%90%E6%8A%80%E6%9C%AF%E5%A4%A7%E5%AD%A6%E4%B8%A4%E5%90%8D%E7%94%B7%E5%AD%90%E5%9B%A0%E4%B8%BA%E5%AE%9E%E9%AA%8C/","date":"2022-04-06","tags":["物理"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -302,13 +371,6 @@
         aria-current="page"
       >物理 · 2</a>
           
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 2</a>
-          
         </div>
         
       </div>
@@ -322,20 +384,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220406%20%E5%AE%89%E5%BE%BD%E5%90%88%E8%82%A5%E6%9F%90%E6%9F%90%E6%9F%90%E6%9F%90%E6%8A%80%E6%9C%AF%E5%A4%A7%E5%AD%A6%E4%B8%A4%E5%90%8D%E7%94%B7%E5%AD%90%E5%9B%A0%E4%B8%BA%E5%AE%9E%E9%AA%8C/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.04.06%20%E5%AE%89%E5%BE%BD%E5%90%88%E8%82%A5%E6%9F%90%E6%9F%90%E6%9F%90%E6%9F%90%E6%8A%80%E6%9C%AF%E5%A4%A7%E5%AD%A6%E4%B8%A4%E5%90%8D%E7%94%B7%E5%AD%90%E5%9B%A0%E4%B8%BA%E5%AE%9E%E9%AA%8C/" class="note-card">
   
-  <img src="/files/qzone-20220406-005516-01.jpg" class="note-cover" alt="20220406 安徽合肥某某某某技术大学两名男子因为实验" loading="lazy">
+  <img src="/files/qzone-20220406-005516-01.jpg" class="note-cover" alt="2022.04.06 安徽合肥某某某某技术大学两名男子因为实验" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220406 安徽合肥某某某某技术大学两名男子因为实验</h2>
+      <h2 class="note-card-title">2022.04.06 安徽合肥某某某某技术大学两名男子因为实验</h2>
       
       <p class="note-excerpt">安徽合肥某某某某技术大学两名男子因为实验室器材简陋，将4楼实验室水排到3楼洗手间 4楼相同位置没有洗手间，3楼侧边洗手间是最近排水点 p1吸力展示 人类智慧之光</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">物理</span>
       
       <span class="note-date">2022 Apr 06</span>
       <span class="note-read">1 min read</span>
@@ -347,20 +409,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20210504%20%E6%88%91%E6%96%AD%E8%A8%80%E7%89%A9%E7%90%86%E9%A2%98%E5%AE%8C%E5%85%A8%E7%AD%89%E4%BB%B7%E4%BA%8E%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95%E9%A2%98/" class="note-card">
+<mdui-card clickable variant="filled" href="/2021.05.04%20%E6%88%91%E6%96%AD%E8%A8%80%E7%89%A9%E7%90%86%E9%A2%98%E5%AE%8C%E5%85%A8%E7%AD%89%E4%BB%B7%E4%BA%8E%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95%E9%A2%98/" class="note-card">
   
-  <img src="/image/banner/nozomizo3.JPG" class="note-cover" alt="20210504 我断言物理题完全等价于解析几何题" loading="lazy">
+  <img src="/image/banner/nozomizo3.JPG" class="note-cover" alt="2021.05.04 我断言物理题完全等价于解析几何题" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20210504 我断言物理题完全等价于解析几何题</h2>
+      <h2 class="note-card-title">2021.05.04 我断言物理题完全等价于解析几何题</h2>
       
       <p class="note-excerpt">我断言物理题完全等价于解析几何题</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">物理</span>
       
       <span class="note-date">2021 May 04</span>
       <span class="note-read">1 min read</span>
@@ -529,6 +591,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

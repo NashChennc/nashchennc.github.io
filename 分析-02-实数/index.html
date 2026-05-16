@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>分析-02-实数 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 77</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 453</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 162</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 11</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 4</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">分析-02-实数</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 May 15</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">10 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <blockquote>
+<p>本笔记所属课程：<a href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)/" title="">数学分析(B1)</a></p>
+</blockquote>
+<h2 id="引入-整数有理数的构造">引入: 整数有理数的构造</h2>
+<p>我们知道，有理数在数轴上稠密，但</p>
+<p><strong>定理</strong> [$\sqrt 2\notin \mathbb Q$]
+不赘。</p>
+<p>但其实这不是建立实数的最大动机。事实上，想要计算根式，我们可以使用有理数的根式扩张域即可。先来观察下述问题</p>
+<p>考虑 $\max{x:x&lt;a}(\subset \mathbb Q)$ 。右边边界是开边界，由于有理数是稠密的，这个数在有理数中不存在。事实上，如果保留 $\max$ 的定义而去扩张数域，说不定会有什么神奇的性质，虽然看起来很矛盾，但我没证过也不知道会发生什么。</p>
+<p>于是我们换一套记号来描述所谓最大最小。</p>
+<p><strong>定义</strong> [$\sup,\inf$ 确界]
+$$
+\begin{aligned}
+\sup A=\min{M:\forall a\in A,M&gt;a}\cr
+\inf A=\max{m:\forall a\in A,m&lt;a}
+\end{aligned}
+$$</p>
+<p>这样，我们就有</p>
+<p>$$\sup{x:x&lt;a}=a$$</p>
+<p>问题似乎得到了解决。不过重新描述一下开头的引理</p>
+<p><strong>定理</strong> [$\sup{x^2&lt;2}\notin \mathbb Q$]
+$$\neqxists q_0\in\mathbb Q,q_0=\sup{x^2&lt;2}$$
+不赘。</p>
+<p>有理数集的一些无限子集是有确界的，至少确界看起来比最值强大一点。</p>
+<p>最后我们想象将这个无限集合取出无限的单调序列，我们会得到一条 “趋近于” 确界的无限序列。事实上，这就是我们后面要讨论的数列收敛。</p>
+<p>要求任何无限集合有最值、或无限数列结束于某个数，这都是在有限序列上的思维定式，在无限序列中有着远比这些概念丰富的内容。为了解决这些问题，我们特意建立了实数理论。</p>
+<h2 id="实数">实数</h2>
+<p>无限小数？</p>
+<p>其实无限小数非常接近极限的本质，但我们先来看一个定义</p>
+<p><strong>定义</strong>
+实数是有理数的柯西列
+$$\mathbb R={\lambda:{q_k\in\mathbb Q}_{k=1}^{\infty},\forall \varepsilon&gt;0,\exists N,\forall n,m&gt;N,|q_n-q_m|&lt;\varepsilon}$$</p>
+<p>柯西列有界</p>
+<p>我们验证一下 $\sqrt 2=\sup{x^2&lt;2}\in \mathbb R$</p>
+<p>咕</p>
+<p><strong>定理</strong>
+实数的任何有界子集都有确界
+<strong>证明</strong>
+$$\lim\frac {m(n)}n$$</p>
+<p><strong>定理</strong> [无穷集确界性质]
+对 $x\geq\sup a_n$ ，$a_n\leq x$ .</p>
+<p>对 $x&lt;\sup a_n$ ，存在某项 $a_n$ 使 $x&lt;a_n\leq\sup a_n $ .</p>
+<p>我们拓展一个仅有负运算和偏序的无穷大，组合成广义实数系 $\mathbb R^*$ ，可以验证这是良定的。不过因为无穷大看起来会对一些诸如消去论的群论性质造成破坏，我们暂时不好定义其他的运算。</p>
+<p><strong>定理</strong>
+广义实数的任何子集都有确界</p>
+<p><strong>推论</strong>
+$\mathbb R^*$ 中，
+$$\forall a\in A,a\leq M\Leftrightarrow \sup A\leq M$$
+$$\forall a\in A,a\geq m\Leftrightarrow \sup A\geq m$$</p>
+<p>使用广义实数系对我们后面讨论极限提供不少帮助，不过涉及无穷大的四则运算是不允许的，需要特别留心。不特别声明的情况下，我们还是用一般的实数系。</p>
+<h2 id="极限">极限</h2>
+<p><strong>定义</strong>
+对 $\mathbb R^d$ 上的一个点列 ${a_n}<em>{n=1}^{\infty}$ 和点 $a$ ，如果 $\forall \varepsilon&gt;0,\exists N(\varepsilon):\mathbb R</em>+\to\mathbb N$ 满足
+$$\forall n&gt;N(\varepsilon),|a_n-a|&lt;\varepsilon$$</p>
+<p>称点列 ${a_n}<em>{n=1}^{\infty}$ 收敛于 $a$，记
+$$\lim</em>{n\to \infty} a_n=a$$</p>
+<p>我们验证一下这个定义是好的</p>
+<p><strong>定理</strong> [极限的唯一性]</p>
+<p><strong>注</strong>
+改变数列的有限项不影响极限</p>
+<p><strong>注</strong>
+收敛列显然是柯西列。但反过来没有那么好证。后面在完备性一节会证明。</p>
+<h3 id="极限的基本性质">极限的基本性质</h3>
+<p><strong>定理</strong> [收敛列的有界性]</p>
+<p><strong>定理</strong> [极限的四则运算]</p>
+<h3 id="极限点">极限点</h3>
+<p><strong>定义</strong>
+对 $(X,\rho)$ 上的一个点列 ${a_n}_{n=1}^{\infty}$ 和点 $l$ ，如果 $\forall \varepsilon&gt;0,M&gt;0$ 满足
+$$\exists n&gt;M,a_n\in U(l,\varepsilon)$$</p>
+<p>称 $l$ 是点列 ${a_n}_{n=1}^{\infty}$ 的 <strong>极限点</strong>。</p>
+<p><strong>注</strong>
+注意和收敛的区别。此处只要求无论多大时总有足够接近的项（有无穷项），而收敛是存在在某项之后均足够接近。</p>
+<p>极限点是比极限弱的一个定义。我们可以直接从定义得到，收敛点列只有一个极限点，即其极限。</p>
+<p>也可以看作是 $\forall \exists\forall$ 和 $\forall \forall \exists$ 的区别。事实上我们之后要讨论的集合的极限就是基于这个结构的。写成集合的形式，在实分析中常常用一列 $\frac 1k\to 0$ 来代替任意小的 $\varepsilon\to 0$ ，就是
+[\mathcal L=\bigcap_{k=0}^{\infty}\bigcup_{N=0}^{\infty}\bigcap_{n&gt;N}^{\infty}\left{{a_n}:|a_n-l|&lt;\frac 1k\right}]</p>
+<p>这个集合 $\mathcal L$ 代表了所有收敛到 $l$ 的数列 ${a_n}$ 。同理可以写出
+[\mathcal L^*=\bigcap_{k=0}^{\infty}\bigcap_{N=0}^{\infty}\bigcup_{n&gt;N}^{\infty}\left{{a_n}:|a_n-l|&lt;\frac 1k\right}]</p>
+<p>这是所有具有极限点 $l$ 的数列。其中的数列可以替换成函数。</p>
+<p><strong>定义</strong> [上极限和下极限]</p>
+<p>$$\limsup_{n\to\infty} a_n=\inf_{i=1}\left{\sup_{j\geq i} a_j\right}$$</p>
+<p>$$\liminf_{n\to\infty} a_n=\sup_{i=1}\left{\inf_{j\geq i} a_j\right}$$</p>
+<p>形象地想，这是数列趋于无穷时的上下界。我们马上就会严格化这一个直觉。</p>
+<p><strong>引理</strong> [上下极限性质]
+对 $\forall x&gt;\limsup$ ，$a_n$ 存在某项之后全体 $&lt;x$</p>
+<p>对 $\forall x&lt;\limsup$ ，$a_n$ 存在无穷项 $&gt;x$</p>
+<p><strong>证明</strong>
+展开外层 inf， $\exists i,\sup_{j\geq i}a_j&lt;x$ ，$\forall a_j\leq\sup_{j\geq i}a_j&lt;x$</p>
+<p>第二条同理，$\forall i,x&lt;\limsup\leq\sup_{j\geq i}a_j$ ，即 $\exists a_j&gt;x$</p>
+<p>这两种描述实际上已经出现多次了。在极限理论中，这是两个最基本的界的形式。</p>
+<p><strong>定理</strong>
+上下极限都是极限点。有界实数列总有极限点。
+<strong>证明</strong>
+取 $x=\limsup\pm\varepsilon$ 立即可以得到。</p>
+<p>由于有界实数列总有确界，故总有上下极限，因此即有界实数列总有极限点。</p>
+<p><strong>定理</strong> [极限点以上下极限为界]
+$$\inf\leq\liminf\leq l\leq\limsup\leq\sup$$
+<strong>证明</strong>
+不妨只证一边。$\limsup\leq\sup$ 显然，故只需证 $l\leq \limsup$ 。</p>
+<p>反证法。设 $l&gt;\limsup$ 。由于 $\forall N,\exists n&gt;N,|a_n-l|&lt;\varepsilon$ 于是 $a_n$ 存在无穷项使得 $a_n&gt;l-\varepsilon&gt;\limsup$。这和上述引理第一条矛盾。</p>
+<p><strong>定理</strong> [极限点唯一时即为极限]</p>
+<p>$$\liminf_{n\to\infty}=\limsup_{n\to\infty}=l\Leftrightarrow\lim_{n\to\infty} a_n=l$$</p>
+<p><strong>证明</strong>
+$(\Leftarrow)$ 显然。</p>
+<p>$(\Rightarrow)$ 上下极限相等 $\Leftrightarrow$ 只有一个极限点。</p>
+<p>由上下极限性质第一条，取 $x=\limsup+\varepsilon,x=\liminf-\varepsilon$ 的情况可知某项之后 $a_n$ 全体 $l-\varepsilon&lt;a_n&lt;l+\varepsilon$ 。</p>
+<p><strong>引理</strong>
+若 $\forall n, a_n\leq b_n$ 则 $\sup,\inf,\limsup,\liminf$ 同理。不能去掉等号。</p>
+<p><strong>定理</strong> [实数的完备性]</p>
+<p>$\mathbb R$ 上的柯西列收敛。</p>
+<p><strong>证明</strong></p>
+<p>设 ${a_n}_{n=1}^{\infty}$ 是柯西列，所以是有界的。于是上下确界有界，上下极限有界。只要证柯西列上下极限相等即可。</p>
+<p>$\forall \varepsilon&gt;0,\exists N$ ，使得 $\forall n_1,n_2&gt;N$ ，$|a_{n_1}-a_{n_2}|&lt;\varepsilon$ 。取 $n_1=N$ ，知
+$$\forall n&gt;N,|a_n-a_N|&lt;\varepsilon$$</p>
+<p>即
+$$a_j\leq \sup_{j=N}a_j\leq a_N+\varepsilon$$</p>
+<p>由定义，可得 $\forall \varepsilon&gt;0$</p>
+<p>$$\limsup_{n\to\infty} a_n=\inf_{i=1}\left{\sup_{j\geq i} a_j\right}\leq\sup_{j=N} a_j\leq a_N+\varepsilon$$</p>
+<p>下极限同理。于是</p>
+<p>$$a_N-\varepsilon\leq \liminf_{n\to\infty} a_n\leq\limsup_{n\to\infty} a_n\leq a_N+\varepsilon$$</p>
+<p>$$0\leq\limsup_{n\to\infty} a_n-\liminf_{n\to\infty} a_n\leq 2\varepsilon$$</p>
+<p>由于 $\varepsilon&gt;0$ 任取，即 $\liminf=\limsup$ （否则取 $\varepsilon=(\limsup-\liminf)/3$）。由 定理2.3.7，${a_n}_{n=1}^{\infty}$ 收敛。</p>
+<p>至此，我们证明了实数在无穷序列的意义下是良定的。这个性质比有理数的稠密性``更稠密’'，我们称为<strong>完备性</strong> 。</p>
+<p>上面证明过程中，第一步固定住其中一项是很关键的。在这里它作为柯西列和普通极限之间转化的处理办法。具体遇到有通项的数列时，有的时候也能直接放缩成极限的形式。</p>
+<h2 id="收敛的判别法">收敛的判别法</h2>
+<p><strong>定理</strong> [定义的变体]
+如果 $f:\mathbb R_+\to \mathbb R_+$ 是双射
+$$\forall n&gt;N_0(\varepsilon),a_n\in U(a,f(\varepsilon))$$</p>
+<p>那么 $\lim_{n\to \infty} a_n=a$
+<strong>证明</strong>
+$\forall \varepsilon&gt;0,\exists N=N_0\circ f^{-1}$
+$$\forall n&gt;N(\varepsilon),a_n\in U(a,\varepsilon)$$</p>
+<p>我们证明极限时写出的不等式，最后一步放缩到一个关于 $\varepsilon$ 的函数，如果函数是双射就能完成证明。最常用的是 $C\varepsilon$ 。其实 $\varepsilon^2$ 也可以，不过好像从来没人用过。</p>
+<p><strong>定理</strong> [单调有界收敛]
+<strong>证明</strong>
+无穷确界性质</p>
+<p><strong>定理</strong> [夹逼法]
+<strong>证明</strong>
+上下极限的比较</p>
+<h2 id="子列">子列</h2>
+<p><strong>定义</strong> [子列]
+${a_n}<em>{n=1}^{\infty}$ 的子列指的是由严格增函数 $f:\mathbb N\to \mathbb N$ 构造的数列 ${a</em>{f(n)}}_{n=1}^{\infty}$ 。</p>
+<p><strong>定义</strong> [极限等价定义]
+点列 ${a_n}<em>{n=1}^{\infty}$ 的所有子列收敛到 $l$ 。
+<strong>证明</strong>
+$(\Rightarrow)$ $\forall \varepsilon&gt;0 ,\exists N</em>{\epsilon},\forall n&gt;N_{\epsilon},|a_{n}-l|&lt;\varepsilon$ 。由于 $f(n)$ 严格增，所以 $|a_{f(n)}-l|&lt;\varepsilon$</p>
+<p>$(\Leftarrow)$ 令子列为自身。</p>
+<p><strong>定义</strong> [极限点等价定义]
+点列 ${a_n}_{n=1}^{\infty}$ 存在子列收敛到 $l$ 。
+<strong>证明</strong>
+$(\Rightarrow)$ 由于 $\forall N,\exists n&gt;N$ 足够接近 $l$ ，设这是一个函数 $n(N)$ ，迭代该函数得到子列映射 $f(k)=n^{(k)}(1)$ 生成子列即可。</p>
+<p>$(\Leftarrow)$ $\forall \varepsilon&gt;0 ,\exists N_{\epsilon},\forall n&gt;N_{\epsilon},|a_{f(n)}-l|&lt;\varepsilon$</p>
+<p>所以 $\forall N, \exists n_0=f(N_{\varepsilon}+1),|a_n-l|&lt;\varepsilon$</p>
+<p><strong>引理</strong>
+收敛数列列的任意子列均收敛到 $l$，于是只有一个极限点 $l$。只有一个极限点的数列只有收敛到 $l$ 的</p>
+<p><strong>定理</strong> [Bolzano-Weierstrass,列紧性原理]
+有界数列总有极限点：有界的上下极限，故总有收敛子列。</p>
+<p><strong>注</strong></p>
+<p>显然子列收敛原来的点列不一定收敛。</p>
+<p><strong>引理</strong>
+一柯西列的子列收敛，则该柯西列收敛</p>
+<p>区间套定理</p>
+<hr>
+<p>← 上一篇：<a href="/%E5%88%86%E6%9E%90-01-%E9%9B%86%E5%90%88%E8%AE%BA/" title="">分析-01-集合论</a></p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E5%88%86%E6%9E%90-03-%E7%BA%A7%E6%95%B0/">分析-03-级数</a>
+                            
+                                <a class="post-backlinks__link" href="/%E5%88%86%E6%9E%90%E5%AD%A6/">分析学</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E5%88%86%E6%9E%90-06-%E6%B5%81%E5%BD%A2/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">分析-06-流形</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/%E5%88%86%E6%9E%90-07-%E5%BC%A0%E9%87%8F/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">分析-07-张量</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%95%E5%85%A5-%E6%95%B4%E6%95%B0%E6%9C%89%E7%90%86%E6%95%B0%E7%9A%84%E6%9E%84%E9%80%A0"><span class="post-toc-text">引入: 整数有理数的构造</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E6%95%B0"><span class="post-toc-text">实数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%81%E9%99%90"><span class="post-toc-text">极限</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9E%81%E9%99%90%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="post-toc-text">极限的基本性质</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9E%81%E9%99%90%E7%82%B9"><span class="post-toc-text">极限点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%94%B6%E6%95%9B%E7%9A%84%E5%88%A4%E5%88%AB%E6%B3%95"><span class="post-toc-text">收敛的判别法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AD%90%E5%88%97"><span class="post-toc-text">子列</span></a></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

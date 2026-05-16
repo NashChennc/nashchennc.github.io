@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2022.05.26 数据库连接成功","url":"/2022.05.26%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F/","date":"2022-05-26","tags":["软件工程","Coding"]},{"title":"2022.05.26 做了无人挑战的数据库课实验拓展","url":"/2022.05.26%20%E5%81%9A%E4%BA%86%E6%97%A0%E4%BA%BA%E6%8C%91%E6%88%98%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E5%AE%9E%E9%AA%8C%E6%8B%93%E5%B1%95/","date":"2022-05-26","tags":["课程","软件工程","学业","Coding"]},{"title":"2022.05.26 Hello World+","url":"/2022.05.26%20Hello%20World+/","date":"2022-05-26","tags":["软件工程"]},{"title":"2022.05.28 前端搭好了","url":"/2022.05.28%20%E5%89%8D%E7%AB%AF%E6%90%AD%E5%A5%BD%E4%BA%86/","date":"2022-05-28","tags":["软件工程"]},{"title":"2022.05.30 萌新的一周","url":"/2022.05.30%20%E8%90%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%91%A8/","date":"2022-05-30","tags":["软件工程"]},{"title":"2022.10.09 网上的md2html包怎么还没有我一晚上","url":"/2022.10.09%20%E7%BD%91%E4%B8%8A%E7%9A%84md2html%E5%8C%85%E6%80%8E%E4%B9%88%E8%BF%98%E6%B2%A1%E6%9C%89%E6%88%91%E4%B8%80%E6%99%9A%E4%B8%8A/","date":"2022-10-09","tags":["软件工程"]},{"title":"2023.11.13 写了个刷四史网课的脚本","url":"/2023.11.13%20%E5%86%99%E4%BA%86%E4%B8%AA%E5%88%B7%E5%9B%9B%E5%8F%B2%E7%BD%91%E8%AF%BE%E7%9A%84%E8%84%9A%E6%9C%AC/","date":"2023-11-13","tags":["课程","软件工程","学业"]},{"title":"2024.02.14 厨力是第一生产力！伟大的开源社区","url":"/2024.02.14%20%E5%8E%A8%E5%8A%9B%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B%EF%BC%81%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/","date":"2024-02-14","tags":["软件工程","原神"]},{"title":"CC Auto Mode - 03 - 权限剥离与信任边界","url":"/ccauto-03-permission-stripping/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode - 04 - 多 Agent 安全交接","url":"/ccauto-04-multi-agent/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode - Auto Mode 安全架构分析报告系列","url":"/ccauto-00-index/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","menu","Safety"]},{"title":"CC Auto Mode 01 - Entry Point 总览","url":"/ccauto-01-entrypoint/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 02 - 安全判定分类管道","url":"/ccauto-02-classifier/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 05 - 门禁、熔断与异步踢出","url":"/ccauto-05-gate-circuit-breaker/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 06 - 配置体系与可定制 Slot","url":"/ccauto-06-configuration/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 07 - Deny-and-Continue 韧性设计","url":"/ccauto-07-deny-and-resilience/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 A - 单次请求的上下文整形流水线","url":"/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 B - 长会话压缩与多线程状态隔离","url":"/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 C - 分类器边界之外的纵深防御","url":"/ccauto-C-%E5%88%86%E7%B1%BB%E5%99%A8%E8%BE%B9%E7%95%8C%E4%B9%8B%E5%A4%96%E7%9A%84%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"硬件/系统/网络相关","url":"/%E8%A3%85%E6%9C%BA%E7%9B%B8%E5%85%B3/","date":"2026-04-25","tags":["软件工程"]},{"title":"邮箱代收设置","url":"/%E9%82%AE%E7%AE%B1%E4%BB%A3%E6%94%B6%E8%AE%BE%E7%BD%AE/","date":"2026-04-25","tags":["笔记","软件工程"]},{"title":"远程服务器使用","url":"/%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/","date":"2026-04-25","tags":["软件工程"]},{"title":"Github使用简介","url":"/Github%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/","date":"2026-04-25","tags":["笔记","软件工程"]},{"title":"Hexo Github 博客搭建","url":"/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/","date":"2026-04-25","tags":["软件工程"]},{"title":"JavaScript","url":"/JavaScript/","date":"2026-04-25","tags":["软件工程"]},{"title":"Test Driven Development","url":"/Test%20Driven%20Development/","date":"2026-04-25","tags":["软件工程"]},{"title":"Text2Speech","url":"/Text2Speech/","date":"2026-04-25","tags":["软件工程","音频","语音"]},{"title":"QQ 无头客户端","url":"/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/","date":"2026-05-13","tags":["软件工程"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -333,13 +402,6 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 8</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
         href="/tags/%E7%AC%94%E8%AE%B0/"
         
       >笔记 · 2</a>
@@ -351,22 +413,22 @@
         
       >课程 · 2</a>
           
-        </div>
-        
-        <details class="index-taxonomy__tags-details">
-          <summary class="index-taxonomy__tags-summary">
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 6 more tags</span>
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
-          </summary>
-          <div class="index-taxonomy__tags-overflow-sleeve">
-            <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
-              
       <a
         role="listitem"
         class="index-taxonomy__chip"
         href="/tags/%E5%AD%A6%E4%B8%9A/"
         
       >学业 · 2</a>
+          
+        </div>
+        
+        <details class="index-taxonomy__tags-details">
+          <summary class="index-taxonomy__tags-summary">
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 5 more tags</span>
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
+          </summary>
+          <div class="index-taxonomy__tags-overflow-sleeve">
+            <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
               
       <a
         role="listitem"
@@ -416,6 +478,31 @@
 
 
                 <div class="notes-grid">
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="note-card">
+  
+  <img src="/files/111095834_p0_%E9%BB%91%E5%A1%94.jpg" class="note-cover" alt="QQ 无头客户端" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">QQ 无头客户端</h2>
+      
+      <p class="note-excerpt">用 NapCat、NoneBot2、Koishi 等搭建 QQ 机器人：安装、反向 WebSocket 与插件配置备忘。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">软件工程</span>
+      
+      <span class="note-date">2026 May 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
                 
                     <div class="notes-grid__cell">
                         
@@ -603,31 +690,6 @@
       <h2 class="note-card-title">远程服务器使用</h2>
       
       <p class="note-excerpt">服务器速查：CUDA 进程排查、环境变量指定 GPU，以及 SSH 与 tmux 会话管理。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">软件工程</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="note-card">
-  
-  <img src="/image/banner/nozomizo18.JPG" class="note-cover" alt="QQ 无头客户端" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">QQ 无头客户端</h2>
-      
-      <p class="note-excerpt">用 NapCat、NoneBot2、Koishi 等搭建 QQ 机器人：安装、反向 WebSocket 与插件配置备忘。</p>
       
     </div>
     <div class="note-meta">
@@ -919,20 +981,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20240214%20%E5%8E%A8%E5%8A%9B%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B%EF%BC%81%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.02.14%20%E5%8E%A8%E5%8A%9B%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B%EF%BC%81%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" class="note-card">
   
-  <img src="/files/qzone-20240214-211034-01.jpg" class="note-cover" alt="20240214 厨力是第一生产力！伟大的开源社区" loading="lazy">
+  <img src="/files/qzone-20240214-211034-01.jpg" class="note-cover" alt="2024.02.14 厨力是第一生产力！伟大的开源社区" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20240214 厨力是第一生产力！伟大的开源社区</h2>
+      <h2 class="note-card-title">2024.02.14 厨力是第一生产力！伟大的开源社区</h2>
       
       <p class="note-excerpt">厨力是第一生产力！伟大的开源社区 悬赏一下谁看得懂我写了什么 以前是以前，现在是现在，今年有芙宁娜陪我过节[em]e105[/em][em]e105[/e...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">原神</span>
       
       <span class="note-date">2024 Feb 14</span>
       <span class="note-read">1 min read</span>
@@ -944,20 +1006,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20231113%20%E5%86%99%E4%BA%86%E4%B8%AA%E5%88%B7%E5%9B%9B%E5%8F%B2%E7%BD%91%E8%AF%BE%E7%9A%84%E8%84%9A%E6%9C%AC/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.11.13%20%E5%86%99%E4%BA%86%E4%B8%AA%E5%88%B7%E5%9B%9B%E5%8F%B2%E7%BD%91%E8%AF%BE%E7%9A%84%E8%84%9A%E6%9C%AC/" class="note-card">
   
-  <img src="/image/banner/nozomizo10.PNG" class="note-cover" alt="20231113 写了个刷四史网课的脚本" loading="lazy">
+  <img src="/image/banner/nozomizo26.JPG" class="note-cover" alt="2023.11.13 写了个刷四史网课的脚本" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20231113 写了个刷四史网课的脚本</h2>
+      <h2 class="note-card-title">2023.11.13 写了个刷四史网课的脚本</h2>
       
       <p class="note-excerpt">写了个刷四史网课的脚本 不可扩展不修bug 自己能调可以来找我要源码 req：pyautogui，opencv-python</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">学业</span>
       
       <span class="note-date">2023 Nov 13</span>
       <span class="note-read">1 min read</span>
@@ -969,20 +1031,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20221009%20%E7%BD%91%E4%B8%8A%E7%9A%84md2html%E5%8C%85%E6%80%8E%E4%B9%88%E8%BF%98%E6%B2%A1%E6%9C%89%E6%88%91%E4%B8%80%E6%99%9A%E4%B8%8A/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.10.09%20%E7%BD%91%E4%B8%8A%E7%9A%84md2html%E5%8C%85%E6%80%8E%E4%B9%88%E8%BF%98%E6%B2%A1%E6%9C%89%E6%88%91%E4%B8%80%E6%99%9A%E4%B8%8A/" class="note-card">
   
-  <img src="/image/banner/nozomizo41.JPG" class="note-cover" alt="20221009 网上的md2html包怎么还没有我一晚上" loading="lazy">
+  <img src="/image/banner/minamiquartet5.JPG" class="note-cover" alt="2022.10.09 网上的md2html包怎么还没有我一晚上" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20221009 网上的md2html包怎么还没有我一晚上</h2>
+      <h2 class="note-card-title">2022.10.09 网上的md2html包怎么还没有我一晚上</h2>
       
       <p class="note-excerpt">网上的md2html包怎么还没有我一晚上搓出来的js能打 有无懂哥推荐一下</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">软件工程</span>
       
       <span class="note-date">2022 Oct 09</span>
       <span class="note-read">1 min read</span>
@@ -994,20 +1056,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220530%20%E8%90%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%91%A8/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.05.30%20%E8%90%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%91%A8/" class="note-card">
   
-  <img src="/files/qzone-20220530-132721-01.png" class="note-cover" alt="20220530 萌新的一周" loading="lazy">
+  <img src="/files/qzone-20220530-132721-01.png" class="note-cover" alt="2022.05.30 萌新的一周" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220530 萌新的一周</h2>
+      <h2 class="note-card-title">2022.05.30 萌新的一周</h2>
       
       <p class="note-excerpt">萌新的一周 爆肝的一周 现已支持直接导入markdown+原生latex文件 markdown编译器是自己手搓的 接下来看到我请催我赶作业</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">软件工程</span>
       
       <span class="note-date">2022 May 30</span>
       <span class="note-read">1 min read</span>
@@ -1019,20 +1081,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220528%20%E5%89%8D%E7%AB%AF%E6%90%AD%E5%A5%BD%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.05.28%20%E5%89%8D%E7%AB%AF%E6%90%AD%E5%A5%BD%E4%BA%86/" class="note-card">
   
-  <img src="/files/qzone-20220528-125717-01.jpg" class="note-cover" alt="20220528 前端搭好了" loading="lazy">
+  <img src="/files/qzone-20220528-125717-01.jpg" class="note-cover" alt="2022.05.28 前端搭好了" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220528 前端搭好了</h2>
+      <h2 class="note-card-title">2022.05.28 前端搭好了</h2>
       
       <p class="note-excerpt">前端搭好了 一人役</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">软件工程</span>
       
       <span class="note-date">2022 May 28</span>
       <span class="note-read">1 min read</span>
@@ -1044,20 +1106,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220526%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.05.26%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F/" class="note-card">
   
-  <img src="/files/qzone-20220526-193923-01.jpg" class="note-cover" alt="20220526 数据库连接成功" loading="lazy">
+  <img src="/files/qzone-20220526-193923-01.jpg" class="note-cover" alt="2022.05.26 数据库连接成功" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220526 数据库连接成功</h2>
+      <h2 class="note-card-title">2022.05.26 数据库连接成功</h2>
       
       <p class="note-excerpt">数据库连接成功 在ustc-guest开服果然可行 下面我来给大家表演一个删库跑路</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">Coding</span>
       
       <span class="note-date">2022 May 26</span>
       <span class="note-read">1 min read</span>
@@ -1069,20 +1131,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220526%20Hello%20World+/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.05.26%20Hello%20World+/" class="note-card">
   
-  <img src="/files/qzone-20220526-140259-01.jpg" class="note-cover" alt="20220526 Hello World+" loading="lazy">
+  <img src="/files/qzone-20220526-140259-01.jpg" class="note-cover" alt="2022.05.26 Hello World+" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220526 Hello World+</h2>
+      <h2 class="note-card-title">2022.05.26 Hello World+</h2>
       
       <p class="note-excerpt">Hello World+ 局域网访问成功</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">软件工程</span>
       
       <span class="note-date">2022 May 26</span>
       <span class="note-read">1 min read</span>
@@ -1094,20 +1156,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220526%20%E5%81%9A%E4%BA%86%E6%97%A0%E4%BA%BA%E6%8C%91%E6%88%98%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E5%AE%9E%E9%AA%8C%E6%8B%93%E5%B1%95/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.05.26%20%E5%81%9A%E4%BA%86%E6%97%A0%E4%BA%BA%E6%8C%91%E6%88%98%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E5%AE%9E%E9%AA%8C%E6%8B%93%E5%B1%95/" class="note-card">
   
-  <img src="/files/qzone-20220526-015344-01.jpg" class="note-cover" alt="20220526 做了无人挑战的数据库课实验拓展" loading="lazy">
+  <img src="/files/qzone-20220526-015344-01.jpg" class="note-cover" alt="2022.05.26 做了无人挑战的数据库课实验拓展" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220526 做了无人挑战的数据库课实验拓展</h2>
+      <h2 class="note-card-title">2022.05.26 做了无人挑战的数据库课实验拓展</h2>
       
       <p class="note-excerpt">做了无人挑战的数据库课实验拓展 好歹是自己搭的第一个服务器，建的第一个数据库，写的第一份网页 今日起脱离洛谷博客[em]e10277[/em] 好了，现在...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">Coding</span>
       
       <span class="note-date">2022 May 26</span>
       <span class="note-read">1 min read</span>
@@ -1276,6 +1338,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

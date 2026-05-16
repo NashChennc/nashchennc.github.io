@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2023.08.03 你们平时也是这么叫的（","url":"/2023.08.03%20%E4%BD%A0%E4%BB%AC%E5%B9%B3%E6%97%B6%E4%B9%9F%E6%98%AF%E8%BF%99%E4%B9%88%E5%8F%AB%E7%9A%84%EF%BC%88/","date":"2023-08-03","tags":["蔚蓝档案"]},{"title":"2023.08.19 给瓜回敬了一个十抽三彩[em]e1031","url":"/2023.08.19%20%E7%BB%99%E7%93%9C%E5%9B%9E%E6%95%AC%E4%BA%86%E4%B8%80%E4%B8%AA%E5%8D%81%E6%8A%BD%E4%B8%89%E5%BD%A9%5Bem%5De1031/","date":"2023-08-19","tags":["蔚蓝档案"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -302,13 +371,6 @@
         aria-current="page"
       >蔚蓝档案 · 2</a>
           
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 2</a>
-          
         </div>
         
       </div>
@@ -322,20 +384,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230819%20%E7%BB%99%E7%93%9C%E5%9B%9E%E6%95%AC%E4%BA%86%E4%B8%80%E4%B8%AA%E5%8D%81%E6%8A%BD%E4%B8%89%E5%BD%A9%5Bem%5De1031/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.19%20%E7%BB%99%E7%93%9C%E5%9B%9E%E6%95%AC%E4%BA%86%E4%B8%80%E4%B8%AA%E5%8D%81%E6%8A%BD%E4%B8%89%E5%BD%A9%5Bem%5De1031/" class="note-card">
   
-  <img src="/image/banner/nozomizo44.JPG" class="note-cover" alt="20230819 给瓜回敬了一个十抽三彩[em]e1031" loading="lazy">
+  <img src="/image/banner/nozomizo34.JPG" class="note-cover" alt="2023.08.19 给瓜回敬了一个十抽三彩[em]e1031" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230819 给瓜回敬了一个十抽三彩[em]e1031</h2>
+      <h2 class="note-card-title">2023.08.19 给瓜回敬了一个十抽三彩[em]e1031</h2>
       
       <p class="note-excerpt">给瓜回敬了一个十抽三彩[em]e10311[/em][em]e10311[/em][em]e10311[/em][em]e10311[/em][em]e1...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">蔚蓝档案</span>
       
       <span class="note-date">2023 Aug 19</span>
       <span class="note-read">1 min read</span>
@@ -347,20 +409,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230803%20%E4%BD%A0%E4%BB%AC%E5%B9%B3%E6%97%B6%E4%B9%9F%E6%98%AF%E8%BF%99%E4%B9%88%E5%8F%AB%E7%9A%84%EF%BC%88/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.08.03%20%E4%BD%A0%E4%BB%AC%E5%B9%B3%E6%97%B6%E4%B9%9F%E6%98%AF%E8%BF%99%E4%B9%88%E5%8F%AB%E7%9A%84%EF%BC%88/" class="note-card">
   
-  <img src="/files/qzone-20230803-121718-01.jpg" class="note-cover" alt="20230803 你们平时也是这么叫的（" loading="lazy">
+  <img src="/files/qzone-20230803-121718-01.jpg" class="note-cover" alt="2023.08.03 你们平时也是这么叫的（" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230803 你们平时也是这么叫的（</h2>
+      <h2 class="note-card-title">2023.08.03 你们平时也是这么叫的（</h2>
       
       <p class="note-excerpt">你们平时也是这么叫的（ 我不是我没有我绝对不是萝莉控</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">蔚蓝档案</span>
       
       <span class="note-date">2023 Aug 03</span>
       <span class="note-read">1 min read</span>
@@ -529,6 +591,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

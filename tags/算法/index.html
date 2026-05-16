@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2022.01.13 中签","url":"/2022.01.13%20%E4%B8%AD%E7%AD%BE/","date":"2022-01-13","tags":["课程","算法","学业"]},{"title":"2022.03.03 历史性突破","url":"/2022.03.03%20%E5%8E%86%E5%8F%B2%E6%80%A7%E7%AA%81%E7%A0%B4/","date":"2022-03-03","tags":["算法"]},{"title":"2022.03.23 算导课作业太恶毒了","url":"/2022.03.23%20%E7%AE%97%E5%AF%BC%E8%AF%BE%E4%BD%9C%E4%B8%9A%E5%A4%AA%E6%81%B6%E6%AF%92%E4%BA%86/","date":"2022-03-23","tags":["课程","算法","学业"]},{"title":"2022.05.20 520了，来给npy整一个","url":"/2022.05.20%20520%E4%BA%86%EF%BC%8C%E6%9D%A5%E7%BB%99npy%E6%95%B4%E4%B8%80%E4%B8%AA/","date":"2022-05-20","tags":["崩崩崩","课程","算法","学业","Coding"]},{"title":"2022.05.21 调参侠の大勝利","url":"/2022.05.21%20%E8%B0%83%E5%8F%82%E4%BE%A0%E3%81%AE%E5%A4%A7%E5%8B%9D%E5%88%A9/","date":"2022-05-21","tags":["崩崩崩","算法","Coding"]},{"title":"2022.06.13 ddl战士选择放弃ddl直接睡觉","url":"/2022.06.13%20ddl%E6%88%98%E5%A3%AB%E9%80%89%E6%8B%A9%E6%94%BE%E5%BC%83ddl%E7%9B%B4%E6%8E%A5%E7%9D%A1%E8%A7%89/","date":"2022-06-13","tags":["算法"]},{"title":"2024.01.04 快来报，包教包会","url":"/2024.01.04%20%E5%BF%AB%E6%9D%A5%E6%8A%A5%EF%BC%8C%E5%8C%85%E6%95%99%E5%8C%85%E4%BC%9A/","date":"2024-01-04","tags":["课程","算法","学业"]},{"title":"2024.02.28 时隔几万年终于又成功起了一次早八","url":"/2024.02.28%20%E6%97%B6%E9%9A%94%E5%87%A0%E4%B8%87%E5%B9%B4%E7%BB%88%E4%BA%8E%E5%8F%88%E6%88%90%E5%8A%9F%E8%B5%B7%E4%BA%86%E4%B8%80%E6%AC%A1%E6%97%A9%E5%85%AB/","date":"2024-02-28","tags":["课程","生活","算法","学业"]},{"title":"2024.03.23 年轻人的第一节习题课","url":"/2024.03.23%20%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E8%8A%82%E4%B9%A0%E9%A2%98%E8%AF%BE/","date":"2024-03-23","tags":["课程","算法","学业"]},{"title":"2024.03.27 算法基础正课上讲了FHQ Treap","url":"/2024.03.27%20%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%AD%A3%E8%AF%BE%E4%B8%8A%E8%AE%B2%E4%BA%86FHQ%20Treap/","date":"2024-03-27","tags":["课程","算法","学业"]},{"title":"2024.11.10 。","url":"/2024.11.10%20%E3%80%82/","date":"2024-11-10","tags":["算法","OI"]},{"title":"2024.11.10 走远了","url":"/2024.11.10%20%E8%B5%B0%E8%BF%9C%E4%BA%86/","date":"2024-11-10","tags":["算法","OI"]},{"title":"2024.12.18 余自幼习算法。一日，闻马氏组合玄妙不堪、","url":"/2024.12.18%20%E4%BD%99%E8%87%AA%E5%B9%BC%E4%B9%A0%E7%AE%97%E6%B3%95%E3%80%82%E4%B8%80%E6%97%A5%EF%BC%8C%E9%97%BB%E9%A9%AC%E6%B0%8F%E7%BB%84%E5%90%88%E7%8E%84%E5%A6%99%E4%B8%8D%E5%A0%AA%E3%80%81/","date":"2024-12-18","tags":["课程","数学","算法","学业"]},{"title":"2024.12.21 作为llm tcs双料特工，绝对是强利益","url":"/2024.12.21%20%E4%BD%9C%E4%B8%BAllm%20tcs%E5%8F%8C%E6%96%99%E7%89%B9%E5%B7%A5%EF%BC%8C%E7%BB%9D%E5%AF%B9%E6%98%AF%E5%BC%BA%E5%88%A9%E7%9B%8A/","date":"2024-12-21","tags":["反思","生活","算法","AI"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -301,13 +370,6 @@
         href="/tags/%E7%AE%97%E6%B3%95/"
         aria-current="page"
       >算法 · 14</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 14</a>
           
       <a
         role="listitem"
@@ -351,22 +413,22 @@
         
       >OI · 2</a>
           
-        </div>
-        
-        <details class="index-taxonomy__tags-details">
-          <summary class="index-taxonomy__tags-summary">
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 3 more tags</span>
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
-          </summary>
-          <div class="index-taxonomy__tags-overflow-sleeve">
-            <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
-              
       <a
         role="listitem"
         class="index-taxonomy__chip"
         href="/tags/%E5%8F%8D%E6%80%9D/"
         
       >反思 · 1</a>
+          
+        </div>
+        
+        <details class="index-taxonomy__tags-details">
+          <summary class="index-taxonomy__tags-summary">
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 2 more tags</span>
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
+          </summary>
+          <div class="index-taxonomy__tags-overflow-sleeve">
+            <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
               
       <a
         role="listitem"
@@ -398,20 +460,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241221%20%E4%BD%9C%E4%B8%BAllm%20tcs%E5%8F%8C%E6%96%99%E7%89%B9%E5%B7%A5%EF%BC%8C%E7%BB%9D%E5%AF%B9%E6%98%AF%E5%BC%BA%E5%88%A9%E7%9B%8A/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.12.21%20%E4%BD%9C%E4%B8%BAllm%20tcs%E5%8F%8C%E6%96%99%E7%89%B9%E5%B7%A5%EF%BC%8C%E7%BB%9D%E5%AF%B9%E6%98%AF%E5%BC%BA%E5%88%A9%E7%9B%8A/" class="note-card">
   
-  <img src="/files/qzone-20241221-124224-01.png" class="note-cover" alt="20241221 作为llm tcs双料特工，绝对是强利益" loading="lazy">
+  <img src="/files/qzone-20241221-124224-01.png" class="note-cover" alt="2024.12.21 作为llm tcs双料特工，绝对是强利益" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241221 作为llm tcs双料特工，绝对是强利益</h2>
+      <h2 class="note-card-title">2024.12.21 作为llm tcs双料特工，绝对是强利益</h2>
       
       <p class="note-excerpt">作为llm/tcs双料特工，绝对是强利益相关。2022自己选专业的时候就写过一篇博客。有空再更新一下续集吧</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2024 Dec 21</span>
       <span class="note-read">2 min read</span>
@@ -423,20 +485,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241218%20%E4%BD%99%E8%87%AA%E5%B9%BC%E4%B9%A0%E7%AE%97%E6%B3%95%E3%80%82%E4%B8%80%E6%97%A5%EF%BC%8C%E9%97%BB%E9%A9%AC%E6%B0%8F%E7%BB%84%E5%90%88%E7%8E%84%E5%A6%99%E4%B8%8D%E5%A0%AA%E3%80%81/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.12.18%20%E4%BD%99%E8%87%AA%E5%B9%BC%E4%B9%A0%E7%AE%97%E6%B3%95%E3%80%82%E4%B8%80%E6%97%A5%EF%BC%8C%E9%97%BB%E9%A9%AC%E6%B0%8F%E7%BB%84%E5%90%88%E7%8E%84%E5%A6%99%E4%B8%8D%E5%A0%AA%E3%80%81/" class="note-card">
   
-  <img src="/image/banner/minamiquartet7.PNG" class="note-cover" alt="20241218 余自幼习算法。一日，闻马氏组合玄妙不堪、" loading="lazy">
+  <img src="/image/banner/nozomizo23.JPG" class="note-cover" alt="2024.12.18 余自幼习算法。一日，闻马氏组合玄妙不堪、" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241218 余自幼习算法。一日，闻马氏组合玄妙不堪、</h2>
+      <h2 class="note-card-title">2024.12.18 余自幼习算法。一日，闻马氏组合玄妙不堪、</h2>
       
       <p class="note-excerpt">余自幼习算法。一日，闻马氏组合玄妙不堪、天下独绝。人皆称：“噫！臭不可闻！”遂闻香而来。果然其味无穷。拼尽全力无法战胜。特记此事，以昭后人。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">算法</span>
       
       <span class="note-date">2024 Dec 18</span>
       <span class="note-read">1 min read</span>
@@ -448,20 +510,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241110%20%E8%B5%B0%E8%BF%9C%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.11.10%20%E8%B5%B0%E8%BF%9C%E4%BA%86/" class="note-card">
   
-  <img src="/files/qzone-20241110-200809-01.jpg" class="note-cover" alt="20241110 走远了" loading="lazy">
+  <img src="/files/qzone-20241110-200809-01.jpg" class="note-cover" alt="2024.11.10 走远了" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241110 走远了</h2>
+      <h2 class="note-card-title">2024.11.10 走远了</h2>
       
       <p class="note-excerpt">走远了 不知道说什么好，那就到此一游吧</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2024 Nov 10</span>
       <span class="note-read">1 min read</span>
@@ -473,20 +535,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20241110%20%E3%80%82/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.11.10%20%E3%80%82/" class="note-card">
   
-  <img src="/image/banner/nozomizo47.PNG" class="note-cover" alt="20241110 。" loading="lazy">
+  <img src="/image/banner/nozomizo3.JPG" class="note-cover" alt="2024.11.10 。" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20241110 。</h2>
+      <h2 class="note-card-title">2024.11.10 。</h2>
       
       <p class="note-excerpt">。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">OI</span>
       
       <span class="note-date">2024 Nov 10</span>
       <span class="note-read">1 min read</span>
@@ -498,20 +560,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20240327%20%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%AD%A3%E8%AF%BE%E4%B8%8A%E8%AE%B2%E4%BA%86FHQ%20Treap/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.03.27%20%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%AD%A3%E8%AF%BE%E4%B8%8A%E8%AE%B2%E4%BA%86FHQ%20Treap/" class="note-card">
   
-  <img src="/files/qzone-20240327-091407-01.png" class="note-cover" alt="20240327 算法基础正课上讲了FHQ Treap" loading="lazy">
+  <img src="/files/qzone-20240327-091407-01.png" class="note-cover" alt="2024.03.27 算法基础正课上讲了FHQ Treap" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20240327 算法基础正课上讲了FHQ Treap</h2>
+      <h2 class="note-card-title">2024.03.27 算法基础正课上讲了FHQ Treap</h2>
       
       <p class="note-excerpt">算法基础正课上讲了FHQ Treap Splay的证明你们一定要去看啊太优美了啊啊啊啊啊啊</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">算法</span>
       
       <span class="note-date">2024 Mar 27</span>
       <span class="note-read">1 min read</span>
@@ -523,20 +585,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20240323%20%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E8%8A%82%E4%B9%A0%E9%A2%98%E8%AF%BE/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.03.23%20%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E8%8A%82%E4%B9%A0%E9%A2%98%E8%AF%BE/" class="note-card">
   
-  <img src="/files/qzone-20240323-231331-01.jpg" class="note-cover" alt="20240323 年轻人的第一节习题课" loading="lazy">
+  <img src="/files/qzone-20240323-231331-01.jpg" class="note-cover" alt="2024.03.23 年轻人的第一节习题课" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20240323 年轻人的第一节习题课</h2>
+      <h2 class="note-card-title">2024.03.23 年轻人的第一节习题课</h2>
       
       <p class="note-excerpt">年轻人的第一节习题课 讲得这么烂ので真的大変申し訳ございません[em]e150[/em]</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">算法</span>
       
       <span class="note-date">2024 Mar 23</span>
       <span class="note-read">1 min read</span>
@@ -548,20 +610,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20240228%20%E6%97%B6%E9%9A%94%E5%87%A0%E4%B8%87%E5%B9%B4%E7%BB%88%E4%BA%8E%E5%8F%88%E6%88%90%E5%8A%9F%E8%B5%B7%E4%BA%86%E4%B8%80%E6%AC%A1%E6%97%A9%E5%85%AB/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.02.28%20%E6%97%B6%E9%9A%94%E5%87%A0%E4%B8%87%E5%B9%B4%E7%BB%88%E4%BA%8E%E5%8F%88%E6%88%90%E5%8A%9F%E8%B5%B7%E4%BA%86%E4%B8%80%E6%AC%A1%E6%97%A9%E5%85%AB/" class="note-card">
   
-  <img src="/image/banner/nozomizo28.JPG" class="note-cover" alt="20240228 时隔几万年终于又成功起了一次早八" loading="lazy">
+  <img src="/image/banner/nakayoshi4.jpg" class="note-cover" alt="2024.02.28 时隔几万年终于又成功起了一次早八" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20240228 时隔几万年终于又成功起了一次早八</h2>
+      <h2 class="note-card-title">2024.02.28 时隔几万年终于又成功起了一次早八</h2>
       
       <p class="note-excerpt">时隔几万年终于又成功起了一次早八 这次是算法导论助教随堂</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2024 Feb 28</span>
       <span class="note-read">1 min read</span>
@@ -573,20 +635,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20240104%20%E5%BF%AB%E6%9D%A5%E6%8A%A5%EF%BC%8C%E5%8C%85%E6%95%99%E5%8C%85%E4%BC%9A/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.01.04%20%E5%BF%AB%E6%9D%A5%E6%8A%A5%EF%BC%8C%E5%8C%85%E6%95%99%E5%8C%85%E4%BC%9A/" class="note-card">
   
-  <img src="/files/qzone-20240104-115441-01.jpg" class="note-cover" alt="20240104 快来报，包教包会" loading="lazy">
+  <img src="/files/qzone-20240104-115441-01.jpg" class="note-cover" alt="2024.01.04 快来报，包教包会" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20240104 快来报，包教包会</h2>
+      <h2 class="note-card-title">2024.01.04 快来报，包教包会</h2>
       
       <p class="note-excerpt">快来报，算法导论包教包会 张老师给分超奶[em]e105[/em] 在东区，21计数主修，东区计科人可报 但是这种大课一个助教带70个人怎么带，救命</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">算法</span>
       
       <span class="note-date">2024 Jan 04</span>
       <span class="note-read">1 min read</span>
@@ -598,20 +660,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220613%20ddl%E6%88%98%E5%A3%AB%E9%80%89%E6%8B%A9%E6%94%BE%E5%BC%83ddl%E7%9B%B4%E6%8E%A5%E7%9D%A1%E8%A7%89/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.06.13%20ddl%E6%88%98%E5%A3%AB%E9%80%89%E6%8B%A9%E6%94%BE%E5%BC%83ddl%E7%9B%B4%E6%8E%A5%E7%9D%A1%E8%A7%89/" class="note-card">
   
-  <img src="/files/qzone-20220613-233711-01.jpg" class="note-cover" alt="20220613 ddl战士选择放弃ddl直接睡觉" loading="lazy">
+  <img src="/files/qzone-20220613-233711-01.jpg" class="note-cover" alt="2022.06.13 ddl战士选择放弃ddl直接睡觉" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220613 ddl战士选择放弃ddl直接睡觉</h2>
+      <h2 class="note-card-title">2022.06.13 ddl战士选择放弃ddl直接睡觉</h2>
       
       <p class="note-excerpt">ddl战士选择放弃ddl直接睡觉 不就几个平时分嘛 这个考砸了那是尊严问题</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">算法</span>
       
       <span class="note-date">2022 Jun 13</span>
       <span class="note-read">1 min read</span>
@@ -623,20 +685,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220521%20%E8%B0%83%E5%8F%82%E4%BE%A0%E3%81%AE%E5%A4%A7%E5%8B%9D%E5%88%A9/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.05.21%20%E8%B0%83%E5%8F%82%E4%BE%A0%E3%81%AE%E5%A4%A7%E5%8B%9D%E5%88%A9/" class="note-card">
   
-  <img src="/files/qzone-20220521-163423-01.jpg" class="note-cover" alt="20220521 调参侠の大勝利" loading="lazy">
+  <img src="/files/qzone-20220521-163423-01.jpg" class="note-cover" alt="2022.05.21 调参侠の大勝利" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220521 调参侠の大勝利</h2>
+      <h2 class="note-card-title">2022.05.21 调参侠の大勝利</h2>
       
       <p class="note-excerpt">调参侠の大勝利 啊啊啊啊啊啊Bronya啊啊啊啊啊啊prprprprprprprprprpr p4: to do</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">Coding</span>
       
       <span class="note-date">2022 May 21</span>
       <span class="note-read">1 min read</span>
@@ -648,20 +710,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220520%20520%E4%BA%86%EF%BC%8C%E6%9D%A5%E7%BB%99npy%E6%95%B4%E4%B8%80%E4%B8%AA/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.05.20%20520%E4%BA%86%EF%BC%8C%E6%9D%A5%E7%BB%99npy%E6%95%B4%E4%B8%80%E4%B8%AA/" class="note-card">
   
-  <img src="/files/qzone-20220520-002131-01.jpg" class="note-cover" alt="20220520 520了，来给npy整一个" loading="lazy">
+  <img src="/files/qzone-20220520-002131-01.jpg" class="note-cover" alt="2022.05.20 520了，来给npy整一个" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220520 520了，来给npy整一个</h2>
+      <h2 class="note-card-title">2022.05.20 520了，来给npy整一个</h2>
       
       <p class="note-excerpt">520了，来给npy整一个 Real-ESRGAN高清修复 +交互式背景去除 +纹理合成 的CV套餐（写代码制头像（确信 事实上是明天ddl的算导大作业...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">Coding</span>
       
       <span class="note-date">2022 May 20</span>
       <span class="note-read">1 min read</span>
@@ -673,20 +735,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220323%20%E7%AE%97%E5%AF%BC%E8%AF%BE%E4%BD%9C%E4%B8%9A%E5%A4%AA%E6%81%B6%E6%AF%92%E4%BA%86/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.03.23%20%E7%AE%97%E5%AF%BC%E8%AF%BE%E4%BD%9C%E4%B8%9A%E5%A4%AA%E6%81%B6%E6%AF%92%E4%BA%86/" class="note-card">
   
-  <img src="/files/qzone-20220323-171919-01.jpg" class="note-cover" alt="20220323 算导课作业太恶毒了" loading="lazy">
+  <img src="/files/qzone-20220323-171919-01.jpg" class="note-cover" alt="2022.03.23 算导课作业太恶毒了" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220323 算导课作业太恶毒了</h2>
+      <h2 class="note-card-title">2022.03.23 算导课作业太恶毒了</h2>
       
       <p class="note-excerpt">算导课作业太恶毒了 你卡Splay的常数也就算了 卡FHQTreap几个意思？ 最后因为不给用c++，被迫写了一棵红黑树 太恶毒了 太恶毒了 太恶毒了！</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">算法</span>
       
       <span class="note-date">2022 Mar 23</span>
       <span class="note-read">1 min read</span>
@@ -698,20 +760,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220303%20%E5%8E%86%E5%8F%B2%E6%80%A7%E7%AA%81%E7%A0%B4/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.03.03%20%E5%8E%86%E5%8F%B2%E6%80%A7%E7%AA%81%E7%A0%B4/" class="note-card">
   
-  <img src="/files/qzone-20220303-162203-01.jpg" class="note-cover" alt="20220303 历史性突破" loading="lazy">
+  <img src="/files/qzone-20220303-162203-01.jpg" class="note-cover" alt="2022.03.03 历史性突破" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220303 历史性突破</h2>
+      <h2 class="note-card-title">2022.03.03 历史性突破</h2>
       
       <p class="note-excerpt">历史性突破 给不学信竞的同学介绍一下 竞赛常用的最大流算法Dinic是O(V^2E)的 另一种常用的最大流的预流推进算法是O(V^2E^(1/2))的 这...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">算法</span>
       
       <span class="note-date">2022 Mar 03</span>
       <span class="note-read">1 min read</span>
@@ -723,20 +785,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220113%20%E4%B8%AD%E7%AD%BE/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.01.13%20%E4%B8%AD%E7%AD%BE/" class="note-card">
   
-  <img src="/files/qzone-20220113-114244-01.jpg" class="note-cover" alt="20220113 中签" loading="lazy">
+  <img src="/files/qzone-20220113-114244-01.jpg" class="note-cover" alt="2022.01.13 中签" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220113 中签</h2>
+      <h2 class="note-card-title">2022.01.13 中签</h2>
       
       <p class="note-excerpt">中签 数院的算导 寄！ 都可以寄！</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">算法</span>
       
       <span class="note-date">2022 Jan 13</span>
       <span class="note-read">1 min read</span>
@@ -905,6 +967,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

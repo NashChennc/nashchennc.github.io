@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>线性代数-01-线性空间 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 77</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 453</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 162</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 11</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 4</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">线性代数-01-线性空间</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 May 15</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">10 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <blockquote>
+<p>本笔记所属课程：<a href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B1)/" title="">线性代数(B1)</a></p>
+</blockquote>
+<h2 id="线性空间">线性空间</h2>
+<h3 id="线性空间-2">线性空间</h3>
+<p><strong>定义</strong>
+如果一个交换群 $(\mathbb V,\oplus)$ 关于一个环 $\mathbb R$ 定义了 <strong>数乘</strong> $(\mathbb R,\mathbb V)\to \mathbb V$ ，对 $\lambda,\mu\in\mathbb R,\mathbf x,\mathbf y\in\mathbb V$ ，满足</p>
+<ul>
+<li>封闭 $\lambda\mathbf x\in\mathbb V$</li>
+<li>结合律 $(\lambda\mu) \mathbf x=\lambda (\mu \mathbf x)$</li>
+<li>单位元 $1\mathbf x=\mathbf x$</li>
+<li>左分配律 $(\lambda+\mu) \mathbf x=\lambda \mathbf x+\mu \mathbf x$</li>
+<li>右分配律 $\lambda (\mathbf x+\mathbf y)=\lambda \mathbf x+\lambda \mathbf y$
+则称 $\mathbb V$ 是 $\mathbb R$ 上的一个 <strong>线性空间</strong> 。当 $\mathbb R$ 不是域时，我们称这是一个 <strong>模</strong> 。</li>
+</ul>
+<p><strong>注</strong>
+从上面可以看出来，$\mathbb V(\mathbb R)$ 应当满足 $10$ 条性质，分别是</p>
+<ul>
+<li>
+<p>$(\mathbb V,\oplus)$ ：交换群 $(4+1条)$</p>
+</li>
+<li>
+<p>数乘：关于 $\mathbb R$ 封闭、结合、有单位元、分配律 $(3+2条)$</p>
+</li>
+</ul>
+<p>需要指出的是，数乘是两个集合的元素之间的运算，我们并未定义 $\mathbb V$ 内的乘法。事实上，所谓数乘也可以是一个函数 $\lambda(\mathbf x)$ ，不一定是具体的 “数” 。</p>
+<p>在群 $\mathbb V$ 上定义乘法形成环/域，也就是 <strong>代数</strong> 。而在线性空间 $\mathbb V(\mathbb R)$ 上的乘法的研究就叫 <strong>线性代数</strong>。</p>
+<h3 id="子空间">子空间</h3>
+<p>设 $\mathbb V$ 是 $\mathbb R$ 上的一个线性空间， $\mathbb U\subset\mathbb V$ ，且 $\mathbb U$ 仍是 $\mathbb R$ 上的线性空间，则称 $\mathbb U$ 是 $\mathbb V$ 的 <strong>子空间</strong> 。由于运算定义相同，只需验证 $\mathbb U$ 是 $\mathbb V$ 的子群且数乘封闭。更进一步，只需验证加法和数乘的封闭性即可。</p>
+<p>定义 <strong>子空间的和</strong> 为各自元素的和的全体组成的集合</p>
+<p>$$\mathbb V=\mathbb U_1+\mathbb U_2+…+\mathbb U_n={u\mid u=u_1+u_2+…+u_n,u_i\in\mathbb U_i}$$</p>
+<p>容易验证，子空间的和是包含 $\mathbb U_i$ 的最小子空间。</p>
+<p>特别地，如果 $\forall u\in\mathbb V$ ，其组合形式唯一 ，我们称这是子空间的 <strong>直和</strong> 。</p>
+<h2 id="定理子空间的和是直和，当且仅当-u-0-的组合只有-forall-i-u-i-0-一种证明必要性-Rightarrow-显然。充分性-Leftarrow-：-forall-v-in-mathbb-V-，假设其表示方法不唯一，即设-v-u-1-u-2-…-u-n-u’-1-u’-2-…-u’-n-其中-u-i-u’-i-不全成立。则有-0-v-v-u-1-u’-1-…-u-n-u’-n-存在唯一解-u-i-u’-i-0-，即-u-i-u’-i-。矛盾！于是-forall-v-in-mathbb-V-，其组合形式唯一。"><strong>定理</strong>
+子空间的和是直和，当且仅当 $u=0$ 的组合只有 $\forall i,u_i=0$ 一种
+<strong>证明</strong>
+必要性 $(\Rightarrow)$ 显然。
+充分性 $(\Leftarrow)$ ：$\forall v\in\mathbb V$，假设其表示方法不唯一，即设
+$$v=u_1+u_2+…+u_n=u’_1+u’_2+…+u’_n$$
+其中 $u_i=u’_i$ 不全成立。则有
+$$0=v-v=(u_1-u’_1)+…+(u_n-u’_n)$$
+存在唯一解 $u_i-u’_i=0$ ，即 $u_i=u’_i$ 。矛盾！于是 $\forall v\in \mathbb V$ ，其组合形式唯一。</h2>
+<p><strong>定理</strong>
+$U+V$ 是直和，当且仅当 $W=U\cap V={0}$
+<strong>证明</strong>
+首先，任意线性空间都应包含 $0$ ，因此 $0\in W$ 。设 $v\in W$</p>
+<p><strong>注</strong>
+子空间两两为直和并不蕴含它们全体的和为直和。</p>
+<h3 id="线性组合与张成空间">线性组合与张成空间</h3>
+<p>对一组向量 $v_1,v_2,…,v_n\in \mathbb V$ ，我们称</p>
+<p>$$\sum_{k=1}^na_kv_k,\quad a_k\in\mathbb R$$</p>
+<p>为这组向量的 <strong>线性组合</strong>。记一组向量的所有线性组合为这组向量的 <strong>张成空间</strong> ，记作</p>
+<p>$$\langle v_1,v_2,…,v_n\rangle=span(v_1,v_2,…,v_n)={u\mid u=\sum_{k=1}^na_kv_k,\quad a_k\in\mathbb R}$$</p>
+<p>容易证明，一组向量的张成空间是包含这组向量的最小线性空间。</p>
+<p>对一个空间，如果存在一组有限多的向量张成这个空间，则称它是 <strong>有限维向量空间</strong> 。否则称它是无限维的。</p>
+<p>我们讨论一组线性组合的唯一性问题。如果</p>
+<p>$$\forall v,\quad v=\sum_{k=1}^na_kv_k$$</p>
+<p>其中系数组 $a_k$ 唯一确定，则我们称这组向量是 <strong>线性无关</strong> 的。类似子空间中的结论，我们有等价定义</p>
+<p>$$0=\sum_{k=1}^na_kv_k \Rightarrow a_k=0$$</p>
+<h3 id="对偶空间">对偶空间</h3>
+<p>$$V^*=\mathcal L(\mathbb V(\mathbb R),\mathbb R)$$</p>
+<hr>
+<h2 id="线性映射">线性映射</h2>
+<p>设 $\mathbb{V}_1(\mathbb{R}),\mathbb{V}_2(\mathbb{R})$ 是两个线性空间。如果存在映射 $\mathbb A:\mathbb{V}_1\to\mathbb{V}_2$ ，满足</p>
+<p>$$\mathcal A(x+y)=\mathcal A(x)+\mathcal A(y),\forall x,y\in\mathbb V_1$$</p>
+<p>$$\mathcal A(\lambda x)=\lambda\mathcal A(x),\forall \lambda\in\mathbb R,x\in\mathbb V_1$$</p>
+<p>则称 $\mathcal A$ 是 <strong>同态映射</strong> 。在线性代数中，我们也称 $\mathcal A\in\mathcal L(\mathbb V_1,\mathbb V_2)$ 是 <strong>线性映射</strong> 。如果 $\mathbb V_1=\mathbb V_2$ ，则称为 <strong>线性变换</strong>。容易看出，线性映射 $\mathcal L(\mathbb V_1,\mathbb V_2)$ 是 $\mathbb R$ 上的线性空间。</p>
+<p>如果 $\mathcal A$ 可逆，那么称 $\mathcal A$ 是 <strong>同构映射</strong>，并称 $\mathbb V_1$ 和 $\mathbb V_2$ <strong>同构</strong>。</p>
+<h3 id="坐标">坐标</h3>
+<p>设 $\mathbb V_1$ 有一组基 $M_1=(\alpha_1,\alpha_2,…,\alpha_{n_1}),\ n_1=\dim\mathbb V_1$ ，则 $\forall \mathbf x\in \mathbb V_1$ 有这组基下的唯一表示</p>
+<p>$$\mathbf x=\sum_{k=1}^{n_1} x_k\alpha_k$$</p>
+<p>我们称</p>
+<p>$$\sigma_{M_1}(\mathbf x)=\begin{pmatrix}x_1\x_2\⋮\x_{n_1}\end{pmatrix}\in \mathbb R^{n_1\times 1}$$</p>
+<p>为 $\mathbf x$ 在 $M_1$ 这组基下的 <strong>坐标</strong>。容易验证 $\sigma_{M_1}(\mathbf x):\mathbb V_1\to\mathbb R^{n_1}$ 是同构映射。</p>
+<h3 id="线性映射的矩阵">线性映射的矩阵</h3>
+<p>设 $\mathbb V_2$ 有一组基 $M_2=(\beta_1,\beta_2,…,\beta_m),\ n_2=\dim \mathbb V_2$ ，由于</p>
+<p>$$\mathcal A(\mathbb V_1)=span \mathcal A(\alpha_k)$$</p>
+<p>我们希望知道 $\mathcal A(\alpha_k)$ 在 $M_2$ 下的坐标</p>
+<p>$$\mathcal A(\alpha_k)=\sum_{j=1}^ma_{j,k}\beta_j$$</p>
+<p>记</p>
+<p>$$A=\sum_{i=1}^n\sum_{j=1}^ma_{ij}E_{ij}=\begin{pmatrix}
+a_{1,1} &amp; a_{1,2} &amp; … &amp; a_{1,n}\
+a_{2,1} &amp; a_{2,2} &amp; … &amp; a_{2,n}\
+⋮ &amp; ⋮ &amp; ⋱ &amp; ⋮\
+a_{m,1} &amp; a_{m,2} &amp; … &amp; a_{m,n}\
+\end{pmatrix}\in \mathbb R^{m\times n}$$</p>
+<p>称为 <strong>线性映射 $\mathcal A:\mathbb V_1\to\mathbb V_2$ 在基 $M_1,M_2$ 下的矩阵</strong> 。</p>
+<p>那么， $\forall\mathbf{x}\in\mathbb V_1$ ，可以得到 $\mathcal A(\mathbf{x})\in\mathbb V_2$ 的坐标</p>
+<p>$$\mathcal A(\mathbf x)=\sum_{k=1}^{n_1} x_k\mathcal A(\alpha_k)=\sum_{k=1}^{n_1} x_k\sum_{j=1}^{n_2}a_{j,k}\beta_j=\sum_{j=1}^{n_2}(\sum_{k=1}^{n_1} a_{j,k}x_k)\beta_j$$</p>
+<p>换言之， $\mathcal A(\mathbf x)$ 的坐标</p>
+<p>$$\begin{cases}
+y_1=a_{1,1}x_1+a_{1,2}x_2+…+a_{1,n_1}x_{n_1}\
+y_2=a_{2,1}x_1+a_{2,2}x_2+…+a_{2,n_1}x_{n_1}\
+… …\
+y_{n_2}=a_{n_2,1}x_1+a_{n_2,2}x_2+…+a_{n_2,n_1}x_{n_1}\
+\end{cases}$$</p>
+<p>这就是坐标变换公式 $y=Ax$</p>
+<p>线性映射 $\mathcal A:\mathbb V\to \mathbb V$ 称为 <strong>线性变换</strong>，设 $\mathbb V$ 有一组基 $M={e_1,…,e_n}$ ，$\mathcal A(e_k)=\sum_{i=1}^na_{ik}e_i$ ，考虑它在基为 $M,M$ 下的矩阵</p>
+<p>$$A=\sum_{i=1}^n\sum_{j=1}^na_{ij}E_{ij},\quad\mathcal A(M)=MA$$</p>
+<p>此时 $A$ 是一个方阵，称它为线性变换 $\mathcal A$ 在基 $M$ 下的方阵。</p>
+<p>顺便，对于在同一个空间内换一组基的情况，有唯一一个线性变换将基 $M_1$ 变换到 $M_2$ ，即 $e’<em>k=\mathcal P(e_k)=\sum</em>{i=1}^na_{ik}e_i$。此时，我们称线性变换 $\mathcal P$ 在 $M_1,M_1$ 下的方阵为转换矩阵</p>
+<p>$$P=\sum_{i=1}^n\sum_{j=1}^na_{ij}E_{ij},\quad M_2=M_1P$$</p>
+<h3 id="矩阵乘法">矩阵乘法</h3>
+<p>对于不同的线性空间，不妨选定一组基，容易看出 $\mathcal A\mapsto A:\mathcal L(\mathbb V_1,\mathbb V_2)\to \mathbb R^{n_2\times n_1}$ 是一个一一对应。而线性映射是一个 $\mathbb R$ 上的线性空间，于是我们研究矩阵上的代数。容易想到，线性映射的复合导出矩阵上的一个代数</p>
+<p>$$\phi_B(\phi_A(\vec x))=(\phi_B\circ\phi_A)(\vec x)=\phi_{A\times B}(\vec x)$$</p>
+<p>需要指出，由上文得到的结果，线性映射和矩阵的代数是反对称的。</p>
+<p>设</p>
+<p>$$\vec x\in\mathbb R^m\mapsto \vec z\in\mathbb R^l\mapsto \vec y\in\mathbb R^n:y_i=\sum_k a_{ik}z_k,\ z_k=\sum_j b_{kj}x_j
+$$</p>
+<p>得到</p>
+<p>$$\vec x\in\mathbb R^m\mapsto \vec y\in\mathbb R^n:y_i=\sum_ka_{ik}\sum_j b_{kj}x_j=\sum_j(\sum_ka_{ik}b_{kj})x_j$$</p>
+<p>不妨记 $A_{n\times m}=\sum_i\sum_ja_{ij}E_{ij}$，其中 $E_{ij}$ 是一个仅在第 $i$ 行第 $j$ 列有有一个 $1$ 的矩阵，称为基本矩阵。于是我们得到矩阵的乘法</p>
+<p>$$A_{n\times l}\times B_{l\times m}\triangleq \sum_i\sum_j(\sum_ka_{ik}b_{kj})E_{ij}=\begin{pmatrix}
+\sum_ka_{1k}b_{k1} &amp; \sum_ka_{1k}b_{k2} &amp; … &amp; \sum_ka_{1k}b_{km}\
+\sum_ka_{2k}b_{k1} &amp; \sum_ka_{2k}b_{k2} &amp; … &amp; \sum_ka_{2k}b_{km}\
+⋮ &amp; ⋮ &amp; ⋱ &amp; ⋮\
+\sum_ka_{nk}b_{k1} &amp; \sum_ka_{nk}b_{k2} &amp; … &amp; \sum_ka_{nk}b_{km}\
+\end{pmatrix}$$</p>
+<p>特别地，对基本矩阵</p>
+<p>$$E_{ab}E_{cd}=E_{ad}[b=c]$$</p>
+<p>重新表述上节的内容。在基 $M_1,M_2$ 下，线性映射 $\mathcal A\in\mathcal L(\mathbb V_1,\mathbb V_2)$ 可以由矩阵 $A\in \mathbb R^{n_2\times n_1}$ 代表</p>
+<p>$$\mathbf x\mapsto \mathcal A(\mathbf x):\mathcal A(M_1\begin{pmatrix}x_1\x_2\⋮\x_{n_1}\end{pmatrix})=M_2A\begin{pmatrix}x_1\x_2\⋮\x_{n_1}\end{pmatrix}$$</p>
+<p>$$\mathcal A(M_1)=M_2A$$</p>
+<p>线性映射 $\mathbf x\mapsto \mathcal A(\mathbf x)$ 也可以由坐标的映射 $\sigma_{M_1}(\textbf x)\mapsto A\sigma_{M_1}(\textbf x)$ 完全代表。即</p>
+<p>$$y=Ax$$</p>
+<p>长宽相等的矩阵称为 <strong>方阵</strong>，其长宽称为方阵的阶。下面是一些基本的方阵</p>
+<p>$$O=\begin{pmatrix}
+0 &amp; 0 &amp; … &amp; 0\
+0 &amp; 0 &amp; … &amp; 0\
+⋮ &amp; ⋮ &amp; ⋱ &amp; ⋮\
+0 &amp; 0 &amp; … &amp; 0\
+\end{pmatrix},
+I=\begin{pmatrix}
+1\
+&amp; 1\
+&amp;&amp; ⋱\
+&amp;&amp;&amp; 1\
+\end{pmatrix},
+{\mathrm{diag}}(a_1,a_2,…,a_n)=\begin{pmatrix}
+a_1\
+&amp; a_2\
+&amp;&amp; ⋱\
+&amp;&amp;&amp; a_n\
+\end{pmatrix}$$</p>
+<p>矩阵 $\mathrm M(\mathbb R)$ 是一个主理想整环，$I$ 是单位元，在方阵里左右单位元相等。在下章中我们研究任意矩阵的可逆性。</p>
+<hr>
+<h2 id="矩阵性质相关运算">矩阵性质相关运算</h2>
+<h4 id="矩阵的转置">矩阵的转置</h4>
+<p>行列交换后的矩阵称为 $A$ 的 <strong>转置</strong>，记作</p>
+<p>$$A^T_{m\times n}=\sum_i\sum_ja_{ji}E_{ji}=\begin{pmatrix}
+a_{1,1} &amp; a_{2,1} &amp; … &amp; a_{n,1}\
+a_{1,2} &amp; a_{2,2} &amp; … &amp; a_{n,2}\
+\
+⋮ &amp; ⋮ &amp; ⋱ &amp; ⋮\
+a_{1,m} &amp; a_{2,m} &amp; … &amp; a_{n,m}\
+\end{pmatrix}
+$$</p>
+<p>转置满足 $(AB)^T=B^TA^T$</p>
+<p>容易知道，$A^TA$ 对称。若 $A^TA=I$ 则称 $A$ 为正交方阵。正交方阵对应正交变换，即保欧氏距离但不保向的变换。</p>
+<h4 id="矩阵的共轭">矩阵的共轭</h4>
+<p>对复矩阵，每个数改变为其共轭复数的矩阵 称为 $A$ 的<strong>共轭</strong>，记作</p>
+<p>$$\overline {A_{m\times n}}=\sum_i\sum_j\overline {a_{ij}}E_{ij}
+$$</p>
+<h4 id="方阵的逆">方阵的逆</h4>
+<p>对方阵 $A_n$，若存在 $A_n^{-1}$ 使得</p>
+<p>$$AA^{-1}=A^{-1}A=I_n$$</p>
+<p>则称其为 <strong>可逆方阵</strong>。不可逆方阵则称为 <strong>奇异方阵</strong>。</p>
+<p>可证逆矩阵 $A^{-1}$ 存在即唯一。除此之外，还有一些易证的结论</p>
+<ul>
+<li>
+<p>$(A^{-1})^{-1}=A$</p>
+</li>
+<li>
+<p>$(\lambda A)^{-1}=\lambda^{-1}A^{-1}$</p>
+</li>
+<li>
+<p>$(AB)^{-1}=B^{-1}A^{-1}$</p>
+</li>
+<li>
+<p>$(A^{-1})^T=(A^T)^{-1}$</p>
+</li>
+</ul>
+<p>常用的计算公式</p>
+<p>$$\begin{pmatrix}
+a &amp; b\
+c &amp; d
+\end{pmatrix}^{-1}=\frac 1{ad-bc}\begin{pmatrix}
+b &amp; -b\
+-c &amp; a
+\end{pmatrix}
+$$</p>
+<p>$$\begin{pmatrix}
+\vec a\
+\vec b\
+\vec c
+\end{pmatrix}^{-1}=\frac 1{(\vec a\times\vec b)\cdot \vec c}(\vec b\times \vec c,\vec c\times \vec a,\vec a\times \vec b)
+$$</p>
+<p><strong>方阵</strong> 的对角元之和称为 <strong>迹</strong> ，记作 $tr(A)$ 。</p>
+<p>可以对矩阵划分块来进行运算。这样相当于将矩阵作为矩阵的元素，进行运算仍遵守所有的运算法则即可。</p>
+<hr>
+<h2 id="行列式">行列式</h2>
+<p><strong>行列式</strong>是一种运算，记作 $|A|$ 或 $\det(A)$，得出的结果是一个数。</p>
+<p>$n$ 阶行列式划掉第 $i$ 行第 $j$ 列，形成的 $n-1$ 阶方阵的行列式称为元素 $a_{i,j}$ 的 <strong>余子式</strong>，记作 $M_{i,j}$，并把 $(-1)^{i+j}M_{i,j}$。$M_{i,i}$ 也称为主子式。</p>
+<p>行列式有如下的递归定义</p>
+<p>$$\det(A_{n\times n})=\sum\limits_{i=1}^n(-1)^{i+j}a_{i,j}M_{i,j}$$</p>
+<p>$$\det(A_{1\times 1})=a_{1,1}$$</p>
+<p>根据递归定义容易想到，行列式是若干元素的乘积的容斥和。其中满足相乘的一组元素总共有 $n$ 个，且两两不在同一行或同一列。行列式的递归定义中，无论 $j$ 为何值，其结果一致。</p>
+<p>$$\begin{vmatrix}
+a &amp; b\
+c &amp; d
+\end{vmatrix}=ad-bc$$</p>
+<h3 id="行列式的等价定义">行列式的等价定义</h3>
+<ul>
+<li>多重线性</li>
+</ul>
+<p>容易证明，行列式对于每一行或列来说是线性的</p>
+<p>$$\det\begin{pmatrix}\vec a_1\⋮\\lambda\vec a_k+\mu\vec b_k\⋮\\vec a_n\end{pmatrix}=\det\begin{pmatrix}\vec a_1\⋮\\lambda\vec a_k\⋮\\vec a_n\end{pmatrix}+\det\begin{pmatrix}\vec b_1\⋮\\mu\vec b_k\⋮\\vec b_n\end{pmatrix}=\lambda\det(A)+\mu\det(B)$$</p>
+<p>因此有</p>
+<p>$$\det(\lambda A)=\lambda^n\det(A)$$</p>
+<ul>
+<li>反对称性</li>
+</ul>
+<p>$$\det(S_{i,j}\times A)=-\det(A)$$</p>
+<ul>
+<li>规范性</li>
+</ul>
+<p>$$\det(I)=1$$</p>
+<p>事实上，行列式是满足以上性质的唯一代数式。因此，也可用以上 $3$ 条性质作为行列式的定义。</p>
+<h3 id="行列式的完全展开式">行列式的完全展开式</h3>
+<p>$$\det(A)=\sum(-1)^{\tau}\prod a_{i,j_i}$$</p>
+<p>$$\det(A)=\det(A^T)$$</p>
+<h3 id="行列式的性质">行列式的性质</h3>
+<p>附属方阵</p>
+<p>$\mathrm{Cauchy}-Binet$</p>
+<p>子式</p>
+<h3 id="行列式的计算">行列式的计算</h3>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E4%BB%A3%E6%95%B0%E5%AD%A6/">代数学</a>
+                            
+                                <a class="post-backlinks__link" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-02-%E7%9B%B8%E6%8A%B5/">线性代数-02-相抵</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-04-%E7%9B%B8%E5%90%88/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">线性代数-04-相合</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-02-%E7%BE%A4%E7%9A%84%E7%BB%93%E6%9E%84/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">近世代数-02-群的结构</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4"><span class="post-toc-text">线性空间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4-2"><span class="post-toc-text">线性空间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%90%E7%A9%BA%E9%97%B4"><span class="post-toc-text">子空间</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9A%E7%90%86%E5%AD%90%E7%A9%BA%E9%97%B4%E7%9A%84%E5%92%8C%E6%98%AF%E7%9B%B4%E5%92%8C%EF%BC%8C%E5%BD%93%E4%B8%94%E4%BB%85%E5%BD%93-u-0-%E7%9A%84%E7%BB%84%E5%90%88%E5%8F%AA%E6%9C%89-forall-i-u-i-0-%E4%B8%80%E7%A7%8D%E8%AF%81%E6%98%8E%E5%BF%85%E8%A6%81%E6%80%A7-Rightarrow-%E6%98%BE%E7%84%B6%E3%80%82%E5%85%85%E5%88%86%E6%80%A7-Leftarrow-%EF%BC%9A-forall-v-in-mathbb-V-%EF%BC%8C%E5%81%87%E8%AE%BE%E5%85%B6%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95%E4%B8%8D%E5%94%AF%E4%B8%80%EF%BC%8C%E5%8D%B3%E8%AE%BE-v-u-1-u-2-%E2%80%A6-u-n-u%E2%80%99-1-u%E2%80%99-2-%E2%80%A6-u%E2%80%99-n-%E5%85%B6%E4%B8%AD-u-i-u%E2%80%99-i-%E4%B8%8D%E5%85%A8%E6%88%90%E7%AB%8B%E3%80%82%E5%88%99%E6%9C%89-0-v-v-u-1-u%E2%80%99-1-%E2%80%A6-u-n-u%E2%80%99-n-%E5%AD%98%E5%9C%A8%E5%94%AF%E4%B8%80%E8%A7%A3-u-i-u%E2%80%99-i-0-%EF%BC%8C%E5%8D%B3-u-i-u%E2%80%99-i-%E3%80%82%E7%9F%9B%E7%9B%BE%EF%BC%81%E4%BA%8E%E6%98%AF-forall-v-in-mathbb-V-%EF%BC%8C%E5%85%B6%E7%BB%84%E5%90%88%E5%BD%A2%E5%BC%8F%E5%94%AF%E4%B8%80%E3%80%82"><span class="post-toc-text">定理
+子空间的和是直和，当且仅当 $u&#x3D;0$ 的组合只有 $\forall i,u_i&#x3D;0$ 一种
+证明
+必要性 $(\Rightarrow)$ 显然。
+充分性 $(\Leftarrow)$ ：$\forall v\in\mathbb V$，假设其表示方法不唯一，即设
+$$v&#x3D;u_1+u_2+…+u_n&#x3D;u’_1+u’_2+…+u’_n$$
+其中 $u_i&#x3D;u’_i$ 不全成立。则有
+$$0&#x3D;v-v&#x3D;(u_1-u’_1)+…+(u_n-u’_n)$$
+存在唯一解 $u_i-u’_i&#x3D;0$ ，即 $u_i&#x3D;u’_i$ 。矛盾！于是 $\forall v\in \mathbb V$ ，其组合形式唯一。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E4%B8%8E%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4"><span class="post-toc-text">线性组合与张成空间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%B9%E5%81%B6%E7%A9%BA%E9%97%B4"><span class="post-toc-text">对偶空间</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84"><span class="post-toc-text">线性映射</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9D%90%E6%A0%87"><span class="post-toc-text">坐标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E6%98%A0%E5%B0%84%E7%9A%84%E7%9F%A9%E9%98%B5"><span class="post-toc-text">线性映射的矩阵</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95"><span class="post-toc-text">矩阵乘法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9F%A9%E9%98%B5%E6%80%A7%E8%B4%A8%E7%9B%B8%E5%85%B3%E8%BF%90%E7%AE%97"><span class="post-toc-text">矩阵性质相关运算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="post-toc-text">行列式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E7%AD%89%E4%BB%B7%E5%AE%9A%E4%B9%89"><span class="post-toc-text">行列式的等价定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%AE%8C%E5%85%A8%E5%B1%95%E5%BC%80%E5%BC%8F"><span class="post-toc-text">行列式的完全展开式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="post-toc-text">行列式的性质</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="post-toc-text">行列式的计算</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

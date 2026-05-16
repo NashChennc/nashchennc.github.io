@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         aria-current="page"
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -403,6 +405,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-categories-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"category","posts":[{"title":"ReadMe","url":"/Blog%20Category/%E9%A6%96%E9%A1%B5%20-%20ReadMe/","date":"2023-08-10","tags":["menu"]},{"title":"未分类","url":"/Blog%20Category/%E6%9C%AA%E5%88%86%E7%B1%BB/","date":"2026-04-30","tags":["menu"]},{"title":"代数学","url":"/%E4%BB%A3%E6%95%B0%E5%AD%A6/","date":"2026-05-15","tags":["数学","学业"]},{"title":"分析学","url":"/%E5%88%86%E6%9E%90%E5%AD%A6/","date":"2026-05-15","tags":["数学","学业"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -414,9 +483,23 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
+        href="/tags/%E6%95%B0%E5%AD%A6/"
+        
+      >数学 · 2</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%AD%A6%E4%B8%9A/"
+        
+      >学业 · 2</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
         href="/tags/menu/"
         
-      >menu · 7</a>
+      >menu · 2</a>
           
         </div>
         
@@ -431,22 +514,22 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/Tag/LLM%E7%9B%B8%E5%85%B3/" class="note-card">
+<mdui-card clickable variant="filled" href="/%E4%BB%A3%E6%95%B0%E5%AD%A6/" class="note-card">
   
-  <img src="/files/126281615_p0_%E5%A4%A7%E9%BB%91%E5%A1%94.jpg" class="note-cover" alt="LLM相关" loading="lazy">
+  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="代数学" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">LLM相关</h2>
+      <h2 class="note-card-title">代数学</h2>
       
-      <p class="note-excerpt">带 #LLM 标签的文章索引（Dataview），聚合大模型相关笔记与随笔。</p>
+      <p class="note-excerpt">代数学笔记总览，涵盖抽象代数（群环域）与线性代数。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">menu</span>
+      <span class="note-tag">学业</span>
       
-      <span class="note-date">2026 Apr 25</span>
+      <span class="note-date">2026 May 15</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -456,73 +539,23 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/Tag/%E7%A7%91%E7%A0%94%E7%9B%B8%E5%85%B3/" class="note-card">
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90%E5%AD%A6/" class="note-card">
   
-  <img src="/image/banner/nozomizo23.JPG" class="note-cover" alt="科研相关" loading="lazy">
+  <img src="/image/banner/nozomizo34.JPG" class="note-cover" alt="分析学" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">科研相关</h2>
+      <h2 class="note-card-title">分析学</h2>
       
-      <p class="note-excerpt">带 #科研 标签的文章索引（Dataview），聚合研究札记与项目笔记。</p>
+      <p class="note-excerpt">分析学笔记总览，涵盖数学分析、复分析、实分析与泛函分析。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">menu</span>
+      <span class="note-tag">学业</span>
       
-      <span class="note-date">2026 Apr 25</span>
+      <span class="note-date">2026 May 15</span>
       <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/files/111095834_p0_%E9%BB%91%E5%A1%94.jpg" class="note-cover" alt="软件相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">软件相关</h2>
-      
-      <p class="note-excerpt">带 #软件 标签的文章索引（Dataview），工具链与环境配置备忘入口。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">2 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Tag/%E6%95%B0%E5%AD%A6%E7%9B%B8%E5%85%B3/" class="note-card">
-  
-  <img src="/files/IMG_0490.png" class="note-cover" alt="数学相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">数学</h2>
-      
-      <p class="note-excerpt">带 #数学 标签的文章索引（Dataview），方便浏览组合与数学笔记。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">3 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -546,7 +579,7 @@
       
       <span class="note-tag">menu</span>
       
-      <span class="note-date">2026 Apr 25</span>
+      <span class="note-date">2026 Apr 30</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -556,38 +589,13 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/Tag/%E8%AF%AD%E8%A8%80%E5%AD%A6%E7%9B%B8%E5%85%B3/" class="note-card">
+<mdui-card clickable variant="filled" href="/Blog%20Category/%E9%A6%96%E9%A1%B5%20-%20ReadMe/" class="note-card">
   
-  <img src="/files/rafa_107676065_p0_%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0.jpg" class="note-cover" alt="语言学相关" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">语言学相关</h2>
-      
-      <p class="note-excerpt">带 #语言学 标签的文章索引（Dataview）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Blog%20Category/%E6%80%BB%E7%9B%AE%E5%BD%95/" class="note-card">
-  
-  <img src="/files/banner8.png" class="note-cover" alt="总目录" loading="lazy">
+  <img src="/files/banner8.png" class="note-cover" alt="首页 - ReadMe" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">总目录</h2>
+      <h2 class="note-card-title">ReadMe</h2>
       
       <p class="note-excerpt">博客专栏与标签导览首页，汇总各分区目录与 Dataview 菜单入口。</p>
       
@@ -763,6 +771,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

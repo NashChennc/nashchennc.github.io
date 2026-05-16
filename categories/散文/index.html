@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -398,9 +400,76 @@
                 <header class="notes-header">
                     <h1 class="notes-title">散文  Essays</h1>
                     
-                    <p class="notes-subtitle">只是一些比较长的文字。</p>
+                    <p class="notes-subtitle">只是一些散落的文字。</p>
                     
                 </header>
+                
+
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-categories-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"category","posts":[{"title":"退役记","url":"/%E9%80%80%E5%BD%B9%E8%AE%B0/","date":"2021-06-01","tags":["回忆录","OI"]},{"title":"关于LLM的胡扯","url":"/%E5%85%B3%E4%BA%8ELLM%E7%9A%84%E8%83%A1%E6%89%AF/","date":"2023-07-12","tags":["随笔","LLM"]},{"title":"少说抽象话","url":"/%E5%B0%91%E8%AF%B4%E6%8A%BD%E8%B1%A1%E8%AF%9D/","date":"2023-11-01","tags":["随笔"]},{"title":"茶与健康感想","url":"/%E8%8C%B6%E4%B8%8E%E5%81%A5%E5%BA%B7%E6%84%9F%E6%83%B3/","date":"2024-01-05","tags":["生活","随笔"]},{"title":"正统汉语在客家","url":"/%E6%AD%A3%E7%BB%9F%E6%B1%89%E8%AF%AD%E5%9C%A8%E5%AE%A2%E5%AE%B6/","date":"2024-01-20","tags":["随笔","语言学"]},{"title":"匹诺康尼游记","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E6%B8%B8%E8%AE%B0/","date":"2024-04-02","tags":["崩铁","读后感","随笔"]},{"title":"匹诺康尼音阶","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E9%9F%B3%E9%98%B6/","date":"2024-04-03","tags":["崩铁","音乐"]},{"title":"曲目赏析·枫丹","url":"/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E6%9E%AB%E4%B8%B9/","date":"2026-01-14","tags":["音乐","原神"]},{"title":"曲目赏析·芙卡洛斯之舞","url":"/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E8%8A%99%E5%8D%A1%E6%B4%9B%E6%96%AF%E4%B9%8B%E8%88%9E/","date":"2026-01-15","tags":["音乐","原神"]},{"title":"Envisioning a Human Like AI：A Context-Centric Architecture","url":"/Envisioning%20a%20Human%20Like%20AI/","date":"2026-04-25","tags":["LLM","NLP"]},{"title":"回忆录","url":"/%E5%9B%9E%E5%BF%86%E5%BD%95/","date":"2026-05-15","tags":[]}]}</script>
+</div>
+
+
                 
 
 <section class="index-taxonomy" aria-label="Categories and tags">
@@ -471,7 +540,7 @@
         
         <details class="index-taxonomy__tags-details">
           <summary class="index-taxonomy__tags-summary">
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 4 more tags</span>
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 3 more tags</span>
             <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
           </summary>
           <div class="index-taxonomy__tags-overflow-sleeve">
@@ -483,13 +552,6 @@
         href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/"
         
       >语言学 · 1</a>
-              
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/menu/"
-        
-      >menu · 1</a>
               
       <a
         role="listitem"
@@ -521,6 +583,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/%E5%9B%9E%E5%BF%86%E5%BD%95/" class="note-card">
+  
+  <img src="/files/rafa_83049015_p0_%E9%A3%8E%E5%8A%A8%EF%BD%9C%E7%A5%9E%E5%B7%9E%E6%B8%B8%E8%AE%B0%2007.jpg" class="note-cover" alt="回忆录" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">回忆录</h2>
+      
+      <p class="note-excerpt">高中至大学阶段的个人回忆录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">Note</span>
+      
+      <span class="note-date">2026 May 15</span>
+      <span class="note-read">5 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/Envisioning%20a%20Human%20Like%20AI/" class="note-card">
   
   <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="Envisioning a Human Like AI" loading="lazy">
@@ -538,31 +625,6 @@
       
       <span class="note-date">2026 Apr 25</span>
       <span class="note-read">31 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Blog%20Category/%E6%95%A3%E6%96%87%20-%20%E7%9B%AE%E5%BD%95/" class="note-card">
-  
-  <img src="/files/rafa_96131093_p0_%E7%A5%9E%E7%AC%94%E9%A9%AC%E8%89%AF.jpg" class="note-cover" alt="散文 - 目录" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">散文 - 目录</h2>
-      
-      <p class="note-excerpt">「散文」分类文章索引页（Dataview 自动列表）。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">menu</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -723,7 +785,7 @@
                         
 <mdui-card clickable variant="filled" href="/%E5%B0%91%E8%AF%B4%E6%8A%BD%E8%B1%A1%E8%AF%9D/" class="note-card">
   
-  <img src="/image/banner/nozomizo7.JPG" class="note-cover" alt="少说抽象话" loading="lazy">
+  <img src="/files/1761333850160.jpeg" class="note-cover" alt="少说抽象话" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
@@ -953,6 +1015,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

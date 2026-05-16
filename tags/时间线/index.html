@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -285,6 +287,73 @@
                     <h1 class="notes-title">时间线</h1>
                     
                 </header>
+                
+
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"明日方舟 2019 条目","url":"/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202019%20%E6%9D%A1%E7%9B%AE/","date":"2019-04-30","tags":["明日方舟","时间线","游戏"]},{"title":"崩坏3","url":"/%E5%B4%A9%E5%9D%8F3/","date":"2019-06-01","tags":["时间线","游戏"]},{"title":"崩坏3 量子之海与希儿布洛妮娅篇","url":"/%E5%B4%A9%E5%9D%8F3%20%E9%87%8F%E5%AD%90%E4%B9%8B%E6%B5%B7%E4%B8%8E%E5%B8%8C%E5%84%BF%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85%E7%AF%87/","date":"2019-06-02","tags":["崩崩崩","时间线","游戏"]},{"title":"崩坏3 天穹市与琪亚娜流浪篇","url":"/%E5%B4%A9%E5%9D%8F3%20%E5%A4%A9%E7%A9%B9%E5%B8%82%E4%B8%8E%E7%90%AA%E4%BA%9A%E5%A8%9C%E6%B5%81%E6%B5%AA%E7%AF%87/","date":"2019-11-22","tags":["崩崩崩","时间线","游戏"]},{"title":"明日方舟 2020 条目","url":"/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202020%20%E6%9D%A1%E7%9B%AE/","date":"2020-01-09","tags":["明日方舟","时间线","游戏"]},{"title":"明日方舟","url":"/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/","date":"2020-02-01","tags":["明日方舟","时间线","游戏"]},{"title":"崩坏3 符华与识之律者太虚山篇","url":"/%E5%B4%A9%E5%9D%8F3%20%E7%AC%A6%E5%8D%8E%E4%B8%8E%E8%AF%86%E4%B9%8B%E5%BE%8B%E8%80%85%E5%A4%AA%E8%99%9A%E5%B1%B1%E7%AF%87/","date":"2020-08-14","tags":["崩崩崩","时间线","游戏"]},{"title":"原神 1.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%201.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2020-09-28","tags":["时间线","游戏","原神"]},{"title":"明日方舟 2021 条目","url":"/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202021%20%E6%9D%A1%E7%9B%AE/","date":"2021-01-05","tags":["明日方舟","时间线","游戏"]},{"title":"原神","url":"/%E5%8E%9F%E7%A5%9E/","date":"2021-01-29","tags":["时间线","游戏","原神"]},{"title":"崩坏3 支配剧场与薪炎永燃篇","url":"/%E5%B4%A9%E5%9D%8F3%20%E6%94%AF%E9%85%8D%E5%89%A7%E5%9C%BA%E4%B8%8E%E8%96%AA%E7%82%8E%E6%B0%B8%E7%87%83%E7%AF%87/","date":"2021-04-24","tags":["崩崩崩","时间线","游戏"]},{"title":"原神 2.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%202.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2021-07-21","tags":["时间线","游戏","原神"]},{"title":"崩坏3 柯洛斯滕与奥托终章篇","url":"/%E5%B4%A9%E5%9D%8F3%20%E6%9F%AF%E6%B4%9B%E6%96%AF%E6%BB%95%E4%B8%8E%E5%A5%A5%E6%89%98%E7%BB%88%E7%AB%A0%E7%AF%87/","date":"2021-08-19","tags":["崩崩崩","时间线","游戏"]},{"title":"明日方舟 2022 条目","url":"/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202022%20%E6%9D%A1%E7%9B%AE/","date":"2022-01-05","tags":["明日方舟","时间线","游戏"]},{"title":"崩坏3 往世乐土与十三英桀篇","url":"/%E5%B4%A9%E5%9D%8F3%20%E5%BE%80%E4%B8%96%E4%B9%90%E5%9C%9F%E4%B8%8E%E5%8D%81%E4%B8%89%E8%8B%B1%E6%A1%80%E7%AF%87/","date":"2022-03-10","tags":["崩崩崩","时间线","游戏"]},{"title":"崩坏3 月球终章与第一部终焉篇","url":"/%E5%B4%A9%E5%9D%8F3%20%E6%9C%88%E7%90%83%E7%BB%88%E7%AB%A0%E4%B8%8E%E7%AC%AC%E4%B8%80%E9%83%A8%E7%BB%88%E7%84%89%E7%AF%87/","date":"2022-08-18","tags":["崩崩崩","时间线","游戏"]},{"title":"原神 3.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%203.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2022-08-24","tags":["时间线","游戏","原神"]},{"title":"明日方舟 2023 条目","url":"/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202023%20%E6%9D%A1%E7%9B%AE/","date":"2023-01-10","tags":["明日方舟","时间线","游戏"]},{"title":"原神 4.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%204.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2023-08-16","tags":["时间线","游戏","原神"]},{"title":"明日方舟 2024 条目","url":"/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202024%20%E6%9D%A1%E7%9B%AE/","date":"2024-01-09","tags":["明日方舟","时间线","游戏"]},{"title":"原神 5.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%205.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2024-08-28","tags":["时间线","游戏","原神"]},{"title":"明日方舟 2025 条目","url":"/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202025%20%E6%9D%A1%E7%9B%AE/","date":"2025-01-22","tags":["明日方舟","时间线","游戏"]},{"title":"原神 空月之歌 版本条目","url":"/%E5%8E%9F%E7%A5%9E%20%E7%A9%BA%E6%9C%88%E4%B9%8B%E6%AD%8C%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2025-09-10","tags":["时间线","游戏","原神"]},{"title":"明日方舟 2026 条目","url":"/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202026%20%E6%9D%A1%E7%9B%AE/","date":"2026-01-09","tags":["明日方舟","时间线","游戏"]},{"title":"游戏版本剧情条目索引","url":"/%E6%B8%B8%E6%88%8F%E7%89%88%E6%9C%AC%E5%89%A7%E6%83%85%E6%9D%A1%E7%9B%AE%E7%B4%A2%E5%BC%95/","date":"2026-04-29","tags":["崩坏3","明日方舟","时间线","游戏","原神"]}]}</script>
+</div>
+
+
                 
 
 <section class="index-taxonomy" aria-label="Categories and tags">
@@ -802,7 +871,7 @@
                         
 <mdui-card clickable variant="filled" href="/%E5%B4%A9%E5%9D%8F3%20%E7%AC%A6%E5%8D%8E%E4%B8%8E%E8%AF%86%E4%B9%8B%E5%BE%8B%E8%80%85%E5%A4%AA%E8%99%9A%E5%B1%B1%E7%AF%87/" class="note-card">
   
-  <img src="/image/banner/minamiquartet1.jpg" class="note-cover" alt="崩坏3 符华与识之律者太虚山篇" loading="lazy">
+  <img src="/files/rafa_96131093_p0_%E7%A5%9E%E7%AC%94%E9%A9%AC%E8%89%AF.jpg" class="note-cover" alt="崩坏3 符华与识之律者太虚山篇" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
@@ -816,7 +885,7 @@
       <span class="note-tag">崩崩崩</span>
       
       <span class="note-date">2020 Aug 14</span>
-      <span class="note-read">2 min read</span>
+      <span class="note-read">9 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -902,7 +971,7 @@
                         
 <mdui-card clickable variant="filled" href="/%E5%B4%A9%E5%9D%8F3%20%E9%87%8F%E5%AD%90%E4%B9%8B%E6%B5%B7%E4%B8%8E%E5%B8%8C%E5%84%BF%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85%E7%AF%87/" class="note-card">
   
-  <img src="/image/banner/minamiquartet1.jpg" class="note-cover" alt="崩坏3 量子之海与希儿布洛妮娅篇" loading="lazy">
+  <img src="/files/IMG_0138.jpeg" class="note-cover" alt="崩坏3 量子之海与希儿布洛妮娅篇" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
@@ -1132,6 +1201,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

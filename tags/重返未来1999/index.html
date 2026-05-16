@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-1999-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"重返未来：1999","url":"/%E9%87%8D%E8%BF%94%E6%9C%AA%E6%9D%A5%EF%BC%9A1999/","date":"2023-05-31","tags":["游戏","重返未来1999"]},{"title":"2023.06.05 什么游戏开着英语配音可以听到意大利语德语","url":"/2023.06.05%20%E4%BB%80%E4%B9%88%E6%B8%B8%E6%88%8F%E5%BC%80%E7%9D%80%E8%8B%B1%E8%AF%AD%E9%85%8D%E9%9F%B3%E5%8F%AF%E4%BB%A5%E5%90%AC%E5%88%B0%E6%84%8F%E5%A4%A7%E5%88%A9%E8%AF%AD%E5%BE%B7%E8%AF%AD/","date":"2023-06-05","tags":["重返未来1999"]},{"title":"2023.06.08 轻微剧透","url":"/2023.06.08%20%E8%BD%BB%E5%BE%AE%E5%89%A7%E9%80%8F/","date":"2023-06-08","tags":["重返未来1999"]},{"title":"2023.06.16 玩1999碰到最大的语言障碍竟然是","url":"/2023.06.16%20%E7%8E%A91999%E7%A2%B0%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84%E8%AF%AD%E8%A8%80%E9%9A%9C%E7%A2%8D%E7%AB%9F%E7%84%B6%E6%98%AF/","date":"2023-06-16","tags":["重返未来1999"]},{"title":"2023.10.31 The form ... is abov","url":"/2023.10.31%20The%20form%20...%20is%20abov/","date":"2023-10-31","tags":["数学","重返未来1999"]},{"title":"2024.02.12 我觉得空友应该需要这个","url":"/2024.02.12%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/","date":"2024-02-12","tags":["崩崩崩","崩铁","明日方舟","原神","重返未来1999"]},{"title":"2024.05.20 什么二游会在主线讲实数理论啊","url":"/2024.05.20%20%E4%BB%80%E4%B9%88%E4%BA%8C%E6%B8%B8%E4%BC%9A%E5%9C%A8%E4%B8%BB%E7%BA%BF%E8%AE%B2%E5%AE%9E%E6%95%B0%E7%90%86%E8%AE%BA%E5%95%8A/","date":"2024-05-20","tags":["数学","重返未来1999"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -301,13 +370,6 @@
         href="/tags/%E9%87%8D%E8%BF%94%E6%9C%AA%E6%9D%A51999/"
         aria-current="page"
       >重返未来1999 · 7</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 6</a>
           
       <a
         role="listitem"
@@ -364,20 +426,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20240520%20%E4%BB%80%E4%B9%88%E4%BA%8C%E6%B8%B8%E4%BC%9A%E5%9C%A8%E4%B8%BB%E7%BA%BF%E8%AE%B2%E5%AE%9E%E6%95%B0%E7%90%86%E8%AE%BA%E5%95%8A/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.05.20%20%E4%BB%80%E4%B9%88%E4%BA%8C%E6%B8%B8%E4%BC%9A%E5%9C%A8%E4%B8%BB%E7%BA%BF%E8%AE%B2%E5%AE%9E%E6%95%B0%E7%90%86%E8%AE%BA%E5%95%8A/" class="note-card">
   
-  <img src="/files/qzone-20240520-222013-01.jpg" class="note-cover" alt="20240520 什么二游会在主线讲实数理论啊" loading="lazy">
+  <img src="/files/qzone-20240520-222013-01.jpg" class="note-cover" alt="2024.05.20 什么二游会在主线讲实数理论啊" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20240520 什么二游会在主线讲实数理论啊</h2>
+      <h2 class="note-card-title">2024.05.20 什么二游会在主线讲实数理论啊</h2>
       
       <p class="note-excerpt">什么二游会在主线讲实数理论啊 这是不是有点地狱了 建议陶的初等实分析加入司辰必读书库[em]e10286[/em]</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">数学</span>
       
       <span class="note-date">2024 May 20</span>
       <span class="note-read">1 min read</span>
@@ -389,20 +451,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20240212%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/" class="note-card">
+<mdui-card clickable variant="filled" href="/2024.02.12%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/" class="note-card">
   
-  <img src="/files/qzone-20240212-130430-01.jpg" class="note-cover" alt="20240212 我觉得空友应该需要这个" loading="lazy">
+  <img src="/files/qzone-20240212-130430-01.jpg" class="note-cover" alt="2024.02.12 我觉得空友应该需要这个" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20240212 我觉得空友应该需要这个</h2>
+      <h2 class="note-card-title">2024.02.12 我觉得空友应该需要这个</h2>
       
       <p class="note-excerpt">我觉得空友应该需要这个 几行代码的事，别的游戏你们自己算去 BA概率不变建议自己手算 大小保底机制建议手算 舟和韭的数据是严格按照概率详情里的 原的武器池...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">原神</span>
       
       <span class="note-date">2024 Feb 12</span>
       <span class="note-read">1 min read</span>
@@ -414,20 +476,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20231031%20The%20form%20...%20is%20abov/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.10.31%20The%20form%20...%20is%20abov/" class="note-card">
   
-  <img src="/files/qzone-20231031-004212-01.jpg" class="note-cover" alt="20231031 The form ... is abov" loading="lazy">
+  <img src="/files/qzone-20231031-004212-01.jpg" class="note-cover" alt="2023.10.31 The form ... is abov" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20231031 The form ... is abov</h2>
+      <h2 class="note-card-title">2023.10.31 The form ... is abov</h2>
       
       <p class="note-excerpt">The form ... is above all. How pure. How elegant.</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">数学</span>
       
       <span class="note-date">2023 Oct 31</span>
       <span class="note-read">1 min read</span>
@@ -439,20 +501,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230616%20%E7%8E%A91999%E7%A2%B0%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84%E8%AF%AD%E8%A8%80%E9%9A%9C%E7%A2%8D%E7%AB%9F%E7%84%B6%E6%98%AF/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.06.16%20%E7%8E%A91999%E7%A2%B0%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84%E8%AF%AD%E8%A8%80%E9%9A%9C%E7%A2%8D%E7%AB%9F%E7%84%B6%E6%98%AF/" class="note-card">
   
-  <img src="/image/banner/nozomizo23.JPG" class="note-cover" alt="20230616 玩1999碰到最大的语言障碍竟然是" loading="lazy">
+  <img src="/image/banner/nozomizo30.JPG" class="note-cover" alt="2023.06.16 玩1999碰到最大的语言障碍竟然是" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230616 玩1999碰到最大的语言障碍竟然是</h2>
+      <h2 class="note-card-title">2023.06.16 玩1999碰到最大的语言障碍竟然是</h2>
       
-      <p class="note-excerpt">玩[[重返未来1999]]碰到最大的语言障碍竟然是 听不懂狗叫</p>
+      <p class="note-excerpt">玩碰到最大的语言障碍竟然是 听不懂狗叫</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">重返未来1999</span>
       
       <span class="note-date">2023 Jun 16</span>
       <span class="note-read">1 min read</span>
@@ -464,20 +526,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230608%20%E8%BD%BB%E5%BE%AE%E5%89%A7%E9%80%8F/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.06.08%20%E8%BD%BB%E5%BE%AE%E5%89%A7%E9%80%8F/" class="note-card">
   
-  <img src="/files/qzone-20230608-233007-01.jpg" class="note-cover" alt="20230608 轻微剧透" loading="lazy">
+  <img src="/files/qzone-20230608-233007-01.jpg" class="note-cover" alt="2023.06.08 轻微剧透" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230608 轻微剧透</h2>
+      <h2 class="note-card-title">2023.06.08 轻微剧透</h2>
       
       <p class="note-excerpt">轻微剧透 锐评重返未来1999第四章 Z女士（黑）和康斯坦丁（白）的棋局 p2（谱）白c8托，问黑如何应对 这盘棋总体来说还是摆得不太好的。不过多少是比乱...</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">重返未来1999</span>
       
       <span class="note-date">2023 Jun 08</span>
       <span class="note-read">2 min read</span>
@@ -489,20 +551,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230605%20%E4%BB%80%E4%B9%88%E6%B8%B8%E6%88%8F%E5%BC%80%E7%9D%80%E8%8B%B1%E8%AF%AD%E9%85%8D%E9%9F%B3%E5%8F%AF%E4%BB%A5%E5%90%AC%E5%88%B0%E6%84%8F%E5%A4%A7%E5%88%A9%E8%AF%AD%E5%BE%B7%E8%AF%AD/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.06.05%20%E4%BB%80%E4%B9%88%E6%B8%B8%E6%88%8F%E5%BC%80%E7%9D%80%E8%8B%B1%E8%AF%AD%E9%85%8D%E9%9F%B3%E5%8F%AF%E4%BB%A5%E5%90%AC%E5%88%B0%E6%84%8F%E5%A4%A7%E5%88%A9%E8%AF%AD%E5%BE%B7%E8%AF%AD/" class="note-card">
   
-  <img src="/files/qzone-20230605-223221-01.jpg" class="note-cover" alt="20230605 什么游戏开着英语配音可以听到意大利语德语" loading="lazy">
+  <img src="/files/qzone-20230605-223221-01.jpg" class="note-cover" alt="2023.06.05 什么游戏开着英语配音可以听到意大利语德语" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230605 什么游戏开着英语配音可以听到意大利语德语</h2>
+      <h2 class="note-card-title">2023.06.05 什么游戏开着英语配音可以听到意大利语德语</h2>
       
       <p class="note-excerpt">什么游戏开着英语配音可以听到意大利语德语法语日语粤语摆京话 港式德式日式口音英国各地口音啊 给意大利观众看看我们家可爱的诗宝</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">重返未来1999</span>
       
       <span class="note-date">2023 Jun 05</span>
       <span class="note-read">1 min read</span>
@@ -522,7 +584,7 @@
     <div class="note-content">
       <h2 class="note-card-title">重返未来：1999</h2>
       
-      <p class="note-excerpt">《重返未来：1999》开服玩家入坑记录。</p>
+      <p class="note-excerpt">《重返未来：1999》版本记录。</p>
       
     </div>
     <div class="note-meta">
@@ -530,7 +592,7 @@
       <span class="note-tag">重返未来1999</span>
       
       <span class="note-date">2023 May 31</span>
-      <span class="note-read">1 min read</span>
+      <span class="note-read">5 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -696,6 +758,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

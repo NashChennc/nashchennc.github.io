@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>分析-07-张量 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 77</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 453</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 162</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 11</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 4</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">分析-07-张量</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 May 15</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">5 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <blockquote>
+<p>本笔记所属课程：<a href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B3)/" title="">数学分析(B3)</a></p>
+</blockquote>
+<h2 id="张量空间">张量空间</h2>
+<h3 id="协变切向量">协变切向量</h3>
+<p>在向量场 $T_p(M)$ 的对偶空间 $T_p^*(M)={\theta\in \mathcal L:T_p(M)\to\mathbb R}$ 中，令</p>
+<p>$$dx^i(\frac{\partial}{\partial x^j})=[i=j]$$</p>
+<p>${dx^i}$ 是 $T^*_p(M)$ 的一组基，称为 ${\cfrac{\partial}{\partial x^i}}$ 的 <strong>对偶基</strong>。$\theta$ 称为 <strong>协变切向量</strong></p>
+<h3 id="张量">张量</h3>
+<p>设映射</p>
+<p>$$\theta:T_p^*(M)^r\times T_p(M)^s\to \mathbb R$$</p>
+<p>是偏线性的，则称 $\theta$ 是 $T_p(M)$ 上的 $\bf (r,s)$ <strong>型张量</strong> ，$r$ 为协变阶数， $s$ 为逆变阶数。在必须标明顺序时必须标明。记 <strong>张量空间</strong> 为 $T_p^{r,s}(M)$</p>
+<p>设点 $p$ 有局部坐标系 ${x^i}$ ，则 $\theta {x^i}=\theta(X{x^i},…,Y{x^i},…)$ 共产生 $n^{r+s}$ 个数，称为该张量的支量。</p>
+<p>定义 <strong>张量积</strong></p>
+<p>$$\otimes:(T_p^{r_1,s_1}(M),T_p^{r_2,s_2}(M))\to T_p^{r_1+r_2,s_1+s_2}(M)$$</p>
+<p>$$\theta\otimes\eta(X,Y)=\theta(X)\eta(Y)$$</p>
+<p>$${\bigotimes^r\frac{\partial}{\partial x^i}\bigotimes^s dx^i}$$</p>
+<p>是 $n^{r+s}$ 维空间 $T_p^{r,s}(M)$ 的一组基。</p>
+<p>张量场: $A\to T_p^{r,s}(M)$</p>
+<p>$C^\infty$ 张量场 $\Leftrightarrow$ 张量场保 $C^{\infty}$</p>
+<p>张量场 $=$ 场张量 ${{A\to T_p^*(M)}^r{A\to T_p(M)}^s\to\mathbb R}$</p>
+<p>$$A\to{T_p^<em>(M)^r\times T_p(M)^s\to \mathbb R}={{A\to T_p^</em>(M)}^r{A\to T_p(M)}^s\to\mathbb R}$$</p>
+<p>微分引起的张量映射</p>
+<p>设 $\theta\in T_p^{r,0}(M_1)={T_p^*(M_1)^r\to \mathbb R}$</p>
+<p>$$\theta\mapsto F^<em>\theta:T_p^{r,0}(M_2)\to T_p^{r,0}(M_1):(F^</em>\theta)(X_1,…,X_r)=\theta(F^*X_1,…,F^*X_r)$$</p>
+<p>$$F^<em>(\theta_1\otimes\theta_2)=F^</em>\theta_1\otimes F^*\theta_2$$</p>
+<h2 id="外微分形式">外微分形式</h2>
+<h3 id="反称张量">反称张量</h3>
+<p>设 $\omega\in T_p^{0,s}(M)$，$X_i\in T_p(M)$ 。如果对任何置换(排列) $\pi$ ，有</p>
+<p>$$\omega(X_{\pi(i)})=(-1)^{\pi}\omega(X_i)$$</p>
+<p>则称 $\omega$ 为 $s$ 阶 <strong>反称协变张量</strong> 或 <strong>外形式</strong> 。记其全体为 $\land_p^s(M)\ (\subset T_p^{0,s}(M))$</p>
+<p>可以令 $X_i=\cfrac{\partial}{\partial x^i}$ ，等价。</p>
+<p>反称化 $\theta\in T_p^{0,s}(M)\to A(\theta)\in \land_p^s(M)$</p>
+<p>$$A(\theta)(X_i)=\frac 1{s!}\sum_{\pi}(-1)^{\pi}\theta(X_{\pi(i)})$$</p>
+<p>定义外积 ($\mathrm{Grassmann}$ 积)</p>
+<p>$$\land_p^r(M)\times\land_p^s(M)\to \land_p^{r+s}(M)$$</p>
+<p>$$\begin{aligned}\alpha\land\beta &amp;=\frac{(r+s)!}{r!s!}A(\alpha\otimes\beta)\
+&amp;=\frac 1{r!s!}\sum_{\pi}(-1)^{\pi}\alpha(X_{\pi(1)},… ,X_{\pi®})\beta(X_{\pi(r+1)},…,X_{\pi(r+s)})\end{aligned}$$</p>
+<p>$$\alpha\land\beta=(-1)^{r+s}\beta\land\alpha$$</p>
+<p>$$(\alpha\land\beta)\land\gamma=\alpha\land(\beta\land\gamma)=\frac{(r+s+t)!}{r!s!t!}A(\alpha\otimes\beta\otimes\gamma)$$</p>
+<p>$\land_p^s(M)$ 是 $C_n^s$ 维空间，一组基是 $C_{{dx^i}_{\land}}^s$</p>
+<p>$\land_p(M)=\bigoplus_{s=0}^n\land_p^s(M)$ 是直和，生成 $2^n$ 维向量空间。于是定义了一个环上的代数 $\land_p(M)$ ，称为 $\mathrm{Grassmann}$ 代数。</p>
+<p>$$dy^{j_1}\land…\land dy^{j_s}=\sum_i\frac{\partial(y^j)}{\partial(x^i)}dx^{i_1}\land…\land dx^{i_s}$$</p>
+<h3 id="外微分">外微分</h3>
+<p>设 $(M,\mathcal D)$ 是 $n$ 维 $C^{\infty}$ 流形 ，$\omega§$ 是 $U\subset\tau(M)$ 上的 $s$ 阶反称协变张量场，则称 $\omega§$ 是 $U$ 上的 <strong>外微分形式</strong> 。</p>
+<p>$s=0$ 时，$\omega$ 是 $U$ 上的 $C^{\infty}$ 函数。
+$s=1$ 时也称为 $\mathrm{Pfaff}$ 形式
+$s&gt;n$ 时 $\omega=0$</p>
+<p>定义 <strong>外微分</strong> 运算 $d$</p>
+<p>$$d:\land^s(M)\to\land^{s+1}(M)$$</p>
+<p>设</p>
+<p>$$X=X§\in\mathcal X(M)={U\to T_p(M)}$$</p>
+<p>$$\omega()\in\land^0(M)=C^{\infty}(M)$$</p>
+<p>$$
+d\omega:
+\begin{cases}
+X \to d\omega(X)=X\omega() &amp; s=0\cr
+(X_1,…,X_{s+1}) \to d\omega(X_1,…,X_{s+1}) =\sum_{k=1}^{s+1}(-1)^{k+1}X_k\omega(X_1,…,X_{s+1})<em>{\not k}
+&amp;s\geq 1+\sum</em>{i&lt;j}(-1)^{i+j}\omega([X_i,X_j],X_1,…,X_{s+1})_{\not i,\not j}
+\end{cases}
+$$</p>
+<p>另一个经典的定义是，设</p>
+<p>$$
+\omega=\sum_{\alpha={[n]\choose s} }\omega_{\alpha}dx^{\alpha}
+$$</p>
+<p>那么</p>
+<p>$$df=\sum_{i=1}^n\frac{\partial f}{\partial x^i} dx^i$$</p>
+<p>$$\begin{aligned}d\omega&amp;=\sum_{\alpha={{n}\choose s}}d\omega_{\alpha}\land dx^{\alpha}\&amp;=\sum_{\alpha={{n}\choose s}}(\sum_{i=1}^n\frac{\partial\omega_{\alpha}}{\partial x^i}dx^i)\land dx^{\alpha}\end{aligned}$$</p>
+<p>$d^2\omega=0$</p>
+<p>$d(\omega\land\eta)=d(fdx^{\alpha}\land gdx^{\beta})=(gdf+fdg)dx^{\alpha}\land dx^{\beta}=d\omega\land \eta+(-1)^{|\alpha|}\omega d\eta$</p>
+<p>$$\omega\mapsto F^<em>\omega:\land^r(M_2)\to \land^r(M_1):(F^</em>\omega)(X_1,…,X_r)=\omega(F^*X_1,…,F^*X_r)$$</p>
+<p>$$F^<em>(f\cdot\omega)=(f\circ F)\cdot(F^</em>\omega)$$</p>
+<p>$d$ 和 $F^*$ 可交换</p>
+<h3 id="闭形式和恰当形式">闭形式和恰当形式</h3>
+<p>对于 $M$ 上的 $C^{\infty}$ 微分形式 $\omega$ ，如果 $d\omega=0$ ，则称为 <strong>闭形式</strong>。</p>
+<p>如果存在一个形式 $\eta$ 使得 $\omega=d\eta$ ，则称为 <strong>恰当形式</strong>。</p>
+<p>显然恰当形式一定是闭形式，因为 $d\omega=d^2\eta=0$</p>
+<p>包含 $0$ 的星形状开集 $S(P\in S\Rightarrow OP\subset S)$ 上的闭形式是恰当的。</p>
+<h3 id="textrm-De-Rham">\textrm{De Rham</h3>
+<p>$\land^s(M)$ 关于加法自然构成群，而外微分运算 $d$ 构成 $\land^s(M)$ 和 $\land^{s+1}(M)$ 上的同态。</p>
+<p>将 $s$ 阶闭形式记作 $d_s$ 的核</p>
+<p>$$Z_D^s(M)={\omega\in\land^s(M)\mid d_s\omega=0}$$</p>
+<p>$s$ 阶恰当形式记作 $d_{s-1}$ 的像</p>
+<p>$$B_D^s(M)={\omega\in\land^s(M)\mid \omega=d\eta,\eta\in\land^{s-1}(M)}$$</p>
+<p>因为 $d^2=0$ ，所以 $B_D^s(M)\subset Z_D^s(M)$</p>
+<p>我们称商群 $H_D^s(M)=Z_D^s(M)/B_D^s(M)$ 为 $M$ 上的第 $s$ 个 $\mathrm{De}\ Rham$ 上同调群，其中的元素称为 (外微分)同调类，记作 $[\omega]$。</p>
+<p>$$[\omega_1]=[\omega_2]:\omega_1=\omega_2+d\eta$$</p>
+<p>$F^*$ 保同调</p>
+<h2 id="textrm-Stokes">\textrm{Stokes</h2>
+<p>$$\int_Md\omega=\int_{\partial M}\omega$$</p>
+<h2 id="流形-M-的定向">流形 $M$ 的定向</h2>
+<h3 id="mathbb-R-n-的定向">$\mathbb R^n$ 的定向</h3>
+<p>设 $\mathbb R^n$ 有两组基 ${e_i},{e_i’}$ ，设</p>
+<p>$$e’=Ae$$</p>
+<p>如果 $\det A&gt;0$ ，则称 $e,e’$ 是同向的，$\det A&lt;0$ 则称是反向的。记等价类</p>
+<p>$$[e’_1,…,e’_n]=-[e_1,…,e_n]$$</p>
+<h3 id="M-mathcal-D-的定向">$(M,\mathcal D)$ 的定向</h3>
+<p>如果 $M$ 的一个微分构造 $\mathcal D^*$ 的任意两坐标片在相交区域同向，则称 $M$ 是可定向的。</p>
+<p>若 $M$ 是连通的，则恰有两个定向。</p>
+<p>$M$ 仿紧可定向 $\Leftrightarrow$ 处处不为 $0$ 的 $n$ 阶 $C^{\infty}$ 微分形式</p>
+<h3 id="mathbb-R-n-子流形的定向">$\mathbb R^n$ 子流形的定向</h3>
+<p>设 $(M,\mathcal D)$ 是 $\mathbb R^{n+1}$ 上的 $n$ 维 $C^{\infty}$ 子流形，如果在 $M$ 上有一个处处非 $0$ 的 $C^{\infty}/C^0$ 法向量场，则 $M$ 是可定向的。</p>
+<p>形式化地，法向量场是指</p>
+<p>$$N:M\to T(\mathbb R^{n+1})$$</p>
+<p>使得 $\forall x\in M$ ，</p>
+<p>$$
+N(x)\in T_{I(x)}(\mathbb R^{n+1})\perp I_*(T_x(M))
+$$</p>
+<p>$I(x)$ 是包含映射。此处的垂直是以 $\cfrac{\partial}{\partial x^i}$ 作为标准正交基。</p>
+<p>如果 $M$ 有一个整体坐标 ${x_i}$，则 $M$ 是可定向的</p>
+<p>如果 $M$ 有一个整体 $C^0$ 基向量场 ${X_i}$，则 $M$ 是可定向的</p>
+<p>$\mathbb {RP}^n$ 可定向 $\Leftrightarrow$ $n$ 是奇数</p>
+<h2 id="诱导定向">诱导定向</h2>
+<p>$\partial \mathbb R^n=\mathbb R^{n-1}$ 上的诱导定向</p>
+<p>$$(-1)^n[e_1,…,e_n]$$</p>
+<p>设 $(W,\mathcal D_w)$ 是 $n$ 维可定向流形， $(M,\mathcal D)$ 是子流形，如果</p>
+<p>$M$ 是可定向的，且 $\forall p\in \partial M$ 存在一个含 $p$ 的坐标片 $(U,\varphi)$</p>
+<p>$$\varphi(M\cap U)={x\mid x^n&gt;0}\cap\varphi(U)$$</p>
+<p>$$\varphi(\partial M\cap U)={x\mid x^n=0}\cap\varphi(U)$$</p>
+<p>$\partial M$ 是 $n-1$ 维正则子流形，定向为</p>
+<p>$${(-1)^n[\frac{\partial}{\partial x^1},…,\frac{\partial}{\partial x^{n-1}}]}$$</p>
+<hr>
+<p>← 上一篇：<a href="/%E5%88%86%E6%9E%90-06-%E6%B5%81%E5%BD%A2/" title="">分析-06-流形</a></p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E5%88%86%E6%9E%90%E5%AD%A6/">分析学</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E5%88%86%E6%9E%90-02-%E5%AE%9E%E6%95%B0/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">分析-02-实数</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/%E5%A4%8D%E5%88%86%E6%9E%90-02-%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">复分析-02-柯西积分公式</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%A0%E9%87%8F%E7%A9%BA%E9%97%B4"><span class="post-toc-text">张量空间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%8F%E5%8F%98%E5%88%87%E5%90%91%E9%87%8F"><span class="post-toc-text">协变切向量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%A0%E9%87%8F"><span class="post-toc-text">张量</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%96%E5%BE%AE%E5%88%86%E5%BD%A2%E5%BC%8F"><span class="post-toc-text">外微分形式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%8D%E7%A7%B0%E5%BC%A0%E9%87%8F"><span class="post-toc-text">反称张量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%96%E5%BE%AE%E5%88%86"><span class="post-toc-text">外微分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%97%AD%E5%BD%A2%E5%BC%8F%E5%92%8C%E6%81%B0%E5%BD%93%E5%BD%A2%E5%BC%8F"><span class="post-toc-text">闭形式和恰当形式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#textrm-De-Rham"><span class="post-toc-text">\textrm{De Rham</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#textrm-Stokes"><span class="post-toc-text">\textrm{Stokes</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%81%E5%BD%A2-M-%E7%9A%84%E5%AE%9A%E5%90%91"><span class="post-toc-text">流形 $M$ 的定向</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mathbb-R-n-%E7%9A%84%E5%AE%9A%E5%90%91"><span class="post-toc-text">$\mathbb R^n$ 的定向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#M-mathcal-D-%E7%9A%84%E5%AE%9A%E5%90%91"><span class="post-toc-text">$(M,\mathcal D)$ 的定向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mathbb-R-n-%E5%AD%90%E6%B5%81%E5%BD%A2%E7%9A%84%E5%AE%9A%E5%90%91"><span class="post-toc-text">$\mathbb R^n$ 子流形的定向</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AF%B1%E5%AF%BC%E5%AE%9A%E5%90%91"><span class="post-toc-text">诱导定向</span></a></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

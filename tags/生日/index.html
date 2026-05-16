@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2022.04.23 如果18岁了还是不能通过图灵测试的话怕是","url":"/2022.04.23%20%E5%A6%82%E6%9E%9C18%E5%B2%81%E4%BA%86%E8%BF%98%E6%98%AF%E4%B8%8D%E8%83%BD%E9%80%9A%E8%BF%87%E5%9B%BE%E7%81%B5%E6%B5%8B%E8%AF%95%E7%9A%84%E8%AF%9D%E6%80%95%E6%98%AF/","date":"2022-04-23","tags":["生日"]},{"title":"2023.04.23 19","url":"/2023.04.23%2019/","date":"2023-04-23","tags":["生日"]},{"title":"2026.04.23 4年。","url":"/2026.04.23%204%E5%B9%B4%E3%80%82/","date":"2026-04-23","tags":["反思","生日"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -301,13 +370,6 @@
         href="/tags/%E7%94%9F%E6%97%A5/"
         aria-current="page"
       >生日 · 3</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 3</a>
           
       <a
         role="listitem"
@@ -329,20 +391,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20260423%204%E5%B9%B4%E3%80%82/" class="note-card">
+<mdui-card clickable variant="filled" href="/2026.04.23%204%E5%B9%B4%E3%80%82/" class="note-card">
   
-  <img src="/files/qzone-20260423-225034-01.jpg" class="note-cover" alt="20260423 4年。" loading="lazy">
+  <img src="/files/qzone-20260423-225034-01.jpg" class="note-cover" alt="2026.04.23 4年。" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20260423 4年。</h2>
+      <h2 class="note-card-title">2026.04.23 4年。</h2>
       
       <p class="note-excerpt">4年。 似乎从某一刻开始成为了人类 到底是哪一刻呢 苦思良久，忽然想起图灵测试早已再无意义</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">反思</span>
       
       <span class="note-date">2026 Apr 23</span>
       <span class="note-read">1 min read</span>
@@ -354,20 +416,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20230423%2019/" class="note-card">
+<mdui-card clickable variant="filled" href="/2023.04.23%2019/" class="note-card">
   
-  <img src="/image/banner/Image_1758434082525.jpeg" class="note-cover" alt="20230423 19" loading="lazy">
+  <img src="/image/banner/nozomizo10.PNG" class="note-cover" alt="2023.04.23 19" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20230423 19</h2>
+      <h2 class="note-card-title">2023.04.23 19</h2>
       
       <p class="note-excerpt">19. 心态似乎发生了很大的变化。 一切结束之后会像两年前这个时候那样回头看看的。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生日</span>
       
       <span class="note-date">2023 Apr 23</span>
       <span class="note-read">1 min read</span>
@@ -379,20 +441,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20220423%20%E5%A6%82%E6%9E%9C18%E5%B2%81%E4%BA%86%E8%BF%98%E6%98%AF%E4%B8%8D%E8%83%BD%E9%80%9A%E8%BF%87%E5%9B%BE%E7%81%B5%E6%B5%8B%E8%AF%95%E7%9A%84%E8%AF%9D%E6%80%95%E6%98%AF/" class="note-card">
+<mdui-card clickable variant="filled" href="/2022.04.23%20%E5%A6%82%E6%9E%9C18%E5%B2%81%E4%BA%86%E8%BF%98%E6%98%AF%E4%B8%8D%E8%83%BD%E9%80%9A%E8%BF%87%E5%9B%BE%E7%81%B5%E6%B5%8B%E8%AF%95%E7%9A%84%E8%AF%9D%E6%80%95%E6%98%AF/" class="note-card">
   
-  <img src="/image/banner/nakayoshi7.JPG" class="note-cover" alt="20220423 如果18岁了还是不能通过图灵测试的话怕是" loading="lazy">
+  <img src="/image/banner/nozomizo19.JPG" class="note-cover" alt="2022.04.23 如果18岁了还是不能通过图灵测试的话怕是" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20220423 如果18岁了还是不能通过图灵测试的话怕是</h2>
+      <h2 class="note-card-title">2022.04.23 如果18岁了还是不能通过图灵测试的话怕是</h2>
       
       <p class="note-excerpt">如果18岁了还是不能通过图灵测试的话怕是要被恢复出厂设置了罢 算了 不如摆烂</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生日</span>
       
       <span class="note-date">2022 Apr 23</span>
       <span class="note-read">1 min read</span>
@@ -561,6 +623,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

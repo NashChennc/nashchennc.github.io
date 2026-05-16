@@ -70,6 +70,8 @@
   
   <link rel="stylesheet" href="/css/index-taxonomy.css">
   
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
   <link rel="stylesheet" href="/css/site-search.css">
   
   <link rel="stylesheet" href="/css/custom.css">
@@ -101,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 51</a>
+      >笔记 · 77</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 421</a>
+      >碎碎念 · 453</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 146</a>
+      >流水账 · 162</a>
         
       
         
@@ -129,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 7</a>
+      >专栏 · 4</a>
         
       
     </nav>
@@ -287,6 +289,73 @@
                 </header>
                 
 
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags-index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2026.01.15","url":"/2026.01.15/","date":"2026-01-15","tags":["科研","Interpretability","LLM"]},{"title":"2026.03.19 如图","url":"/2026.03.19%20%E5%A6%82%E5%9B%BE/","date":"2026-03-19","tags":["科研"]},{"title":"文档","url":"/%E6%96%87%E6%A1%A3/","date":"2026-04-03","tags":["科研","LLM"]},{"title":"Advice From Anthropic","url":"/Advice%20From%20Anthropic/","date":"2026-04-03","tags":["科研","LLM"]},{"title":"LLM Safety 资源","url":"/LLM%20Safety%20%E8%B5%84%E6%BA%90/","date":"2026-04-03","tags":["科研","LLM"]},{"title":"World Model Safety","url":"/World%20Model%20Safety/","date":"2026-04-03","tags":["科研","CV","vLLM"]},{"title":"2026.04.21 如图","url":"/2026.04.21%20%E5%A6%82%E5%9B%BE/","date":"2026-04-21","tags":["科研","生活","AI"]},{"title":"Agentic RL Safety","url":"/Agentic%20RL%20Safety/","date":"2026-04-25","tags":["科研","LLM"]},{"title":"SAE 特征筛选","url":"/SAE%20%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/","date":"2026-04-25","tags":["科研","Interpretability","LLM","NLP"]},{"title":"Interpretable Interpretability \u0026 LLM Safety","url":"/Interpretable%20Interpretability%20\u0026%20LLM%20Safety/","date":"2026-05-16","tags":["科研","LLM"]}]}</script>
+</div>
+
+
+                
+
 <section class="index-taxonomy" aria-label="Categories and tags">
   
   
@@ -319,13 +388,6 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/QQ%E7%A9%BA%E9%97%B4/"
-        
-      >QQ空间 · 2</a>
-          
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
         href="/tags/%E7%94%9F%E6%B4%BB/"
         
       >生活 · 1</a>
@@ -351,27 +413,14 @@
         
       >NLP · 1</a>
           
-        </div>
-        
-        <details class="index-taxonomy__tags-details">
-          <summary class="index-taxonomy__tags-summary">
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 1 more tags</span>
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
-          </summary>
-          <div class="index-taxonomy__tags-overflow-sleeve">
-            <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
-              
       <a
         role="listitem"
         class="index-taxonomy__chip"
         href="/tags/vLLM/"
         
       >vLLM · 1</a>
-              
-            </div>
-            <button type="button" class="index-taxonomy__tags-less">Show fewer tags</button>
-          </div>
-        </details>
+          
+        </div>
         
       </div>
     </div>
@@ -381,31 +430,6 @@
 
 
                 <div class="notes-grid">
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Agentic%20RL%20Safety/" class="note-card">
-  
-  <img src="/image/banner/nozomizo13.JPG" class="note-cover" alt="Agentic RL Safety" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">Agentic RL Safety</h2>
-      
-      <p class="note-excerpt">Agent 强化学习与对齐：记忆架构、勒索案例、工具滥用与相关论文链接汇编。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">科研</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
                 
                     <div class="notes-grid__cell">
                         
@@ -422,10 +446,35 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
+      
+      <span class="note-date">2026 May 16</span>
+      <span class="note-read">13 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/Agentic%20RL%20Safety/" class="note-card">
+  
+  <img src="/image/banner/nozomizo13.JPG" class="note-cover" alt="Agentic RL Safety" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">Agentic RL Safety</h2>
+      
+      <p class="note-excerpt">Agent 强化学习与对齐：记忆架构、勒索案例、工具滥用与相关论文链接汇编。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">13 min read</span>
+      <span class="note-read">1 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -447,7 +496,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 25</span>
       <span class="note-read">12 min read</span>
@@ -459,20 +508,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20260421%20%E5%A6%82%E5%9B%BE/" class="note-card">
+<mdui-card clickable variant="filled" href="/2026.04.21%20%E5%A6%82%E5%9B%BE/" class="note-card">
   
-  <img src="/files/qzone-20260421-190804-01.png" class="note-cover" alt="20260421 如图" loading="lazy">
+  <img src="/files/qzone-20260421-190804-01.png" class="note-cover" alt="2026.04.21 如图" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20260421 如图</h2>
+      <h2 class="note-card-title">2026.04.21 如图</h2>
       
       <p class="note-excerpt">QQ 空间说说迁入：图片记录。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">生活</span>
       
       <span class="note-date">2026 Apr 21</span>
       <span class="note-read">1 min read</span>
@@ -497,7 +546,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 03</span>
       <span class="note-read">1 min read</span>
@@ -522,7 +571,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 03</span>
       <span class="note-read">4 min read</span>
@@ -572,7 +621,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Apr 03</span>
       <span class="note-read">1 min read</span>
@@ -584,20 +633,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20260319%20%E5%A6%82%E5%9B%BE/" class="note-card">
+<mdui-card clickable variant="filled" href="/2026.03.19%20%E5%A6%82%E5%9B%BE/" class="note-card">
   
-  <img src="/files/qzone-20260319-223759-01.jpg" class="note-cover" alt="20260319 如图" loading="lazy">
+  <img src="/files/qzone-20260319-223759-01.jpg" class="note-cover" alt="2026.03.19 如图" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20260319 如图</h2>
+      <h2 class="note-card-title">2026.03.19 如图</h2>
       
       <p class="note-excerpt">#社会观察 #992 #投稿 学术界的劣币与良币</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">QQ空间</span>
+      <span class="note-tag">科研</span>
       
       <span class="note-date">2026 Mar 19</span>
       <span class="note-read">1 min read</span>
@@ -609,20 +658,20 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/20260115/" class="note-card">
+<mdui-card clickable variant="filled" href="/2026.01.15/" class="note-card">
   
-  <img src="/image/banner/nozomizo28.JPG" class="note-cover" alt="20260115" loading="lazy">
+  <img src="/image/banner/nozomizo48.JPG" class="note-cover" alt="2026.01.15" loading="lazy">
   
   <div class="note-card-body">
     <div class="note-content">
-      <h2 class="note-card-title">20260115</h2>
+      <h2 class="note-card-title">2026.01.15</h2>
       
       <p class="note-excerpt">毕设课题与大厂论文「撞车」的复杂心情，以及造数据、筛特征与摸漏洞的断续实验笔记。</p>
       
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">科研</span>
+      <span class="note-tag">LLM</span>
       
       <span class="note-date">2026 Jan 15</span>
       <span class="note-read">1 min read</span>
@@ -791,6 +840,7 @@
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>
