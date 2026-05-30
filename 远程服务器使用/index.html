@@ -117,7 +117,7 @@
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 175</a>
+      >流水账 · 192</a>
         
       
         
@@ -131,7 +131,7 @@
       <a
         href="/categories/%E4%B8%93%E6%A0%8F"
         
-      >专栏 · 4</a>
+      >专栏 · 5</a>
         
       
     </nav>
@@ -410,7 +410,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">远程服务器使用</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 May 18</span>
+                        <span class="note-date">2026 May 20</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -434,37 +434,7 @@
                         <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi --query-compute-apps=pid --format=csv,noheader | xargs -r ps -up | grep &quot;chennc&quot;</span><br><span class="line">kill -9 pid</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = &quot;0,1,2,3&quot;</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="SSH-连接服务器">SSH 连接服务器</h3>
-<h3 id="使用-tmux">使用 <code>tmux</code></h3>
-<p><code>tmux</code> 是一个极其强大的工具，它允许你在服务器后台保持会话活跃，即使 SSH 断开，进程依然在跑。</p>
-<h4 id="1-安装-tmux">1. 安装 tmux</h4>
-<p>在远程服务器的终端中输入：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##  Ubuntu/Debian</span></span><br><span class="line"><span class="built_in">sudo</span> apt update &amp;&amp; <span class="built_in">sudo</span> apt install tmux</span><br><span class="line"></span><br><span class="line"><span class="comment">##  CentOS/RHEL</span></span><br><span class="line"><span class="built_in">sudo</span> yum install tmux</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="2-创建并运行任务">2. 创建并运行任务</h4>
-<p>在 VS Code 的终端中：</p>
-<ol>
-<li><strong>新建会话</strong>：给任务起个名字（例如 <code>training</code>），方便后续查找。<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s training</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><strong>运行代码</strong>：进入 tmux 界面后，像平常一样运行你的脚本。<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><strong>分离会话（Detach）</strong>：当你想要关闭 VS Code 或断网时，需要将当前会话“挂起”到后台。
-按下快捷键前缀：<strong><code>Ctrl + b</code></strong> 然后按：<strong><code>d</code></strong> 。<em>此时你会回到原来的普通终端界面，但任务还在后台跑。</em></li>
-</ol>
-<h4 id="3-断线重连">3. 断线重连</h4>
-<p>当你重新打开 VS Code 连接到服务器后：</p>
-<ol>
-<li><strong>查看现有的会话</strong>：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux <span class="built_in">ls</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><strong>恢复会话（Attach）</strong>：<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach -t training</span><br></pre></td></tr></tbody></table></figure>
-<em>现在你又回到了之前的界面，可以看到程序的输出进度。</em></li>
-</ol>
-<blockquote>
-<p><strong>常用 tmux 快捷键速查 (前缀默认为 <code>Ctrl+b</code>)：</strong></p>
-<ul>
-<li><code>Ctrl+b</code> 然后 <code>%</code>：左右分屏</li>
-<li><code>Ctrl+b</code> 然后 <code>&quot;</code>：上下分屏</li>
-<li><code>Ctrl+b</code> 然后 <code>x</code>：关闭当前窗格</li>
-</ul>
-</blockquote>
+<p><a href="/tmux/" title="tmux">tmux</a></p>
 <h3 id="端口映射">端口映射</h3>
 
                     </div>
@@ -477,7 +447,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/%E8%B5%84%E6%BA%90%E7%AB%99/">
+                                <a class="post-nav__link" href="/tmux/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -486,14 +456,14 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">资源站</span>
+                                        <span class="post-nav__title">tmux</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/%E9%82%AE%E7%AE%B1%E4%BB%A3%E6%94%B6%E8%AE%BE%E7%BD%AE/">
+                                <a class="post-nav__link" href="/Advice%20From%20Anthropic/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -502,7 +472,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">邮箱代收设置</span>
+                                        <span class="post-nav__title">Advice From Anthropic</span>
                                     </span>
                                 </a>
                             
@@ -518,7 +488,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SSH-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-text">SSH 连接服务器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-tmux"><span class="post-toc-text">使用 tmux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="post-toc-text">端口映射</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SSH-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="post-toc-text">SSH 连接服务器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="post-toc-text">端口映射</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
