@@ -80,7 +80,7 @@
 
   
   
-<meta name="generator" content="Hexo 8.1.1"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -103,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 77</a>
+      >笔记 · 78</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 453</a>
+      >碎碎念 · 454</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 162</a>
+      >流水账 · 175</a>
         
       
         
@@ -138,6 +138,13 @@
   
 
   <div class="topbar-end">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
     <mdui-button-icon
       id="site-search-toggle"
       variant="standard"
@@ -403,11 +410,20 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">LLM Safety 资源</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Apr 03</span>
+                        <span class="note-date">2026 May 18</span>
                         
                             <div class="post-page__meta--cats">
                                 
                                     <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/tags/LLM/" class="note-tag">LLM</a>
+                                
+                                    <a href="/tags/%E7%A7%91%E7%A0%94/" class="note-tag">科研</a>
                                 
                             </div>
                         
@@ -417,8 +433,8 @@
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <h1>信息源</h1>
-<h2 id="1-三大AI顶会-NLP顶会">1. 三大AI顶会 &amp; NLP顶会</h2>
+                        <h2 id="信息源">信息源</h2>
+<h3 id="1-三大AI顶会-NLP顶会">1. 三大AI顶会 &amp; NLP顶会</h3>
 <p>顶会的文章通常比较严谨，开源可复现。并且通常学术界的文章实验条件接近，容易参考。但质量并非都很好。因此要留意划分的oral/spotlight/poster级别，以及审稿人意见和rebuttal过程，以此参考文章质量。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://openreview.net/group?id=ICLR.cc">Openreview | ICLR</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
@@ -427,7 +443,7 @@
 <li><a target="_blank" rel="noopener" href="https://aclanthology.org/venues/acl/">ACL Anthology | ACL</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 <li><a target="_blank" rel="noopener" href="https://aclanthology.org/venues/emnlp/">ACL Anthology | EMNLP</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 </ul>
-<h2 id="2-核心实验室">2. 核心实验室</h2>
+<h3 id="2-核心实验室">2. 核心实验室</h3>
 <p>工业界的研究通常比较领先，很多方法和研究方向值得参考意义。但通常闭源、需要很高计算资源，难以直接上手。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.anthropic.com/research">Anthropic | Alignment / Interpretability</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> <strong>(必读)</strong> 他们的文章质量极高，在 Alignment 方面处于领导地位。</li>
@@ -435,7 +451,7 @@
 <li><a target="_blank" rel="noopener" href="https://deepmind.google/discover/">Google DeepMind</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 筛选 Responsibility 或 Safety，关注 <strong>Safety &amp; Ethics</strong> 部门的研究，特别是关于 Agent Misalignment 和 Reward Hacking 的研究。</li>
 <li><a target="_blank" rel="noopener" href="https://www.safe.ai/research">BAIR (Berkeley AI Research)</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 由 Dan Hendrycks 领导，非常纯粹的 Safety 研究机构。他们发布的 <strong>“Statement on AI Risk”</strong> 和各类 Safety Benchmark 是必看的。关注 <strong>Center for AI Safety (CAIS)</strong>。</li>
 </ul>
-<h2 id="1-3-社区与预印本平台">1.3. 社区与预印本平台</h2>
+<h3 id="1-3-社区与预印本平台">1.3. 社区与预印本平台</h3>
 <ul>
 <li>顶会的 Workshop 往往比主会更前沿。寻找带有 “Generative AI Safety”, “Trustworthy AI”, “Machine Learning Safety” 标题的 Workshop。</li>
 <li><a target="_blank" rel="noopener" href="https://huggingface.co/papers">Hugging Face Papers</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
@@ -445,12 +461,12 @@
 <li><strong>FAccT (Fairness, Accountability, and Transparency):</strong> 偏向社会影响、公平性和伦理。</li>
 <li>X：关注活跃的 Safety 研究员（如 Dan Hendrycks, Paul Christiano, Neel Nanda 等）。很多论文的一作会在这里发 Thread 解释核心思想，比读 Abstract 更好懂。</li>
 </ul>
-<h1>2. 学习资源</h1>
+<h2 id="2-学习资源">2. 学习资源</h2>
 <ul>
 <li><strong>CS 324 (Stanford):</strong> Large Language Models 课程，其中有关于 Safety 和 Harms 的章节。</li>
 <li><strong>ML Safety Course (Dan Hendrycks):</strong> 系统性的 ML 安全课程，涵盖了 Robustness, Monitoring, Alignment, Systemic Safety。</li>
 </ul>
-<h1>3. 关键词</h1>
+<h2 id="3-关键词">3. 关键词</h2>
 <ul>
 <li><strong>搜索关键词：</strong> Large Language Model Safety, Jailbreak, Hallucination, Red Teaming, Bias, Toxicity, Agent Alignment, Adversarial Attacks, Robustness, Interpretability, RLHF。
 由于你提到了 <strong>Agentic LLM</strong>，这是一个较新的子领域，主要关注 LLM 在使用工具、规划和执行任务时的风险。</li>
@@ -464,13 +480,13 @@
 </ul>
 </li>
 </ul>
-<h1>4. 建议的起步路径</h1>
+<h2 id="4-建议的起步路径">4. 建议的起步路径</h2>
 <ol>
 <li><strong>先看综述 (Survey):</strong> 找 1-2 篇 2024/2025 年的 <em>Survey on Large Language Model Safety</em> 或 <em>Survey on Agentic AI</em>。这能帮你建立坐标系。</li>
 <li><strong>关注红队测试 (Red Teaming):</strong> 阅读关于 LLM Jailbreaking (越狱) 的文章，这是理解 Agent 漏洞的最直观方式。</li>
 <li><strong>动手实验:</strong> 尝试复现一些简单的 Prompt Injection 攻击或防御机制，Agentic Safety 如果不跑代码很难理解其中的复杂交互。</li>
 </ol>
-<h2 id="💡-科研新手实操建议：如何开始第一周？">💡 科研新手实操建议：如何开始第一周？</h2>
+<h3 id="💡-科研新手实操建议：如何开始第一周？">💡 科研新手实操建议：如何开始第一周？</h3>
 <p>不要试图把上面所有链接都看完。请按以下步骤操作：</p>
 <ol>
 <li><strong>Day 1:</strong> 打开 <strong>ACL Anthology</strong>，搜索 Survey Large Language Model Safety，找一篇 2024 年以后的综述（Survey），只读这一篇，搞清楚领域的分类树（Taxonomy）。</li>
@@ -479,7 +495,7 @@
 <li><strong>工具:</strong> 安装插件 <strong>Connected Papers</strong> 或 <strong>Elicit</strong>。当你找到一篇好文章时，用这些工具自动寻找“相似文章”，比你自己搜要快10倍。<br>
 希望这份“地图”能帮你少走弯路！如果在阅读具体论文时遇到不懂的概念，随时来问我。</li>
 </ol>
-<h1>数据集</h1>
+<h2 id="数据集">数据集</h2>
 <ul>
 <li>prompt
 <ul>
@@ -619,7 +635,7 @@ openaimod 1.68k</p>
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/Advice%20From%20Anthropic/">
+                                <a class="post-nav__link" href="/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -628,14 +644,14 @@ openaimod 1.68k</p>
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">Advice From Anthropic</span>
+                                        <span class="post-nav__title">LaTeX 常用符号</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/World%20Model%20Safety/">
+                                <a class="post-nav__link" href="/SSML/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -644,7 +660,7 @@ openaimod 1.68k</p>
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">World Model Safety</span>
+                                        <span class="post-nav__title">SSML</span>
                                     </span>
                                 </a>
                             
@@ -660,7 +676,7 @@ openaimod 1.68k</p>
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">信息源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E4%B8%89%E5%A4%A7AI%E9%A1%B6%E4%BC%9A-NLP%E9%A1%B6%E4%BC%9A"><span class="post-toc-text">1. 三大AI顶会 &amp; NLP顶会</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%A0%B8%E5%BF%83%E5%AE%9E%E9%AA%8C%E5%AE%A4"><span class="post-toc-text">2. 核心实验室</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-%E7%A4%BE%E5%8C%BA%E4%B8%8E%E9%A2%84%E5%8D%B0%E6%9C%AC%E5%B9%B3%E5%8F%B0"><span class="post-toc-text">1.3. 社区与预印本平台</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. 学习资源</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. 关键词</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">4. 建议的起步路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%92%A1-%E7%A7%91%E7%A0%94%E6%96%B0%E6%89%8B%E5%AE%9E%E6%93%8D%E5%BB%BA%E8%AE%AE%EF%BC%9A%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9F"><span class="post-toc-text">💡 科研新手实操建议：如何开始第一周？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">数据集</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BF%A1%E6%81%AF%E6%BA%90"><span class="post-toc-text">信息源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E4%B8%89%E5%A4%A7AI%E9%A1%B6%E4%BC%9A-NLP%E9%A1%B6%E4%BC%9A"><span class="post-toc-text">1. 三大AI顶会 &amp; NLP顶会</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E6%A0%B8%E5%BF%83%E5%AE%9E%E9%AA%8C%E5%AE%A4"><span class="post-toc-text">2. 核心实验室</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-%E7%A4%BE%E5%8C%BA%E4%B8%8E%E9%A2%84%E5%8D%B0%E6%9C%AC%E5%B9%B3%E5%8F%B0"><span class="post-toc-text">1.3. 社区与预印本平台</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="post-toc-text">2. 学习资源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="post-toc-text">3. 关键词</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E5%BB%BA%E8%AE%AE%E7%9A%84%E8%B5%B7%E6%AD%A5%E8%B7%AF%E5%BE%84"><span class="post-toc-text">4. 建议的起步路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%92%A1-%E7%A7%91%E7%A0%94%E6%96%B0%E6%89%8B%E5%AE%9E%E6%93%8D%E5%BB%BA%E8%AE%AE%EF%BC%9A%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9F"><span class="post-toc-text">💡 科研新手实操建议：如何开始第一周？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="post-toc-text">数据集</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>

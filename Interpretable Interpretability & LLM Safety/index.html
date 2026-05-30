@@ -80,7 +80,7 @@
 
   
   
-<meta name="generator" content="Hexo 8.1.1"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -103,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 77</a>
+      >笔记 · 78</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 453</a>
+      >碎碎念 · 454</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 162</a>
+      >流水账 · 175</a>
         
       
         
@@ -138,6 +138,13 @@
   
 
   <div class="topbar-end">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
     <mdui-button-icon
       id="site-search-toggle"
       variant="standard"
@@ -403,11 +410,20 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">Interpretable Interpretability &amp; LLM Safety</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 May 16</span>
+                        <span class="note-date">2026 May 18</span>
                         
                             <div class="post-page__meta--cats">
                                 
                                     <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/tags/LLM/" class="note-tag">LLM</a>
+                                
+                                    <a href="/tags/%E7%A7%91%E7%A0%94/" class="note-tag">科研</a>
                                 
                             </div>
                         
@@ -417,10 +433,10 @@
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <h1>Interpretable Interpretability &amp; LLM Safety</h1>
+                        <h2 id="Interpretable-Interpretability-LLM-Safety">Interpretable Interpretability &amp; LLM Safety</h2>
 <p>研究如何使用 <strong>可解释的手段</strong> 影响 LLM 的安全性。</p>
-<h2 id="一些-LLM-基础">一些 LLM 基础</h2>
-<h3 id="Transformer">Transformer</h3>
+<h3 id="一些-LLM-基础">一些 LLM 基础</h3>
+<h4 id="Transformer">Transformer</h4>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">2017.06: Transformer</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 过于简短，建议自行上完搜教程 。</li>
 <li>基于 Transformer 的 LLM：可以按 Transformer Lens 的教程自己写一遍 GPT2</li>
@@ -428,14 +444,14 @@
 <li><a href="/Transformer/" title="">Transformer</a></li>
 <li>MoE 模型</li>
 </ul>
-<h3 id="大模型微调">大模型微调</h3>
+<h4 id="大模型微调">大模型微调</h4>
 <ul>
 <li><a href="/%E5%90%8E%E8%AE%AD%E7%BB%83/" title="">后训练</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09685">2021.06: LoRA</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 </ul>
 <p>NLP 的一些基础可能已经过时，但也许会有一点启发，有助于理解。</p>
 <p>详见 Stanford CS224n</p>
-<h2 id="MI-Alignment-资料">MI &amp; Alignment 资料</h2>
+<h3 id="MI-Alignment-资料">MI &amp; Alignment 资料</h3>
 <ul>
 <li>
 <p><a target="_blank" rel="noopener" href="https://www.neelnanda.io/mechanistic-interpretability/getting-started">Getting Start</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
@@ -456,9 +472,9 @@
 <li><a href="/Agentic%20RL%20Safety/" title="">Agentic RL Safety</a></li>
 <li><a href="/World%20Model%20Safety/" title="">World Model Safety</a></li>
 </ul>
-<h1>记录</h1>
-<h2 id="2024-10-09">2024.10.09</h2>
-<h3 id="相关研究">相关研究</h3>
+<h2 id="记录">记录</h2>
+<h3 id="2024-10-09">2024.10.09</h3>
+<h4 id="相关研究">相关研究</h4>
 <p>LLM 可解释安全的一些处理方法</p>
 <ul>
 <li>
@@ -486,12 +502,12 @@
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.05644">2024.06: Intermediate Layers</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 词表在前向传播中有连续变化的规律 (周振宏师兄)</p>
 </li>
 </ul>
-<h2 id="2024-12-25-SAE">2024.12.25 SAE</h2>
-<h3 id="Transformer-Circuits-Thread-Anthropic">Transformer Circuits Thread @Anthropic</h3>
+<h3 id="2024-12-25-SAE">2024.12.25 SAE</h3>
+<h4 id="Transformer-Circuits-Thread-Anthropic">Transformer Circuits Thread @Anthropic</h4>
 <p>Anthropic 的一个研究项目。项目主要目标是将 transformer 语言模型逆向工程为人类可理解的计算机程序。</p>
 <p>项目资源链接中有相关研究和资源，在网页论文上有一些制作精美的展示，比起传统会议的文章看着舒服。<a target="_blank" rel="noopener" href="https://transformer-circuits.pub">Transformer Circuits Thread</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> | <a target="_blank" rel="noopener" href="https://www.anthropic.com/">Anthropic 官网</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 <p>Sparse AutoEncoder, SAE</p>
-<h3 id="SAE-基础">SAE 基础</h3>
+<h4 id="SAE-基础">SAE 基础</h4>
 <p>一些关键基础研究，推动了 SAE 在 LLM 上的使用</p>
 <ul>
 <li>
@@ -501,7 +517,7 @@
 <p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2022/toy_model/index.html">2022.09 Toy Models of Superposition</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 大量语义向量在低维线性空间的表征</p>
 </li>
 </ul>
-<h3 id="基本结构以及一些成品">基本结构以及一些成品</h3>
+<h4 id="基本结构以及一些成品">基本结构以及一些成品</h4>
 <ul>
 <li>
 <p><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2023/monosemantic-features/index.html">2023.12 Towards Monosemanticity (miniSAE)</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 层数较少模型中的 SAE</p>
@@ -519,7 +535,7 @@
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.20526">2024.10 SAE on Llama 3.1</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 留意 Github <a target="_blank" rel="noopener" href="https://github.com/OpenMOSS/Language-Model-SAEs">OpenMOSS/Language-Model-SAEs</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 </li>
 </ul>
-<h3 id="SAE-使用例">SAE 使用例</h3>
+<h4 id="SAE-使用例">SAE 使用例</h4>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.19647">2024.03 Sparse Feature Circuits</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2411.14257">2024.11 Entity Recognize &amp; SAE</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
@@ -527,12 +543,12 @@
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2412.05276">2024.12 selective remapping</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2501.07108">2025.01 黑白棋 GPT</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 </ul>
-<h3 id="未来的变体-2024-10">未来的变体 2024.10</h3>
+<h4 id="未来的变体-2024-10">未来的变体 2024.10</h4>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/features-as-classifiers/index.html">2024.10 features as classifiers</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> SAE + 分类器</li>
 <li><a target="_blank" rel="noopener" href="https://transformer-circuits.pub/2024/crosscoders/index.html">2024.10 crosscoders</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 跨层 SAE</li>
 </ul>
-<h3 id="OpenMOSS-Language-Model-SAEs">OpenMOSS/Language-Model-SAEs</h3>
+<h4 id="OpenMOSS-Language-Model-SAEs">OpenMOSS/Language-Model-SAEs</h4>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/OpenMOSS/Language-Model-SAEs">OpenMOSS/Language-Model-SAEs</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 <li><a target="_blank" rel="noopener" href="https://www.neuronpedia.org/">neuronpedia</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
@@ -542,9 +558,9 @@
 <p>如何比较 / 干预（修改 SAE，可能可以某些 SAE 互补，但其实这个可能不太有用且不太好做） / SAE 训练中持续干预（定向训练 SAE）</p>
 <p>dpo 前后 SAE 通用？每一层重建损失</p>
 <p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/cerebras/SlimPajama-627B">数据集</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
-<h2 id="ICLR2025">ICLR2025</h2>
+<h3 id="ICLR2025">ICLR2025</h3>
 <p><a target="_blank" rel="noopener" href="https://openreview.net/group?id=ICLR.cc/2025/Conference">OpenReview | ICLR2025</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
-<h3 id="Oral">Oral</h3>
+<h4 id="Oral">Oral</h4>
 <ul>
 <li>(10/10/8/3) Scaling and evaluating sparse autoencoders</li>
 </ul>
@@ -553,7 +569,7 @@
 <li>(8/8/8/8) Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models</li>
 </ul>
 <p>之前提到过的 用 SAE feature 重新做 Circuits</p>
-<h3 id="10-10-8-8-Do-I-Know-This-Entity-Knowledge-Awareness-and-Hallucinations-in-Language-Models">(10/10/8/8) Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models</h3>
+<h4 id="10-10-8-8-Do-I-Know-This-Entity-Knowledge-Awareness-and-Hallucinations-in-Language-Models">(10/10/8/8) Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models</h4>
 <ul>
 <li>找到 “是否识别某个实体” 的 SAE feature。</li>
 <li>“已知实体”：回答正确两个关于该实体的信息 / “未知实体”：两个都回答错</li>
@@ -562,9 +578,9 @@
 <li><strong>用基础模型训出来的 SAE 在聊天模型能用</strong></li>
 <li>找了表示不确定性的 SAE feature，可以用来预测幻觉</li>
 </ul>
-<h3 id="Poster">Poster</h3>
-<h3 id="8-8-6-6-Towards-Principled-Evaluations-of-Sparse-Autoencoders-for-Interpretability-and-Control">(8/8/6/6) Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control</h3>
-<h3 id="IOI-task-间接宾语测试">IOI task 间接宾语测试</h3>
+<h4 id="Poster">Poster</h4>
+<h4 id="8-8-6-6-Towards-Principled-Evaluations-of-Sparse-Autoencoders-for-Interpretability-and-Control">(8/8/6/6) Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control</h4>
+<h4 id="IOI-task-间接宾语测试">IOI task 间接宾语测试</h4>
 <p>SAE 的评估框架。</p>
 <ul>
 <li>将 SAE 和有监督字典比较，可以用于评估 SAE。</li>
@@ -576,7 +592,7 @@
 <li>特征过度分割</li>
 </ul>
 <p>很多人会建小模型来做实验，可以降低开销</p>
-<h3 id="8-8-6-6-Sparse-Autoencoders-Do-Not-Find-Canonical-Units-of-Analysis">(8/8/6/6) Sparse Autoencoders Do Not Find Canonical Units of Analysis</h3>
+<h4 id="8-8-6-6-Sparse-Autoencoders-Do-Not-Find-Canonical-Units-of-Analysis">(8/8/6/6) Sparse Autoencoders Do Not Find Canonical Units of Analysis</h4>
 <p>认为 SAE 在寻找完整特征和原子特征方面存在不足。</p>
 <p>提出了一些操作 SAE 的方法：</p>
 <p>基于解码器方向之间的余弦相似度，将较大 SAE 的特征分为两类：</p>
@@ -587,7 +603,7 @@
 <p>拼接 SAE: 将新颖特征添加到较小的 SAE 中 / 将重建特征与较小 SAE 中具有相似行为的特征进行交换，减少冗余并进一步提高重建性能。</p>
 <p>Meta SAE：在 SAE 上训 SAE，得到一些 feature cluster</p>
 <p>用这些方法进行了实验，比较有效，并以此质疑原 SAE 的效果</p>
-<h3 id="6-6-6-5-Rethinking-Evaluation-of-Sparse-Autoencoders-through-the-Representation-of-Polysemous-Wordsi">(6/6/6/5) Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Wordsí</h3>
+<h4 id="6-6-6-5-Rethinking-Evaluation-of-Sparse-Autoencoders-through-the-Representation-of-Polysemous-Wordsi">(6/6/6/5) Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Wordsí</h4>
 <ul>
 <li>(8/6/6/6) Towards Universality: Studying Mechanistic Similarity Across Language Model Architectures</li>
 <li>上次 Llama scope 团队的</li>
@@ -603,16 +619,16 @@
 <li>Monet: Mixture of Monosemantic Experts for Transformers</li>
 <li>(8/8/6/6) Efficient Dictionary Learning with Switch Sparse Autoencoders 用类似 MoE 的方法改进 SAE 的训练效率. 感觉工程上有点复杂，就暂时没看</li>
 </ul>
-<h3 id="任务">任务</h3>
+<h4 id="任务">任务</h4>
 <p>具体结合 deepseek 的 SAE<a target="_blank" rel="noopener" href="https://huggingface.co/qresearch/DeepSeek-R1-Distill-Llama-70B-SAE-l48">https://huggingface.co/qresearch/DeepSeek-R1-Distill-Llama-70B-SAE-l48</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 <p>对齐前后模型 / 对齐前后 SAE</p>
 <p>余弦相似度 / 重建损失</p>
 <p>蒸馏相关 / 推理相关</p>
-<h2 id="2025-03-14">2025.03.14</h2>
+<h3 id="2025-03-14">2025.03.14</h3>
 <p>A40 单卡跑8B模型+大约<a target="_blank" rel="noopener" href="https://aideadlin.es/?sub=ML,NLP,SP,KR,HCI,DM">https://aideadlin.es/?sub=ML,NLP,SP,KR,HCI,DM</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon><a target="_blank" rel="noopener" href="https://ccfddl.com">https://ccfddl.com</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
-<h2 id="2025-04-25">2025.04.25</h2>
+<h3 id="2025-04-25">2025.04.25</h3>
 <p><a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/qykrYY6rXXM7EEs8Q/understanding-sae-features-with-the-logit-lens">利用富集度提取特征</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
-<h2 id="202512">202512</h2>
+<h3 id="202512">202512</h3>
 <p><a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/MnkeepcGirnJn736j/how-can-interpretability-researchers-help-agi-go-well">https://www.alignmentforum.org/posts/MnkeepcGirnJn736j/how-can-interpretability-researchers-help-agi-go-well</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
 <ul>
 <li>202502 Are SAE Useful？ <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.16681">https://arxiv.org/abs/2502.16681</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
@@ -628,11 +644,11 @@
 <li>202409 refusal features <a target="_blank" rel="noopener" href="https://arxiv.org/html/2409.20089v2">https://arxiv.org/html/2409.20089v2</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
 SAE重构误差还可以用于检测数据集中的对抗性攻击或“越狱”样本。攻击者注入的恶意Prompt往往会触发异常的内部激活模式（例如，激活幅度远超正常范围，或激活了互斥的特征组合）。通过监控SAE的重构误差以及特征激活的稀疏度（L0），研究者可以有效地筛选出这些潜在的“毒数据”，防止模型在训练中习得有害行为。</li>
 </ul>
-<h2 id="2025-10-28-Industrial-SAE-for-PII-detection">2025.10.28 Industrial: SAE for PII detection</h2>
+<h3 id="2025-10-28-Industrial-SAE-for-PII-detection">2025.10.28 Industrial: SAE for PII detection</h3>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.goodfire.ai/research/rakuten-sae-probes-for-pii-detection#">https://www.goodfire.ai/research/rakuten-sae-probes-for-pii-detection#</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
 </ul>
-<h3 id="1-标签的具体类别-Classes">1. 标签的具体类别 (Classes)</h3>
+<h4 id="1-标签的具体类别-Classes">1. 标签的具体类别 (Classes)</h4>
 <p>文章明确定义了每一个 token（词元）被分类的目标集合。模型并非对整句话打标签，而是对序列中的每一个 token&nbsp;$t$&nbsp;进行预测。</p>
 <p>具体的标签集合 $p$ 为：</p>
 <p>$$p \in { \texttt{personal_name}, \texttt{address}, \texttt{phone}, \texttt{email}, \texttt{none} }$$</p>
@@ -662,7 +678,7 @@ SAE重构误差还可以用于检测数据集中的对抗性攻击或“越狱�
 <p>文章的一个核心挑战是：在合成数据的 token 标签上训练，通过 SAE Probe 泛化到真实生产环境数据（Real production data）的 token 标签预测上。</p>
 </li>
 </ul>
-<h3 id="2-Random-Forest-for-SAE-probing">2. Random Forest for SAE probing</h3>
+<h4 id="2-Random-Forest-for-SAE-probing">2. Random Forest for SAE probing</h4>
 <p>We found that our SAE probes outperformed our activation probes and all attention probes. In particular,&nbsp;<strong>our SAE probes were considerably more robust across the distribution shift from synthetic to real data.</strong></p>
 <p>随机森林属于&nbsp;<strong>Bagging (Bootstrap Aggregating)</strong>&nbsp;算法。</p>
 <ul>
@@ -679,7 +695,7 @@ SAE重构误差还可以用于检测数据集中的对抗性攻击或“越狱�
 </ul>
 </li>
 </ul>
-<h3 id="3-SAE-探针">3. SAE 探针</h3>
+<h4 id="3-SAE-探针">3. SAE 探针</h4>
 <p>We were surprised to find that the SAE probes outperformed the activation probes at all. Prior work suggests that probing with SAE features does not usually outperform probing with raw activations (<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.16681">Kantamneni et al., 2025</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>) and in particular does not generalize as well out of distribution (<a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/4uXCAJNuPKtKBsi28/sae-progress-update-2-draft">Smith et al., 2025</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>,&nbsp;<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.03407">Goldowsky-Dill et al., 2025</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>). However,&nbsp;<a target="_blank" rel="noopener" href="https://www.tilderesearch.com/blog/sieve">Karvonen et al., 2024</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>&nbsp;provide an example in which SAEs do outperform activation-probe baselines (in a data-limited setting).
 我们惊讶地发现，SAE 探针的性能竟然优于激活探针。先前的研究表明，使用 SAE 特征进行探测通常不如使用原始激活进行探测（Kantamneni 等人，2025），尤其是在分布外泛化能力较差（Smith 等人，2025；Goldowsky-Dill 等人，2025）。然而，Karvonen 等人（2024）提供了一个例子，表明在数据受限的情况下，SAE 的性能确实优于激活探针基线。</p>
 <p>相比之下，在我们几乎所有的实验中，SAE 探针都超过了激活探针（主要例外是仅包含英文数据）。</p>
@@ -692,7 +708,7 @@ SAE重构误差还可以用于检测数据集中的对抗性攻击或“越狱�
 </ul>
 <p>See&nbsp;<a target="_blank" rel="noopener" href="https://www.alignmentforum.org/posts/4uXCAJNuPKtKBsi28/sae-progress-update-2-draft#Is_it_surprising_that_SAEs_didn_t_work_">Smith et al.</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>&nbsp;for additional discussion of when SAEs may work better or worse for downstream tasks.<br>
 有关 SAE 在下游任务中何时可能表现更好或更差的更多讨论，请参阅 Smith 等人的文章。</p>
-<h4 id="20260116报告">20260116报告</h4>
+<h5 id="20260116报告">20260116报告</h5>
 <p>SAE等LLM逆向工程比起CoT的优势在哪？我们做实验的时候发现在SAE特征解释中的两个问题：</p>
 <ul>
 <li>每一个 SAE 特征的具体解释最终还是要回归到数据模式上，Logit Lens 反而相对不可信</li>
@@ -727,10 +743,23 @@ cot 监督的和可解释的方法在安全里面的角色？有没有相关的�
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
+                                <a class="post-nav__link" href="/JavaScript/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">JavaScript</span>
+                                    </span>
+                                </a>
+                            
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/%E5%88%86%E6%9E%90-01-%E9%9B%86%E5%90%88%E8%AE%BA/">
+                                <a class="post-nav__link" href="/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -739,7 +768,7 @@ cot 监督的和可解释的方法在安全里面的角色？有没有相关的�
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">分析-01-集合论</span>
+                                        <span class="post-nav__title">LaTeX 常用符号</span>
                                     </span>
                                 </a>
                             
@@ -755,7 +784,7 @@ cot 监督的和可解释的方法在安全里面的角色？有没有相关的�
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Interpretable Interpretability &amp; LLM Safety</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E4%BA%9B-LLM-%E5%9F%BA%E7%A1%80"><span class="post-toc-text">一些 LLM 基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Transformer"><span class="post-toc-text">Transformer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83"><span class="post-toc-text">大模型微调</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MI-Alignment-%E8%B5%84%E6%96%99"><span class="post-toc-text">MI &amp; Alignment 资料</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">记录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2024-10-09"><span class="post-toc-text">2024.10.09</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9B%B8%E5%85%B3%E7%A0%94%E7%A9%B6"><span class="post-toc-text">相关研究</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2024-12-25-SAE"><span class="post-toc-text">2024.12.25 SAE</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Transformer-Circuits-Thread-Anthropic"><span class="post-toc-text">Transformer Circuits Thread @Anthropic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SAE-%E5%9F%BA%E7%A1%80"><span class="post-toc-text">SAE 基础</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%88%90%E5%93%81"><span class="post-toc-text">基本结构以及一些成品</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SAE-%E4%BD%BF%E7%94%A8%E4%BE%8B"><span class="post-toc-text">SAE 使用例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%8F%98%E4%BD%93-2024-10"><span class="post-toc-text">未来的变体 2024.10</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenMOSS-Language-Model-SAEs"><span class="post-toc-text">OpenMOSS&#x2F;Language-Model-SAEs</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ICLR2025"><span class="post-toc-text">ICLR2025</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Oral"><span class="post-toc-text">Oral</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-10-8-8-Do-I-Know-This-Entity-Knowledge-Awareness-and-Hallucinations-in-Language-Models"><span class="post-toc-text">(10&#x2F;10&#x2F;8&#x2F;8) Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Poster"><span class="post-toc-text">Poster</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-8-6-6-Towards-Principled-Evaluations-of-Sparse-Autoencoders-for-Interpretability-and-Control"><span class="post-toc-text">(8&#x2F;8&#x2F;6&#x2F;6) Towards Principled Evaluations of Sparse Autoencoders for Interpretability and Control</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#IOI-task-%E9%97%B4%E6%8E%A5%E5%AE%BE%E8%AF%AD%E6%B5%8B%E8%AF%95"><span class="post-toc-text">IOI task 间接宾语测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-8-6-6-Sparse-Autoencoders-Do-Not-Find-Canonical-Units-of-Analysis"><span class="post-toc-text">(8&#x2F;8&#x2F;6&#x2F;6) Sparse Autoencoders Do Not Find Canonical Units of Analysis</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-6-6-5-Rethinking-Evaluation-of-Sparse-Autoencoders-through-the-Representation-of-Polysemous-Wordsi"><span class="post-toc-text">(6&#x2F;6&#x2F;6&#x2F;5) Rethinking Evaluation of Sparse Autoencoders through the Representation of Polysemous Wordsí</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1"><span class="post-toc-text">任务</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2025-03-14"><span class="post-toc-text">2025.03.14</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2025-04-25"><span class="post-toc-text">2025.04.25</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#202512"><span class="post-toc-text">202512</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2025-10-28-Industrial-SAE-for-PII-detection"><span class="post-toc-text">2025.10.28 Industrial: SAE for PII detection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%A0%87%E7%AD%BE%E7%9A%84%E5%85%B7%E4%BD%93%E7%B1%BB%E5%88%AB-Classes"><span class="post-toc-text">1. 标签的具体类别 (Classes)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Random-Forest-for-SAE-probing"><span class="post-toc-text">2. Random Forest for SAE probing</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-SAE-%E6%8E%A2%E9%92%88"><span class="post-toc-text">3. SAE 探针</span></a></li></ol></li></ol></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Interpretable-Interpretability-LLM-Safety"><span class="post-toc-text">Interpretable Interpretability &amp; LLM Safety</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%80%E4%BA%9B-LLM-%E5%9F%BA%E7%A1%80"><span class="post-toc-text">一些 LLM 基础</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MI-Alignment-%E8%B5%84%E6%96%99"><span class="post-toc-text">MI &amp; Alignment 资料</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%B0%E5%BD%95"><span class="post-toc-text">记录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2024-10-09"><span class="post-toc-text">2024.10.09</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2024-12-25-SAE"><span class="post-toc-text">2024.12.25 SAE</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ICLR2025"><span class="post-toc-text">ICLR2025</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2025-03-14"><span class="post-toc-text">2025.03.14</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2025-04-25"><span class="post-toc-text">2025.04.25</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#202512"><span class="post-toc-text">202512</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2025-10-28-Industrial-SAE-for-PII-detection"><span class="post-toc-text">2025.10.28 Industrial: SAE for PII detection</span></a></li></ol></li></ol>
                     </div>
                 </div>
             </mdui-card>

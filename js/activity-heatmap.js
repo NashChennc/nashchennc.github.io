@@ -55,18 +55,12 @@
     }
   }
 
+  var EN_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
   function formatReadableDate(key) {
     var date = dateFromKey(key);
     if (!date) return key;
-    try {
-      return new Intl.DateTimeFormat(safeLocale(), {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      }).format(date);
-    } catch (e) {
-      return key;
-    }
+    return date.getFullYear() + ' ' + EN_MONTHS[date.getMonth()] + ' ' + date.getDate();
   }
 
   function getLabel(root, name, fallback) {
@@ -151,12 +145,15 @@
       });
     }
 
-    var startKey = keyFromDate(addDays(selectedDate, -detailWindow));
-    var endKey = keyFromDate(addDays(selectedDate, detailWindow));
+    var windowStartDate = addDays(selectedDate, -detailWindow);
+    var windowEndDate = addDays(selectedDate, detailWindow);
+    var startKey = keyFromDate(windowStartDate);
+    var endKey = keyFromDate(windowEndDate);
     title.textContent = formatReadableDate(startKey) + ' – ' + formatReadableDate(endKey);
     summary.textContent = countLabel(root, windowPosts.length);
     list.innerHTML = '';
 
+    var selectedCenterX = 0;
     if (!windowPosts.length) {
       var empty = document.createElement('div');
       empty.className = 'activity-heatmap__detail-empty';
@@ -175,40 +172,45 @@
       var MIN_GAP = 32;
       var PIXELS_PER_DAY = ITEM_WIDTH + MIN_GAP + 14;
 
-      var firstPostTime = dateFromKey(windowPosts[0].date).getTime();
-      var lastPostTime = dateFromKey(windowPosts[windowPosts.length - 1].date).getTime();
-      var dataDuration = lastPostTime - firstPostTime;
-      var distinctDays = (dataDuration / DAY_MS) + 1;
-      var scrollWidth = distinctDays * PIXELS_PER_DAY;
-      var windowDuration = dataDuration > 0 ? dataDuration : DAY_MS;
-      var windowStartTime = firstPostTime;
+      // Date slots stay fixed for the selected detail window, so day-to-day spacing
+      // does not change when another cell is selected.
+      var windowStartTime = windowStartDate.getTime();
+      var windowDayCount = detailWindow * 2 + 1;
+      var scrollWidth = Math.max(ITEM_WIDTH, windowDayCount * PIXELS_PER_DAY);
+      selectedCenterX = ITEM_WIDTH / 2 + detailWindow * PIXELS_PER_DAY;
 
       list.style.setProperty('--timeline-scroll-width', scrollWidth + 'px');
 
-      var usableWidth = scrollWidth - ITEM_WIDTH;
       var STEP = (ITEM_WIDTH + MIN_GAP) / 2;
       var prevDate = null;
       var prevCenterX = -ITEM_WIDTH;
       var prevSide = 'below';
+      var layoutShift = 0;
 
       windowPosts.forEach(function (item) {
         var postTime = dateFromKey(item.date).getTime();
-        var ratio = (postTime - windowStartTime) / windowDuration;
-        var idealX = (ITEM_WIDTH / 2) + ratio * usableWidth;
+        var dayOffset = Math.round((postTime - windowStartTime) / DAY_MS);
+        var idealX = (ITEM_WIDTH / 2) + dayOffset * PIXELS_PER_DAY + layoutShift;
         var side;
         var centerX;
 
         if (item.date !== prevDate) {
           side = 'below';
           var prevRightEdge = prevCenterX + ITEM_WIDTH / 2;
-          if (idealX - ITEM_WIDTH / 2 < prevRightEdge + MIN_GAP) {
-            centerX = prevRightEdge + MIN_GAP + ITEM_WIDTH / 2;
+          var minCenterX = prevRightEdge + MIN_GAP + ITEM_WIDTH / 2;
+          if (idealX < minCenterX) {
+            layoutShift += minCenterX - idealX;
+            centerX = minCenterX;
           } else {
             centerX = idealX;
           }
         } else {
           side = prevSide === 'below' ? 'above' : 'below';
           centerX = prevCenterX + STEP;
+        }
+
+        if (item.date === selectedDateKey && selectedCenterX < centerX) {
+          selectedCenterX = centerX;
         }
 
         prevDate = item.date;
@@ -246,17 +248,22 @@
         list.appendChild(timelineItem);
       });
 
-      var finalScrollWidth = Math.max(scrollWidth, (prevCenterX + ITEM_WIDTH / 2) - MIN_GAP);
+      var finalScrollWidth = Math.max(scrollWidth, prevCenterX + ITEM_WIDTH / 2 + MIN_GAP);
       list.style.setProperty('--timeline-scroll-width', finalScrollWidth + 'px');
     }
 
     detail.hidden = false;
 
-    var listWrapper = list.parentNode.querySelector('.activity-heatmap__detail-list-wrap');
+    var listParent = list.parentNode;
+    var listWrapper = listParent && listParent.classList && listParent.classList.contains('activity-heatmap__detail-list-wrap')
+      ? listParent
+      : detail.querySelector('.activity-heatmap__detail-list-wrap');
     if (!listWrapper) {
       listWrapper = document.createElement('div');
       listWrapper.className = 'activity-heatmap__detail-list-wrap';
       list.parentNode.insertBefore(listWrapper, list);
+      listWrapper.appendChild(list);
+    } else if (list.parentNode !== listWrapper) {
       listWrapper.appendChild(list);
     }
 
@@ -299,6 +306,11 @@
     }
     list._scrollHintHandler = updateScrollHints;
     list.addEventListener('scroll', updateScrollHints, { passive: true });
+    if (selectedCenterX > 0) {
+      list.scrollLeft = Math.max(0, selectedCenterX - list.clientWidth / 2);
+    } else {
+      list.scrollLeft = 0;
+    }
     updateScrollHints();
   }
 
@@ -345,7 +357,9 @@
     var minYear = minDate.getFullYear();
     var maxYear = maxDate.getFullYear();
     var yearRange = minYear === maxYear ? String(minYear) : minYear + '–' + maxYear;
-    summary.textContent = countLabel(root, posts.length) + ' · ' + yearRange;
+    var firstDateKey = posts[0].date;
+    var lastDateKey = posts[posts.length - 1].date;
+    summary.textContent = countLabel(root, posts.length) + '（' + formatReadableDate(firstDateKey) + ' - ' + formatReadableDate(lastDateKey) + '）';
 
     cells.innerHTML = '';
     months.innerHTML = '';

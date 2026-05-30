@@ -80,7 +80,7 @@
 
   
   
-<meta name="generator" content="Hexo 8.1.1"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -103,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 77</a>
+      >笔记 · 78</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 453</a>
+      >碎碎念 · 454</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 162</a>
+      >流水账 · 175</a>
         
       
         
@@ -138,6 +138,13 @@
   
 
   <div class="topbar-end">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
     <mdui-button-icon
       id="site-search-toggle"
       variant="standard"
@@ -403,11 +410,22 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">从容斥原理到广义卷积</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Apr 25</span>
+                        <span class="note-date">2026 May 18</span>
                         
                             <div class="post-page__meta--cats">
                                 
                                     <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/tags/%E6%95%B0%E5%AD%A6/" class="note-tag">数学</a>
+                                
+                                    <a href="/tags/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                                    <a href="/tags/%E7%BB%84%E5%90%88%E5%AD%A6/" class="note-tag">组合学</a>
                                 
                             </div>
                         
@@ -417,7 +435,7 @@
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <h2 id="第一部分：容斥原理的代数证明（特征函数法）">第一部分：容斥原理的代数证明（特征函数法）</h2>
+                        <h3 id="第一部分：容斥原理的代数证明（特征函数法）">第一部分：容斥原理的代数证明（特征函数法）</h3>
 <p>设 $U$ 为有限全集，$A_1, A_2, \dots, A_n$ 是 $U$ 的子集。容斥原理本质上表明了，我们可以用一条等式将  $A_i$ <strong>的各种并集的大小</strong> 联系起来。我们不妨计算 $\left| \bigcup_{i=1}^n A_i \right|$ 。
 我们定义集合 $S$ 的特征函数 $\mathbb{1}_S: U \to {0, 1}$ 为：
 $$\mathbb{1}_S(x) = \begin{cases} 1, &amp; x \in S \ 0, &amp; x \notin S \end{cases}$$
@@ -442,8 +460,8 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>接下来将上述证明中的&nbsp;$(1 - z)$&nbsp;展开思想，推广到更广义的代数结构上。</p>
 <p>在这一部分，我们将之前的“集合包含关系”抽象化，建立一套适用于所有偏序关系的通用代数系统。你会发现，无论是容斥原理、子集卷积还是数论中的莫比乌斯反演，本质上都是同一个矩阵运算在不同结构上的体现。</p>
 <hr>
-<h1>Phase 1: 理论重构 —— 偏序集上的关联代数</h1>
-<h2 id="1-基础定义：从集合到偏序集">1. 基础定义：从集合到偏序集</h2>
+<h2 id="Phase-1-理论重构-——-偏序集上的关联代数">Phase 1: 理论重构 —— 偏序集上的关联代数</h2>
+<h3 id="1-基础定义：从集合到偏序集">1. 基础定义：从集合到偏序集</h3>
 <p>首先，我们不再局限于集合&nbsp;$S$&nbsp;和包含符号&nbsp;$\subseteq$，而是讨论更广泛的<strong>偏序集</strong>。</p>
 <p>定义 1.1 (Locally Finite Poset)</p>
 <p>设 $P$ 是一个集合，$\preceq$ 是其上的偏序关系（满足自反性、反对称性、传递性）。</p>
@@ -452,7 +470,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p><em>注：这就保证了后续我们在区间内求和时，项数是有限的，不需要考虑无穷级数的收敛问题。</em></p>
 </blockquote>
 <hr>
-<h2 id="2-关联代数-Incidence-Algebra-与-广义卷积">2. 关联代数 (Incidence Algebra) 与 广义卷积</h2>
+<h3 id="2-关联代数-Incidence-Algebra-与-广义卷积">2. 关联代数 (Incidence Algebra) 与 广义卷积</h3>
 <p>这是统一框架的核心。我们定义一个函数空间，并在上面定义一种“乘法”。</p>
 <p>定义 1.2 (Incidence Algebra $\mathcal{I}§$)</p>
 <p>$\mathcal{I}§$ 是定义在 $P \times P$ 上的所有实值函数 $f$ 的集合，满足：</p>
@@ -475,18 +493,18 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>这一视角的转变至关重要：<strong>卷积满足结合律</strong>&nbsp;$(f * g) * h = f * (g * h)$，因为矩阵乘法满足结合律。</p>
 </blockquote>
 <hr>
-<h2 id="3-三大核心算子">3. 三大核心算子</h2>
+<h3 id="3-三大核心算子">3. 三大核心算子</h3>
 <p>在这个代数结构中，有三个函数扮演着特殊的角色。</p>
-<h3 id="3-1-单位元：Delta-函数-delta">3.1 单位元：Delta 函数 ($\delta$)</h3>
+<h4 id="3-1-单位元：Delta-函数-delta">3.1 单位元：Delta 函数 ($\delta$)</h4>
 <p>$$\delta(x, y) = \begin{cases} 1 &amp; x = y \ 0 &amp; x \neq y \end{cases}$$</p>
 <p>显然，对于任意 $f$，有 $f * \delta = \delta * f = f$。它对应于单位矩阵 $I$。</p>
-<h3 id="3-2-求和算子：Zeta-函数-zeta">3.2 求和算子：Zeta 函数 ($\zeta$)</h3>
+<h4 id="3-2-求和算子：Zeta-函数-zeta">3.2 求和算子：Zeta 函数 ($\zeta$)</h4>
 <p>这是将原函数转化为“前缀和”的关键。</p>
 <p>$$\zeta(x, y) = \begin{cases} 1 &amp; x \preceq y \ 0 &amp; \text{otherwise} \end{cases}$$</p>
 <p>若我们令 $g = f * \zeta$，展开看：</p>
 <p>$$g(x, y) = \sum_{x \preceq z \preceq y} f(x, z) \cdot 1 = \sum_{x \preceq z \preceq y} f(x, z)$$</p>
 <p>这正是我们在各类算法中求的SOS (Sum Over Subsets) 或 前缀和。它对应于所有合法位置均为 1 的上三角矩阵。</p>
-<h3 id="3-3-差分算子：Mobius-函数-mu">3.3 差分算子：Möbius 函数 ($\mu$)</h3>
+<h4 id="3-3-差分算子：Mobius-函数-mu">3.3 差分算子：Möbius 函数 ($\mu$)</h4>
 <p>如果我们要从 $g$ (前缀和) 还原回 $f$ 怎么办？在矩阵代数中，这意味着我们需要求 $\zeta$ 的逆矩阵。</p>
 <p>定义 $\mu = \zeta^{-1}$，即满足：</p>
 <p>$$\mu * \zeta = \delta$$</p>
@@ -502,7 +520,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p><strong>结论</strong>：这就是 Möbius 函数的本质定义——<strong>Zeta 函数的代数逆元</strong>。所有的&nbsp;$(-1)^k$&nbsp;系数都是从这个简单的递归式里算出来的。</p>
 </blockquote>
 <hr>
-<h2 id="4-Mobius-反演公式-The-Inversion-Formula">4. Möbius 反演公式 (The Inversion Formula)</h2>
+<h3 id="4-Mobius-反演公式-The-Inversion-Formula">4. Möbius 反演公式 (The Inversion Formula)</h3>
 <p>基于上述代数结构，容斥原理（Möbius 反演）的证明变得显而易见。</p>
 <p>定理：</p>
 <p>$$g = f * \zeta \iff f = g * \mu$$</p>
@@ -511,7 +529,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>$$\begin{aligned} g &amp;= f * \zeta \ g * \mu &amp;= (f * \zeta) * \mu \ g * \mu &amp;= f * (\zeta * \mu) \quad (\text{结合律}) \ g * \mu &amp;= f * \delta \quad (\text{逆元定义}) \ g * \mu &amp;= f \end{aligned}$$</p>
 <p><strong>Q.E.D.</strong></p>
 <hr>
-<h2 id="5-从双变量到单变量-The-Bridge-to-Practice">5. 从双变量到单变量 (The Bridge to Practice)</h2>
+<h3 id="5-从双变量到单变量-The-Bridge-to-Practice">5. 从双变量到单变量 (The Bridge to Practice)</h3>
 <p>在实际应用（如算法竞赛或组合计数）中，我们通常处理的是单变量函数&nbsp;$f(x)$，而不是&nbsp;$f(x, y)$。我们将单变量函数视为上述代数结构的一种特例（或者说，模上的作用）。</p>
 <p>通常我们固定一端。例如，固定底端为 $\hat{0}$ (最小元)，设 $f(x) \equiv f(\hat{0}, x)$。</p>
 <p>那么反演公式变为我们熟悉的形式：</p>
@@ -521,7 +539,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>(这是通过对偶偏序集 $P^*$ 得到的，相当于固定顶端)</p>
 <p>$$g(x) = \sum_{x \preceq y} f(y) \iff f(x) = \sum_{x \preceq y} \mu(x, y)g(y)$$</p>
 <hr>
-<h2 id="6-总结与图解">6. 总结与图解</h2>
+<h3 id="6-总结与图解">6. 总结与图解</h3>
 <p>为了巩固这一部分，请想象以下矩阵图像：</p>
 <ol>
 <li>
@@ -541,8 +559,8 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>好的，我们进入&nbsp;<strong>Phase 2: 经典模型的统一</strong>。</p>
 <p>在这一阶段，我们将 Phase 1 中那个抽象的“关联代数”模具，分别盖在“集合”和“整数”这两个具体的泥坯上。你会惊讶地发现，<strong>子集反演</strong>和<strong>数论反演</strong>竟然是完全同构的——它们本质上都是“多维网格”上的同一个操作。</p>
 <hr>
-<h1>Phase 2: 经典模型的统一 —— 三大卷积的映射</h1>
-<h2 id="1-核心工具：积偏序集-Product-Poset">1. 核心工具：积偏序集 (Product Poset)</h2>
+<h2 id="Phase-2-经典模型的统一-——-三大卷积的映射">Phase 2: 经典模型的统一 —— 三大卷积的映射</h2>
+<h3 id="1-核心工具：积偏序集-Product-Poset">1. 核心工具：积偏序集 (Product Poset)</h3>
 <p>在深入具体模型前，我们需要一个强大的引理来连接它们。</p>
 <p>引理：Möbius 函数的积性</p>
 <p>如果偏序集 $P$ 可以分解为两个偏序集的直积 $P = P_1 \times P_2$，即 $(x_1, x_2) \preceq (y_1, y_2) \iff x_1 \preceq_1 y_1 \land x_2 \preceq_2 y_2$。</p>
@@ -552,8 +570,8 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p><em>通俗理解：如果一个复杂结构是由简单的积木搭出来的，那么它的容斥系数就是各积木容斥系数的乘积。</em></p>
 </blockquote>
 <hr>
-<h2 id="2-模型-A：布尔格-The-Boolean-Lattice-——-集合的世界">2. 模型 A：布尔格 (The Boolean Lattice) —— 集合的世界</h2>
-<h3 id="2-1-结构分析">2.1 结构分析</h3>
+<h3 id="2-模型-A：布尔格-The-Boolean-Lattice-——-集合的世界">2. 模型 A：布尔格 (The Boolean Lattice) —— 集合的世界</h3>
+<h4 id="2-1-结构分析">2.1 结构分析</h4>
 <ul>
 <li>
 <p><strong>对象</strong>：集合&nbsp;$S = {1, 2, \dots, n}$&nbsp;的幂集&nbsp;$2^S$。</p>
@@ -570,7 +588,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>其中 $C_2$ 是简单的链 $0 \to 1$。</p>
 </li>
 </ul>
-<h3 id="2-2-Mobius-函数推导">2.2 Möbius 函数推导</h3>
+<h4 id="2-2-Mobius-函数推导">2.2 Möbius 函数推导</h4>
 <p>我们只需要看最基础的链&nbsp;$C_2 = {0, 1}$：</p>
 <ol>
 <li>
@@ -593,7 +611,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>结论：</p>
 <p>$$\mu(A, B) = (-1)^{|B \setminus A|} = (-1)^{|B| - |A|}$$</p>
 <p>这就解释了集合容斥中那个 $(-1)^k$ 的由来。</p>
-<h3 id="2-3-对应卷积：子集卷积与-OR-卷积">2.3 对应卷积：子集卷积与 OR-卷积</h3>
+<h4 id="2-3-对应卷积：子集卷积与-OR-卷积">2.3 对应卷积：子集卷积与 OR-卷积</h4>
 <p>在此偏序集上：</p>
 <ul>
 <li>
@@ -610,8 +628,8 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 </li>
 </ul>
 <hr>
-<h2 id="3-模型-B：整除格-The-Divisibility-Lattice-——-数论的世界">3. 模型 B：整除格 (The Divisibility Lattice) —— 数论的世界</h2>
-<h3 id="3-1-结构分析">3.1 结构分析</h3>
+<h3 id="3-模型-B：整除格-The-Divisibility-Lattice-——-数论的世界">3. 模型 B：整除格 (The Divisibility Lattice) —— 数论的世界</h3>
+<h4 id="3-1-结构分析">3.1 结构分析</h4>
 <ul>
 <li>
 <p><strong>对象</strong>：正整数集&nbsp;$\mathbb{Z}^+$。</p>
@@ -628,7 +646,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>每个 $C_{\infty}$ 对应一个质数 $p$ 的指数链 $1 \to p \to p^2 \to \dots$。</p>
 </li>
 </ul>
-<h3 id="3-2-Mobius-函数推导">3.2 Möbius 函数推导</h3>
+<h4 id="3-2-Mobius-函数推导">3.2 Möbius 函数推导</h4>
 <p>我们要看单条链&nbsp;$1 \to p \to p^2 \to \dots$&nbsp;上的&nbsp;$\mu$：</p>
 <ol>
 <li>
@@ -661,7 +679,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>结论：</p>
 <p>这完美推导出了数论中的经典 Möbius 函数定义：</p>
 <p>$$\mu(n) = \begin{cases} 1 &amp; n=1 \ (-1)^k &amp; n = p_1 \dots p_k \text{ (无平方因子)} \ 0 &amp; \text{有平方因子} \end{cases}$$</p>
-<h3 id="3-3-对应卷积：狄利克雷卷积-Dirichlet-Convolution">3.3 对应卷积：狄利克雷卷积 (Dirichlet Convolution)</h3>
+<h4 id="3-3-对应卷积：狄利克雷卷积-Dirichlet-Convolution">3.3 对应卷积：狄利克雷卷积 (Dirichlet Convolution)</h4>
 <p>在此偏序集上：</p>
 <ul>
 <li>
@@ -675,7 +693,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 </li>
 </ul>
 <hr>
-<h2 id="4-统一视角总结表-Unification-Table">4. 统一视角总结表 (Unification Table)</h2>
+<h3 id="4-统一视角总结表-Unification-Table">4. 统一视角总结表 (Unification Table)</h3>
 <p>这是本节的精华，建议背诵或截图。</p>
 <table>
 <thead>
@@ -735,9 +753,9 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>在前两个阶段，我们解决了标准的“包含”和“整除”问题。但在实际的高级算法题或科研中，我们常遇到更棘手的限制，比如“<strong>集合必须不相交</strong>”或者“<strong>求集合中的第 K 大值</strong>”。</p>
 <p>这时候，光有基础的 Möbius 反演是不够的，我们需要对代数结构进行“魔改”。</p>
 <hr>
-<h1>Phase 3: 进阶变换 —— 处理复杂的组合限制</h1>
-<h2 id="1-子集卷积-Subset-Convolution">1. 子集卷积 (Subset Convolution)</h2>
-<h3 id="1-1-问题引入">1.1 问题引入</h3>
+<h2 id="Phase-3-进阶变换-——-处理复杂的组合限制">Phase 3: 进阶变换 —— 处理复杂的组合限制</h2>
+<h3 id="1-子集卷积-Subset-Convolution">1. 子集卷积 (Subset Convolution)</h3>
+<h4 id="1-1-问题引入">1.1 问题引入</h4>
 <p>我们在 Phase 2 中学到了布尔格上的卷积（OR-Convolution）：</p>
 <p>$$h(S) = \sum_{A \cup B = S} f(A)g(B)$$</p>
 <p>这对应的是并集操作。但在很多计数问题（如斯坦纳树、覆盖问题）中，我们要求 $A$ 和 $B$ 不相交，即：</p>
@@ -745,7 +763,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>或者等价地写成：</p>
 <p>$$h(S) = \sum_{A \subseteq S} f(A)g(S \setminus A)$$</p>
 <p><strong>困境</strong>：如果我们直接用 FZT（SOS DP），会包含&nbsp;$A \cap B \neq \emptyset$&nbsp;的项。Möbius 反演只能处理“包含关系”，无法直接检测“交集是否为空”。</p>
-<h3 id="1-2-解决方案：秩变换-Ranked-Mobius-Transform">1.2 解决方案：秩变换 (Ranked Möbius Transform)</h3>
+<h4 id="1-2-解决方案：秩变换-Ranked-Mobius-Transform">1.2 解决方案：秩变换 (Ranked Möbius Transform)</h4>
 <p>我们需要引入一个新的维度来控制“元素个数”。</p>
 <p>观察：$A \cup B = S$ 且 $A \cap B = \emptyset \iff A \cup B = S$ 且 $|A| + |B| = |S|$。</p>
 <p>我们可以将状态扩展，手动记录集合的大小（秩, Rank）：</p>
@@ -783,13 +801,13 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 </ol>
 <p><strong>一句话总结</strong>：子集卷积 =&nbsp;<strong>FZT</strong>&nbsp;(在集合维) +&nbsp;<strong>多项式乘法</strong>&nbsp;(在基数维)。</p>
 <hr>
-<h2 id="2-Min-Max-容斥">2. Min-Max 容斥</h2>
+<h3 id="2-Min-Max-容斥">2. Min-Max 容斥</h3>
 <p>这是容斥原理在概率论和最优化问题中的一个漂亮推论。它不是通过卷积形式出现的，而是作为一种特殊的线性组合。</p>
-<h3 id="2-1-公式">2.1 公式</h3>
+<h4 id="2-1-公式">2.1 公式</h4>
 <p>设 $S$ 是一个集合，其中每个元素都有一个数值（或随机变量）。</p>
 <p>$$\max(S) = \sum_{\emptyset \neq T \subseteq S} (-1)^{|T|-1} \min(T)$$</p>
 <p>同理，将 $\min$ 和 $\max$ 对调公式也成立。</p>
-<h3 id="2-2-证明（构造系数法）">2.2 证明（构造系数法）</h3>
+<h4 id="2-2-证明（构造系数法）">2.2 证明（构造系数法）</h4>
 <p>这其实是构造一个系数函数 $C(T)$，使得：</p>
 <p>$$\sum_{\emptyset \neq T \subseteq S} C(T) \min(T) = \max(S)$$</p>
 <p>假设 $S$ 中的元素按大小排序为 $x_1 &lt; x_2 &lt; \dots &lt; x_n$（所以 $\max(S) = x_n$）。</p>
@@ -812,12 +830,12 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p><strong>证毕</strong>。</p>
 </li>
 </ul>
-<h3 id="2-3-推广：Kth-Min-Max">2.3 推广：Kth Min-Max</h3>
+<h4 id="2-3-推广：Kth-Min-Max">2.3 推广：Kth Min-Max</h4>
 <p>如果我们想求第 $k$ 大的值：</p>
 <p>$$k\text{th-max}(S) = \sum_{\emptyset \neq T \subseteq S} (-1)^{|T|-k} \binom{|T|-1}{k-1} \min(T)$$</p>
 <p>这在计算“收集全套卡片的期望时间”（Coupon Collector Problem 变体）时是神器。</p>
 <hr>
-<h2 id="3-GCD-与-LCM-卷积">3. GCD 与 LCM 卷积</h2>
+<h3 id="3-GCD-与-LCM-卷积">3. GCD 与 LCM 卷积</h3>
 <p>这是数论格上的“Min/Max”操作。</p>
 <ul>
 <li>
@@ -866,7 +884,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 </li>
 </ul>
 <hr>
-<h2 id="4-总结：变换的本质">4. 总结：变换的本质</h2>
+<h3 id="4-总结：变换的本质">4. 总结：变换的本质</h3>
 <p>我们在这里看到了一个统一的模式：</p>
 <p>$$\text{Complex Convolution} \xrightarrow{\mathcal{T}} \text{Pointwise Product} \xrightarrow{\mathcal{T}^{-1}} \text{Result}$$</p>
 <table>
@@ -927,18 +945,18 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p>在这一步，我们将把这些数学符号转化为具体的 $O(N \log N)$ 或 $O(n 2^n)$ 代码逻辑，并解释为什么“枚举子集”的 $3^n$ 可以被优化掉。</p>
 <p>在前三个阶段，我们完成了从抽象定义到数学公式的推导。现在，我们要将这些&nbsp;$\sum$&nbsp;符号转化为计算机能够高效执行的代码，并揭示为什么这些算法能比暴力枚举快得多的根本原因。</p>
 <hr>
-<h1>Phase 4: 算法实现与复杂度 (Algorithm Implementation &amp; Complexity)</h1>
-<h2 id="1-核心思想：维度分离-Separation-of-Variables">1. 核心思想：维度分离 (Separation of Variables)</h2>
+<h2 id="Phase-4-算法实现与复杂度-Algorithm-Implementation-Complexity">Phase 4: 算法实现与复杂度 (Algorithm Implementation &amp; Complexity)</h2>
+<h3 id="1-核心思想：维度分离-Separation-of-Variables">1. 核心思想：维度分离 (Separation of Variables)</h3>
 <p>所有“快速变换”算法（FFT, FZT, FWHT, 高维前缀和）的核心思想都是一致的：</p>
 <p>将高维空间上的全局操作，分解为每一个维度上的局部操作。</p>
 <p>根据 Phase 2 的结论，布尔格&nbsp;$2^S$&nbsp;是&nbsp;$n$&nbsp;个&nbsp;$C_2$&nbsp;链的直积。因此，我们不需要一次性枚举所有子集，而是可以<strong>依次处理每一个二进制位</strong>。</p>
 <hr>
-<h2 id="2-布尔格上的实现：FZT-SOS-DP">2. 布尔格上的实现：FZT / SOS DP</h2>
+<h3 id="2-布尔格上的实现：FZT-SOS-DP">2. 布尔格上的实现：FZT / SOS DP</h3>
 <p>这是计算&nbsp;$g(S) = \sum_{T \subseteq S} f(T)$&nbsp;的标准算法。</p>
-<h3 id="2-1-代码实现-C-风格">2.1 代码实现 (C++ 风格)</h3>
+<h4 id="2-1-代码实现-C-风格">2.1 代码实现 (C++ 风格)</h4>
 <p>C++</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// A: 存储函数的数组，长度为 2^n</span><br><span class="line">// n: 集合大小 (元素的个数，即维数)</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; n; ++i) &#123;           // 枚举每一个维度 (bit)</span><br><span class="line">    for (int mask = 0; mask &lt; (1 &lt;&lt; n); ++mask) &#123;</span><br><span class="line">        if (mask &amp; (1 &lt;&lt; i)) &#123;          // 如果当前位置为 1</span><br><span class="line">            // 利用容斥原理/前缀和思想：</span><br><span class="line">            // dp[mask] += dp[mask ^ (1&lt;&lt;i)]</span><br><span class="line">            // 这一步把 &quot;第 i 位为 0&quot; 的状态累加到了 &quot;第 i 位为 1&quot; 的状态上</span><br><span class="line">            A[mask] += A[mask ^ (1 &lt;&lt; i)];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="2-2-复杂度分析">2.2 复杂度分析</h3>
+<h4 id="2-2-复杂度分析">2.2 复杂度分析</h4>
 <ul>
 <li>
 <p><strong>暴力枚举子集</strong>：对于每个&nbsp;$S$，枚举&nbsp;$T \subseteq S$。复杂度为&nbsp;$\sum \binom{n}{k} 2^k = 3^n \approx 1.77 \times 10^9$&nbsp;(当&nbsp;$n=20$)。</p>
@@ -958,14 +976,14 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 </ul>
 </li>
 </ul>
-<h3 id="2-3-逆变换-Inverse-FZT">2.3 逆变换 (Inverse FZT)</h3>
+<h4 id="2-3-逆变换-Inverse-FZT">2.3 逆变换 (Inverse FZT)</h4>
 <p>即 Möbius 反演。根据&nbsp;$\mu$&nbsp;的性质，只需将&nbsp;<code>+=</code>&nbsp;改为&nbsp;<code>-=</code>&nbsp;即可。</p>
 <p>C++</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 还原 f(S)</span><br><span class="line">for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">    for (int mask = 0; mask &lt; (1 &lt;&lt; n); ++mask) &#123;</span><br><span class="line">        if (mask &amp; (1 &lt;&lt; i)) &#123;</span><br><span class="line">            A[mask] -= A[mask ^ (1 &lt;&lt; i)]; // 差分</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
 <hr>
-<h2 id="3-子集卷积-Subset-Convolution-的实现">3. 子集卷积 (Subset Convolution) 的实现</h2>
+<h3 id="3-子集卷积-Subset-Convolution-的实现">3. 子集卷积 (Subset Convolution) 的实现</h3>
 <p>对应 Phase 3 中的 Ranked Möbius Transform。我们需要维护“集合大小”这一额外信息。</p>
-<h3 id="3-1-算法流程">3.1 算法流程</h3>
+<h4 id="3-1-算法流程">3.1 算法流程</h4>
 <ol>
 <li>
 <p><strong>分层 (Initialization)</strong>：建立二维数组&nbsp;<code>hat_f[n+1][1&lt;&lt;n]</code>。将原始数据按 popcount (二进制中1的个数) 填入对应层。</p>
@@ -986,7 +1004,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 <p><strong>提取结果</strong>：最终答案为&nbsp;<code>hat_h[popcount(mask)][mask]</code>。</p>
 </li>
 </ol>
-<h3 id="3-2-复杂度分析">3.2 复杂度分析</h3>
+<h4 id="3-2-复杂度分析">3.2 复杂度分析</h4>
 <ul>
 <li>
 <p><strong>变换部分</strong>：做了&nbsp;$n+1$&nbsp;次 FZT。复杂度&nbsp;$(n+1) \times O(n 2^n) = O(n^2 2^n)$。</p>
@@ -1002,15 +1020,15 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 </li>
 </ul>
 <hr>
-<h2 id="4-整除格上的实现：狄利克雷前缀和">4. 整除格上的实现：狄利克雷前缀和</h2>
+<h3 id="4-整除格上的实现：狄利克雷前缀和">4. 整除格上的实现：狄利克雷前缀和</h3>
 <p>这是计算&nbsp;$g(n) = \sum_{d|n} f(d)$&nbsp;的高效算法。它和 FZT 是完全同构的，只是“二进制位”变成了“质因子”。</p>
-<h3 id="4-1-代码实现-高维前缀和">4.1 代码实现 (高维前缀和)</h3>
+<h4 id="4-1-代码实现-高维前缀和">4.1 代码实现 (高维前缀和)</h4>
 <p>C++</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// primes: 预处理出的质数列表</span><br><span class="line">// A: 存储函数值，长度为 N</span><br><span class="line"></span><br><span class="line">for (int p : primes) &#123;              // 枚举每一个“维度” (质因子)</span><br><span class="line">    for (int i = 1; i * p &lt;= N; ++i) &#123; </span><br><span class="line">        // 从小到大枚举，把 &quot;i&quot; 的贡献加到 &quot;i*p&quot; 上</span><br><span class="line">        // 相当于把 &quot;指数为 k&quot; 的贡献加到 &quot;指数为 k+1&quot; 上</span><br><span class="line">        A[i * p] += A[i]; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><em>注意</em>：这里不需要显式处理指数&nbsp;$p^k$，因为&nbsp;<code>A[i*p] += A[i]</code>&nbsp;这一行代码会像滚雪球一样，把&nbsp;$p^1$&nbsp;传给&nbsp;$p^2$，再传给&nbsp;$p^3$。</li>
 </ul>
-<h3 id="4-2-复杂度分析">4.2 复杂度分析</h3>
+<h4 id="4-2-复杂度分析">4.2 复杂度分析</h4>
 <ul>
 <li>
 <p><strong>暴力试除</strong>：对于每个数枚举约数，总复杂度&nbsp;$O(N \sqrt{N})$&nbsp;或&nbsp;$O(N \log N)$&nbsp;(调和级数)。</p>
@@ -1026,7 +1044,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
 </li>
 </ul>
 <hr>
-<h2 id="5-算法对比与速查-Cheat-Sheet">5. 算法对比与速查 (Cheat Sheet)</h2>
+<h3 id="5-算法对比与速查-Cheat-Sheet">5. 算法对比与速查 (Cheat Sheet)</h3>
 <table>
 <thead>
 <tr>
@@ -1100,7 +1118,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/Text2Speech/">
+                                <a class="post-nav__link" href="/%E4%B8%80%E4%BA%9B%E9%9F%B3%E4%B9%90%E7%BD%91%E7%AB%99/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -1109,7 +1127,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">Text2Speech</span>
+                                        <span class="post-nav__title">一些音乐网站</span>
                                     </span>
                                 </a>
                             
@@ -1141,7 +1159,7 @@ $$\begin{aligned} \left| \bigcup_{i=1}^n A_i \right| &amp;= \sum_{x \in U} \math
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%E7%9A%84%E4%BB%A3%E6%95%B0%E8%AF%81%E6%98%8E%EF%BC%88%E7%89%B9%E5%BE%81%E5%87%BD%E6%95%B0%E6%B3%95%EF%BC%89"><span class="post-toc-text">第一部分：容斥原理的代数证明（特征函数法）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Phase 1: 理论重构 —— 偏序集上的关联代数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%9F%BA%E7%A1%80%E5%AE%9A%E4%B9%89%EF%BC%9A%E4%BB%8E%E9%9B%86%E5%90%88%E5%88%B0%E5%81%8F%E5%BA%8F%E9%9B%86"><span class="post-toc-text">1. 基础定义：从集合到偏序集</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%85%B3%E8%81%94%E4%BB%A3%E6%95%B0-Incidence-Algebra-%E4%B8%8E-%E5%B9%BF%E4%B9%89%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">2. 关联代数 (Incidence Algebra) 与 广义卷积</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E7%AE%97%E5%AD%90"><span class="post-toc-text">3. 三大核心算子</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-%E5%8D%95%E4%BD%8D%E5%85%83%EF%BC%9ADelta-%E5%87%BD%E6%95%B0-delta"><span class="post-toc-text">3.1 单位元：Delta 函数 ($\delta$)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-%E6%B1%82%E5%92%8C%E7%AE%97%E5%AD%90%EF%BC%9AZeta-%E5%87%BD%E6%95%B0-zeta"><span class="post-toc-text">3.2 求和算子：Zeta 函数 ($\zeta$)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-%E5%B7%AE%E5%88%86%E7%AE%97%E5%AD%90%EF%BC%9AMobius-%E5%87%BD%E6%95%B0-mu"><span class="post-toc-text">3.3 差分算子：Möbius 函数 ($\mu$)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Mobius-%E5%8F%8D%E6%BC%94%E5%85%AC%E5%BC%8F-The-Inversion-Formula"><span class="post-toc-text">4. Möbius 反演公式 (The Inversion Formula)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E4%BB%8E%E5%8F%8C%E5%8F%98%E9%87%8F%E5%88%B0%E5%8D%95%E5%8F%98%E9%87%8F-The-Bridge-to-Practice"><span class="post-toc-text">5. 从双变量到单变量 (The Bridge to Practice)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-%E6%80%BB%E7%BB%93%E4%B8%8E%E5%9B%BE%E8%A7%A3"><span class="post-toc-text">6. 总结与图解</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Phase 2: 经典模型的统一 —— 三大卷积的映射</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E5%B7%A5%E5%85%B7%EF%BC%9A%E7%A7%AF%E5%81%8F%E5%BA%8F%E9%9B%86-Product-Poset"><span class="post-toc-text">1. 核心工具：积偏序集 (Product Poset)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%A8%A1%E5%9E%8B-A%EF%BC%9A%E5%B8%83%E5%B0%94%E6%A0%BC-The-Boolean-Lattice-%E2%80%94%E2%80%94-%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%96%E7%95%8C"><span class="post-toc-text">2. 模型 A：布尔格 (The Boolean Lattice) —— 集合的世界</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="post-toc-text">2.1 结构分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-Mobius-%E5%87%BD%E6%95%B0%E6%8E%A8%E5%AF%BC"><span class="post-toc-text">2.2 Möbius 函数推导</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-%E5%AF%B9%E5%BA%94%E5%8D%B7%E7%A7%AF%EF%BC%9A%E5%AD%90%E9%9B%86%E5%8D%B7%E7%A7%AF%E4%B8%8E-OR-%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">2.3 对应卷积：子集卷积与 OR-卷积</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E6%A8%A1%E5%9E%8B-B%EF%BC%9A%E6%95%B4%E9%99%A4%E6%A0%BC-The-Divisibility-Lattice-%E2%80%94%E2%80%94-%E6%95%B0%E8%AE%BA%E7%9A%84%E4%B8%96%E7%95%8C"><span class="post-toc-text">3. 模型 B：整除格 (The Divisibility Lattice) —— 数论的世界</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="post-toc-text">3.1 结构分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-Mobius-%E5%87%BD%E6%95%B0%E6%8E%A8%E5%AF%BC"><span class="post-toc-text">3.2 Möbius 函数推导</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-%E5%AF%B9%E5%BA%94%E5%8D%B7%E7%A7%AF%EF%BC%9A%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF-Dirichlet-Convolution"><span class="post-toc-text">3.3 对应卷积：狄利克雷卷积 (Dirichlet Convolution)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E7%BB%9F%E4%B8%80%E8%A7%86%E8%A7%92%E6%80%BB%E7%BB%93%E8%A1%A8-Unification-Table"><span class="post-toc-text">4. 统一视角总结表 (Unification Table)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Phase 3: 进阶变换 —— 处理复杂的组合限制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%AD%90%E9%9B%86%E5%8D%B7%E7%A7%AF-Subset-Convolution"><span class="post-toc-text">1. 子集卷积 (Subset Convolution)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-%E9%97%AE%E9%A2%98%E5%BC%95%E5%85%A5"><span class="post-toc-text">1.1 问题引入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E7%A7%A9%E5%8F%98%E6%8D%A2-Ranked-Mobius-Transform"><span class="post-toc-text">1.2 解决方案：秩变换 (Ranked Möbius Transform)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Min-Max-%E5%AE%B9%E6%96%A5"><span class="post-toc-text">2. Min-Max 容斥</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E5%85%AC%E5%BC%8F"><span class="post-toc-text">2.1 公式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-%E8%AF%81%E6%98%8E%EF%BC%88%E6%9E%84%E9%80%A0%E7%B3%BB%E6%95%B0%E6%B3%95%EF%BC%89"><span class="post-toc-text">2.2 证明（构造系数法）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-%E6%8E%A8%E5%B9%BF%EF%BC%9AKth-Min-Max"><span class="post-toc-text">2.3 推广：Kth Min-Max</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-GCD-%E4%B8%8E-LCM-%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">3. GCD 与 LCM 卷积</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E6%80%BB%E7%BB%93%EF%BC%9A%E5%8F%98%E6%8D%A2%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="post-toc-text">4. 总结：变换的本质</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Phase 4: 算法实现与复杂度 (Algorithm Implementation &amp; Complexity)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%EF%BC%9A%E7%BB%B4%E5%BA%A6%E5%88%86%E7%A6%BB-Separation-of-Variables"><span class="post-toc-text">1. 核心思想：维度分离 (Separation of Variables)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%B8%83%E5%B0%94%E6%A0%BC%E4%B8%8A%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%9AFZT-SOS-DP"><span class="post-toc-text">2. 布尔格上的实现：FZT &#x2F; SOS DP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-C-%E9%A3%8E%E6%A0%BC"><span class="post-toc-text">2.1 代码实现 (C++ 风格)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="post-toc-text">2.2 复杂度分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-%E9%80%86%E5%8F%98%E6%8D%A2-Inverse-FZT"><span class="post-toc-text">2.3 逆变换 (Inverse FZT)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%AD%90%E9%9B%86%E5%8D%B7%E7%A7%AF-Subset-Convolution-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">3. 子集卷积 (Subset Convolution) 的实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="post-toc-text">3.1 算法流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="post-toc-text">3.2 复杂度分析</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E6%95%B4%E9%99%A4%E6%A0%BC%E4%B8%8A%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%9A%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%89%8D%E7%BC%80%E5%92%8C"><span class="post-toc-text">4. 整除格上的实现：狄利克雷前缀和</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-%E9%AB%98%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C"><span class="post-toc-text">4.1 代码实现 (高维前缀和)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="post-toc-text">4.2 复杂度分析</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94%E4%B8%8E%E9%80%9F%E6%9F%A5-Cheat-Sheet"><span class="post-toc-text">5. 算法对比与速查 (Cheat Sheet)</span></a></li></ol></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%E7%9A%84%E4%BB%A3%E6%95%B0%E8%AF%81%E6%98%8E%EF%BC%88%E7%89%B9%E5%BE%81%E5%87%BD%E6%95%B0%E6%B3%95%EF%BC%89"><span class="post-toc-text">第一部分：容斥原理的代数证明（特征函数法）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Phase-1-%E7%90%86%E8%AE%BA%E9%87%8D%E6%9E%84-%E2%80%94%E2%80%94-%E5%81%8F%E5%BA%8F%E9%9B%86%E4%B8%8A%E7%9A%84%E5%85%B3%E8%81%94%E4%BB%A3%E6%95%B0"><span class="post-toc-text">Phase 1: 理论重构 —— 偏序集上的关联代数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%9F%BA%E7%A1%80%E5%AE%9A%E4%B9%89%EF%BC%9A%E4%BB%8E%E9%9B%86%E5%90%88%E5%88%B0%E5%81%8F%E5%BA%8F%E9%9B%86"><span class="post-toc-text">1. 基础定义：从集合到偏序集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%85%B3%E8%81%94%E4%BB%A3%E6%95%B0-Incidence-Algebra-%E4%B8%8E-%E5%B9%BF%E4%B9%89%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">2. 关联代数 (Incidence Algebra) 与 广义卷积</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E7%AE%97%E5%AD%90"><span class="post-toc-text">3. 三大核心算子</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Mobius-%E5%8F%8D%E6%BC%94%E5%85%AC%E5%BC%8F-The-Inversion-Formula"><span class="post-toc-text">4. Möbius 反演公式 (The Inversion Formula)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-%E4%BB%8E%E5%8F%8C%E5%8F%98%E9%87%8F%E5%88%B0%E5%8D%95%E5%8F%98%E9%87%8F-The-Bridge-to-Practice"><span class="post-toc-text">5. 从双变量到单变量 (The Bridge to Practice)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-%E6%80%BB%E7%BB%93%E4%B8%8E%E5%9B%BE%E8%A7%A3"><span class="post-toc-text">6. 总结与图解</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Phase-2-%E7%BB%8F%E5%85%B8%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BB%9F%E4%B8%80-%E2%80%94%E2%80%94-%E4%B8%89%E5%A4%A7%E5%8D%B7%E7%A7%AF%E7%9A%84%E6%98%A0%E5%B0%84"><span class="post-toc-text">Phase 2: 经典模型的统一 —— 三大卷积的映射</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E5%B7%A5%E5%85%B7%EF%BC%9A%E7%A7%AF%E5%81%8F%E5%BA%8F%E9%9B%86-Product-Poset"><span class="post-toc-text">1. 核心工具：积偏序集 (Product Poset)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E6%A8%A1%E5%9E%8B-A%EF%BC%9A%E5%B8%83%E5%B0%94%E6%A0%BC-The-Boolean-Lattice-%E2%80%94%E2%80%94-%E9%9B%86%E5%90%88%E7%9A%84%E4%B8%96%E7%95%8C"><span class="post-toc-text">2. 模型 A：布尔格 (The Boolean Lattice) —— 集合的世界</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E6%A8%A1%E5%9E%8B-B%EF%BC%9A%E6%95%B4%E9%99%A4%E6%A0%BC-The-Divisibility-Lattice-%E2%80%94%E2%80%94-%E6%95%B0%E8%AE%BA%E7%9A%84%E4%B8%96%E7%95%8C"><span class="post-toc-text">3. 模型 B：整除格 (The Divisibility Lattice) —— 数论的世界</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E7%BB%9F%E4%B8%80%E8%A7%86%E8%A7%92%E6%80%BB%E7%BB%93%E8%A1%A8-Unification-Table"><span class="post-toc-text">4. 统一视角总结表 (Unification Table)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Phase-3-%E8%BF%9B%E9%98%B6%E5%8F%98%E6%8D%A2-%E2%80%94%E2%80%94-%E5%A4%84%E7%90%86%E5%A4%8D%E6%9D%82%E7%9A%84%E7%BB%84%E5%90%88%E9%99%90%E5%88%B6"><span class="post-toc-text">Phase 3: 进阶变换 —— 处理复杂的组合限制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%AD%90%E9%9B%86%E5%8D%B7%E7%A7%AF-Subset-Convolution"><span class="post-toc-text">1. 子集卷积 (Subset Convolution)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Min-Max-%E5%AE%B9%E6%96%A5"><span class="post-toc-text">2. Min-Max 容斥</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-GCD-%E4%B8%8E-LCM-%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">3. GCD 与 LCM 卷积</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E6%80%BB%E7%BB%93%EF%BC%9A%E5%8F%98%E6%8D%A2%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="post-toc-text">4. 总结：变换的本质</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Phase-4-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E4%B8%8E%E5%A4%8D%E6%9D%82%E5%BA%A6-Algorithm-Implementation-Complexity"><span class="post-toc-text">Phase 4: 算法实现与复杂度 (Algorithm Implementation &amp; Complexity)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%EF%BC%9A%E7%BB%B4%E5%BA%A6%E5%88%86%E7%A6%BB-Separation-of-Variables"><span class="post-toc-text">1. 核心思想：维度分离 (Separation of Variables)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%B8%83%E5%B0%94%E6%A0%BC%E4%B8%8A%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%9AFZT-SOS-DP"><span class="post-toc-text">2. 布尔格上的实现：FZT &#x2F; SOS DP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E5%AD%90%E9%9B%86%E5%8D%B7%E7%A7%AF-Subset-Convolution-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">3. 子集卷积 (Subset Convolution) 的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E6%95%B4%E9%99%A4%E6%A0%BC%E4%B8%8A%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%9A%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%89%8D%E7%BC%80%E5%92%8C"><span class="post-toc-text">4. 整除格上的实现：狄利克雷前缀和</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94%E4%B8%8E%E9%80%9F%E6%9F%A5-Cheat-Sheet"><span class="post-toc-text">5. 算法对比与速查 (Cheat Sheet)</span></a></li></ol></li></ol>
                     </div>
                 </div>
             </mdui-card>

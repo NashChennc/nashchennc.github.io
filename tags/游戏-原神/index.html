@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-top-app-bar class="app-top-bar">
+  <div class="topbar-home">
+    
+      <mdui-button
+        variant="text"
+        href="/"
+        class="topbar-nav-btn topbar-home__btn"
+        
+      >Home</mdui-button>
+    
+  </div>
+
+  
+    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
+      
+        
+      <a
+        href="/categories/%E7%AC%94%E8%AE%B0"
+        
+      >笔记 · 78</a>
+        
+      
+        
+      <a
+        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+        
+      >碎碎念 · 454</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+        
+      >流水账 · 175</a>
+        
+      
+        
+      <a
+        href="/categories/%E6%95%A3%E6%96%87"
+        
+      >散文 · 11</a>
+        
+      
+        
+      <a
+        href="/categories/%E4%B8%93%E6%A0%8F"
+        
+      >专栏 · 4</a>
+        
+      
+    </nav>
+  
+
+  <div class="topbar-end">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+  <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+  <!-- Main Content (Layout control moved to individual views) -->
+  <div id="main-content">
+    <div class="page-shell app-container page-shell--pad-list">
+    <div class="page-grid page-grid--single">
+        <main class="page-main">
+            <div class="category-index">
+                
+                <header class="notes-header">
+                    <h1 class="notes-title">游戏/原神</h1>
+                    
+                </header>
+                
+
+<div
+  class="activity-heatmap"
+  id="activity-heatmap-tags---index-html"
+  data-detail-window-days="7"
+  data-label-post="post"
+  data-label-posts="posts"
+  data-label-no-posts="No posts"
+  data-label-less="Less"
+  data-label-more="More"
+>
+  <div class="activity-heatmap__inner">
+    <div class="activity-heatmap__header">
+      <div class="activity-heatmap__title-block">
+        <p class="activity-heatmap__summary" data-activity-summary></p>
+      </div>
+
+    </div>
+
+    <div class="activity-heatmap__viewport" data-activity-viewport>
+      <div class="activity-heatmap__calendar" data-activity-calendar>
+        <div class="activity-heatmap__years" data-activity-years></div>
+        <div class="activity-heatmap__months" data-activity-months></div>
+        <div class="activity-heatmap__body">
+          <div class="activity-heatmap__weekdays" data-activity-weekdays aria-hidden="true"></div>
+          <div class="activity-heatmap__cells" data-activity-cells role="grid" aria-label="Contribution heatmap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-heatmap__legend" aria-hidden="true">
+      <span data-activity-less>Less</span>
+      <span class="activity-heatmap__legend-swatch" data-level="0"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="1"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="2"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="3"></span>
+      <span class="activity-heatmap__legend-swatch" data-level="4"></span>
+      <span data-activity-more>More</span>
+    </div>
+
+    <section class="activity-heatmap__detail" data-activity-detail hidden>
+      <div class="activity-heatmap__detail-head">
+        <div>
+          <h3 class="activity-heatmap__detail-title" data-activity-detail-title></h3>
+          <p class="activity-heatmap__detail-summary" data-activity-detail-summary></p>
+        </div>
+        <mdui-button-icon
+          variant="standard"
+          icon="close"
+          class="activity-heatmap__detail-close"
+          data-activity-detail-close
+          aria-label="Close detail"
+        ></mdui-button-icon>
+      </div>
+      <div class="activity-heatmap__detail-list" data-activity-detail-list></div>
+    </section>
+
+    <div class="activity-heatmap__empty" data-activity-empty hidden>
+      <mdui-icon name="calendar_today" class="activity-heatmap__empty-icon"></mdui-icon>
+      <span>No posts</span>
+    </div>
+  </div>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"原神 1.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%201.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2020-09-28","tags":["时间线","游戏/原神"]},{"title":"原神","url":"/%E5%8E%9F%E7%A5%9E/","date":"2021-01-29","tags":["时间线","游戏/原神"]},{"title":"2021.02.03 今晚把原神的璃月章音乐全部听完了","url":"/2021.02.03%20%E4%BB%8A%E6%99%9A%E6%8A%8A%E5%8E%9F%E7%A5%9E%E7%9A%84%E7%92%83%E6%9C%88%E7%AB%A0%E9%9F%B3%E4%B9%90%E5%85%A8%E9%83%A8%E5%90%AC%E5%AE%8C%E4%BA%86/","date":"2021-02-03","tags":["音乐","游戏/原神"]},{"title":"原神 2.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%202.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2021-07-21","tags":["时间线","游戏/原神"]},{"title":"2021.08.07 论坛实在是逛不下去了","url":"/2021.08.07%20%E8%AE%BA%E5%9D%9B%E5%AE%9E%E5%9C%A8%E6%98%AF%E9%80%9B%E4%B8%8D%E4%B8%8B%E5%8E%BB%E4%BA%86/","date":"2021-08-07","tags":["游戏/崩崩崩","游戏/原神"]},{"title":"2021.09.23 在宿舍听稻妻bgm","url":"/2021.09.23%20%E5%9C%A8%E5%AE%BF%E8%88%8D%E5%90%AC%E7%A8%BB%E5%A6%BBbgm/","date":"2021-09-23","tags":["游戏/原神"]},{"title":"2021.10.15 鹤观的音乐好棒！！！","url":"/2021.10.15%20%E9%B9%A4%E8%A7%82%E7%9A%84%E9%9F%B3%E4%B9%90%E5%A5%BD%E6%A3%92%EF%BC%81%EF%BC%81%EF%BC%81/","date":"2021-10-15","tags":["反思","音乐","游戏/原神"]},{"title":"2021.12.14 《明早没早八》","url":"/2021.12.14%20%E3%80%8A%E6%98%8E%E6%97%A9%E6%B2%A1%E6%97%A9%E5%85%AB%E3%80%8B/","date":"2021-12-14","tags":["游戏/原神"]},{"title":"2022.01.05 啊啊啊啊啊我不行了","url":"/2022.01.05%20%E5%95%8A%E5%95%8A%E5%95%8A%E5%95%8A%E5%95%8A%E6%88%91%E4%B8%8D%E8%A1%8C%E4%BA%86/","date":"2022-01-05","tags":["音乐","游戏/原神"]},{"title":"2022.01.05 HOYO-MIX一次都没让我失望过","url":"/2022.01.05%20HOYO-MIX%E4%B8%80%E6%AC%A1%E9%83%BD%E6%B2%A1%E8%AE%A9%E6%88%91%E5%A4%B1%E6%9C%9B%E8%BF%87/","date":"2022-01-05","tags":["音乐","游戏/原神"]},{"title":"2022.01.07 如图。","url":"/2022.01.07%20%E5%A6%82%E5%9B%BE%E3%80%82/","date":"2022-01-07","tags":["游戏/原神"]},{"title":"2022.01.11 全图clear","url":"/2022.01.11%20%E5%85%A8%E5%9B%BEclear/","date":"2022-01-11","tags":["游戏/原神"]},{"title":"2022.01.30 让我看看有多少真爱党","url":"/2022.01.30%20%E8%AE%A9%E6%88%91%E7%9C%8B%E7%9C%8B%E6%9C%89%E5%A4%9A%E5%B0%91%E7%9C%9F%E7%88%B1%E5%85%9A/","date":"2022-01-30","tags":["书法","游戏/原神"]},{"title":"2022.01.30 字 正 腔 圆","url":"/2022.01.30%20%E5%AD%97%20%E6%AD%A3%20%E8%85%94%20%E5%9C%86/","date":"2022-01-30","tags":["书法","游戏/原神"]},{"title":"2022.02.18 进三界路飨祭第一件注意事项：","url":"/2022.02.18%20%E8%BF%9B%E4%B8%89%E7%95%8C%E8%B7%AF%E9%A3%A8%E7%A5%AD%E7%AC%AC%E4%B8%80%E4%BB%B6%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9A/","date":"2022-02-18","tags":["游戏/原神"]},{"title":"2022.02.19 是百鬼夜行！","url":"/2022.02.19%20%E6%98%AF%E7%99%BE%E9%AC%BC%E5%A4%9C%E8%A1%8C%EF%BC%81/","date":"2022-02-19","tags":["音乐","游戏/原神"]},{"title":"2022.03.30 层岩巨渊地面bgm简评","url":"/2022.03.30%20%E5%B1%82%E5%B2%A9%E5%B7%A8%E6%B8%8A%E5%9C%B0%E9%9D%A2bgm%E7%AE%80%E8%AF%84/","date":"2022-03-30","tags":["音乐","游戏/原神"]},{"title":"2022.03.30 又又又让我找到听战斗bgm的地方了","url":"/2022.03.30%20%E5%8F%88%E5%8F%88%E5%8F%88%E8%AE%A9%E6%88%91%E6%89%BE%E5%88%B0%E5%90%AC%E6%88%98%E6%96%97bgm%E7%9A%84%E5%9C%B0%E6%96%B9%E4%BA%86/","date":"2022-03-30","tags":["音乐","游戏/原神"]},{"title":"2022.03.31 层岩巨渊深层很多地区直接场景bgm和战斗","url":"/2022.03.31%20%E5%B1%82%E5%B2%A9%E5%B7%A8%E6%B8%8A%E6%B7%B1%E5%B1%82%E5%BE%88%E5%A4%9A%E5%9C%B0%E5%8C%BA%E7%9B%B4%E6%8E%A5%E5%9C%BA%E6%99%AFbgm%E5%92%8C%E6%88%98%E6%96%97/","date":"2022-03-31","tags":["游戏/原神"]},{"title":"2022.04.03 很阴间","url":"/2022.04.03%20%E5%BE%88%E9%98%B4%E9%97%B4/","date":"2022-04-03","tags":["游戏/原神"]},{"title":"2022.04.13 01-07 海祇岛 冲绳 幻想海底世界","url":"/2022.04.13%2001-07%20%E6%B5%B7%E7%A5%87%E5%B2%9B%20%E5%86%B2%E7%BB%B3%20%E5%B9%BB%E6%83%B3%E6%B5%B7%E5%BA%95%E4%B8%96%E7%95%8C/","date":"2022-04-13","tags":["音乐","游戏/原神"]},{"title":"2022.06.18 满星了满星了","url":"/2022.06.18%20%E6%BB%A1%E6%98%9F%E4%BA%86%E6%BB%A1%E6%98%9F%E4%BA%86/","date":"2022-06-18","tags":["游戏/原神"]},{"title":"2022.06.21 如图","url":"/2022.06.21%20%E5%A6%82%E5%9B%BE/","date":"2022-06-21","tags":["音乐","游戏/原神"]},{"title":"原神 3.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%203.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2022-08-24","tags":["时间线","游戏/原神"]},{"title":"2023.08 上海","url":"/2023.08%20%E4%B8%8A%E6%B5%B7/","date":"2023-08-05","tags":["旅游","漫展","上海","游戏/原神"]},{"title":"2023.08.09 徐家汇","url":"/2023.08.09%20%E5%BE%90%E5%AE%B6%E6%B1%87/","date":"2023-08-09","tags":["旅游","游戏/原神"]},{"title":"2023.08.10 8.10 原神FES2023","url":"/2023.08.10%208.10%20%E5%8E%9F%E7%A5%9EFES2023/","date":"2023-08-10","tags":["旅游","游戏/原神"]},{"title":"2023.08.10 第三弹","url":"/2023.08.10%20%E7%AC%AC%E4%B8%89%E5%BC%B9/","date":"2023-08-10","tags":["旅游","游戏/原神"]},{"title":"2023.08.10 第四弹","url":"/2023.08.10%20%E7%AC%AC%E5%9B%9B%E5%BC%B9/","date":"2023-08-10","tags":["旅游","游戏/原神"]},{"title":"2023.08.10 原神 启动！","url":"/2023.08.10%20%E5%8E%9F%E7%A5%9E%20%E5%90%AF%E5%8A%A8%EF%BC%81/","date":"2023-08-10","tags":["旅游","游戏/原神"]},{"title":"2023.08.10 在漫展上练钢琴，以及","url":"/2023.08.10%20%E5%9C%A8%E6%BC%AB%E5%B1%95%E4%B8%8A%E7%BB%83%E9%92%A2%E7%90%B4%EF%BC%8C%E4%BB%A5%E5%8F%8A/","date":"2023-08-10","tags":["旅游","音乐","游戏/原神"]},{"title":"2023.08.11 回家了","url":"/2023.08.11%20%E5%9B%9E%E5%AE%B6%E4%BA%86/","date":"2023-08-11","tags":["旅游","游戏/原神"]},{"title":"2023.08.16 我观赏鱼和海底世界果然绝配","url":"/2023.08.16%20%E6%88%91%E8%A7%82%E8%B5%8F%E9%B1%BC%E5%92%8C%E6%B5%B7%E5%BA%95%E4%B8%96%E7%95%8C%E6%9E%9C%E7%84%B6%E7%BB%9D%E9%85%8D/","date":"2023-08-16","tags":["游戏/原神"]},{"title":"原神 4.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%204.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2023-08-16","tags":["时间线","游戏/原神"]},{"title":"2023.10.11 就在今天 原神失去了它音乐播放器的身份","url":"/2023.10.11%20%E5%B0%B1%E5%9C%A8%E4%BB%8A%E5%A4%A9%20%E5%8E%9F%E7%A5%9E%E5%A4%B1%E5%8E%BB%E4%BA%86%E5%AE%83%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E7%9A%84%E8%BA%AB%E4%BB%BD/","date":"2023-10-11","tags":["音乐","游戏/原神"]},{"title":"2023.11.13 你喝的每一升宝矿力，都来自芙宁娜过于充沛","url":"/2023.11.13%20%E4%BD%A0%E5%96%9D%E7%9A%84%E6%AF%8F%E4%B8%80%E5%8D%87%E5%AE%9D%E7%9F%BF%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9D%A5%E8%87%AA%E8%8A%99%E5%AE%81%E5%A8%9C%E8%BF%87%E4%BA%8E%E5%85%85%E6%B2%9B/","date":"2023-11-13","tags":["游戏/原神"]},{"title":"2024.01.20 广东人dna动了","url":"/2024.01.20%20%E5%B9%BF%E4%B8%9C%E4%BA%BAdna%E5%8A%A8%E4%BA%86/","date":"2024-01-20","tags":["游戏/原神"]},{"title":"2024.01.31 多少年了你游终于有常驻能动的场景船了","url":"/2024.01.31%20%E5%A4%9A%E5%B0%91%E5%B9%B4%E4%BA%86%E4%BD%A0%E6%B8%B8%E7%BB%88%E4%BA%8E%E6%9C%89%E5%B8%B8%E9%A9%BB%E8%83%BD%E5%8A%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%88%B9%E4%BA%86/","date":"2024-01-31","tags":["游戏/原神"]},{"title":"2024.02.12 我觉得空友应该需要这个","url":"/2024.02.12%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/","date":"2024-02-12","tags":["游戏/崩崩崩","游戏/崩铁","游戏/明日方舟","游戏/原神","游戏/重返未来1999"]},{"title":"2024.02.14 厨力是第一生产力！伟大的开源社区","url":"/2024.02.14%20%E5%8E%A8%E5%8A%9B%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B%EF%BC%81%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/","date":"2024-02-14","tags":["软件工程","游戏/原神"]},{"title":"原神 5.x 版本条目","url":"/%E5%8E%9F%E7%A5%9E%205.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2024-08-28","tags":["时间线","游戏/原神"]},{"title":"2024.10.13 回到宿舍了补发一个","url":"/2024.10.13%20%E5%9B%9E%E5%88%B0%E5%AE%BF%E8%88%8D%E4%BA%86%E8%A1%A5%E5%8F%91%E4%B8%80%E4%B8%AA/","date":"2024-10-13","tags":["动漫","游戏/原神"]},{"title":"2025.05.23 ACG音乐会","url":"/2025.05.23%20ACG%E9%9F%B3%E4%B9%90%E4%BC%9A/","date":"2025-05-23","tags":["动漫","音乐","游戏/原神"]},{"title":"原神 空月之歌 版本条目","url":"/%E5%8E%9F%E7%A5%9E%20%E7%A9%BA%E6%9C%88%E4%B9%8B%E6%AD%8C%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/","date":"2025-09-10","tags":["时间线","游戏/原神"]},{"title":"曲目赏析·枫丹","url":"/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E6%9E%AB%E4%B8%B9/","date":"2026-01-14","tags":["音乐","游戏/原神"]},{"title":"曲目赏析·芙卡洛斯之舞","url":"/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E8%8A%99%E5%8D%A1%E6%B4%9B%E6%96%AF%E4%B9%8B%E8%88%9E/","date":"2026-01-15","tags":["音乐","游戏/原神"]},{"title":"游戏版本剧情条目索引","url":"/%E6%B8%B8%E6%88%8F%E7%89%88%E6%9C%AC%E5%89%A7%E6%83%85%E6%9D%A1%E7%9B%AE%E7%B4%A2%E5%BC%95/","date":"2026-04-29","tags":["时间线","游戏/崩坏3","游戏/明日方舟","游戏/原神"]}]}</script>
+</div>
+
+
+                
+
+<section class="index-taxonomy" aria-label="Categories and tags">
+  
+  
+  <div class="index-taxonomy__block index-taxonomy__block--tags" aria-label="Tags">
+    <div class="index-taxonomy__tags-panel">
+      <div class="index-taxonomy__tags-flow">
+        <div class="index-taxonomy__chips index-taxonomy__chips--in-flow" role="list">
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%B8%B8%E6%88%8F-%E5%8E%9F%E7%A5%9E/"
+        aria-current="page"
+      >游戏/原神 · 47</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E9%9F%B3%E4%B9%90/"
+        
+      >音乐 · 14</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%97%85%E6%B8%B8/"
+        
+      >旅游 · 8</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%97%B6%E9%97%B4%E7%BA%BF/"
+        
+      >时间线 · 8</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%8A%A8%E6%BC%AB/"
+        
+      >动漫 · 2</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E4%B9%A6%E6%B3%95/"
+        
+      >书法 · 2</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%B8%B8%E6%88%8F-%E5%B4%A9%E5%B4%A9%E5%B4%A9/"
+        
+      >游戏/崩崩崩 · 2</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%B8%B8%E6%88%8F-%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/"
+        
+      >游戏/明日方舟 · 2</a>
+          
+        </div>
+        
+        <details class="index-taxonomy__tags-details">
+          <summary class="index-taxonomy__tags-summary">
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 7 more tags</span>
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
+          </summary>
+          <div class="index-taxonomy__tags-overflow-sleeve">
+            <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%8F%8D%E6%80%9D/"
+        
+      >反思 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%BC%AB%E5%B1%95/"
+        
+      >漫展 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"
+        
+      >软件工程 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E4%B8%8A%E6%B5%B7/"
+        
+      >上海 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%B8%B8%E6%88%8F-%E5%B4%A9%E5%9D%8F3/"
+        
+      >游戏/崩坏3 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%B8%B8%E6%88%8F-%E5%B4%A9%E9%93%81/"
+        
+      >游戏/崩铁 · 1</a>
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E6%B8%B8%E6%88%8F-%E9%87%8D%E8%BF%94%E6%9C%AA%E6%9D%A51999/"
+        
+      >游戏/重返未来1999 · 1</a>
+              
+            </div>
+            <button type="button" class="index-taxonomy__tags-less">Show fewer tags</button>
+          </div>
+        </details>
+        
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+
+                <div class="notes-grid">
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%B8%B8%E6%88%8F%E7%89%88%E6%9C%AC%E5%89%A7%E6%83%85%E6%9D%A1%E7%9B%AE%E7%B4%A2%E5%BC%95/" class="note-card">
+  
+  <img src="/image/banner/nozomizo27.JPG" class="note-cover" alt="游戏版本剧情条目索引" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">游戏版本剧情条目索引</h2>
+      
+      <p class="note-excerpt">原神、崩坏3与明日方舟剧情索引入口。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2026 Apr 29</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E8%8A%99%E5%8D%A1%E6%B4%9B%E6%96%AF%E4%B9%8B%E8%88%9E/" class="note-card">
+  
+  <img src="/files/rafa_113516139_p0_%E7%8B%AC%E5%A4%84.jpg" class="note-cover" alt="曲目赏析·芙卡洛斯之舞" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">曲目赏析·芙卡洛斯之舞</h2>
+      
+      <p class="note-excerpt">《曲终奏雅》等芙宁娜终幕配乐赏析：孤独、审判与和声张力（含严重剧透）。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2026 Jan 15</span>
+      <span class="note-read">9 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E6%9E%AB%E4%B8%B9/" class="note-card">
+  
+  <img src="/files/rafa_112073737_p0_%E5%A4%A7%E6%B3%95%E5%AE%98.jpg" class="note-cover" alt="曲目赏析·枫丹" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">曲目赏析·枫丹</h2>
+      
+      <p class="note-excerpt">枫丹篇浪漫主义歌剧式叙事与《枫丹》主题、「预言」动机等配乐听析（芙宁娜主线，剧透）。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2026 Jan 14</span>
+      <span class="note-read">9 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8E%9F%E7%A5%9E%20%E7%A9%BA%E6%9C%88%E4%B9%8B%E6%AD%8C%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" class="note-card">
+  
+  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="原神 空月之歌 版本条目" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">原神 空月之歌 版本条目</h2>
+      
+      <p class="note-excerpt">《原神》空月之歌阶段条目：挪德卡莱开放、雪界与龙线、蒙德新区域等内容。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2025 Sep 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2025.05.23%20ACG%E9%9F%B3%E4%B9%90%E4%BC%9A/" class="note-card">
+  
+  <img src="/files/qzone-20250523-182751-01.jpg" class="note-cover" alt="2025.05.23 ACG音乐会" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2025.05.23 ACG音乐会</h2>
+      
+      <p class="note-excerpt">【ACG音乐会节目资讯】 魔法少女作为一个经久不衰的题材，自60年前开山鼻祖《魔法使莎莉》诞生以来，便一路高歌猛进，至今仍在业界有一席之地。在我们即将演奏...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">动漫</span>
+      
+      <span class="note-date">2025 May 23</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2024.10.13%20%E5%9B%9E%E5%88%B0%E5%AE%BF%E8%88%8D%E4%BA%86%E8%A1%A5%E5%8F%91%E4%B8%80%E4%B8%AA/" class="note-card">
+  
+  <img src="/files/qzone-20241013-231833-01.jpg" class="note-cover" alt="2024.10.13 回到宿舍了补发一个" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.10.13 回到宿舍了补发一个</h2>
+      
+      <p class="note-excerpt">回到宿舍了补发一个 昨晚 活动都在今晚，但是要回学校了[em]e109[/em] 阵就不摆了 宿舍还是太小了</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">动漫</span>
+      
+      <span class="note-date">2024 Oct 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8E%9F%E7%A5%9E%205.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" class="note-card">
+  
+  <img src="/image/banner/nozomizo1.jpg" class="note-cover" alt="原神 5.x 版本条目" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">原神 5.x 版本条目</h2>
+      
+      <p class="note-excerpt">《原神》5.x 大版本条目：纳塔开放与主线终章、远古圣山、悠悠度假村与挪德卡莱预热等内容。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2024 Aug 28</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2024.02.14%20%E5%8E%A8%E5%8A%9B%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B%EF%BC%81%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" class="note-card">
+  
+  <img src="/files/qzone-20240214-211034-01.jpg" class="note-cover" alt="2024.02.14 厨力是第一生产力！伟大的开源社区" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.02.14 厨力是第一生产力！伟大的开源社区</h2>
+      
+      <p class="note-excerpt">厨力是第一生产力！伟大的开源社区 悬赏一下谁看得懂我写了什么 以前是以前，现在是现在，今年有芙宁娜陪我过节[em]e105[/em][em]e105[/e...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2024 Feb 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2024.02.12%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/" class="note-card">
+  
+  <img src="/files/qzone-20240212-130430-01.jpg" class="note-cover" alt="2024.02.12 我觉得空友应该需要这个" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.02.12 我觉得空友应该需要这个</h2>
+      
+      <p class="note-excerpt">我觉得空友应该需要这个 几行代码的事，别的游戏你们自己算去 BA概率不变建议自己手算 大小保底机制建议手算 舟和韭的数据是严格按照概率详情里的 原的武器池...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2024 Feb 12</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2024.01.31%20%E5%A4%9A%E5%B0%91%E5%B9%B4%E4%BA%86%E4%BD%A0%E6%B8%B8%E7%BB%88%E4%BA%8E%E6%9C%89%E5%B8%B8%E9%A9%BB%E8%83%BD%E5%8A%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%88%B9%E4%BA%86/" class="note-card">
+  
+  <img src="/files/qzone-20240131-162310-01.jpg" class="note-cover" alt="2024.01.31 多少年了你游终于有常驻能动的场景船了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.01.31 多少年了你游终于有常驻能动的场景船了</h2>
+      
+      <p class="note-excerpt">多少年了你游终于有常驻能动的场景船了 坐在船上慢慢飘等着切bgm还是挺舒服的 笙还是太有味道了 有点想念公园前吹笙的老伯了</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2024 Jan 31</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2024.01.20%20%E5%B9%BF%E4%B8%9C%E4%BA%BAdna%E5%8A%A8%E4%BA%86/" class="note-card">
+  
+  <img src="/files/qzone-20240120-143315-01.jpg" class="note-cover" alt="2024.01.20 广东人dna动了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2024.01.20 广东人dna动了</h2>
+      
+      <p class="note-excerpt">广东人dna动了 嘉明cv用佛山人谢老师 mhy你是真懂啊</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2024 Jan 20</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.11.13%20%E4%BD%A0%E5%96%9D%E7%9A%84%E6%AF%8F%E4%B8%80%E5%8D%87%E5%AE%9D%E7%9F%BF%E5%8A%9B%EF%BC%8C%E9%83%BD%E6%9D%A5%E8%87%AA%E8%8A%99%E5%AE%81%E5%A8%9C%E8%BF%87%E4%BA%8E%E5%85%85%E6%B2%9B/" class="note-card">
+  
+  <img src="/files/qzone-20231113-225616-01.jpg" class="note-cover" alt="2023.11.13 你喝的每一升宝矿力，都来自芙宁娜过于充沛" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.11.13 你喝的每一升宝矿力，都来自芙宁娜过于充沛</h2>
+      
+      <p class="note-excerpt">你喝的每一升宝矿力，都来自芙宁娜过于充沛的水元素 [em]e105[/em][em]e105[/em][em]e105[/em] 爱芙人士对宝矿力表示强烈谴责</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2023 Nov 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.10.11%20%E5%B0%B1%E5%9C%A8%E4%BB%8A%E5%A4%A9%20%E5%8E%9F%E7%A5%9E%E5%A4%B1%E5%8E%BB%E4%BA%86%E5%AE%83%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E7%9A%84%E8%BA%AB%E4%BB%BD/" class="note-card">
+  
+  <img src="/files/qzone-20231011-191738-01.jpg" class="note-cover" alt="2023.10.11 就在今天 原神失去了它音乐播放器的身份" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.10.11 就在今天 原神失去了它音乐播放器的身份</h2>
+      
+      <p class="note-excerpt">就在今天 原神失去了它音乐播放器的身份 网易云你不争气啊 让我多等这么一周</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2023 Oct 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08.16%20%E6%88%91%E8%A7%82%E8%B5%8F%E9%B1%BC%E5%92%8C%E6%B5%B7%E5%BA%95%E4%B8%96%E7%95%8C%E6%9E%9C%E7%84%B6%E7%BB%9D%E9%85%8D/" class="note-card">
+  
+  <img src="/files/qzone-20230816-132917-01.jpg" class="note-cover" alt="2023.08.16 我观赏鱼和海底世界果然绝配" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08.16 我观赏鱼和海底世界果然绝配</h2>
+      
+      <p class="note-excerpt">我观赏鱼和海底世界果然绝配</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2023 Aug 16</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8E%9F%E7%A5%9E%204.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" class="note-card">
+  
+  <img src="/image/banner/nozomizo39.JPG" class="note-cover" alt="原神 4.x 版本条目" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">原神 4.x 版本条目</h2>
+      
+      <p class="note-excerpt">《原神》4.x 大版本条目：枫丹开放与主线终章、沉玉谷、旧日之海、希穆兰卡与纳塔预热等内容。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2023 Aug 16</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08.11%20%E5%9B%9E%E5%AE%B6%E4%BA%86/" class="note-card">
+  
+  <img src="/files/qzone-20230811-090711-01.jpg" class="note-cover" alt="2023.08.11 回家了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08.11 回家了</h2>
+      
+      <p class="note-excerpt">回家了 这次在上海的成就列表 逛书店隐藏区域 逛黑市 逛展 躺草坪 混进光华楼 半夜在市区飙车（单车 被当作本地学生 第一次打maimai（？</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">旅游</span>
+      
+      <span class="note-date">2023 Aug 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08.10%20%E7%AC%AC%E5%9B%9B%E5%BC%B9/" class="note-card">
+  
+  <img src="/files/qzone-20230810-173727-01.jpg" class="note-cover" alt="2023.08.10 第四弹" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08.10 第四弹</h2>
+      
+      <p class="note-excerpt">第四弹 逛完了 别指望我把集邮发出来 这次弹钢琴扩了一只琦良良 下次我得整点什么小提拉小提 说不定能上热门</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">旅游</span>
+      
+      <span class="note-date">2023 Aug 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08.10%20%E5%9C%A8%E6%BC%AB%E5%B1%95%E4%B8%8A%E7%BB%83%E9%92%A2%E7%90%B4%EF%BC%8C%E4%BB%A5%E5%8F%8A/" class="note-card">
+  
+  <img src="/files/qzone-20230810-134727-01.jpg" class="note-cover" alt="2023.08.10 在漫展上练钢琴，以及" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08.10 在漫展上练钢琴，以及</h2>
+      
+      <p class="note-excerpt">在漫展上练钢琴，以及......</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">旅游</span>
+      
+      <span class="note-date">2023 Aug 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08.10%20%E7%AC%AC%E4%B8%89%E5%BC%B9/" class="note-card">
+  
+  <img src="/files/qzone-20230810-123117-01.jpg" class="note-cover" alt="2023.08.10 第三弹" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08.10 第三弹</h2>
+      
+      <p class="note-excerpt">第三弹</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">旅游</span>
+      
+      <span class="note-date">2023 Aug 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08.10%20%E5%8E%9F%E7%A5%9E%20%E5%90%AF%E5%8A%A8%EF%BC%81/" class="note-card">
+  
+  <img src="/files/qzone-20230810-091629-01.jpg" class="note-cover" alt="2023.08.10 原神 启动！" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08.10 原神 启动！</h2>
+      
+      <p class="note-excerpt">原神 启动！</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">旅游</span>
+      
+      <span class="note-date">2023 Aug 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08.10%208.10%20%E5%8E%9F%E7%A5%9EFES2023/" class="note-card">
+  
+  <img src="/files/qzone-20230810-090617-01.jpg" class="note-cover" alt="2023.08.10 8.10 原神FES2023" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08.10 8.10 原神FES2023</h2>
+      
+      <p class="note-excerpt">8.10 原神FES2023 第一弹 排上队了先发一发</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">旅游</span>
+      
+      <span class="note-date">2023 Aug 10</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08.09%20%E5%BE%90%E5%AE%B6%E6%B1%87/" class="note-card">
+  
+  <img src="/files/qzone-20230809-182518-01.jpg" class="note-cover" alt="2023.08.09 徐家汇" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08.09 徐家汇</h2>
+      
+      <p class="note-excerpt">徐家汇 明天去原fes 列表有无捎东西的需求</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">旅游</span>
+      
+      <span class="note-date">2023 Aug 09</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2023.08%20%E4%B8%8A%E6%B5%B7/" class="note-card">
+  
+  <img src="/image/banner/nozomizo17.JPG" class="note-cover" alt="2023.08 上海" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2023.08 上海</h2>
+      
+      <p class="note-excerpt">2023年8月上海原神FES之旅 MOC 聚合页</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">旅游</span>
+      
+      <span class="note-date">2023 Aug 05</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8E%9F%E7%A5%9E%203.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" class="note-card">
+  
+  <img src="/image/banner/lilikana.PNG" class="note-cover" alt="原神 3.x 版本条目" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">原神 3.x 版本条目</h2>
+      
+      <p class="note-excerpt">《原神》3.x 大版本条目：须弥开放、须弥主线、七圣召唤、学院庆典与枫丹预热等内容。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2022 Aug 24</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.06.21%20%E5%A6%82%E5%9B%BE/" class="note-card">
+  
+  <img src="/files/qzone-20220621-145851-01.jpg" class="note-cover" alt="2022.06.21 如图" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.06.21 如图</h2>
+      
+      <p class="note-excerpt">QQ 空间说说迁入：图片记录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2022 Jun 21</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.06.18%20%E6%BB%A1%E6%98%9F%E4%BA%86%E6%BB%A1%E6%98%9F%E4%BA%86/" class="note-card">
+  
+  <img src="/files/qzone-20220618-210450-01.jpg" class="note-cover" alt="2022.06.18 满星了满星了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.06.18 满星了满星了</h2>
+      
+      <p class="note-excerpt">满星了满星了 只要没有大流血狗 话都好说 香菱还是强，胡桃给我压箱底去</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2022 Jun 18</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.04.13%2001-07%20%E6%B5%B7%E7%A5%87%E5%B2%9B%20%E5%86%B2%E7%BB%B3%20%E5%B9%BB%E6%83%B3%E6%B5%B7%E5%BA%95%E4%B8%96%E7%95%8C/" class="note-card">
+  
+  <img src="/files/qzone-20220413-130303-01.jpg" class="note-cover" alt="2022.04.13 01-07 海祇岛 冲绳 幻想海底世界" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.04.13 01-07 海祇岛 冲绳 幻想海底世界</h2>
+      
+      <p class="note-excerpt">01-07 海祇岛 / 冲绳 幻想海底世界 08-16 清籁岛 / 遗迹 日本风格 17-18 乌有亭 / 日本 诙谐的小曲 19-21 稻妻剧情音乐 /...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2022 Apr 13</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.04.03%20%E5%BE%88%E9%98%B4%E9%97%B4/" class="note-card">
+  
+  <img src="/files/qzone-20220403-013939-01.jpg" class="note-cover" alt="2022.04.03 很阴间" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.04.03 很阴间</h2>
+      
+      <p class="note-excerpt">很阴间 你不会想来第二次的</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2022 Apr 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.03.31%20%E5%B1%82%E5%B2%A9%E5%B7%A8%E6%B8%8A%E6%B7%B1%E5%B1%82%E5%BE%88%E5%A4%9A%E5%9C%B0%E5%8C%BA%E7%9B%B4%E6%8E%A5%E5%9C%BA%E6%99%AFbgm%E5%92%8C%E6%88%98%E6%96%97/" class="note-card">
+  
+  <img src="/files/qzone-20220331-160324-01.jpg" class="note-cover" alt="2022.03.31 层岩巨渊深层很多地区直接场景bgm和战斗" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.03.31 层岩巨渊深层很多地区直接场景bgm和战斗</h2>
+      
+      <p class="note-excerpt">层岩巨渊深层很多地区直接场景bgm和战斗bgm共用一部分母带 战斗开始之后，弦乐声部的突然加入，组合成一段感觉完全不同的bgm，还是挺震撼的 小提琴当步兵...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2022 Mar 31</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.03.30%20%E5%8F%88%E5%8F%88%E5%8F%88%E8%AE%A9%E6%88%91%E6%89%BE%E5%88%B0%E5%90%AC%E6%88%98%E6%96%97bgm%E7%9A%84%E5%9C%B0%E6%96%B9%E4%BA%86/" class="note-card">
+  
+  <img src="/files/qzone-20220330-225218-01.jpg" class="note-cover" alt="2022.03.30 又又又让我找到听战斗bgm的地方了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.03.30 又又又让我找到听战斗bgm的地方了</h2>
+      
+      <p class="note-excerpt">又又又让我找到听战斗bgm的地方了 还是熟悉的配器和结构 A段全体弦乐断奏，上来就把紧张的基调定下来，B段小提大提长音对唱给曲子加了一点史诗色彩 乐段衔接...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2022 Mar 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.03.30%20%E5%B1%82%E5%B2%A9%E5%B7%A8%E6%B8%8A%E5%9C%B0%E9%9D%A2bgm%E7%AE%80%E8%AF%84/" class="note-card">
+  
+  <img src="/files/qzone-20220330-204918-01.jpg" class="note-cover" alt="2022.03.30 层岩巨渊地面bgm简评" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.03.30 层岩巨渊地面bgm简评</h2>
+      
+      <p class="note-excerpt">层岩巨渊地面bgm简评 进入层岩巨渊，没有遇到想象中的压迫感，反而是听到了黄土高原或是蜀地一类的民歌风格的优美而平静的旋律。娓娓道来的、岩石与黄土的旋律。...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2022 Mar 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.02.19%20%E6%98%AF%E7%99%BE%E9%AC%BC%E5%A4%9C%E8%A1%8C%EF%BC%81/" class="note-card">
+  
+  <img src="/image/banner/nozomizo15.JPG" class="note-cover" alt="2022.02.19 是百鬼夜行！" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.02.19 是百鬼夜行！</h2>
+      
+      <p class="note-excerpt">是百鬼夜行！ 稻妻的音乐终于有轻松愉快还带点气势的题材了 要我说的话，暑假开稻妻的时候就一直觉得bgm缺点什么，后来海祇岛清籁岛鹤观的音乐算是惊喜，但还是...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2022 Feb 19</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.02.18%20%E8%BF%9B%E4%B8%89%E7%95%8C%E8%B7%AF%E9%A3%A8%E7%A5%AD%E7%AC%AC%E4%B8%80%E4%BB%B6%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9A/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet6.JPG" class="note-cover" alt="2022.02.18 进三界路飨祭第一件注意事项：" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.02.18 进三界路飨祭第一件注意事项：</h2>
+      
+      <p class="note-excerpt">进三界路飨祭第一件注意事项： 你可以呼吸</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2022 Feb 18</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.01.30%20%E5%AD%97%20%E6%AD%A3%20%E8%85%94%20%E5%9C%86/" class="note-card">
+  
+  <img src="/files/qzone-20220130-230603-01.jpg" class="note-cover" alt="2022.01.30 字 正 腔 圆" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.01.30 字 正 腔 圆</h2>
+      
+      <p class="note-excerpt">字 正 腔 圆</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2022 Jan 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.01.30%20%E8%AE%A9%E6%88%91%E7%9C%8B%E7%9C%8B%E6%9C%89%E5%A4%9A%E5%B0%91%E7%9C%9F%E7%88%B1%E5%85%9A/" class="note-card">
+  
+  <img src="/files/qzone-20220130-224000-01.jpg" class="note-cover" alt="2022.01.30 让我看看有多少真爱党" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.01.30 让我看看有多少真爱党</h2>
+      
+      <p class="note-excerpt">让我看看有多少真爱党 猜不出来再展开全文 取自神里绫华命之座标题和元素爆发语音</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2022 Jan 30</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.01.11%20%E5%85%A8%E5%9B%BEclear/" class="note-card">
+  
+  <img src="/files/qzone-20220111-225108-01.jpg" class="note-cover" alt="2022.01.11 全图clear" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.01.11 全图clear</h2>
+      
+      <p class="note-excerpt">全图clear 希望肝没事</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2022 Jan 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.01.07%20%E5%A6%82%E5%9B%BE%E3%80%82/" class="note-card">
+  
+  <img src="/files/qzone-20220107-121157-01.jpg" class="note-cover" alt="2022.01.07 如图。" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.01.07 如图。</h2>
+      
+      <p class="note-excerpt">如图。 “吾乃赫利俄斯之建造者，名曰：‘阿倍良久’！” “如此才能，如此才能啊！” “阿倍良久之命”残魂不断重复如上两句 初看当作笑话，只觉得这是个什么中...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2022 Jan 07</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.01.05%20%E5%95%8A%E5%95%8A%E5%95%8A%E5%95%8A%E5%95%8A%E6%88%91%E4%B8%8D%E8%A1%8C%E4%BA%86/" class="note-card">
+  
+  <img src="/files/qzone-20220105-141938-01.jpg" class="note-cover" alt="2022.01.05 啊啊啊啊啊我不行了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.01.05 啊啊啊啊啊我不行了</h2>
+      
+      <p class="note-excerpt">啊啊啊啊啊我不行了 我要在这里待一天 养只怪来听战斗bgm 什么叫燃啊 陈致逸告诉你什么叫交响乐·电音remix版</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2022 Jan 05</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2022.01.05%20HOYO-MIX%E4%B8%80%E6%AC%A1%E9%83%BD%E6%B2%A1%E8%AE%A9%E6%88%91%E5%A4%B1%E6%9C%9B%E8%BF%87/" class="note-card">
+  
+  <img src="/image/banner/nozomizo45.JPG" class="note-cover" alt="2022.01.05 HOYO-MIX一次都没让我失望过" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2022.01.05 HOYO-MIX一次都没让我失望过</h2>
+      
+      <p class="note-excerpt">HOYO-MIX一次都没让我失望过 真的 这次是渊下宫令人平静的钢琴独奏和海灯节弦乐奏出的令人向往的新旋律主题 渊下宫战斗时不打断bgm用心了 当然美术也要吹爆</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2022 Jan 05</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2021.12.14%20%E3%80%8A%E6%98%8E%E6%97%A9%E6%B2%A1%E6%97%A9%E5%85%AB%E3%80%8B/" class="note-card">
+  
+  <img src="/files/qzone-20211214-011300-01.jpg" class="note-cover" alt="2021.12.14 《明早没早八》" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2021.12.14 《明早没早八》</h2>
+      
+      <p class="note-excerpt">《明早没早八》 原石亏损最少的半个月（笑 4层深渊9996 零氪 嗯 用的角色等级也不算高 虽然但是 原神pc端的战斗体验也还可以啦</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2021 Dec 14</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2021.10.15%20%E9%B9%A4%E8%A7%82%E7%9A%84%E9%9F%B3%E4%B9%90%E5%A5%BD%E6%A3%92%EF%BC%81%EF%BC%81%EF%BC%81/" class="note-card">
+  
+  <img src="/image/banner/minamiquartet8.PNG" class="note-cover" alt="2021.10.15 鹤观的音乐好棒！！！" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2021.10.15 鹤观的音乐好棒！！！</h2>
+      
+      <p class="note-excerpt">鹤观的音乐好棒！！！ 陈致逸在稻妻又留了一份惊喜 初见稻妻时仅凭音乐内容就判断出这音乐到底还是缺一块（虽然确实质量很高 海祇岛、清籁岛、鹤观一点一点解锁之...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">反思</span>
+      
+      <span class="note-date">2021 Oct 15</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2021.09.23%20%E5%9C%A8%E5%AE%BF%E8%88%8D%E5%90%AC%E7%A8%BB%E5%A6%BBbgm/" class="note-card">
+  
+  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="2021.09.23 在宿舍听稻妻bgm" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2021.09.23 在宿舍听稻妻bgm</h2>
+      
+      <p class="note-excerpt">在宿舍听稻妻bgm 拿陶笛当尺八跟着吹 吹着吹着吹不准心态爆炸掏出小提琴当三味线玩 md还是小提琴简单</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2021 Sep 23</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2021.08.07%20%E8%AE%BA%E5%9D%9B%E5%AE%9E%E5%9C%A8%E6%98%AF%E9%80%9B%E4%B8%8D%E4%B8%8B%E5%8E%BB%E4%BA%86/" class="note-card">
+  
+  <img src="/image/banner/nozomizo10.PNG" class="note-cover" alt="2021.08.07 论坛实在是逛不下去了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2021.08.07 论坛实在是逛不下去了</h2>
+      
+      <p class="note-excerpt">论坛实在是逛不下去了 以后不会去对线了，见到魔怔人一律举报 如果有认识的人执意抹黑米哈游我直接跟他拼命 以上</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2021 Aug 07</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8E%9F%E7%A5%9E%202.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" class="note-card">
+  
+  <img src="/image/banner/nozomizo9.JPG" class="note-cover" alt="原神 2.x 版本条目" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">原神 2.x 版本条目</h2>
+      
+      <p class="note-excerpt">《原神》2.x 大版本条目：稻妻开放、稻妻主线、渊下宫、层岩巨渊与金苹果群岛复刻等内容。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2021 Jul 21</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/2021.02.03%20%E4%BB%8A%E6%99%9A%E6%8A%8A%E5%8E%9F%E7%A5%9E%E7%9A%84%E7%92%83%E6%9C%88%E7%AB%A0%E9%9F%B3%E4%B9%90%E5%85%A8%E9%83%A8%E5%90%AC%E5%AE%8C%E4%BA%86/" class="note-card">
+  
+  <img src="/files/qzone-20210203-002444-01.png" class="note-cover" alt="2021.02.03 今晚把原神的璃月章音乐全部听完了" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">2021.02.03 今晚把原神的璃月章音乐全部听完了</h2>
+      
+      <p class="note-excerpt">今晚把原神的璃月章音乐全部听完了 难得有让我几乎全部点上收藏的专辑 虽然可能有一点情怀成分但我的确是一首一首听过了才点的 这些曲子都是优美的纯音乐 偏风景...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">音乐</span>
+      
+      <span class="note-date">2021 Feb 03</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8E%9F%E7%A5%9E/" class="note-card">
+  
+  <img src="/image/banner/nozomizo53.PNG" class="note-cover" alt="原神" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">原神</h2>
+      
+      <p class="note-excerpt">《原神》版本剧情条目索引，按大版本整理。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2021 Jan 29</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%8E%9F%E7%A5%9E%201.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" class="note-card">
+  
+  <img src="/image/banner/nozomizo43.JPG" class="note-cover" alt="原神 1.x 版本条目" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">原神 1.x 版本条目</h2>
+      
+      <p class="note-excerpt">《原神》1.x 大版本条目：开服、蒙德与璃月开局、龙脊雪山、海灯节、金苹果群岛等内容。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">游戏/原神</span>
+      
+      <span class="note-date">2020 Sep 28</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                </div>
+                
+            </div>
+        </main>
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+  </div>
+  <!-- Footer -->
+  
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

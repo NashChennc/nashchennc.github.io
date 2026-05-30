@@ -80,7 +80,7 @@
 
   
   
-<meta name="generator" content="Hexo 8.1.1"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
   
   <!-- Header/AppBar -->
@@ -103,21 +103,21 @@
       <a
         href="/categories/%E7%AC%94%E8%AE%B0"
         
-      >笔记 · 77</a>
+      >笔记 · 78</a>
         
       
         
       <a
         href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
         
-      >碎碎念 · 453</a>
+      >碎碎念 · 454</a>
         
       
         
       <a
         href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
         
-      >流水账 · 162</a>
+      >流水账 · 175</a>
         
       
         
@@ -138,6 +138,13 @@
   
 
   <div class="topbar-end">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
     <mdui-button-icon
       id="site-search-toggle"
       variant="standard"
@@ -403,11 +410,20 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">SSML</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 May 14</span>
+                        <span class="note-date">2026 May 18</span>
                         
                             <div class="post-page__meta--cats">
                                 
                                     <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" class="note-tag">语言学</a>
+                                
+                                    <a href="/tags/%E8%AF%AD%E9%9F%B3/" class="note-tag">语音</a>
                                 
                             </div>
                         
@@ -419,7 +435,7 @@
                     <div class="mdui-prose">
                         <p><strong>SSML</strong>（Speech Synthesis Markup Language，语音合成标记语言）是一种基于 XML 的标记语言，用于让开发者能够更精细地控制文本转语音（TTS）的效果。</p>
 <p>简单来说，如果普通文本是告诉语音引擎“<strong>读什么</strong>”，那么 SSML 就是告诉引擎“<strong>怎么读</strong>”。它是 W3C 的标准协议，被 Google、Amazon (Alexa/Polly)、Microsoft (Azure) 等主流语音服务广泛支持。</p>
-<h1>1. 核心作用</h1>
+<h2 id="1-核心作用">1. 核心作用</h2>
 <p>SSML 允许你调整语音的以下方面，使其听起来更自然、更像真人：</p>
 <ul>
 <li><strong>停顿（Breaks）：</strong>&nbsp;在句子或短语之间插入指定时长的停顿。</li>
@@ -429,35 +445,35 @@
 <li><strong>强调（Emphasis）：</strong>&nbsp;加重语气。</li>
 </ul>
 <hr>
-<h1>2. 常用标签详解</h1>
+<h2 id="2-常用标签详解">2. 常用标签详解</h2>
 <p>所有的 SSML 内容都必须包含在&nbsp;<code>&lt;speak&gt;</code>&nbsp;根标签内。</p>
-<h4 id="A-停顿-break">A. 停顿&nbsp;<code>&lt;break&gt;</code></h4>
+<h5 id="A-停顿-break">A. 停顿&nbsp;<code>&lt;break&gt;</code></h5>
 <p>用于控制节奏。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这句话说完后，&lt;break time=&quot;2s&quot;/&gt; 停顿了两秒钟。</span><br><span class="line">  或者稍微&lt;break strength=&quot;weak&quot;/&gt; 停顿一下。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="B-调整韵律-prosody">B. 调整韵律&nbsp;<code>&lt;prosody&gt;</code></h4>
+<h5 id="B-调整韵律-prosody">B. 调整韵律&nbsp;<code>&lt;prosody&gt;</code></h5>
 <p>这是最常用的标签，用于控制语速（rate）、音高（pitch）和音量（volume）。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  正常说话。</span><br><span class="line">  &lt;prosody rate=&quot;slow&quot; pitch=&quot;-2st&quot;&gt;这里语速变慢，且音调压低，听起来比较严肃。&lt;/prosody&gt;</span><br><span class="line">  &lt;prosody volume=&quot;loud&quot;&gt;这里大声说话！&lt;/prosody&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="C-指定读法-say-as">C. 指定读法&nbsp;<code>&lt;say-as&gt;</code></h4>
+<h5 id="C-指定读法-say-as">C. 指定读法&nbsp;<code>&lt;say-as&gt;</code></h5>
 <p>解决歧义非常关键。例如 “2024” 是读作 “二零二四” 还是 “两千零二十四”。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;say-as interpret-as=&quot;cardinal&quot;&gt;12345&lt;/say-as&gt; &lt;say-as interpret-as=&quot;digits&quot;&gt;12345&lt;/say-as&gt;   &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024.01.01&lt;/say-as&gt; &lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="D-别名-替换-sub">D. 别名/替换&nbsp;<code>&lt;sub &gt;</code></h4>
+<h5 id="D-别名-替换-sub">D. 别名/替换&nbsp;<code>&lt;sub &gt;</code></h5>
 <p>用于朗读缩写或特殊字符的完整含义。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  欢迎来到 &lt;sub alias=&quot;万维网联盟&quot;&gt;W3C&lt;/sub&gt; 的介绍页面。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="E-插入音频-audio">E. 插入音频&nbsp;<code>&lt;audio&gt;</code></h4>
+<h5 id="E-插入音频-audio">E. 插入音频&nbsp;<code>&lt;audio&gt;</code></h5>
 <p>在语音流中混合背景音效或预录制的音频。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;audio src=&quot;soundbank://sound_library/musical/musical_chord_01&quot;&gt;叮！&lt;/audio&gt;</span><br><span class="line">  回答正确。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="F-拼音-音素-phoneme">F. 拼音/音素&nbsp;<code>&lt;phoneme&gt;</code></h4>
+<h5 id="F-拼音-音素-phoneme">F. 拼音/音素&nbsp;<code>&lt;phoneme&gt;</code></h5>
 <p>当引擎读错多音字或人名时，使用国际音标（IPA）或特定平台的注音格式强制指定发音。</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  这件事非常&lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;tʂʰʊŋ&quot;&gt;重&lt;/phoneme&gt;要。</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
 <p><em>(注：不同厂商对 phoneme 的支持格式可能不同)</em></p>
 <hr>
-<h1>3. 一个完整的示例</h1>
+<h2 id="3-一个完整的示例">3. 一个完整的示例</h2>
 <p>这就好比给剧本加上了“舞台提示”：</p>
 <p>XML</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;speak&gt;</span><br><span class="line">  &lt;prosody rate=&quot;medium&quot;&gt;</span><br><span class="line">    大家好！</span><br><span class="line">  &lt;/prosody&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;break time=&quot;500ms&quot;/&gt;</span><br><span class="line"></span><br><span class="line">  今天我们要宣布一个&lt;prosody volume=&quot;loud&quot; pitch=&quot;high&quot;&gt;重大消息&lt;/prosody&gt;！</span><br><span class="line">  </span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    我们的新产品将在 &lt;say-as interpret-as=&quot;date&quot; format=&quot;ymd&quot;&gt;2024.10.05&lt;/say-as&gt; 正式发布。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    如果你有任何疑问，请联系 &lt;say-as interpret-as=&quot;characters&quot;&gt;HR&lt;/say-as&gt; 部门。</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">&lt;/speak&gt;</span><br></pre></td></tr></tbody></table></figure>
@@ -473,7 +489,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/">
+                                <a class="post-nav__link" href="/LLM%20Safety%20%E8%B5%84%E6%BA%90/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -482,7 +498,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">LaTeX 常用符号</span>
+                                        <span class="post-nav__title">LLM Safety 资源</span>
                                     </span>
                                 </a>
                             
@@ -514,7 +530,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">1. 核心作用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. 常用标签详解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. 一个完整的示例</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E4%BD%9C%E7%94%A8"><span class="post-toc-text">1. 核心作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3"><span class="post-toc-text">2. 常用标签详解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="post-toc-text">3. 一个完整的示例</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
