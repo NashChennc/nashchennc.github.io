@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,9 +311,10 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <!-- 全宽 Banner -->
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
 <div
   class="banner-container banner-container--page"
   data-banner-layout-root
@@ -490,7 +519,7 @@
 </table>
 <h2 id="个人经历">个人经历</h2>
 <p>2021年1月底，NOI冬令营期间压力很大，从崩坏三里面自然看到了原神，去玩发现非常好——尤其是音乐。入坑原神之后开始捡起小提琴，在B站上看原神音乐分析和复刻，这是继初中超炮启蒙之后的「第二次音乐启蒙」。</p>
-<p>从1.3海灯节到4.4沉玉谷（2021.01—2024.02），横跨<span title="Missing: 高二流水账 | Try Key: 高二流水账">高二</span>、<span title="Missing: 大一 | Try Key: 大一">大一</span>、<span title="Missing: 大二 | Try Key: 大二">大二</span>，原神是投入度最高的游戏。稻妻时期和层岩巨渊/渊下宫时期是投入高峰——刚更新三到五天内探索度百分百，没事做就喜欢在原神里面逛街。2023年8月一个人去了上海原神FES，去之前还在上海参加了表姐的婚礼。枫丹版本前期出勤仍高，但从4.6（2024.04，<span title="Missing: 大三 | Try Key: 大三">大三下</span>）开始热情骤降归零——没有特别的退坑原因，设备和课程作息可能都有影响，也可能单纯是长篇作品断了太久。5.0纳塔照例回坑听音乐看新剧情，音乐挺好但已不如璃月稻妻时那样震撼。空月之歌至今未再登录。目前半退坑。</p>
+<p>从1.3海灯节到4.4沉玉谷（2021.01—2024.02），横跨<a href="/%E9%AB%98%E4%BA%8C%E6%B5%81%E6%B0%B4%E8%B4%A6/" title="">高二</a>、<a href="/%E5%A4%A7%E4%B8%80/" title="">大一</a>、<a href="/%E5%A4%A7%E4%BA%8C/" title="">大二</a>，原神是投入度最高的游戏。稻妻时期和层岩巨渊/渊下宫时期是投入高峰——刚更新三到五天内探索度百分百，没事做就喜欢在原神里面逛街。2023年8月一个人去了上海原神FES，去之前还在上海参加了表姐的婚礼。枫丹版本前期出勤仍高，但从4.6（2024.04，<a href="/%E5%A4%A7%E4%B8%89/" title="">大三下</a>）开始热情骤降归零——没有特别的退坑原因，设备和课程作息可能都有影响，也可能单纯是长篇作品断了太久。5.0纳塔照例回坑听音乐看新剧情，音乐挺好但已不如璃月稻妻时那样震撼。空月之歌至今未再登录。目前半退坑。</p>
 
                     </div>
                     
@@ -638,9 +667,9 @@
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -781,9 +810,104 @@
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BF%A1%E6%81%AF%E6%BA%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%8F%A3%E5%BE%84"><span class="post-toc-text">信息源与时间口径</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%A7%E6%83%85%E7%B4%A2%E5%BC%95"><span class="post-toc-text">剧情索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%BB%8F%E5%8E%86"><span class="post-toc-text">个人经历</span></a></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,9 +311,10 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <!-- 全宽 Banner -->
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
 <div
   class="banner-container banner-container--page"
   data-banner-layout-root
@@ -777,9 +806,9 @@
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -920,9 +949,104 @@
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8C%E5%B1%82%E9%97%A8%E7%A6%81%E4%BD%93%E7%B3%BB"><span class="post-toc-text">双层门禁体系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8C%E6%AD%A5%E9%97%A8%E7%A6%81%EF%BC%9AisAutoModeGateEnabled"><span class="post-toc-text">同步门禁：isAutoModeGateEnabled</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%82%E6%AD%A5%E6%9D%83%E5%A8%81%E6%A0%A1%E9%AA%8C%EF%BC%9AverifyAutoModeGateAccess"><span class="post-toc-text">异步权威校验：verifyAutoModeGateAccess</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AF%E5%8F%98%E6%8D%A2%E5%87%BD%E6%95%B0%EF%BC%8C%E8%80%8C%E9%9D%9E%E9%A2%84%E8%AE%A1%E7%AE%97%E7%9A%84-context"><span class="post-toc-text">返回值是变换函数，而非预计算的 context</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#kickOutOfAutoIfNeeded-%E5%8F%98%E6%8D%A2"><span class="post-toc-text">kickOutOfAutoIfNeeded 变换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%9A%E7%9F%A5%E7%AD%96%E7%95%A5"><span class="post-toc-text">通知策略</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%94%AF%E6%8C%81%E5%88%A4%E5%AE%9A"><span class="post-toc-text">模型支持判定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8C%82%E8%BD%BD%E6%97%B6%E5%92%8C%E5%8F%98%E5%8C%96%E6%97%B6%E9%87%8D%E8%B7%91"><span class="post-toc-text">挂载时和变化时重跑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tengu-auto-mode-config-%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%84"><span class="post-toc-text">tengu_auto_mode_config 配置结构</span></a></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

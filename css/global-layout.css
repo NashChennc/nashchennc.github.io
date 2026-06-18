@@ -44,31 +44,6 @@ body#top {
   }
 }
 
-/* 横向一排的 mdui-prose 链接（顶栏分类等）：复用 mdui.css 里 .mdui-prose a，仅补布局与不断词 */
-.mdui-prose--inline-nav a {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  min-height: var(--app-top-bar-row);
-  padding: 0 0.875rem;
-  font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.2;
-  white-space: nowrap;
-  word-break: normal;
-  overflow-wrap: normal;
-}
-
-.mdui-prose--inline-nav a[aria-current='page'] {
-  font-weight: 500;
-}
-
-.mdui-prose--inline-nav a:hover,
-.mdui-prose--inline-nav a:focus-visible {
-  text-underline-offset: 0.18em;
-}
-
 /* 图片响应式（MDUI 的 mdui-img-fluid 类已处理，但保留作为兜底） */
 img {
   max-width: 100%;
@@ -83,33 +58,15 @@ img {
   box-sizing: border-box;
   margin-right: auto;
   margin-left: auto;
-  padding-right: var(--app-container-gutter);
-  padding-left: var(--app-container-gutter);
-}
-
-.app-container::after,
-.app-container-fluid::after {
-  display: table;
-  clear: both;
-  content: '';
 }
 
 .app-container {
-  width: 96%;
-  max-width: 1280px;
+  width: min(calc(100% - var(--app-container-gutter) * 2), var(--app-container-max-width));
+  max-width: none;
 }
 
-/* 字面量 px：@media 内 var() 在部分引擎无效，会导致整段查询被丢弃（文章与 TOC 无法并排） */
-@media (min-width: 600px) {
-  .app-container {
-    width: 94%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .app-container {
-    width: 92%;
-  }
+.app-container-fluid {
+  width: min(calc(100% - var(--app-container-gutter) * 2), 100%);
 }
 
 /* 原无效 mdui-p-* 的等价间距（版心 gutter 见 --app-container-gutter） */
@@ -175,18 +132,6 @@ img {
     max-width: 100%;
     min-width: 0;
     justify-self: stretch;
-  }
-}
-
-/* 侧边栏包装器响应式 */
-#sidebar-wrapper {
-  margin-top: var(--app-sidebar-stack-gap);
-}
-
-@media (min-width: 992px) {
-  /* 与 tokens --app-breakpoint-sidebar 一致；此处不用 var()，原因同上文 */
-  #sidebar-wrapper {
-    margin-top: 0;
   }
 }
 

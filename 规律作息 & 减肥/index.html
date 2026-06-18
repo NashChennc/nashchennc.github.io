@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,9 +311,10 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <!-- 全宽 Banner -->
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
 <div
   class="banner-container banner-container--page"
   data-banner-layout-root
@@ -649,9 +678,9 @@
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -792,9 +821,104 @@
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8B%E9%9D%A2%E6%98%AF%E9%BB%91%E5%8E%86%E5%8F%B2"><span class="post-toc-text">下面是黑历史</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E9%A5%AE%E9%A3%9F-%E4%BD%9C%E6%81%AF"><span class="post-toc-text">1. 饮食 &amp; 作息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-%E6%97%A9%E9%A4%90"><span class="post-toc-text">1.1. 早餐</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-%E6%AD%A3%E9%A4%90%E9%A5%AE%E9%A3%9F%E6%AF%94%E4%BE%8B"><span class="post-toc-text">1.2. 正餐饮食比例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-%E9%9B%B6%E9%A3%9F-%E5%96%9D%E6%B0%B4"><span class="post-toc-text">1.3. 零食 &amp; 喝水</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4-%E7%86%AC%E5%A4%9C"><span class="post-toc-text">1.4. 熬夜</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E9%94%BB%E7%82%BC"><span class="post-toc-text">2. 锻炼</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E8%B7%91%E6%AD%A5"><span class="post-toc-text">2.1. 跑步</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-%E8%B6%B3%E7%90%83-%EF%BC%88%E6%97%A5%E5%B8%B8%E7%90%83%E7%B1%BB%EF%BC%89"><span class="post-toc-text">2.2. 足球 （日常球类）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-%E5%8A%9B%E9%87%8F%E8%AE%AD%E7%BB%83"><span class="post-toc-text">2.3. 力量训练</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%A8%B1%E4%B9%90"><span class="post-toc-text">3. 娱乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E5%90%8E%E8%AE%B0"><span class="post-toc-text">4. 后记</span></a></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

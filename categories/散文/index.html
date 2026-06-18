@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        aria-current="page"
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Categories"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link topbar-desktop-link--active"
+      aria-current="page"
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,9 +311,10 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <!-- 全宽 Banner -->
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
 <!-- <div
   class="banner-container banner-container--page"
   data-banner-layout-root
@@ -405,7 +434,7 @@
             <div class="category-index">
                 
                 <header class="notes-header">
-                    <h1 class="notes-title">散文  Essays</h1>
+                    <h1 class="notes-title">散文  Essays<span class="notes-post-count">11</span></h1>
                     
                     <p class="notes-subtitle">只是一些散落的文字。</p>
                     
@@ -473,7 +502,7 @@
       <span>No posts</span>
     </div>
   </div>
-  <script type="application/json" data-activity-data>{"scope":"category","posts":[{"title":"退役记","url":"/%E9%80%80%E5%BD%B9%E8%AE%B0/","date":"2021-06-01","tags":["回忆录","OI"]},{"title":"关于LLM的胡扯","url":"/%E5%85%B3%E4%BA%8ELLM%E7%9A%84%E8%83%A1%E6%89%AF/","date":"2023-07-12","tags":["随笔","LLM"]},{"title":"少说抽象话","url":"/%E5%B0%91%E8%AF%B4%E6%8A%BD%E8%B1%A1%E8%AF%9D/","date":"2023-11-01","tags":["随笔"]},{"title":"茶与健康感想","url":"/%E8%8C%B6%E4%B8%8E%E5%81%A5%E5%BA%B7%E6%84%9F%E6%83%B3/","date":"2024-01-05","tags":["随笔"]},{"title":"正统汉语在客家","url":"/%E6%AD%A3%E7%BB%9F%E6%B1%89%E8%AF%AD%E5%9C%A8%E5%AE%A2%E5%AE%B6/","date":"2024-01-20","tags":["随笔","语言学"]},{"title":"匹诺康尼游记","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E6%B8%B8%E8%AE%B0/","date":"2024-04-02","tags":["读后感","随笔","游戏/崩铁"]},{"title":"匹诺康尼音阶","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E9%9F%B3%E9%98%B6/","date":"2024-04-03","tags":["音乐","游戏/崩铁"]},{"title":"曲目赏析·枫丹","url":"/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E6%9E%AB%E4%B8%B9/","date":"2026-01-14","tags":["音乐","游戏/原神"]},{"title":"曲目赏析·芙卡洛斯之舞","url":"/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E8%8A%99%E5%8D%A1%E6%B4%9B%E6%96%AF%E4%B9%8B%E8%88%9E/","date":"2026-01-15","tags":["音乐","游戏/原神"]},{"title":"未打开文件","url":"/%E6%9C%AA%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/","date":"2026-05-18","tags":[]},{"title":"Envisioning a Human Like AI：A Context-Centric Architecture","url":"/Envisioning%20a%20Human%20Like%20AI/","date":"2026-05-18","tags":["LLM","NLP"]}]}</script>
+  <script type="application/json" data-activity-data>{"scope":"category","posts":[{"title":"退役记","url":"/%E9%80%80%E5%BD%B9%E8%AE%B0/","date":"2021-06-01","tags":["回忆录","OI"]},{"title":"关于LLM的胡扯","url":"/%E5%85%B3%E4%BA%8ELLM%E7%9A%84%E8%83%A1%E6%89%AF/","date":"2023-07-12","tags":["随笔","LLM"]},{"title":"少说抽象话","url":"/%E5%B0%91%E8%AF%B4%E6%8A%BD%E8%B1%A1%E8%AF%9D/","date":"2023-11-01","tags":["随笔"]},{"title":"茶与健康感想","url":"/%E8%8C%B6%E4%B8%8E%E5%81%A5%E5%BA%B7%E6%84%9F%E6%83%B3/","date":"2024-01-05","tags":["随笔"]},{"title":"正统汉语在客家","url":"/%E6%AD%A3%E7%BB%9F%E6%B1%89%E8%AF%AD%E5%9C%A8%E5%AE%A2%E5%AE%B6/","date":"2024-01-20","tags":["随笔","语言学"]},{"title":"匹诺康尼游记","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E6%B8%B8%E8%AE%B0/","date":"2024-04-02","tags":["读后感","随笔","游戏/崩铁"]},{"title":"匹诺康尼音阶","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E9%9F%B3%E9%98%B6/","date":"2024-04-03","tags":["音乐","游戏/崩铁"]},{"title":"曲目赏析·枫丹","url":"/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E6%9E%AB%E4%B8%B9/","date":"2026-01-14","tags":["音乐","游戏/原神"]},{"title":"曲目赏析·芙卡洛斯之舞","url":"/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E8%8A%99%E5%8D%A1%E6%B4%9B%E6%96%AF%E4%B9%8B%E8%88%9E/","date":"2026-01-15","tags":["音乐","游戏/原神"]},{"title":"Envisioning a Human Like AI：A Context-Centric Architecture","url":"/Envisioning%20a%20Human%20Like%20AI/","date":"2026-05-18","tags":["LLM","NLP"]},{"title":"回忆录 序","url":"/%E5%9B%9E%E5%BF%86%E5%BD%95%20%E5%BA%8F/","date":"2026-06-03","tags":[]}]}</script>
 </div>
 
 
@@ -583,6 +612,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/%E5%9B%9E%E5%BF%86%E5%BD%95%20%E5%BA%8F/" class="note-card">
+  
+  <img src="/files/rafa_83049015_p0_%E9%A3%8E%E5%8A%A8%EF%BD%9C%E7%A5%9E%E5%B7%9E%E6%B8%B8%E8%AE%B0%2007.jpg" class="note-cover" alt="回忆录 序" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">回忆录 序</h2>
+      
+      <p class="note-excerpt">高中至大学阶段的个人回忆录。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">Note</span>
+      
+      <span class="note-date">2026 Jun 03</span>
+      <span class="note-read">5 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/Envisioning%20a%20Human%20Like%20AI/" class="note-card">
   
   <img src="/image/banner/minamiquartet9.jpg" class="note-cover" alt="Envisioning a Human Like AI" loading="lazy">
@@ -600,31 +654,6 @@
       
       <span class="note-date">2026 May 18</span>
       <span class="note-read">31 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E6%9C%AA%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/" class="note-card">
-  
-  <img src="/files/rafa_83049015_p0_%E9%A3%8E%E5%8A%A8%EF%BD%9C%E7%A5%9E%E5%B7%9E%E6%B8%B8%E8%AE%B0%2007.jpg" class="note-cover" alt="未打开文件" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">未打开文件</h2>
-      
-      <p class="note-excerpt">高中至大学阶段的个人回忆录。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">Note</span>
-      
-      <span class="note-date">2026 May 18</span>
-      <span class="note-read">5 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -864,9 +893,9 @@
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -1007,9 +1036,95 @@
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Categories"
+>
+  
+
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      active
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

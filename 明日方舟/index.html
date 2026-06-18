@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,9 +311,10 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <!-- 全宽 Banner -->
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
 <div
   class="banner-container banner-container--page"
   data-banner-layout-root
@@ -491,7 +520,7 @@
 </tbody>
 </table>
 <h2 id="个人经历">个人经历</h2>
-<p>2020年2月初入坑，大概是因为「年」的活动，看到了就来玩了。正是疫情刚爆发的时候——在家上网课、厨声优唱见、看绀海组唱Lemon的MMD。最早期就非常喜欢「<a href="/%E4%B9%8C%E8%90%A8%E6%96%AF%E7%9A%84%E5%AD%A9%E5%AD%90%E4%BB%AC/" title="乌萨斯的孩子们">乌萨斯的孩子们</a>」的剧情，后来反复翻出来看。2020上半年出勤很高，但2021年暑假因为一些舆论事件（其实并不了解事件本身）断了坑，过年的时候又回坑。此后几年断断续续——方舟是玩得最久的游戏，横跨了<a href="/%E9%AB%98%E4%B8%80%E6%B5%81%E6%B0%B4%E8%B4%A6/" title="">高一</a>到<a href="/%E7%A0%94%E4%B8%80/" title="">研一</a>的七个年头，但出勤也是最不稳定的：2024年几乎完全归零，2026年4月因为「<a href="/%E4%B9%8C%E8%90%A8%E6%96%AF%E7%9A%84%E5%AD%A9%E5%AD%90%E4%BB%AC/" title="乌萨斯的孩子们">乌萨斯的孩子们</a>」活动「人们，我们」加上周年庆又回来了。不过除了「人们，我们」至今还没静下心看后续剧情。过年期间还玩了挺长时间<a href="/%E7%BB%88%E6%9C%AB%E5%9C%B0/" title="">终末地</a>。现在打算至少捡回一些。</p>
+<p>2020年2月初入坑，大概是因为「年」的活动，看到了就来玩了。正是疫情刚爆发的时候——在家上网课、厨声优唱见、看绀海组唱Lemon的MMD。最早期就非常喜欢「<a href="/%E4%B9%8C%E8%90%A8%E6%96%AF%E7%9A%84%E5%AD%A9%E5%AD%90%E4%BB%AC/" title="">乌萨斯的孩子们</a>」的剧情，后来反复翻出来看。2020上半年出勤很高，但2021年暑假因为一些舆论事件（其实并不了解事件本身）断了坑，过年的时候又回坑。此后几年断断续续——方舟是玩得最久的游戏，横跨了<a href="/%E9%AB%98%E4%B8%80%E6%B5%81%E6%B0%B4%E8%B4%A6/" title="">高一</a>到<a href="/%E7%A0%94%E4%B8%80/" title="">研一</a>的七个年头，但出勤也是最不稳定的：2024年几乎完全归零，2026年4月因为「<a href="/%E4%B9%8C%E8%90%A8%E6%96%AF%E7%9A%84%E5%AD%A9%E5%AD%90%E4%BB%AC/" title="">乌萨斯的孩子们</a>」活动「人们，我们」加上周年庆又回来了。不过除了「人们，我们」至今还没静下心看后续剧情。过年期间还玩了挺长时间<a href="/%E7%BB%88%E6%9C%AB%E5%9C%B0/" title="">终末地</a>。现在打算至少捡回一些。</p>
 
                     </div>
                     
@@ -599,9 +628,9 @@
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -742,9 +771,104 @@
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BF%A1%E6%81%AF%E6%BA%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%8F%A3%E5%BE%84"><span class="post-toc-text">信息源与时间口径</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%A7%E6%83%85%E7%B4%A2%E5%BC%95"><span class="post-toc-text">剧情索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%BB%8F%E5%8E%86"><span class="post-toc-text">个人经历</span></a></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

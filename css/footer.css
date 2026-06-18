@@ -54,12 +54,12 @@ mdui-button-icon.site-footer__social-btn {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   gap: 1.5rem 2rem;
 }
 
 .site-footer__meta {
-  flex: 1 1 12rem;
+  flex: 1 1 16rem;
   min-width: 0;
 }
 
@@ -110,7 +110,8 @@ mdui-button-icon.site-footer__social-btn {
 
 /* 底栏导航 */
 .site-footer__nav {
-  flex: 0 1 auto;
+  flex: 1 1 16rem;
+  min-width: 0;
 }
 
 .site-footer__nav-inner {
@@ -141,44 +142,4 @@ mdui-button.site-footer__nav-btn::part(button) {
   background: transparent;
   box-shadow: none;
   color: inherit;
-}
-
-@media (max-width: 600px) {
-  .site-footer__bottom {
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
-  }
-
-  .site-footer__meta {
-    flex: 1 1 auto;
-    width: 100%;
-  }
-
-  .site-footer__copyright {
-    text-align: center;
-  }
-
-  .site-footer__nav {
-    width: 100%;
-  }
-
-  .site-footer__nav-inner {
-    justify-content: center;
-  }
-
-  .site-footer__social-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .site-footer__social-intro {
-    max-width: none;
-  }
-
-  .site-footer__social {
-    justify-content: center;
-  }
 }

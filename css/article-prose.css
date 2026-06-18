@@ -67,6 +67,16 @@ mdui-card.post-page-card {
   padding: 0.75rem var(--post-content-pad) var(--post-content-pad);
 }
 
+.page-sidebar--post {
+  display: none;
+}
+
+@media (min-width: 840px) {
+  .page-sidebar--post {
+    display: block;
+  }
+}
+
 /* ============================================
  * 正文内图片（mdui-prose）
  * ============================================ */
@@ -178,22 +188,22 @@ main.page-shell .mdui-prose.page-page__prose {
 }
 
 /* 目录列表收紧（不比照正文 ol/ul 松排） */
-.post-toc-card .mdui-prose .post-toc,
-.post-toc-card .mdui-prose .post-toc ol {
+.post-toc-scroll.mdui-prose .post-toc,
+.post-toc-scroll.mdui-prose .post-toc ol {
   list-style: none;
   margin: 0;
   padding-left: 0.75rem;
 }
 
-.post-toc-card .mdui-prose .post-toc {
+.post-toc-scroll.mdui-prose .post-toc {
   padding-left: 0;
 }
 
-.post-toc-card .mdui-prose .post-toc > li {
+.post-toc-scroll.mdui-prose .post-toc > li {
   margin: 0.2em 0;
 }
 
-.post-toc-card .mdui-prose .post-toc a {
+.post-toc-scroll.mdui-prose .post-toc a {
   font-size: var(--mdui-typescale-body-small-size, 0.75rem);
   line-height: var(--mdui-typescale-body-small-line-height, 1rem);
   color: rgb(var(--mdui-color-primary));

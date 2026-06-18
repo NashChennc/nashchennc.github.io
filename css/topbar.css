@@ -1,116 +1,66 @@
-/* ============================================
- * 顶栏（最原生 Flex 布局，剔除所有尺寸 var/calc 计算）
- * ============================================ */
+/* Top app bar: layout/height/sticky behavior is owned by MDUI. */
 .app-top-bar {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background-color: rgb(var(--mdui-color-surface)); /* 仅保留必须的主题色变量 */
-  width: 100%;
-  box-sizing: border-box;
-
-  /* 最原生写法：给定固定高度和水平内边距，垂直方向交给 Flex 自动居中 */
-  height: 4rem; /* 标准 64px 高度 */
-  padding: 0 1rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
   --mdui-comp-ripple-state-layer-color: transparent;
 }
 
-/* 左侧：占据均等 1 份空间，内容靠左 */
-.topbar-home {
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.topbar-title {
+  display: block;
+  visibility: hidden;
   min-width: 0;
 }
 
-/* 中间：自适应内容宽度，因左右两侧各占 flex:1，所以被绝对挤在正中央 */
-.topbar-nav {
-  flex: 0 1 auto;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0.5rem 1rem;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  pointer-events: auto;
+.topbar-title--mobile {
+  display: block;
 }
 
-.topbar-nav::-webkit-scrollbar {
+.topbar-desktop-spacer,
+.topbar-desktop-nav {
   display: none;
 }
 
-/* 右侧：占据均等 1 份空间，内容靠右 */
-.topbar-end {
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.25rem;
-  min-width: 0;
-}
-
-/* --- 组件细节（使用固定 rem 替代 var 计算） --- */
-
-mdui-button.topbar-nav-btn {
-  flex-shrink: 0;
-  height: 3rem; /* 直接指定 48px，干掉 min-height 和 var */
-  font-size: 0.875rem;
-  font-weight: 500;
-  white-space: nowrap;
-  color: rgb(var(--mdui-color-on-surface-variant));
-}
-
-mdui-button.topbar-nav-btn::part(button) {
-  height: 3rem;
-  padding: 0 1rem;
-  border-radius: 8px;
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-}
-
-mdui-button.topbar-nav-btn--active {
-  color: rgb(var(--mdui-color-primary));
-  font-weight: 600;
-}
-
-mdui-button.topbar-nav-btn--active::part(button) {
-  background: transparent;
-  text-decoration: none;
-}
-
+.topbar-actions,
 .topbar-profile-cluster {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  gap: 0.2rem;
+  gap: 0.125rem;
+}
+
+mdui-button-icon.topbar-mobile-control,
+mdui-button-icon.topbar-mobile-home-btn,
+mdui-button-icon.topbar-archive-btn,
+mdui-button-icon.topbar-search-toggle,
+mdui-button-icon.topbar-theme-toggle,
+mdui-button-icon.topbar-profile-trigger-btn,
+mdui-button-icon.topbar-profile-social-bar__btn {
+  flex-shrink: 0;
+  color: rgb(var(--mdui-color-on-surface-variant));
+}
+
+mdui-button-icon.topbar-mobile-home-btn[aria-current='page'] {
+  color: rgb(var(--mdui-color-primary));
 }
 
 .topbar-profile-social-bar {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 0.05rem;
+  display: none;
 }
 
-mdui-button-icon.topbar-profile-social-bar__btn {
+.topbar-profile-trigger__avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+  border: 2px solid rgb(var(--mdui-color-surface-container-high));
+  box-sizing: border-box;
+  display: block;
+}
+
+.topbar-profile-trigger__avatar-icon {
+  width: 1.375rem;
+  height: 1.375rem;
   color: rgb(var(--mdui-color-on-surface-variant));
+  font-size: 1.375rem;
 }
 
 .topbar-profile-social-bar__icon {
@@ -118,38 +68,115 @@ mdui-button-icon.topbar-profile-social-bar__btn {
   line-height: 1;
 }
 
-@media (max-width: 600px) {
-  .topbar-profile-social-bar {
+.site-category-drawer__list {
+  padding: 0.5rem;
+}
+
+.site-category-drawer__section {
+  padding: 0.75rem 0.75rem 0.5rem;
+}
+
+.site-category-drawer__section-title {
+  margin: 0 0 0.5rem;
+  padding: 0 0.25rem;
+  color: rgb(var(--mdui-color-on-surface-variant));
+  font-size: var(--mdui-typescale-title-small-size, 0.875rem);
+  font-weight: 500;
+  line-height: var(--mdui-typescale-title-small-line-height, 1.25rem);
+}
+
+.site-category-drawer__toc .post-toc-scroll {
+  max-height: min(62vh, 34rem);
+  padding: 0 0.25rem 0.25rem;
+}
+
+.site-category-drawer__divider {
+  margin: 0.25rem 0.5rem;
+}
+
+mdui-navigation-drawer.site-category-drawer::part(panel) {
+  width: min(20rem, calc(100vw - 2rem));
+}
+
+@media (min-width: 840px) {
+  mdui-button-icon.topbar-mobile-control,
+  mdui-button-icon.topbar-mobile-home-btn,
+  .topbar-title--mobile {
     display: none;
   }
-}
 
-.topbar-profile-trigger__avatar {
-  /* 3rem 可点区减去 2px 双边框 ≈ 2.75rem 内容盒 */
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center center;
-  flex-shrink: 0;
-  border: 2px solid rgb(var(--mdui-color-surface-container-high));
-  box-sizing: border-box;
-  display: block;
-}
+  .topbar-title:not(.topbar-title--mobile) {
+    display: block;
+    visibility: visible;
+  }
 
-.topbar-profile-trigger__avatar-icon {
-  font-size: 1.375rem; /* 22px */
-  width: 1.375rem;
-  height: 1.375rem;
-  color: rgb(var(--mdui-color-on-surface-variant));
-}
+  .site-category-drawer__toc {
+    display: none;
+  }
 
-mdui-button-icon.topbar-search-toggle,
-mdui-button-icon.topbar-theme-toggle,
-mdui-button-icon.topbar-profile-trigger-btn {
-  flex-shrink: 0;
-  color: rgb(var(--mdui-color-on-surface-variant));
-  box-sizing: border-box;
-  width: 3rem;
-  height: 3rem;
+  .topbar-desktop-spacer {
+    display: flex;
+    flex: 1 1 0;
+    min-inline-size: 0;
+  }
+
+  .topbar-desktop-nav {
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    inline-size: max-content;
+    min-inline-size: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .topbar-desktop-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topbar-actions {
+    flex: 1 0 0;
+    justify-content: flex-end;
+    min-inline-size: max-content;
+  }
+
+  .topbar-profile-social-bar {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.05rem;
+  }
+
+  .topbar-desktop-link {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-height: 3rem;
+    padding: 0 0.875rem;
+    border-bottom: 0.0625rem solid transparent;
+    color: rgb(var(--mdui-color-primary));
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+
+  .topbar-desktop-link--active,
+  .topbar-desktop-link[aria-current='page'] {
+    font-weight: 500;
+  }
+
+  .topbar-desktop-link:hover,
+  .topbar-desktop-link:focus-visible {
+    border-bottom-color: rgb(var(--mdui-color-primary));
+  }
 }

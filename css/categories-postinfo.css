@@ -156,6 +156,14 @@ mdui-card.archives-category-card {
   letter-spacing: -0.02em;
 }
 
+.notes-post-count {
+  font-size: var(--mdui-typescale-title-medium-size, 1rem);
+  font-weight: 400;
+  color: rgb(var(--mdui-color-primary));
+  margin-left: 0.35em;
+  vertical-align: baseline;
+}
+
 .notes-subtitle {
   font-size: var(--mdui-typescale-title-medium-size, 1rem);
   line-height: 1.6;

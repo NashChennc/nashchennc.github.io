@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>how to write a great research paper - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">how to write a great research paper</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Jun 18</span>
+                        
+                        
+                        <span class="note-read">3 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <h1>5. How to Write a Great Research Paper</h1>
+<blockquote>
+<p>Source PDF: <code>5_how-to-write-a-great-research-paper(2).pdf</code>
+Author: Simon Peyton Jones, Microsoft Research Cambridge</p>
+</blockquote>
+<blockquote>
+<p>Original slide text, lightly formatted as Markdown.</p>
+</blockquote>
+<h2 id="Slide-1-Title">Slide 1: Title</h2>
+<p>How to write a great research paper Simon Peyton Jones Microsoft Research Cambridge</p>
+<h2 id="Slide-2-Seven-simple-actionable-suggestions">Slide 2: Seven simple, actionable suggestions</h2>
+<p>Seven simple, actionable suggestions that will make your papers better.</p>
+<h2 id="Slide-3-1-Don’t-wait-write">Slide 3: 1. Don’t wait: write</h2>
+<ol>
+<li>Don’t wait: write</li>
+</ol>
+<h2 id="Slide-4-Writing-papers-model-1">Slide 4: Writing papers: model 1</h2>
+<p>Writing papers: model 1 Your idea Do research Write paper</p>
+<h2 id="Slide-5-Writing-papers-model-2">Slide 5: Writing papers: model 2</h2>
+<p>Writing papers: model 2 Your idea Do research Write paper Your idea Write paper Do research</p>
+<h2 id="Slide-6-Writing-papers-model-2">Slide 6: Writing papers: model 2</h2>
+<p>Your idea Write paper Do research Writing papers: model 2 Your idea</p>
+<ul>
+<li>Forces us to be clear, focused</li>
+<li>Crystallises what we don’t understand</li>
+<li>Opens the way to dialogue with others: reality check, critique, and collaboration</li>
+</ul>
+<h2 id="Slide-7-Writing-papers-model-2">Slide 7: Writing papers: model 2</h2>
+<p>Your idea Write paper Do research Writing papers is a primary mechanism for doing research (not just for reporting it) Writing papers: model 2 Your idea</p>
+<h2 id="Slide-8-2-Identify-your-key-idea">Slide 8: 2. Identify your key idea</h2>
+<ol start="2">
+<li>Identify your key idea</li>
+</ol>
+<h2 id="Slide-9-Your-goal-to-convey-a-useful-and-re-usable-idea">Slide 9: Your goal: to convey a useful and re-usable idea</h2>
+<ul>
+<li>You want to infect the mind of your reader with your idea, like a virus</li>
+<li>Papers are far more durable than programs (think Mozart) The greatest ideas are (literally) worthless if you keep them to yourself Your goal: to convey a useful and re-usable idea</li>
+</ul>
+<h2 id="Slide-10-Do-not-be-intimidated">Slide 10: Do not be intimidated</h2>
+<p>Fallacy You need to have a fantastic idea before you can write a paper. (Everyone else seems to.) Write a paper, and give a talk, about any idea, no matter how weedy and insignificant it may seem to you Do not be intimidated</p>
+<h2 id="Slide-11-Do-not-be-intimidated">Slide 11: Do not be intimidated</h2>
+<ul>
+<li>Writing the paper is how you develop the idea in the first place</li>
+<li>It usually turns out to be more interesting and challenging that it seemed at first Write a paper, and give a talk, about any idea, no matter how weedy and insignificant it may seem to you Do not be intimidated</li>
+</ul>
+<h2 id="Slide-12-The-idea">Slide 12: The idea</h2>
+<ul>
+<li>Your paper should have just one “ping”: one clear, sharp idea</li>
+<li>You may not know exactly what the ping is when you start writing; but you must know when you finish</li>
+<li>If you have lots of ideas, write lots of papers Idea: A re-usable insight, useful to the reader The idea</li>
+</ul>
+<h2 id="Slide-13-Can-you-hear-the-“ping”">Slide 13: Can you hear the “ping”?</h2>
+<p>Can you hear the “ping”?</p>
+<ul>
+<li>Many papers contain good ideas, but do not distil what they are.</li>
+<li>Make certain that the reader is in no doubt what the idea is. Be 100% explicit: Thanks to Joe Touch for “one ping”</li>
+</ul>
+<h2 id="Slide-14-3-Tell-a-story">Slide 14: 3. Tell a story</h2>
+<ol start="3">
+<li>Tell a story</li>
+</ol>
+<h2 id="Slide-15-Your-narrative-flow">Slide 15: Your narrative flow</h2>
+<p>Your narrative flow Imagine you are explaining at a whiteboard</p>
+<ul>
+<li>Here is a problem</li>
+<li>It’s an interesting problem</li>
+<li>It’s an unsolved problem</li>
+<li>Here is my idea</li>
+<li>My idea works (details, data)</li>
+<li>Here’s how my idea compares to other people’s approaches</li>
+</ul>
+<h2 id="Slide-16-Structure-conference-paper">Slide 16: Structure (conference paper)</h2>
+<ul>
+<li>Title (1000 readers)</li>
+<li>Abstract (4 sentences, 100 readers)</li>
+<li>Introduction (1 page, 100 readers)</li>
+<li>The problem (1 page, 10 readers)</li>
+<li>My idea (2 pages, 10 readers)</li>
+<li>The details (5 pages, 3 readers)</li>
+<li>Related work (1-2 pages, 10 readers)</li>
+<li>Conclusions and further work (0.5 pages) Structure (conference paper)</li>
+</ul>
+<h2 id="Slide-17-4-Nail-your-contributions-to-the-mast">Slide 17: 4. Nail your contributions to the mast</h2>
+<ol start="4">
+<li>Nail your contributions to the mast</li>
+</ol>
+<h2 id="Slide-18-The-introduction-1-page">Slide 18: The introduction (1 page)</h2>
+<p>The introduction (1 page)</p>
+<ul>
+<li>Describe the problem</li>
+<li>State your contributions…and that is all ONE PAGE!</li>
+</ul>
+<h2 id="Slide-19-Describe-the-problem">Slide 19: Describe the problem</h2>
+<p>Describe the problem Use an example to introduce the problem</p>
+<h2 id="Slide-20-Molehills-not-mountains">Slide 20: Molehills not mountains</h2>
+<p>Molehills not mountains Example: “Computer programs often have bugs. It is very important to eliminate these bugs [1,2]. Many researchers have tried [3,4,5,6]. It really is very important.” Yawn! Example: “Consider this program, which has an interesting bug. <brief description="">. We will show an automatic technique for identifying and removing such bugs” Cool!</brief></p>
+<h2 id="Slide-21-State-your-contributions">Slide 21: State your contributions</h2>
+<p>State your contributions</p>
+<ul>
+<li>Write the list of contributions first</li>
+<li>The list of contributions drives the entire paper: the paper substantiates the claims you have made</li>
+<li>Reader thinks “gosh, if they can really deliver this, that’s be exciting; I’d better read on”</li>
+</ul>
+<h2 id="Slide-22-State-your-contributions">Slide 22: State your contributions</h2>
+<p>Do not leave the reader to guess what your contributions are! State your contributions Bulleted list of contributions</p>
+<h2 id="Slide-23-Contributions-should-be-refutable">Slide 23: Contributions should be refutable</h2>
+<p>Contributions should be refutable No! Yes! We describe the WizWoz system. It is really cool. We give the syntax and semantics of a language that supports concurrent processes (Section 3). Its innovative features are… We prove that the type system is sound, and that type checking is decidable (Section 4) We have built a GUI toolkit in WizWoz, and used it to implement a text editor (Section 5). The result is half the length of the Java version. We study its properties We have used WizWoz in practice</p>
+<h2 id="Slide-24-Evidence">Slide 24: Evidence</h2>
+<p>Evidence</p>
+<ul>
+<li>Your introduction makes claims</li>
+<li>The body of the paper provides evidence to support each claim</li>
+<li>Check each claim in the introduction, identify the evidence, and forwardreference it from the claim</li>
+<li>“Evidence” can be: analysis and comparison, theorems, measurements, case studies</li>
+</ul>
+<h2 id="Slide-25-No-“rest-of-this-paper-is…”">Slide 25: No “rest of this paper is…”</h2>
+<p>No “rest of this paper is…”</p>
+<ul>
+<li>Not: “The rest of this paper is structured as follows. Section 2 introduces the problem. Section 3…Finally, Section 8 concludes”.</li>
+<li>Instead, use forward references from the narrative in the introduction. The introduction (including the contributions) should survey the whole paper, and therefore forward reference every important part.</li>
+</ul>
+<h2 id="Slide-26-5-Related-work-later">Slide 26: 5. Related work: later</h2>
+<ol start="5">
+<li>Related work: later</li>
+</ol>
+<h2 id="Slide-27-Structure-NO">Slide 27: Structure: NO</h2>
+<p>Structure</p>
+<ul>
+<li>Abstract (4 sentences)</li>
+<li>Introduction (1 page)</li>
+<li>Related work</li>
+<li>The problem (1 page)</li>
+<li>My idea (2 pages)</li>
+<li>The details (5 pages)</li>
+<li>Conclusions and further work (0.5 pages) NO!</li>
+</ul>
+<h2 id="Slide-28-Structure-YES">Slide 28: Structure: YES</h2>
+<p>Structure</p>
+<ul>
+<li>Abstract (4 sentences)</li>
+<li>Introduction (1 page)</li>
+<li>The problem (1 page)</li>
+<li>My idea (2 pages)</li>
+<li>The details (5 pages)</li>
+<li>Related work (1-2 pages)</li>
+<li>Conclusions and further work (0.5 pages) YES!</li>
+</ul>
+<h2 id="Slide-29-No-related-work-yet">Slide 29: No related work yet!</h2>
+<p>No related work yet! We adopt the notion of transaction from Brown [1], as modified for distributed systems by White [2], using the four-phase interpolation algorithm of Green [3]. Our work differs from White in our advanced revocation protocol, which deals with the case of priority inversion as described by Yellow [4]. Your reader Your idea Related work</p>
+<h2 id="Slide-30-No-related-work-yet">Slide 30: No related work yet!</h2>
+<p>No related work yet!</p>
+<ul>
+<li>Problem 1: the reader knows nothing about the problem yet; so your (highly compressed) description of various technical tradeoffs is absolutely incomprehensible</li>
+<li>Problem 2: describing alternative approaches gets between the reader and your idea z z z</li>
+</ul>
+<h2 id="Slide-31-Credit-Fallacy">Slide 31: Credit Fallacy</h2>
+<p>Credit Fallacy To make my work look good, I have to make other people’s work look bad.</p>
+<h2 id="Slide-32-Credit-is-not-like-money">Slide 32: Credit is not like money</h2>
+<ul>
+<li>Warmly acknowledge people who have helped you</li>
+<li>Be generous to the competition.</li>
+<li>Acknowledge weaknesses in your approach Giving credit to others does not diminish the credit you get from your paper The truth: credit is not like money “In his inspiring paper [Foo98] Foogle shows… We develop his foundation in the following ways…”</li>
+</ul>
+<h2 id="Slide-33-6-Put-your-readers-first">Slide 33: 6. Put your readers first</h2>
+<ol start="6">
+<li>Put your readers first</li>
+</ol>
+<h2 id="Slide-34-Structure">Slide 34: Structure</h2>
+<p>Structure</p>
+<ul>
+<li>Abstract (4 sentences)</li>
+<li>Introduction (1 page)</li>
+<li>The problem (1 page)</li>
+<li>My idea (2 pages)</li>
+<li>The details (5 pages)</li>
+<li>Related work (1-2 pages)</li>
+<li>Conclusions and further work (0.5 pages)</li>
+</ul>
+<h2 id="Slide-35-Structure-Sounds-impressive…">Slide 35: Structure: Sounds impressive…</h2>
+<p>Structure</p>
+<ul>
+<li>Sounds impressive…but</li>
+<li>Sends readers to sleep, and/or makes them feel stupid</li>
+<li>The idea Consider a bifircuated semi-lattice D, over a hyper-modulated signature S. Suppose pi is an element of D. Then we know for every such pi there is an epi-modulus j, such that p &lt; p.</li>
+</ul>
+<h2 id="Slide-36-Presenting-the-idea">Slide 36: Presenting the idea</h2>
+<p>Presenting the idea</p>
+<ul>
+<li>Explain it as if you were speaking to someone using a whiteboard</li>
+<li>Conveying the intuition is primary, not secondary</li>
+<li>Once your reader has the intuition, she can follow the details (but not vice versa)</li>
+<li>Even if she skips the details, she still takes away something valuable</li>
+</ul>
+<h2 id="Slide-37-Conveying-the-intuition">Slide 37: Conveying the intuition</h2>
+<p>Conveying the intuition</p>
+<ul>
+<li>Remember: explain it as if you were speaking to someone using a whiteboard Introduce the problem, and your idea, using EXAMPLES and only then present the general case</li>
+</ul>
+<h2 id="Slide-38-Using-examples">Slide 38: Using examples</h2>
+<p>The Simon PJ question: is there any typewriter font? Using examples Example right away</p>
+<h2 id="Slide-39-Putting-the-reader-first">Slide 39: Putting the reader first</h2>
+<p>Putting the reader first</p>
+<ul>
+<li>Do not recapitulate your personal journey of discovery. This route may be soaked with your blood, but that is not interesting to the reader.</li>
+<li>Instead, choose the most direct route to the idea.</li>
+</ul>
+<h2 id="Slide-40-7-Listen-to-your-readers">Slide 40: 7. Listen to your readers</h2>
+<ol start="7">
+<li>Listen to your readers</li>
+</ol>
+<h2 id="Slide-41-Getting-help">Slide 41: Getting help</h2>
+<ul>
+<li>Experts are good</li>
+<li>Non-experts are also very good</li>
+<li>Each reader can only read your paper for the first time once! So use them carefully</li>
+<li>Explain carefully what you want (“I got lost here” is much more important than “Jarva is mis-spelt”.) Get your paper read by as many friendly guinea pigs as possible Getting help</li>
+</ul>
+<h2 id="Slide-42-Getting-expert-help">Slide 42: Getting expert help</h2>
+<p>Getting expert help</p>
+<ul>
+<li>A good plan: when you think you are done, send the draft to the competition saying “could you help me ensure that I describe your work fairly?”.</li>
+<li>Often they will respond with helpful critique (they are interested in the area)</li>
+<li>They are likely to be your referees anyway, so getting their comments or criticism up front is Jolly Good.</li>
+</ul>
+<h2 id="Slide-43-Listening-to-your-reviewers">Slide 43: Listening to your reviewers</h2>
+<p>Listening to your reviewers This is really, really, really hard But it’s really, really, really, really, really, really, really, really, really, really important Treat every review like gold dust Be (truly) grateful for criticism as well as praise</p>
+<h2 id="Slide-44-Listening-to-your-reviewers">Slide 44: Listening to your reviewers</h2>
+<p>Listening to your reviewers</p>
+<ul>
+<li>Read every criticism as a positive suggestion for something you could explain more clearly</li>
+<li>DO NOT respond “you stupid person, I meant X”.</li>
+<li>INSTEAD: fix the paper so that X is apparent even to the stupidest reader.</li>
+<li>Thank them warmly. They have given up their time for you.</li>
+</ul>
+<h2 id="Slide-45-Summary">Slide 45: Summary</h2>
+<p>Summary</p>
+<ol>
+<li>Don’t wait: write</li>
+<li>Identify your key idea</li>
+<li>Tell a story</li>
+<li>Nail your contributions</li>
+<li>Related work: later</li>
+<li>Put your readers first (examples)</li>
+<li>Listen to your readers More: <a target="_blank" rel="noopener" href="http://www.microsoft.com/research/people/simonpj">www.microsoft.com/research/people/simonpj</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
+</ol>
+<h2 id="Slide-46-Language-and-Style">Slide 46: Language and Style</h2>
+<p>Language and Style</p>
+<h2 id="Slide-47-Basic-stuff">Slide 47: Basic stuff</h2>
+<p>Basic stuff</p>
+<ul>
+<li>Submit by the deadline</li>
+<li>Keep to the length restrictions</li>
+<li>Always use a spell checker</li>
+</ul>
+<h2 id="Slide-48-Visual-structure">Slide 48: Visual structure</h2>
+<p>Visual structure</p>
+<ul>
+<li>Give strong visual structure to your paper using</li>
+<li>Find out how to draw pictures, and use them</li>
+</ul>
+<h2 id="Slide-49-Visual-structure">Slide 49: Visual structure</h2>
+<p>Visual structure</p>
+<h2 id="Slide-50-Use-the-active-voice">Slide 50: Use the active voice</h2>
+<p>The passive voice is “respectable” but it deadens your paper. Avoid it at all costs. Use the active voice No! Yes! It can be seen that… 34 tests were run These properties were thought desirable It might be thought that this would be a type error We can see that… We ran 34 tests We wanted to retain these properties You might think this would be a type error</p>
+<h2 id="Slide-51-Use-simple-direct-language">Slide 51: Use simple, direct language</h2>
+<p>Use simple, direct language No! Yes! The object under study was displaced horizontally On an annual basis Endeavour to ascertain It could be considered that the speed of storage reclamation left something to be desired The ball moved sideways Yearly Find out The garbage collector was really slow</p>
+<h2 id="Slide-52-Copyright">Slide 52: Copyright</h2>
+<p>© Copyright Microsoft Corporation. All rights reserved.</p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/how%20to%20be%20good%20at%20research/">how to be good at research</a>
+                            
+                                <a class="post-backlinks__link" href="/%E7%A7%91%E7%A0%94%E7%B4%A2%E5%BC%95/">科研索引</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">5. How to Write a Great Research Paper</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-1-Title"><span class="post-toc-text">Slide 1: Title</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-2-Seven-simple-actionable-suggestions"><span class="post-toc-text">Slide 2: Seven simple, actionable suggestions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-3-1-Don%E2%80%99t-wait-write"><span class="post-toc-text">Slide 3: 1. Don’t wait: write</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-4-Writing-papers-model-1"><span class="post-toc-text">Slide 4: Writing papers: model 1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-5-Writing-papers-model-2"><span class="post-toc-text">Slide 5: Writing papers: model 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-6-Writing-papers-model-2"><span class="post-toc-text">Slide 6: Writing papers: model 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-7-Writing-papers-model-2"><span class="post-toc-text">Slide 7: Writing papers: model 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-8-2-Identify-your-key-idea"><span class="post-toc-text">Slide 8: 2. Identify your key idea</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-9-Your-goal-to-convey-a-useful-and-re-usable-idea"><span class="post-toc-text">Slide 9: Your goal: to convey a useful and re-usable idea</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-10-Do-not-be-intimidated"><span class="post-toc-text">Slide 10: Do not be intimidated</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-11-Do-not-be-intimidated"><span class="post-toc-text">Slide 11: Do not be intimidated</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-12-The-idea"><span class="post-toc-text">Slide 12: The idea</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-13-Can-you-hear-the-%E2%80%9Cping%E2%80%9D"><span class="post-toc-text">Slide 13: Can you hear the “ping”?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-14-3-Tell-a-story"><span class="post-toc-text">Slide 14: 3. Tell a story</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-15-Your-narrative-flow"><span class="post-toc-text">Slide 15: Your narrative flow</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-16-Structure-conference-paper"><span class="post-toc-text">Slide 16: Structure (conference paper)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-17-4-Nail-your-contributions-to-the-mast"><span class="post-toc-text">Slide 17: 4. Nail your contributions to the mast</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-18-The-introduction-1-page"><span class="post-toc-text">Slide 18: The introduction (1 page)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-19-Describe-the-problem"><span class="post-toc-text">Slide 19: Describe the problem</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-20-Molehills-not-mountains"><span class="post-toc-text">Slide 20: Molehills not mountains</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-21-State-your-contributions"><span class="post-toc-text">Slide 21: State your contributions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-22-State-your-contributions"><span class="post-toc-text">Slide 22: State your contributions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-23-Contributions-should-be-refutable"><span class="post-toc-text">Slide 23: Contributions should be refutable</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-24-Evidence"><span class="post-toc-text">Slide 24: Evidence</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-25-No-%E2%80%9Crest-of-this-paper-is%E2%80%A6%E2%80%9D"><span class="post-toc-text">Slide 25: No “rest of this paper is…”</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-26-5-Related-work-later"><span class="post-toc-text">Slide 26: 5. Related work: later</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-27-Structure-NO"><span class="post-toc-text">Slide 27: Structure: NO</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-28-Structure-YES"><span class="post-toc-text">Slide 28: Structure: YES</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-29-No-related-work-yet"><span class="post-toc-text">Slide 29: No related work yet!</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-30-No-related-work-yet"><span class="post-toc-text">Slide 30: No related work yet!</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-31-Credit-Fallacy"><span class="post-toc-text">Slide 31: Credit Fallacy</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-32-Credit-is-not-like-money"><span class="post-toc-text">Slide 32: Credit is not like money</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-33-6-Put-your-readers-first"><span class="post-toc-text">Slide 33: 6. Put your readers first</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-34-Structure"><span class="post-toc-text">Slide 34: Structure</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-35-Structure-Sounds-impressive%E2%80%A6"><span class="post-toc-text">Slide 35: Structure: Sounds impressive…</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-36-Presenting-the-idea"><span class="post-toc-text">Slide 36: Presenting the idea</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-37-Conveying-the-intuition"><span class="post-toc-text">Slide 37: Conveying the intuition</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-38-Using-examples"><span class="post-toc-text">Slide 38: Using examples</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-39-Putting-the-reader-first"><span class="post-toc-text">Slide 39: Putting the reader first</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-40-7-Listen-to-your-readers"><span class="post-toc-text">Slide 40: 7. Listen to your readers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-41-Getting-help"><span class="post-toc-text">Slide 41: Getting help</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-42-Getting-expert-help"><span class="post-toc-text">Slide 42: Getting expert help</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-43-Listening-to-your-reviewers"><span class="post-toc-text">Slide 43: Listening to your reviewers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-44-Listening-to-your-reviewers"><span class="post-toc-text">Slide 44: Listening to your reviewers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-45-Summary"><span class="post-toc-text">Slide 45: Summary</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-46-Language-and-Style"><span class="post-toc-text">Slide 46: Language and Style</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-47-Basic-stuff"><span class="post-toc-text">Slide 47: Basic stuff</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-48-Visual-structure"><span class="post-toc-text">Slide 48: Visual structure</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-49-Visual-structure"><span class="post-toc-text">Slide 49: Visual structure</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-50-Use-the-active-voice"><span class="post-toc-text">Slide 50: Use the active voice</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-51-Use-simple-direct-language"><span class="post-toc-text">Slide 51: Use simple, direct language</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-52-Copyright"><span class="post-toc-text">Slide 52: Copyright</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">5. How to Write a Great Research Paper</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-1-Title"><span class="post-toc-text">Slide 1: Title</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-2-Seven-simple-actionable-suggestions"><span class="post-toc-text">Slide 2: Seven simple, actionable suggestions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-3-1-Don%E2%80%99t-wait-write"><span class="post-toc-text">Slide 3: 1. Don’t wait: write</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-4-Writing-papers-model-1"><span class="post-toc-text">Slide 4: Writing papers: model 1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-5-Writing-papers-model-2"><span class="post-toc-text">Slide 5: Writing papers: model 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-6-Writing-papers-model-2"><span class="post-toc-text">Slide 6: Writing papers: model 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-7-Writing-papers-model-2"><span class="post-toc-text">Slide 7: Writing papers: model 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-8-2-Identify-your-key-idea"><span class="post-toc-text">Slide 8: 2. Identify your key idea</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-9-Your-goal-to-convey-a-useful-and-re-usable-idea"><span class="post-toc-text">Slide 9: Your goal: to convey a useful and re-usable idea</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-10-Do-not-be-intimidated"><span class="post-toc-text">Slide 10: Do not be intimidated</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-11-Do-not-be-intimidated"><span class="post-toc-text">Slide 11: Do not be intimidated</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-12-The-idea"><span class="post-toc-text">Slide 12: The idea</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-13-Can-you-hear-the-%E2%80%9Cping%E2%80%9D"><span class="post-toc-text">Slide 13: Can you hear the “ping”?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-14-3-Tell-a-story"><span class="post-toc-text">Slide 14: 3. Tell a story</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-15-Your-narrative-flow"><span class="post-toc-text">Slide 15: Your narrative flow</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-16-Structure-conference-paper"><span class="post-toc-text">Slide 16: Structure (conference paper)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-17-4-Nail-your-contributions-to-the-mast"><span class="post-toc-text">Slide 17: 4. Nail your contributions to the mast</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-18-The-introduction-1-page"><span class="post-toc-text">Slide 18: The introduction (1 page)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-19-Describe-the-problem"><span class="post-toc-text">Slide 19: Describe the problem</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-20-Molehills-not-mountains"><span class="post-toc-text">Slide 20: Molehills not mountains</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-21-State-your-contributions"><span class="post-toc-text">Slide 21: State your contributions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-22-State-your-contributions"><span class="post-toc-text">Slide 22: State your contributions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-23-Contributions-should-be-refutable"><span class="post-toc-text">Slide 23: Contributions should be refutable</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-24-Evidence"><span class="post-toc-text">Slide 24: Evidence</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-25-No-%E2%80%9Crest-of-this-paper-is%E2%80%A6%E2%80%9D"><span class="post-toc-text">Slide 25: No “rest of this paper is…”</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-26-5-Related-work-later"><span class="post-toc-text">Slide 26: 5. Related work: later</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-27-Structure-NO"><span class="post-toc-text">Slide 27: Structure: NO</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-28-Structure-YES"><span class="post-toc-text">Slide 28: Structure: YES</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-29-No-related-work-yet"><span class="post-toc-text">Slide 29: No related work yet!</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-30-No-related-work-yet"><span class="post-toc-text">Slide 30: No related work yet!</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-31-Credit-Fallacy"><span class="post-toc-text">Slide 31: Credit Fallacy</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-32-Credit-is-not-like-money"><span class="post-toc-text">Slide 32: Credit is not like money</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-33-6-Put-your-readers-first"><span class="post-toc-text">Slide 33: 6. Put your readers first</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-34-Structure"><span class="post-toc-text">Slide 34: Structure</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-35-Structure-Sounds-impressive%E2%80%A6"><span class="post-toc-text">Slide 35: Structure: Sounds impressive…</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-36-Presenting-the-idea"><span class="post-toc-text">Slide 36: Presenting the idea</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-37-Conveying-the-intuition"><span class="post-toc-text">Slide 37: Conveying the intuition</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-38-Using-examples"><span class="post-toc-text">Slide 38: Using examples</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-39-Putting-the-reader-first"><span class="post-toc-text">Slide 39: Putting the reader first</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-40-7-Listen-to-your-readers"><span class="post-toc-text">Slide 40: 7. Listen to your readers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-41-Getting-help"><span class="post-toc-text">Slide 41: Getting help</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-42-Getting-expert-help"><span class="post-toc-text">Slide 42: Getting expert help</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-43-Listening-to-your-reviewers"><span class="post-toc-text">Slide 43: Listening to your reviewers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-44-Listening-to-your-reviewers"><span class="post-toc-text">Slide 44: Listening to your reviewers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-45-Summary"><span class="post-toc-text">Slide 45: Summary</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-46-Language-and-Style"><span class="post-toc-text">Slide 46: Language and Style</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-47-Basic-stuff"><span class="post-toc-text">Slide 47: Basic stuff</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-48-Visual-structure"><span class="post-toc-text">Slide 48: Visual structure</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-49-Visual-structure"><span class="post-toc-text">Slide 49: Visual structure</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-50-Use-the-active-voice"><span class="post-toc-text">Slide 50: Use the active voice</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-51-Use-simple-direct-language"><span class="post-toc-text">Slide 51: Use simple, direct language</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Slide-52-Copyright"><span class="post-toc-text">Slide 52: Copyright</span></a></li></ol></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

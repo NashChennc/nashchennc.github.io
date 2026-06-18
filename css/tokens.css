@@ -4,8 +4,7 @@
   --app-font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC",
     "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --mdui-shape-corner-medium: 8px;
-  /* 顶栏：与 topbar.css `.app-top-bar { height: 4rem }` 一致；行高与顶栏内控件一致 */
-  --app-top-bar-row: 3rem;
+  /* 顶栏：高度由 MDUI top-app-bar 接管；此处仅暴露给 sticky/overlay 计算 */
   --app-top-bar-offset: calc(4rem + env(safe-area-inset-top, 0px));
   /* 文章页：目录 sticky 时与顶栏的缝（须与 max-height 共用 --app-sticky-offset） */
   --app-sticky-stack-gap: 0.125rem;
@@ -16,12 +15,9 @@
   --post-toc-viewport-bottom: 1rem;
   --post-content-pad: clamp(1.25rem, 5vw, 2rem);
 
-  /* 版心左右 gutter（原 8px）；与 .app-container 共用 */
-  --app-container-gutter: 0.5rem;
-  /* 窄屏下侧栏相对主栏下移的间距（原 16px）；≥ --app-breakpoint-sidebar 时与主栏顶对齐 */
-  --app-sidebar-stack-gap: 1rem;
-  /* 侧栏与主栏并排断点：小于此值时 #sidebar-wrapper 保留顶距。global-layout 内 @media 须写死 992px（var() 在 MQ 中不可靠） */
-  --app-breakpoint-sidebar: 992px;
+  /* 版心左右 gutter：由 .app-container 的 min()/calc() 使用，不再配额外断点 */
+  --app-container-gutter: clamp(0.75rem, 3vw, 2rem);
+  --app-container-max-width: 1280px;
 
   /* 独立 Page（about 等）：正文最大可读宽度，在版心内左对齐 */
   --page-static-prose-max-width: 52rem;

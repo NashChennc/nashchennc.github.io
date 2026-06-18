@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,9 +311,10 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <!-- 全宽 Banner -->
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
 <div
   class="banner-container banner-container--page"
   data-banner-layout-root
@@ -427,39 +456,39 @@
                     <div class="mdui-prose">
                         <h2 id="研一上（25秋）">研一上（25秋）</h2>
 <ul>
-<li><a href="/2025.09.03%20%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E6%97%85%E8%A1%8C/" title="2025.09.03 关于毕业旅行">2025.09.03 关于毕业旅行</a></li>
-<li><a href="/%E5%8E%9F%E7%A5%9E%20%E7%A9%BA%E6%9C%88%E4%B9%8B%E6%AD%8C%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" title="原神 空月之歌 版本条目">原神 空月之歌 版本条目</a></li>
-<li><a href="/2025.09.15%20%E8%BD%AC%E5%8F%91/" title="2025.09.15 转发">2025.09.15 转发</a></li>
-<li><a href="/2025.9%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" title="2025.9 看番记录">2025.9 看番记录</a></li>
-<li><a href="/2025.10.08%20%E5%A6%82%E5%9B%BE/" title="2025.10.08 如图">2025.10.08 如图</a> / <a href="/2025.10.08%20%E6%8D%AE%E8%AF%B4%E5%9C%A88.17%E6%9D%A5%E5%88%B0%E5%8C%97%E9%AB%98%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%BF%9B%E5%85%A5%E6%BC%AB%E6%97%A0%E6%AD%A2%E5%A2%83/" title="2025.10.08 据说在8.17来到北高就可以进入漫无止境">2025.10.08 据说在8.17来到北高就可以进入漫无止境</a></li>
-<li><a href="/2025.12.03%20%E7%AA%81%E7%84%B6%E5%A4%B1%E7%9C%A0/" title="2025.12.03 突然失眠">2025.12.03 突然失眠</a> / <a href="/2025.12.03/" title="2025.12.03">2025.12.03</a></li>
-<li><a href="/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8825%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" title="高级人工智能（25秋期末考试）">高级人工智能（25秋期末考试）</a></li>
+<li><a href="/2025.09.03%20%E5%85%B3%E4%BA%8E%E6%AF%95%E4%B8%9A%E6%97%85%E8%A1%8C/" title="">2025.09.03 关于毕业旅行</a></li>
+<li><a href="/%E5%8E%9F%E7%A5%9E%20%E7%A9%BA%E6%9C%88%E4%B9%8B%E6%AD%8C%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" title="">原神 空月之歌 版本条目</a></li>
+<li><a href="/2025.09.15%20%E8%BD%AC%E5%8F%91/" title="">2025.09.15 转发</a></li>
+<li><a href="/2025.9%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" title="">2025.9 看番记录</a></li>
+<li><a href="/2025.10.08%20%E5%A6%82%E5%9B%BE/" title="">2025.10.08 如图</a> / <a href="/2025.10.08%20%E6%8D%AE%E8%AF%B4%E5%9C%A88.17%E6%9D%A5%E5%88%B0%E5%8C%97%E9%AB%98%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%BF%9B%E5%85%A5%E6%BC%AB%E6%97%A0%E6%AD%A2%E5%A2%83/" title="">2025.10.08 据说在8.17来到北高就可以进入漫无止境</a></li>
+<li><a href="/2025.12.03%20%E7%AA%81%E7%84%B6%E5%A4%B1%E7%9C%A0/" title="">2025.12.03 突然失眠</a> / <a href="/2025.12.03/" title="">2025.12.03</a></li>
+<li><a href="/%E9%AB%98%E7%BA%A7%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8825%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" title="">高级人工智能（25秋期末考试）</a></li>
 </ul>
 <h2 id="26寒假">26寒假</h2>
 <ul>
 <li><a href="/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202026%20%E6%9D%A1%E7%9B%AE/" title="">明日方舟 2026 条目</a></li>
-<li><a href="/%E6%9E%AB%E4%B8%B9%20-%20%E8%88%9E%E6%9B%B2%20-%20bpm/" title="枫丹 - 舞曲 - bpm">枫丹 - 舞曲 - bpm</a></li>
-<li><a href="/2026.01.13/" title="2026.01.13">2026.01.13</a> / <a href="/2026.01.15/" title="2026.01.15">2026.01.15</a></li>
-<li><a href="/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%EF%BC%8825%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" title="组合数学（25秋期末考试）">组合数学（25秋期末考试）</a></li>
-<li><a href="/2026.02.15%20%E4%BE%9D%E6%97%A7%E5%B9%B4%E5%BA%A6%E4%BF%9D%E7%95%99%E8%8A%82%E7%9B%AE/" title="2026.02.15 依旧年度保留节目">2026.02.15 依旧年度保留节目</a></li>
-<li><a href="/%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" title="">看番记录</a> / <a href="/2026.2%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" title="2026.2 看番记录">2026.2 看番记录</a></li>
+<li><a href="/%E6%9E%AB%E4%B8%B9%20-%20%E8%88%9E%E6%9B%B2%20-%20bpm/" title="">枫丹 - 舞曲 - bpm</a></li>
+<li><a href="/2026.01.13/" title="">2026.01.13</a> / <a href="/2026.01.15/" title="">2026.01.15</a></li>
+<li><a href="/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%EF%BC%8825%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" title="">组合数学（25秋期末考试）</a></li>
+<li><a href="/2026.02.15%20%E4%BE%9D%E6%97%A7%E5%B9%B4%E5%BA%A6%E4%BF%9D%E7%95%99%E8%8A%82%E7%9B%AE/" title="">2026.02.15 依旧年度保留节目</a></li>
+<li><a href="/%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" title="">看番记录</a> / <a href="/2026.2%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" title="">2026.2 看番记录</a></li>
 </ul>
 <h2 id="研一下（26春）">研一下（26春）</h2>
 <ul>
-<li><a href="/2026.03.08/" title="2026.03.08">2026.03.08</a> / <a href="/2026.03.14%20%E7%94%B5%E8%AF%9D/" title="2026.03.14 电话">2026.03.14 电话</a> / <a href="/2026.03.14%20%E6%B2%A1%E6%9C%89%E4%B8%80%E9%81%93%E8%8F%9C%E5%9C%A8%E9%A4%90%E6%A1%8C%E4%B8%8A%E7%95%99%E5%AD%98%E8%B6%85%E8%BF%87%E4%B8%80%E5%88%86%E9%92%9F%EF%BC%8C%E6%95%85%E6%9C%AA%E8%83%BD/" title="2026.03.14 没有一道菜在餐桌上留存超过一分钟，故未能">2026.03.14 没有一道菜在餐桌上留存超过一分钟，故未能</a></li>
-<li><a href="/2026.03.19%20%E5%A6%82%E5%9B%BE/" title="2026.03.19 如图">2026.03.19 如图</a></li>
-<li><a href="/2026.04.07%20%E5%A6%82%E5%9B%BE/" title="2026.04.07 如图">2026.04.07 如图</a></li>
-<li><a href="/2026.04.11%20%E5%A6%82%E5%9B%BE/" title="2026.04.11 如图">2026.04.11 如图</a> / <a href="/2026.04.11%20%E8%A5%BF%E6%B4%BB%E4%B8%89%E6%A5%BC%E6%8A%A5%E5%91%8A%E5%8E%85%2014%2000-16%2030/" title="2026.04.11 西活三楼报告厅 14 00-16 30">2026.04.11 西活三楼报告厅 14 00-16 30</a></li>
-<li><a href="/2026.04.13%20%E5%A6%82%E5%9B%BE/" title="2026.04.13 如图">2026.04.13 如图</a> / <a href="/2026.04.14%20%E5%81%87%E7%9A%84%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%BE%88%E5%87%86%E3%80%82/" title="2026.04.14 假的，不是很准。">2026.04.14 假的，不是很准。</a></li>
-<li><a href="/2026.04.21%20%E5%A6%82%E5%9B%BE/" title="2026.04.21 如图">2026.04.21 如图</a></li>
-<li><a href="/2026.04.23%204%E5%B9%B4%E3%80%82/" title="2026.04.23 4年。">2026.04.23 4年。</a> / <a href="/%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" title="补完计划">补完计划</a></li>
+<li><a href="/2026.03.08/" title="">2026.03.08</a> / <a href="/2026.03.14%20%E7%94%B5%E8%AF%9D/" title="">2026.03.14 电话</a> / <a href="/2026.03.14%20%E6%B2%A1%E6%9C%89%E4%B8%80%E9%81%93%E8%8F%9C%E5%9C%A8%E9%A4%90%E6%A1%8C%E4%B8%8A%E7%95%99%E5%AD%98%E8%B6%85%E8%BF%87%E4%B8%80%E5%88%86%E9%92%9F%EF%BC%8C%E6%95%85%E6%9C%AA%E8%83%BD/" title="">2026.03.14 没有一道菜在餐桌上留存超过一分钟，故未能</a></li>
+<li><a href="/2026.03.19%20%E5%A6%82%E5%9B%BE/" title="">2026.03.19 如图</a></li>
+<li><a href="/2026.04.07%20%E5%A6%82%E5%9B%BE/" title="">2026.04.07 如图</a></li>
+<li><a href="/2026.04.11%20%E5%A6%82%E5%9B%BE/" title="">2026.04.11 如图</a> / <a href="/2026.04.11%20%E8%A5%BF%E6%B4%BB%E4%B8%89%E6%A5%BC%E6%8A%A5%E5%91%8A%E5%8E%85%2014%2000-16%2030/" title="">2026.04.11 西活三楼报告厅 14 00-16 30</a></li>
+<li><a href="/2026.04.13%20%E5%A6%82%E5%9B%BE/" title="">2026.04.13 如图</a> / <a href="/2026.04.14%20%E5%81%87%E7%9A%84%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%BE%88%E5%87%86%E3%80%82/" title="">2026.04.14 假的，不是很准。</a></li>
+<li><a href="/2026.04.21%20%E5%A6%82%E5%9B%BE/" title="">2026.04.21 如图</a></li>
+<li><a href="/2026.04.23%204%E5%B9%B4%E3%80%82/" title="">2026.04.23 4年。</a> / <a href="/%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" title="">补完计划</a></li>
 <li><a href="/%E6%B8%B8%E6%88%8F%E7%89%88%E6%9C%AC%E5%89%A7%E6%83%85%E6%9D%A1%E7%9B%AE%E7%B4%A2%E5%BC%95/" title="">游戏版本剧情条目索引</a></li>
-<li><a href="/2026.05.01%20ICML%E4%B8%AD%E7%A8%BF/" title="2026.05.01 ICML中稿">2026.05.01 ICML中稿</a></li>
+<li><a href="/2026.05.01%20ICML%E4%B8%AD%E7%A8%BF/" title="">2026.05.01 ICML中稿</a></li>
 </ul>
-<p><a href="/25%E7%A7%8B26%E6%98%A5%E8%AF%BE%E8%A1%A8/" title="25秋26春课表">25秋26春课表</a></p>
+<p><a href="/25%E7%A7%8B26%E6%98%A5%E8%AF%BE%E8%A1%A8/" title="">25秋26春课表</a></p>
 <ul>
 <li>2025.09.04 回校</li>
-<li>2025.9.28 <a href="/2025.09%20%E6%AD%A6%E6%B1%89%E5%B9%BF%E4%BD%9B%E8%BF%9E%E5%B7%9E%E8%A1%8C/" title="2025.09 武汉广佛连州行">2025.09 武汉广佛连州行</a></li>
+<li>2025.9.28 <a href="/2025.09%20%E6%AD%A6%E6%B1%89%E5%B9%BF%E4%BD%9B%E8%BF%9E%E5%B7%9E%E8%A1%8C/" title="">2025.09 武汉广佛连州行</a></li>
 <li>2025.10.24 上海</li>
 <li>2025.11.03 搬家</li>
 </ul>
@@ -538,9 +567,9 @@
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -681,9 +710,104 @@
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A0%94%E4%B8%80%E4%B8%8A%EF%BC%8825%E7%A7%8B%EF%BC%89"><span class="post-toc-text">研一上（25秋）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#26%E5%AF%92%E5%81%87"><span class="post-toc-text">26寒假</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A0%94%E4%B8%80%E4%B8%8B%EF%BC%8826%E6%98%A5%EF%BC%89"><span class="post-toc-text">研一下（26春）</span></a></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

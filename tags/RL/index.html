@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Categories"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,15 +311,16 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <div class="page-shell app-container page-shell--pad-list">
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <div class="page-shell app-container page-shell--pad-list">
     <div class="page-grid page-grid--single">
         <main class="page-main">
             <div class="category-index">
                 
                 <header class="notes-header">
-                    <h1 class="notes-title">RL</h1>
+                    <h1 class="notes-title">RL<span class="notes-post-count">2</span></h1>
                     
                 </header>
                 
@@ -357,7 +386,7 @@
       <span>No posts</span>
     </div>
   </div>
-  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"强化学习","url":"/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/","date":"2026-04-25","tags":["笔记","RL"]},{"title":"后训练","url":"/%E5%90%8E%E8%AE%AD%E7%BB%83/","date":"2026-05-18","tags":["笔记","AI","LLM","RL"]}]}</script>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"后训练","url":"/%E5%90%8E%E8%AE%AD%E7%BB%83/","date":"2026-05-18","tags":["笔记","AI","LLM","RL"]},{"title":"强化学习","url":"/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/","date":"2026-05-18","tags":["笔记","RL"]}]}</script>
 </div>
 
 
@@ -412,6 +441,31 @@
                 
                     <div class="notes-grid__cell">
                         
+<mdui-card clickable variant="filled" href="/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="note-card">
+  
+  <img src="/image/banner/nozomizo19.JPG" class="note-cover" alt="强化学习" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">强化学习</h2>
+      
+      <p class="note-excerpt">强化学习系统化笔记：MDP 记号、蒙特卡洛、TD、SARSA、Q 学习与 DQN 等算法脉络。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">笔记</span>
+      
+      <span class="note-date">2026 May 18</span>
+      <span class="note-read">20 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
 <mdui-card clickable variant="filled" href="/%E5%90%8E%E8%AE%AD%E7%BB%83/" class="note-card">
   
   <img src="/image/banner/nozomizo40.JPG" class="note-cover" alt="后训练" loading="lazy">
@@ -435,31 +489,6 @@
 
                     </div>
                 
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="note-card">
-  
-  <img src="/image/banner/nozomizo19.JPG" class="note-cover" alt="强化学习" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">强化学习</h2>
-      
-      <p class="note-excerpt">强化学习系统化笔记：MDP 记号、蒙特卡洛、TD、SARSA、Q 学习与 DQN 等算法脉络。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">笔记</span>
-      
-      <span class="note-date">2026 Apr 25</span>
-      <span class="note-read">20 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
                 </div>
                 
             </div>
@@ -468,9 +497,9 @@
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -611,9 +640,95 @@
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Categories"
+>
+  
+
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

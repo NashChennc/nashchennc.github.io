@@ -359,7 +359,7 @@
     var yearRange = minYear === maxYear ? String(minYear) : minYear + '–' + maxYear;
     var firstDateKey = posts[0].date;
     var lastDateKey = posts[posts.length - 1].date;
-    summary.textContent = countLabel(root, posts.length) + '（' + formatReadableDate(firstDateKey) + ' - ' + formatReadableDate(lastDateKey) + '）';
+    summary.textContent = formatReadableDate(firstDateKey) + ' - ' + formatReadableDate(lastDateKey);
 
     cells.innerHTML = '';
     months.innerHTML = '';

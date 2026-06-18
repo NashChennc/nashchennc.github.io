@@ -1,8 +1,8 @@
 /* GitHub-style activity heatmap for archive/category/tag pages */
 .activity-heatmap {
-  --activity-cell-size: 11px;
+  --activity-cell-size: clamp(10px, 2.8vw, 11px);
   --activity-cell-gap: 3px;
-  --activity-weekday-width: 1.75rem;
+  --activity-weekday-width: clamp(1.55rem, 5vw, 1.75rem);
   --activity-level-0: color-mix(in srgb, rgb(var(--mdui-color-primary)) 4%, rgb(var(--mdui-color-surface)));
   --activity-level-1: color-mix(in srgb, rgb(var(--mdui-color-primary)) 30%, rgb(var(--mdui-color-surface)));
   --activity-level-2: color-mix(in srgb, rgb(var(--mdui-color-primary)) 55%, rgb(var(--mdui-color-surface)));
@@ -18,12 +18,13 @@
 }
 
 .activity-heatmap__inner {
-  padding: 0.25rem 1.25rem 1.25rem;
+  padding: 0.25rem clamp(1rem, 3vw, 1.25rem) clamp(1rem, 3vw, 1.25rem);
   box-sizing: border-box;
 }
 
 .activity-heatmap__header {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem 1.5rem;
@@ -301,7 +302,7 @@
   display: block;
   overflow-x: auto;
   overflow-y: hidden;
-  height: 150px;
+  height: clamp(140px, 30vw, 150px);
   padding: 1rem 0 1.5rem;
   scrollbar-width: thin;
 }
@@ -324,7 +325,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100px;
+  width: clamp(84px, 24vw, 100px);
   transform: translateX(-50%);
   text-decoration: none;
   color: inherit;
@@ -446,29 +447,4 @@
   height: 22px;
   font-size: 22px;
   opacity: 0.7;
-}
-
-@media (max-width: 720px) {
-  .activity-heatmap {
-    --activity-cell-size: 10px;
-    --activity-cell-gap: 3px;
-    --activity-weekday-width: 1.55rem;
-  }
-
-  .activity-heatmap__inner {
-    padding: 0.25rem 1rem 1rem;
-  }
-
-  .activity-heatmap__header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .timeline-item {
-    width: 84px;
-  }
-
-  .activity-heatmap__detail-list {
-    height: 140px;
-  }
 }

@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,9 +311,10 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <!-- 全宽 Banner -->
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
 <div
   class="banner-container banner-container--page"
   data-banner-layout-root
@@ -438,7 +467,7 @@
 <ul>
 <li>范围：约 <strong>3.2–3.5</strong></li>
 <li>对应主线：第十章「深渊之下」到第十三章「长夜暗空」</li>
-<li>关键词：量子之海、<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="布洛妮娅">布洛妮娅</a>、<a href="/%E5%B8%8C%E5%84%BF/" title="希儿">希儿</a>、理之律者、彼岸双生。</li>
+<li>关键词：量子之海、<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="">布洛妮娅</a>、<a href="/%E5%B8%8C%E5%84%BF/" title="">希儿</a>、理之律者、彼岸双生。</li>
 <li>条目数：11</li>
 </ul>
 <h2 id="时间线">时间线</h2>
@@ -458,7 +487,7 @@
 <td>2019.06.02</td>
 <td>版本PV</td>
 <td>3.2「幻海童谣」宣传PV</td>
-<td><a href="/%E5%B8%8C%E5%84%BF/" title="希儿">希儿</a> A 级装甲「幻海梦蝶」登场，量子之海与<a href="/%E5%B8%8C%E5%84%BF/" title="希儿">希儿</a>线展开。</td>
+<td><a href="/%E5%B8%8C%E5%84%BF/" title="">希儿</a> A 级装甲「幻海梦蝶」登场，量子之海与<a href="/%E5%B8%8C%E5%84%BF/" title="">希儿</a>线展开。</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1N4411p76u/">3.2「幻海童谣」宣传PV</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></td>
 <td></td>
 </tr>
@@ -466,7 +495,7 @@
 <td>2019.06.06</td>
 <td>版本开启</td>
 <td>3.2「幻海童谣」</td>
-<td><a href="/%E5%B8%8C%E5%84%BF/" title="希儿">希儿</a>入场版本，主线继续推进量子之海相关内容。</td>
+<td><a href="/%E5%B8%8C%E5%84%BF/" title="">希儿</a>入场版本，主线继续推进量子之海相关内容。</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/opus/261539452220549702">★新版本「幻海童谣」更新一览★</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></td>
 <td>入坑</td>
 </tr>
@@ -474,7 +503,7 @@
 <td>2019.07.12</td>
 <td>版本PV</td>
 <td>3.3「天使重构」宣传PV</td>
-<td>理之律者<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="布洛妮娅">布洛妮娅</a>相关版本，主线进入<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="布洛妮娅">布洛妮娅</a>高光段落。</td>
+<td>理之律者<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="">布洛妮娅</a>相关版本，主线进入<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="">布洛妮娅</a>高光段落。</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411L7kn/">3.3「天使重构」宣传PV</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></td>
 <td>1</td>
 </tr>
@@ -482,7 +511,7 @@
 <td>2019.07.12</td>
 <td>动画短片</td>
 <td>动画短片「天使重构」</td>
-<td><a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="布洛妮娅">布洛妮娅</a>获得理之律者力量的关键动画短片。</td>
+<td><a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="">布洛妮娅</a>获得理之律者力量的关键动画短片。</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v4411A7kc/">动画短片「天使重构」</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></td>
 <td>1</td>
 </tr>
@@ -490,7 +519,7 @@
 <td>2019.07.18</td>
 <td>版本开启</td>
 <td>3.3「天使重构」</td>
-<td>理之律者版本，<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="布洛妮娅">布洛妮娅</a>主线阶段。</td>
+<td>理之律者版本，<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="">布洛妮娅</a>主线阶段。</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/opus/277471246853614402">★3.3版本「天使重构」更新公告★</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></td>
 <td>1</td>
 </tr>
@@ -514,7 +543,7 @@
 <td>2019.10.12</td>
 <td>动画短片</td>
 <td>动画短片「希儿」</td>
-<td><a href="/%E5%B8%8C%E5%84%BF/" title="希儿">希儿</a>与黑<a href="/%E5%B8%8C%E5%84%BF/" title="希儿">希儿</a>关系的重要短片，印象曲《Dual-Ego》</td>
+<td><a href="/%E5%B8%8C%E5%84%BF/" title="">希儿</a>与黑<a href="/%E5%B8%8C%E5%84%BF/" title="">希儿</a>关系的重要短片，印象曲《Dual-Ego》</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cE411Z74g/">动画短片「希儿」</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></td>
 <td>1</td>
 </tr>
@@ -522,7 +551,7 @@
 <td>2019.10.14</td>
 <td>版本PV</td>
 <td>3.5「彼岸双生」宣传PV</td>
-<td><a href="/%E5%B8%8C%E5%84%BF/" title="希儿">希儿</a> S 级装甲「彼岸双生」、符华增幅「雾都迅羽」登场，世界蛇线索展开</td>
+<td><a href="/%E5%B8%8C%E5%84%BF/" title="">希儿</a> S 级装甲「彼岸双生」、符华增幅「雾都迅羽」登场，世界蛇线索展开</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zE411Z7ZW/">3.5「彼岸双生」宣传PV</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></td>
 <td>1</td>
 </tr>
@@ -530,7 +559,7 @@
 <td>2019.10.17</td>
 <td>版本开启</td>
 <td>3.5「彼岸双生」</td>
-<td><a href="/%E5%B8%8C%E5%84%BF/" title="希儿">希儿</a> S 级装甲版本，主线进入世界蛇相关阶段。</td>
+<td><a href="/%E5%B8%8C%E5%84%BF/" title="">希儿</a> S 级装甲版本，主线进入世界蛇相关阶段。</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/opus/311290021205402949">★V3.5「彼岸双生」开启★</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></td>
 <td>1</td>
 </tr>
@@ -538,7 +567,7 @@
 <td>2019-10</td>
 <td>动画短片 / 角色短片</td>
 <td>《布洛妮娅》</td>
-<td>理之律者<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="布洛妮娅">布洛妮娅</a>的角色向补充短片。</td>
+<td>理之律者<a href="/%E5%B8%83%E6%B4%9B%E5%A6%AE%E5%A8%85/" title="">布洛妮娅</a>的角色向补充短片。</td>
 <td><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1NE411y738/">《布洛妮娅》</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></td>
 <td>1</td>
 </tr>
@@ -615,9 +644,9 @@
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -758,9 +787,104 @@
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A6%82%E8%A7%88"><span class="post-toc-text">概览</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%B6%E9%97%B4%E7%BA%BF"><span class="post-toc-text">时间线</span></a></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

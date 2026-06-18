@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>successful phd student - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">successful phd student</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Jun 18</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                        <span class="note-read">11 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <h1>How to Be a Successful PhD Student</h1>
+<blockquote>
+<p>Source PDF: <code>博士必读-how_to_be_a_successful_phd_student(2).pdf</code>
+Authors: Mark Dredze and Hanna M. Wallach
+Version: 1.0, March 20, 2012</p>
+</blockquote>
+<blockquote>
+<p>Original English text, lightly formatted as Markdown.</p>
+</blockquote>
+<p>Being a graduate student can be extremely rewarding and a lot of fun, but it’s also hard work. Like anything in life, there are ways to succeed and ways to fail. Hopefully, you will find a good support network that can help you learn what it takes to be a good graduate student. However, not everyone is able to find such a network, and it’s important to learn these lessons early. This guide was written based on our experiences as graduate students and our experiences advising graduate students, specifically, PhD students in NLP and machine learning; however, we hope many of the points are applicable to a wider audience. Where possible, we have indicated when advice is field-specific. Beyond that, the advice is listed in no particular order. No doubt there will be points with which you disagree. That’s totally fine – there are certainly points about which even we had differing views; however, before you decide to ignore these points, it’s well worth taking the time to understand why we included them.</p>
+<h2 id="Becoming-a-PhD-Student">Becoming a PhD Student</h2>
+<h3 id="Why-Get-a-PhD">Why Get a PhD?</h3>
+<p>This question is dealt with extensively in other documents, so we will not discuss it in detail here; however, we want to emphasize the importance of asking this question. Getting a PhD will change your career path dramatically. Not only does getting a PhD mean you will spend years in school (with both personal and financial implications), it will also change the type of career you pursue. While we are both happy we got PhDs, it isn’t the right decision for everyone. Before applying to graduate school, you should think hard about whether this is the right path for you. Some specific points to consider are as follows:</p>
+<ol>
+<li>You have to really want it. Getting a PhD takes a long time and a great deal of dedication and hard work. Unless you really want it, you will not finish the PhD.</li>
+<li>It’s more than okay to do something else first. Many students go straight from their undergraduate degree to graduate school. That’s certainly fine – in fact, that’s what we did. However, some of the best PhD students left academia for a bit before starting graduate school. Doing something else gives you a break from the academic world and can help you gain perspective. Students who decide that they want a PhD enough to return to academia are often extremely motivated and do very well.</li>
+</ol>
+<h3 id="Applying-to-Graduate-School">Applying to Graduate School</h3>
+<p>In order to be a PhD student, you have to get into graduate school. There are many good resources devoted to this subject, such as <a target="_blank" rel="noopener" href="http://cra.org/ccc/csgs">http://cra.org/ccc/csgs</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>. We want to emphasize the importance of applying for external fellowships, such as NSF’s Graduate Research Fellowships and NDSEG Fellowships. Having such a fellowship can make a huge difference to your graduate school experience. Since you can usually apply more than once, you have nothing to lose by applying for fellowships while you are already applying for graduate school. We also have some general advice on applying and picking a school:</p>
+<ol start="3">
+<li>Think beyond the school. Of course you want to go to the best school possible. But you also need to be happy. If you aren’t happy, you won’t be successful. If you find yourself with no social life and no friends, you won’t be happy.</li>
+<li>Surround yourself with smart people. Your advisor is important, but you will also spend huge amounts of time with other students. Being around smart people makes you smarter. If you are the smartest person in the room, it’s time to find another room.</li>
+</ol>
+<h2 id="You-and-Your-Advisor">You and Your Advisor</h2>
+<p>Your relationship with your advisor is the single most important relationship you will have in graduate school. A good relationship with your advisor is critical to your success. Make sure you pick the right advisor for you. You will spend hundreds of hours with your advisor, so it is absolutely critical that your advisor is someone you like and with whom you will work well. Just because you like someone’s research doesn’t mean you’ll work well together. Different advisors have different advising styles. Ask them how they run their research group. Talk to their existing students to find out about their advising style and what they expect of their students.</p>
+<ol start="5">
+<li>Listen to your advisor. They won’t always be right, but they have been doing research for (in some cases much) longer than you have. (And, if it wasn’t clear, your advisor is your boss – you work for them. When your advisor tells you to do something, do it.)</li>
+<li>Ping your advisor. If your adviser hasn’t replied to an important email, remind them that you are waiting for their reply. (But first make sure that your email was clear. See here for advice: http:// matt. might. net
+/ articles</li>
+</ol>
+<p>/ how</p>
+<ul>
+<li>to</li>
+<li>email
+/ ) Your advisor is (probably) a busy person and may not have seen your email or realized its importance.</li>
+</ul>
+<ol start="7">
+<li>Feedback. Make sure you obtain feedback from your advisor. This should happen at least once a year, probably in the form of a departmental student review. However, feedback is helpful and it doesn’t hurt to ask for it more often, e.g., once a semester.</li>
+</ol>
+<h2 id="Meetings-with-Your-Advisor">Meetings with Your Advisor</h2>
+<p>This is your primary opportunity to get feedback, direction, advice, etc. Make the most of it.</p>
+<ol start="8">
+<li>Meet regularly. Regular meetings with your advisor ensure that you are being productive and enable your advisor to give you feedback. You should meet with your advisor regularly (e.g., weekly) – ESPECIALLY if you don’t want to.</li>
+<li>Make an agenda. Make an agenda for every meeting with your advisor. Outline each of the topics that you’d like to cover during the meeting and their relative importance. If you don’t know what you want to talk about, your advisor’s unlikely to know either.</li>
+<li>Bring results. Try to bring results (e.g., graphs, tables, figures) to every meeting.</li>
+<li>Start with a summary. Start each meeting by summarizing the previous meeting. Remind them what you agreed on as next steps, summarize what you’ve done (and haven’t done) since then, and go over your agenda. Your advisor has many research projects. Unlike you, they didn’t spend the previous week working on your research project only, and will therefore need to context switch. Summarizing your previous meeting will enable them to switch faster and make sure you’re both on the same page.</li>
+</ol>
+<h2 id="Managing-Your-Day-to-Day-Work-Life-Being-Productive">Managing Your Day-to-Day Work Life / Being Productive</h2>
+<p>Graduate school is different from your other educational experiences and any job you’ve had. Success means being productive, creative, and independent. This doesn’t come naturally to everyone, so figure out quickly how you can best succeed. Remember too that a successful person can fail. A lot. But you aren’t judged by your failures, you are judged by your successes. You don’t have to be the smartest person in the room, but you have to work very hard.</p>
+<ol start="12">
+<li>
+<p>Research is #1. Not everyone is good at research: some people excel in the classroom, while others excel at independent research. However, a PhD is a research degree – the purpose of graduate school is research, not taking classes. Although taking classes is part of graduate school, when it comes to success, it’s all about research. Do well enough in your classes but focus on publishing high quality research papers.</p>
+</li>
+<li>
+<p>Talk to other students. Talk to other students regularly, both within and outside your lab. This is a good way to learn whether your expectations of yourself and graduate school are realistic, as well as to learn about implementation details, interesting problems and solutions, ways of thinking and problem-solving, and “tricks of the trade”.</p>
+</li>
+<li>
+<p>Everyone works differently. Figure out how you like to work and what makes you most productive. (Do you work best in the early mornings or late evening? Do you like working with others or do you prefer to work by yourself? Do you work best when you have multiple projects or just one?) It’s a good idea to discuss these preferences with your advisor so they understand you better and can work with you as effectively as possible.</p>
+</li>
+<li>
+<p>Keep to a regular schedule. This will help you make progress even when you’re feeling unmotivated. It’s generally a good idea to work in the lab at least 20 hours a week. You will benefit from having a focused work environment, being around colleagues, and
+being accessible if your advisor needs to find you. If you feel you can’t work in the lab, try to figure out why, and do something about it (e.g., talk to your advisor).</p>
+</li>
+<li>
+<p>Prioritize. You will find that you have many opportunities, and not enough time to pursue all of them. Try to figure out your priorities (e.g., research, classes, service, social life, etc.) and make sure you are spending your time accordingly. It’s a good idea to do a time audit if you feel things aren’t matching up. Learn to distinguish the immediate from important – don’t focus on immediate deadlines (e.g., homework) to the exclusion or detriment of longer-term, more important deadlines (e.g., conferences). Having a small number of high quality papers is better than many low quality papers.</p>
+</li>
+<li>
+<p>Make your own “next actions". If you’re sitting around waiting for your advisor to tell you what to do next, something is wrong. Find something to do, e.g., read papers.</p>
+</li>
+<li>
+<p>Keep a log. Keep a daily log of everything you do and everything you think. It’s a good idea to make sure your log is searchable (e.g., plain text or use a note taking program).</p>
+</li>
+<li>
+<p>Getting things done. Read (and preferably implement) David Allen’s “Getting Things Done”. It doesn’t work for everyone, but the ideas are very good and worth considering.</p>
+</li>
+<li>
+<p>A social life. You need to be happy to be productive and manage your work life effectively. Being happy usually involves having a social life. Take the time to ensure you are happy and healthy, or you won’t be as productive or effective in your work life.</p>
+</li>
+<li>
+<p>It’s okay to get stuck. Remember that EVERYONE gets stuck/demoralized/etc. No, really. Even super-famous, successful, seemingly-perfect researchers get stuck/demoralized/etc. What makes them successful, however, is that they figure out how to move past these low points to the next great idea.</p>
+</li>
+<li>
+<p>Learn from your mistakes. Failing is fine (and arguably an important key to success). Failing will also happen often. The question is what you do after failing. Take notes. Understand why you failed and think about what you’d do differently next time. Many awesome research ideas came about because someone failed and then asked “why?”</p>
+</li>
+</ol>
+<h2 id="Research">Research</h2>
+<p>You are a PhD student and a PhD is a research degree. That means that your goal is to learn how to do high quality research. A PhD is like an apprenticeship – you learn by watching others and doing yourself. For some, doing research comes naturally. For most, it’s not something that just happens; it takes hard work and careful planning. There is a lot to learn about how to do good research, the major points of which we will outline here. In general, look to those around you, particularly your advisor, for models of productive and successful researchers.</p>
+<h2 id="Reading-Papers">Reading Papers</h2>
+<p>You can’t expect to jump in and contribute to an active field without knowing what other people have already done and are doing, what the main challenges are, and how people tend to think about these problems. All of this information comes from reading papers.</p>
+<ol start="23">
+<li>Read, read, read! Read multiple papers a week – ask your advisor (or other graduate students) for suggestions if you’re unsure of what to read. You have a lot to learn (especially in the first few years) and you’ll primarily do this learning by reading.</li>
+<li>Take notes. Make notes about every paper you read. Make notes at multiple levels of granularity (e.g., one sentence summary of the entire paper all the way down to sentence-level notes). Find a note taking system that makes sense for you.</li>
+<li>Read deeply. When reading an important paper, try to understand where every equation comes from – in other words, derive them yourself. If you get stuck, don’t be afraid to ask someone else (e.g., another graduate student or your advisor) for help.</li>
+<li>Breadth vs. depth. Not every paper needs be read in detail from start to finish.</li>
+</ol>
+<p>Sometimes you only need a high level view. When reading a paper, figure out what you need (i.e., what you hope to achieve by reading this paper) and read it accordingly.</p>
+<h2 id="Picking-a-Research-Topic">Picking a Research Topic</h2>
+<p>You’ll eventually need to come up with ideas for your own research. This is a process for which your advisor will be invaluable. We have some general advice on picking a research topic:</p>
+<ol start="27">
+<li>Know the literature. You need to know what’s been previously in order to make sure your contributions are actually novel and useful. Know what’s been done by others so you don’t waste your (and your advisor’s) time replicating well-studied ideas.</li>
+<li>Know the community. Papers are not published in a vacuum, rather they are part of an ongoing dialogue within a community. Know that community, i.e., the participants, prior work, terminology, etc. You have to know who you are talking to and how to talk to them.</li>
+<li>Think big. You shouldn’t be trying to solve easily-solvable problems. Focus on solving big problems, even if you end up taking small steps towards a solution. There are many ideas that make for obvious papers constitute simple extensions of previous work. While these papers may get published, they don’t usually amount to much. Try to focus on big problems rather than making incremental improvements to previous work.</li>
+<li>It takes time. Good research ideas don’t happen along every day. It may take time for you to come up with a big idea, and that’s perfectly fine. Ultimately, you will be judged on what you publish, not how long it took you to come up with the idea.</li>
+<li>Don’t make up problems that don’t exist. Coming up with a new problem is great, but make sure it’s real problem. If you can’t think of at least three examples of your problem, then its probably not a real problem. Put differently, don’t come up with hammers and
+then go looking for nails. Learn how to design/create hammers for actual nails.</li>
+</ol>
+<h2 id="The-Research-Process">The Research Process</h2>
+<ol start="32">
+<li>First Year. As a first year, find a senior student with an interesting research project and offer to help. This can give you the chance to work on a good idea and learn from someone who is knowledgeable about the area. This will also help you work towards a publication early on in your career and learn first-hand how to do good research.</li>
+<li>Start with writing. When you have an idea, start by writing it down. Work out the details on paper first before you write any code. This will help expose problems and flesh out the details. This is especially helpful when working on mathematics. When working on a paper, write an outline before writing any text so you know what you are trying to do.</li>
+<li>Learn when to quit. You can learn from failure, but only if you move on. If you find yourself repeatedly lowering your goals and expectations, you aren’t making progress. Learn when to quit and rely on your advisor, who probably knows better than you do.</li>
+<li>Don’t be deadline focused. There is always another deadline around the corner. Publish interesting work when it’s ready to be published. It’s wonderful to use deadlines as motivation, but you shouldn’t publish just because you received a CFP.</li>
+<li>Don’t leave the writing to the end. Start writing the paper as early as possible and aim to get results well before the deadline. Writing will help you plan your work and think through your hypotheses and arguments. Even once you have a draft with initial results, there is plenty of work to be done in order to turn this draft into a high quality paper. You won’t finish this work if you leave the writing to the night before the deadline.</li>
+<li>Ask questions. Don’t be afraid to ask questions and/or ask for help – you’ll learn faster and be more productive than if you try to figure absolutely everything out for yourself.</li>
+<li>Implement. You understand best when you implement (understanding = intuition + math + code). If you can, implement things more than once (e.g., using two different methods, or in two different languages) and check your implementations give identical results.</li>
+<li>Version control. Use version control for everything (notes, code, papers, etc.). No, really. It may be time-consuming to set up, but it will save you time in the long run.</li>
+</ol>
+<h2 id="Getting-and-Presenting-Good-Results">Getting (and Presenting) Good Results</h2>
+<ol start="40">
+<li>
+<p>Know your data. Know your data really well. Make sure it exhibits the properties you think it does. Perform exploratory data analysis – plot/visualize it in various different ways – sometimes you’ll find it exhibits interesting properties that you hadn’t expected.</p>
+</li>
+<li>
+<p>Know your software. Make sure you understand what the software packages you’re using are doing. If you’re publishing results obtained using someone else’s software, you should know for SURE that their software does what you think it is doing. There’s an “easy” way to do this: read the source code. If there’s no source code, be wary.</p>
+</li>
+<li>
+<p>Good baselines. Beating baselines is good, but only if they are worth beating. Additionally, your idea is only useful if it is an improvement over existing or simpler approaches. Learn how to come up with convincing, effective, and SIMPLE baselines. Always ask yourself, "What’s the simplest experiment I could do to (in)validate my hypothesis?” Talented researchers have a knack for coming up with simple baselines.</p>
+</li>
+<li>
+<p>Understand your results. It’s not sufficient to know that your method gets 95% accuracy on your data. You also need to know exactly what’s happening on the 5% of data points for which your method DOESN’T work. Look at actual data points that your method is handling (in)correctly, plot/visualize your results in various different ways, etc. This exercise will be useful when presenting your work and when improving upon it.</p>
+</li>
+<li>
+<p>Make your results accessible. Learn how to present results such that they are accessible, useful, and convincing. A table is rarely the most appropriate way to present numerical information – it’s a good idea to read at least one book about (quantitative) information visualization. Your results are only convincing if they are understandable. Publishing</p>
+</li>
+<li>
+<p>Keep track of deadlines. Don’t rely on your advisor to do this for you – they’re already keeping track of a zillion other deadlines. If you think you’re not on track to meet a deadline, DO tell to your advisor – they’d rather know sooner than later.</p>
+</li>
+<li>
+<p>Finish writing early. Finish your paper (at least) a week before the deadline. Not only will this give you time to polish your writing, get feedback from others, and run any experiments they suggest, but it makes it more likely that you’ll actually get any useful feedback from your advisor, who probably has several other papers to read before the deadline. It’s not helpful to get great feedback from a colleague about how to frame your ideas when you only have a few hours left before the paper is due.</p>
+</li>
+<li>
+<p>Learn how to write well. If you ever thought that you didn’t need to write well because you were an engineer or scientist, you were 100% wrong. As a scientist, it’s your job to communicate your ideas to others. It doesn’t matter how amazing your work is, it’s unlikely to have any impact if no one can understand your explanations. If you find yourself thinking “the reviewers didn’t understand my paper,” maybe you didn’t explain your ideas clearly enough. A well-written paper can make the difference between a reject and an accept, or between a good paper and an award-winning paper. If you want to improve your writing, you’ll need to get early feedback on your drafts (see above.)</p>
+</li>
+<li>
+<p>Reproduce your results. Part of publishing is attesting to the accuracy of your published results. That means you must be able to reproduce them. Make sure you keep
+detailed notes on how you obtained the results in your paper so that you can repeat the experiments. At the minimum, this will be helpful for running additional experiments based on reviewer feedback (or when you need to write your thesis.)</p>
+</li>
+<li>
+<p>Reorganize after submission. Organize and document your code, results, etc. IMMEDIATELY after a paper deadline. Don’t kid yourself – if you don’t do it then, it’s never going to happen. Again, you will be grateful you took the time to do this when you find you need to rerun your experiments (e.g., for your thesis).</p>
+</li>
+<li>
+<p>Release code and data. Release any code or data that is central to your publication. This ensures that others can reproduce or build on your ideas. Furthermore, if others use the code/data, they will cite you. What more could you want?!</p>
+</li>
+<li>
+<p>Quality and not quantity. You will be judged based on the quality, and not the quantity of your publications. You will find endless CFPs for conferences, books, journals, etc. Most of these won’t matter to your career. No one is impressed by publications in some random journal. Take the time to get a high quality paper into a conference that matters.</p>
+</li>
+<li>
+<p>Publish or perish doesn’t start in your first year. With increasing pressure to publish, some students think they need a paper in their first year. You do not. It is unlikely that after less than a year you will have an important and novel idea to contribute to the community. Learn something first so your first contribution is worthwhile.</p>
+</li>
+</ol>
+<h2 id="Talks">Talks</h2>
+<p>We cannot overestimate the importance of giving good talks. A good talk can make the difference between people reading/citing your conference paper and people dismissing it. Furthermore, knowing how to give a good talk will help you get a good job after graduate school. As a PhD student, you must learn how to give good talks, so start early.</p>
+<ol start="53">
+<li>Practice. The single best way to learn how to give good talks is to practice. Practice in front of the mirror, in front of friends, colleagues, etc. It is not unusual to practice an important talk several times. Also, find opportunities to give talks. If your school has a student seminar, volunteer to speak. These forums will allow you to improve your presentation skills well before you have to give conference and job talks.</li>
+<li>Ask for feedback. If you give a talk (either a practice talk or a real talk ) ask your audience for feedback on clarity, style, content, presentation, etc.</li>
+<li>Spend time on content. With PowerPoint, Keynote, etc., it’s easy to spend lots of time on the look and feel of the slides. However, this is far less important than having a clear outline and clear ways of presenting your content. Spend your time on what you want to say and how you want to say it before you work on fancy animations.</li>
+<li>Timing. The right amount of material in the right amount of time is the hallmark of a good talk. The moment a speaker says “I don’t have time so I am going to rush through this,” half the audience tunes out. If you don’t have time to cover something, skip it entirely (or better yet, don’t put it in the talk in the first place). It is better to cover a single topic well than many topics poorly. Time yourself when you practice your talk. Use these timings to make notes which will help you decide if you are moving too slowly or quickly during the actual talk. Do you talk faster or slower during practice as compared to the actual presentation? Figure this out so you know how to adjust your timings accordingly.</li>
+</ol>
+<h2 id="Posters">Posters</h2>
+<p>Poster presentations can be an important part of the publication process. There are many different approaches to making good posters, so we’ll outline a few high level points.</p>
+<ol start="57">
+<li>Start a conversation. A poster is supposed to assist you in starting and maintaining a conversation. Your poster should therefore advertise your work and persuade people that they want to talk with you. It should also contain information that will help you talk about your work. A poster is not a replacement for your paper. It’s okay to omit detail.</li>
+<li>Visually attractive. People visit posters that look nice and aren’t just a mess of math. You don’t need to become an artist, but learn how to use graphics and colors.</li>
+<li>Tell a story. Just as a talk should have a clear storyline, so should your poster. You will use your poster as a guide when talking to visitors about about your work. Make sure sure it has the right content in the right order (see below).</li>
+<li>Practice. Just as it’s important to practice talks, it’s important to practice presenting your poster. Practicing your presentation will help you work out whether your poster contains the right content, at the right level of detail, arranged in the right order.</li>
+</ol>
+<h2 id="Professional-Development">Professional Development</h2>
+<p>Professional development, networking, and (ultimately) finding a job are important.</p>
+<ol start="61">
+<li>
+<p>Do internships. Industrial (and academic) internships are great ways to learn new skills, meet new people, work on new problems, and make some extra money. There are different schools of thought on timing, however. One approach is to do an internships early on in graduate school, when you don’t yet have a research topic and haven’t built up momentum on a specific problem. Another approach is to do an internship later, when you have a specialized set of skills/interests and are closer to looking for a job. Both are good approaches and it doesn’t hurt to do more than one internship.</p>
+</li>
+<li>
+<p>Review papers. Start reviewing papers in your research area. Offer to help your advisor with paper reviews – they will almost always take you up on your offer. Ask your advisor
+for feedback on your reviews so you can improve your reviewing skills.</p>
+</li>
+<li>
+<p>Give talks. Learning to give good presentations is very important (see above). One benefit of giving talks is that doing so advertises your work and makes sure people know who you are. Being well-known will pay off when you are looking for a job.</p>
+</li>
+</ol>
+<h2 id="Progressing-Through-Graduate-School">Progressing Through Graduate School</h2>
+<p>As you look around at other students, you’ll probably wonder how you are doing. Don’t just speculate and try to compare yourself to others – ask your advisor. While CS PhDs usually take 5-6 years, plenty of people take longer. It’s not necessarily bad to take 7 years. Remember that you won’t be judged on how long you spent in your PhD program, but by what you produced. Roughly speaking, here is what to expect in terms of progress.</p>
+<ol start="64">
+<li>Stage 1: Take classes, find an advisor, watch others do research, read papers, complete a project with results (though not necessarily a paper). Usually 2-3 years.</li>
+<li>Stage 2: Pick a general area of interest, lead research on a project in this area, publish a paper, make a contribution to this area. Usually 2-4 years.</li>
+<li>Stage 3: Evaluate your work, come up with a story, write a thesis. Usually 1 year.</li>
+</ol>
+<h2 id="Networking">Networking</h2>
+<ol start="67">
+<li>Tutorials. Write tutorials/annotated bibliographies/technical notes. If they’re good, this can be a highly effective way to make sure your name is known within your community. Think of all the tutorials you’ve read by well-known academics.</li>
+<li>Big names. Know who the “big names” are in your area and follow their work closely.</li>
+<li>Go to conferences. Even if you aren’t presenting a paper, try to go to a conference every year. (Remember that your advisor may not always have money to send you, however.) If you feel uncomfortable about not presenting a paper, remember that you can tell people, “Oh, I’m not presenting a paper here THIS year.”</li>
+<li>Introduce yourself. Don’t be shy about introducing yourself to new people (junior and senior) at conferences, even if you find this hard. If you’re not sure what to say, ask them to tell you about their work. If it helps, ask your advisor to make introductions.</li>
+<li>Act professionally. Your actions reflect not only yourself, but also your lab and your advisor. Additionally, it’s possible that you will continue to interact with the researchers in your community for decades to come – making sure you establish a reputation as someone who acts professionally is therefore an investment in your future.</li>
+</ol>
+<h2 id="Finding-a-Job">Finding a Job</h2>
+<p>Finding a job is a complex process and beyond the scope of this document. There are many good guides on this topic. We’ll leave you with two things to keep in mind, however:</p>
+<ol start="72">
+<li>You are not alone. Do not expect to find a job all by yourself. Part of your advisor’s job is to help you find employment. Start talking with your adviser early about your career goals and your job search. Work with your advisor to develop a plan. You can also rely on your other contacts, such as your committee members and your internship hosts.</li>
+<li>Success means many things. Many students think that an academic research job is the true measure of success: if you don’t become a professor, you haven’t succeeded. This is total nonsense. No really. You are getting a PhD because of the training it provides. Academic research is one area that benefits from or requires this training, but there are many many others: teaching, industrial research, government research, science policy, financial investment, entrepreneurship, etc. During your PhD, try to work out what you love to do. Then, after your PhD, find a job that will let you do that. For some, this is teaching and academic research, but it is ridiculous to think that is the right career for everyone with a PhD. We know many brilliant people who choose a nonacademic career path because it’s what they wanted to do and it makes them happy. Ultimately, you need to do what will make you happy.</li>
+</ol>
+<h2 id="Things-to-Learn">Things to Learn</h2>
+<p>Mastering the following technical tools will help you effectively conduct successful research:</p>
+<ol>
+<li>
+<p>Bash configuration (e.g.,.bashrc, environment variables, aliases)</p>
+</li>
+<li>
+<p>Path, Classpath, Pythonpath</p>
+</li>
+<li>
+<p>Unix basics (e.g., cd, ls, mv, rm, rmdir, man, history, ctrl+r,</p>
+</li>
+<li>
+<p>ctrl+a, ctrl+e, ctrl+← and ctrl+→, killring vs. clipboard) – see http:// freeengineer. org
+/ learnUNIXin</p>
+</li>
+<li>
+<p>minutes. html
+for a starting point</p>
+</li>
+<li>
+<p>Basic bash scripting (e.g., sort, uniq, cut, tr, wc, xargs, find, grep, awk, sed)</p>
+</li>
+<li>
+<p>ctrl+c, ps aux and grep, kill -9, ctrl+z and bg, fg, top</p>
+</li>
+<li>
+<p>diff</p>
+</li>
+<li>
+<p>How to install software locally</p>
+</li>
+<li>
+<p>Emacs or vi</p>
+</li>
+<li>
+<p>Eclipse or Intellij</p>
+</li>
+<li>
+<p>Screen (and why you need it)</p>
+</li>
+<li>
+<p>Make</p>
+</li>
+<li>
+<p>Basic R plotting commands</p>
+</li>
+<li>
+<p>Grid engine (e.g., qsub, qstat, qlogin)</p>
+</li>
+<li>
+<p>Version control (e.g., git)</p>
+</li>
+<li>
+<p>How to use a debugger (e.g., jdb)</p>
+</li>
+</ol>
+<h2 id="Other-Resources">Other Resources</h2>
+<p>A few excellent articles on related topics:</p>
+<ol>
+<li>Lawrence Saul’s advice for new graduate students: http:// www. cs. ucsd. edu
+/~ saul</li>
+</ol>
+<p>/ start</p>
+<p>_ research. pdf</p>
+<ol start="2">
+<li>3 qualities of successful PhD students: http:// matt. might. net</li>
+</ol>
+<p>/ articles</p>
+<p>/ successful</p>
+<ul>
+<li>phd</li>
+<li>students</li>
+</ul>
+<p>/ 3. 10 reasons PhD students fail: http:// matt. might. net</p>
+<p>/ articles</p>
+<p>/ ways</p>
+<ul>
+<li>to</li>
+<li>fail</li>
+<li>a - phd
+/</li>
+</ul>
+<ol start="4">
+<li>HOWTO: Send and reply to email: http:// matt. might. net
+/ articles</li>
+</ol>
+<p>/ how</p>
+<ul>
+<li>to</li>
+<li>email
+/. See other articles from http:// matt. might. net</li>
+</ul>
+<p>/ articles</p>
+<p>/</p>
+<ol start="5">
+<li>Advice from Jason Eisner: http:// www. cs. jhu. edu
+/~ jason</li>
+</ol>
+<p>/ advice</p>
+<p>/ – including how to read a paper (http:// www. cs. jhu. edu</p>
+<p>/~ jason</p>
+<p>/ advice</p>
+<p>/ how</p>
+<ul>
+<li>to</li>
+<li>read</li>
+<li>a - paper. html
+), how to find research problems (http:// www. cs. jhu. edu</li>
+</ul>
+<p>/~ jason</p>
+<p>/ advice</p>
+<p>/ how</p>
+<ul>
+<li>to</li>
+<li>find</li>
+<li>research</li>
+<li>problems. html</li>
+</ul>
+<p>), and why you should write the paper first (http:// www. cs. jhu. edu</p>
+<p>/~ jason</p>
+<p>/ advice</p>
+<p>/ write</p>
+<ul>
+<li>the</li>
+<li>paper</li>
+<li>first. html
+)</li>
+</ul>
+<ol start="6">
+<li>Advice for senior grad students: http:// www. cs. umbc. edu
+/~ mariedj</li>
+</ol>
+<p>/ papers</p>
+<p>/ advice</p>
+<ul>
+<li>summary. html</li>
+</ul>
+<ol start="7">
+<li>How to write well: http:// www. amazon. com
+/ Manual</li>
+</ol>
+<ul>
+<li>Writers</li>
+<li>Research</li>
+<li>Dissertations</li>
+<li>Seventh</li>
+</ul>
+<p>/ dp /0226823377/</p>
+<p>ref = sr _1_1?</p>
+<p>s = books</p>
+<p>&amp; ie = UTF</p>
+<p>8&amp; qid =1316904475&amp;</p>
+<p>sr =1-1</p>
+<ol start="8">
+<li>
+<p>How to be a good graduate student: http:// www. cs. indiana. edu
+/ how.2 b / how.2 b. html</p>
+</li>
+<li>
+<p>How to be a good graduate student: http:// www. deirdremccloskey. com
+/ docs</p>
+</li>
+</ol>
+<p>/ pdf</p>
+<p>/ Article</p>
+<p>_315.</p>
+<p>pdf</p>
+<ol start="10">
+<li>The National Physical Science Consortium Graduate Fellow Student Handbook (Some is administrative stuff applicable only for NPSC fellows, but a lot of general advice too) http:// npsc. org
+/ CurrentFellows</li>
+</ol>
+<p>/ assets</p>
+<p>/ GradStudentHandbook. pdf</p>
+<ol start="11">
+<li>CRA-W graduate student information guide (should you go, how to apply, what grad school is like): http:// cra</li>
+</ol>
+<ul>
+<li>w. org
+/ LinkClick. aspx? fileticket</li>
+</ul>
+<p>=5 vDjo</p>
+<ul>
+<li>qHs
+30%3</li>
+</ul>
+<p>d &amp; tabid</p>
+<p>=85</p>
+<ol start="12">
+<li>Advice on outlines and paper-writing from George Whitesides (highest h-index of any living chemist): http:// www. ee. ucr. edu
+/~ rlake</li>
+</ol>
+<p>/ Whitesides</p>
+<p>_ writing</p>
+<p>_ res</p>
+<p>_ paper. pdf</p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/how%20to%20be%20good%20at%20research/">how to be good at research</a>
+                            
+                                <a class="post-backlinks__link" href="/%E7%A7%91%E7%A0%94%E7%B4%A2%E5%BC%95/">科研索引</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/reading%20and%20writing/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">reading and writing</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/tmux/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">tmux</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">How to Be a Successful PhD Student</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Becoming-a-PhD-Student"><span class="post-toc-text">Becoming a PhD Student</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Why-Get-a-PhD"><span class="post-toc-text">Why Get a PhD?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Applying-to-Graduate-School"><span class="post-toc-text">Applying to Graduate School</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#You-and-Your-Advisor"><span class="post-toc-text">You and Your Advisor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Meetings-with-Your-Advisor"><span class="post-toc-text">Meetings with Your Advisor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Managing-Your-Day-to-Day-Work-Life-Being-Productive"><span class="post-toc-text">Managing Your Day-to-Day Work Life &#x2F; Being Productive</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Research"><span class="post-toc-text">Research</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reading-Papers"><span class="post-toc-text">Reading Papers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Picking-a-Research-Topic"><span class="post-toc-text">Picking a Research Topic</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#The-Research-Process"><span class="post-toc-text">The Research Process</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Getting-and-Presenting-Good-Results"><span class="post-toc-text">Getting (and Presenting) Good Results</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Talks"><span class="post-toc-text">Talks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Posters"><span class="post-toc-text">Posters</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Professional-Development"><span class="post-toc-text">Professional Development</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Progressing-Through-Graduate-School"><span class="post-toc-text">Progressing Through Graduate School</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Networking"><span class="post-toc-text">Networking</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Finding-a-Job"><span class="post-toc-text">Finding a Job</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Things-to-Learn"><span class="post-toc-text">Things to Learn</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Other-Resources"><span class="post-toc-text">Other Resources</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">How to Be a Successful PhD Student</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Becoming-a-PhD-Student"><span class="post-toc-text">Becoming a PhD Student</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Why-Get-a-PhD"><span class="post-toc-text">Why Get a PhD?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Applying-to-Graduate-School"><span class="post-toc-text">Applying to Graduate School</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#You-and-Your-Advisor"><span class="post-toc-text">You and Your Advisor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Meetings-with-Your-Advisor"><span class="post-toc-text">Meetings with Your Advisor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Managing-Your-Day-to-Day-Work-Life-Being-Productive"><span class="post-toc-text">Managing Your Day-to-Day Work Life &#x2F; Being Productive</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Research"><span class="post-toc-text">Research</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reading-Papers"><span class="post-toc-text">Reading Papers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Picking-a-Research-Topic"><span class="post-toc-text">Picking a Research Topic</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#The-Research-Process"><span class="post-toc-text">The Research Process</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Getting-and-Presenting-Good-Results"><span class="post-toc-text">Getting (and Presenting) Good Results</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Talks"><span class="post-toc-text">Talks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Posters"><span class="post-toc-text">Posters</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Professional-Development"><span class="post-toc-text">Professional Development</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Progressing-Through-Graduate-School"><span class="post-toc-text">Progressing Through Graduate School</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Networking"><span class="post-toc-text">Networking</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Finding-a-Job"><span class="post-toc-text">Finding a Job</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Things-to-Learn"><span class="post-toc-text">Things to Learn</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Other-Resources"><span class="post-toc-text">Other Resources</span></a></li></ol></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

@@ -23,7 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
-  <title>未打开文件 - 生猛活海鲜大排档</title>
+  <title>how to be good at research - 生猛活海鲜大排档</title>
 
   <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
   <link rel="stylesheet" href="/mdui2/mdui.css">
@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,9 +311,10 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <!-- 全宽 Banner -->
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
 <div
   class="banner-container banner-container--page"
   data-banner-layout-root
@@ -408,58 +437,73 @@
         <main class="page-main page-main--post">
             <mdui-card variant="filled" class="post-page-card">
                 <div class="post-page-card__header">
-                    <h1 class="post-page__title note-card-title">未打开文件</h1>
+                    <h1 class="post-page__title note-card-title">how to be good at research</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 May 18</span>
+                        <span class="note-date">2026 Jun 18</span>
                         
                             <div class="post-page__meta--cats">
                                 
-                                    <a href="/categories/%E6%95%A3%E6%96%87/" class="note-tag">散文</a>
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
                                 
                             </div>
                         
                         
-                        <span class="note-read">5 min read</span>
+                        <span class="note-read">3 min read</span>
                     </div>
                     <mdui-divider></mdui-divider>
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <h2 id="序">序</h2>
-<p>从去年一月份开始想写这篇回忆录，到现在已经一年半了。</p>
-<p>但我一直无从下笔。一来因为四年来筋疲力尽，体验到了何为 “无暇维护自己的一致性”；二来在重大事件完结后，人总会倾向于描绘一个宏大的叙事，而非详尽的事实。总而言之，自己记忆的可信性再次低到了一个不可接受的程度。</p>
-<p>我真的忘记了好多事情啊。</p>
-<p>从前我觉得我并不是一个健忘的人。我曾经有一套清晰的索引。我可以清晰地回忆起班上每张试卷的笔迹、十几个部落冲突小号里的阵型和配兵，硬盘里上百个节点的路径和内容。我记得每件事发生的日期，当时和谁在一起，又看到了什么。但现在不能了。杂乱的包袱越堆越多，或许已经失去了索引的意义。</p>
-<p>我曾经有一个奇怪的习惯。</p>
-<p>大半夜失眠不知道该干什么的时候，我会顺着学号数我初二班级的名单，即使其中的一些人我已经很久没有见过了。</p>
-<p>出于一些关于记忆的信念，这或许是我做过的关于自己的、最早的、朴素的长期实验之一。一方面我当然不想忘记这样重要的事；另一方面我又会想：究竟有什么东西可以破坏我数学归纳式的自我维护。我以这样矛盾的心态期待着毁灭的到来。</p>
-<p>某一天开始，我发现我真的数不下来了。在记不起名单的同时，我意识到我也把什么重要的东西给丢掉了。</p>
-<p>唉。</p>
-<p>我真的忘记了好多事情啊——</p>
-<p>话说回来。之所以会做这个实验，我想是受到 <a href="/%E5%B4%A9%E5%9D%8F3/" title="">崩坏3</a> 里的 <a href="/%E5%B4%A9%E5%9D%8F3%20%E7%AC%A6%E5%8D%8E%E4%B8%8E%E8%AF%86%E4%B9%8B%E5%BE%8B%E8%80%85%E5%A4%AA%E8%99%9A%E5%B1%B1%E7%AF%87/" title="">符华</a> 的启发。她的故事主题是 “记忆” 与 “意识”：</p>
+                        <p><a target="_blank" rel="noopener" href="https://x.com/itsreallyvivek">@itsreallyvivek</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p>nobody really teaches you research. you get a desk, a problem someone else picked, and a vague instruction to produce something novel. so most people reverse-engineer the job from what they can see, which is papers, threads, and announcements, and what they end up learning is how to look like a researcher rather than how to be one. the actual skill is a stack of smaller skills, and almost every one of them can be deliberately trained.</p>
+<h2 id="pick-your-own-problems">pick your own problems</h2>
+<p>richard hamming had a habit at bell labs that made him unpopular at lunch. he’d ask whoever sat near him what the important problems in their field were, then ask why they weren’t working on them. people changed tables. the question stings because most of us have no good answer. we don’t choose problems, we absorb them, from an advisor, from whatever a big lab announced last quarter, from the paper everyone is quote-tweeting this week.</p>
+<p>the trouble with an absorbed problem is that you hold the conclusion without the reasoning. you know some famous lab cares about a direction, but not why, not what they expect to find, not what would make them drop it. when they pivot, you find out a year later. and on a problem that’s already fashionable, you’re racing a thousand people who started earlier and have more compute than you.</p>
+<p>john schulman’s guide to ml research splits the work into two modes. in one, you read the literature and hunt for things to improve. in the other, you choose an outcome you genuinely want to exist and reason backwards to the experiments. he argues for the second, and the quiet reason is that it manufactures originality. a goal you actually care about will drag you into territory no survey paper covers.</p>
+<p>taste, meanwhile, gets discussed like a gift. it behaves more like a muscle. predict the result of every experiment before you run it. cover a paper’s results section and guess the numbers from the method alone. mark down which of this month’s releases will matter in two years and check your hit rate later. a forecast plus a correction, repeated a few hundred times, is how every good model gets trained, including the one in your head.</p>
+<h2 id="upgrade-your-inputs">upgrade your inputs</h2>
+<p>shared reading lists produce shared ideas. if your information diet is the trending page of arxiv plus whatever survives the group chat filter, you will reliably reach the same conclusions as everyone else, at the same time, which makes those conclusions worth approximately nothing.</p>
+<p>old material is criminally underpriced. this field reruns its own past on a delay: mixture of experts dates to 1991, lstms to 1997, backprop went mainstream in 1986. rich sutton needed about a thousand words in 2019 to write the bitter lesson, and it predicts the shape of the field better than surveys ten times its length. claude shannon gave a talk on creative thinking in 1952 where his opening move was to shrink a problem until it’s nearly trivial, crack the small version, then reintroduce the difficulty one piece at a time. that single trick will carry you through more walls than any modern productivity advice.</p>
+<p>range matters as much as depth. interpretability borrows shamelessly from neuroscience. eval design is mechanism design wearing a lab coat. a working sense of how gpus actually move memory tells you which architecture papers are doomed before the benchmarks do. and honest statistics might be the rarest skill in ml, where a lot of published rigor is vibes with error bars.</p>
+<p>one more thing. read the paper itself, not the thread summarizing it. the appendix is where the bodies are buried, and the limitations section is usually the most honest paragraph in the document.</p>
+<h2 id="write-everything-down">write everything down</h2>
+<p>paul graham points out that an idea can feel fully formed right up until you try to put it into words. the page finds gaps your head papers over: the assumption you never tested, the step that doesn’t actually follow, the two claims that quietly contradict each other.</p>
+<p>feynman’s rule was that the first person you must avoid fooling is yourself, because you’re the easiest target. writing is the cheapest defense ever invented. darwin went further and made it procedural. any fact that cut against his theory got written down on the spot, because he’d caught his own memory deleting inconvenient evidence faster than the convenient kind. your memory does the same thing to your failed runs. keep a log: hypothesis, setup, expectation, result, updated belief. rereading last month’s entries is humbling in a way no reviewer can match.</p>
+<p>then put some of it in public. olah and carter’s research debt essay makes the case that fields choke on undigested ideas, and that a clear explanation is a genuine contribution rather than a service job. a lot of people working in interpretability today found the field through readable posts, not conference papers. a body of public writing also doubles as the strongest credential you can hold, because it’s an unfakeable sample of how you think.</p>
+<h2 id="tighten-the-loop">tighten the loop</h2>
+<p>the stories about alec radford rarely involve a single stroke of genius. they involve volume. more runs per day, more wrong ideas discarded per week, a model of reality that updated faster than anyone else’s. that’s the actual game. research speed is mostly the speed at which you discover you’re wrong.</p>
+<p>which makes tooling a first-class research activity. launching a run should be one command. plotting it should be one more. every experiment should be reproducible from its config, and comparing two runs should take seconds, not an afternoon of archaeology. karpathy’s recipe for training neural networks has a step that pays for itself a hundred times over: overfit a single batch before training at scale. thirty seconds, half your bugs, gone. shrink everything until it’s cheap, get it right, then spend the compute.</p>
+<p>and retire the idea that engineering is the junior partner here. at the frontier the two jobs have fused. the researcher who can build the harness, the eval, and the data pipeline is the one whose hypotheses actually get tested. everyone else is waiting in a queue.</p>
+<h2 id="stare-at-the-outputs">stare at the outputs</h2>
+<p>a descending loss curve is not analysis, it’s reassurance. your experiments throw off far more information than you consume: transcripts, failure cases, the strange tail of the distribution. most of it dies unread in a logs folder.</p>
+<p>karpathy’s recipe starts before any training code gets written, with hours spent on the raw data by hand. most ml bugs live in the data, and they fail silently. nothing crashes. you simply get a mediocre model and a wrong theory about why.</p>
+<p>andrew ng has taught the same unglamorous move for over a decade because nothing beats it. pull a hundred failures, read all of them, sort them into piles, attack the biggest pile. it works on models and it works on evals, where a benchmark you’ve never read transcripts from is a benchmark you don’t actually understand. one transcript of genuinely strange behavior will teach you more than the next decimal of accuracy ever will.</p>
+<h2 id="wander-on-purpose">wander on purpose</h2>
+<p>your first subfield is an accident of timing, so treat it like one. spend real time in interpretability, in evals, in rl, in systems, before deciding where you live. somewhere in this field is a corner where your specific weirdness is an unfair advantage, and the only way to locate it is to pay tuition in several places. nobody waives the tuition.</p>
+<p>run the disposable version of every idea first and let most of them die young. tune your baselines until it hurts, because the graveyard of ml is full of gains that evaporated against a properly tuned baseline, and a reviewer is the worst possible person to learn that from. ablate until you know which component carries the result. it’s usually one, and it’s usually not the one in the title.</p>
+<p>breadth is also insurance. subfields saturate, all of them, usually right after they peak on twitter. the people who keep producing through those transitions are the ones who already know their way around the neighboring territory.</p>
+<h2 id="find-your-people">find your people</h2>
+<p>hamming noticed a pattern in who ended up doing important work. colleagues with closed office doors got more done in any given year, and colleagues with open doors did the work that mattered, because the interruptions carried information about what the world actually needed. your open door is probably an inbox. keep it that way.</p>
+<p>generosity compounds in research like nothing else. replicate a result and publish what you find. release the tool you built for yourself. explain something hard in plain language. the returns arrive sideways, months later, as the collaboration or the reference or the role you couldn’t have applied for. float your half-formed ideas in public too, because being wrong on the timeline is far cheaper than being wrong in print. and the collaborator who tells you an idea is bad before you sink three months into it is worth more than compute. that relationship can’t be bought, only earned.</p>
+<h2 id="the-long-game">the long game</h2>
+<p>pasteur said luck favors the prepared mind, and hamming built a whole career philosophy on top of it: knowledge and productivity compound like interest. the daily edges look trivial in isolation. what you read, what you record, how fast your loop runs, who you argue with. give them a few years and they produce careers that look like luck from the outside. start compounding earlier than feels necessary. future you already knows this was the cheap part.</p>
+<h2 id="Research-Tips">Research Tips</h2>
 <ul>
-<li>她以普通人的心智守护了神州五万年，饱受记忆管理问题的折磨。</li>
-<li>她有一项压箱底的武器：“羽渡尘”，可以燃烧自己的记忆获得力量。</li>
+<li><a href="/successful%20phd%20student/" title="">successful phd student</a></li>
+<li><a href="/reading%20and%20writing/" title="">reading and writing</a></li>
+<li><a href="/how%20to%20write%20a%20great%20research%20paper/" title="">how to write a great research paper</a></li>
 </ul>
-<img src="/files/rafa_83049015_p0_%E9%A3%8E%E5%8A%A8%EF%BD%9C%E7%A5%9E%E5%B7%9E%E6%B8%B8%E8%AE%B0%2007.jpg" alt="">
-<p>在这样朴素的基础设定下，故事试图反思：如果记忆不是自我的全部，那么自我又是什么？</p>
-<p>从总体的角度来讲，自我当然来源于过去经历的总集。然而我们并不总能掌控自己的记忆和意识。显然，维护人格的连续性是一项深刻的课题。这个议题给我年幼的心灵带来了极大的震撼。它在我尚不谙世事时告诉我一个朴素的道理：人不总是自知的，也不总是一致的；自知的那一部分，即使被完整记忆下来也很难完整构成自我。</p>
-<p>维护连续的自我观已然难如登天，更不要说一致的自我观了。</p>
-<p>我见过一些同自己的过去切割的人。我想我没有那样的立场来评价他们的经历。</p>
-<p>我还很喜欢一句不知道从哪听来的俄国谚语：</p>
-<p>如果过去的我和未来的我碰见了，他们肯定很聊得来。可惜他们谁也没见过对方。</p>
-<p>然而——过去的那个人却不见了。我感受不到他了。这四年间压力过载的时候，我留下日记的意愿会显著升高。或许是预感到这样的事情会发生。但文字显然不足以承载十分多的感受。文档里空余一些苍白的记忆。</p>
-<p>那是谁啊。</p>
-<p>我的不知道他究竟去哪里了，或许只是因为一场意外，谁知道呢？是因为生理、心理、或是虚无？至少我现在还没有想明白那一样带走他的事物。</p>
-<p>所以那些我拼命想去记住的东西最终还是会被忘掉吗？</p>
-<p>朋友，</p>
-<p>假如有一天，我们见面时，你发现我忘记了一些事情——</p>
-<p>对不起，我的朋友。我不知道是为什么忘掉了，也不知道是怎么忘掉的。也许我得了一场大病。对不起，我的朋友——</p>
-<p>我真的忘记了好多事情啊……</p>
-<p>谨以此序纪念我忘却的、我仍记得的、所有曾经存在于我身体中的事与理。</p>
-<h3 id="1">1</h3>
 
                     </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E7%A7%91%E7%A0%94%E7%B4%A2%E5%BC%95/">科研索引</a>
+                            
+                        </div>
+                    </section>
                     
                 </div>
                 
@@ -469,32 +513,19 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/Envisioning%20a%20Human%20Like%20AI/">
-                                    <span class="post-nav__label">
-                                        <mdui-icon name="arrow_back"></mdui-icon>
-                                        Previous
-                                    </span>
-                                    <span class="post-nav__body">
-                                        
-                                        <span class="post-nav__category">散文</span>
-                                        
-                                        <span class="post-nav__title">Envisioning a Human Like AI：A Context-Centric Architecture</span>
-                                    </span>
-                                </a>
-                            
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/%E6%9B%B2%E7%9B%AE%E8%B5%8F%E6%9E%90%C2%B7%E8%8A%99%E5%8D%A1%E6%B4%9B%E6%96%AF%E4%B9%8B%E8%88%9E/">
+                                <a class="post-nav__link" href="/reading%20and%20writing/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
                                     </span>
                                     <span class="post-nav__body">
                                         
-                                        <span class="post-nav__category">散文</span>
+                                        <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">曲目赏析·芙卡洛斯之舞</span>
+                                        <span class="post-nav__title">reading and writing</span>
                                     </span>
                                 </a>
                             
@@ -510,7 +541,7 @@
                 <div class="post-toc-inner">
                     <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BA%8F"><span class="post-toc-text">序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1"><span class="post-toc-text">1</span></a></li></ol></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pick-your-own-problems"><span class="post-toc-text">pick your own problems</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#upgrade-your-inputs"><span class="post-toc-text">upgrade your inputs</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#write-everything-down"><span class="post-toc-text">write everything down</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tighten-the-loop"><span class="post-toc-text">tighten the loop</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#stare-at-the-outputs"><span class="post-toc-text">stare at the outputs</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wander-on-purpose"><span class="post-toc-text">wander on purpose</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#find-your-people"><span class="post-toc-text">find your people</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#the-long-game"><span class="post-toc-text">the long game</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Research-Tips"><span class="post-toc-text">Research Tips</span></a></li></ol>
                     </div>
                 </div>
             </mdui-card>
@@ -520,9 +551,9 @@
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -663,9 +694,104 @@
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pick-your-own-problems"><span class="post-toc-text">pick your own problems</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#upgrade-your-inputs"><span class="post-toc-text">upgrade your inputs</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#write-everything-down"><span class="post-toc-text">write everything down</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tighten-the-loop"><span class="post-toc-text">tighten the loop</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#stare-at-the-outputs"><span class="post-toc-text">stare at the outputs</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wander-on-purpose"><span class="post-toc-text">wander on purpose</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#find-your-people"><span class="post-toc-text">find your people</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#the-long-game"><span class="post-toc-text">the long game</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Research-Tips"><span class="post-toc-text">Research Tips</span></a></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

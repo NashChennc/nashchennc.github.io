@@ -84,60 +84,88 @@
 <body id="top">
   
   <!-- Header/AppBar -->
-  <mdui-top-app-bar class="app-top-bar">
-  <div class="topbar-home">
+  <mdui-layout>
     
-      <mdui-button
-        variant="text"
-        href="/"
-        class="topbar-nav-btn topbar-home__btn"
-        
-      >Home</mdui-button>
-    
-  </div>
 
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
   
-    <nav class="topbar-nav mdui-prose mdui-prose--inline-nav" aria-label="Categories">
-      
-        
-      <a
-        href="/categories/%E7%AC%94%E8%AE%B0"
-        
-      >笔记 · 78</a>
-        
-      
-        
-      <a
-        href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
-        
-      >碎碎念 · 454</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
-        
-      >流水账 · 192</a>
-        
-      
-        
-      <a
-        href="/categories/%E6%95%A3%E6%96%87"
-        
-      >散文 · 11</a>
-        
-      
-        
-      <a
-        href="/categories/%E4%B8%93%E6%A0%8F"
-        
-      >专栏 · 5</a>
-        
-      
-    </nav>
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
   
 
-  <div class="topbar-end">
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
     <mdui-button-icon
       variant="standard"
       icon="calendar_month"
@@ -250,7 +278,7 @@
   </div>
 </mdui-top-app-bar>
 
-  <mdui-dialog
+    <mdui-dialog
   id="search-palette"
   class="search-palette-dialog"
   close-on-esc
@@ -283,9 +311,10 @@
 </mdui-dialog>
 
 
-  <!-- Main Content (Layout control moved to individual views) -->
-  <div id="main-content">
-    <!-- 全宽 Banner -->
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
 <div
   class="banner-container banner-container--page"
   data-banner-layout-root
@@ -410,7 +439,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">强化学习</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Apr 25</span>
+                        <span class="note-date">2026 May 18</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -767,7 +796,7 @@ $$(S_{t+1}, R_{t+1}) \sim p(\cdot, \cdot \mid S_t, A_t)$$
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/%E5%AE%9E%E5%88%86%E6%9E%90-02-%E7%A7%AF%E5%88%86/">
+                                <a class="post-nav__link" href="/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E5%8F%82%E8%80%83/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -776,14 +805,14 @@ $$(S_{t+1}, R_{t+1}) \sim p(\cdot, \cdot \mid S_t, A_t)$$
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">实分析-02-积分</span>
+                                        <span class="post-nav__title">博客主题参考</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/ccauto-00-index/">
+                                <a class="post-nav__link" href="/%E6%89%93%E8%B0%B1%E6%89%92%E8%B0%B1/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -792,7 +821,7 @@ $$(S_{t+1}, R_{t+1}) \sim p(\cdot, \cdot \mid S_t, A_t)$$
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">CC Auto Mode - Auto Mode 安全架构分析报告系列</span>
+                                        <span class="post-nav__title">打谱扒谱</span>
                                     </span>
                                 </a>
                             
@@ -818,9 +847,9 @@ $$(S_{t+1}, R_{t+1}) \sim p(\cdot, \cdot \mid S_t, A_t)$$
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
 
-  </div>
-  <!-- Footer -->
-  
+      </div>
+      <!-- Footer -->
+      
 
 
 
@@ -961,9 +990,104 @@ $$(S_{t+1}, R_{t+1}) \sim p(\cdot, \cdot \mid S_t, A_t)$$
   </div>
 </footer>
 
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="post-toc-text">0. 强化学习的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95-Monte-Carlo-Methods"><span class="post-toc-text">1. 蒙特卡洛方法 (Monte Carlo Methods)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%97%B6%E5%BA%8F%E5%B7%AE%E5%88%86%E6%8E%A7%E5%88%B6%EF%BC%9ASARSA-On-policy-TD-Control"><span class="post-toc-text">2. 时序差分控制：SARSA (On-policy TD Control)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Q%E5%AD%A6%E4%B9%A0-Q-learning"><span class="post-toc-text">3. Q学习 (Q-learning)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-%E6%8F%92%E5%85%A5%EF%BC%9A%E5%9C%A8%E7%AD%96%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A6%BB%E7%AD%96%E7%AE%97%E6%B3%95"><span class="post-toc-text">3.1. 插入：在策算法与离策算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E5%8F%8C%E9%87%8D-Q-%E5%AD%A6%E4%B9%A0-Double-Q-learning"><span class="post-toc-text">5. 双重 Q 学习 (Double Q-learning)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E9%99%84%E5%BD%95%EF%BC%9A%E5%9C%A8%E7%AD%96%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A6%BB%E7%AD%96%E7%AE%97%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-text">-1. 附录：在策算法与离策算法的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E7%AE%97%E6%B3%95%E6%9B%B4%E6%96%B0%E8%A7%84%E5%88%99%E7%9A%84%E6%95%B0%E5%AD%A6%E5%BD%A2%E5%BC%8F"><span class="post-toc-text">1. 算法更新规则的数学形式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E9%A3%8E%E9%99%A9%E5%81%8F%E5%A5%BD%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8%EF%BC%9A%E6%9C%9F%E6%9C%9B%E5%80%BC%E7%9A%84%E5%B1%95%E5%BC%80"><span class="post-toc-text">2. 风险偏好的数学本质：期望值的展开</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E7%BB%93%E8%AE%BA%E5%88%86%E6%9E%90"><span class="post-toc-text">3. 结论分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E6%80%BB%E7%BB%93%EF%BC%9A%E6%94%B6%E6%95%9B%E6%80%A7%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="post-toc-text">4. 总结：收敛性与应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%9C%80%E5%A4%A7%E5%8C%96%E5%81%8F%E5%B7%AE"><span class="post-toc-text">-2. 最大化偏差</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90%EF%BC%9A%E5%8D%95%E4%B8%80%E4%BC%B0%E8%AE%A1%E9%87%8F%E7%9A%84%E6%9C%80%E5%A4%A7%E5%8C%96%E5%81%8F%E5%B7%AE"><span class="post-toc-text">1. 问题的根源：单一估计量的最大化偏差</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9ADouble-Q-learning-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%BD%A2%E5%BC%8F"><span class="post-toc-text">2. 解决方案：Double Q-learning 的数学形式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A7%A3%E8%80%A6%E8%83%BD%E6%B6%88%E9%99%A4%E5%81%8F%E5%B7%AE%EF%BC%9F"><span class="post-toc-text">3. 为什么解耦能消除偏差？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E6%80%BB%E7%BB%93"><span class="post-toc-text">4. 总结</span></a></li></ol></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
 
   <!-- Scripts -->
   <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>

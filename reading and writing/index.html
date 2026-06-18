@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="cn" class="mdui-theme-auto">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'mdblog-theme';
+      var el = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
+        if (t === 'light' || t === 'dark') {
+          el.classList.add('mdui-theme-' + t);
+        } else {
+          el.classList.add('mdui-theme-auto');
+        }
+      } catch (err) {
+        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
+        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>reading and writing - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/hero.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/banner-page.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6750A4">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 81</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 454</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 192</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+      
+    <a
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >专栏 · 6</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+<div
+  class="banner-container banner-container--page"
+  data-banner-layout-root
+  data-banner-layout-config="/js/banner-title-layout.json"
+>
+  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
+
+  <div class="banner-overlay banner-overlay--tint">
+    <div class="banner-inner">
+      <div class="app-container">
+        <div class="banner-inner__content">
+          <div class="banner-card-title">
+            
+
+  
+    
+      <div class="banner-hero-title banner-hero-title--inner">
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">NOUS SOMMES</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们是</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">孩子</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">MAIS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">但</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">DES ENFANTS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">我们</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PROGRESSIFS</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">精力充沛</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">，</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">勇往直前</span>
+            </span>
+          </div>
+        
+          <div class="banner-hero-title__col">
+            <span class="banner-hero-title__upper-wrap">
+              <span class="banner-hero-title__upper"></span>
+            </span>
+            <span class="banner-hero-title__lower-wrap">
+              <span class="banner-hero-title__lower">。</span>
+            </span>
+          </div>
+        
+      </div>
+    
+  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/banner-title-layout.js" defer></script>
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">reading and writing</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Jun 18</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                        <span class="note-read">11 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <h1>Sources 1-4: Reading and Writing Papers</h1>
+<blockquote>
+<p>This file keeps the original English text and only reorganizes extracted PDF text into Markdown structure.</p>
+</blockquote>
+<h1>1. How to Read a Paper</h1>
+<blockquote>
+<p>Source PDF: <code>1_how-to-read-a-paper(2).pdf</code>
+Authors: S. Keshav</p>
+</blockquote>
+<h3 id="ABSTRACT">ABSTRACT</h3>
+<p>Researchers spend a great deal of time reading research papers. However, this skill is rarely taught, leading to much wasted effort. This article outlines a practical and efficient three-pass method for reading research papers. I also describe how to use this method to do a literature survey.</p>
+<h3 id="1-Introduction">1. Introduction</h3>
+<p>Researchers must read papers for several reasons: to review them for a conference or a class, to keep current in their field, or for a literature survey of a new field. A typical researcher will likely spend hundreds of hours every year reading papers. Learning to efficiently read a paper is a critical but rarely taught skill. Beginning graduate students, therefore, must learn on their own using trial and error. Students waste much effort in the process and are frequently driven to frustration. For many years I have used a simple ‘three-pass’ approach to prevent me from drowning in the details of a paper before getting a bird’s-eye-view. It allows me to estimate the amount of time required to review a set of papers. Moreover, I can adjust the depth of paper evaluation depending on my needs and how much time I have. This paper describes the approach and its use in doing a literature survey.</p>
+<h3 id="2-The-Three-Pass-Approach">2. The Three-Pass Approach</h3>
+<p>The key idea is that you should read the paper in up to three passes, instead of starting at the beginning and plowing your way to the end. Each pass accomplishes specific goals and builds upon the previous pass: The first pass gives you a general idea about the paper. The second pass lets you grasp the paper’s content, but not its details. The third pass helps you understand the paper in depth.</p>
+<h4 id="2-1-The-first-pass">2.1. The first pass</h4>
+<p>The first pass is a quick scan to get a bird’s-eye view of the paper. You can also decide whether you need to do any more passes. This pass should take about five to ten minutes and consists of the following steps:</p>
+<ol>
+<li>Carefully read the title, abstract, and introduction</li>
+<li>Read the section and sub-section headings, but ignore everything else</li>
+<li>Glance at the mathematical content (if any) to determine the underlying theoretical foundations</li>
+<li>Read the conclusions</li>
+<li>Glance over the references, mentally ticking off the ones you’ve already read</li>
+</ol>
+<p>At the end of the first pass, you should be able to answer the five Cs:</p>
+<ol>
+<li>Category: What type of paper is this? A measurement paper? An analysis of an existing system? A description of a research prototype?</li>
+<li>Context: Which other papers is it related to? Which theoretical bases were used to analyze the problem?</li>
+<li>Correctness: Do the assumptions appear to be valid?</li>
+<li>Contributions: What are the paper’s main contributions?</li>
+<li>Clarity: Is the paper well written?</li>
+</ol>
+<p>Using this information, you may choose not to read further (and not print it out, thus saving trees). This could be because the paper doesn’t interest you, or you don’t know enough about the area to understand the paper, or that the authors make invalid assumptions. The first pass is adequate for papers that aren’t in your research area, but may someday prove relevant. Incidentally, when you write a paper, you can expect most reviewers (and readers) to make only one pass over it. Take care to choose coherent section and sub-section titles and to write concise and comprehensive abstracts. If a reviewer cannot understand the gist after one pass, the paper will likely be rejected; if a reader cannot understand the highlights of the paper after five minutes, the paper will likely never be read. For these reasons, a ‘graphical abstract’ that summarizes a paper with a single well-chosen figure is an excellent idea and can be increasingly found in scientific journals.</p>
+<h4 id="2-2-The-second-pass">2.2. The second pass</h4>
+<p>In the second pass, read the paper with greater care, but ignore details such as proofs. It helps to jot down the key points, or to make comments in the margins, as you read. Dominik Grusemann from Uni Augsburg suggests that you “note down terms you didn’t understand, or questions you may want to ask the author.” If you are acting as a paper referee, these comments will help you when you are writing your review, and to back up your review during the program committee meeting.</p>
+<ol>
+<li>Look carefully at the figures, diagrams and other illustrations in the paper. Pay special attention to graphs. Are the axes properly labeled? Are results shown with error bars, so that conclusions are statistically significant? Common mistakes like these will separate rushed, shoddy work from the truly excellent.</li>
+<li>Remember to mark relevant unread references for further reading (this is a good way to learn more about the background of the paper).</li>
+</ol>
+<p>The second pass should take up to an hour for an experienced reader. After this pass, you should be able to grasp the content of the paper. You should be able to summarize the main thrust of the paper, with supporting evidence, to someone else. This level of detail is appropriate for a paper in which you are interested, but does not lie in your research speciality. Sometimes you won’t understand a paper even at the end of the second pass. This may be because the subject matter is new to you, with unfamiliar terminology and acronyms. Or the authors may use a proof or experimental technique that you don’t understand, so that the bulk of the paper is incomprehensible. The paper may be poorly written with unsubstantiated assertions and numerous forward references. Or it could just be that it’s late at night and you’re tired. You can now choose to: (a) set the paper aside, hoping you don’t need to understand the material to be successful in your career, (b) return to the paper later, perhaps after reading background material or © persevere and go on to the third pass.</p>
+<h4 id="2-3-The-third-pass">2.3. The third pass</h4>
+<p>To fully understand a paper, particularly if you are a reviewer, requires a third pass. The key to the third pass is to attempt to virtually re-implement the paper: that is, making the same assumptions as the authors, re-create the work. By comparing this re-creation with the actual paper, you can easily identify not only a paper’s innovations, but also its hidden failings and assumptions. This pass requires great attention to detail. You should identify and challenge every assumption in every statement. Moreover, you should think about how you yourself would present a particular idea. This comparison of the actual with the virtual lends a sharp insight into the proof and presentation techniques in the paper and you can very likely add this to your repertoire of tools. During this pass, you should also jot down ideas for future work. This pass can take many hours for beginners and more than an hour or two even for an experienced reader. At the end of this pass, you should be able to reconstruct the entire structure of the paper from memory, as well as be able to identify its strong and weak points. In particular, you should be able to pinpoint implicit assumptions, missing citations to relevant work, and potential issues with experimental or analytical techniques.</p>
+<h3 id="3-Doing-A-Literature-Survey">3. Doing A Literature Survey</h3>
+<p>Paper reading skills are put to the test in doing a literature survey. This will require you to read tens of papers, perhaps in an unfamiliar field. What papers should you read? Here is how you can use the three-pass approach to help. First, use an academic search engine such as Google Scholar or CiteSeer and some well-chosen keywords to find three to five recent highly-cited papers in the area. Do one pass on each paper to get a sense of the work, then read their related work sections. You will find a thumbnail summary of the recent work, and perhaps, if you are lucky, a pointer to a recent survey paper. If you can find such a survey, you are done. Read the survey, congratulating yourself on your good luck. Otherwise, in the second step, find shared citations and repeated author names in the bibliography. These are the key papers and researchers in that area. Download the key papers and set them aside. Then go to the websites of the key researchers and see where they’ve published recently. That will help you identify the top conferences in that field because the best researchers usually publish in the top conferences. The third step is to go to the website for these top conferences and look through their recent proceedings. A quick scan will usually identify recent high-quality related work. These papers, along with the ones you set aside earlier, constitute the first version of your survey. Make two passes through these papers. If they all cite a key paper that you did not find earlier, obtain and read it, iterating as necessary.</p>
+<h3 id="4-Related-Work">4. Related Work</h3>
+<p>If you are reading a paper to do a review, you should also read Timothy Roscoe’s paper on “Writing reviews for systems conferences” [3]. If you’re planning to write a technical paper, you should refer both to Henning Schulzrinne’s comprehensive web site [4] and George Whitesides’s excellent overview of the process [5]. Finally, Simon Peyton Jones has a website that covers the entire spectrum of research skills [2]. Iain H. McLean of Psychology, Inc. has put together a downloadable ‘review matrix’ that simplifies paper reviewing using the three-pass approach for papers in experimental psychology[1], which can probably be used, with minor modifications, for papers in other areas.</p>
+<h3 id="5-Acknowledgments">5. Acknowledgments</h3>
+<p>The first version of this document was drafted by my students: Hossein Falaki, Earl Oliver, and Sumair Ur Rahman. My thanks to them. I also benefited from Christophe Diot’s perceptive comments and Nicole Keshav’s eagle-eyed copyediting. I would like to make this a living document, updating it as I receive comments. Please take a moment to email me any comments or suggestions for improvement. Thanks to encouraging feedback from many correspondents over the years.</p>
+<h3 id="6-References">6. References</h3>
+<p>[1] I.H. McLean, “Literature Review Matrix,” <a target="_blank" rel="noopener" href="http://psychologyinc.blogspot.com/">http://psychologyinc.blogspot.com/</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> [2] S. Peyton Jones, “Research Skills,” <a target="_blank" rel="noopener" href="http://research.microsoft.com/enus/um/people/simonpj/papers/giving-a-talk/giving-atalk.htm">http://research.microsoft.com/enus/um/people/simonpj/papers/giving-a-talk/giving-atalk.htm</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> [3] T. Roscoe, “Writing Reviews for Systems Conferences,” <a target="_blank" rel="noopener" href="http://people.inf.ethz.ch/troscoe/pubs/review-writing.pdf">http://people.inf.ethz.ch/troscoe/pubs/review-writing.pdf</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> [4] H. Schulzrinne, “Writing Technical Articles,” <a target="_blank" rel="noopener" href="http://www.cs.columbia.edu/%E2%88%BChgs/etc/writing-style.html">http://www.cs.columbia.edu/∼hgs/etc/writing-style.html</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> [5] G.M. Whitesides, “Whitesides’ Group: Writing a Paper,” <a target="_blank" rel="noopener" href="http://www.ee.ucr.edu/%E2%88%BCrlake/Whitesides">http://www.ee.ucr.edu/∼rlake/Whitesides</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> writing res paper.pdf</p>
+<hr>
+<h1>2. SIGIR Paper Writing Tips</h1>
+<blockquote>
+<p>Source PDF: <code>2_SIGIR-writing-tips-Microsoft Research(2).pdf</code>
+Authors: Peter Bailey
+SIGIR Paper Writing Tips by Peter Bailey is licensed under a Creative Commons Attribution-‐ NonCommercial 3.0 Unported License. I wrote this series of short tips and published them individually to my Twitter feed while reviewing for ACMSIGIR 2013. Lots of people wrote nice things about them and suggested I collate them; Twitter not being good for long term access/archiving. The 140 character limit imposes a certain terse style. I’ve made additional comments to explain sometimes opaque tips. I don’t claim to be an expert, nor have I published at SIGIR as often as I have reviewed for it, so get other advice as well please! If you are submitting to forums other than SIGIR, note that their acceptance requirements will differ, and you should address these directly. If you are submitting to SIGIR, and you ignore all (or even a significant subset) of these tips, your acceptance probability is likely to be even lower than the historical ~&lt;20%. Being published at SIGIR is hard anyway, so even if you follow all these tips, there’s no guarantee your work will be accepted.</p>
+</blockquote>
+<h3 id="Tip-1-Titles-describe-the-paper-don’t-mislead-overpromise-or-be-unduly-punny-Less-is-more-A-tweet’s-length-is-too-long">Tip 1. Titles describe the paper; don’t mislead, overpromise, or be unduly punny. Less is more. A tweet’s length is too long.</h3>
+<h3 id="Tip-2-Abstracts-summarize-the-paper-In-1-short-paragraph-Subject-Motivation-Goal-Method-Achievement-Make-me-want-to-read">Tip 2. Abstracts summarize the paper. In 1 short paragraph. Subject. Motivation. Goal. Method. Achievement. Make me want to read.</h3>
+<h3 id="Tip-3-Intro-What-are-you-doing-Why-is-it-interesting-and-novel-Will-I-learn-something-in-the-next-hour-1-2-to-3-4-page-max">Tip 3. Intro: What are you doing? Why is it interesting and novel? Will I learn something in the next hour? 1/2 to 3/4 page max.</h3>
+<h3 id="Tip-4-Related-Work-30-‐40-citations-is-sweet-spot-less-means-you-don’t-know-the-area-Don’t-omit-key-works-from-other-people">Tip 4. Related Work. 30-‐40 citations is sweet spot; less means you don’t know the area. Don’t omit key works from other people.</h3>
+<h3 id="Tip-5-Report-experimental-results-with-appropriate-statistical-info-like-error-bars-confidence-intervals-effect-size-Please">Tip 5. Report experimental results with appropriate statistical info like error bars, confidence intervals, effect size. Please.</h3>
+<p>An increase in scores is not necessarily an improvement, it’s just some probability of improvement, which may be near zero.</p>
+<h3 id="Tip-6-ML-is-a-means-to-an-end-not-the-main-meal-Feature-engineering-is-only-interesting-if-it-gives-insights-on-user-behavior">Tip 6. ML is a means to an end, not the main meal. Feature engineering is only interesting if it gives insights on user behavior.</h3>
+<p>SIGIR is not ICML. ML helps us accomplish things, but the goal of IR is not better ML.</p>
+<h3 id="Tip-7-Use-Greek-letters-and-maths-stats-for-precision-and-brevity-Explain-intuitions-in-English-Don’t-assume-familiarity">Tip 7. Use Greek letters and maths/stats for precision and brevity. Explain intuitions in English. Don’t assume familiarity.</h3>
+<p>Maths and stats is complex at the best of times, so make it easy to follow both what you’re doing and why.</p>
+<h3 id="Tip-8-Unless-space-‐constrained-put-lead-author’s-name-before-citation-cross-‐ref-so-I-don’t-have-to-flip-back-and-forth-always">Tip 8. Unless space-‐constrained, put lead author’s name before citation cross-‐ref, so I don’t have to flip back and forth always.</h3>
+<h3 id="Tip-9-Citations-Run-cross-‐ref-update-in-Latex-or-Word-before-final-submission-Check-author-names’">Tip 9. Citations. Run cross-‐ref update in Latex or Word before final submission. Check author names’</h3>
+<p>spelling; they might review!</p>
+<h3 id="Tip-10-If-evaluating-with-a-test-collection-use-more-than-1-Don’t-use-pre-2000-exclusively-There’s-more-to-life-than-ad-hoc">Tip 10. If evaluating with a test collection, use more than 1. Don’t use pre 2000 exclusively. There’s more to life than ad hoc.</h3>
+<p>Ad hoc IR is great! It’s really foundational for many things. It’s not typical web search behavior however, nor is it micro-‐blog use behavior, nor… A really interesting result is something that will generalize, like BM25 (which came from ad hoc IR research). Almost any test collection will have some peculiarities; make sure your findings are not overly limited.</p>
+<h3 id="Tip-11-Working-with-big-log-data-doesn’t-make-it-interesting-Insights-make-it-interesting-Especially-ones-which-generalize">Tip 11. Working with big log data doesn’t make it interesting. Insights make it interesting. Especially ones which generalize.</h3>
+<p>This tip is a cousin of Tip 6; understanding matters more than just being able to run some experiments with lots of data.</p>
+<h3 id="Tip-12-Building-real-IR-systems-involves-much-compromise-Don’t-overclaim-for-your-new-algorithm-unless-you’ve-already-tried-it">Tip 12. Building real IR systems involves much compromise. Don’t overclaim for your new algorithm unless you’ve already tried it.</h3>
+<p>As an industrial researcher myself, it’s frustrating to read lines like “it should be easy to incorporate new algorithm and improve current systems”. Unless the algorithm is making a 10% improvement in some (existing, industrial state-‐of-‐the-‐art) metric, it’s hard to justify the investment.</p>
+<h3 id="Tip-13-What’s-product-interesting-is-not-always-research-interesting-and-vice-versa-What’s-both-is-not-always-publishable">Tip 13. What’s product interesting is not always research interesting, and vice versa. What’s both is not always publishable.</h3>
+<p>Industrial researchers in particular can fall prey to this trap -‐ Nick Craswell articulated this crisply for me a few years ago, and understanding the line between them is a regular point of discussion internally for us within Microsoft. Sometimes it’s challenging to publish or otherwise share work about what’s interesting and commercially sensitive. Similarly, an algorithm that obviously won’t scale can still be useful if it provides insights into thinking differently about a problem.</p>
+<h3 id="Tip-14-Graphics-Make-legends-readable-when-printed-on-paper-If-color-essential-to-interpret-output-make-note-in-fig-caption">Tip 14. Graphics. Make legends readable when printed on paper. If color essential to interpret output, make note in fig caption.</h3>
+<h3 id="Tip-15-When-selecting-data-to-exclude-describe-what-you-did-and-why-Otherwise-it’s-not-clear-what-the-bias-in-dataset-will-be">Tip 15. When selecting data to exclude, describe what you did and why. Otherwise it’s not clear what the bias in dataset will be.</h3>
+<p>From a reproducability standpoint, which is increasingly a part of the SIGIR reviewing guidelines, it’s essential to describe what you did (and did not) do.</p>
+<h3 id="Tip-16-Negative-results-can-be-interesting-What-didn’t-work-and-why-not-Surely-not-all-expts-led-directly-to-success-dreamon">Tip 16. Negative results can be interesting. What didn’t work, and why not? Surely not all expts led directly to success? #dreamon</h3>
+<h3 id="Tip-17-Your-first-audience-is-overworked-on-a-deadline-tired-had-a-glass-of-wine-and-put-the-kids-to-bed-That-is-your-prior">Tip 17. Your first audience is overworked, on a deadline, tired, had a glass of wine and put the kids to bed. That is your prior.</h3>
+<p>This tip is just “know your audience”, and the environment under which they’re likely to read your paper. Make them happy to be reviewing, and make them work as little as possible. Reviewers want to accept papers, and are more likely to give useful feedback if it is clear you put in the maximum amount of work you could to get it accepted, not the minimum.</p>
+<h3 id="Tip-18-Two-words-Strunk-and-White-Read-then-follow-Rules-of-usage-Principles-of-composition-Matters-of-form-Misused-words">Tip 18. Two words: Strunk and White. Read then follow: Rules of usage. Principles of composition. Matters of form. Misused words.</h3>
+<h3 id="Tip-19-Don’t-pad-out-with-lower-quality-work-4-5-papers-are-rejected-Many-great-8-page-papers-in-past-Make-it-all-shine">Tip 19. Don’t pad out with lower quality work. &gt;4:5 papers are rejected. Many great 8 page papers in past. Make it all shine.</h3>
+<p>SIGIR papers are often rejected due to their weakest part, not accepted due to their strongest. You can’t afford weak parts.</p>
+<h3 id="Tip-20-Make-your-contributions-clear-Both-at-the-start-and-end-of-the-paper-Also-Conclusions-are-not-a-summary-What-changes">Tip 20. Make your contributions clear. Both at the start and end of the paper. Also, Conclusions are not a summary. What changes?</h3>
+<p>Restating the paper’s contributions does not make a conclusion -‐ I already read it. I want to know how the future may be different due to your work.</p>
+<h3 id="Tip-21-Acknowledge-those-who-helped-you-out-Thanks-cost-little-while-forgetting-may-offend-If-big-help-make-them-a-co-‐author">Tip 21. Acknowledge those who helped you out. Thanks cost little, while forgetting may offend. If big help, make them a co-‐author.</h3>
+<p>End of Tips: Thanks for all the feedback from the Twitter audience, hope you enjoyed them. What did I miss? What do you most love/hate in reading or writing or reviewing SIGIR papers? Tips – Thanks: A big shout out to many colleagues over years, especially to Dave Hawking, Nick Craswell, Ryen White &amp; Susan Dumais.</p>
+<hr>
+<h1>3. Top-10 Tips for Writing a Paper</h1>
+<blockquote>
+<p>Source PDF: <code>3_tips_for_writing_a_paper(2).pdf</code>
+Authors: Jim Kurose</p>
+</blockquote>
+<h3 id="Top-10-tips-for-writing-a-paper">Top-10 tips for writing a paper</h3>
+<p>Jim Kurose Department of Computer Science University of Massachusetts 2006 CoNEXT student workshop panel</p>
+<h3 id="1-Every-paper-tells-a-story">1. Every paper tells a story</h3>
+<ul>
+<li>what is the “elevator pitch” of your story? 1: Every paper tells a story</li>
+<li>the story is not what you did, but rather</li>
+<li>what you show, new ideas, new insights</li>
+<li>why interesting, important?</li>
+<li>why is the story of interest to others?</li>
+<li>universal truths, hot topic, surprises or unexpected results?</li>
+<li>know your story! elevator pitch = summary that is short enough to give during an elevator ride</li>
+</ul>
+<h3 id="2-Write-top-down">2. Write top down</h3>
+<ul>
+<li>computer scientists (and most human beings) think this way!</li>
+<li>state broad themes/ideas first, then go into detail</li>
+<li>context, context, context</li>
+<li>even when going into detail… write top down!</li>
+</ul>
+<h3 id="3-Introduction-crucial-formulaic">3. Introduction: crucial, formulaic</h3>
+<p>3 Introduction: crucial, formulaic</p>
+<ul>
+<li>if reader not excited by intro, paper is lost</li>
+<li>recipe:</li>
+<li>para. 1: motivation: broadly, what is problem area, why important?</li>
+<li>para. 2: narrow down: what is problem you specifically consider</li>
+<li>para. 3: “In the paper, we…”: most crucial paragraph, tell your elevator pitch</li>
+<li>para. 4: how different/better/relates to other work</li>
+<li>para. 5: “The remainder of this paper is structured as follows”</li>
+</ul>
+<h3 id="4-Master-the-basics-of-organized-writing">4. Master the basics of organized writing</h3>
+<ul>
+<li>paragraph = ordered set of topically-related sentences</li>
+<li>lead sentence</li>
+<li>sets context for paragraph</li>
+<li>might tie to previous paragraph</li>
+<li>sentences in paragraph should have logical narrative flow, relating to theme/topic</li>
+<li>don’t mix tenses in descriptive text</li>
+<li>one sentence paragraph: warning!</li>
+</ul>
+<h3 id="5-Put-yourself-in-place-of-the-reader">5. Put yourself in place of the reader</h3>
+<ul>
+<li>less is more:</li>
+<li>“I would have sent you less if I had had time”</li>
+<li>take the time to write less</li>
+<li>readers shouldn’t have to work</li>
+<li>won’t “dig” to get story, understand context, results</li>
+<li>need textual signposts to know where ‘story” is going, context to know where they are</li>
+<li>good: “e.g., Having seen that… let us next develop a model for… Let Z be…”</li>
+<li>bad: “Let Z be”</li>
+<li>what does reader know/not know, want/not want?</li>
+<li>write for reader, not for yourself</li>
+</ul>
+<h3 id="6-Put-yourself-in-place-of-the-reader">6. Put yourself in place of the reader</h3>
+<ul>
+<li>page upon page of dense text is no fun to read</li>
+<li>avoid cramped feeling of tiny fonts, small margins</li>
+<li>create openess with white space: figures, lists</li>
+<li>enough context/information for reader to understand what you write?</li>
+<li>no one has as much background/content as you</li>
+<li>no one can read your mind</li>
+<li>all terms/notation defined?</li>
+</ul>
+<h3 id="7-No-one-not-even-your-mother-is-as-interested-in-this-topic-as-you">7. No one (not even your mother) is as interested in this topic as you</h3>
+<ol start="7">
+<li>No one (not even your mother) is as interested in this topic as you</li>
+</ol>
+<ul>
+<li>so you had better be (or appear) interested</li>
+<li>tell readers why they should be interested in your “story”</li>
+<li>don’t overload reader with 40 graphs:</li>
+<li>think about main points you want to convey with graphs</li>
+<li>can’t explore entire parameter space</li>
+<li>don’t overload reader with pages of equations</li>
+<li>put long derivations/proofs in appendix, provide sketch in body of paper</li>
+</ul>
+<h3 id="8-State-the-results-carefully">8. State the results carefully</h3>
+<ul>
+<li>clearly state assumptions (see overstate/understate your results)</li>
+<li>experiment/simulation description: enough info to nearly recreate experiment/description</li>
+<li>simulation/measurements:</li>
+<li>statistical properties of your results (e.g., confidence intervals)</li>
+<li>are results presented representative?</li>
+<li>or just a corner case that makes the point you want to make</li>
+</ul>
+<h3 id="9-Don’t-overstate-understate-your-results">9. Don’t overstate/understate your results</h3>
+<ol start="9">
+<li>Don’t overstate/understate your results</li>
+</ol>
+<ul>
+<li>overstatement mistake:</li>
+<li>“We show that X is prevalent in the Internet”</li>
+<li>“We show that X is better than Y” when only actually shown for one/small/limited cases</li>
+<li>understatement mistake: fail to consider broader implications of your work</li>
+<li>if your result is small, interest will be small</li>
+<li>“rock the world”</li>
+</ul>
+<h3 id="10-Study-the-art-of-writing">10. Study the art of writing</h3>
+<ul>
+<li>writing well gives you an “unfair advantage”</li>
+<li>writing well matters in getting your work published in top venues</li>
+<li>highly recommended:</li>
+<li>The Elements of Style, W. Strunk, E.B. White, Macmillan Publishing, 1979</li>
+<li>Writing for Computer Science: The Art of Effective Communication, Justin Sobel, Springer 1997.</li>
+<li>who do you think are the best writers in your area: study their style</li>
+</ul>
+<h3 id="11-Good-writing-takes-times">11. Good writing takes times</h3>
+<ul>
+<li>give yourself time to reflect, write, review, refine</li>
+<li>give others a chance to read/review and provide feedback</li>
+<li>get a reader’s point of view</li>
+<li>find a good writer/editor to critique your writing</li>
+<li>starting a paper three days before the deadline, while results are still being generated, is a nonstarter</li>
+</ul>
+<hr>
+<h1>4. Writing the First Draft of Your Science Paper — Some Dos and Don’ts</h1>
+<blockquote>
+<p>Source PDF: <code>4_writing the first draft of your science paper — some dos and don’ts(2).pdf</code>
+Authors: Angel Borja, PhD
+A seasoned editor gives advice to get your work published in an international journal By Angel Borja, PhD Posted on 2 March 2015</p>
+</blockquote>
+<h3 id="How-to-Prepare-a-Manuscript-for-International-Journals-—-Part-3">How to Prepare a Manuscript for International Journals — Part 3</h3>
+<p>Angel Borja, PhD In this series, Dr. Angel Borja draws on his extensive background as an author, reviewer and editor to give advice on preparing the manuscript (author’s view), the evaluation process (reviewer’s view) and what there is to hate or love in a paper (editor’s view). This article is the third in the series. Previous articles were: Six things to do before writing your manuscript 11 steps to structuring a science paper editors will take seriously</p>
+<h3 id="Four-steps-to-preparing-your-first-draft">Four steps to preparing your first draft</h3>
+<p>Here is the process I use:</p>
+<ol>
+<li>Think about the topic you want to present, for some days or weeks.</li>
+<li>Make figures and tables.</li>
+<li>Then write as quickly as possible, as if thinking out loud. Get everything down, ignoring spelling, grammar, style and troublesome words.</li>
+<li>Correct and rewrite only when the whole text is on paper. Do not split the manuscript among the co-authors. It is better to write a first complete draft, and then the co authors can amend and add new text. In this way, the internal coherence of the paper is ensured. Ask each reviewer to track their changes.</li>
+</ol>
+<h3 id="Polishing-your-manuscript">Polishing your manuscript</h3>
+<h3 id="Use-good-English">Use good English</h3>
+<p>Unfortunately for non-native English speakers, language is an important problem. If the language prevents</p>
+<p>reviewers from understanding the scientific content of your work, the possibility of acceptance will be lowered greatly. At the minimum, you should use the best English you can manage in presenting your high-quality science. Get a skilled writer or someone fluent in English to check your manuscript before submission. Now, most publishers have a service of English correction with a cost around €250 ($285) per paper. (For example, Elsevier has an English Language Editing service.) You must save your readers the trouble of guessing what you mean. Look at this complaint from an editor: (This) paper fell well below my threshold. I refuse to spend time trying to understand what the author is trying to say. Besides, I really want to send a message that they can’t submit garbage to us and expect us to fix it. My rule of thumb is that if there are more than 6 grammatical errors in the abstract, then I don’t waste my time carefully reading the rest. Write with clarity, objectivity, accuracy and brevity, presenting your scientific research in a way that is logical and understandable. To improve your language skills, you can practice reading and writing English in other parts of your work, for example, by keeping records in English during your research and reading as many papers as you can in English.</p>
+<h3 id="Avoid-these-common-problems">Avoid these common problems:</h3>
+<p>Sentences that don’t follow each other logically Sentences that are difficult to understand by non-initiated readers (e.g., “The Annex IV of the MSFD includes the definition of GES to be applied by MS.” Grammatical errors Spelling mistakes and typos</p>
+<h3 id="Simplify-your-language">Simplify your language</h3>
+<p>Original: “Numerous studies in recent years, such as those by Miller (1995) and Smith (1998), have shown that low salinities enhance oyster recruitment.” Suggested: “Low salinities enhance oyster recruitment (Miller, 1995; Smith 1998).”</p>
+<h3 id="Avoid-long-sentences">Avoid long sentences</h3>
+<p>Direct and short sentences are preferred! Long sentences do not make the writing more professional; they only confuse readers. Nowadays, the average length of sentences in scientific writing is about 12 to 17 words. It is said that we read one sentence in one breath. Long sentences choke readers.</p>
+<p>Some languages (e.g., Spanish) tend to have long and complicated sentences, which can be expressed with fewer words in English. You have to change your style when writing in English. One idea or piece of information per sentence is sufficient. Avoid multiple statements in one sentence. In writing the following passage some years ago, I understood my science well – but with 78 words in a single sentence, it’s unlikely that anyone would have understood it… Conversely, applying M-AMBI the explained variability reaches until 43.4%, for linear regression, and 53.8% for logarithmic regression, and the highest explained variability was found in high and low mesohaline and polyhaline areas (53-63%), whilst the lowest explained variability was in the oligohaline area (6%), being the mismatch in the comparison of both methods in terms of degraded-undegraded equivalences was of 16.4% of the cases in M-AMBI, and 12.7% in B-IBI, with a high spatial level of agreement. After the reviewers recommended using shorter sentences, I modified it to the following:… Conversely, applying M-AMBI the explained variability reaches until 43.4%, for linear regression, and 53.8% for logarithmic regression. The highest explained variability was found in high and low mesohaline and polyhaline areas (53-63%). In turn, the lowest explained variability was in the oligohaline area (6%). The mismatch in the comparison of both methods in terms of degraded-undegraded equivalences was of 16.4% of the cases in M-AMBI, and 12.7% in B-IBI, with a high spatial level of agreement.</p>
+<h3 id="Problems-with-long-sentences">Problems with long sentences:</h3>
+<h3 id="Length-of-the-manuscript">Length of the manuscript</h3>
+<p>Again, look at the journal’s Guide for Authors, but an ideal length for a manuscript is 25 to 40 pages, double spaced, including essential data only. Here are some general guidelines: Title: Short and informative Abstract: 1 paragraph (&lt;250 words) Introduction: 1.52 pages Methods: 23 pages Results: 68 pages Discussion: 46 pages Conclusion: 1 paragraph Figures: 68 (one per page) Tables: 13 (one per page) References: 2050 papers (24 pages) Use of passive voice (e.g., “It has been found that there had been many…” instead of “Researchers found that many…”) Poor sentence structure with incorrect conjunctions or dangling modifiers (e.g., “because…, so…”; “Although…, but…”; “considering…, it is…”). For example, avoid this kind of sentence: "The highest explained variability was found in high and low mesohaline and polyhaline areas (53</p>
+<p>63%), because of the high concentration of organic matter, although it was…" It is better to say: “The highest explained variability was found in high and low mesohaline and polyhaline areas (53 63%). This is related to the high concentration of organic matter. Although it was…” Excessive use of subordinate clauses in one sentence (e.g., “It has already been found that when salinity increases to the mouth of an estuary there would be higher benthic richness, which can result also in higher diversity, while in low salinity areas benthic richness tends to be low…”) Mixing different levels of parallelisms connected by “and” in one sentence (e.g., “This research investigates the grain size of sediments in coastal areas and discusses the grain size and the coastal sedimentation based on grain size…”)</p>
+<h3 id="Redundancies-to-avoid">Redundancies to avoid:</h3>
+<p>Overusing conjunctive words or phrases such as “However,” “In addition,” “Moreover.” Use these words sparingly. Phrases without meaning. Learn from the following comments from an Editor: “Never say ‘and references therein.’… Any intelligent reader knows to look at the references in a paper in order to get even more information.” Delete “In present paper.” It is impossible for it to be in a different paper! You start the conclusions “In this paper, we have prepared…” This is nonsense. The samples were prepared in the laboratory! Repetitive words with similar meanings, such as “schematic diagram,” “research work,” etc. It’s better to use the words separately: “this scheme,” “that diagram,” “the research was…,” “the work done was…”</p>
+<h3 id="Other-writing-don’ts">Other writing don’ts:</h3>
+<p>Passive voice for intransitive verbs (which do not have a direct object); only transitive verbs can have passive forms. Hence, you cannot say: “are happened” or “was went.” The third-person singular form of verbs used for plural subjects (e.g., “the concentrations shows that…” instead of “the concentrations show that…” Dangling modifiers, in which the subject of the main clause is not the doer (e.g., “To improve the results, the experiment was done again.” The experiment cannot improve the results itself. It should be “We did the experiment again to improve the results.”) Don’t use spoken abbreviations: “it’s,” “weren’t,” “hasn’t.” Never begin a sentence with a numeral: “5 mg of sediment were analysed…” Use: “Sediment (5 mg) was analysed…” Singledigit numbers should be spelled out; numbers of two or more digits should be expressed as numerals (you can write “four samples” or “25 samples”). In a sentence containing a series of numbers, at least one of which is more than one digit, all of the numbers should be expressed as numerals. (Of the 21 samples, 1 was muddy, 6 gravel, and 14 sandy.) To make the reviewer’s life easier… Keep the text and layout style consistent throughout the manuscript by using the same font (usually Times New Roman) and font size in the text, figures and tables. Double line spacing and 12 point font is preferred; this makes more convenient for reviewers to make annotations. Margins of 3 cm are also useful for reviewers. Number all pages! This is very important because it helps reviewers show you the parts to be amended.</p>
+<p>Number each row in the text (it is easier to identify the position of the comments from the reviewers). Pay attention to the abbreviations; they should be defined on the first use in both abstract and the main text (also in the legends of figures and tables). Some journals even forbid the usage of abbreviations in the abstract. Refer to the journal’s Guide for Authors to see the requirements for abbreviations.</p>
+<h3 id="The-Author">The Author</h3>
+<p>Dr. Angel Borja is Head of Projects at AZTITecnalia, a research center in the Basque Country in Spain specializing in marine research and food technologies. Formerly he was also Head of the Department of Oceanography and Head of the Marine Management Area. His main topic of investigation is marine ecology, and has published more than 270 contributions, from which 150 are in over 40 peer-reviewed journals, through his long career of 32 years of research. During this time he has investigated in multiple topics and ecosystem components, having an ample and multidisciplinary view of marine research. Dr. Borja is the Editor of several journals, including Frontiers in Marine Ecosystem Ecology, Revista de Investigación Marina, Elsevier’s Journal of Sea Research and Continental Shelf Research. In addition, he is a member of the editorial boards of Elsevier’s Marine Pollution Bulletin, Ecological Indicators and Ocean &amp; Coastal Management. Read more about his work on ResearchGate, ORCID and LinkedIn, and follow him on Twitter (@AngelBorjaYerro).</p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/how%20to%20be%20good%20at%20research/">how to be good at research</a>
+                            
+                                <a class="post-backlinks__link" href="/%E7%A7%91%E7%A0%94%E7%B4%A2%E5%BC%95/">科研索引</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/how%20to%20be%20good%20at%20research/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">how to be good at research</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/successful%20phd%20student/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">successful phd student</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+                <div class="post-toc-inner">
+                    <div class="post-toc__title">Table of Contents</div>
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Sources 1-4: Reading and Writing Papers</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">1. How to Read a Paper</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ABSTRACT"><span class="post-toc-text">ABSTRACT</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Introduction"><span class="post-toc-text">1. Introduction</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-The-Three-Pass-Approach"><span class="post-toc-text">2. The Three-Pass Approach</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Doing-A-Literature-Survey"><span class="post-toc-text">3. Doing A Literature Survey</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Related-Work"><span class="post-toc-text">4. Related Work</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Acknowledgments"><span class="post-toc-text">5. Acknowledgments</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-References"><span class="post-toc-text">6. References</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. SIGIR Paper Writing Tips</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-1-Titles-describe-the-paper-don%E2%80%99t-mislead-overpromise-or-be-unduly-punny-Less-is-more-A-tweet%E2%80%99s-length-is-too-long"><span class="post-toc-text">Tip 1. Titles describe the paper; don’t mislead, overpromise, or be unduly punny. Less is more. A tweet’s length is too long.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-2-Abstracts-summarize-the-paper-In-1-short-paragraph-Subject-Motivation-Goal-Method-Achievement-Make-me-want-to-read"><span class="post-toc-text">Tip 2. Abstracts summarize the paper. In 1 short paragraph. Subject. Motivation. Goal. Method. Achievement. Make me want to read.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-3-Intro-What-are-you-doing-Why-is-it-interesting-and-novel-Will-I-learn-something-in-the-next-hour-1-2-to-3-4-page-max"><span class="post-toc-text">Tip 3. Intro: What are you doing? Why is it interesting and novel? Will I learn something in the next hour? 1&#x2F;2 to 3&#x2F;4 page max.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-4-Related-Work-30-%E2%80%9040-citations-is-sweet-spot-less-means-you-don%E2%80%99t-know-the-area-Don%E2%80%99t-omit-key-works-from-other-people"><span class="post-toc-text">Tip 4. Related Work. 30-‐40 citations is sweet spot; less means you don’t know the area. Don’t omit key works from other people.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-5-Report-experimental-results-with-appropriate-statistical-info-like-error-bars-confidence-intervals-effect-size-Please"><span class="post-toc-text">Tip 5. Report experimental results with appropriate statistical info like error bars, confidence intervals, effect size. Please.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-6-ML-is-a-means-to-an-end-not-the-main-meal-Feature-engineering-is-only-interesting-if-it-gives-insights-on-user-behavior"><span class="post-toc-text">Tip 6. ML is a means to an end, not the main meal. Feature engineering is only interesting if it gives insights on user behavior.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-7-Use-Greek-letters-and-maths-stats-for-precision-and-brevity-Explain-intuitions-in-English-Don%E2%80%99t-assume-familiarity"><span class="post-toc-text">Tip 7. Use Greek letters and maths&#x2F;stats for precision and brevity. Explain intuitions in English. Don’t assume familiarity.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-8-Unless-space-%E2%80%90constrained-put-lead-author%E2%80%99s-name-before-citation-cross-%E2%80%90ref-so-I-don%E2%80%99t-have-to-flip-back-and-forth-always"><span class="post-toc-text">Tip 8. Unless space-‐constrained, put lead author’s name before citation cross-‐ref, so I don’t have to flip back and forth always.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-9-Citations-Run-cross-%E2%80%90ref-update-in-Latex-or-Word-before-final-submission-Check-author-names%E2%80%99"><span class="post-toc-text">Tip 9. Citations. Run cross-‐ref update in Latex or Word before final submission. Check author names’</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-10-If-evaluating-with-a-test-collection-use-more-than-1-Don%E2%80%99t-use-pre-2000-exclusively-There%E2%80%99s-more-to-life-than-ad-hoc"><span class="post-toc-text">Tip 10. If evaluating with a test collection, use more than 1. Don’t use pre 2000 exclusively. There’s more to life than ad hoc.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-11-Working-with-big-log-data-doesn%E2%80%99t-make-it-interesting-Insights-make-it-interesting-Especially-ones-which-generalize"><span class="post-toc-text">Tip 11. Working with big log data doesn’t make it interesting. Insights make it interesting. Especially ones which generalize.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-12-Building-real-IR-systems-involves-much-compromise-Don%E2%80%99t-overclaim-for-your-new-algorithm-unless-you%E2%80%99ve-already-tried-it"><span class="post-toc-text">Tip 12. Building real IR systems involves much compromise. Don’t overclaim for your new algorithm unless you’ve already tried it.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-13-What%E2%80%99s-product-interesting-is-not-always-research-interesting-and-vice-versa-What%E2%80%99s-both-is-not-always-publishable"><span class="post-toc-text">Tip 13. What’s product interesting is not always research interesting, and vice versa. What’s both is not always publishable.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-14-Graphics-Make-legends-readable-when-printed-on-paper-If-color-essential-to-interpret-output-make-note-in-fig-caption"><span class="post-toc-text">Tip 14. Graphics. Make legends readable when printed on paper. If color essential to interpret output, make note in fig caption.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-15-When-selecting-data-to-exclude-describe-what-you-did-and-why-Otherwise-it%E2%80%99s-not-clear-what-the-bias-in-dataset-will-be"><span class="post-toc-text">Tip 15. When selecting data to exclude, describe what you did and why. Otherwise it’s not clear what the bias in dataset will be.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-16-Negative-results-can-be-interesting-What-didn%E2%80%99t-work-and-why-not-Surely-not-all-expts-led-directly-to-success-dreamon"><span class="post-toc-text">Tip 16. Negative results can be interesting. What didn’t work, and why not? Surely not all expts led directly to success? #dreamon</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-17-Your-first-audience-is-overworked-on-a-deadline-tired-had-a-glass-of-wine-and-put-the-kids-to-bed-That-is-your-prior"><span class="post-toc-text">Tip 17. Your first audience is overworked, on a deadline, tired, had a glass of wine and put the kids to bed. That is your prior.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-18-Two-words-Strunk-and-White-Read-then-follow-Rules-of-usage-Principles-of-composition-Matters-of-form-Misused-words"><span class="post-toc-text">Tip 18. Two words: Strunk and White. Read then follow: Rules of usage. Principles of composition. Matters of form. Misused words.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-19-Don%E2%80%99t-pad-out-with-lower-quality-work-4-5-papers-are-rejected-Many-great-8-page-papers-in-past-Make-it-all-shine"><span class="post-toc-text">Tip 19. Don’t pad out with lower quality work. &gt;4:5 papers are rejected. Many great 8 page papers in past. Make it all shine.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-20-Make-your-contributions-clear-Both-at-the-start-and-end-of-the-paper-Also-Conclusions-are-not-a-summary-What-changes"><span class="post-toc-text">Tip 20. Make your contributions clear. Both at the start and end of the paper. Also, Conclusions are not a summary. What changes?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-21-Acknowledge-those-who-helped-you-out-Thanks-cost-little-while-forgetting-may-offend-If-big-help-make-them-a-co-%E2%80%90author"><span class="post-toc-text">Tip 21. Acknowledge those who helped you out. Thanks cost little, while forgetting may offend. If big help, make them a co-‐author.</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. Top-10 Tips for Writing a Paper</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Top-10-tips-for-writing-a-paper"><span class="post-toc-text">Top-10 tips for writing a paper</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Every-paper-tells-a-story"><span class="post-toc-text">1. Every paper tells a story</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Write-top-down"><span class="post-toc-text">2. Write top down</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Introduction-crucial-formulaic"><span class="post-toc-text">3. Introduction: crucial, formulaic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Master-the-basics-of-organized-writing"><span class="post-toc-text">4. Master the basics of organized writing</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Put-yourself-in-place-of-the-reader"><span class="post-toc-text">5. Put yourself in place of the reader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-Put-yourself-in-place-of-the-reader"><span class="post-toc-text">6. Put yourself in place of the reader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-No-one-not-even-your-mother-is-as-interested-in-this-topic-as-you"><span class="post-toc-text">7. No one (not even your mother) is as interested in this topic as you</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-State-the-results-carefully"><span class="post-toc-text">8. State the results carefully</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-Don%E2%80%99t-overstate-understate-your-results"><span class="post-toc-text">9. Don’t overstate&#x2F;understate your results</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-Study-the-art-of-writing"><span class="post-toc-text">10. Study the art of writing</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-Good-writing-takes-times"><span class="post-toc-text">11. Good writing takes times</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">4. Writing the First Draft of Your Science Paper — Some Dos and Don’ts</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#How-to-Prepare-a-Manuscript-for-International-Journals-%E2%80%94-Part-3"><span class="post-toc-text">How to Prepare a Manuscript for International Journals — Part 3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Four-steps-to-preparing-your-first-draft"><span class="post-toc-text">Four steps to preparing your first draft</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Polishing-your-manuscript"><span class="post-toc-text">Polishing your manuscript</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Use-good-English"><span class="post-toc-text">Use good English</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Avoid-these-common-problems"><span class="post-toc-text">Avoid these common problems:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Simplify-your-language"><span class="post-toc-text">Simplify your language</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Avoid-long-sentences"><span class="post-toc-text">Avoid long sentences</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Problems-with-long-sentences"><span class="post-toc-text">Problems with long sentences:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Length-of-the-manuscript"><span class="post-toc-text">Length of the manuscript</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redundancies-to-avoid"><span class="post-toc-text">Redundancies to avoid:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Other-writing-don%E2%80%99ts"><span class="post-toc-text">Other writing don’ts:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#The-Author"><span class="post-toc-text">The Author</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </mdui-card>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
+    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">Sources 1-4: Reading and Writing Papers</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">1. How to Read a Paper</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ABSTRACT"><span class="post-toc-text">ABSTRACT</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Introduction"><span class="post-toc-text">1. Introduction</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-The-Three-Pass-Approach"><span class="post-toc-text">2. The Three-Pass Approach</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Doing-A-Literature-Survey"><span class="post-toc-text">3. Doing A Literature Survey</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Related-Work"><span class="post-toc-text">4. Related Work</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Acknowledgments"><span class="post-toc-text">5. Acknowledgments</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-References"><span class="post-toc-text">6. References</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">2. SIGIR Paper Writing Tips</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-1-Titles-describe-the-paper-don%E2%80%99t-mislead-overpromise-or-be-unduly-punny-Less-is-more-A-tweet%E2%80%99s-length-is-too-long"><span class="post-toc-text">Tip 1. Titles describe the paper; don’t mislead, overpromise, or be unduly punny. Less is more. A tweet’s length is too long.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-2-Abstracts-summarize-the-paper-In-1-short-paragraph-Subject-Motivation-Goal-Method-Achievement-Make-me-want-to-read"><span class="post-toc-text">Tip 2. Abstracts summarize the paper. In 1 short paragraph. Subject. Motivation. Goal. Method. Achievement. Make me want to read.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-3-Intro-What-are-you-doing-Why-is-it-interesting-and-novel-Will-I-learn-something-in-the-next-hour-1-2-to-3-4-page-max"><span class="post-toc-text">Tip 3. Intro: What are you doing? Why is it interesting and novel? Will I learn something in the next hour? 1&#x2F;2 to 3&#x2F;4 page max.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-4-Related-Work-30-%E2%80%9040-citations-is-sweet-spot-less-means-you-don%E2%80%99t-know-the-area-Don%E2%80%99t-omit-key-works-from-other-people"><span class="post-toc-text">Tip 4. Related Work. 30-‐40 citations is sweet spot; less means you don’t know the area. Don’t omit key works from other people.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-5-Report-experimental-results-with-appropriate-statistical-info-like-error-bars-confidence-intervals-effect-size-Please"><span class="post-toc-text">Tip 5. Report experimental results with appropriate statistical info like error bars, confidence intervals, effect size. Please.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-6-ML-is-a-means-to-an-end-not-the-main-meal-Feature-engineering-is-only-interesting-if-it-gives-insights-on-user-behavior"><span class="post-toc-text">Tip 6. ML is a means to an end, not the main meal. Feature engineering is only interesting if it gives insights on user behavior.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-7-Use-Greek-letters-and-maths-stats-for-precision-and-brevity-Explain-intuitions-in-English-Don%E2%80%99t-assume-familiarity"><span class="post-toc-text">Tip 7. Use Greek letters and maths&#x2F;stats for precision and brevity. Explain intuitions in English. Don’t assume familiarity.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-8-Unless-space-%E2%80%90constrained-put-lead-author%E2%80%99s-name-before-citation-cross-%E2%80%90ref-so-I-don%E2%80%99t-have-to-flip-back-and-forth-always"><span class="post-toc-text">Tip 8. Unless space-‐constrained, put lead author’s name before citation cross-‐ref, so I don’t have to flip back and forth always.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-9-Citations-Run-cross-%E2%80%90ref-update-in-Latex-or-Word-before-final-submission-Check-author-names%E2%80%99"><span class="post-toc-text">Tip 9. Citations. Run cross-‐ref update in Latex or Word before final submission. Check author names’</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-10-If-evaluating-with-a-test-collection-use-more-than-1-Don%E2%80%99t-use-pre-2000-exclusively-There%E2%80%99s-more-to-life-than-ad-hoc"><span class="post-toc-text">Tip 10. If evaluating with a test collection, use more than 1. Don’t use pre 2000 exclusively. There’s more to life than ad hoc.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-11-Working-with-big-log-data-doesn%E2%80%99t-make-it-interesting-Insights-make-it-interesting-Especially-ones-which-generalize"><span class="post-toc-text">Tip 11. Working with big log data doesn’t make it interesting. Insights make it interesting. Especially ones which generalize.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-12-Building-real-IR-systems-involves-much-compromise-Don%E2%80%99t-overclaim-for-your-new-algorithm-unless-you%E2%80%99ve-already-tried-it"><span class="post-toc-text">Tip 12. Building real IR systems involves much compromise. Don’t overclaim for your new algorithm unless you’ve already tried it.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-13-What%E2%80%99s-product-interesting-is-not-always-research-interesting-and-vice-versa-What%E2%80%99s-both-is-not-always-publishable"><span class="post-toc-text">Tip 13. What’s product interesting is not always research interesting, and vice versa. What’s both is not always publishable.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-14-Graphics-Make-legends-readable-when-printed-on-paper-If-color-essential-to-interpret-output-make-note-in-fig-caption"><span class="post-toc-text">Tip 14. Graphics. Make legends readable when printed on paper. If color essential to interpret output, make note in fig caption.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-15-When-selecting-data-to-exclude-describe-what-you-did-and-why-Otherwise-it%E2%80%99s-not-clear-what-the-bias-in-dataset-will-be"><span class="post-toc-text">Tip 15. When selecting data to exclude, describe what you did and why. Otherwise it’s not clear what the bias in dataset will be.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-16-Negative-results-can-be-interesting-What-didn%E2%80%99t-work-and-why-not-Surely-not-all-expts-led-directly-to-success-dreamon"><span class="post-toc-text">Tip 16. Negative results can be interesting. What didn’t work, and why not? Surely not all expts led directly to success? #dreamon</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-17-Your-first-audience-is-overworked-on-a-deadline-tired-had-a-glass-of-wine-and-put-the-kids-to-bed-That-is-your-prior"><span class="post-toc-text">Tip 17. Your first audience is overworked, on a deadline, tired, had a glass of wine and put the kids to bed. That is your prior.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-18-Two-words-Strunk-and-White-Read-then-follow-Rules-of-usage-Principles-of-composition-Matters-of-form-Misused-words"><span class="post-toc-text">Tip 18. Two words: Strunk and White. Read then follow: Rules of usage. Principles of composition. Matters of form. Misused words.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-19-Don%E2%80%99t-pad-out-with-lower-quality-work-4-5-papers-are-rejected-Many-great-8-page-papers-in-past-Make-it-all-shine"><span class="post-toc-text">Tip 19. Don’t pad out with lower quality work. &gt;4:5 papers are rejected. Many great 8 page papers in past. Make it all shine.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-20-Make-your-contributions-clear-Both-at-the-start-and-end-of-the-paper-Also-Conclusions-are-not-a-summary-What-changes"><span class="post-toc-text">Tip 20. Make your contributions clear. Both at the start and end of the paper. Also, Conclusions are not a summary. What changes?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tip-21-Acknowledge-those-who-helped-you-out-Thanks-cost-little-while-forgetting-may-offend-If-big-help-make-them-a-co-%E2%80%90author"><span class="post-toc-text">Tip 21. Acknowledge those who helped you out. Thanks cost little, while forgetting may offend. If big help, make them a co-‐author.</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">3. Top-10 Tips for Writing a Paper</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Top-10-tips-for-writing-a-paper"><span class="post-toc-text">Top-10 tips for writing a paper</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Every-paper-tells-a-story"><span class="post-toc-text">1. Every paper tells a story</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Write-top-down"><span class="post-toc-text">2. Write top down</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Introduction-crucial-formulaic"><span class="post-toc-text">3. Introduction: crucial, formulaic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Master-the-basics-of-organized-writing"><span class="post-toc-text">4. Master the basics of organized writing</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Put-yourself-in-place-of-the-reader"><span class="post-toc-text">5. Put yourself in place of the reader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-Put-yourself-in-place-of-the-reader"><span class="post-toc-text">6. Put yourself in place of the reader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-No-one-not-even-your-mother-is-as-interested-in-this-topic-as-you"><span class="post-toc-text">7. No one (not even your mother) is as interested in this topic as you</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-State-the-results-carefully"><span class="post-toc-text">8. State the results carefully</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-Don%E2%80%99t-overstate-understate-your-results"><span class="post-toc-text">9. Don’t overstate&#x2F;understate your results</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-Study-the-art-of-writing"><span class="post-toc-text">10. Study the art of writing</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-Good-writing-takes-times"><span class="post-toc-text">11. Good writing takes times</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">4. Writing the First Draft of Your Science Paper — Some Dos and Don’ts</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#How-to-Prepare-a-Manuscript-for-International-Journals-%E2%80%94-Part-3"><span class="post-toc-text">How to Prepare a Manuscript for International Journals — Part 3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Four-steps-to-preparing-your-first-draft"><span class="post-toc-text">Four steps to preparing your first draft</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Polishing-your-manuscript"><span class="post-toc-text">Polishing your manuscript</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Use-good-English"><span class="post-toc-text">Use good English</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Avoid-these-common-problems"><span class="post-toc-text">Avoid these common problems:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Simplify-your-language"><span class="post-toc-text">Simplify your language</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Avoid-long-sentences"><span class="post-toc-text">Avoid long sentences</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Problems-with-long-sentences"><span class="post-toc-text">Problems with long sentences:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Length-of-the-manuscript"><span class="post-toc-text">Length of the manuscript</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redundancies-to-avoid"><span class="post-toc-text">Redundancies to avoid:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Other-writing-don%E2%80%99ts"><span class="post-toc-text">Other writing don’ts:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#The-Author"><span class="post-toc-text">The Author</span></a></li></ol></li></ol>
+    </div>
+  </section>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">81 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">454 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">192 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E4%B8%93%E6%A0%8F"
+      
+    >
+      专栏
+      <span slot="description">6 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>
