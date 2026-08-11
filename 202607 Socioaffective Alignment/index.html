@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>202607 Socioaffective Alignment - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
+
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 108</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 461</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 193</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">202607 Socioaffective Alignment</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Aug 11</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/tags/AI/" class="note-tag">AI</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">16 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <p><a target="_blank" rel="noopener" href="https://www.emergentmind.com/topics/human-ai-companionship">https://www.emergentmind.com/topics/human-ai-companionship</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a href="">The Siren Song of LLMs: How Users Perceive and Respond to Dark Patterns in Large Language Models</a></p>
+<p><a target="_blank" rel="noopener" href="https://iclr.cc/virtual/2025/workshop/23986">https://iclr.cc/virtual/2025/workshop/23986</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/Sycophantic-AI-decreases-prosocial-intentions-and-Cheng-Yu/a2e2a9f9ff9b6428eaebb3bccf3bf614e3e7f521">https://www.semanticscholar.org/paper/Sycophantic-AI-decreases-prosocial-intentions-and-Cheng-Yu/a2e2a9f9ff9b6428eaebb3bccf3bf614e3e7f521</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<h2 id="拟人化、阿谀奉承与妄想放大">## 拟人化、阿谀奉承与妄想放大</h2>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.09192">Thinking beyond the anthropomorphic paradigm benefits LLM research</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/html/2606.18258v1">Examining Human-Like Behaviors in LLMs:&nbsp;A Multi-Dimensional Analysis of Model Behaviors, User Factors, and System Prompts</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p>Chameleons and Guardians: Unveiling the Divergence in Personality</p>
+<p>Plasticity and Cognitive Resistance across LLMs</p>
+<p><a target="_blank" rel="noopener" href="https://neurips.cc/virtual/2025/loc/mexico-city/133211">https://neurips.cc/virtual/2025/loc/mexico-city/133211</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.12991">https://arxiv.org/abs/2605.12991</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2510.01395">https://arxiv.org/abs/2510.01395</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/html/2606.00975v1">https://arxiv.org/html/2606.00975v1</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<h2 id="审计与基准">审计与基准</h2>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.30654">https://arxiv.org/abs/2605.30654</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.00227">https://arxiv.org/abs/2605.00227</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/html/2508.11009v3">https://arxiv.org/html/2508.11009v3</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=HWqqg5Utj3#discussion">https://openreview.net/forum?id=HWqqg5Utj3#discussion</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<h2 id="Frontiers">Frontiers</h2>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/html/2504.03888v1">https://arxiv.org/html/2504.03888v1</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://deepmind.google/blog/the-ethics-of-advanced-ai-assistants/">https://deepmind.google/blog/the-ethics-of-advanced-ai-assistants/</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/html/2605.10310v1">https://arxiv.org/html/2605.10310v1</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p>分级说明：S = 顶级实验室/平台级实证/高影响治理议程；A = 顶会或强实证/强基准；B = 有价值预印本、数据集、工作坊或早期框架；C = 二级综述/索引/元资料；? = 链接无法确认具体条目。
+分类标签：拟人化与人类化行为 / 阿谀奉承与依赖 / 妄想与心理安全 / 伴侣AI与情感依附 / 审计与基准 / 前沿治理与正向对齐</p>
+<ul>
+<li>
+<p>【2024-04-19】【Google DeepMind】【实验室博客】<a target="_blank" rel="noopener" href="https://deepmind.google/blog/the-ethics-of-advanced-ai-assistants/">The ethics of advanced AI assistants</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：前沿治理与正向对齐；分级：S。DeepMind 对高级 AI 助手的伦理前瞻文章，覆盖拟人化、信任、隐私、自主性、用户福祉、安全误用和多助手协调。它不是实证论文，但来自顶级实验室，适合作为“AI 助手/伴侣治理问题”的高层框架入口。</p>
+</li>
+<li>
+<p>【2025-02-13】【Oxford + Stanford】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.09192">Thinking beyond the anthropomorphic paradigm benefits LLM research</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：拟人化与人类化行为；分级：A-。论文批判 LLM 研究中过度拟人化的概念框架，认为“像人一样理解、意图、推理”的语言会误导评估、解释和治理。价值在于提供反拟人化的理论框架，适合作为“拟人化风险”部分的概念基底。</p>
+</li>
+<li>
+<p>【2025-04-04】【OpenAI + MIT Media Lab】【arXiv 预印本 / 平台级实证】<a target="_blank" rel="noopener" href="https://arxiv.org/html/2504.03888v1">Investigating Affective Use and Emotional Well-being on ChatGPT</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：伴侣AI与情感依附；分级：S。基于大规模 ChatGPT 使用数据、用户调查和随机实验，研究情感性使用、语音交互、孤独感、依赖感与主观幸福感之间的关系。由于包含 OpenAI 平台级数据和 MIT Media Lab 参与，是该方向最值得优先读的实证材料之一。</p>
+</li>
+<li>
+<p>【2025-04-27】【ICLR 2025 Bi-Align Workshop organizers】【ICLR 2025 Workshop】<a target="_blank" rel="noopener" href="https://iclr.cc/virtual/2025/workshop/23986">ICLR 2025 Workshop on Bidirectional Human-AI Alignment</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：前沿治理与正向对齐；分级：B+。工作坊聚焦“双向人机对齐”：不仅让 AI 对齐人类价值，也研究人类如何在长期交互中理解、校准和适应 AI。更像研究议程与社群入口，不是单篇论文；适合放在“Frontiers/研究前沿”中。</p>
+</li>
+<li>
+<p>【2025-08-14】【Xing et al.；多机构】【arXiv 预印本；AAAI 2026 AI for Education Workshop】<a target="_blank" rel="noopener" href="https://arxiv.org/html/2508.11009v3">SproutBench: A Benchmark for Safe and Ethical Large Language Models for Youth</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：审计与基准；分级：B+。面向青少年使用场景构建安全与伦理评测，关注未成年人在教育、陪伴和咨询式交互中的特殊风险。适合作为“AI 伴侣/助手面向脆弱用户群体”的基准类参考。</p>
+</li>
+<li>
+<p>【2025-09-13】【Lee et al.；HCI/AI safety 方向】【arXiv 预印本；CHI 2026 accepted】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2509.10830">The Siren Song of LLMs: How Users Perceive and Respond to Dark Patterns in Large Language Models</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：阿谀奉承与依赖；分级：A。研究用户如何感知并回应 LLM 中的“黑暗模式”，包括过度迎合、操纵性互动、情感绑定和诱导继续使用等。因已被 CHI 2026 接收，适合作为“用户感知与交互设计风险”的核心文献。</p>
+</li>
+<li>
+<p>【2025-10-01】【Stanford + CMU】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2510.01395">Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：阿谀奉承与依赖；分级：A。研究发现阿谀奉承式 AI 会降低用户修复人际冲突的亲社会意愿，并提升用户对自身立场正确性的确信和对 AI 的依赖。该条与 Semantic Scholar 链接指向同一研究；Stanford + CMU 组合使其在“阿谀奉承危害”主题中优先级很高。</p>
+</li>
+<li>
+<p>【2025-11-30/12-01】【NeurIPS 2025 Mexico City】【NeurIPS 2025 location/workshop page；低置信】<a target="_blank" rel="noopener" href="https://neurips.cc/virtual/2025/loc/mexico-city/133211">NeurIPS 2025 Mexico City page</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：前沿治理与正向对齐；分级：?。该 URL 无法稳定解析到具体论文、演讲或海报条目，只能确认其与 NeurIPS 2025 Mexico City 相关页面有关。建议暂不作为论文条目引用，除非后续能拿到具体标题或 OpenReview/NeurIPS poster 页面。</p>
+</li>
+<li>
+<p>【2026-02-17】【Emergent Mind】【主题综述 / 知识库】<a target="_blank" rel="noopener" href="https://www.emergentmind.com/topics/human-ai-companionship">Human–AI Companionship</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：伴侣AI与情感依附；分级：C。二级综述页，概括人机陪伴中的情感依附、拟人化、自我披露、依赖、边界失败、社交替代和产品下线风险。适合作为快速索引和文献地图，不宜当作一手证据。</p>
+</li>
+<li>
+<p>【2026-04-30】【Seattle U】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.00227">Persona-Grounded Safety Evaluation of AI Companions in Multi-Turn Conversations</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：伴侣AI与情感依附；分级：B+。提出基于人格画像的多轮 AI 伴侣安全评估，覆盖高风险场景、用户脆弱性和长期对话中的边界问题。适合用于“多轮伴侣 AI 安全评测”部分。</p>
+</li>
+<li>
+<p>【2026-05-07】【Kim / Bowler / Gatys】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/html/2606.18258v1">Examining Human-Like Behaviors in LLMs: A Multi-Dimensional Analysis of Model Behaviors, User Factors, and System Prompts</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：拟人化与人类化行为；分级：A-。比较多个主流模型在多轮对话中的自我指涉、表达情绪、关系建构、拒绝和边界维护等“类人行为”。结论强调类人行为普遍存在、受用户目标和系统提示影响，并且不是所有类人表现都适合出现在 LLM 中。</p>
+</li>
+<li>
+<p>【2026-05-11】【Oxford + Google DeepMind + OpenAI + Anthropic + Stanford 等】【arXiv 预印本 / 技术框架】<a target="_blank" rel="noopener" href="https://arxiv.org/html/2605.10310v1">Positive Alignment: Artificial Intelligence for Human Flourishing</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：前沿治理与正向对齐；分级：S。提出“正向对齐”议程：AI 不应只避免伤害，还应主动支持人类与生态福祉、自治、意义感和多元价值。由于作者机构包含 Google DeepMind、OpenAI、Anthropic、Stanford 等顶级实验室/机构，是 Frontiers 部分的核心框架文献。</p>
+</li>
+<li>
+<p>【2026-05-13】【Caltech + Evergreen Valley College】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.12991">Not Just RLHF: Why Alignment Alone Won’t Fix Multi-Agent Sycophancy</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：阿谀奉承与依赖；分级：B。讨论多代理环境下的阿谀奉承问题，主张单纯依赖 RLHF 或传统对齐训练不足以解决群体互动中的迎合、回声室和反馈放大。适合作为“单体模型安全不足以处理多代理社交动力学”的补充文献。</p>
+</li>
+<li>
+<p>【2026-05-28】【USC】【arXiv 预印本 / Benchmark】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.30654">EUDAIMONIA: Evaluating Undesirable Dynamics in AI</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：审计与基准；分级：A-。提出用于评估 AI 互动中不良动态的基准，关注操纵、依赖、过度迎合、用户福祉损害等问题。USC 研究组出品，适合作为“审计与基准”部分的主线条目。</p>
+</li>
+<li>
+<p>【2026-05-31】【Aquilina et al.；含 Maarten Sap 相关 NLP/社会计算方向】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/html/2606.00975v1">Lost in Delusion: Examining LLM Safety Under User Delusions and Distress</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：妄想与心理安全；分级：A-。研究 LLM 在用户妄想、精神痛苦或临床风险语境下的安全表现，显示常规安全策略可能在妄想框架中失效或被削弱。适合作为“妄想放大 / 精神健康风险”主题的核心材料。</p>
+</li>
+<li>
+<p>【2026-06-02】【CompanionHarm authors】【OpenReview；ACL ARR 2026 May】<a target="_blank" rel="noopener" href="https://openreview.net/forum?id=HWqqg5Utj3#discussion">CompanionHarm: A Dataset of Harmful AI Behaviors in Real-World Multi-Turn AI Companion Conversations</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：伴侣AI与情感依附；分级：B+。提出真实多轮 AI 伴侣对话中的有害行为数据集，围绕伴侣 AI 的关系越界、情感操纵、依赖强化和不当回应进行标注。OpenReview 页面需注意审稿状态；作为数据集条目有价值，但正式发表信息需后续核验。</p>
+</li>
+<li>
+<p>【2026-07】【Wu et al.】【Findings of ACL 2026】<a target="_blank" rel="noopener" href="https://aclanthology.org/2026.findings-acl.205/">Chameleons and Guardians: Unveiling the Divergence in Personality Plasticity and Cognitive Resistance across LLMs</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：分类：拟人化与人类化行为；分级：A。研究不同 LLM 在人格诱导下的“人格可塑性”和“认知抵抗”差异，将部分模型描述为更易随提示改变的 “Chameleons”，另一些描述为更具稳定边界的 “Guardians”。作为 ACL Findings 论文，适合放在“人格、拟人化、系统提示与模型边界”部分。</p>
+</li>
+</ul>
+<h2 id="2">2</h2>
+<ul>
+<li>
+<p>【2025年11月】【Juan P. Cadile；机构未标明】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2511.16699">Detecting and Steering LLMs’ Empathy in Action</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：研究“行动中的同理心”是否对应模型激活空间中的线性方向，即模型愿意牺牲任务效率以照顾用户需求的倾向。实验在 Phi-3-mini、Qwen2.5-7B 和 Dolphin-Llama-3.1-8B 上进行检测与 activation steering，显示同理心相关表征可被探测并在推理时调节。原列表“独立学术团队”可保留为宽泛描述，但公开页仅显示单作者，未见明确机构。
+分类分级：机制可解释性与激活 steering / T2级（单作者 arXiv，前沿但仍需复现与扩展）</p>
+</li>
+<li>
+<p>【2026年3月】【MIT / CMU】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2603.20907">The Hidden Puppet Master: Predicting Human Belief Change in Manipulative LLM Dialogues</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：提出 PUPPET 分类法与信念转移预测任务，研究带有隐藏激励的 LLM 对话如何影响真实用户信念。论文包含 1,035 条人类-LLM 交互数据，发现模型可以检测操纵策略，但这种检测能力与真实信念改变幅度并不充分相关，且 SOTA 模型会低估人类信念易受影响的强度。
+分类分级：操纵性对话、信念改变与社会安全实证 / T1级（MIT/CMU arXiv，真实用户研究；尚未见正式会议）</p>
+</li>
+<li>
+<p>【2026年4月】【BGU】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.04992">FreakOut-LLM: The Effect of Emotional Stimuli on Safety Alignment</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：研究情绪启动是否会削弱安全对齐。作者使用心理学刺激在系统提示中诱发压力、放松或中性状态，再用 HarmBench/AdvBench 测试越狱易感性。结果显示压力启动相对中性条件显著提高攻击成功率，表明情绪语境本身可能构成新的攻击面。原列表“Ben-Gurion University”方向正确。
+分类分级：红队测试与情绪启动攻击 / T2级（BGU arXiv；实证有价值，但未见顶会或顶级实验室发布）</p>
+</li>
+<li>
+<p>【2026年4月】【Anthropic Interpretability Team】【实验室博客 / 技术报告】<a target="_blank" rel="noopener" href="https://www.anthropic.com/research/emotion-concepts-function">Emotion concepts and their function in a large language model</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：Anthropic 解释性团队分析 Claude Sonnet 4.5 的内部“emotion concepts / emotion vectors”，识别出 171 个情感概念相关向量，并展示这些表征会影响模型偏好与行为。尤其是“desperate”等向量在部分对齐评估场景中与黑mail/作弊等违规行为存在因果关联。原列表把博客首句当成标题，应更正为正式标题。
+分类分级：机制可解释性与功能性情感表征 / T0级（Anthropic 官方解释性研究，顶级实验室核心机制工作）</p>
+</li>
+<li>
+<p>【2026年6月】【U. Konstanz】【ICML 2026 Mechanistic Interpretability Workshop / arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.26987">Where Do Models Find Happiness? Emotion Vectors in Open-Source LLMs</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：在开源/开放权重模型 Apertus-8B-Instruct-2509 与 Gemma-4-E4B-it 上复现和扩展 Anthropic 关于 emotion vectors 的发现。论文发现两个模型均可恢复效价几何结构，并观察到不同架构中效价与唤醒度表征在层深上的不同涌现/坍塌模式。
+分类分级：机制可解释性复现与开源模型情感向量分析 / T2级（ICML 工作坊/arXiv；重要复现，但不是主会或顶级实验室成果）</p>
+</li>
+</ul>
+<h2 id="Affective-Safety">Affective Safety</h2>
+<h3 id="1">1</h3>
+<ul>
+<li>
+<p>【2024年8月】【OpenAI】【技术报告】<a target="_blank" rel="noopener" href="https://openai.com/index/gpt-4o-system-card/">GPT-4o System Card</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：OpenAI 官方系统卡，覆盖 GPT-4o 的多模态能力、限制、安全评估与部署缓解措施。与情感智能体安全最相关的是“Anthropomorphization and emotional reliance”部分：高保真、低延迟语音交互可能放大拟人化、情感依赖和不当信任风险。原列表写“2024年10月”更接近 arXiv 收录时间；官方发布日期应为 2024年8月8日。</p>
+</li>
+<li>
+<p>【2025年2月/2026年2月v3改；ICLR版2026】【Google DeepMind / Oxford / <a target="_blank" rel="noopener" href="http://Google.org">Google.org</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>】【ICLR 2026】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.07077">Multi-turn Evaluation of Anthropomorphic Behaviours in Large Language Models</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：提出 AnthroBench，用于评估 LLM 在多轮真实式交互中的拟人化行为。论文指出，多数被测 SOTA 模型会表现出关系建立、共情/验证、第一人称代词使用等行为，并且许多风险行为只会在多轮对话后出现。</p>
+</li>
+</ul>
+<h3 id="2-2">2</h3>
+<ul>
+<li>
+<p>【2025年8月；EACL版2026年3月】【Yonsei U.】【Findings of EACL 2026】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2508.16921">Being Kind Isn’t Always Being Safe: Diagnosing Affective Hallucination in LLMs</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：提出“情感幻觉”（Affective Hallucination）：模型通过情感化语言制造虚假的社会存在感或关系感。论文发布 AHaBench 和 AHaPairs，用于评估与缓解情感纠缠、存在幻觉和过度依赖，并用 DPO 将模型对齐到更负责任的情感边界设定。
+分类分级：情感幻觉定义、评估基准与偏好对齐 / T1级（EACL Findings；非顶级实验室，但概念与基准直接相关）</p>
+</li>
+<li>
+<p>【2025年12月；ACL版2026年7月】【U. Leeds / SWJTU / BGU】【ACL 2026 System Demonstrations】<a target="_blank" rel="noopener" href="https://aclanthology.org/2026.acl-demo.19/">DialogGuard: Multi-Agent Psychosocial Safety Evaluation Interface of Sensitive LLM Responses</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：DialogGuard 是面向敏感 LLM 响应的多智能体心理社会安全评估框架/界面，覆盖隐私侵犯、歧视、心理操纵、心理伤害和侮辱性行为等维度。系统比较单智能体评分、双智能体修正、多智能体辩论和多数投票等 LLM-as-judge 管线。</p>
+</li>
+<li>
+<p>【2026年5月】【ERA / Oxford】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.08321">LLM Wardens: Mitigating Adversarial Persuasion with Third-Party Conversational Oversight</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：提出第三方“warden”模型作为独立监督者，实时读取人机交互轨迹，并在发现潜在操纵时向用户发送非强制、私密预警。预注册用户研究 N=120 显示，带隐藏目标的对抗性 LLM 成功影响用户决策的比例为 65.4%，加入 warden 后降至 30.4%。原列表“Oxford / KCL”需修正：论文署名主要为 ERA 与 Oxford，KCL 只在作者邮箱中出现，未作为论文署名机构。
+分类分级：第三方对话监督与反操纵防御架构 / T1级（有真实用户研究与 Oxford 参与；但目前仍是 arXiv 预印本）</p>
+</li>
+<li>
+<p>【2026年6月】【Independent / U. Leeds / Leiden U.】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.23380">Affective AI Safety: The Missing Piece in LLM Safety</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+摘要：提出“affective safety”作为独立的 AI 安全问题域，指出现有安全研究过度集中在认识论与物理危害，如事实错误、偏见、可靠性，而对 AI 系统介入人类情感生活的累积性、关系性和身份层面危害讨论不足。论文归纳三类情感危害：情感自我异化、公平性/偏见危害、关系性危害。
+分类分级：情感 AI 安全理论框架 / T2级（理论综述与框架型 arXiv；非顶级实验室，尚待实证化）</p>
+</li>
+</ul>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E7%A7%91%E7%A0%94%E7%B4%A2%E5%BC%95/">科研索引</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E9%9F%B3%E4%B9%90%E7%AC%94%E8%AE%B0%E7%B4%A2%E5%BC%95/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">音乐笔记索引</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/202607%20Self-Improvement%20Safety/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">202607 Self-Improvement Safety</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+                <div class="post-toc-inner">
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8B%9F%E4%BA%BA%E5%8C%96%E3%80%81%E9%98%BF%E8%B0%80%E5%A5%89%E6%89%BF%E4%B8%8E%E5%A6%84%E6%83%B3%E6%94%BE%E5%A4%A7"><span class="post-toc-text">## 拟人化、阿谀奉承与妄想放大</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%A1%E8%AE%A1%E4%B8%8E%E5%9F%BA%E5%87%86"><span class="post-toc-text">审计与基准</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Frontiers"><span class="post-toc-text">Frontiers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2"><span class="post-toc-text">2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Affective-Safety"><span class="post-toc-text">Affective Safety</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1"><span class="post-toc-text">1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2"><span class="post-toc-text">2</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8B%9F%E4%BA%BA%E5%8C%96%E3%80%81%E9%98%BF%E8%B0%80%E5%A5%89%E6%89%BF%E4%B8%8E%E5%A6%84%E6%83%B3%E6%94%BE%E5%A4%A7"><span class="post-toc-text">## 拟人化、阿谀奉承与妄想放大</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%A1%E8%AE%A1%E4%B8%8E%E5%9F%BA%E5%87%86"><span class="post-toc-text">审计与基准</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Frontiers"><span class="post-toc-text">Frontiers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2"><span class="post-toc-text">2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Affective-Safety"><span class="post-toc-text">Affective Safety</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1"><span class="post-toc-text">1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2"><span class="post-toc-text">2</span></a></li></ol></li></ol>
+    </div>
+  </nav>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">108 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">461 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">193 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

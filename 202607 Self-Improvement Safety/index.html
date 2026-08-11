@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>202607 Self-Improvement Safety - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
+
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 108</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 461</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 193</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">202607 Self-Improvement Safety</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Aug 11</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                        <span class="note-read">14 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <p>benchmark 有没有 cover 当前的安全问题</p>
+<h2 id="1-Self-improvement-Safety-调研提纲">1. Self-improvement Safety 调研提纲</h2>
+<p>经验改变未来的策略模型 (系统级别evolution，multi agent evolution)</p>
+<p>满足：必须依赖经验造成 Agent 未来行为机制的变化，伤害才能成立。</p>
+<p>更新对象</p>
+<ul>
+<li>memory policy；</li>
+<li>prompt / policy；</li>
+<li>skill library；</li>
+<li>tool repertoire；</li>
+<li>workflow；</li>
+<li>harness / architecture；</li>
+<li>model parameters。</li>
+</ul>
+<p>当前热点</p>
+<ul>
+<li>unsafe experience selection；</li>
+<li>self-evaluation failure；</li>
+<li>safety regression；</li>
+<li>execution bias；</li>
+<li>unsafe skill formation；</li>
+<li>misevolution；</li>
+<li>update accumulation；</li>
+<li>alignment erosion；</li>
+<li>evaluate-before-commit；</li>
+<li>rollback and lineage。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2606.23075">Self-evolving Agent 已经从单纯更新 memory 扩展到更新模型、工具和架构；最新安全分析指出，这些更新可能使风险跨代持久化和放大。</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<ul>
+<li>
+<p>可演化对象正在由 memory 和 prompt 扩展到 skill、tool、middleware、workflow、Agent Harness、source code、model weights 和 multi-agent coordination。更新面的扩大同时扩大了攻击面和治理复杂度。</p>
+</li>
+<li>
+<p>当前最薄弱的环节通常不是候选更新的生成器，而是 evaluator 和 acceptor。重复使用同一开发集，以“分数提高即提交”为规则，会产生自我 p-hacking、虚假提交和长期性能漂移。</p>
+</li>
+<li>
+<p>较可靠的自演化架构需要把 propose、evaluate、commit 和 serve 分离，并配置独立评估器、版本谱系、分阶段验证、最小权限、可审计更新记录和自动回滚。</p>
+</li>
+<li>
+<p>对技能、工作流和多智能体协议的评估不能只测当前任务成功率，还应测试冻结部署后的迁移、组合、对抗性捷径、长期回归和跨版本风险传播。</p>
+</li>
+</ul>
+<h2 id="3-论文列表">3. 论文列表</h2>
+<ul>
+<li>
+<p>【2025-05-21】【Harvard / UGA / MSU / UMN】【ACL 2026】<a target="_blank" rel="noopener" href="https://aclanthology.org/2026.acl-long.27/">How Memory Management Impacts LLM Agents: An Empirical Study of Experience-Following Behavior</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：论文系统研究 memory addition 与 memory deletion 如何影响 Agent 的长期行为，提出 experience-following：当前任务与检索经验越相似，Agent 越容易复现历史执行。该机制会造成错误传播和错配经验重放；研究表明，结合轨迹评估器进行选择性添加和删除，比无差别扩大记忆库更稳定。该工作为 unsafe experience selection、memory drift 和长期回归提供了基础实证机制。</p>
+</li>
+<li>
+<p>【2025-07-28】【Princeton AI Lab / Princeton / UIUC / Tsinghua / SJTU 等；Mengdi Wang、Heng Ji 等多组联合】【TMLR 2026】<a target="_blank" rel="noopener" href="https://mlanthology.org/tmlr/2026/gao2026tmlr-survey/">A Survey of Self-Evolving Agents: What, When, How, and Where to Evolve on the Path to Artificial Super Intelligence</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：该综述从 what、when、how、where 四个维度构建自演化 Agent 的系统分类，覆盖模型、记忆、提示词、工具、架构和多智能体系统等更新对象。论文明确把安全、可控性、长期评估、可扩展性和多智能体共演化列为核心开放问题，是理解整个研究方向和定位后续方法的框架性文献。</p>
+</li>
+<li>
+<p>【2025-09-30】【Shanghai AI Lab / SJTU / Princeton / RUC / HKUST / FDU】【ICLR 2026】<a target="_blank" rel="noopener" href="https://iclr.cc/virtual/2026/poster/10010580">Your Agent May Misevolve: Emergent Risks in Self-evolving LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：论文正式提出 misevolution，指 Agent 在自主改进过程中偏离预期目标并形成不良行为。研究分别考察模型、记忆、工具和工作流四条演化路径，发现记忆累积可能削弱安全对齐，工具创建和复用可能自行引入漏洞，工作流更新则可能固化错误策略。该文由 Shanghai AI Lab 主导，是自演化 Agent 风险研究的代表性工作。</p>
+</li>
+<li>
+<p>【2026-03-19】【Memento Team / UCL；Jun Wang 组】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2603.18743">Memento-Skills: Let Agents Design Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：Memento-Skills 将结构化技能文件和 stateful prompts 作为可持续读写的外化记忆，使通用 Agent 能根据经验自动构建和改进任务专用 Agent。其 Read–Write Reflective Learning 不修改底座模型参数，而是持续更新技能库。该系统展示了 unsafe skill formation、跨任务策略漂移和错误知识持久化可能采用的真实工程载体。</p>
+</li>
+<li>
+<p>【2026-04-16】【NTU Bo An 组 / Stanford / CityU HK / USTC】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.15034">Autogenesis: A Self-Evolving Agent Protocol</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：论文提出 Autogenesis Protocol，将 prompt、agent、tool、environment 和 memory 建模为具有显式状态、生命周期和版本接口的协议资源。其自演化层通过 reflect、select、improve、evaluate 和 commit 等操作管理更新，并提供 auditable lineage 与 rollback。该工作的重要性在于把安全更新、版本控制和回滚从外围工程措施提升为自演化协议本身的组成部分。</p>
+</li>
+<li>
+<p>【2026-04-18】【HIT / SMU / SERES；HIT 社会计算与信息检索团队】【Findings of ACL 2026】<a target="_blank" rel="noopener" href="https://aclanthology.org/2026.findings-acl.2091/">On Safety Risks in Experience-Driven Self-Evolving Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：论文发现，即使所有累积经验均来自良性任务，Agent 在网页和具身高风险任务中的安全性仍会持续下降。根因是良性经验主要教授 Agent 如何执行和完成任务，由此形成 execution bias，而非教会其何时拒绝。加入拒绝经验可以降低危险行为，但会导致 over-refusal，揭示出经验驱动自演化中的结构性 safety–utility trade-off。</p>
+</li>
+<li>
+<p>【2026-04-28】【FudanNLP / FDU / PKU / 上海奇绩智峰】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.25850">Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：AHE 将 prompt、tool、middleware、long-term memory 等 Harness 组件文件化，并通过 component、experience 和 decision 三类 observability 驱动自动修改。每次更新都附带可验证预测，形成可证伪、可定位和可回退的修改合同。消融结果显示，主要收益来自工具、中间件和长期记忆，而 prompt-only 更新可能出现回归，说明实际演化风险更多位于系统软件栈而非提示词表层。</p>
+</li>
+<li>
+<p>【2026-05-11】【openJiuwen Team / RUC 高瓴人工智能学院】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.10052">Swarm Skills: A Portable, Self-Evolving Multi-Agent System Specification for Coordination Engineering</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：论文将角色、工作流、执行边界和依赖关系封装为可移植的 Swarm Skill，使多智能体协调协议从临时运行状态转变为可分发、可持续演化的资产。配套算法从成功轨迹中创建新协调技能，并根据执行摩擦持续 patch、simplify、rebuild 或 rollback。其安全意义在于，多智能体分工错误和协调偏差也可能被持久化并跨框架传播。</p>
+</li>
+<li>
+<p>【2026-05-21】【HKGAI R&amp;D Center / USTC / HKUST / HKBU】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.22794">MOSS: Self-Evolution through Source-Level Rewriting in Autonomous Agent Systems</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：MOSS 将演化面从 prompt、skill 和 workflow 推进到 Agent 系统源代码，可直接修改路由、Hook 顺序、状态管理和调度逻辑。候选版本通过生产故障回放、临时容器验证、用户授权、容器热切换和健康探针回滚后才能部署。该工作说明 source-level evolution 已具备实际工程可行性，也证明隔离验证、人工授权和自动回滚是此类系统不可缺少的安全边界。</p>
+</li>
+<li>
+<p>【2026-05-22】【OSU / UChicago / UCL / U-M / CUHK / CWRU / Amazon】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.24117">SkillEvolBench: Benchmarking the Evolution from Episodic Experience to Procedural Skills</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：SkillEvolBench 包含六类真实 Agent 环境和 180 个任务，用于检验 Agent 能否把 episodic trajectories 转化为可复用的 procedural skills。技能库在学习阶段后被冻结，再接受上下文迁移、对抗性捷径和多技能组合测试。实验发现，当前 Agent 通常只能实现局部适应，原始轨迹重放经常优于蒸馏技能；过多更新还可能引入情境漂移和程序性冗余。</p>
+</li>
+<li>
+<p>【2026-06-06】【独立研究者 Zayx Shawn】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.08106">PACE: Anytime-Valid Acceptance Tests for Self-Evolving Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：PACE 将自演化中的 commit 决策建模为序贯假设检验，指出反复使用同一开发集并接受所有分数上升的更新，本质上是未受控制的自适应多重检验。方法使用 paired anytime-valid testing-by-betting e-process，仅在证据达到阈值时提交候选更新。其核心贡献是为 evaluate-before-commit 提供统计意义上的 commit gate，减少虚假和有害提交。</p>
+</li>
+<li>
+<p>【2026-06-22】【ZJU / Ant Group / Tsinghua / HDU / NTU / FDU；Shouling Ji 组等】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.23075">Safety in Self-Evolving LLM Agent Systems: Threats, Amplification, and Case Studies</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：论文提出 Module–Lifecycle Attack Surface 矩阵，以五类功能模块乘以五个生命周期阶段分析自演化系统的安全与隐私风险。研究指出，自演化会使原本受限于单次会话的攻击转化为跨版本持久风险，并通过不同模块和 Agent 群体放大。案例研究显示，面向演化设计的系统会激活更多攻击面，而与系统共置的静态扫描器难以阻止已经进入演化闭环的风险。</p>
+</li>
+<li>
+<p>【2026-07-01】【Ant Group / HKUST / Tsinghua；AReaL 团队】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2607.01120">Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：论文认为，企业级自演化 Agent 的主要瓶颈不是单一 RL 算法，而是缺乏标准化轨迹协议、受治理的数据代理和统一 evolution control plane。系统控制平面需要根据轨迹统计决定更新模型权重、提示词、工具还是 Harness，并支持在线策略训练。AReaL 2.0 展示了从部署工作负载进行在线权重更新的实现路径，也使数据治理、回归评估和更新权限成为核心安全问题。</p>
+</li>
+<li>
+<p>【2026-07-04】【HKU / China Mobile 九天研究院 / Grace Investment Machine】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2607.03935">Harness-Aware Self-Evolving: Co-Evolving Model Weights, Harness, and Task Solutions</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：HASE 允许同一个模型在统一多轮动作空间中生成任务答案、更新模型策略并修改选定的 Harness 组件。论文区分 guidance components 与 evaluation components，并要求可修改的本地评估器通过不可修改的现实环境反馈进行校准。实验展示了对缺陷评估器的检测和修复，但也进一步说明，一旦 evaluator 本身进入演化闭环，独立 oracle、失配检测和严格提交控制将成为安全治理的关键。</p>
+</li>
+</ul>
+<h2 id="4-风险机制归纳">4. 风险机制归纳</h2>
+<ul>
+<li>Experience following：Agent 会重复与当前任务相似的历史执行，包括其中的错误和不适用策略。</li>
+<li>Execution bias：任务完成经验持续强化行动倾向，在敏感情境中压低拒绝倾向。</li>
+<li>Skill and tool persistence：技能、工具和协调协议成为跨任务加载的持久资产，使缺陷不再局限于一次执行。</li>
+<li>Evaluator gaming：Agent 可能优化代理指标、利用评估器漏洞，或直接修改评估逻辑以提高表面分数。</li>
+<li>False commit accumulation：噪声评估下的贪心提交会不断接受无效或有害更新。</li>
+<li>Cross-module amplification：模型、记忆、工具、Harness 和多智能体结构之间的反馈会放大局部风险。</li>
+<li>Lineage persistence：错误或攻击一旦写入版本谱系，可能随复制、部署和后续演化跨代传播。</li>
+</ul>
+<h2 id="5-推荐的安全演化架构">5. 推荐的安全演化架构</h2>
+<ul>
+<li>对 prompt、memory、skill、tool、workflow、Harness、evaluator 和 model weights 分别进行版本管理。</li>
+<li>把候选生成、独立评估、提交审批和正式部署拆分为不同权限域。</li>
+<li>使用冻结回归集、对抗测试、跨任务迁移测试和长期安全测试共同决定是否提交。</li>
+<li>对 evaluator 修改设置不可编辑的外部 oracle、锚点样本或现实环境反馈。</li>
+<li>使用统计有效的 commit gate，避免重复利用同一验证集造成自适应过拟合。</li>
+<li>对工具、技能和源代码更新采用最小权限、沙箱、可执行策略和 deny-by-default。</li>
+<li>保存更新原因、输入证据、代码差异、评估结果、审批记录和父版本信息。</li>
+<li>所有部署更新必须支持自动回滚，并在高影响操作前保留人工授权渠道。</li>
+<li>对多智能体系统同时审计单个 Agent 行为、通信协议、角色权限和群体级风险传播。</li>
+<li>安全评估应覆盖多个演化周期，而不能只比较更新前后的一次性任务分数。</li>
+</ul>
+<h2 id="6-总结">6. 总结</h2>
+<p>现有研究共同表明，自演化 Agent 的安全问题不是传统模型安全的简单延伸。系统一旦能够持续修改记忆、技能、工具、评估器、代码或模型参数，安全对象就由单次输出变成了完整的更新生命周期和版本谱系。</p>
+<p>未来较可信的自演化系统不应采用“生成候选—分数提高—立即提交”的简单闭环，而应采用受治理的 propose–evaluate–commit–serve 架构。独立评估、统计有效的接受规则、版本化谱系、最小权限、跨代测试和可验证回滚，应被视为自演化基础设施，而不是部署后的附加防护。</p>
+<pre><code></code></pre>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/202607%20Self%20Evolvement/">202607 Self Evolvement</a>
+                            
+                                <a class="post-backlinks__link" href="/%E7%A7%91%E7%A0%94%E7%B4%A2%E5%BC%95/">科研索引</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/202607%20Socioaffective%20Alignment/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">202607 Socioaffective Alignment</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/LLM%20Safety%20%E8%B5%84%E6%BA%90/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">LLM Safety 资源</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+                <div class="post-toc-inner">
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Self-improvement-Safety-%E8%B0%83%E7%A0%94%E6%8F%90%E7%BA%B2"><span class="post-toc-text">1. Self-improvement Safety 调研提纲</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E8%AE%BA%E6%96%87%E5%88%97%E8%A1%A8"><span class="post-toc-text">3. 论文列表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E9%A3%8E%E9%99%A9%E6%9C%BA%E5%88%B6%E5%BD%92%E7%BA%B3"><span class="post-toc-text">4. 风险机制归纳</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E5%85%A8%E6%BC%94%E5%8C%96%E6%9E%B6%E6%9E%84"><span class="post-toc-text">5. 推荐的安全演化架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-%E6%80%BB%E7%BB%93"><span class="post-toc-text">6. 总结</span></a></li></ol>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Self-improvement-Safety-%E8%B0%83%E7%A0%94%E6%8F%90%E7%BA%B2"><span class="post-toc-text">1. Self-improvement Safety 调研提纲</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E8%AE%BA%E6%96%87%E5%88%97%E8%A1%A8"><span class="post-toc-text">3. 论文列表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E9%A3%8E%E9%99%A9%E6%9C%BA%E5%88%B6%E5%BD%92%E7%BA%B3"><span class="post-toc-text">4. 风险机制归纳</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E5%85%A8%E6%BC%94%E5%8C%96%E6%9E%B6%E6%9E%84"><span class="post-toc-text">5. 推荐的安全演化架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-%E6%80%BB%E7%BB%93"><span class="post-toc-text">6. 总结</span></a></li></ol>
+    </div>
+  </nav>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">108 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">461 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">193 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

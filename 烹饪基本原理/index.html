@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html lang="cn" class="mdui-theme-auto">
+<html lang="cn">
 <head>
   <meta charset="UTF-8">
   <script>
     (function () {
-      var KEY = 'mdblog-theme';
-      var el = document.documentElement;
       try {
-        var t = localStorage.getItem(KEY);
-        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
-        if (t === 'light' || t === 'dark') {
-          el.classList.add('mdui-theme-' + t);
-        } else {
-          el.classList.add('mdui-theme-auto');
-        }
-      } catch (err) {
-        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
-        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
       }
     })();
   </script>
@@ -48,13 +40,13 @@
   <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
   
   
+  
+  
   <link rel="stylesheet" href="/css/tokens.css">
   
   <link rel="stylesheet" href="/css/global-layout.css">
   
   <link rel="stylesheet" href="/css/topbar.css">
-  
-  <link rel="stylesheet" href="/css/hero.css">
   
   <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
   
@@ -63,8 +55,6 @@
   <link rel="stylesheet" href="/css/categories-postinfo.css">
   
   <link rel="stylesheet" href="/css/footer.css">
-  
-  <link rel="stylesheet" href="/css/banner-page.css">
   
   <link rel="stylesheet" href="/css/article-prose.css">
   
@@ -76,9 +66,29 @@
   
   <link rel="stylesheet" href="/css/custom.css">
 
-  <meta name="theme-color" content="#6750A4">
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
 
   
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
   
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
@@ -125,7 +135,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 85</a>
+    >笔记 · 108</a>
       
     
       
@@ -133,7 +143,7 @@
       href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
       class="topbar-desktop-link topbar-category-link"
       
-    >碎碎念 · 454</a>
+    >碎碎念 · 461</a>
       
     
       
@@ -141,7 +151,7 @@
       href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
       class="topbar-desktop-link topbar-category-link"
       
-    >流水账 · 192</a>
+    >流水账 · 193</a>
       
     
       
@@ -150,14 +160,6 @@
       class="topbar-desktop-link topbar-category-link"
       
     >散文 · 11</a>
-      
-    
-      
-    <a
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      class="topbar-desktop-link topbar-category-link"
-      
-    >专栏 · 2</a>
       
     
   </nav>
@@ -315,117 +317,6 @@
       <!-- Main Content (page-level layout lives in individual views) -->
       <div id="main-content">
         <!-- 全宽 Banner -->
-<div
-  class="banner-container banner-container--page"
-  data-banner-layout-root
-  data-banner-layout-config="/js/banner-title-layout.json"
->
-  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
-
-  <div class="banner-overlay banner-overlay--tint">
-    <div class="banner-inner">
-      <div class="app-container">
-        <div class="banner-inner__content">
-          <div class="banner-card-title">
-            
-
-  
-    
-      <div class="banner-hero-title banner-hero-title--inner">
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">NOUS SOMMES</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">我们是</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">DES ENFANTS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">孩子</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">，</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">MAIS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">但</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">DES ENFANTS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">我们</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">PROGRESSIFS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">精力充沛</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">，</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">勇往直前</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">。</span>
-            </span>
-          </div>
-        
-      </div>
-    
-  
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="/js/banner-title-layout.js" defer></script>
 
 
 
@@ -439,7 +330,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">烹饪基本原理</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 May 18</span>
+                        <span class="note-date">2026 Aug 11</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -724,6 +615,17 @@
 
                     </div>
                     
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E7%B2%A4%E8%8F%9C%E7%83%B9%E9%A5%AA%E4%BE%8B/">粤菜烹饪例</a>
+                            
+                                <a class="post-backlinks__link" href="/%E7%85%8E%E9%B1%BC/">煎鱼</a>
+                            
+                        </div>
+                    </section>
+                    
                 </div>
                 
 
@@ -732,7 +634,7 @@
                 <div class="post-nav">
                     <div class="post-nav__side post-nav__side--prev">
                             
-                                <a class="post-nav__link" href="/%E6%89%93%E8%B0%B1%E6%89%92%E8%B0%B1/">
+                                <a class="post-nav__link" href="/%E6%BC%AB%E5%B1%95%E5%87%86%E5%A4%87%E6%B8%85%E5%8D%95/">
                                     <span class="post-nav__label">
                                         <mdui-icon name="arrow_back"></mdui-icon>
                                         Previous
@@ -741,14 +643,14 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">打谱扒谱</span>
+                                        <span class="post-nav__title">漫展准备清单</span>
                                     </span>
                                 </a>
                             
                     </div>
                     <div class="post-nav__side post-nav__side--next">
                             
-                                <a class="post-nav__link" href="/%E7%BA%BD%E7%BB%93/">
+                                <a class="post-nav__link" href="/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95/">
                                     <span class="post-nav__label">
                                         Next
                                         <mdui-icon name="arrow_forward"></mdui-icon>
@@ -757,7 +659,7 @@
                                         
                                         <span class="post-nav__category">笔记</span>
                                         
-                                        <span class="post-nav__title">纽结</span>
+                                        <span class="post-nav__title">电脑使用索引</span>
                                     </span>
                                 </a>
                             
@@ -769,14 +671,13 @@
         </main>
         
         <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
-            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
                 <div class="post-toc-inner">
-                    <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
                         <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E4%BC%A0%E7%83%AD%E4%BB%8B%E8%B4%A8"><span class="post-toc-text">1. 传热介质</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-%E4%BB%A5%E2%80%9C%E6%B2%B9%E2%80%9D%E4%B8%BA%E4%BB%8B%E8%B4%A8-Oil-based-Methods"><span class="post-toc-text">1.1. 以“油”为介质 (Oil-based Methods)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-%E4%BB%A5%E2%80%9C%E6%B0%B4-%E8%92%B8%E6%B1%BD%E2%80%9D%E4%B8%BA%E4%BB%8B%E8%B4%A8-Water-Steam-based-Methods"><span class="post-toc-text">1.2. 以“水&#x2F;蒸汽”为介质 (Water&#x2F;Steam-based Methods)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-%E4%BB%A5%E2%80%9C%E7%A9%BA%E6%B0%94-%E8%BE%90%E5%B0%84%E2%80%9D%E4%B8%BA%E4%BB%8B%E8%B4%A8-Air-Radiation-based-Methods"><span class="post-toc-text">1.3. 以“空气&#x2F;辐射”为介质 (Air&#x2F;Radiation-based Methods)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%94%91-%E5%85%B3%E9%94%AE%E5%8C%96%E5%AD%A6%E5%8F%8D%E5%BA%94%E6%80%BB%E7%BB%93-Key-Chemical-Reactions"><span class="post-toc-text">🔑 关键化学反应总结 (Key Chemical Reactions)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E7%81%AB%E5%80%99%E6%8E%A7%E5%88%B6"><span class="post-toc-text">2. 火候控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E5%A4%A7%E7%81%AB-High-Heat"><span class="post-toc-text">2.1. 大火 (High Heat)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-%E5%B0%8F%E7%81%AB-Low-Heat"><span class="post-toc-text">2.2. 小火 (Low Heat)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-%E7%BB%84%E5%90%88%E6%8B%B3%EF%BC%9A%E5%85%88%E5%A4%A7%E5%90%8E%E5%B0%8F-vs-%E5%85%88%E5%B0%8F%E5%90%8E%E5%A4%A7"><span class="post-toc-text">2.3. 组合拳：先大后小 vs. 先小后大</span></a></li></ol></li></ol>
                     </div>
                 </div>
-            </mdui-card>
+            </nav>
         </aside>
         
     </div>
@@ -940,12 +841,11 @@
   aria-label="Table of Contents"
 >
   
-  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
-    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
     <div class="post-toc-scroll mdui-prose">
       <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E4%BC%A0%E7%83%AD%E4%BB%8B%E8%B4%A8"><span class="post-toc-text">1. 传热介质</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-%E4%BB%A5%E2%80%9C%E6%B2%B9%E2%80%9D%E4%B8%BA%E4%BB%8B%E8%B4%A8-Oil-based-Methods"><span class="post-toc-text">1.1. 以“油”为介质 (Oil-based Methods)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-%E4%BB%A5%E2%80%9C%E6%B0%B4-%E8%92%B8%E6%B1%BD%E2%80%9D%E4%B8%BA%E4%BB%8B%E8%B4%A8-Water-Steam-based-Methods"><span class="post-toc-text">1.2. 以“水&#x2F;蒸汽”为介质 (Water&#x2F;Steam-based Methods)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-%E4%BB%A5%E2%80%9C%E7%A9%BA%E6%B0%94-%E8%BE%90%E5%B0%84%E2%80%9D%E4%B8%BA%E4%BB%8B%E8%B4%A8-Air-Radiation-based-Methods"><span class="post-toc-text">1.3. 以“空气&#x2F;辐射”为介质 (Air&#x2F;Radiation-based Methods)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%94%91-%E5%85%B3%E9%94%AE%E5%8C%96%E5%AD%A6%E5%8F%8D%E5%BA%94%E6%80%BB%E7%BB%93-Key-Chemical-Reactions"><span class="post-toc-text">🔑 关键化学反应总结 (Key Chemical Reactions)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E7%81%AB%E5%80%99%E6%8E%A7%E5%88%B6"><span class="post-toc-text">2. 火候控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-%E5%A4%A7%E7%81%AB-High-Heat"><span class="post-toc-text">2.1. 大火 (High Heat)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-%E5%B0%8F%E7%81%AB-Low-Heat"><span class="post-toc-text">2.2. 小火 (Low Heat)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-%E7%BB%84%E5%90%88%E6%8B%B3%EF%BC%9A%E5%85%88%E5%A4%A7%E5%90%8E%E5%B0%8F-vs-%E5%85%88%E5%B0%8F%E5%90%8E%E5%A4%A7"><span class="post-toc-text">2.3. 组合拳：先大后小 vs. 先小后大</span></a></li></ol></li></ol>
     </div>
-  </section>
+  </nav>
   
 
   
@@ -963,7 +863,7 @@
       
     >
       笔记
-      <span slot="description">85 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -975,7 +875,7 @@
       
     >
       碎碎念
-      <span slot="description">454 posts</span>
+      <span slot="description">461 posts</span>
     </mdui-list-item>
       
     
@@ -987,7 +887,7 @@
       
     >
       流水账
-      <span slot="description">192 posts</span>
+      <span slot="description">193 posts</span>
     </mdui-list-item>
       
     
@@ -1003,18 +903,6 @@
     </mdui-list-item>
       
     
-      
-    <mdui-list-item
-      rounded
-      icon="folder"
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      
-    >
-      专栏
-      <span slot="description">2 posts</span>
-    </mdui-list-item>
-      
-    
   </mdui-list>
   
 </mdui-navigation-drawer>
@@ -1022,12 +910,12 @@
 
 
   <!-- Scripts -->
-  <script src="/mdui2/mdui.global.js"></script>
   <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
   

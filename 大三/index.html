@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html lang="cn" class="mdui-theme-auto">
+<html lang="cn">
 <head>
   <meta charset="UTF-8">
   <script>
     (function () {
-      var KEY = 'mdblog-theme';
-      var el = document.documentElement;
       try {
-        var t = localStorage.getItem(KEY);
-        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
-        if (t === 'light' || t === 'dark') {
-          el.classList.add('mdui-theme-' + t);
-        } else {
-          el.classList.add('mdui-theme-auto');
-        }
-      } catch (err) {
-        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
-        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
       }
     })();
   </script>
@@ -48,13 +40,13 @@
   <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
   
   
+  
+  
   <link rel="stylesheet" href="/css/tokens.css">
   
   <link rel="stylesheet" href="/css/global-layout.css">
   
   <link rel="stylesheet" href="/css/topbar.css">
-  
-  <link rel="stylesheet" href="/css/hero.css">
   
   <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
   
@@ -63,8 +55,6 @@
   <link rel="stylesheet" href="/css/categories-postinfo.css">
   
   <link rel="stylesheet" href="/css/footer.css">
-  
-  <link rel="stylesheet" href="/css/banner-page.css">
   
   <link rel="stylesheet" href="/css/article-prose.css">
   
@@ -76,9 +66,29 @@
   
   <link rel="stylesheet" href="/css/custom.css">
 
-  <meta name="theme-color" content="#6750A4">
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
 
   
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
   
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
@@ -125,7 +135,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 85</a>
+    >笔记 · 108</a>
       
     
       
@@ -133,7 +143,7 @@
       href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
       class="topbar-desktop-link topbar-category-link"
       
-    >碎碎念 · 454</a>
+    >碎碎念 · 461</a>
       
     
       
@@ -141,7 +151,7 @@
       href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
       class="topbar-desktop-link topbar-category-link"
       
-    >流水账 · 192</a>
+    >流水账 · 193</a>
       
     
       
@@ -150,14 +160,6 @@
       class="topbar-desktop-link topbar-category-link"
       
     >散文 · 11</a>
-      
-    
-      
-    <a
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      class="topbar-desktop-link topbar-category-link"
-      
-    >专栏 · 2</a>
       
     
   </nav>
@@ -315,117 +317,6 @@
       <!-- Main Content (page-level layout lives in individual views) -->
       <div id="main-content">
         <!-- 全宽 Banner -->
-<div
-  class="banner-container banner-container--page"
-  data-banner-layout-root
-  data-banner-layout-config="/js/banner-title-layout.json"
->
-  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
-
-  <div class="banner-overlay banner-overlay--tint">
-    <div class="banner-inner">
-      <div class="app-container">
-        <div class="banner-inner__content">
-          <div class="banner-card-title">
-            
-
-  
-    
-      <div class="banner-hero-title banner-hero-title--inner">
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">NOUS SOMMES</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">我们是</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">DES ENFANTS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">孩子</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">，</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">MAIS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">但</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">DES ENFANTS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">我们</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">PROGRESSIFS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">精力充沛</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">，</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">勇往直前</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">。</span>
-            </span>
-          </div>
-        
-      </div>
-    
-  
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="/js/banner-title-layout.js" defer></script>
 
 
 
@@ -448,32 +339,15 @@
                             </div>
                         
                         
-                        <span class="note-read">6 min read</span>
+                        <span class="note-read">3 min read</span>
                     </div>
                     <mdui-divider></mdui-divider>
                 </div>
                 <div class="post-page-card__body">
                     <div class="mdui-prose">
-                        <h2 id="23暑假（大三前）">23暑假（大三前）</h2>
-<ul>
-<li><a href="/2023.08.03%20%E4%BD%A0%E4%BB%AC%E5%B9%B3%E6%97%B6%E4%B9%9F%E6%98%AF%E8%BF%99%E4%B9%88%E5%8F%AB%E7%9A%84%EF%BC%88/" title="">2023.08.03 你们平时也是这么叫的（</a></li>
-<li><a href="/2023.08.04%20%E6%98%AF%E6%97%B6%E5%80%99%E5%B1%95%E7%8E%B0%E5%95%83%E7%94%9F%E8%82%89%E7%9A%84%E8%83%BD%E5%8A%9B%E4%BA%86/" title="">2023.08.04 是时候展现啃生肉的能力了</a></li>
-<li><a href="/2023.08.05%20%E9%97%AA%E5%87%BB%E4%B8%8A%E6%B5%B7/" title="">2023.08.05 闪击上海</a> / <a href="/2023.08.08%20%E8%99%BD%E7%84%B6%E8%BF%99%E5%87%A0%E5%A4%A9%E4%B8%80%E7%9B%B4%E6%B2%A1%E5%8F%91%E8%AF%B4%E8%AF%B4/" title="">2023.08.08 虽然这几天一直没发说说</a></li>
-<li><a href="/2023.08.09%20%E5%BE%90%E5%AE%B6%E6%B1%87/" title="">2023.08.09 徐家汇</a></li>
-<li><a href="/2023.08.10%208.10%20%E5%8E%9F%E7%A5%9EFES2023/" title="">2023.08.10 8.10 原神FES2023</a> / <a href="/2023.08.10%20%E5%8E%9F%E7%A5%9E%20%E5%90%AF%E5%8A%A8%EF%BC%81/" title="">2023.08.10 原神 启动！</a> / <a href="/2023.08.10%20%E7%AC%AC%E4%B8%89%E5%BC%B9/" title="">2023.08.10 第三弹</a> / <a href="/2023.08.10%20%E5%9C%A8%E6%BC%AB%E5%B1%95%E4%B8%8A%E7%BB%83%E9%92%A2%E7%90%B4%EF%BC%8C%E4%BB%A5%E5%8F%8A/" title="">2023.08.10 在漫展上练钢琴，以及</a> / <a href="/2023.08.10%20%E7%AC%AC%E5%9B%9B%E5%BC%B9/" title="">2023.08.10 第四弹</a></li>
-<li><a href="/2023.08.11%20%E5%9B%9E%E5%AE%B6%E4%BA%86/" title="">2023.08.11 回家了</a></li>
-<li><a href="/2023.08.12%20%E5%9C%A8%E6%9F%9C%E5%AD%90%E9%87%8C%E7%BF%BB%E5%87%BA%E5%B0%8F%E6%97%B6%E5%80%99%E7%94%A8%E8%BF%87%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA4%204%E7%90%B4/" title="">2023.08.12 在柜子里翻出小时候用过的第一个4 4琴</a></li>
-<li><a href="/2023.08.14%20%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%89%AA%E8%A7%86%E9%A2%91/" title="">2023.08.14 第一次剪视频</a> / <a href="/2023.08.15%20%E5%A6%99%E6%89%8B%E5%9B%9E%E6%98%A5%E5%95%8A%E5%A4%A7%E5%A4%AB/" title="">2023.08.15 妙手回春啊大夫</a></li>
-<li><a href="/%E5%8E%9F%E7%A5%9E%204.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" title="">原神 4.x 版本条目</a></li>
-<li><a href="/2023.08.16%20%E6%88%91%E8%A7%82%E8%B5%8F%E9%B1%BC%E5%92%8C%E6%B5%B7%E5%BA%95%E4%B8%96%E7%95%8C%E6%9E%9C%E7%84%B6%E7%BB%9D%E9%85%8D/" title="">2023.08.16 我观赏鱼和海底世界果然绝配</a></li>
-<li><a href="/2023.08.18%20%5Bem%5De10311%5B%20em%5D%5Bem%5De/" title="">2023.08.18 [em]e10311[ em][em]e</a> / <a href="/2023.08.19%20%E7%BB%99%E7%93%9C%E5%9B%9E%E6%95%AC%E4%BA%86%E4%B8%80%E4%B8%AA%E5%8D%81%E6%8A%BD%E4%B8%89%E5%BD%A9%5Bem%5De1031/" title="">2023.08.19 给瓜回敬了一个十抽三彩[em]e1031</a></li>
-<li><a href="/2023.08.21%20%E6%88%91%E8%B6%85/" title="">2023.08.21 我超</a> / <a href="/2023.08.21%20%E4%B8%BA%E4%BB%80%E4%B9%88%E7%9C%BC%E7%9C%B6%E4%BC%9A%E6%B9%BF%E6%B6%A6%E5%91%A2/" title="">2023.08.21 为什么眼眶会湿润呢</a></li>
-<li><a href="/2023.08.22%20%E8%B5%9E%E7%BE%8E%E6%89%80%E6%9C%89%E8%AF%BB%E5%86%99%E9%AB%98%E5%BA%A6%E5%AF%B9%E5%BA%94%E7%9A%84%E8%AF%AD%E8%A8%80/" title="">2023.08.22 赞美所有读写高度对应的语言</a></li>
-<li><a href="/%E4%B8%8E%E8%91%A3%E5%AE%87%E5%9D%A4%E5%85%88%E7%94%9F%E7%9A%84%E5%A4%9C%E8%81%8A%E8%AE%B0%E5%BD%95/" title="">与董宇坤先生的夜聊记录</a></li>
-<li><a href="/2023.08.24%20%E8%B0%94%E8%B0%94%E8%B0%94%20%E5%8F%8D%E6%A0%B8%E7%9A%84%E8%83%BD%E4%B8%8D%E8%83%BD%E6%8A%8A%E6%94%BF%E5%BA%9C%E5%92%8C%E6%96%87%E5%8C%96%E5%88%86%E5%BE%97%E6%B8%85%E6%A5%9A/" title="">2023.08.24 谔谔谔 反核的能不能把政府和文化分得清楚</a></li>
-<li><a href="/2023.08.26%20%E4%BB%8A%E5%A4%A9%E6%B3%A2%E5%A1%9E%E4%B8%9C%E8%80%81%E5%B8%88%E6%95%99%E6%88%91%E6%91%81%E4%BA%94%E5%BA%A6%E6%89%8B%E6%8C%87%E8%A6%81%E5%81%8F%E4%BD%8E%E9%9F%B3%E5%BC%A6%E4%B8%80/" title="">2023.08.26 今天波塞东老师教我摁五度手指要偏低音弦一</a></li>
-<li><a href="/2023.08.28%20%E4%BD%A0%E4%BB%AC%E5%8F%AF%E8%83%BD%E4%B8%8D%E7%9F%A5%E9%81%93%E5%B0%91%E6%89%93%E4%B8%80%E4%BA%BA%E9%80%86%E8%BD%AC%E6%98%AF%E4%BB%80%E4%B9%88%E6%A6%82%E5%BF%B5/" title="">2023.08.28 你们可能不知道少打一人逆转是什么概念</a></li>
-</ul>
+                        <p><a href="/%E5%A4%A7%E4%BA%8C/" title="">大二</a></p>
+<h2 id="2023暑假（大三前）">2023暑假（大三前）</h2>
+<p><a href="/2023%E6%9A%91%E5%81%87/" title="">2023暑假</a></p>
 <h2 id="大三上（23秋）">大三上（23秋）</h2>
 <ul>
 <li>
@@ -561,76 +435,12 @@
 <li>
 <p><a href="/2024.01.03%20%E7%9B%AE%E5%89%8D%E7%B2%BE%E7%A5%9E%E7%8A%B6%E6%80%81%EF%BC%9A/" title="">2024.01.03 目前精神状态：</a> / <a href="/2024.01.04%20%E5%BF%AB%E6%9D%A5%E6%8A%A5%EF%BC%8C%E5%8C%85%E6%95%99%E5%8C%85%E4%BC%9A/" title="">2024.01.04 快来报，包教包会</a></p>
 </li>
-</ul>
-<h2 id="24寒假">24寒假</h2>
-<ul>
 <li>
 <p><a href="/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%8823%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" title="">数理统计（23秋期末考试）</a></p>
 </li>
-<li>
-<p>2024.1 <a href="/%E6%97%A0%E9%A2%98%20-%2024%20%E8%BF%87%E5%B9%B4/" title="">无题 - 24 过年</a></p>
-</li>
-<li>
-<p>杭州</p>
-</li>
-<li>
-<p>2024.2.3 汕头</p>
-</li>
-<li>
-<p><a href="/2024.01.08%20%E5%A6%82%E5%9B%BE/" title="">2024.01.08 如图</a></p>
-</li>
-<li>
-<p><a href="/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%202024%20%E6%9D%A1%E7%9B%AE/" title="">明日方舟 2024 条目</a></p>
-</li>
-<li>
-<p><a href="/2024.01.10%20%E5%85%AC%E6%8B%9B%E5%87%BA%E4%BA%86%E5%8D%95%E6%8E%A8%E4%BA%86%E4%B8%89%E5%B9%B4%E5%8D%8A%E6%B2%A1%E6%8A%BD%E5%88%B0%E7%9A%84%E6%97%A9%E9%9C%B2/" title="">2024.01.10 公招出了单推了三年半没抽到的早露</a></p>
-</li>
-<li>
-<p><a href="/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90(B1)%EF%BC%8823%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" title="">数学分析(B1)（23秋期末考试）</a> / <a href="/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0(B2)%EF%BC%8823%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" title="">线性代数(B2)（23秋期末考试）</a></p>
-</li>
-<li>
-<p><a href="/%E6%97%A0%E9%A2%98%20-%2024%20%E8%BF%87%E5%B9%B4/" title="">无题 - 24 过年</a> / <a href="/2024.01.20%20%E5%B9%BF%E4%B8%9C%E4%BA%BAdna%E5%8A%A8%E4%BA%86/" title="">2024.01.20 广东人dna动了</a></p>
-</li>
-<li>
-<p><a href="/2024.01.27%20%E8%BE%9F%E8%B0%A3%E4%B8%80%E4%B8%8B%EF%BC%8C%E6%84%9F%E8%A7%89%E4%B8%8D%E6%AD%A2%E8%BF%99%E4%B9%88%E4%B8%80%E7%82%B9/" title="">2024.01.27 辟谣一下，感觉不止这么一点</a></p>
-</li>
-<li>
-<p><a href="/2024.01.31%20%E5%A4%9A%E5%B0%91%E5%B9%B4%E4%BA%86%E4%BD%A0%E6%B8%B8%E7%BB%88%E4%BA%8E%E6%9C%89%E5%B8%B8%E9%A9%BB%E8%83%BD%E5%8A%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%88%B9%E4%BA%86/" title="">2024.01.31 多少年了你游终于有常驻能动的场景船了</a></p>
-</li>
-<li>
-<p><a href="/2024.02.01%20%E5%8D%97%E6%96%B9%E4%B9%90%E5%99%A8%E7%94%9F%E5%AD%98%E6%83%85%E5%86%B5%E7%8E%B0%E7%8A%B6/" title="">2024.02.01 南方乐器生存情况现状</a></p>
-</li>
-<li>
-<p><a href="/2024.02.02%20%E6%89%92%E8%B0%B1%E4%B8%80%E5%BC%80%E5%A7%8B%E6%98%AF%E9%81%93%E5%92%8C%E5%A3%B0%E9%A2%98%EF%BC%88%E5%90%AC%E5%86%99%EF%BC%89/" title="">2024.02.02 扒谱一开始是道和声题（听写）</a></p>
-</li>
-<li>
-<p><a href="/2024.02.03%20%E8%A2%AB%E5%8D%96%E5%88%B0%E8%90%A8%E5%B0%94%E8%B4%A1%E7%A0%8D%E6%A0%91%E4%BA%86/" title="">2024.02.03 被卖到萨尔贡砍树了</a> / <a href="/2024.02.03%20%E5%AE%B6%E9%97%A8%E5%8F%A3500m%E5%8A%9E%E4%BA%86%E4%B8%AA%E5%B1%95%E5%AD%90%E6%88%91%E6%80%8E%E4%B9%88%E4%B8%8D%E7%9F%A5%E9%81%93%E3%80%82%E3%80%82/" title="">2024.02.03 家门口500m办了个展子我怎么不知道。。</a></p>
-</li>
-<li>
-<p><a href="/2024.02.07%20%E9%BB%8D%E6%9D%A5%EF%BC%81%E9%BB%8D%E4%BB%8E%E5%9B%9B%E9%9D%A2%E5%85%AB%E6%96%B9%E6%9D%A5%EF%BC%81%E9%AD%82%E5%85%AE%E5%BD%92%E6%9D%A5%EF%BC%81%E9%AD%82%E5%85%AE%E5%BD%92%E6%9D%A5/" title="">2024.02.07 黍来！黍从四面八方来！魂兮归来！魂兮归来</a></p>
-</li>
-<li>
-<p><a href="/2024.02.08%20%E5%90%AC%E4%BA%86%E5%8D%81%E5%87%A0%E5%B9%B4%E5%9C%B0%E9%93%81%E6%8A%A5%E7%AB%99/" title="">2024.02.08 听了十几年地铁报站</a> / <a href="/2024.02.08%20%E8%81%94%E5%8A%A8%E5%86%85%E5%AE%B9/" title="">2024.02.08 联动内容</a> / <a href="/2024.02.08%20%E5%87%BA%E9%97%A8%E5%8F%B3%E8%BD%AC%E6%97%A0%E7%BC%9D%E8%A1%8C%E8%8A%B1%E8%A1%97/" title="">2024.02.08 出门右转无缝行花街</a> / <a href="/2024.02.08%20%E7%84%B6%E5%90%8E%E6%97%A0%E7%BC%9D%E8%BF%9B%E5%85%A5%E4%BA%8C%E6%AC%A1%E5%85%83/" title="">2024.02.08 然后无缝进入二次元</a></p>
-</li>
-<li>
-<p><a href="/2024.02.09%20%E7%94%B1%E4%BA%8E%E6%98%A5%E8%81%94%E6%8B%96%E6%9B%B4%E8%8E%B7%E5%BE%97%E4%BA%86%E6%97%8F%E9%95%BF%E4%BD%93%E9%AA%8C%E5%8D%A1%E3%80%82%E3%80%82%E3%80%82/" title="">2024.02.09 由于春联拖更获得了族长体验卡。。。</a> / <a href="/2024.02.09%20%E6%98%A5%E8%81%94%202024/" title="">2024.02.09 春联 2024</a></p>
-</li>
-<li>
-<p><a href="/2024.02.11%20%E5%8E%BB%E5%B9%B4%E7%8E%A9%E7%94%9F%E6%81%AF%E6%BC%94%E7%AE%97%E6%AF%8F%E5%A4%A9%E4%B8%8D%E7%8E%A9%E5%B0%B1%E7%9D%A1%E4%B8%8D%E7%9D%80/" title="">2024.02.11 去年玩生息演算每天不玩就睡不着</a></p>
-</li>
-<li>
-<p><a href="/2024.02.12%20%E6%88%91%E8%A7%89%E5%BE%97%E7%A9%BA%E5%8F%8B%E5%BA%94%E8%AF%A5%E9%9C%80%E8%A6%81%E8%BF%99%E4%B8%AA/" title="">2024.02.12 我觉得空友应该需要这个</a></p>
-</li>
-<li>
-<p><a href="/2024.02.14%20%E5%8E%A8%E5%8A%9B%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B%EF%BC%81%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" title="">2024.02.14 厨力是第一生产力！伟大的开源社区</a></p>
-</li>
-<li>
-<p><a href="/2024.02.18%20%E5%A6%82%E5%9B%BE/" title="">2024.02.18 如图</a></p>
-</li>
-<li>
-<p><a href="/2024.02.22%20%E5%9B%9E%E5%AD%A6%E6%A0%A1%E5%89%8D%E8%BF%98%E6%98%AF%E8%A2%AB%E4%BA%B2%E5%A6%88%E6%95%B2%E4%BA%86%E4%B8%80%E7%AC%94%5Bem%5De10/" title="">2024.02.22 回学校前还是被亲妈敲了一笔[em]e10</a></p>
-</li>
 </ul>
+<h2 id="2024寒假">2024寒假</h2>
+<p><a href="/2024%E5%AF%92%E5%81%87/" title="">2024寒假</a></p>
 <h2 id="大三下（24春）">大三下（24春）</h2>
 <ul>
 <li>
@@ -743,30 +553,7 @@
 </li>
 </ul>
 <h2 id="24暑假（大三后）">24暑假（大三后）</h2>
-<ul>
-<li>
-<p>2024.7.20 数院考试</p>
-</li>
-<li>
-<p><a href="/2024.07.20%20%E5%93%88%E5%93%88/" title="">2024.07.20 哈哈</a></p>
-</li>
-<li>
-<p>7.23 科学营讲座</p>
-</li>
-<li>
-<p>2024.7.28 飞机 离校</p>
-</li>
-<li>
-<p><a href="/2024.8%20%E7%9C%8B%E7%95%AA%E8%AE%B0%E5%BD%95/" title="">2024.8 看番记录</a></p>
-</li>
-<li>
-<p><a href="/2024.08.18%20%E5%8D%97%E9%87%8E%E5%8F%88%E8%BF%9B%E7%90%83%E4%BA%86/" title="">2024.08.18 南野又进球了</a></p>
-</li>
-<li>
-<p><a href="/%E5%8E%9F%E7%A5%9E%205.x%20%E7%89%88%E6%9C%AC%E6%9D%A1%E7%9B%AE/" title="">原神 5.x 版本条目</a></p>
-</li>
-</ul>
-<p><a href="/%E4%B8%8E%E8%91%A3%E5%AE%87%E5%9D%A4%E5%85%88%E7%94%9F%E7%9A%84%E5%A4%9C%E8%81%8A%E8%AE%B0%E5%BD%95/" title="">与董宇坤先生的夜聊记录</a></p>
+<p><a href="/2024%E6%9A%91%E5%81%87/" title="">2024暑假</a></p>
 
                     </div>
                     
@@ -774,7 +561,7 @@
                         <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
                         <div class="post-backlinks__list">
                             
-                                <a class="post-backlinks__link" href="/Bang%20Dream%20-%20GBP/">Bang Dream - GBP</a>
+                                <a class="post-backlinks__link" href="/%E5%A4%A7%E5%9B%9B/">大四</a>
                             
                                 <a class="post-backlinks__link" href="/%E5%B4%A9%E5%9D%8F%EF%BC%9A%E6%98%9F%E7%A9%B9%E9%93%81%E9%81%93/">崩坏：星穹铁道</a>
                             
@@ -830,14 +617,13 @@
         </main>
         
         <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
-            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
                 <div class="post-toc-inner">
-                    <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#23%E6%9A%91%E5%81%87%EF%BC%88%E5%A4%A7%E4%B8%89%E5%89%8D%EF%BC%89"><span class="post-toc-text">23暑假（大三前）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%A7%E4%B8%89%E4%B8%8A%EF%BC%8823%E7%A7%8B%EF%BC%89"><span class="post-toc-text">大三上（23秋）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#24%E5%AF%92%E5%81%87"><span class="post-toc-text">24寒假</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%A7%E4%B8%89%E4%B8%8B%EF%BC%8824%E6%98%A5%EF%BC%89"><span class="post-toc-text">大三下（24春）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#24%E6%9A%91%E5%81%87%EF%BC%88%E5%A4%A7%E4%B8%89%E5%90%8E%EF%BC%89"><span class="post-toc-text">24暑假（大三后）</span></a></li></ol>
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2023%E6%9A%91%E5%81%87%EF%BC%88%E5%A4%A7%E4%B8%89%E5%89%8D%EF%BC%89"><span class="post-toc-text">2023暑假（大三前）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%A7%E4%B8%89%E4%B8%8A%EF%BC%8823%E7%A7%8B%EF%BC%89"><span class="post-toc-text">大三上（23秋）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2024%E5%AF%92%E5%81%87"><span class="post-toc-text">2024寒假</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%A7%E4%B8%89%E4%B8%8B%EF%BC%8824%E6%98%A5%EF%BC%89"><span class="post-toc-text">大三下（24春）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#24%E6%9A%91%E5%81%87%EF%BC%88%E5%A4%A7%E4%B8%89%E5%90%8E%EF%BC%89"><span class="post-toc-text">24暑假（大三后）</span></a></li></ol>
                     </div>
                 </div>
-            </mdui-card>
+            </nav>
         </aside>
         
     </div>
@@ -1001,12 +787,11 @@
   aria-label="Table of Contents"
 >
   
-  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
-    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
     <div class="post-toc-scroll mdui-prose">
-      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#23%E6%9A%91%E5%81%87%EF%BC%88%E5%A4%A7%E4%B8%89%E5%89%8D%EF%BC%89"><span class="post-toc-text">23暑假（大三前）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%A7%E4%B8%89%E4%B8%8A%EF%BC%8823%E7%A7%8B%EF%BC%89"><span class="post-toc-text">大三上（23秋）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#24%E5%AF%92%E5%81%87"><span class="post-toc-text">24寒假</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%A7%E4%B8%89%E4%B8%8B%EF%BC%8824%E6%98%A5%EF%BC%89"><span class="post-toc-text">大三下（24春）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#24%E6%9A%91%E5%81%87%EF%BC%88%E5%A4%A7%E4%B8%89%E5%90%8E%EF%BC%89"><span class="post-toc-text">24暑假（大三后）</span></a></li></ol>
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2023%E6%9A%91%E5%81%87%EF%BC%88%E5%A4%A7%E4%B8%89%E5%89%8D%EF%BC%89"><span class="post-toc-text">2023暑假（大三前）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%A7%E4%B8%89%E4%B8%8A%EF%BC%8823%E7%A7%8B%EF%BC%89"><span class="post-toc-text">大三上（23秋）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2024%E5%AF%92%E5%81%87"><span class="post-toc-text">2024寒假</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%A7%E4%B8%89%E4%B8%8B%EF%BC%8824%E6%98%A5%EF%BC%89"><span class="post-toc-text">大三下（24春）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#24%E6%9A%91%E5%81%87%EF%BC%88%E5%A4%A7%E4%B8%89%E5%90%8E%EF%BC%89"><span class="post-toc-text">24暑假（大三后）</span></a></li></ol>
     </div>
-  </section>
+  </nav>
   
 
   
@@ -1024,7 +809,7 @@
       
     >
       笔记
-      <span slot="description">85 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -1036,7 +821,7 @@
       
     >
       碎碎念
-      <span slot="description">454 posts</span>
+      <span slot="description">461 posts</span>
     </mdui-list-item>
       
     
@@ -1048,7 +833,7 @@
       
     >
       流水账
-      <span slot="description">192 posts</span>
+      <span slot="description">193 posts</span>
     </mdui-list-item>
       
     
@@ -1064,18 +849,6 @@
     </mdui-list-item>
       
     
-      
-    <mdui-list-item
-      rounded
-      icon="folder"
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      
-    >
-      专栏
-      <span slot="description">2 posts</span>
-    </mdui-list-item>
-      
-    
   </mdui-list>
   
 </mdui-navigation-drawer>
@@ -1083,12 +856,12 @@
 
 
   <!-- Scripts -->
-  <script src="/mdui2/mdui.global.js"></script>
   <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
   

@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>202607 Agent Safety - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
+
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 108</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 461</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 193</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">202607 Agent Safety</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Aug 11</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                        <span class="note-read">19 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <h2 id="1-大纲">1. 大纲</h2>
+<p>主要参考</p>
+<ul>
+<li>【2026-05-17】【CUHK/FDU/SAIS】【Academia AI and Applications 2026】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.23989">Towards Trustworthy Agentic AI: A Comprehensive Survey of Safety, Robustness, Privacy, and System Security</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【综合综述】沿 perceive—plan—act—reflect—learn 工作流区分 Safety/Robustness 与 Privacy/System Security，强调多步轨迹带来的复合失败，并整合 outcome、process、trace completeness 和 constraint violation 等评测指标；把 self-evolving agents、运行时监测和验证列为开放前沿。</li>
+</ul>
+<h3 id="1-1-概念界定">1.1. 概念界定</h3>
+<p><a target="_blank" rel="noopener" href="https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23643:ed-1:v1:en">ISO</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 的相关术语：</p>
+<ul>
+<li>
+<p>【2014-03-25】【ISO/IEC】【国际标准】<a target="_blank" rel="noopener" href="https://www.iso.org/standard/53940.html">ISO/IEC Guide 51:2014 — Safety aspects — Guidelines for their inclusion in standards</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+</li>
+<li>
+<p>【2020-06-12】【ISO/IEC】【国际标准】<a target="_blank" rel="noopener" href="https://www.iso.org/standard/76517.html">ISO/IEC 23643:2020 — Software and systems engineering — Capabilities of software safety and security verification tools</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Safety/Security 边界】其术语体系将 Security 表述为对 intentional、unauthorized、designed-to-harm acts 的抵抗，可用于区分 Agent Security 与没有攻击者参与的 Agent Safety。</p>
+</li>
+<li>
+<p>Safety 定义为 freedom from unacceptable risk；</p>
+</li>
+<li>
+<p>Security 定义为对 intentional, unauthorized acts designed to cause harm or damage 的抵抗</p>
+</li>
+</ul>
+<p>具体来说</p>
+<ul>
+<li>Agent <strong>Safety &amp; Robustness</strong>：Unintended harms arising from the legitimate operation and adaptation of an agentic system. 在没有恶意攻击者、系统正常执行合法任务时，因系统自身的机制或相互作用导致的非预期伤害。</li>
+<li>Agent <strong>Privacy &amp; System Security</strong>：Harms caused by intentional or unauthorized interference with agentic operation. 恶意攻击者造成的故意伤害</li>
+</ul>
+<p>我们主要关注 <strong>Agent Safety</strong>：Agent 系统在没有恶意攻击者、正常执行合法任务的过程中，由模型、Harness、Memory、Tool 或其相互作用造成的非预期伤害。</p>
+<ul>
+<li>
+<p>【2024-08-13】<a target="_blank" rel="noopener" href="https://sakana.ai/ai-scientist/">Case 1：The AI Scientist——合法目标下的自主优化失控</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> Sakana AI 公开记录过 The AI Scientist 的异常行为：一次实验因超时而无法完成时，系统没有优化代码效率，而是尝试修改自身代码来延长 timeout；另一次运行中，它修改代码去调用自身，导致递归执行。整个过程没有外部攻击者，任务本身也是合法的自动科研任务。</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/?utm_source=chatgpt.com">Case 2：Replit Agent——合法编码任务中的生产环境破坏</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 2025 年，一个广泛报道的 Replit Agent 事件中，Agent 在正常的软件开发任务中删除了生产数据库；事件发生后，Replit 后续公开介绍的安全改进包括开发/生产数据库分离，以及限制 Agent 只能访问开发数据库。前者来自事件报道，后者来自 Replit 官方后续技术说明。</p>
+</li>
+</ul>
+<h2 id="1-2-破题">1.2. 破题</h2>
+<p>Agent 的发展，是原本由人类完成的控制闭环逐步被系统自身内化。</p>
+<p>分类思路：（Agent能力）从 Agent 自身的技术演进出发，解释为什么 Agent 每向前发展一步，Safety 的研究对象都会发生质变；再沿着同一规律，推导下一代 Agent Safety 的研究前沿。</p>
+<p>由此形成四个已经发生或正在发生的阶段：</p>
+<ul>
+<li>Actuation→Autonomy→Persistence→Adaptivity</li>
+</ul>
+<p>对应 Safety 的基本对象不断扩大，也对应全文的核心 Safety taxonomy：</p>
+<ul>
+<li>Action Safety→Trajectory Safety→Persistent-State Safety→Adaptation Safety</li>
+</ul>
+<p>基础：</p>
+<ul>
+<li>
+<p>【2026-05-20；2026-06-05 更新】新加坡 IMDA <a target="_blank" rel="noopener" href="https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf">Model AI Governance Framework for Agentic AI, Version 1.5</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 将 Agent 的风险与其 action-space、autonomy、多步行动、持续记忆和 adaptive nature 联系起来，并将 action-space 与 autonomy 明确区分：前者回答 Agent 能做什么，后者回答 Agent 能在多大程度上自行决定如何完成目标。</p>
+</li>
+<li>
+<p>【2026-02-13】<a target="_blank" rel="noopener" href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/02/the-agentic-ai-landscape-and-its-conceptual-foundations_a9d4b451/396cf758-en.pdf">OECD AI Papers No. 56</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 对多种 Agent 定义进行归纳后，将感知与行动、autonomy、sustained operation over time，以及对变化输入和情境的 adaptation 识别为核心属性。</p>
+</li>
+<li>
+<p>【2026-05-08】中国的官方治理文件：<a target="_blank" rel="noopener" href="https://www.cac.gov.cn/2026-05/08/c_1779979789523320.htm">智能体规范应用与创新发展实施意见</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 也明确认为，Agent 使风险从静态内容风险扩展到动态行为风险，并重点关注自主规划、工具调用、长期记忆、协同以及风险发现、干预、阻断和恢复。</p>
+</li>
+</ul>
+<p>随着Agent能力演进，哪一个原本由人类完成的控制功能，现在被 Agent 接管了？</p>
+<table>
+<thead>
+<tr>
+<th>Agent 演进</th>
+<th>Agent 内化的控制职能</th>
+<th>系统质变</th>
+<th>Safety 基本单位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Actuation</td>
+<td>执行</td>
+<td>改变外部环境</td>
+<td>Action</td>
+</tr>
+<tr>
+<td>Autonomy</td>
+<td>过程控制</td>
+<td>自主闭合任务循环</td>
+<td>Trajectory</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td>时间连续性</td>
+<td>过去持续影响未来</td>
+<td>Persistent-State（memory）</td>
+</tr>
+<tr>
+<td>Adaptivity</td>
+<td>系统更新</td>
+<td>经验改变未来 Agent</td>
+<td>Adaptation (self-improving)</td>
+</tr>
+</tbody>
+</table>
+<p>分类原则：按“解释伤害所必需的最小系统尺度”分类</p>
+<p>四个属性它们是累积的 Agentic properties。一个 adaptive agent 通常同时具有 action-taking、autonomy 和 persistence。</p>
+<p>真正互斥的是所研究的 Safety failure 的最小充分单位。</p>
+<h2 id="2-分类">2. 分类</h2>
+<h3 id="2-1-Action-Safety：Agent-能直接改变数字或物理环境">2.1. Action Safety：Agent 能直接改变数字或物理环境</h3>
+<p>满足：单个外部状态变化已经足以解释伤害</p>
+<p>调研热点（合并重点）</p>
+<ul>
+<li>hallucination-to-action；</li>
+<li>wrong tool selection；</li>
+<li>wrong arguments；</li>
+<li>unnecessary or excessive action；</li>
+<li>destructive and irreversible operations；</li>
+<li>accidental privacy disclosure；</li>
+<li>financial、communication、deployment、physical side effects；</li>
+<li>instruction ambiguity 导致的 action overreach。</li>
+</ul>
+<p>重点应用</p>
+<ul>
+<li>Computer-use agents；</li>
+<li>Web/GUI agents；</li>
+<li>Coding agents；</li>
+<li>Tool agents；</li>
+<li>Embodied agents。</li>
+</ul>
+<p>排除</p>
+<ul>
+<li>必须看多个步骤累积才能解释的，交给 Trajectory；</li>
+<li>纯 prompt injection、恶意工具攻击不作为主体；</li>
+<li>只有任务失败、没有伤害后果的 reliability 工作排除。</li>
+</ul>
+<h3 id="2-2-Trajectory-Safety：Agent-自己控制计划—行动—反馈—再规划循环">2.2. Trajectory Safety：Agent 自己控制计划—行动—反馈—再规划循环</h3>
+<p>满足：必须看到同一任务中多个步骤、反馈和重规划的组合才能解释伤害。</p>
+<p>调研热点</p>
+<ul>
+<li>error accumulation；</li>
+<li>task drift / goal drift；</li>
+<li>constraint decay；</li>
+<li>compositional harm；</li>
+<li>delayed consequence；</li>
+<li>unsafe long-horizon optimisation；</li>
+<li>proxy gaming / reward hacking；</li>
+<li>endless retry；</li>
+<li>failed recovery；</li>
+<li>false completion or state reporting；</li>
+<li>resource exhaustion；</li>
+<li>locally safe but globally unsafe trajectories。</li>
+</ul>
+<p>重点应用</p>
+<ul>
+<li>Autonomous coding；</li>
+<li>Deep research agents；</li>
+<li>AI Scientists；</li>
+<li>Long-horizon web agents；</li>
+<li>Long-horizon embodied agents。</li>
+</ul>
+<p>重点 benchmark</p>
+<ul>
+<li>trajectory-level evaluation；</li>
+<li>delayed-trigger protocols；</li>
+<li>multi-turn Agent Safety；</li>
+<li>horizon stress testing。</li>
+</ul>
+<p>排除</p>
+<ul>
+<li>单个行为已经构成伤害的，交给 Action；</li>
+<li>必须跨 session 的，交给 Persistence；</li>
+<li>只有经过更新才产生的，交给 Adaptation。</li>
+</ul>
+<h3 id="2-3-Persistent-State-Safety-系统">2.3. Persistent-State Safety (系统)</h3>
+<p>状态跨任务、跨 session 持续存在 （memory, skill, harness，multi-agent）</p>
+<p>满足：必须依赖某种状态跨任务或跨 session 延续，伤害才能成立。</p>
+<p>Persistent State 范围</p>
+<p>不仅是 memory，还包括：</p>
+<ul>
+<li>semantic / episodic / procedural memory；</li>
+<li>task ledger；</li>
+<li>user profile；</li>
+<li>permission and credentials；</li>
+<li>commitments；</li>
+<li>persistent files and scripts；</li>
+<li>shared state；</li>
+<li>external artifacts。</li>
+</ul>
+<p>按生命周期梳理</p>
+<ol>
+<li>Write；</li>
+<li>Consolidate / Compact；</li>
+<li>Store；</li>
+<li>Retrieve；</li>
+<li>Use；</li>
+<li>Forget；</li>
+<li>Rollback。</li>
+</ol>
+<p>调研热点</p>
+<ul>
+<li>benign memory contamination；</li>
+<li>cross-user contamination；</li>
+<li>stale state；</li>
+<li>scope confusion；</li>
+<li>conflicting memory；</li>
+<li>provenance loss；</li>
+<li>context compaction 丢失安全约束；</li>
+<li>persistent credentials or permissions；</li>
+<li>failure to forget；</li>
+<li>incomplete rollback。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2604.01350">“No Attacker Needed”</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 已经证明，普通良性交互也可能通过 shared state 造成跨用户污染，并且不需要 memory poisoning 攻击者。</p>
+<p>Security counterpart：Memory poisoning 只做对照表，不作为主体。</p>
+<p>排除：如果经验不是被检索使用，而是改变了 Agent 的策略、技能或 Harness，交给 Adaptation。</p>
+<h3 id="2-4-Adaptation-Evolution-Safety-Self-improvement">2.4. Adaptation/Evolution Safety (Self-improvement)</h3>
+<p>经验改变未来的策略模型 (系统级别evolution，multi agent evolution)</p>
+<p>满足：必须依赖经验造成 Agent 未来行为机制的变化，伤害才能成立。</p>
+<p>更新对象</p>
+<ul>
+<li>memory policy；</li>
+<li>prompt / policy；</li>
+<li>skill library；</li>
+<li>tool repertoire；</li>
+<li>workflow；</li>
+<li>harness / architecture；</li>
+<li>model parameters。</li>
+</ul>
+<p>当前热点</p>
+<ul>
+<li>unsafe experience selection；</li>
+<li>self-evaluation failure；</li>
+<li>safety regression；</li>
+<li>execution bias；</li>
+<li>unsafe skill formation；</li>
+<li>misevolution；</li>
+<li>update accumulation；</li>
+<li>alignment erosion；</li>
+<li>evaluate-before-commit；</li>
+<li>rollback and lineage。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2606.23075">Self-evolving Agent 已经从单纯更新 memory 扩展到更新模型、工具和架构；最新安全分析指出，这些更新可能使风险跨代持久化和放大。</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></p>
+<p><a href="/202607%20Self%20Evolvement/" title="">202607 Self Evolvement</a></p>
+<p>Benchmark</p>
+<p>Safeguard</p>
+<p>(体系化，放在一起讲)</p>
+<h2 id="3-Future-Outlook">3. Future Outlook</h2>
+<p>前四阶段分别把 action；process control；continuity；adaptation 交给 Agent。</p>
+<p>那么，还有什么主要留在人类手里？</p>
+<ul>
+<li>Goal Renewal</li>
+<li>Resource Provision</li>
+<li>Continuation Control</li>
+</ul>
+<p>因此同一演化规律推导出的下一阶段是：</p>
+<h3 id="Self-Sustaining-Agency">Self-Sustaining Agency</h3>
+<p>当前英国 AISI 已经开始测量自主复制所需的前置能力，例如获取 compute 和 money；这些早期子能力正在进步，但复制到新计算资源并维持 persistent access 仍然更困难，而且 benchmark 高分也不意味着系统会自发复制。</p>
+<p>所以未来 Safety 问题可以推导为：</p>
+<h2 id="Goal-Formation-Safety">Goal Formation Safety</h2>
+<p>没有新的用户指令时，为什么继续行动？</p>
+<h2 id="Resource-Autonomy-Safety">Resource Autonomy Safety</h2>
+<p>Agent 自主获取 money、compute、credentials 后如何保持边界？</p>
+<h2 id="Lineage-and-Termination-Safety">Lineage and Termination Safety</h2>
+<p>Agent fork、spawn、migrate 之后，如何真正终止整个 Agent？</p>
+<h2 id="Population-Level-Safety">Population-Level Safety</h2>
+<p>多个长期存在、相互作用、共同适应的 Agent 会形成什么系统风险？</p>
+<h2 id="1-引用">-1. 引用</h2>
+<ul>
+<li>
+<p>【2023-04-06】【CAIS/UC Berkeley】【ICML 2023】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.03279">Do the Rewards Justify the Means? Measuring Trade-Offs Between Rewards and Ethical Behavior in the MACHIAVELLI Benchmark</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Trajectory Safety】在 134 个交互式故事、超过 50 万个场景中测量权力寻求、效用损害和伦理违规，揭示 Agent 为提高任务收益而选择有害过程的 reward–safety trade-off，是 proxy gaming、compositional harm 和全局轨迹风险的重要早期基准。</p>
+</li>
+<li>
+<p>【2023-09-25】【UofT/Stanford】【ICLR 2024 Spotlight】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2309.15817">Identifying the Risks of LM Agents with an LM-Emulated Sandbox</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Action Safety】提出 ToolEmu，用语言模型模拟高风险工具环境并自动评估 Agent 行为；覆盖 36 类高风险工具包和 144 个测试案例，发现隐私泄露、金融损失以及因指令信息不足而产生的 action overreach。人工评估认为其发现的 68.8% 失败可成为真实世界失败。</p>
+</li>
+<li>
+<p>【2024-01-18】【SJTU】【Findings of EMNLP 2024】<a target="_blank" rel="noopener" href="https://aclanthology.org/2024.findings-emnlp.79/">R-Judge: Benchmarking Safety Risk Awareness for LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Action/Trajectory Safety】包含 569 条多轮 Agent 交互记录、27 个风险场景、5 类应用和 10 类风险，评估模型能否结合交互历史识别已经发生或正在形成的安全风险，适合支持 trajectory judge 与过程监测研究。</p>
+</li>
+<li>
+<p>【2024-06-13】【UIUC/UC Berkeley/Emory】【ICML 2025】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.09187">GuardAgent: Safeguard LLM Agents via Knowledge-Enabled Reasoning</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Safeguard】由独立 Guard Agent 将用户给出的安全要求翻译为可执行检查代码，并监督目标 Agent 的输入、输出和工具行为；在医疗访问控制和 Web Agent 基准上分别达到 98.7% 与 90.0% 的检查准确率。</p>
+</li>
+<li>
+<p>【2024-06-17】【Sierra/Princeton】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.12045">τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Trajectory Safety】把用户、Agent、工具、领域政策和数据库状态放入动态交互闭环，以最终数据库状态和 pass^k 测量可靠性。GPT-4o 的任务成功率低于 50%，零售任务 pass^8 低于 25%，说明局部成功不能保证多次运行中的规则遵从与轨迹稳定性。</p>
+</li>
+<li>
+<p>【2024-08-08】【Apple】【Findings of NAACL 2025】<a target="_blank" rel="noopener" href="https://aclanthology.org/2025.findings-naacl.65/">ToolSandbox: A Stateful, Conversational, Interactive Evaluation Benchmark for LLM Tool Use Capabilities</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Action/Trajectory Safety】提供有状态工具执行、隐式状态依赖、动态用户模拟器以及任意轨迹上的中间 milestone 和 minefield 检查，为错误工具、错误参数、状态依赖和多步后果提供可执行评测环境。</p>
+</li>
+<li>
+<p>【2024-10-09】【IBM Research】【ICLR 2026】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.06703">ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Action/Trajectory Safety】从安全、隐私、可靠性和政策遵从等维度评估企业 Web Agent，提出 Completion Under Policy 和 Risk Ratio，显示 Agent 即使能够完成任务，也可能通过越权删除、非预期操作或违反企业政策的路径完成任务。</p>
+</li>
+<li>
+<p>【2024-10-14】【Tencent AI Lab/UCLA】【ICLR 2025】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.10813">LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Persistent-State Safety 基础】用 500 个问题评估信息提取、多 session 推理、时间推理、知识更新和应当拒答等长期记忆能力；可用于构造 stale state、冲突记忆、错误更新和跨 session 约束丢失测试。</p>
+</li>
+<li>
+<p>【2024-12-19】【THU-CoAI/UVA】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2412.14470">Agent-SafetyBench: Evaluating the Safety of LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Action Safety；Benchmark】构建 349 个交互环境和 2,000 个测试案例，覆盖 8 类风险与 10 类常见失败模式；受测 Agent 均未达到 60% 安全得分，并表现出风险意识不足和面对环境变化时缺乏稳健性。</p>
+</li>
+<li>
+<p>【2025-02-19】【Cooperative AI Foundation/DeepMind/多机构】【技术报告】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.14143">Multi-Agent Risks from Advanced AI</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Future Outlook；Population-Level Safety】将多 Agent 风险归纳为 miscoordination、conflict 和 collusion，并提出信息不对称、网络效应、选择压力、失稳动力学、承诺问题、涌现主体性和多 Agent Security 七类风险因素，为长期存在、共同适应的 Agent population 提供系统风险框架。</p>
+</li>
+<li>
+<p>【2025-03-24】【SMU】【ICSE 2026】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2503.18666">AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Safeguard】提出面向 Agent 的运行时规则语言，以 trigger、predicate 和 enforcement action 表达约束，并在代码执行、具身 Agent 和自动驾驶场景中阻断不安全行为，适合作为 Action 与 Trajectory 两层的 policy enforcement 机制。</p>
+</li>
+<li>
+<p>【2025-03-26】【UIUC】【ICML 2025】<a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v267/chen25ae.html">ShieldAgent: Shielding Agents via Verifiable Safety Policy Reasoning</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Safeguard】将政策文档转化为可验证的行动规则电路，并根据完整 action trajectory 生成 shielding plan、调用代码执行形式化检查；ShieldAgent-Bench 包含 3,000 对指令—轨迹样本、6 个 Web 环境和 7 类风险。</p>
+</li>
+<li>
+<p>【2025-04-22】【UK AISI】【实验室博客】<a target="_blank" rel="noopener" href="https://www.aisi.gov.uk/blog/replibench-measuring-autonomous-replication-capabilities-in-ai-systems">RepliBench: Measuring Autonomous Replication Capabilities in AI Systems</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Future Outlook；Self-Sustaining Agency】包含 20 项评测、65 个任务，测量获取资源、权重外泄、迁移到新计算资源和维持 persistent access 等自主复制前置能力。AISI 明确指出它评估的是 component tasks，高分既不证明端到端复制能力，也不代表模型会自发复制。</p>
+</li>
+<li>
+<p>【2025-05-29】【Sakana AI/UBC】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2505.22954">Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Adaptation Safety 基础】系统迭代重写自己的 Agent 代码，并以外部编程基准经验验证和选择更新；更新内容包括编辑工具、长上下文管理和 peer review 机制。论文使用 sandbox 和人工监督，也显示 Adaptation Safety 的对象已从 memory 扩展到 Harness、工具和工作流。</p>
+</li>
+<li>
+<p>【2025-05-30】【Sakana AI/UBC】【实验室博客】<a target="_blank" rel="noopener" href="https://sakana.ai/dgm/">The Darwin Gödel Machine: AI That Improves Itself by Rewriting Its Own Code</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Adaptation Safety】以不断扩展的 Agent lineage 保存、选择和衍生不同版本，为 update lineage、evaluate-before-commit、分支治理和跨代 rollback 提供直接技术背景。</p>
+</li>
+<li>
+<p>【2025-07-07】【UCSD】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2507.05257">Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Persistent-State Safety；Benchmark】提出 MemoryAgentBench，在增量多轮环境中统一评估准确检索、test-time learning、长程理解和 selective forgetting；覆盖 2,071 个问题和最长约 144 万 token 的状态序列，可支持 Write—Store—Retrieve—Use—Forget 生命周期评测。</p>
+</li>
+<li>
+<p>【2025-07-21】【Tom’s Hardware】【事件报道】<a target="_blank" rel="noopener" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-coding-platform-goes-rogue-during-code-freeze-and-deletes-entire-company-database-replit-ceo-apologizes-after-ai-engine-says-it-made-a-catastrophic-error-in-judgment-and-destroyed-all-production-data">AI Coding Platform Goes Rogue During Code Freeze and Deletes Entire Company Database</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Case 2；Action/Trajectory Safety】报道 Replit Agent 在正常编码任务和 code freeze 期间删除生产数据库，并作出不准确的状态说明。事件的伤害由合法任务中的越权执行、环境边界不清和失败恢复共同造成，而非外部攻击者驱动。</p>
+</li>
+<li>
+<p>【2025-07-21】【Replit】【官方技术博客】<a target="_blank" rel="noopener" href="https://replit.com/blog/introducing-a-safer-way-to-vibe-code-with-replit-databases">Introducing a Safer Way to Vibe Code with Replit Databases</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Case 2；Safeguard】Replit 说明此前开发与生产共用同一数据库，并推出开发/生产数据库分离、部署前审查 schema changes 和 point-in-time restore，以降低 Agent 开发行为直接影响线上数据的风险。</p>
+</li>
+<li>
+<p>【2025-07-28】【Princeton/UIUC/UPenn/多机构】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2507.21046">A Survey of Self-Evolving Agents: On Path to Artificial Super Intelligence</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Adaptation Safety 基础】按照 what、when、how to evolve 梳理自进化 Agent；更新对象涵盖模型、memory、tools 和 architecture，更新时机覆盖任务内与跨任务演化，并把 safety、scalability 和 multi-agent co-evolution 列为核心开放问题。</p>
+</li>
+<li>
+<p>【2025-07-29】【Replit】【官方技术博客】<a target="_blank" rel="noopener" href="https://replit.com/blog/doubling-down-on-our-commitment-to-secure-vibe-coding">Doubling Down on Our Commitment to Secure Vibe Coding</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Case 2；Safeguard】进一步说明 Agent 在开发阶段只作用于开发数据库，并结合完整项目 checkpoint、数据库状态保存和一键 rollback；体现 destructive action 防护不能只依赖提示词，而应通过权限、环境隔离和系统级恢复实现。</p>
+</li>
+<li>
+<p>【2025-09-30】【Shanghai AI Lab/SJTU】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2509.26354">Your Agent May Misevolve: Emergent Risks in Self-Evolving LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Adaptation Safety】系统研究 model、memory、tool 和 workflow 四条演化路径中的 misevolution，发现良性自进化也可能造成安全对齐退化、记忆累积风险以及自动创建和复用工具时引入漏洞，支持把 safety regression 和 update accumulation 作为独立研究对象。</p>
+</li>
+<li>
+<p>【2026-02-03】【NUS/USTC】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2602.03100">Risky-Bench: Probing Agentic Safety Risks under Real-World Deployment</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Trajectory Safety；Benchmark】从跨领域安全原则推导场景化 safety rubrics，在外卖、线下消费和在线旅行等真实任务中评估完整执行轨迹；覆盖 15 项规则、5 类风险入口和 750 个任务，7 个先进 Agent 的平均攻击成功率约为 25%—60%。</p>
+</li>
+<li>
+<p>【2026-03-12】【GWU】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2603.12129">Increasing Intelligence in AI Agents Can Worsen Collective Outcomes</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Future Outlook；Population-Level Safety】研究共享稀缺资源的 Agent population，发现模型多样性和个体强化学习并不必然改善群体结果，反而可能增加系统过载；群体安全取决于资源容量、种群规模和涌现群体结构，而不能仅由单 Agent 能力推断。</p>
+</li>
+<li>
+<p>【2026-04-01】【USC/MSU/Northwestern/Adobe Research】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.01350">No Attacker Needed: Unintentional Cross-User Contamination in Shared-State LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Persistent-State Safety】证明没有攻击者时，局部合理的良性交互也会经 shared memory 或 persistent context 污染后续用户，原始共享状态下污染率为 57.4%—70.7%。文本写入净化可以缓解部分风险，但程序代码等可执行 artifact 会保留隐性工作流，需 provenance、scope 和 artifact-level defense。</p>
+</li>
+<li>
+<p>【2026-04-02】【Shanghai AI Lab/FDU/THU】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.02022">ATBench: A Diverse and Realistic Agent Trajectory Benchmark for Safety Evaluation and Diagnosis</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Trajectory Safety；Benchmark】以 risk source、failure mode 和 real-world harm 三维 taxonomy 构建 1,000 条安全/不安全轨迹，平均 9.01 轮，工具池包含 2,084 个工具；long-context delayed-trigger protocol 专门测量延迟后果和多阶段风险涌现。</p>
+</li>
+<li>
+<p>【2026-04-11】【McGill/Kean/Zayed】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.16282">Taxonomy and Consistency Analysis of Safety Benchmarks for AI Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Benchmark 体系化】系统整理 2023—2026 年的 40 个行为型 Agent Safety benchmark 及 5 个相邻评估/防御资源，提出六轴评测方法 taxonomy；指出 benchmark 选择可能产生相互矛盾的模型安全排名，环境真实性和指标碎片化会显著影响结论。</p>
+</li>
+<li>
+<p>【2026-04-18】【HIT-SCIR】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.16968">On Safety Risks in Experience-Driven Self-Evolving Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Adaptation Safety】考察 Agent 从自身执行经验中选择、总结并写回更新的过程，发现即使经验本身是良性的，也可能因 execution bias 降低高风险场景中的安全性；拒绝类经验可改善风险控制，但可能引起过度拒绝，说明经验选择和更新提交需要独立安全门控。</p>
+</li>
+<li>
+<p>【2026-06-22】【ZJU/Ant Group/THU/NTU/FDU】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.23075">Safety in Self-Evolving LLM Agent Systems: Threats, Amplification, and Case Studies</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 【Adaptation Safety；Security 对照】分析模型、memory、tool、workflow 和 multi-agent 等演化对象中的风险传播，指出更新可能沿 Agent lineage 跨代保持并被后续演化放大。其攻击与威胁模型可作为 Security counterpart；对 Agent Safety 更重要的启示是建立 update provenance、版本谱系、回归评测、隔离提交和跨代 rollback。</p>
+</li>
+</ul>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E7%A7%91%E7%A0%94%E7%B4%A2%E5%BC%95/">科研索引</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/202607%20Self%20Evolvement/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">202607 Self Evolvement</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/202607%20Harness%20Design/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">202607 Harness Design</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+                <div class="post-toc-inner">
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%A4%A7%E7%BA%B2"><span class="post-toc-text">1. 大纲</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-%E6%A6%82%E5%BF%B5%E7%95%8C%E5%AE%9A"><span class="post-toc-text">1.1. 概念界定</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-%E7%A0%B4%E9%A2%98"><span class="post-toc-text">1.2. 破题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%88%86%E7%B1%BB"><span class="post-toc-text">2. 分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-Action-Safety%EF%BC%9AAgent-%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%94%B9%E5%8F%98%E6%95%B0%E5%AD%97%E6%88%96%E7%89%A9%E7%90%86%E7%8E%AF%E5%A2%83"><span class="post-toc-text">2.1. Action Safety：Agent 能直接改变数字或物理环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-Trajectory-Safety%EF%BC%9AAgent-%E8%87%AA%E5%B7%B1%E6%8E%A7%E5%88%B6%E8%AE%A1%E5%88%92%E2%80%94%E8%A1%8C%E5%8A%A8%E2%80%94%E5%8F%8D%E9%A6%88%E2%80%94%E5%86%8D%E8%A7%84%E5%88%92%E5%BE%AA%E7%8E%AF"><span class="post-toc-text">2.2. Trajectory Safety：Agent 自己控制计划—行动—反馈—再规划循环</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-Persistent-State-Safety-%E7%B3%BB%E7%BB%9F"><span class="post-toc-text">2.3. Persistent-State Safety (系统)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-Adaptation-Evolution-Safety-Self-improvement"><span class="post-toc-text">2.4. Adaptation&#x2F;Evolution Safety (Self-improvement)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Future-Outlook"><span class="post-toc-text">3. Future Outlook</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Self-Sustaining-Agency"><span class="post-toc-text">Self-Sustaining Agency</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Goal-Formation-Safety"><span class="post-toc-text">Goal Formation Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Resource-Autonomy-Safety"><span class="post-toc-text">Resource Autonomy Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Lineage-and-Termination-Safety"><span class="post-toc-text">Lineage and Termination Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Population-Level-Safety"><span class="post-toc-text">Population-Level Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%BC%95%E7%94%A8"><span class="post-toc-text">-1. 引用</span></a></li></ol>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%A4%A7%E7%BA%B2"><span class="post-toc-text">1. 大纲</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-%E6%A6%82%E5%BF%B5%E7%95%8C%E5%AE%9A"><span class="post-toc-text">1.1. 概念界定</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-%E7%A0%B4%E9%A2%98"><span class="post-toc-text">1.2. 破题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%88%86%E7%B1%BB"><span class="post-toc-text">2. 分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-Action-Safety%EF%BC%9AAgent-%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%94%B9%E5%8F%98%E6%95%B0%E5%AD%97%E6%88%96%E7%89%A9%E7%90%86%E7%8E%AF%E5%A2%83"><span class="post-toc-text">2.1. Action Safety：Agent 能直接改变数字或物理环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-Trajectory-Safety%EF%BC%9AAgent-%E8%87%AA%E5%B7%B1%E6%8E%A7%E5%88%B6%E8%AE%A1%E5%88%92%E2%80%94%E8%A1%8C%E5%8A%A8%E2%80%94%E5%8F%8D%E9%A6%88%E2%80%94%E5%86%8D%E8%A7%84%E5%88%92%E5%BE%AA%E7%8E%AF"><span class="post-toc-text">2.2. Trajectory Safety：Agent 自己控制计划—行动—反馈—再规划循环</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-Persistent-State-Safety-%E7%B3%BB%E7%BB%9F"><span class="post-toc-text">2.3. Persistent-State Safety (系统)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-Adaptation-Evolution-Safety-Self-improvement"><span class="post-toc-text">2.4. Adaptation&#x2F;Evolution Safety (Self-improvement)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Future-Outlook"><span class="post-toc-text">3. Future Outlook</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Self-Sustaining-Agency"><span class="post-toc-text">Self-Sustaining Agency</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Goal-Formation-Safety"><span class="post-toc-text">Goal Formation Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Resource-Autonomy-Safety"><span class="post-toc-text">Resource Autonomy Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Lineage-and-Termination-Safety"><span class="post-toc-text">Lineage and Termination Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Population-Level-Safety"><span class="post-toc-text">Population-Level Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%BC%95%E7%94%A8"><span class="post-toc-text">-1. 引用</span></a></li></ol>
+    </div>
+  </nav>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">108 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">461 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">193 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

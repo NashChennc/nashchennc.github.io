@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>202607 Agent Safety Benchmarks - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
+
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 108</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 461</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 193</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">202607 Agent Safety Benchmarks</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Aug 11</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/tags/AI/" class="note-tag">AI</a>
+                                
+                                    <a href="/tags/AI-LLM/" class="note-tag">AI/LLM</a>
+                                
+                                    <a href="/tags/AI-Agent/" class="note-tag">AI/Agent</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">20 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <h2 id="Benchmarks-Evals-Audits">Benchmarks / Evals / Audits</h2>
+<h3 id="Anthropic">Anthropic</h3>
+<ul>
+<li>
+<p>【2025-03-13】【Anthropic】【官方研究博客】<a target="_blank" rel="noopener" href="https://www.anthropic.com/research/auditing-hidden-objectives">Auditing language models for hidden objectives</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：Anthropic 将 alignment audit 具体化为实验流程：故意训练带隐藏目标的模型，再让审计团队盲查；是后续 AuditBench 和自动化审计 agent 的方法学前置工作。</p>
+</li>
+<li>
+<p>【2025-06-20】【Anthropic】【官方研究博客】<a target="_blank" rel="noopener" href="https://www.anthropic.com/research/agentic-misalignment">Agentic Misalignment: How LLMs could be insider threats</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：研究 LLM agent 在模拟企业环境中是否会出现黑mail、间谍、规避关闭等 insider-threat 行为；重点不是传统 jailbreak，而是 agent 在目标冲突与权限场景下的策略性失配。</p>
+</li>
+<li>
+<p>【2025-07-24】【Anthropic】【Alignment Science Blog】<a target="_blank" rel="noopener" href="https://alignment.anthropic.com/2025/automated-auditing/">Building and evaluating alignment auditing agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出并评估自动化 alignment auditing agents，让 agent 自主使用工具审计目标模型；关键意义是把“审计 agent 本身是否有效”变成可测对象。</p>
+</li>
+<li>
+<p>【2025-10-20】【Anthropic】【官方工程博客】<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-sandboxing">Beyond permission prompts: making Claude Code more secure and autonomous</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：讨论 Claude Code 的沙箱化与权限控制，强调仅靠 permission prompt 不足以保障 coding agent 安全；代表 coding agent 从“问用户确认”转向“运行时隔离与权限边界”的工程路线。</p>
+</li>
+<li>
+<p>【2025-11-26】【Anthropic】【官方工程博客】<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents">Effective harnesses for long-running agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：讨论长时程 agent 的评测 harness 工程，包括跨 session 状态、初始化脚本、进度文件、端到端验证；核心观点是 harness 质量会显著影响 agent eval 可信度。</p>
+</li>
+<li>
+<p>【2026-01-09】【Anthropic】【官方工程博客】<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Demystifying evals for AI agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：系统解释 agent eval 与静态 LLM eval 的差异：任务更开放、输出更长、环境更动态、标准答案更弱；适合作为 agent benchmark 设计方法论入口。</p>
+</li>
+<li>
+<p>【2026-02-18】【Anthropic】【官方研究博客】<a target="_blank" rel="noopener" href="https://www.anthropic.com/research/measuring-agent-autonomy">Measuring AI agent autonomy in practice</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出实践中衡量 agent autonomy 的框架，关注用户将多少决策委托给 AI、agent 能持续执行多长时间、对外部世界产生何种影响；适合作为 agent 风险分级指标参考。</p>
+</li>
+<li>
+<p>【2026-03-10】【Anthropic】【Alignment Science Blog】<a target="_blank" rel="noopener" href="https://alignment.anthropic.com/2026/auditbench/">AuditBench</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：发布 AuditBench，包含 56 个植入隐藏行为的模型，用于评估 auditor agent 是否能发现 hidden behaviors；是 2026 年最关键的 alignment auditing benchmark 之一。</p>
+</li>
+<li>
+<p>【2026-03-11】【Anthropic】【Alignment Science Blog】<a target="_blank" rel="noopener" href="https://alignment.anthropic.com/2026/automated-alignment-agent/">A3: An Automated Alignment Agent for Safety Finetuning</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 Automated Alignment Agent，通过自动定位安全风险、生成数据、进行 safety finetuning 来修复模型；代表“自动发现风险—自动生成训练数据—自动修复”的闭环安全 agent。</p>
+</li>
+<li>
+<p>【2026-03-25】【Anthropic】【官方工程博客】<a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/claude-code-auto-mode">How we built Claude Code auto mode: a safer way to skip permissions</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：讨论 Claude Code auto mode 的分层安全机制，包括 safe-tool allowlist、项目级信任、权限配置等；重点是 coding agent 在减少交互确认时如何维持安全边界。</p>
+</li>
+<li>
+<p>【2026-04-09】【Anthropic】【官方研究博客】<a target="_blank" rel="noopener" href="https://www.anthropic.com/research/trustworthy-agents">Trustworthy agents in practice</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：讨论可信 agent 的实际安全问题，特别是 prompt injection、工具权限、用户确认、benchmark 缺口和部署实践；适合作为 agent 安全工程与评测框架的高层综述。</p>
+</li>
+<li>
+<p>【2026-06-16】【Anthropic】【官方研究博客】<a target="_blank" rel="noopener" href="https://www.anthropic.com/research/claude-code-expertise">Agentic coding and persistent returns to expertise</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：研究 Claude Code 使用中的专业性回报与 agentic coding 行为，关注长时程 coding agent 在真实开发场景中的表现；可作为 coding agent productivity / autonomy / expertise 评估的补充材料。</p>
+</li>
+</ul>
+<h3 id="OpenAI">OpenAI</h3>
+<ul>
+<li>
+<p>【2025-01-23】【OpenAI】【系统卡】<a target="_blank" rel="noopener" href="https://openai.com/index/operator-system-card/">Operator System Card</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：OpenAI 对浏览器操作型 agent 的产品级安全评估，覆盖外部红队、工具使用风险、提示注入、用户确认机制和高风险任务边界；代表早期从“文本回复安全”转向“agent 动作安全”的系统卡形态。</p>
+</li>
+<li>
+<p>【2025-02-25】【OpenAI】【系统卡】<a target="_blank" rel="noopener" href="https://deploymentsafety.openai.com/deep-research">Deep Research System Card</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：针对 web research agent 的系统安全评估，重点讨论浏览检索、信息污染、个人数据、危险研究建议和高风险领域推理；体现 web-agent 评估中“能力、真实性、污染、安全”共同度量的趋势。</p>
+</li>
+<li>
+<p>【2025-07-17】【OpenAI】【系统卡】<a target="_blank" rel="noopener" href="https://deploymentsafety.openai.com/chatgpt-agent">ChatGPT Agent System Card</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：OpenAI 对多工具 ChatGPT Agent 的产品级安全评估，覆盖浏览器、终端、连接器、提示注入、敏感操作确认、watch mode 与生产多轮安全 benchmark；是 2025 年最重要的 agent 系统卡之一。</p>
+</li>
+<li>
+<p>【2025-11-19】【OpenAI】【官方博客】<a target="_blank" rel="noopener" href="https://openai.com/index/strengthening-safety-with-external-testing/">Strengthening our safety ecosystem with external testing</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：OpenAI 讨论外部安全测试生态，强调用第三方评估验证安全声明、发现盲点、提高透明度；适合作为顶级实验室外部审计机制的参考。</p>
+</li>
+<li>
+<p>【2025-12-18】【OpenAI】【官方研究博客】<a target="_blank" rel="noopener" href="https://openai.com/index/evaluating-chain-of-thought-monitorability/">Evaluating chain-of-thought monitorability</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 chain-of-thought monitorability 评估框架，关注是否能通过推理轨迹发现错误、投机或不安全行为；与 agent 审计中的 trajectory monitoring 高度相关。</p>
+</li>
+<li>
+<p>【2026-02-05】【OpenAI】【官方博客】<a target="_blank" rel="noopener" href="https://openai.com/index/trusted-access-for-cyber/">Introducing Trusted Access for Cyber</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出面向网络安全能力的 trusted access 框架，在扩大防御性 cyber 能力访问的同时强化安全边界；与 agent cyber benchmark、权限分级和防滥用治理相关。</p>
+</li>
+<li>
+<p>【2026-02-18】【OpenAI】【官方博客 / 技术报告】<a target="_blank" rel="noopener" href="https://openai.com/index/introducing-evmbench/">Introducing EVMbench</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 EVMbench，评估 AI agents 在智能合约漏洞 detect、patch、exploit 三类任务上的能力；特点是环境可执行、经济后果明确、自动判分相对清晰。</p>
+</li>
+</ul>
+<h3 id="GDM">GDM</h3>
+<ul>
+<li>【2025-10-07】【Google DeepMind】【官方博客 / 模型卡】<a target="_blank" rel="noopener" href="https://deepmind.google/blog/introducing-the-gemini-25-computer-use-model/">Introducing the Gemini 2.5 Computer Use model</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：发布 Gemini 2.5 Computer Use，并配套披露 UI-agent 的环境、提示、方法学和安全训练说明；重点是 computer-use agent 的模型卡式安全评估。</li>
+<li>【2026-6-22】<a target="_blank" rel="noopener" href="https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/securing-the-future-of-ai-agents/gdm-ai-control-roadmap.pdf">AI Control Roadmap</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
+<li><a target="_blank" rel="noopener" href="https://theaitrack.com/google-deepmind-ai-control-roadmap/">https://theaitrack.com/google-deepmind-ai-control-roadmap/</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
+</ul>
+<p>DeepMind 2512-2608</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/">Multi Agent Safety</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2512.16856">https://arxiv.org/abs/2512.16856</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon></li>
+</ul>
+<h3 id="Frontier-Labs-2025">Frontier Labs 2025</h3>
+<ul>
+<li>
+<p>【2025-05-19】【Microsoft Research】【官方博客】<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/">Magentic-UI, an experimental human-centered web agent</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：开源人机协作 web agent 原型，强调 human-in-the-loop、沙箱、allow-list、action guards 和可中断执行；适合作为 browser-agent 安全设计与交互式审计的工程参考。</p>
+</li>
+<li>
+<p>【2025-09-15】【Stanford HAI】【官方新闻 / 研究解读】<a target="_blank" rel="noopener" href="https://hai.stanford.edu/news/stanford-develops-real-world-benchmarks-for-healthcare-ai-agents">Stanford Develops Real-World Benchmarks for Healthcare AI Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：介绍 MedAgentBench，将医疗 agent 放入虚拟 EHR 环境，测试调病历、下医嘱、开药等真实临床动作，而不是只测医学问答知识。</p>
+</li>
+<li>
+<p>【2025-09-22】【Meta AI】【官方 publication】<a target="_blank" rel="noopener" href="https://ai.meta.com/research/publications/are-scaling-up-agent-environments-and-evaluations/">ARE: scaling up agent environments and evaluations</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 Meta Agents Research Environments，重点是可扩展 agent 环境与 evaluator 基础设施；代表从静态题集转向 environment factory 的评测基础设施路线。</p>
+</li>
+<li>
+<p>【2025-11-04】【Microsoft Research】【官方博客】<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/blog/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/">RedCodeAgent: Automatic red-teaming agent against diverse code agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出自动化 coding-agent 红队框架，使用攻击记忆、代码替换和 jailbreak 搜索，让目标 code agent 生成并执行危险代码；强调执行后果比 LLM-as-a-judge 更可靠。</p>
+</li>
+<li>
+<p>【2025-12-02 / ICML 2026】【Carnegie Mellon University / Columbia University / Johns Hopkins University / HydroX AI】【ICML 2026 regular / arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2512.03262">Is Vibe Coding Safe? Benchmarking Vulnerability of Agent-Generated Code in Real-World Tasks</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 SusVibes 基准，用真实仓库级功能请求评估代码智能体生成可运行但存在安全漏洞代码的风险。</p>
+</li>
+</ul>
+<h3 id="Frontier-Labs-2026-Q1">Frontier Labs 2026 Q1</h3>
+<ul>
+<li>
+<p>【2026-01-15】【Peking University / Shanghai Artificial Intelligence Laboratory】【ACL 2026 Findings】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.10156"><strong>ToolSafe: Enhancing Tool Invocation Safety of LLM-based agents via Proactive Step-level Guardrail and Feedback</strong></a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 TS-Bench，用于 step-level tool invocation safety detection；同时提出 TS-Guard 和 TS-Flow，在工具执行前判断请求 harmfulness 与 action-attack correlation，属于“工具调用前置 guardrail / step-level 审计”框架。</p>
+</li>
+<li>
+<p>【2026-01-26 / 2026-04-23 revised】【Shanghai AI Lab / 多机构联合】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.18491"><strong>AgentDoG: A Diagnostic Guardrail Framework for AI Agent Safety and Security</strong></a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出三维 agentic risk taxonomy，即 risk source / failure mode / consequence，并引入 ATBench 与 AgentDoG guardrail；重点不是只给二分类安全标签，而是做轨迹级、上下文级、可诊断的安全监控。</p>
+</li>
+<li>
+<p>【2026-02-03】【National University of Singapore / University of Science and Technology of China 等】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2602.03100"><strong>Risky-Bench: Probing Agentic Safety Risks under Real-World Deployment</strong></a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 Risky-Bench，把安全原则实例化为部署场景中的 context-aware safety rubrics，并在 VitaBench life-assist 环境上做真实任务执行评估；覆盖 user instruction、external environment、memory、tool feedback、agent instruction 等 attack surfaces，主要指标为 ASR。</p>
+</li>
+<li>
+<p>【2026-02-13】【Northeastern University / Virtue AI / UC Berkeley / UIUC】【ICML 2026 main conference / AI4GOOD Workshop @ ICML 2026 Spotlight / arXiv】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2602.13379">Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 MT-AgentRisk，将单轮有害任务转化为多轮工具调用攻击序列，显示多轮场景会显著放大工具型智能体的安全风险。</p>
+</li>
+<li>
+<p>【2026-03-12】【Microsoft Research】【官方博客】<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/">AgentRx</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 AgentRx 和 115 条人工标注失败轨迹 benchmark，目标是定位 critical failure step 并归因 root cause；代表 trajectory failure audit / debugging benchmark。</p>
+</li>
+<li>
+<p>【2026-02-23 / 2026-02-25 revised】【Max Planck Institute for Intelligent Systems / ELLIS Institute Tübingen / CISPA / EPFL 等】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2602.20156"><strong>Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks</strong></a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 SkillInject，专测 agent skills / skill file 作为供应链攻击面的 prompt injection；包含 202 个 injection-task pairs，同时测 harmful instruction avoidance 与 legitimate instruction compliance，指出简单 input filtering 或模型 scaling 不足以解决 skill supply-chain 风险。</p>
+</li>
+<li>
+<p>【2026-03-18】【Purdue University】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2603.18245">Who Tests the Testers? Systematic Enumeration and Coverage Audit of LLM Agent Tool Call Safety</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 SafeAudit 元审计框架，系统枚举工具调用工作流以发现现有智能体安全基准未覆盖的残余不安全行为。</p>
+</li>
+</ul>
+<h3 id="Frontier-Labs-2026-Q2">Frontier Labs 2026 Q2</h3>
+<ul>
+<li>
+<p>【2026-04-02 / 2026-05-13 revised】【Shanghai AI Lab / Fudan University / Shanghai Jiao Tong University / Tsinghua University / KAUST / East China Normal University 等】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.02022"><strong>ATBench: A Diverse and Realistic Agent Trajectory Benchmark for Safety Evaluation and Diagnosis</strong></a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 ATBench，面向 long-horizon trajectory safety；按 risk source、failure mode、real-world harm 三轴组织风险，包含 1,000 条 trajectories，平均 9.01 turns，并引入 delayed-trigger protocol 与 human audit；适合评估 evaluator、guard 和审计器是否能识别长程风险。</p>
+</li>
+<li>
+<p>【2026-04-15】【Baidu Inc. / Beijing Institute of Technology】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.13954"><strong>HINTBench: Horizon-agent Intrinsic Non-attack Trajectory Benchmark</strong></a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 HINTBench，专测“非攻击条件下的内生风险”，即没有 prompt injection、tool contamination、environment manipulation 时，agent 自己因为目标、事实、能力、流程、状态约束违背而进入危险轨迹；包含 629 条 trajectories，支持 risk detection、risk-step localization、failure-type identification。</p>
+</li>
+<li>
+<p>【2026-04-30】【Microsoft Research】【官方博客】<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/blog/red-teaming-a-network-of-agents-understanding-what-breaks-when-ai-agents-interact-at-scale/">Red-teaming a network of agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：研究多个 AI agents 交互时会出现的网络级风险，强调单个 agent 安全不代表 agent ecosystem 安全；代表 multi-agent red-teaming 方向。</p>
+</li>
+<li>
+<p>【2026-05-11】【Microsoft Research】【官方博客】<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/">SocialReasoning-Bench</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出衡量 agent 是否维护用户利益的 benchmark，覆盖日程协调和市场谈判，指标包括 outcome optimality 与 due diligence；代表 principal-agent safety 评测。</p>
+</li>
+<li>
+<p>【2026-05-31】【The University of Hong Kong / Shandong University / Carnegie Mellon University / National University of Singapore / HKUST】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.01317">SABER: Benchmarking Operational Safety of LLM Coding Agents in Stateful Project Workspaces</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：通过多步编码操作后的最终工作区状态评估代码智能体的操作安全性，覆盖嵌入式注入、危险自选操作和上下文警告失效等风险。</p>
+</li>
+<li>
+<p>【2026-06-05】【University of California, San Diego】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.07867">The Cold-Start Safety Gap in LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 SODA 基准，通过控制安全威胁前的正常任务数量，揭示智能体在会话初期更脆弱的“冷启动安全间隙”。</p>
+</li>
+<li>
+<p>【2026-06-07】【BrainCog AI Lab, Institute of Automation, CAS / Beijing-AISI / Beijing Key Laboratory of Safe AI and Superalignment / UCAS / Long-term AI】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.08531">VESTA: A Fully Automated Scenario Generation and Safety Evaluation Framework for LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出全自动场景生成与安全评估流水线，将抽象安全风险转化为 1,072 个可执行、可度量的真实任务场景。</p>
+</li>
+<li>
+<p>【2026-06-09】【Ant Group / Tsinghua University / Nanjing University / Peking University】【arXiv 预印本 / technical report】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.10484">AgentCanary: A Security Evaluation Framework for Autonomous AI Agents in Real Executable Environments</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出真实可执行环境中的 agent security evaluation framework，按 Entry × Impact 风险分类，并用 Outcome Safety、Security Awareness、Task Utility 三维评分；代表 real-exec environment benchmark。</p>
+</li>
+<li>
+<p>【2026-06-19】【AIM Intelligence / KAERI】【KDD 2026 Workshop / arXiv】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.20408">NRT-Bench: Benchmarking Multi-Turn Red-Teaming of LLM Operator Agents in Safety-Critical Control Rooms</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：在仿真核电站控制室中，用物理系统安全指标而非文本裁判评估多智能体操作团队面对多轮自适应红队攻击时的鲁棒性。</p>
+</li>
+<li>
+<p>【2026-06-22】【Fujitsu Research of Europe / Fujitsu Research of India】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.23927"><strong>RIFT-Bench: Dynamic Red-teaming For Agentic AI Systems</strong></a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：提出 RIFT-Bench，用 hierarchical graph representation 做 agentic system discovery，再用 adaptive adversarial scanning 做动态红队；它评估的是“系统本身”而非固定题集，实验覆盖 45 个 heterogeneous agentic systems，并可直接评估 mitigation strategies。</p>
+</li>
+<li>
+<p>【2026-06-26】【Novo Ordo for AI】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.28270"><strong>Agent-Native Immune System: Architecture, Taxonomy, and Engineering</strong></a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：agent runtime safety architecture / taxonomy 工作；提出 ANIS、Agent Viruses / Agent Vaccines、Immune Tower、Autoimmunity Rate 等概念，适合归入“agent 原生防御 / runtime governance / future audit metric”方向。</p>
+</li>
+</ul>
+<h3 id="Others">Others</h3>
+<ul>
+<li>【2026-04-11】【McGill University / Kean University / Zayed University】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.16282">Taxonomy and Consistency Analysis of Safety Benchmarks for AI Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>：对 2023–2026 年 40 个智能体安全基准进行六维分类学和一致性分析，指出当前评估方法存在指标割裂、覆盖深度不足和排名不一致问题。</li>
+</ul>
+<p>现在新的 agent safety 工作大致测 8 类东西：</p>
+<ol>
+<li><strong>有害任务执行能力 / 拒绝能力</strong>：AgentHarm、Agent-SafetyBench、HarmBench、XSTest。</li>
+<li><strong>工具调用安全</strong>：SafeToolBench、TS-Bench、MT-AgentRisk、SafeAudit、AgentCanary。</li>
+<li><strong>提示注入 / 环境注入 / 供应链注入</strong>：AgentDojo、InjecAgent、ASB、SkillInject、SABER、WASP。</li>
+<li><strong>长轨迹 / 多轮 / 延迟触发风险</strong>：ATBench、HINTBench、SODA、MT-AgentRisk、NRT-Bench。</li>
+<li><strong>真实可执行环境 / 状态持久化环境</strong>：SABER、AgentCanary、Risky-Bench、NRT-Bench、α³-Bench。</li>
+<li><strong>coding agent 安全</strong>：SusVibes、SABER，以及 SusVibes 对比的 BaxBench、CWEval、SALLM、SecCodePLT、Asleep、ASE、SecureAgentBench。SusVibes 明确指出旧代码安全基准多是单文件/单函数或单轮生成，而其自身做 repository-level、多文件、agent 执行环境评估。</li>
+<li><strong>审计器 / guardrail / judge 能力</strong>：AgentAuditor/ASSEBench、AgentDoG/ATBench、TS-Guard/ToolSafe、HINTBench、SafeAudit。</li>
+<li><strong>benchmark 元分析 / 一致性审计</strong>：Taxonomy and Consistency Analysis、SafeAudit。Taxonomy 论文梳理 2023–2026 的 40 个行为型 agent safety benchmarks，并指出不同 benchmark 的 threat model、metric、environment fidelity 会导致模型安全排名不一致。</li>
+</ol>
+<p>SABER 这篇很适合看“新工作到底拿什么当 baseline”：它显式横向比较了 XSTest、HarmBench、AgentHarm、PrivacyLens、SafeToolBench、InjecAgent、AgentDyn、NAAMSE、SkillInject，并指出这些既有 benchmark 对 full project environment、embedded injection、risky self-selection、contextual warnings 覆盖不足。</p>
+<h3 id="旧-其他">旧 / 其他</h3>
+<ul>
+<li><strong>2024年12月 - Agent-SafetyBench</strong>：在大量交互环境中系统评估LLM智能体对恶意指令的鲁棒性和对环境风险的感知力。</li>
+<li><strong>2025年4月 - WASP</strong>：在真实的沙盒Web环境（如GitLab、Reddit）中端到端评估Web智能体抵御间接提示注入攻击的能力。</li>
+<li><strong>2025年5月 - SafeScientist</strong>：在AI自动化科学发现（如实验设计、化学合成）的多阶段流水线中评估和防御智能体产生危险协议或科学伦理问题的风险。</li>
+<li><strong>2025年12月 - ODCV-Bench</strong>：在容器化开发环境中评估智能体在面临关键绩效指标（KPI）优化压力时，是否会违背安全和道德约束而采取不择手段的策略。</li>
+<li><strong>2026年1月 - SafePro</strong>：聚焦于专业工作流（如医疗、金融、法律等9大行业），评估智能体在执行长周期、高复杂性行业任务时的伦理与安全对齐情况。</li>
+<li><strong>2026年1月 - AgentDoG (ATBench)</strong>：提出三维正交风险分类法，为智能体复杂交互轨迹中的不安全或不合理行为提供细粒度的底层归因与诊断保护。</li>
+<li><strong>2026年初 (AAAI 2026) - MobileSafetyBench</strong>：基于真实的Android模拟器，测试移动设备控制智能体在处理包含隐私数据的日常高频应用时的合规性与抗注入能力。</li>
+</ul>
+<h2 id="ML-Conference">ML Conference</h2>
+<ul>
+<li>
+<p>【2025-02-02】【Oxford / Foerster Lab + Meta AI】【NeurIPS 2025】<a target="_blank" rel="noopener" href="https://neurips.cc/virtual/2025/poster/116189">AgentBreeder: Mitigating the AI Safety Risks of Multi-Agent Scaffolds via Self-Improvement</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：用进化搜索自动发现和优化 multi-agent scaffolds，在 blue/red 模式下同时评估能力与安全性；与 Oxford Foerster Lab 相关，属于多智能体架构层面的 safety tuning。</p>
+</li>
+<li>
+<p>【2025-02-07】【UC Santa Barbara + William &amp; Mary】【ICML 2025】<a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v267/zhu25z.html">MELON: Provable Defense Against Indirect Prompt Injection Attacks in AI Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：提出 masked re-execution + tool-call comparison，用重新执行轨迹判断 agent 是否被检索内容中的间接提示注入劫持；适合作为 runtime guard / 工具调用审计模块。</p>
+</li>
+<li>
+<p>【2025-03-05】【Michigan State University + University of Georgia + Singapore Management University】【NeurIPS 2025】<a target="_blank" rel="noopener" href="https://neurips.cc/virtual/2025/poster/118152">Memory Injection Attacks on LLM Agents via Query-Only Interaction</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：MINJA 展示攻击者仅通过查询交互即可污染 agent memory，使未来任务触发恶意推理链；不是防御论文，但直接指向 memory write approval、长期记忆审计和记忆检索防护。</p>
+</li>
+<li>
+<p>【2025-03-12】【FAIR at Meta + Meta】【NeurIPS 2025】<a target="_blank" rel="noopener" href="https://neurips.cc/virtual/2025/poster/121443">AgentDAM: Privacy Leakage Evaluation for Autonomous Web Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：面向 web-navigation agents 的隐私泄漏与 data minimization 基准，评估 GPT、Llama、Claude 等 agent 是否不必要地使用敏感信息；与 Meta FAIR 顶级工业实验室直接相关。</p>
+</li>
+<li>
+<p>【2025-05-25】【King’s College London + Beijing Institute of Technology + Tsinghua University】【NeurIPS 2025】<a target="_blank" rel="noopener" href="https://neurips.cc/virtual/2025/poster/119770">GUARDIAN: Safeguarding LLM Multi-Agent Collaborations with Temporal Graph Modeling</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：把多 agent 协作过程建模为离散时序属性图，用异常节点/边检测识别 hallucination amplification、error injection/propagation 等风险；适合作为 multi-agent orchestrator 的 runtime monitor。</p>
+</li>
+<li>
+<p>【2025-05-31】【NYU Abu Dhabi + NTU + KTH + University of Sydney + UIUC + NUS + MBZUAI】【NeurIPS 2025】<a target="_blank" rel="noopener" href="https://neurips.cc/virtual/2025/poster/120154">AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：提出 memory-augmented evaluator，用结构化经验记忆和检索增强推理评估 agent 轨迹中的安全/安全性风险；更像 approval 前置审查器或离线 audit 模块。</p>
+</li>
+<li>
+<p>【2025-07-03】【FAIR at Meta + UC Berkeley】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2507.02735">Meta SecAlign: A Secure Foundation LLM Against Prompt Injection Attacks</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：把 prompt-injection robustness 训练进基础模型，释放 Meta-SecAlign-8B/70B；属于模型层 guardrail，与 Meta FAIR 和 UC Berkeley 顶级安全研究组强相关。</p>
+</li>
+</ul>
+<h2 id="System-Securiy-Conference">System Securiy Conference</h2>
+<ul>
+<li>
+<p>【2025-08】【UC Berkeley / Berkeley Security / David Wagner 组】【USENIX Security 2025】<a target="_blank" rel="noopener" href="https://sizhe-chen.github.io/StruQ-Website/">StruQ: Defending Against Prompt Injection with Structured Queries</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：用 structured queries 将 trusted prompt 与 untrusted data 分成不同通道，并训练模型只服从 prompt 通道；是“指令-数据隔离”路线的代表论文，另有 Berkeley BAIR 博客。</p>
+</li>
+<li>
+<p>【2025-08】【Fudan University + UC Davis / Hao Chen 组】【USENIX Security 2025】<a target="_blank" rel="noopener" href="https://www.usenix.org/conference/usenixsecurity25/presentation/liu-fengyu">Make Agent Defeat Agent: Automatic Detection of Taint-Style Vulnerabilities in LLM-based Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：提出 AgentFuzz，用 directed greybox fuzzing 自动发现 LLM agent 的 taint-style 漏洞；更适合做发布前安全测试、CI gate 和 agent app 安全回归测试。</p>
+</li>
+<li>
+<p>【2025-08】【Ben-Gurion University of the Negev】【USENIX Security 2025】<a target="_blank" rel="noopener" href="https://www.usenix.org/conference/usenixsecurity25/presentation/ayzenshteyn">Cloak, Honey, Trap: Proactive Defenses Against LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：用 deception、honeypot、trap agents 对抗恶意 LLM agents，保护 CTF/网络资产；属于主动欺骗式防御路线，不依赖单纯 prompt injection 检测。</p>
+</li>
+<li>
+<p>【2025-09-09】【ShanghaiTech University + Independent Researchers】【CCS 2025】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2509.07764">AgentSentinel: An End-to-End and Real-Time Security Defense Framework for Computer-Use Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：面向 computer-use agents 的端到端实时防御框架，拦截敏感操作并结合任务上下文与系统 trace 做审计；非常贴近“sensitive operation → audit → allow/kill”的审批架构。</p>
+</li>
+<li>
+<p>【2025-10-13】【Meta FAIR + UC Berkeley / Berkeley Security】【CCS 2025】<a target="_blank" rel="noopener" href="https://sizhe-chen.github.io/SecAlign-Website/">SecAlign: Defending Against Prompt Injection with Preference Optimization</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：把 prompt injection defense 表述为 preference optimization，让模型偏好服从真实任务而非注入指令；与 Meta FAIR 和 UC Berkeley 明确相关，是模型层 prompt-injection defense 的核心路线之一。</p>
+</li>
+<li>
+<p>【2025-11-18】【Fudan University】【ASE 2025】<a target="_blank" rel="noopener" href="https://conf.researchr.org/details/ase-2025/ase-2025-papers/19/Security-Debt-in-LLM-Agent-Applications-A-Measurement-Study-of-Vulnerabilities-and-M">Security Debt in LLM Agent Applications: A Measurement Study of Vulnerabilities and Mitigation Trade-offs</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：对 221 个真实 agent 漏洞做测量，归纳 14 类漏洞、15 个根因和 7 个组件层面问题；适合作为 guard / approval / agent platform 安全设计的工程风险清单。</p>
+</li>
+<li>
+<p>【2026-01-11】【Mohamed bin Zayed University of Artificial Intelligence】【USENIX Security 2026】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.07072">Overcoming the Retrieval Barrier: Indirect Prompt Injection in the Wild for LLM Systems</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：研究如何让间接提示注入内容更容易被 RAG/agent 检索命中，说明生成端 guard 不够，检索层也需要污染检测、来源审计和内容审批。</p>
+</li>
+<li>
+<p>【2026-03-01】【EPFL / Scala LAMP / Martin Odersky 组】【ACM CAIS 2026】<a target="_blank" rel="noopener" href="https://www.caisconf.org/program/2026/papers/securing-agents-with-tracked-capabilities/">Securing Agents With Tracked Capabilities</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：用 Scala 3 capture checking 和 tracked capabilities 让 agent 以 capability-safe code 表达工具调用意图，把权限、资源访问和信息流约束前移到类型系统；对 coding agent 与工具调用安全非常关键。</p>
+</li>
+<li>
+<p>【2026-04-15】【National University of Singapore + USC + SonarSource】【ICSE 2026 SEIP】<a target="_blank" rel="noopener" href="https://conf.researchr.org/details/icse-2026/icse-2026-software-engineering-in-practice/27/Fixing-Security-Vulnerabilities-with-Agentic-AI-in-OSS-Fuzz">Fixing Security Vulnerabilities with Agentic AI in OSS-Fuzz</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：把 agentic repair 用于 OSS-Fuzz 漏洞修复，通过 exploit execution 和 static typing 信息增强补丁生成；代表“自动修复 + maintainer approval”的落地路径。</p>
+</li>
+<li>
+<p>【2026-04-17】【Monash University + CSIRO Data61 + Columbia University + NYU】【ICSE 2026 Research Track】<a target="_blank" rel="noopener" href="https://conf.researchr.org/details/icse-2026/icse-2026-research-track/100/When-AI-Takes-the-Wheel-Security-Analysis-of-Framework-Constrained-Program-Generatio">When AI Takes the Wheel: Security Analysis of Framework-Constrained Program Generation</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：以 Chrome extensions 为对象评估 LLM 生成完整框架约束程序的安全性，发现高比例漏洞；对 coding agent 的权限约束、安全扫描和合并前审批有直接参考价值。</p>
+</li>
+<li>
+<p>【2026-04】【Brown University / Brown Systems / Malte Schwarzkopf 组】【EuroMLSys 2026 Workshop】<a target="_blank" rel="noopener" href="https://cs.brown.edu/people/malte/pub/papers/2026-euromlsys-toolsafety.pdf">Towards Practically-Secure Tools for AI Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：提出面向 agent tools 的安全框架：静态 effect synopsis、细粒度 sandbox、policy enforcement；最贴近 MCP/tool-use 场景下的 guard 架构升级。</p>
+</li>
+<li>
+<p>【2026-08】【Fudan University + Shanghai Innovation Institute】【USENIX Security 2026】<a target="_blank" rel="noopener" href="https://www.usenix.org/conference/usenixsecurity26/cycle1-accepted-papers">Autonomy Comes with Costs: Detecting Denial-of-Service Vulnerabilities Caused by Resource Abusing in LLM-based Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 摘要：提出 AgentDoS，用 directed greybox fuzzing 检测 LLM agents 因资源生命周期管理缺陷导致的 DoS 漏洞；提示 agent guard 不仅要防数据泄漏，也要管资源预算、循环、下载、文件和进程生命周期。</p>
+</li>
+</ul>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/%E7%A7%91%E7%A0%94%E7%B4%A2%E5%BC%95/">科研索引</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/202511%20Agentic%20Safety/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">202511 Agentic Safety</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/202607%20Self%20Evolvement/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">202607 Self Evolvement</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+                <div class="post-toc-inner">
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Benchmarks-Evals-Audits"><span class="post-toc-text">Benchmarks &#x2F; Evals &#x2F; Audits</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Anthropic"><span class="post-toc-text">Anthropic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenAI"><span class="post-toc-text">OpenAI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GDM"><span class="post-toc-text">GDM</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Frontier-Labs-2025"><span class="post-toc-text">Frontier Labs 2025</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Frontier-Labs-2026-Q1"><span class="post-toc-text">Frontier Labs 2026 Q1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Frontier-Labs-2026-Q2"><span class="post-toc-text">Frontier Labs 2026 Q2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Others"><span class="post-toc-text">Others</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%A7-%E5%85%B6%E4%BB%96"><span class="post-toc-text">旧 &#x2F; 其他</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ML-Conference"><span class="post-toc-text">ML Conference</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-Securiy-Conference"><span class="post-toc-text">System Securiy Conference</span></a></li></ol>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Benchmarks-Evals-Audits"><span class="post-toc-text">Benchmarks &#x2F; Evals &#x2F; Audits</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Anthropic"><span class="post-toc-text">Anthropic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenAI"><span class="post-toc-text">OpenAI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GDM"><span class="post-toc-text">GDM</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Frontier-Labs-2025"><span class="post-toc-text">Frontier Labs 2025</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Frontier-Labs-2026-Q1"><span class="post-toc-text">Frontier Labs 2026 Q1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Frontier-Labs-2026-Q2"><span class="post-toc-text">Frontier Labs 2026 Q2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Others"><span class="post-toc-text">Others</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%A7-%E5%85%B6%E4%BB%96"><span class="post-toc-text">旧 &#x2F; 其他</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ML-Conference"><span class="post-toc-text">ML Conference</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-Securiy-Conference"><span class="post-toc-text">System Securiy Conference</span></a></li></ol>
+    </div>
+  </nav>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">108 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">461 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">193 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

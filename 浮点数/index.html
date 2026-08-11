@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>浮点数 - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
+
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 108</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 461</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 193</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">浮点数</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Aug 11</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/tags/AI/" class="note-tag">AI</a>
+                                
+                                    <a href="/tags/CS/" class="note-tag">CS</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">16 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <p>浮点数标准（主要是 IEEE 754）的定义并非随意的工程拍脑袋，而是一场数学严谨性、硬件执行效率和数值稳定性之间的极限拉扯。</p>
+<p>该标准的主要设计者 William Kahan（因此获得图灵奖）在制定标准时，核心目标是为了解决当时科学计算中跨平台结果不一致，以及数值计算极易由于溢出或舍入导致系统崩溃的问题。</p>
+<img src="/files/Pasted%20image%2020260706163108.png" alt="">
+<p>这种将32位（以单精度 float 为例）划分为 1位符号 + 8位阶码 + 23位尾数 的结构，背后包含了几项极其精妙的科学与工程考量：</p>
+<h2 id="1-偏移阶码-Biased-Exponent-：为了极速的硬件比较">1. 偏移阶码 (Biased Exponent)：为了极速的硬件比较</h2>
+<p>为什么 8 位阶码（Exponent）不用补码（Two’s complement）来表示正负指数，而是采用加一个偏移量（Bias = 127）的设计？</p>
+<p>如果用补码，负指数在二进制上看起来会比正指数“大”（因为首位符号位是 1）。引入 127 的偏移量后，真实的指数范围 $[-126, 127]$ 被映射到了 $[1, 254]$ 的无符号整数区间。</p>
+<p>科学考量：这使得浮点数的比较（a &gt; b）可以直接复用整型 ALU 的字典序比较逻辑。硬件不需要专门设计一套浮点比较器，只要像对比无符号整数一样按位从左到右比较即可，这在早期硬件中极大提升了排序和比较的执行效率。</p>
+<h2 id="2-隐藏位-Hidden-Bit-：“白嫖”的一位精度">2. 隐藏位 (Hidden Bit)：“白嫖”的一位精度</h2>
+<p>在科学记数法中，规格化后的数字总是以非零数字开头（例如 $1.xxxx$）。由于二进制非零的数字只能是 1，IEEE 754 规定规格化浮点数的小数点前默认隐含一个固定的 1。</p>
+<p>科学考量：这实际上把 23 位的尾数（Mantissa）空间硬生生变成了 24 位的有效计算精度。对于计算数学而言，这意味着单精度浮点数能够稳定提供大约 7.22 个十进制有效数字的精度 ($\log_{10}(2^{24})$)。</p>
+<h2 id="3-渐进式下溢-Gradual-Underflow-与非规格化数">3. 渐进式下溢 (Gradual Underflow) 与非规格化数</h2>
+<p>这是 IEEE 754 中最体现数学家审美的设计之一。当一个数字小到无法用常规的 $1.xxxx \times 2^{-126}$ 表示时，早期的计算机往往直接将其粗暴地置为 0（Flush-to-Zero, FTZ）。</p>
+<p>但这在数值分析中是灾难性的：它破坏了 $x \neq y \iff x - y \neq 0$ 这个基本代数定理。如果 $x$ 和 $y$ 是两个极小但不等的数，直接置零会导致 $x - y = 0$ 成立，进而极大可能在后续计算中触发除零异常（Divide-by-Zero）。</p>
+<p>科学考量：IEEE 754 引入了非规格化数（Subnormal numbers）。当阶码全为 0 时，隐藏的 1 变成 0，尾数表示为 $0.xxxx \times 2^{-126}$。这使得浮点数在趋于零时，精度是逐渐丧失的（渐进式下溢），而不是悬崖式归零，从而极大提升了病态矩阵求解或微小梯度计算时的数值稳定性。</p>
+<h2 id="4-代数闭包与特殊值-NaN-pm-infty-pm0">4. 代数闭包与特殊值 (NaN, $\pm\infty$, $\pm0$)</h2>
+<p>在数值模拟中，程序遇到奇异点（Singularity）直接崩溃是不可接受的。IEEE 754 预留了阶码全 1 的状态来表示特殊值：</p>
+<ul>
+<li>
+<p>NaN (Not a Number)：用于隔离无效运算（如 $\sqrt{-1}$， $0/0$）。NaN 具有“传染性”，它会让错误在计算图中自动传播而不中断程序，方便科学家事后排查，而不是让跑了三天的模拟任务中途闪退。</p>
+</li>
+<li>
+<p>正负零 ($\pm 0$)：为什么需要区分 $+0$ 和 $-0$？在复变函数中，极限从哪个方向逼近零对于分支切割（Branch Cuts）至关重要。例如 $1 / (+0) = +\infty$，而 $1 / (-0) = -\infty$，这保留了极限逼近的符号与方向信息。</p>
+</li>
+</ul>
+<h2 id="5-舍入模式：消除统计偏差">5. 舍入模式：消除统计偏差</h2>
+<p>IEEE 754 默认采用向偶数舍入 (Round to Nearest, ties to even)，也就是我们常说的“四舍六入五成双”（当恰好在中间值时，向末位为 0 的偶数方向舍入）。</p>
+<p>科学考量：如果总是像十进制那样直接向上“五入”，在进行蒙特卡洛模拟或大规模高斯积分时，所有的中间值都会向上进位，导致全局结果产生向上的统计漂移（Statistical Drift）。向偶数舍入（一半概率向上，一半概率向下）在统计学上保证了海量运算下舍入误差的数学期望严格为 0。</p>
+<p>你可以通过下面的交互组件，直观地感受改变符号、指数和尾数位时，浮点数值和特殊状态是如何在底层演变的：</p>
+<p>**</p>
+<p>经典科学计算与深度学习在底层数据格式上的演变，本质上是一场“数学严谨性”向“统计鲁棒性与硬件吞吐量”的妥协。</p>
+<p>科学计算（如流体力学、轨道计算）需要极高的精度来防止误差累积，且容不得丝毫的代数歧义。而深度学习模型（尤其是大语言模型）本质上是高度参数化的统计模型，它们对噪声和低精度（尾数截断）极度包容，但对数值溢出（阶码越界）极度敏感。同时，现代 LLM 的瓶颈往往在于显存带宽（如 KV Cache 和大批量状态流转）而非纯算力。</p>
+  <img src="/files/Pasted%20image%2020260706163124.png" alt="">
+<p>基于这些前提，AI 硬件和算法界在数据格式上做出了截然不同于经典 IEEE 754 的取舍：</p>
+<h2 id="1-核心矛盾：动态范围-Range-vs-精度-Precision">1. 核心矛盾：动态范围 (Range) vs 精度 (Precision)</h2>
+<p>我们先看主流 AI 格式的位宽分配差异：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>格式</td>
+<td>总位宽</td>
+<td>符号位</td>
+<td>阶码 (Exponent)</td>
+<td>尾数 (Mantissa)</td>
+<td>最大安全值</td>
+<td>核心应用场景</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>32</td>
+<td>1</td>
+<td>8</td>
+<td>23</td>
+<td>$\sim 3.4 \times 10^{38}$</td>
+<td>经典 IEEE 标准 / 优化器状态</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>16</td>
+<td>1</td>
+<td>5</td>
+<td>10</td>
+<td>$65504$</td>
+<td>早期深度学习 / 推理</td>
+</tr>
+<tr>
+<td>BF16</td>
+<td>16</td>
+<td>1</td>
+<td>8</td>
+<td>7</td>
+<td>$\sim 3.4 \times 10^{38}$</td>
+<td>现代大模型训练 / 激活值</td>
+</tr>
+<tr>
+<td>FP8 (E4M3)</td>
+<td>8</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+<td>$448$</td>
+<td>LLM 前向传播 (权重/激活)</td>
+</tr>
+<tr>
+<td>FP8 (E5M2)</td>
+<td>8</td>
+<td>1</td>
+<td>5</td>
+<td>2</td>
+<td>$57344$</td>
+<td>LLM 反向传播 (梯度)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="FP16-的教训与-Loss-Scaling">FP16 的教训与 Loss Scaling</h3>
+<p>早期的混合精度训练尝试使用 IEEE 754 标准的 FP16。它的取舍是均衡的（5位阶码，10位尾数），但这在深度学习中是灾难：FP16 的最大值只有 65504。在计算交叉熵损失或未归一化的 Logits 时，极易产生超出这个范围的值，导致梯度直接变成 NaN（梯度爆炸）。为了强行使用 FP16，工程上不得不发明了 Loss Scaling（将损失乘以一个缩放因子，算完梯度再除回去）这种极其繁琐的 trick。</p>
+<h3 id="BF16-Brain-Float-的降维打击">BF16 (Brain Float) 的降维打击</h3>
+<p>由 Google 提出的 BF16 是纯粹为深度学习定制的格式。它的设计哲学非常暴力：直接截断 FP32 的后 16 位尾数。</p>
+<ul>
+<li>
+<p>取舍：牺牲了大量精度（尾数只有 7 位，十进制下大约只有 2 位有效数字）。</p>
+</li>
+<li>
+<p>收益：保留了 8 位阶码，动态范围与 FP32 完全一致。模型再也不用担心溢出问题，Loss Scaling 成为历史。对于神经网络而言，尾数截断带来的精度损失不仅不会破坏收敛，甚至自带了一种类似 Dropout 的正则化（Regularization）效果。此外，硬件层面将 FP32 转换为 BF16 极其便宜（直接丢弃低 16 位）。</p>
+</li>
+</ul>
+<h2 id="2-异构格式的极致：FP8-E4M3-E5M2">2. 异构格式的极致：FP8 (E4M3 / E5M2)</h2>
+<p>到了 NVIDIA Hopper 等现代架构，为了进一步压榨显存带宽，浮点数被压缩到了 8 位。由于 8 位实在太短，AI 工程师甚至放弃了“统一格式”，转而根据计算流向使用异构格式：</p>
+<ul>
+<li>
+<p>前向传播（权重和激活值）使用 E4M3：权重和激活值的分布通常比较集中且方差较小，不需要太大的动态范围，但需要更多的尾数（3位）来保持特征的多样性。</p>
+</li>
+<li>
+<p>反向传播（梯度）使用 E5M2：梯度的分布跨度极大（可能相差几个数量级，涉及梯度消失和爆炸），因此必须分给阶码 5 位，哪怕尾数只剩 2 位（精度极低），也要保住梯度的量级结构。</p>
+</li>
+</ul>
+<h2 id="3-被-AI-抛弃的经典科学计算特性">3. 被 AI 抛弃的经典科学计算特性</h2>
+<p>为了在硅片上塞入更多的 Tensor Core，深度学习格式无情地删减了 IEEE 754 中那些为了“严谨性”而存在的复杂逻辑：</p>
+<ul>
+<li>
+<p>抛弃渐进式下溢 (Flush-to-Zero, FTZ)：<br>
+如前所述，IEEE 754 用非规格化数（Subnormals）来平滑处理极小数。但这在硬件电路中需要极其复杂的异常处理分支，会导致 Tensor Core 降速。DL 格式通常直接开启 FTZ，一旦小于最小规格化数，粗暴归零。在动辄上千维的隐式特征空间中，几个极小值归零对最终的注意力分布影响微乎其微。</p>
+</li>
+<li>
+<p>压缩或抛弃 NaN/Inf：<br>
+在 IEEE 754 中，有大量的位模式被保留给不同类型的 NaN（Quiet NaN, Signaling NaN）。在 FP8 (E4M3) 中，为了多挤出一个数值表达空间，直接打破了 IEEE 754 全 ‘1’ 阶码表示 NaN 的规则，通常只保留唯一的一个位模式来表示 NaN，且不支持无穷大（Inf）。</p>
+</li>
+<li>
+<p>舍入模式的简化：<br>
+AI 硬件常采用随机舍入 (Stochastic Rounding) 或者最简单的向偶数舍入，而不是提供完整的 IEEE 五种舍入模式，以此大幅简化乘加器 (MAC) 的面积。</p>
+</li>
+</ul>
+<p>总结来说，IEEE 754 像是一套精密的游标卡尺，适合测量绝对真理；而 BF16 和 FP8 则像是工业流水线上的重型冲压机，它们容许边缘粗糙，但求用极致的吞吐量去硬抗千亿参数的暴力拟合。</p>
+<p>如果说 FP8 是一套由硬件原生支持的动态范围妥协，那么 INT8 和 NF4 则是纯粹的软件/算法层面的统计学黑客技术 (Statistical Hack)。</p>
+<p>它们之间的根本区别在于“如何处理动态范围”以及“对数据分布的先验假设”。</p>
+<h2 id="1-对数据分布的假设不同：均匀-vs-正态">1. 对数据分布的假设不同：均匀 vs. 正态</h2>
+<p>FP8（以及传统的浮点数）不关心你的数据是什么形状的，只要在它的表示范围内，它就用指数去自适应。但量化（Quantization）的本质是把连续的实数映射到有限的离散“桶（Bins）”里，这就必须考虑“数据长什么样”。</p>
+<h3 id="INT8：均匀分布的受害者">INT8：均匀分布的受害者</h3>
+<p>INT8 采用的是线性映射 (Linear Quantization)。它假设数据是均匀分布的，因此把 $ [-max, +max] $ 的区间等分为 256 个桶。</p>
+  <img src="/files/Pasted%20image%2020260706163733.png" alt="">
+<p>痛点：深度学习中的权重和激活值往往是正态分布（钟形曲线）的，极少数的异常值（Outliers）特别大。在 INT8 中，如果为了包容那几个巨大的异常值，整个 256 个桶就会被极度拉伸，导致中间 99% 密集的权重只能挤在最中间的两三个桶里，发生了灾难性的精度坍塌。</p>
+<h3 id="NF4-NormalFloat-4-bit-：拥抱正态分布的极致">NF4 (NormalFloat 4-bit)：拥抱正态分布的极致</h3>
+<p>NF4 的设计思路与 INT8 完全相反，它是专门为大模型权重（特别是 QLoRA）量身定制的信息论最优数据类型。它不再使用等距的桶。</p>
+<p>设计思路：既然我们知道神经网络的权重严格服从均值为 0 的高斯分布 $\mathcal{N}(0, \sigma^2)$，那么为什么要在没有数据的尾部浪费位宽？</p>
+<p>NF4 通过计算标准正态分布的分位数 (Quantiles)，让每个离散的“桶”在概率密度函数下的面积严格相等。</p>
+<ul>
+<li>
+<p>在靠近 0 的密集区：桶被切分得极其细密。</p>
+</li>
+<li>
+<p>在远离 0 的尾部区：桶变得非常宽敞。</p>
+<img src="/files/Pasted%20image%2020260706163813.png" alt="">
+</li>
+</ul>
+<p>这使得即使只有 4-bit（16个值），它也能极其精准地还原大模型权重的统计学特征，而不会被异常值绑架。</p>
+<h2 id="2-动态范围的来源：内建-vs-外挂">2. 动态范围的来源：内建 vs. 外挂</h2>
+<ul>
+<li>
+<p>FP8 的动态范围是“内建”的：FP8 自带 4 位或 5 位阶码。当你读取一个 FP8 数据时，它自己就知道自己的量级是多少。</p>
+</li>
+<li>
+<p>INT8 / NF4 的动态范围是“外挂”的：INT8 和 NF4 只是纯粹的离散序号。要恢复它的真实值，必须依赖外部的缩放因子 (Scaling Factor, $S$)。</p>
+</li>
+</ul>
+<p>为了解决 INT8 容易被异常值破坏的问题，现代量化必须采用分组/分块量化 (Block-wise Quantization)。比如每 64 个参数为一组，独立计算一个缩放因子 $S = \frac{\max(|X|)}{127}$。</p>
+<p>这意味着在显存里，你存的不只是 INT8 的矩阵，还得额外存一个 FP16 的缩放因子矩阵。算法层面需要频繁地读写和查表（LUT）来进行反量化 (Dequantization)。</p>
+<h2 id="3-计算目标：算力受限-vs-访存受限">3. 计算目标：算力受限 vs. 访存受限</h2>
+<p>这也是它们在系统工程上最核心的差异：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据格式</td>
+<td>硬件支持的直接计算 (GEMM)</td>
+<td>核心解决的系统瓶颈</td>
+</tr>
+<tr>
+<td>FP8 / INT8</td>
+<td>支持。张量核心 (Tensor Core) 有原生的 FP8 和 INT8 乘加器，可以直接对矩阵进行乘法。</td>
+<td>算力墙 (Compute-Bound)：提升矩阵运算的 TFLOPS 吞吐量。</td>
+</tr>
+<tr>
+<td>NF4</td>
+<td>不支持。硅片上不存在“NF4 乘法器”。由于它是不等距的非线性映射，直接相乘在数学上是毫无意义的。</td>
+<td>访存墙 (Memory-Bound)：纯粹为了把庞大的模型权重塞进有限的显存（如单卡 24G 跑 7B 模型）。</td>
+</tr>
+</tbody>
+</table>
+<p>在实际的 QLoRA 训练或推理中，NF4 只是一种“存储格式”。当数据从显存 (HBM) 加载到流处理器 (SM) 的缓存 (SRAM) 时，必须根据外挂的缩放因子，立刻将 NF4 反量化回 BF16 或 FP16，然后再交给 Tensor Core 去做乘法计算。</p>
+<p>你可以通过下面这个交互组件，直观地对比同一组正态分布数据，在均匀切分（如 INT8）和概率密度切分（如 NF4）下，量化误差是如何产生巨大差异的：</p>
+<p>**</p>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/LLM/">LLM</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E6%AC%A7%E6%B4%B2%E8%AF%AD%E8%A8%80%E5%AF%BC%E8%AE%BA/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">欧洲语言导论</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/%E6%BC%AB%E5%B1%95%E5%87%86%E5%A4%87%E6%B8%85%E5%8D%95/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">漫展准备清单</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+                <div class="post-toc-inner">
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%81%8F%E7%A7%BB%E9%98%B6%E7%A0%81-Biased-Exponent-%EF%BC%9A%E4%B8%BA%E4%BA%86%E6%9E%81%E9%80%9F%E7%9A%84%E7%A1%AC%E4%BB%B6%E6%AF%94%E8%BE%83"><span class="post-toc-text">1. 偏移阶码 (Biased Exponent)：为了极速的硬件比较</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E9%9A%90%E8%97%8F%E4%BD%8D-Hidden-Bit-%EF%BC%9A%E2%80%9C%E7%99%BD%E5%AB%96%E2%80%9D%E7%9A%84%E4%B8%80%E4%BD%8D%E7%B2%BE%E5%BA%A6"><span class="post-toc-text">2. 隐藏位 (Hidden Bit)：“白嫖”的一位精度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E6%B8%90%E8%BF%9B%E5%BC%8F%E4%B8%8B%E6%BA%A2-Gradual-Underflow-%E4%B8%8E%E9%9D%9E%E8%A7%84%E6%A0%BC%E5%8C%96%E6%95%B0"><span class="post-toc-text">3. 渐进式下溢 (Gradual Underflow) 与非规格化数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E4%BB%A3%E6%95%B0%E9%97%AD%E5%8C%85%E4%B8%8E%E7%89%B9%E6%AE%8A%E5%80%BC-NaN-pm-infty-pm0"><span class="post-toc-text">4. 代数闭包与特殊值 (NaN, $\pm\infty$, $\pm0$)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E8%88%8D%E5%85%A5%E6%A8%A1%E5%BC%8F%EF%BC%9A%E6%B6%88%E9%99%A4%E7%BB%9F%E8%AE%A1%E5%81%8F%E5%B7%AE"><span class="post-toc-text">5. 舍入模式：消除统计偏差</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E7%9F%9B%E7%9B%BE%EF%BC%9A%E5%8A%A8%E6%80%81%E8%8C%83%E5%9B%B4-Range-vs-%E7%B2%BE%E5%BA%A6-Precision"><span class="post-toc-text">1. 核心矛盾：动态范围 (Range) vs 精度 (Precision)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FP16-%E7%9A%84%E6%95%99%E8%AE%AD%E4%B8%8E-Loss-Scaling"><span class="post-toc-text">FP16 的教训与 Loss Scaling</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BF16-Brain-Float-%E7%9A%84%E9%99%8D%E7%BB%B4%E6%89%93%E5%87%BB"><span class="post-toc-text">BF16 (Brain Float) 的降维打击</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%BC%82%E6%9E%84%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%9E%81%E8%87%B4%EF%BC%9AFP8-E4M3-E5M2"><span class="post-toc-text">2. 异构格式的极致：FP8 (E4M3 &#x2F; E5M2)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E8%A2%AB-AI-%E6%8A%9B%E5%BC%83%E7%9A%84%E7%BB%8F%E5%85%B8%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E7%89%B9%E6%80%A7"><span class="post-toc-text">3. 被 AI 抛弃的经典科学计算特性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E7%9A%84%E5%81%87%E8%AE%BE%E4%B8%8D%E5%90%8C%EF%BC%9A%E5%9D%87%E5%8C%80-vs-%E6%AD%A3%E6%80%81"><span class="post-toc-text">1. 对数据分布的假设不同：均匀 vs. 正态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#INT8%EF%BC%9A%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83%E7%9A%84%E5%8F%97%E5%AE%B3%E8%80%85"><span class="post-toc-text">INT8：均匀分布的受害者</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NF4-NormalFloat-4-bit-%EF%BC%9A%E6%8B%A5%E6%8A%B1%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E6%9E%81%E8%87%B4"><span class="post-toc-text">NF4 (NormalFloat 4-bit)：拥抱正态分布的极致</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%8A%A8%E6%80%81%E8%8C%83%E5%9B%B4%E7%9A%84%E6%9D%A5%E6%BA%90%EF%BC%9A%E5%86%85%E5%BB%BA-vs-%E5%A4%96%E6%8C%82"><span class="post-toc-text">2. 动态范围的来源：内建 vs. 外挂</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E8%AE%A1%E7%AE%97%E7%9B%AE%E6%A0%87%EF%BC%9A%E7%AE%97%E5%8A%9B%E5%8F%97%E9%99%90-vs-%E8%AE%BF%E5%AD%98%E5%8F%97%E9%99%90"><span class="post-toc-text">3. 计算目标：算力受限 vs. 访存受限</span></a></li></ol>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%81%8F%E7%A7%BB%E9%98%B6%E7%A0%81-Biased-Exponent-%EF%BC%9A%E4%B8%BA%E4%BA%86%E6%9E%81%E9%80%9F%E7%9A%84%E7%A1%AC%E4%BB%B6%E6%AF%94%E8%BE%83"><span class="post-toc-text">1. 偏移阶码 (Biased Exponent)：为了极速的硬件比较</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E9%9A%90%E8%97%8F%E4%BD%8D-Hidden-Bit-%EF%BC%9A%E2%80%9C%E7%99%BD%E5%AB%96%E2%80%9D%E7%9A%84%E4%B8%80%E4%BD%8D%E7%B2%BE%E5%BA%A6"><span class="post-toc-text">2. 隐藏位 (Hidden Bit)：“白嫖”的一位精度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E6%B8%90%E8%BF%9B%E5%BC%8F%E4%B8%8B%E6%BA%A2-Gradual-Underflow-%E4%B8%8E%E9%9D%9E%E8%A7%84%E6%A0%BC%E5%8C%96%E6%95%B0"><span class="post-toc-text">3. 渐进式下溢 (Gradual Underflow) 与非规格化数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E4%BB%A3%E6%95%B0%E9%97%AD%E5%8C%85%E4%B8%8E%E7%89%B9%E6%AE%8A%E5%80%BC-NaN-pm-infty-pm0"><span class="post-toc-text">4. 代数闭包与特殊值 (NaN, $\pm\infty$, $\pm0$)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E8%88%8D%E5%85%A5%E6%A8%A1%E5%BC%8F%EF%BC%9A%E6%B6%88%E9%99%A4%E7%BB%9F%E8%AE%A1%E5%81%8F%E5%B7%AE"><span class="post-toc-text">5. 舍入模式：消除统计偏差</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E7%9F%9B%E7%9B%BE%EF%BC%9A%E5%8A%A8%E6%80%81%E8%8C%83%E5%9B%B4-Range-vs-%E7%B2%BE%E5%BA%A6-Precision"><span class="post-toc-text">1. 核心矛盾：动态范围 (Range) vs 精度 (Precision)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FP16-%E7%9A%84%E6%95%99%E8%AE%AD%E4%B8%8E-Loss-Scaling"><span class="post-toc-text">FP16 的教训与 Loss Scaling</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BF16-Brain-Float-%E7%9A%84%E9%99%8D%E7%BB%B4%E6%89%93%E5%87%BB"><span class="post-toc-text">BF16 (Brain Float) 的降维打击</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%BC%82%E6%9E%84%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%9E%81%E8%87%B4%EF%BC%9AFP8-E4M3-E5M2"><span class="post-toc-text">2. 异构格式的极致：FP8 (E4M3 &#x2F; E5M2)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E8%A2%AB-AI-%E6%8A%9B%E5%BC%83%E7%9A%84%E7%BB%8F%E5%85%B8%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E7%89%B9%E6%80%A7"><span class="post-toc-text">3. 被 AI 抛弃的经典科学计算特性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E7%9A%84%E5%81%87%E8%AE%BE%E4%B8%8D%E5%90%8C%EF%BC%9A%E5%9D%87%E5%8C%80-vs-%E6%AD%A3%E6%80%81"><span class="post-toc-text">1. 对数据分布的假设不同：均匀 vs. 正态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#INT8%EF%BC%9A%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83%E7%9A%84%E5%8F%97%E5%AE%B3%E8%80%85"><span class="post-toc-text">INT8：均匀分布的受害者</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NF4-NormalFloat-4-bit-%EF%BC%9A%E6%8B%A5%E6%8A%B1%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E6%9E%81%E8%87%B4"><span class="post-toc-text">NF4 (NormalFloat 4-bit)：拥抱正态分布的极致</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%8A%A8%E6%80%81%E8%8C%83%E5%9B%B4%E7%9A%84%E6%9D%A5%E6%BA%90%EF%BC%9A%E5%86%85%E5%BB%BA-vs-%E5%A4%96%E6%8C%82"><span class="post-toc-text">2. 动态范围的来源：内建 vs. 外挂</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E8%AE%A1%E7%AE%97%E7%9B%AE%E6%A0%87%EF%BC%9A%E7%AE%97%E5%8A%9B%E5%8F%97%E9%99%90-vs-%E8%AE%BF%E5%AD%98%E5%8F%97%E9%99%90"><span class="post-toc-text">3. 计算目标：算力受限 vs. 访存受限</span></a></li></ol>
+    </div>
+  </nav>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">108 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">461 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">193 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

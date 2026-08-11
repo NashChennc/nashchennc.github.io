@@ -6,13 +6,13 @@
   --mdui-shape-corner-medium: 8px;
   /* 顶栏：高度由 MDUI top-app-bar 接管；此处仅暴露给 sticky/overlay 计算 */
   --app-top-bar-offset: calc(4rem + env(safe-area-inset-top, 0px));
-  /* 文章页：目录 sticky 时与顶栏的缝（须与 max-height 共用 --app-sticky-offset） */
-  --app-sticky-stack-gap: 0.125rem;
+  /* 文章页：目录随正文滑入后，停在顶栏下方；与 max-height 共用 --app-sticky-offset */
+  --app-sticky-stack-gap: 1.75rem;
   --app-sticky-offset: calc(var(--app-top-bar-offset) + var(--app-sticky-stack-gap));
   /* Banner 下方主内容区微量顶距 */
   --post-page-stack-pad-top: 0.5rem;
-  /* 目录卡片区距离视口底边的留白（长文时内部滚动） */
-  --post-toc-viewport-bottom: 1rem;
+  /* 目录区距离视口底边的留白（长文时内部滚动） */
+  --post-toc-viewport-bottom: 1.5rem;
   --post-content-pad: clamp(1.25rem, 5vw, 2rem);
 
   /* 版心左右 gutter：由 .app-container 的 min()/calc() 使用，不再配额外断点 */
@@ -42,7 +42,6 @@
  */
 mdui-card.note-card,
 mdui-card.post-page-card,
-mdui-card.post-toc-card,
 mdui-card.archives-category-card,
 mdui-card.activity-heatmap {
   --mdui-color-surface-container-highest: var(--mdui-color-surface-container);

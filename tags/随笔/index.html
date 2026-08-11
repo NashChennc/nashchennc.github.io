@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html lang="cn" class="mdui-theme-auto">
+<html lang="cn">
 <head>
   <meta charset="UTF-8">
   <script>
     (function () {
-      var KEY = 'mdblog-theme';
-      var el = document.documentElement;
       try {
-        var t = localStorage.getItem(KEY);
-        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
-        if (t === 'light' || t === 'dark') {
-          el.classList.add('mdui-theme-' + t);
-        } else {
-          el.classList.add('mdui-theme-auto');
-        }
-      } catch (err) {
-        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
-        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
       }
     })();
   </script>
@@ -48,13 +40,13 @@
   <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
   
   
+  
+  
   <link rel="stylesheet" href="/css/tokens.css">
   
   <link rel="stylesheet" href="/css/global-layout.css">
   
   <link rel="stylesheet" href="/css/topbar.css">
-  
-  <link rel="stylesheet" href="/css/hero.css">
   
   <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
   
@@ -63,8 +55,6 @@
   <link rel="stylesheet" href="/css/categories-postinfo.css">
   
   <link rel="stylesheet" href="/css/footer.css">
-  
-  <link rel="stylesheet" href="/css/banner-page.css">
   
   <link rel="stylesheet" href="/css/article-prose.css">
   
@@ -76,9 +66,29 @@
   
   <link rel="stylesheet" href="/css/custom.css">
 
-  <meta name="theme-color" content="#6750A4">
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
 
   
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
   
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
@@ -125,7 +135,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 85</a>
+    >笔记 · 108</a>
       
     
       
@@ -133,7 +143,7 @@
       href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
       class="topbar-desktop-link topbar-category-link"
       
-    >碎碎念 · 454</a>
+    >碎碎念 · 461</a>
       
     
       
@@ -141,7 +151,7 @@
       href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
       class="topbar-desktop-link topbar-category-link"
       
-    >流水账 · 192</a>
+    >流水账 · 193</a>
       
     
       
@@ -150,14 +160,6 @@
       class="topbar-desktop-link topbar-category-link"
       
     >散文 · 11</a>
-      
-    
-      
-    <a
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      class="topbar-desktop-link topbar-category-link"
-      
-    >专栏 · 2</a>
       
     
   </nav>
@@ -386,7 +388,7 @@
       <span>No posts</span>
     </div>
   </div>
-  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2021.11.27 最近给几个朋友展示了一下初高中学竞赛时写","url":"/2021.11.27%20%E6%9C%80%E8%BF%91%E7%BB%99%E5%87%A0%E4%B8%AA%E6%9C%8B%E5%8F%8B%E5%B1%95%E7%A4%BA%E4%BA%86%E4%B8%80%E4%B8%8B%E5%88%9D%E9%AB%98%E4%B8%AD%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%97%B6%E5%86%99/","date":"2021-11-27","tags":["反思","随笔","OI"]},{"title":"2022.02.24 2020年2月22日，著名目标检测算法Y","url":"/2022.02.24%202020%E5%B9%B42%E6%9C%8822%E6%97%A5%EF%BC%8C%E8%91%97%E5%90%8D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95Y/","date":"2022-02-24","tags":["随笔"]},{"title":"辩论","url":"/%E8%BE%A9%E8%AE%BA/","date":"2022-08-31","tags":["随笔"]},{"title":"2022.09.28 原来的Q名感觉有点实名上网了","url":"/2022.09.28%20%E5%8E%9F%E6%9D%A5%E7%9A%84Q%E5%90%8D%E6%84%9F%E8%A7%89%E6%9C%89%E7%82%B9%E5%AE%9E%E5%90%8D%E4%B8%8A%E7%BD%91%E4%BA%86/","date":"2022-09-28","tags":["吹响吧！上低音号","随笔"]},{"title":"苏格拉底的申辩","url":"/%E8%8B%8F%E6%A0%BC%E6%8B%89%E5%BA%95%E7%9A%84%E7%94%B3%E8%BE%A9/","date":"2023-04-23","tags":["随笔"]},{"title":"2023.05.28 这本书我也是高中囫囵吞枣看完的","url":"/2023.05.28%20%E8%BF%99%E6%9C%AC%E4%B9%A6%E6%88%91%E4%B9%9F%E6%98%AF%E9%AB%98%E4%B8%AD%E5%9B%AB%E5%9B%B5%E5%90%9E%E6%9E%A3%E7%9C%8B%E5%AE%8C%E7%9A%84/","date":"2023-05-28","tags":["数学","随笔"]},{"title":"2023.06.20","url":"/2023.06.20/","date":"2023-06-20","tags":["反思","数学","随笔"]},{"title":"关于LLM的胡扯","url":"/%E5%85%B3%E4%BA%8ELLM%E7%9A%84%E8%83%A1%E6%89%AF/","date":"2023-07-12","tags":["随笔","LLM"]},{"title":"2023.09.15 中午游园会卖艺才发现脑子只能对东方曲子做","url":"/2023.09.15%20%E4%B8%AD%E5%8D%88%E6%B8%B8%E5%9B%AD%E4%BC%9A%E5%8D%96%E8%89%BA%E6%89%8D%E5%8F%91%E7%8E%B0%E8%84%91%E5%AD%90%E5%8F%AA%E8%83%BD%E5%AF%B9%E4%B8%9C%E6%96%B9%E6%9B%B2%E5%AD%90%E5%81%9A/","date":"2023-09-15","tags":["随笔","音乐"]},{"title":"少说抽象话","url":"/%E5%B0%91%E8%AF%B4%E6%8A%BD%E8%B1%A1%E8%AF%9D/","date":"2023-11-01","tags":["随笔"]},{"title":"茶与健康感想","url":"/%E8%8C%B6%E4%B8%8E%E5%81%A5%E5%BA%B7%E6%84%9F%E6%83%B3/","date":"2024-01-05","tags":["随笔"]},{"title":"正统汉语在客家","url":"/%E6%AD%A3%E7%BB%9F%E6%B1%89%E8%AF%AD%E5%9C%A8%E5%AE%A2%E5%AE%B6/","date":"2024-01-20","tags":["随笔","语言学"]},{"title":"2024.03.20 既然广佛同城那广佛德比是不是也是一种德比","url":"/2024.03.20%20%E6%97%A2%E7%84%B6%E5%B9%BF%E4%BD%9B%E5%90%8C%E5%9F%8E%E9%82%A3%E5%B9%BF%E4%BD%9B%E5%BE%B7%E6%AF%94%E6%98%AF%E4%B8%8D%E6%98%AF%E4%B9%9F%E6%98%AF%E4%B8%80%E7%A7%8D%E5%BE%B7%E6%AF%94/","date":"2024-03-20","tags":["随笔","足球"]},{"title":"匹诺康尼游记","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E6%B8%B8%E8%AE%B0/","date":"2024-04-02","tags":["读后感","随笔","游戏/崩铁"]},{"title":"2024.12.31 跨年从下午到晚上上完了本科阶段最后一门课","url":"/2024.12.31%20%E8%B7%A8%E5%B9%B4%E4%BB%8E%E4%B8%8B%E5%8D%88%E5%88%B0%E6%99%9A%E4%B8%8A%E4%B8%8A%E5%AE%8C%E4%BA%86%E6%9C%AC%E7%A7%91%E9%98%B6%E6%AE%B5%E6%9C%80%E5%90%8E%E4%B8%80%E9%97%A8%E8%AF%BE/","date":"2024-12-31","tags":["数学","随笔","学业/课程"]},{"title":"2025.01.01 2025的第一天","url":"/2025.01.01%202025%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/","date":"2025-01-01","tags":["随笔","AI"]},{"title":"2025.05.12 论文终于抄完了","url":"/2025.05.12%20%E8%AE%BA%E6%96%87%E7%BB%88%E4%BA%8E%E6%8A%84%E5%AE%8C%E4%BA%86/","date":"2025-05-12","tags":["随笔"]},{"title":"2026.04.07 如图","url":"/2026.04.07%20%E5%A6%82%E5%9B%BE/","date":"2026-04-07","tags":["动漫","随笔","音乐"]},{"title":"关于xp的发癫","url":"/%E5%85%B3%E4%BA%8Exp%E7%9A%84%E5%8F%91%E7%99%AB/","date":"2026-05-18","tags":["随笔"]}]}</script>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2021.11.27 最近给几个朋友展示了一下初高中学竞赛时写","url":"/2021.11.27%20%E6%9C%80%E8%BF%91%E7%BB%99%E5%87%A0%E4%B8%AA%E6%9C%8B%E5%8F%8B%E5%B1%95%E7%A4%BA%E4%BA%86%E4%B8%80%E4%B8%8B%E5%88%9D%E9%AB%98%E4%B8%AD%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%97%B6%E5%86%99/","date":"2021-11-27","tags":["反思","随笔","OI"]},{"title":"2022.02.24 2020年2月22日，著名目标检测算法Y","url":"/2022.02.24%202020%E5%B9%B42%E6%9C%8822%E6%97%A5%EF%BC%8C%E8%91%97%E5%90%8D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95Y/","date":"2022-02-24","tags":["随笔"]},{"title":"辩论","url":"/%E8%BE%A9%E8%AE%BA/","date":"2022-08-31","tags":["随笔"]},{"title":"2022.09.28 原来的Q名感觉有点实名上网了","url":"/2022.09.28%20%E5%8E%9F%E6%9D%A5%E7%9A%84Q%E5%90%8D%E6%84%9F%E8%A7%89%E6%9C%89%E7%82%B9%E5%AE%9E%E5%90%8D%E4%B8%8A%E7%BD%91%E4%BA%86/","date":"2022-09-28","tags":["吹响吧！上低音号","随笔"]},{"title":"苏格拉底的申辩","url":"/%E8%8B%8F%E6%A0%BC%E6%8B%89%E5%BA%95%E7%9A%84%E7%94%B3%E8%BE%A9/","date":"2023-04-23","tags":["随笔"]},{"title":"2023.05.28 这本书我也是高中囫囵吞枣看完的","url":"/2023.05.28%20%E8%BF%99%E6%9C%AC%E4%B9%A6%E6%88%91%E4%B9%9F%E6%98%AF%E9%AB%98%E4%B8%AD%E5%9B%AB%E5%9B%B5%E5%90%9E%E6%9E%A3%E7%9C%8B%E5%AE%8C%E7%9A%84/","date":"2023-05-28","tags":["数学","随笔"]},{"title":"2023.06.20","url":"/2023.06.20/","date":"2023-06-20","tags":["反思","数学","随笔"]},{"title":"关于LLM的胡扯","url":"/%E5%85%B3%E4%BA%8ELLM%E7%9A%84%E8%83%A1%E6%89%AF/","date":"2023-07-12","tags":["随笔","AI","AI/LLM"]},{"title":"2023.09.15 中午游园会卖艺才发现脑子只能对东方曲子做","url":"/2023.09.15%20%E4%B8%AD%E5%8D%88%E6%B8%B8%E5%9B%AD%E4%BC%9A%E5%8D%96%E8%89%BA%E6%89%8D%E5%8F%91%E7%8E%B0%E8%84%91%E5%AD%90%E5%8F%AA%E8%83%BD%E5%AF%B9%E4%B8%9C%E6%96%B9%E6%9B%B2%E5%AD%90%E5%81%9A/","date":"2023-09-15","tags":["随笔","音乐"]},{"title":"少说抽象话","url":"/%E5%B0%91%E8%AF%B4%E6%8A%BD%E8%B1%A1%E8%AF%9D/","date":"2023-11-01","tags":["随笔"]},{"title":"茶与健康感想","url":"/%E8%8C%B6%E4%B8%8E%E5%81%A5%E5%BA%B7%E6%84%9F%E6%83%B3/","date":"2024-01-05","tags":["随笔"]},{"title":"正统汉语在客家","url":"/%E6%AD%A3%E7%BB%9F%E6%B1%89%E8%AF%AD%E5%9C%A8%E5%AE%A2%E5%AE%B6/","date":"2024-01-20","tags":["随笔","语言学"]},{"title":"2024.03.20 既然广佛同城那广佛德比是不是也是一种德比","url":"/2024.03.20%20%E6%97%A2%E7%84%B6%E5%B9%BF%E4%BD%9B%E5%90%8C%E5%9F%8E%E9%82%A3%E5%B9%BF%E4%BD%9B%E5%BE%B7%E6%AF%94%E6%98%AF%E4%B8%8D%E6%98%AF%E4%B9%9F%E6%98%AF%E4%B8%80%E7%A7%8D%E5%BE%B7%E6%AF%94/","date":"2024-03-20","tags":["随笔","足球"]},{"title":"匹诺康尼游记","url":"/%E5%8C%B9%E8%AF%BA%E5%BA%B7%E5%B0%BC%E6%B8%B8%E8%AE%B0/","date":"2024-04-02","tags":["读后感","随笔","游戏/崩铁"]},{"title":"2024.12.31 跨年从下午到晚上上完了本科阶段最后一门课","url":"/2024.12.31%20%E8%B7%A8%E5%B9%B4%E4%BB%8E%E4%B8%8B%E5%8D%88%E5%88%B0%E6%99%9A%E4%B8%8A%E4%B8%8A%E5%AE%8C%E4%BA%86%E6%9C%AC%E7%A7%91%E9%98%B6%E6%AE%B5%E6%9C%80%E5%90%8E%E4%B8%80%E9%97%A8%E8%AF%BE/","date":"2024-12-31","tags":["数学","随笔","学业/课程"]},{"title":"2025.01.01 2025的第一天","url":"/2025.01.01%202025%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/","date":"2025-01-01","tags":["随笔","AI"]},{"title":"2025.05.12 论文终于抄完了","url":"/2025.05.12%20%E8%AE%BA%E6%96%87%E7%BB%88%E4%BA%8E%E6%8A%84%E5%AE%8C%E4%BA%86/","date":"2025-05-12","tags":["随笔"]},{"title":"2026.04.07 如图","url":"/2026.04.07%20%E5%A6%82%E5%9B%BE/","date":"2026-04-07","tags":["动漫","随笔","音乐"]},{"title":"关于xp的发癫","url":"/%E5%85%B3%E4%BA%8Exp%E7%9A%84%E5%8F%91%E7%99%AB/","date":"2026-08-11","tags":["随笔"]}]}</script>
 </div>
 
 
@@ -431,6 +433,13 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
+        href="/tags/AI/"
+        
+      >AI · 2</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
         href="/tags/%E5%90%B9%E5%93%8D%E5%90%A7%EF%BC%81%E4%B8%8A%E4%BD%8E%E9%9F%B3%E5%8F%B7/"
         
       >吹响吧！上低音号 · 1</a>
@@ -449,13 +458,6 @@
         
       >读后感 · 1</a>
           
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/%E5%AD%A6%E4%B8%9A-%E8%AF%BE%E7%A8%8B/"
-        
-      >学业/课程 · 1</a>
-          
         </div>
         
         <details class="index-taxonomy__tags-details">
@@ -465,6 +467,13 @@
           </summary>
           <div class="index-taxonomy__tags-overflow-sleeve">
             <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
+              
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/%E5%AD%A6%E4%B8%9A-%E8%AF%BE%E7%A8%8B/"
+        
+      >学业/课程 · 1</a>
               
       <a
         role="listitem"
@@ -490,16 +499,9 @@
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/AI/"
+        href="/tags/AI-LLM/"
         
-      >AI · 1</a>
-              
-      <a
-        role="listitem"
-        class="index-taxonomy__chip"
-        href="/tags/LLM/"
-        
-      >LLM · 1</a>
+      >AI/LLM · 1</a>
               
       <a
         role="listitem"
@@ -539,7 +541,7 @@
       
       <span class="note-tag">随笔</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">12 min read</span>
     </div>
   </div>
@@ -812,7 +814,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">随笔</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2023 Jul 12</span>
       <span class="note-read">25 min read</span>
@@ -1176,7 +1178,7 @@
       
     >
       笔记
-      <span slot="description">85 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -1188,7 +1190,7 @@
       
     >
       碎碎念
-      <span slot="description">454 posts</span>
+      <span slot="description">461 posts</span>
     </mdui-list-item>
       
     
@@ -1200,7 +1202,7 @@
       
     >
       流水账
-      <span slot="description">192 posts</span>
+      <span slot="description">193 posts</span>
     </mdui-list-item>
       
     
@@ -1216,18 +1218,6 @@
     </mdui-list-item>
       
     
-      
-    <mdui-list-item
-      rounded
-      icon="folder"
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      
-    >
-      专栏
-      <span slot="description">2 posts</span>
-    </mdui-list-item>
-      
-    
   </mdui-list>
   
 </mdui-navigation-drawer>
@@ -1235,12 +1225,12 @@
 
 
   <!-- Scripts -->
-  <script src="/mdui2/mdui.global.js"></script>
   <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
   

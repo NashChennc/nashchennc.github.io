@@ -13,6 +13,15 @@ body#top {
   font-family: inherit;
 }
 
+/*
+ * 页面由 body 负责纵向滚动。MDUI layout 默认的 hidden/auto 会截断 position:sticky，
+ * 放开这两层后，文章 TOC 才能相对视口吸附。
+ */
+mdui-layout,
+mdui-layout-main {
+  overflow: visible;
+}
+
 .mdui-prose {
   font-family: inherit;
 
@@ -112,6 +121,10 @@ img {
     align-items: start;
   }
 
+  .page-grid--post:not(.page-grid--single) {
+    column-gap: 2.25rem;
+  }
+
   .page-grid--single {
     grid-template-columns: 1fr;
   }
@@ -132,6 +145,13 @@ img {
     max-width: 100%;
     min-width: 0;
     justify-self: stretch;
+  }
+
+  /* sticky 盒子必须完整落入 top/bottom 边界内，否则浏览器会让目录继续随页面滚走 */
+  .page-sidebar--post {
+    box-sizing: border-box;
+    padding-top: 0;
+    padding-bottom: var(--post-toc-viewport-bottom);
   }
 }
 

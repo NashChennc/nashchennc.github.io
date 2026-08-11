@@ -1,5 +1,10 @@
-/* Top app bar: layout/height/sticky behavior is owned by MDUI. */
+/*
+ * MDUI layout 会给栏位写入 position:absolute；这里明确覆盖为视口固定，
+ * 保留 scroll-behavior=elevate 的滚动阴影，但不让 Topbar 随正文离开。
+ */
 .app-top-bar {
+  position: fixed !important;
+  top: 0 !important;
   --mdui-comp-ripple-state-layer-color: transparent;
 }
 
@@ -73,21 +78,12 @@ mdui-button-icon.topbar-mobile-home-btn[aria-current='page'] {
 }
 
 .site-category-drawer__section {
-  padding: 0.75rem 0.75rem 0.5rem;
-}
-
-.site-category-drawer__section-title {
-  margin: 0 0 0.5rem;
-  padding: 0 0.25rem;
-  color: rgb(var(--mdui-color-on-surface-variant));
-  font-size: var(--mdui-typescale-title-small-size, 0.875rem);
-  font-weight: 500;
-  line-height: var(--mdui-typescale-title-small-line-height, 1.25rem);
+  padding: 1rem 0.75rem 0.75rem;
 }
 
 .site-category-drawer__toc .post-toc-scroll {
   max-height: min(62vh, 34rem);
-  padding: 0 0.25rem 0.25rem;
+  padding: 0.25rem 0.5rem 0.5rem 0.375rem;
 }
 
 .site-category-drawer__divider {

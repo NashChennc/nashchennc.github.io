@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html lang="cn" class="mdui-theme-auto">
+<html lang="cn">
 <head>
   <meta charset="UTF-8">
   <script>
     (function () {
-      var KEY = 'mdblog-theme';
-      var el = document.documentElement;
       try {
-        var t = localStorage.getItem(KEY);
-        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
-        if (t === 'light' || t === 'dark') {
-          el.classList.add('mdui-theme-' + t);
-        } else {
-          el.classList.add('mdui-theme-auto');
-        }
-      } catch (err) {
-        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
-        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
       }
     })();
   </script>
@@ -48,13 +40,13 @@
   <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
   
   
+  
+  
   <link rel="stylesheet" href="/css/tokens.css">
   
   <link rel="stylesheet" href="/css/global-layout.css">
   
   <link rel="stylesheet" href="/css/topbar.css">
-  
-  <link rel="stylesheet" href="/css/hero.css">
   
   <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
   
@@ -63,8 +55,6 @@
   <link rel="stylesheet" href="/css/categories-postinfo.css">
   
   <link rel="stylesheet" href="/css/footer.css">
-  
-  <link rel="stylesheet" href="/css/banner-page.css">
   
   <link rel="stylesheet" href="/css/article-prose.css">
   
@@ -76,9 +66,29 @@
   
   <link rel="stylesheet" href="/css/custom.css">
 
-  <meta name="theme-color" content="#6750A4">
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
 
   
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
   
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
@@ -125,7 +135,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 85</a>
+    >笔记 · 108</a>
       
     
       
@@ -133,7 +143,7 @@
       href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
       class="topbar-desktop-link topbar-category-link"
       
-    >碎碎念 · 454</a>
+    >碎碎念 · 461</a>
       
     
       
@@ -141,7 +151,7 @@
       href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
       class="topbar-desktop-link topbar-category-link"
       
-    >流水账 · 192</a>
+    >流水账 · 193</a>
       
     
       
@@ -150,14 +160,6 @@
       class="topbar-desktop-link topbar-category-link"
       
     >散文 · 11</a>
-      
-    
-      
-    <a
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      class="topbar-desktop-link topbar-category-link"
-      
-    >专栏 · 2</a>
       
     
   </nav>
@@ -320,7 +322,7 @@
             <div class="category-index">
                 
                 <header class="notes-header">
-                    <h1 class="notes-title">数学<span class="notes-post-count">51</span></h1>
+                    <h1 class="notes-title">数学<span class="notes-post-count">52</span></h1>
                     
                 </header>
                 
@@ -386,7 +388,7 @@
       <span>No posts</span>
     </div>
   </div>
-  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2022.01.16 盛茂老师讲的课真是好极了","url":"/2022.01.16%20%E7%9B%9B%E8%8C%82%E8%80%81%E5%B8%88%E8%AE%B2%E7%9A%84%E8%AF%BE%E7%9C%9F%E6%98%AF%E5%A5%BD%E6%9E%81%E4%BA%86/","date":"2022-01-16","tags":["数学","学业/课程"]},{"title":"2022.10.03 如图","url":"/2022.10.03%20%E5%A6%82%E5%9B%BE/","date":"2022-10-03","tags":["数学"]},{"title":"2022.12.05 我胡分析一枝独秀","url":"/2022.12.05%20%E6%88%91%E8%83%A1%E5%88%86%E6%9E%90%E4%B8%80%E6%9E%9D%E7%8B%AC%E7%A7%80/","date":"2022-12-05","tags":["数学","学业/课程"]},{"title":"2022.12.21 梦到给意识空间里的东西构造流形","url":"/2022.12.21%20%E6%A2%A6%E5%88%B0%E7%BB%99%E6%84%8F%E8%AF%86%E7%A9%BA%E9%97%B4%E9%87%8C%E7%9A%84%E4%B8%9C%E8%A5%BF%E6%9E%84%E9%80%A0%E6%B5%81%E5%BD%A2/","date":"2022-12-21","tags":["数学"]},{"title":"2023.02.28 继期中速通点集拓扑后妄图速通微分形式","url":"/2023.02.28%20%E7%BB%A7%E6%9C%9F%E4%B8%AD%E9%80%9F%E9%80%9A%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91%E5%90%8E%E5%A6%84%E5%9B%BE%E9%80%9F%E9%80%9A%E5%BE%AE%E5%88%86%E5%BD%A2%E5%BC%8F/","date":"2023-02-28","tags":["数学","学业/课程"]},{"title":"2023.05.07","url":"/2023.05.07/","date":"2023-05-07","tags":["反思","数学","学业/课程","游戏/崩铁"]},{"title":"2023.05.28 这本书我也是高中囫囵吞枣看完的","url":"/2023.05.28%20%E8%BF%99%E6%9C%AC%E4%B9%A6%E6%88%91%E4%B9%9F%E6%98%AF%E9%AB%98%E4%B8%AD%E5%9B%AB%E5%9B%B5%E5%90%9E%E6%9E%A3%E7%9C%8B%E5%AE%8C%E7%9A%84/","date":"2023-05-28","tags":["数学","随笔"]},{"title":"2023.06.04 什么性质？现推一下。什么性质？现推一下。","url":"/2023.06.04%20%E4%BB%80%E4%B9%88%E6%80%A7%E8%B4%A8%EF%BC%9F%E7%8E%B0%E6%8E%A8%E4%B8%80%E4%B8%8B%E3%80%82%E4%BB%80%E4%B9%88%E6%80%A7%E8%B4%A8%EF%BC%9F%E7%8E%B0%E6%8E%A8%E4%B8%80%E4%B8%8B%E3%80%82/","date":"2023-06-04","tags":["数学"]},{"title":"2023.06.20","url":"/2023.06.20/","date":"2023-06-20","tags":["反思","数学","随笔"]},{"title":"2023.06.28 我只不过是上课没听，作业没做，考前也没预","url":"/2023.06.28%20%E6%88%91%E5%8F%AA%E4%B8%8D%E8%BF%87%E6%98%AF%E4%B8%8A%E8%AF%BE%E6%B2%A1%E5%90%AC%EF%BC%8C%E4%BD%9C%E4%B8%9A%E6%B2%A1%E5%81%9A%EF%BC%8C%E8%80%83%E5%89%8D%E4%B9%9F%E6%B2%A1%E9%A2%84/","date":"2023-06-28","tags":["数学","学业/课程"]},{"title":"2023.07.09 感谢实分析的劝退","url":"/2023.07.09%20%E6%84%9F%E8%B0%A2%E5%AE%9E%E5%88%86%E6%9E%90%E7%9A%84%E5%8A%9D%E9%80%80/","date":"2023-07-09","tags":["数学","学业/课程"]},{"title":"2023.09.28 这东西已经学会代我讲废话和口头禅了","url":"/2023.09.28%20%E8%BF%99%E4%B8%9C%E8%A5%BF%E5%B7%B2%E7%BB%8F%E5%AD%A6%E4%BC%9A%E4%BB%A3%E6%88%91%E8%AE%B2%E5%BA%9F%E8%AF%9D%E5%92%8C%E5%8F%A3%E5%A4%B4%E7%A6%85%E4%BA%86/","date":"2023-09-28","tags":["数学"]},{"title":"2023.10.15 树穴实验","url":"/2023.10.15%20%E6%A0%91%E7%A9%B4%E5%AE%9E%E9%AA%8C/","date":"2023-10-15","tags":["数学"]},{"title":"2023.10.31 The form ... is abov","url":"/2023.10.31%20The%20form%20...%20is%20abov/","date":"2023-10-31","tags":["数学","游戏/重返未来1999"]},{"title":"2024.05.20 什么二游会在主线讲实数理论啊","url":"/2024.05.20%20%E4%BB%80%E4%B9%88%E4%BA%8C%E6%B8%B8%E4%BC%9A%E5%9C%A8%E4%B8%BB%E7%BA%BF%E8%AE%B2%E5%AE%9E%E6%95%B0%E7%90%86%E8%AE%BA%E5%95%8A/","date":"2024-05-20","tags":["数学","游戏/重返未来1999"]},{"title":"2024.06.07 如图","url":"/2024.06.07%20%E5%A6%82%E5%9B%BE/","date":"2024-06-07","tags":["数学","AI"]},{"title":"2024.12.18 余自幼习算法。一日，闻马氏组合玄妙不堪、","url":"/2024.12.18%20%E4%BD%99%E8%87%AA%E5%B9%BC%E4%B9%A0%E7%AE%97%E6%B3%95%E3%80%82%E4%B8%80%E6%97%A5%EF%BC%8C%E9%97%BB%E9%A9%AC%E6%B0%8F%E7%BB%84%E5%90%88%E7%8E%84%E5%A6%99%E4%B8%8D%E5%A0%AA%E3%80%81/","date":"2024-12-18","tags":["数学","算法","学业/课程"]},{"title":"2024.12.31 跨年从下午到晚上上完了本科阶段最后一门课","url":"/2024.12.31%20%E8%B7%A8%E5%B9%B4%E4%BB%8E%E4%B8%8B%E5%8D%88%E5%88%B0%E6%99%9A%E4%B8%8A%E4%B8%8A%E5%AE%8C%E4%BA%86%E6%9C%AC%E7%A7%91%E9%98%B6%E6%AE%B5%E6%9C%80%E5%90%8E%E4%B8%80%E9%97%A8%E8%AF%BE/","date":"2024-12-31","tags":["数学","随笔","学业/课程"]},{"title":"组合学-01-组合数的严格化","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-01-%E7%BB%84%E5%90%88%E6%95%B0%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%8C%96/","date":"2024-12-31","tags":["卡特兰数","数学","斯特林数","组合学"]},{"title":"组合学-02-生成函数","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-02-%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/","date":"2024-12-31","tags":["卡特兰数","生成函数","数学","组合学"]},{"title":"组合学-03-容斥和卷积","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-03-%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8D%B7%E7%A7%AF/","date":"2024-12-31","tags":["反演","卷积","容斥原理","数学","组合学"]},{"title":"组合学-04-相异表示系SDR","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-04-%E7%9B%B8%E5%BC%82%E8%A1%A8%E7%A4%BA%E7%B3%BBSDR/","date":"2024-12-31","tags":["棋盘多项式","数学","组合学","SDR"]},{"title":"组合学-06-零点定理","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-06-%E9%9B%B6%E7%82%B9%E5%AE%9A%E7%90%86/","date":"2024-12-31","tags":["代数组合","零点定理","数学","组合学"]},{"title":"组合学-07-谱图理论","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-07-%E8%B0%B1%E5%9B%BE%E7%90%86%E8%AE%BA/","date":"2024-12-31","tags":["谱图理论","数学","特征值","图论","组合学"]},{"title":"2025.01.10 告别战：组合学进阶","url":"/2025.01.10%20%E5%91%8A%E5%88%AB%E6%88%98%EF%BC%9A%E7%BB%84%E5%90%88%E5%AD%A6%E8%BF%9B%E9%98%B6/","date":"2025-01-10","tags":["数学","学业/课程"]},{"title":"从容斥原理到广义卷积","url":"/%E4%BB%8E%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%E5%88%B0%E5%B9%BF%E4%B9%89%E5%8D%B7%E7%A7%AF/","date":"2026-05-18","tags":["笔记","数学","组合学"]},{"title":"分析-01-集合论","url":"/%E5%88%86%E6%9E%90-01-%E9%9B%86%E5%90%88%E8%AE%BA/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"分析-02-实数","url":"/%E5%88%86%E6%9E%90-02-%E5%AE%9E%E6%95%B0/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"分析-03-级数","url":"/%E5%88%86%E6%9E%90-03-%E7%BA%A7%E6%95%B0/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"分析-04-单变量微积分","url":"/%E5%88%86%E6%9E%90-04-%E5%8D%95%E5%8F%98%E9%87%8F%E5%BE%AE%E7%A7%AF%E5%88%86/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"分析-05-拓扑空间","url":"/%E5%88%86%E6%9E%90-05-%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"分析-06-流形","url":"/%E5%88%86%E6%9E%90-06-%E6%B5%81%E5%BD%A2/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"分析-07-张量","url":"/%E5%88%86%E6%9E%90-07-%E5%BC%A0%E9%87%8F/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"复分析-01-复变函数","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-01-%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"复分析-02-柯西积分公式","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-02-%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"复分析-03-复级数","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-03-%E5%A4%8D%E7%BA%A7%E6%95%B0/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"复分析-04-全纯开拓","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-04-%E5%85%A8%E7%BA%AF%E5%BC%80%E6%8B%93/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"近世代数-01-群论","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-01-%E7%BE%A4%E8%AE%BA/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"近世代数-02-群的结构","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-02-%E7%BE%A4%E7%9A%84%E7%BB%93%E6%9E%84/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"近世代数-03-环和域","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-03-%E7%8E%AF%E5%92%8C%E5%9F%9F/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"纽结","url":"/%E7%BA%BD%E7%BB%93/","date":"2026-05-18","tags":["数学"]},{"title":"实分析-01-测度论","url":"/%E5%AE%9E%E5%88%86%E6%9E%90-01-%E6%B5%8B%E5%BA%A6%E8%AE%BA/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"实分析-02-积分","url":"/%E5%AE%9E%E5%88%86%E6%9E%90-02-%E7%A7%AF%E5%88%86/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"线性代数-01-线性空间","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-01-%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"线性代数-02-相抵","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-02-%E7%9B%B8%E6%8A%B5/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"线性代数-03-相似","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-03-%E7%9B%B8%E4%BC%BC/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"线性代数-04-相合","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-04-%E7%9B%B8%E5%90%88/","date":"2026-05-18","tags":["数学","学业/课程"]},{"title":"组合学-05-Polya计数理论","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-05-Polya%E8%AE%A1%E6%95%B0%E7%90%86%E8%AE%BA/","date":"2026-05-18","tags":["笔记","数学","组合学"]},{"title":"LaTeX 常用符号","url":"/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/","date":"2026-05-18","tags":["数学","Coding"]},{"title":"代数学","url":"/%E4%BB%A3%E6%95%B0%E5%AD%A6/","date":"2026-06-18","tags":["数学","学业/课程"]},{"title":"分析学","url":"/%E5%88%86%E6%9E%90%E5%AD%A6/","date":"2026-06-18","tags":["数学","学业/课程"]}]}</script>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2022.01.16 盛茂老师讲的课真是好极了","url":"/2022.01.16%20%E7%9B%9B%E8%8C%82%E8%80%81%E5%B8%88%E8%AE%B2%E7%9A%84%E8%AF%BE%E7%9C%9F%E6%98%AF%E5%A5%BD%E6%9E%81%E4%BA%86/","date":"2022-01-16","tags":["数学","学业/课程"]},{"title":"2022.10.03 如图","url":"/2022.10.03%20%E5%A6%82%E5%9B%BE/","date":"2022-10-03","tags":["数学"]},{"title":"2022.12.05 我胡分析一枝独秀","url":"/2022.12.05%20%E6%88%91%E8%83%A1%E5%88%86%E6%9E%90%E4%B8%80%E6%9E%9D%E7%8B%AC%E7%A7%80/","date":"2022-12-05","tags":["数学","学业/课程"]},{"title":"2022.12.21 梦到给意识空间里的东西构造流形","url":"/2022.12.21%20%E6%A2%A6%E5%88%B0%E7%BB%99%E6%84%8F%E8%AF%86%E7%A9%BA%E9%97%B4%E9%87%8C%E7%9A%84%E4%B8%9C%E8%A5%BF%E6%9E%84%E9%80%A0%E6%B5%81%E5%BD%A2/","date":"2022-12-21","tags":["数学"]},{"title":"2023.02.28 继期中速通点集拓扑后妄图速通微分形式","url":"/2023.02.28%20%E7%BB%A7%E6%9C%9F%E4%B8%AD%E9%80%9F%E9%80%9A%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91%E5%90%8E%E5%A6%84%E5%9B%BE%E9%80%9F%E9%80%9A%E5%BE%AE%E5%88%86%E5%BD%A2%E5%BC%8F/","date":"2023-02-28","tags":["数学","学业/课程"]},{"title":"2023.05.07","url":"/2023.05.07/","date":"2023-05-07","tags":["反思","数学","学业/课程","游戏/崩铁"]},{"title":"2023.05.28 这本书我也是高中囫囵吞枣看完的","url":"/2023.05.28%20%E8%BF%99%E6%9C%AC%E4%B9%A6%E6%88%91%E4%B9%9F%E6%98%AF%E9%AB%98%E4%B8%AD%E5%9B%AB%E5%9B%B5%E5%90%9E%E6%9E%A3%E7%9C%8B%E5%AE%8C%E7%9A%84/","date":"2023-05-28","tags":["数学","随笔"]},{"title":"2023.06.04 什么性质？现推一下。什么性质？现推一下。","url":"/2023.06.04%20%E4%BB%80%E4%B9%88%E6%80%A7%E8%B4%A8%EF%BC%9F%E7%8E%B0%E6%8E%A8%E4%B8%80%E4%B8%8B%E3%80%82%E4%BB%80%E4%B9%88%E6%80%A7%E8%B4%A8%EF%BC%9F%E7%8E%B0%E6%8E%A8%E4%B8%80%E4%B8%8B%E3%80%82/","date":"2023-06-04","tags":["数学"]},{"title":"2023.06.20","url":"/2023.06.20/","date":"2023-06-20","tags":["反思","数学","随笔"]},{"title":"2023.06.28 我只不过是上课没听，作业没做，考前也没预","url":"/2023.06.28%20%E6%88%91%E5%8F%AA%E4%B8%8D%E8%BF%87%E6%98%AF%E4%B8%8A%E8%AF%BE%E6%B2%A1%E5%90%AC%EF%BC%8C%E4%BD%9C%E4%B8%9A%E6%B2%A1%E5%81%9A%EF%BC%8C%E8%80%83%E5%89%8D%E4%B9%9F%E6%B2%A1%E9%A2%84/","date":"2023-06-28","tags":["数学","学业/课程"]},{"title":"2023.07.09 感谢实分析的劝退","url":"/2023.07.09%20%E6%84%9F%E8%B0%A2%E5%AE%9E%E5%88%86%E6%9E%90%E7%9A%84%E5%8A%9D%E9%80%80/","date":"2023-07-09","tags":["数学","学业/课程"]},{"title":"2023.09.28 这东西已经学会代我讲废话和口头禅了","url":"/2023.09.28%20%E8%BF%99%E4%B8%9C%E8%A5%BF%E5%B7%B2%E7%BB%8F%E5%AD%A6%E4%BC%9A%E4%BB%A3%E6%88%91%E8%AE%B2%E5%BA%9F%E8%AF%9D%E5%92%8C%E5%8F%A3%E5%A4%B4%E7%A6%85%E4%BA%86/","date":"2023-09-28","tags":["数学"]},{"title":"2023.10.15 树穴实验","url":"/2023.10.15%20%E6%A0%91%E7%A9%B4%E5%AE%9E%E9%AA%8C/","date":"2023-10-15","tags":["数学"]},{"title":"2023.10.31 The form ... is abov","url":"/2023.10.31%20The%20form%20...%20is%20abov/","date":"2023-10-31","tags":["数学","游戏/重返未来1999"]},{"title":"2024.05.20 什么二游会在主线讲实数理论啊","url":"/2024.05.20%20%E4%BB%80%E4%B9%88%E4%BA%8C%E6%B8%B8%E4%BC%9A%E5%9C%A8%E4%B8%BB%E7%BA%BF%E8%AE%B2%E5%AE%9E%E6%95%B0%E7%90%86%E8%AE%BA%E5%95%8A/","date":"2024-05-20","tags":["数学","游戏/重返未来1999"]},{"title":"2024.06.07 如图","url":"/2024.06.07%20%E5%A6%82%E5%9B%BE/","date":"2024-06-07","tags":["数学","AI"]},{"title":"2024.12.18 余自幼习算法。一日，闻马氏组合玄妙不堪、","url":"/2024.12.18%20%E4%BD%99%E8%87%AA%E5%B9%BC%E4%B9%A0%E7%AE%97%E6%B3%95%E3%80%82%E4%B8%80%E6%97%A5%EF%BC%8C%E9%97%BB%E9%A9%AC%E6%B0%8F%E7%BB%84%E5%90%88%E7%8E%84%E5%A6%99%E4%B8%8D%E5%A0%AA%E3%80%81/","date":"2024-12-18","tags":["数学","算法","学业/课程"]},{"title":"2024.12.31 跨年从下午到晚上上完了本科阶段最后一门课","url":"/2024.12.31%20%E8%B7%A8%E5%B9%B4%E4%BB%8E%E4%B8%8B%E5%8D%88%E5%88%B0%E6%99%9A%E4%B8%8A%E4%B8%8A%E5%AE%8C%E4%BA%86%E6%9C%AC%E7%A7%91%E9%98%B6%E6%AE%B5%E6%9C%80%E5%90%8E%E4%B8%80%E9%97%A8%E8%AF%BE/","date":"2024-12-31","tags":["数学","随笔","学业/课程"]},{"title":"组合学-01-组合数的严格化","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-01-%E7%BB%84%E5%90%88%E6%95%B0%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%8C%96/","date":"2024-12-31","tags":["卡特兰数","数学","斯特林数","组合学"]},{"title":"组合学-02-生成函数","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-02-%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/","date":"2024-12-31","tags":["卡特兰数","生成函数","数学","组合学"]},{"title":"组合学-03-容斥和卷积","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-03-%E5%AE%B9%E6%96%A5%E5%92%8C%E5%8D%B7%E7%A7%AF/","date":"2024-12-31","tags":["反演","卷积","容斥原理","数学","组合学"]},{"title":"组合学-04-相异表示系SDR","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-04-%E7%9B%B8%E5%BC%82%E8%A1%A8%E7%A4%BA%E7%B3%BBSDR/","date":"2024-12-31","tags":["棋盘多项式","数学","组合学","SDR"]},{"title":"组合学-06-零点定理","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-06-%E9%9B%B6%E7%82%B9%E5%AE%9A%E7%90%86/","date":"2024-12-31","tags":["代数组合","零点定理","数学","组合学"]},{"title":"组合学-07-谱图理论","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-07-%E8%B0%B1%E5%9B%BE%E7%90%86%E8%AE%BA/","date":"2024-12-31","tags":["谱图理论","数学","特征值","图论","组合学"]},{"title":"2025.01.10 告别战：组合学进阶","url":"/2025.01.10%20%E5%91%8A%E5%88%AB%E6%88%98%EF%BC%9A%E7%BB%84%E5%90%88%E5%AD%A6%E8%BF%9B%E9%98%B6/","date":"2025-01-10","tags":["数学","学业/课程"]},{"title":"从容斥原理到广义卷积","url":"/%E4%BB%8E%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%E5%88%B0%E5%B9%BF%E4%B9%89%E5%8D%B7%E7%A7%AF/","date":"2026-08-11","tags":["笔记","数学","组合学"]},{"title":"代数学","url":"/%E4%BB%A3%E6%95%B0%E5%AD%A6/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"分析-01-集合论","url":"/%E5%88%86%E6%9E%90-01-%E9%9B%86%E5%90%88%E8%AE%BA/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"分析-02-实数","url":"/%E5%88%86%E6%9E%90-02-%E5%AE%9E%E6%95%B0/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"分析-03-级数","url":"/%E5%88%86%E6%9E%90-03-%E7%BA%A7%E6%95%B0/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"分析-04-单变量微积分","url":"/%E5%88%86%E6%9E%90-04-%E5%8D%95%E5%8F%98%E9%87%8F%E5%BE%AE%E7%A7%AF%E5%88%86/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"分析-05-拓扑空间","url":"/%E5%88%86%E6%9E%90-05-%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"分析-06-流形","url":"/%E5%88%86%E6%9E%90-06-%E6%B5%81%E5%BD%A2/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"分析-07-张量","url":"/%E5%88%86%E6%9E%90-07-%E5%BC%A0%E9%87%8F/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"分析学","url":"/%E5%88%86%E6%9E%90%E5%AD%A6/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"复分析-01-复变函数","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-01-%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"复分析-02-柯西积分公式","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-02-%E6%9F%AF%E8%A5%BF%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"复分析-03-复级数","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-03-%E5%A4%8D%E7%BA%A7%E6%95%B0/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"复分析-04-全纯开拓","url":"/%E5%A4%8D%E5%88%86%E6%9E%90-04-%E5%85%A8%E7%BA%AF%E5%BC%80%E6%8B%93/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"近世代数-01-群论","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-01-%E7%BE%A4%E8%AE%BA/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"近世代数-02-群的结构","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-02-%E7%BE%A4%E7%9A%84%E7%BB%93%E6%9E%84/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"近世代数-03-环和域","url":"/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0-03-%E7%8E%AF%E5%92%8C%E5%9F%9F/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"纽结","url":"/%E7%BA%BD%E7%BB%93/","date":"2026-08-11","tags":["数学"]},{"title":"实分析-01-测度论","url":"/%E5%AE%9E%E5%88%86%E6%9E%90-01-%E6%B5%8B%E5%BA%A6%E8%AE%BA/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"实分析-02-积分","url":"/%E5%AE%9E%E5%88%86%E6%9E%90-02-%E7%A7%AF%E5%88%86/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"数学笔记","url":"/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0/","date":"2026-08-11","tags":["数学"]},{"title":"线性代数-01-线性空间","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-01-%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"线性代数-02-相抵","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-02-%E7%9B%B8%E6%8A%B5/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"线性代数-03-相似","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-03-%E7%9B%B8%E4%BC%BC/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"线性代数-04-相合","url":"/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0-04-%E7%9B%B8%E5%90%88/","date":"2026-08-11","tags":["数学","学业/课程"]},{"title":"组合学-05-Polya计数理论","url":"/%E7%BB%84%E5%90%88%E5%AD%A6-05-Polya%E8%AE%A1%E6%95%B0%E7%90%86%E8%AE%BA/","date":"2026-08-11","tags":["笔记","数学","组合学"]},{"title":"LaTeX 常用符号","url":"/LaTeX%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7/","date":"2026-08-11","tags":["数学","Coding"]}]}</script>
 </div>
 
 
@@ -405,7 +407,7 @@
         class="index-taxonomy__chip"
         href="/tags/%E6%95%B0%E5%AD%A6/"
         aria-current="page"
-      >数学 · 51</a>
+      >数学 · 52</a>
           
       <a
         role="listitem"
@@ -594,81 +596,6 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90%E5%AD%A6/" class="note-card">
-  
-  <img src="/image/banner/nozomizo34.JPG" class="note-cover" alt="分析学" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">分析学</h2>
-      
-      <p class="note-excerpt">分析学笔记总览，涵盖数学分析、复分析、实分析与泛函分析。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">学业/课程</span>
-      
-      <span class="note-date">2026 Jun 18</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E4%BB%A3%E6%95%B0%E5%AD%A6/" class="note-card">
-  
-  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="代数学" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">代数学</h2>
-      
-      <p class="note-excerpt">代数学笔记总览，涵盖抽象代数（群环域）与线性代数。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">学业/课程</span>
-      
-      <span class="note-date">2026 Jun 18</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-01-%E9%9B%86%E5%90%88%E8%AE%BA/" class="note-card">
-  
-  <img src="/image/banner/nozomizo12.PNG" class="note-cover" alt="分析-01-集合论" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">分析-01-集合论</h2>
-      
-      <p class="note-excerpt">集合论公理体系（ZFC）、基数、可数集、选择公理的笔记。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">学业/课程</span>
-      
-      <span class="note-date">2026 May 18</span>
-      <span class="note-read">5 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
 <mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-06-%E6%B5%81%E5%BD%A2/" class="note-card">
   
   <img src="/image/banner/nakayoshi2.jpg" class="note-cover" alt="分析-06-流形" loading="lazy">
@@ -682,35 +609,10 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
-      
-      <span class="note-date">2026 May 18</span>
-      <span class="note-read">5 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E7%BA%BD%E7%BB%93/" class="note-card">
-  
-  <img src="/image/banner/nakayoshi7.JPG" class="note-cover" alt="纽结" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">纽结</h2>
-      
-      <p class="note-excerpt">面向有分析代数基础的读者：Alexander 与 Jones 多项式视角下的纽结不变量硬核笔记。</p>
-      
-    </div>
-    <div class="note-meta">
-      
       <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
-      <span class="note-read">6 min read</span>
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">5 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -732,35 +634,10 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
-      
-      <span class="note-date">2026 May 18</span>
-      <span class="note-read">7 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6-05-Polya%E8%AE%A1%E6%95%B0%E7%90%86%E8%AE%BA/" class="note-card">
-  
-  <img src="/image/banner/nozomizo14.JPG" class="note-cover" alt="组合学-05-Polya计数理论" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">组合学-05-Polya计数理论</h2>
-      
-      <p class="note-excerpt">Pólya 计数与 Burnside 引理：在群对称下染色方案轨道数的系统推导与六边形示例。</p>
-      
-    </div>
-    <div class="note-meta">
-      
       <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
-      <span class="note-read">5 min read</span>
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">7 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -782,9 +659,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">21 min read</span>
     </div>
   </div>
@@ -809,8 +686,58 @@
       
       <span class="note-tag">Coding</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E4%BB%A3%E6%95%B0%E5%AD%A6/" class="note-card">
+  
+  <img src="/image/banner/nozomizo20.JPG" class="note-cover" alt="代数学" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">代数学</h2>
+      
+      <p class="note-excerpt">代数学笔记总览，涵盖抽象代数（群环域）与线性代数。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90-01-%E9%9B%86%E5%90%88%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo12.PNG" class="note-cover" alt="分析-01-集合论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">分析-01-集合论</h2>
+      
+      <p class="note-excerpt">集合论公理体系（ZFC）、基数、可数集、选择公理的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">5 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -832,9 +759,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">5 min read</span>
     </div>
   </div>
@@ -857,9 +784,34 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%88%86%E6%9E%90%E5%AD%A6/" class="note-card">
+  
+  <img src="/image/banner/nozomizo34.JPG" class="note-cover" alt="分析学" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">分析学</h2>
+      
+      <p class="note-excerpt">分析学笔记总览，涵盖数学分析、复分析、实分析与泛函分析。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -882,9 +834,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">7 min read</span>
     </div>
   </div>
@@ -907,35 +859,10 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">8 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/%E5%A4%8D%E5%88%86%E6%9E%90-04-%E5%85%A8%E7%BA%AF%E5%BC%80%E6%8B%93/" class="note-card">
-  
-  <img src="/image/banner/nozomizo9.JPG" class="note-cover" alt="复分析-04-全纯开拓" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">复分析-04-全纯开拓</h2>
-      
-      <p class="note-excerpt">辐角原理、Rouché定理、开映射定理、最大模原理与Schwarz引理的笔记。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">学业/课程</span>
-      
-      <span class="note-date">2026 May 18</span>
-      <span class="note-read">5 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -957,10 +884,60 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">21 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="note-card">
+  
+  <img src="/image/banner/nozomizo29.JPG" class="note-cover" alt="数学笔记" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">数学笔记</h2>
+      
+      <p class="note-excerpt">分析学 几何学 组合学 代数学 纽结 LaTeX常用符号</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BA%BD%E7%BB%93/" class="note-card">
+  
+  <img src="/image/banner/nakayoshi7.JPG" class="note-cover" alt="纽结" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">纽结</h2>
+      
+      <p class="note-excerpt">面向有分析代数基础的读者：Alexander 与 Jones 多项式视角下的纽结不变量硬核笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">6 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -982,10 +959,35 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">6 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BB%84%E5%90%88%E5%AD%A6-05-Polya%E8%AE%A1%E6%95%B0%E7%90%86%E8%AE%BA/" class="note-card">
+  
+  <img src="/image/banner/nozomizo14.JPG" class="note-cover" alt="组合学-05-Polya计数理论" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">组合学-05-Polya计数理论</h2>
+      
+      <p class="note-excerpt">Pólya 计数与 Burnside 引理：在群对称下染色方案轨道数的系统推导与六边形示例。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">5 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -1007,9 +1009,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -1032,9 +1034,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">4 min read</span>
     </div>
   </div>
@@ -1059,7 +1061,7 @@
       
       <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">23 min read</span>
     </div>
   </div>
@@ -1082,9 +1084,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">10 min read</span>
     </div>
   </div>
@@ -1107,9 +1109,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">14 min read</span>
     </div>
   </div>
@@ -1132,9 +1134,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">5 min read</span>
     </div>
   </div>
@@ -1157,10 +1159,35 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">9 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E5%A4%8D%E5%88%86%E6%9E%90-04-%E5%85%A8%E7%BA%AF%E5%BC%80%E6%8B%93/" class="note-card">
+  
+  <img src="/image/banner/nozomizo9.JPG" class="note-cover" alt="复分析-04-全纯开拓" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">复分析-04-全纯开拓</h2>
+      
+      <p class="note-excerpt">辐角原理、Rouché定理、开映射定理、最大模原理与Schwarz引理的笔记。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">数学</span>
+      
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">5 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -1182,9 +1209,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">2 min read</span>
     </div>
   </div>
@@ -1207,9 +1234,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">10 min read</span>
     </div>
   </div>
@@ -1232,9 +1259,9 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">9 min read</span>
     </div>
   </div>
@@ -1257,7 +1284,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
       <span class="note-date">2025 Jan 10</span>
       <span class="note-read">1 min read</span>
@@ -1457,7 +1484,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">算法</span>
+      <span class="note-tag">数学</span>
       
       <span class="note-date">2024 Dec 18</span>
       <span class="note-read">1 min read</span>
@@ -1607,7 +1634,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
       <span class="note-date">2023 Jul 09</span>
       <span class="note-read">1 min read</span>
@@ -1632,7 +1659,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
       <span class="note-date">2023 Jun 28</span>
       <span class="note-read">1 min read</span>
@@ -1757,7 +1784,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
       <span class="note-date">2023 Feb 28</span>
       <span class="note-read">1 min read</span>
@@ -1805,7 +1832,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
       <span class="note-date">2022 Dec 05</span>
       <span class="note-read">1 min read</span>
@@ -1855,7 +1882,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">学业/课程</span>
+      <span class="note-tag">数学</span>
       
       <span class="note-date">2022 Jan 16</span>
       <span class="note-read">1 min read</span>
@@ -2044,7 +2071,7 @@
       
     >
       笔记
-      <span slot="description">85 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -2056,7 +2083,7 @@
       
     >
       碎碎念
-      <span slot="description">454 posts</span>
+      <span slot="description">461 posts</span>
     </mdui-list-item>
       
     
@@ -2068,7 +2095,7 @@
       
     >
       流水账
-      <span slot="description">192 posts</span>
+      <span slot="description">193 posts</span>
     </mdui-list-item>
       
     
@@ -2084,18 +2111,6 @@
     </mdui-list-item>
       
     
-      
-    <mdui-list-item
-      rounded
-      icon="folder"
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      
-    >
-      专栏
-      <span slot="description">2 posts</span>
-    </mdui-list-item>
-      
-    
   </mdui-list>
   
 </mdui-navigation-drawer>
@@ -2103,12 +2118,12 @@
 
 
   <!-- Scripts -->
-  <script src="/mdui2/mdui.global.js"></script>
   <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
   

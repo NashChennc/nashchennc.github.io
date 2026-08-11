@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>202607 Self Evolvement - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
+
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 108</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 461</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 193</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 11</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">202607 Self Evolvement</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Aug 11</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                        <span class="note-read">34 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <p>【2026-07-04】【Lil’Log / Lilian Weng】【研究博客】<a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2026-07-04-harness/">Harness Engineering for Self-Improvement</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 从 Self-Improving Harness 开始的部分：</p>
+<h2 id="5-Safety">5. Safety</h2>
+<p><a href="/202607%20Self-Improvement%20Safety/" title="">202607 Self-Improvement Safety</a></p>
+<h2 id="2-4-Self-Improving-Harness">2.4 Self-Improving Harness</h2>
+<h2 id="2-4-1-Code-是统一的-Harness-表示语言">2.4.1 Code 是统一的 Harness 表示语言</h2>
+<p>Context engineering 和 workflow design 都只覆盖 harness 的一部分。完整 harness 还可能包括：</p>
+<ul>
+<li>system prompt；</li>
+<li>tool definitions；</li>
+<li>tool implementations；</li>
+<li>middleware；</li>
+<li>memory；</li>
+<li>permissions；</li>
+<li>sub-agent configuration；</li>
+<li>control flow；</li>
+<li>evaluator integration；</li>
+<li>error handling。</li>
+</ul>
+<p>原文认为代码是定义这些组件及其关系的通用语言。若 LLM 能够修改执行代理的代码，它可以搜索比自然语言 prompt 更大的空间。</p>
+<h2 id="2-4-2-STOP：不优化答案，而是优化“改进答案的程序”">2.4.2 STOP：不优化答案，而是优化“改进答案的程序”</h2>
+<p>Self-Taught Optimizer，STOP，是早期递归 scaffold 改进的代表。</p>
+<p>种子 improver <code>I_0</code> 接收：</p>
+<ul>
+<li>初始解 <code>s</code>；</li>
+<li>效用函数 <code>u</code>；</li>
+<li>黑盒语言模型 <code>M</code>；</li>
+</ul>
+<p>并输出改进解：</p>
+<p><code>s' = I(u, s; M)</code></p>
+<p>STOP 的目标不是直接改进 <code>s</code>，而是改进 improver <code>I</code>。</p>
+<p>在任务集合 <code>D</code> 上定义 improver 的 meta-utility：</p>
+<p><code>û(I) = (1 / |D|) E_(u,s~D)[u(I(u,s;M))]</code></p>
+<p>随后递归更新：</p>
+<p><code>I_t = I_(t-1)(û, I_(t-1); M)</code></p>
+<p>即上一轮 improver 使用自身作为待改进对象，并以 meta-utility 作为评价函数。</p>
+<p>实验中，改进后的 improver 自动发现了多种优化策略：</p>
+<ul>
+<li>遗传算法；</li>
+<li>分解问题并分别改进；</li>
+<li>多臂 prompt bandit；</li>
+<li>模拟退火；</li>
+<li>调整采样温度；</li>
+<li>beam search；</li>
+<li>tree search。</li>
+</ul>
+<p>原文将其类比为 harness 优化：工作流和 scaffold 本身可以作为效用函数下的优化对象。</p>
+<p>但 STOP 也给出重要警告：GPT-4 驱动的递归改进能提高平均表现，而较弱模型驱动的改进可能使表现下降。递归结构不会凭空创造智能，基础模型必须有能力理解、修改并正确使用优化机制。</p>
+<ul>
+<li>【2023-10】【Microsoft Research / Stanford】【COLM 2024】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2310.02304">Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 将“改进程序”本身作为递归优化对象。结果显示强模型能够发现复杂搜索策略，但弱模型可能在递归过程中退化，说明 harness 自我修改的效果仍由核心模型能力约束。</li>
+</ul>
+<h2 id="2-4-3-Harness-Updating-与-Harness-Benefit-是两种能力">2.4.3 Harness Updating 与 Harness Benefit 是两种能力</h2>
+<p>原文进一步引用研究，将 harness evolution 分解为两个轴：</p>
+<ol>
+<li>
+<p>Harness Updating<br>
+模型是否能够生成有用的 harness 修改。</p>
+</li>
+<li>
+<p>Harness Benefit<br>
+模型是否能够在任务执行中正确利用修改后的 harness。</p>
+</li>
+</ol>
+<p>实验发现，从较小开源模型到前沿闭源模型，生成结构相似的 skill 或 harness 修改并不一定表现出巨大差距；但实际受益能力依赖模型是否能够：</p>
+<ul>
+<li>在正确时机调用 skill；</li>
+<li>正确遵循长程说明；</li>
+<li>在复杂轨迹中维持状态；</li>
+<li>根据条件选择合适工具；</li>
+<li>将外部结构转化为任务收益。</li>
+</ul>
+<p>因此，能写出看似合理的 harness 更新，并不等于能从该更新中获益。</p>
+<ul>
+<li>【2026-05】【PSU / UCSC / Amazon / Emory】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.30621">Harness Updating Is Not Harness Benefit: Disentangling Evolution Capabilities in Self-Evolving LLM Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 将 harness 修改能力和 harness 利用能力分开评价。研究观察到 harness updating 在不同规模模型间较平坦，而 harness benefit 呈非单调变化，中等能力模型有时受益最大，部分弱模型不会调用新增能力，强模型则可能本身已具备相似行为。</li>
+</ul>
+<h2 id="2-4-4-Self-Harness：提出—评价—接受闭环">2.4.4 Self-Harness：提出—评价—接受闭环</h2>
+<p>Self-Harness 使用同一个模型在当前 harness 下执行任务并提出 harness 修改。</p>
+<p>完整循环包含三阶段。</p>
+<h3 id="阶段一：Weakness-Mining">阶段一：Weakness Mining</h3>
+<ul>
+<li>使用当前 harness <code>h_t</code> 执行任务并收集轨迹。</li>
+<li>将失败聚类为 verifier-grounded failure patterns。</li>
+<li>不只记录表面错误，如 timeout 或 missing artifact，还要识别不同的因果机制。</li>
+<li>失败记录需要包含：
+<ul>
+<li>最终 verifier 层面的失败原因；</li>
+<li>相关代理行为的因果状态；</li>
+<li>轨迹揭示的抽象代理机制。</li>
+</ul>
+</li>
+</ul>
+<h3 id="阶段二：Harness-Proposal">阶段二：Harness Proposal</h3>
+<p>同一个模型在 <code>h_t</code> 下作为 proposer，获得受限上下文：</p>
+<ol>
+<li>当前 harness 中允许编辑的部分；</li>
+<li>从评价系统提炼的失败模式；</li>
+<li>应当保留的成功行为；</li>
+<li>过去尝试过的修改摘要。</li>
+</ol>
+<p>修改应优先针对：</p>
+<ul>
+<li>重复出现的错误；</li>
+<li>可以通过 harness 解决的问题；</li>
+<li>非任务本身难度导致的问题；</li>
+<li>可以通过狭窄修改修复的问题。</li>
+</ul>
+<p>候选之间应保持差异和多样性，避免只生成同一修改的措辞变体。</p>
+<h3 id="阶段三：Proposal-Validation">阶段三：Proposal Validation</h3>
+<p>候选修改在两类数据上进行回归测试：</p>
+<ul>
+<li><code>D_in</code>：检查目标弱点是否被修复；</li>
+<li><code>D_out</code>：检查是否引入未知回归。</li>
+</ul>
+<p>只有同时不损害 held-in 和 held-out 表现的候选才能被接受。接受的修改合并为 <code>h_(t+1)</code>；拒绝修改保留记录，但不改变当前 harness。</p>
+<p>原文认为该方法能学到模型特定的 harness 指令，因为不同模型的失败机制不同。</p>
+<p>同时，作者提出安全担忧：若一个程序可以修改整个操作系统，抽象边界就会被打破。可编辑表面必须严格限制，权限控制、评估器和安全层应位于自修改循环之外。</p>
+<ul>
+<li>【2026-06-08】【Shanghai AI Lab】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.09498">Self-Harness: Harnesses That Improve Themselves</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 通过 weakness mining、bounded proposal 和 held-in/held-out validation 自动更新 harness。在 Terminal-Bench-2 上，不同基础模型学到了针对自身错误的不同 harness 指令，并提高 held-out pass rate。</li>
+</ul>
+<h2 id="2-4-5-AHE：以可观测性约束-Harness-Evolution">2.4.5 AHE：以可观测性约束 Harness Evolution</h2>
+<p>Agentic Harness Engineering，AHE，认为 harness 自我演化的瓶颈不是模型不会写代码，而是系统难以回答：</p>
+<ul>
+<li>哪个组件导致了失败；</li>
+<li>修改依据是什么；</li>
+<li>修改后预期改变什么；</li>
+<li>性能提升是否真的来自 harness 修改。</li>
+</ul>
+<p>因此提出三个 observability pillars。</p>
+<h3 id="1-Component-Observability">1. Component Observability</h3>
+<p>每个可编辑 harness 组件都在文件系统中有明确表示，使动作空间可见且可追踪。</p>
+<p>AHE 将 harness 分为七类组件：</p>
+<ol>
+<li>system prompt；</li>
+<li>tool description；</li>
+<li>tool implementation；</li>
+<li>middleware；</li>
+<li>skill；</li>
+<li>sub-agent configuration；</li>
+<li>long-term memory。</li>
+</ol>
+<p>每个失败模式应映射到具体组件，从而避免无目标地修改整个系统。</p>
+<h3 id="2-Experience-Observability">2. Experience Observability</h3>
+<p>系统将大量原始轨迹压缩为分层证据：</p>
+<ul>
+<li>每条轨迹存为独立文件；</li>
+<li>Agent Debugger 对单任务轨迹分析成功或失败根因；</li>
+<li>生成 per-task analysis report；</li>
+<li>将任务报告聚合为 benchmark overview；</li>
+<li>必要时仍可下钻读取原始轨迹。</li>
+</ul>
+<p>这种分层访问比把全部轨迹放入上下文更节省 token，也保留了追溯能力。</p>
+<h3 id="3-Decision-Observability">3. Decision Observability</h3>
+<p>每次修改都必须带有可在下一轮检验的预测。</p>
+<p>Evolve Agent 读取仓库后选择要修改的组件，并在 manifesto 中记录：</p>
+<ul>
+<li>失败证据名称；</li>
+<li>推断的根因；</li>
+<li>目标修复；</li>
+<li>预期修复的行为；</li>
+<li>可能出现回归的行为。</li>
+</ul>
+<p>系统施加两类关键约束：</p>
+<ul>
+<li>修改只能发生在 harness workspace；</li>
+<li>runs、tracer、verifier 和 LLM configuration 保持只读。</li>
+</ul>
+<p>这样可以阻止关闭 verifier、更换模型或增加推理预算等 reward hacking，使性能变化能够归因于 harness 修改。</p>
+<ul>
+<li>【2026-04】【Fudan NLP / PKU / Qiji Zhifeng】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.25850">Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 从组件、经验和决策三个层面建立可观测性。论文在 Terminal-Bench-2 上超过多个人工编码 harness，并显示冻结后的已演化 harness 可以迁移到 SWE-bench Verified，说明其可能编码了通用工程经验，而不只是适配单个 benchmark。</li>
+</ul>
+<hr>
+<h2 id="2-5-Evolutionary-Search">2.5 Evolutionary Search</h2>
+<h2 id="2-5-1-为什么-Harness-适合进化搜索">2.5.1 为什么 Harness 适合进化搜索</h2>
+<p>进化搜索维护候选种群，反复执行：</p>
+<ol>
+<li>选择父代；</li>
+<li>生成变异；</li>
+<li>评价后代；</li>
+<li>保留高 fitness 或高 novelty 候选；</li>
+<li>重复演化。</li>
+</ol>
+<p>原文认为它适合以下问题：</p>
+<ul>
+<li>搜索空间巨大或形状不规则；</li>
+<li>无法方便地求梯度；</li>
+<li>但候选解容易自动执行和评价。</li>
+</ul>
+<p>Harness 同时包含代码、prompt、workflow 和工具配置，搜索空间离散且复杂，但许多任务可以通过测试或 benchmark 自动评价，因此与进化搜索较匹配。</p>
+<h2 id="2-5-2-Promptbreeder：同时演化-Prompt-和-Mutation-Prompt">2.5.2 Promptbreeder：同时演化 Prompt 和 Mutation Prompt</h2>
+<p>Promptbreeder 不只演化任务 prompt，还演化用于指导模型修改任务 prompt 的 mutation prompt。</p>
+<p>这形成自指结构：</p>
+<ul>
+<li>
+<p>task prompt 决定模型怎样解决任务；</p>
+</li>
+<li>
+<p>mutation prompt 决定模型怎样改进 task prompt；</p>
+</li>
+<li>
+<p>mutation prompt 本身也可以被变异和选择。</p>
+</li>
+<li>
+<p>【2023-09】【Google DeepMind】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2309.16797">Promptbreeder: Self-Referential Self-Improvement via Prompt Evolution</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 使用多类 mutation operator 和种群搜索优化任务 prompt，同时让变异指令共同演化。其重要性在于把“产生改进的方法”纳入搜索，而不只是搜索最终提示词。</p>
+</li>
+</ul>
+<h2 id="2-5-3-Darwin-Godel-Machine：让可编辑代理产生后代">2.5.3 Darwin Gödel Machine：让可编辑代理产生后代</h2>
+<p>DGM 与只优化解决方案的系统不同，它直接演化一个可编辑的 coding-agent harness repository。</p>
+<p>基本算法：</p>
+<ol>
+<li>用一个初始编码代理建立种群。</li>
+<li>每轮选择一个父代理。</li>
+<li>选择概率与性能正相关，与已有子代数量负相关，从而兼顾利用和多样性。</li>
+<li>父代理读取自己的 benchmark 日志。</li>
+<li>父代理使用 bash 和 editor 修改自身 harness 代码。</li>
+<li>修改后的版本成为一个新代理分支。</li>
+<li>评价新代理。</li>
+<li>只有表现达到要求的代理进入种群。</li>
+<li>重复直到满足停止条件。</li>
+</ol>
+<p>模型权重保持冻结，演化发生在 harness 层。</p>
+<p>原文引用的实验中，使用 Claude 3.5 Sonnet 和较简单的初始 harness，DGM 代理在 SWE-bench Verified 上从约 20% 提升到约 50%，在 Polyglot 上从约 14.2% 提升到约 30.7%。</p>
+<ul>
+<li>【2025-05】【UBC / Vector Institute / Sakana AI】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2505.22954">Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 构建开放式自修改代理种群。每个代理既是任务求解器，也是可以被其后代继承和修改的程序。通过分支式 archive 避免单一路径退化，并使不同 harness 设计能够长期共存。</li>
+</ul>
+<h2 id="2-5-4-AlphaEvolve：冻结模型驱动的程序进化">2.5.4 AlphaEvolve：冻结模型驱动的程序进化</h2>
+<p>AlphaEvolve 维护候选程序池，让冻结的 LLM 生成代码 diff。</p>
+<p>每轮 prompt 可能包含：</p>
+<ul>
+<li>父程序；</li>
+<li>父程序的运行结果；</li>
+<li>优化目标；</li>
+<li>修改说明；</li>
+<li>元信息。</li>
+</ul>
+<p>编码代理可以访问完整仓库，但可进化区域通过以下标记限制：</p>
+<ul>
+<li><code># EVOLVE-BLOCK-START</code></li>
+<li><code># EVOLVE-BLOCK-END</code></li>
+</ul>
+<p>这种设计在给予模型足够上下文的同时限制修改表面。</p>
+<p>AlphaEvolve 还允许 meta-prompt、说明和上下文与解决方案程序共同演化。消融实验显示，进化流程、上下文、meta-prompt、全文件访问以及更强模型都对最终表现有贡献。</p>
+<ul>
+<li>【2025-06】【Google DeepMind】【Google DeepMind 技术报告】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.13131">AlphaEvolve: A Coding Agent for Scientific and Algorithmic Discovery</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 将 LLM 代码生成与自动 evaluator、候选数据库和进化选择结合。系统适用于矩阵运算、算法发现和数据中心调度等具有明确可执行评价函数的问题。</li>
+</ul>
+<h2 id="2-5-5-GEPA：自然语言反思与-Pareto-进化">2.5.5 GEPA：自然语言反思与 Pareto 进化</h2>
+<p>GEPA 使用语言模型阅读试错轨迹，并通过自然语言反思诊断：</p>
+<ul>
+<li>当前 prompt 的失败原因；</li>
+<li>哪些任务已经解决；</li>
+<li>哪些策略只对部分任务有效；</li>
+<li>怎样修改 prompt；</li>
+<li>哪些历史候选包含互补经验。</li>
+</ul>
+<p>随后将反思生成的 prompt 更新加入进化搜索。系统维护 Pareto frontier，而不只保留单一平均分最高的候选，从而保留在不同任务子集上表现互补的策略。</p>
+<ul>
+<li>【2025-07】【UC Berkeley / Stanford / MIT / Databricks】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2507.19457">GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 结合轨迹级自然语言反思和遗传—Pareto 搜索，用少量完整 rollout 提取高信息密度反馈。在多个语言模型优化任务中，论文报告其样本效率可以超过若干强化学习方法。</li>
+</ul>
+<h2 id="2-5-6-ShinkaEvolve：提高-LLM-程序进化的采样效率">2.5.6 ShinkaEvolve：提高 LLM 程序进化的采样效率</h2>
+<p>ShinkaEvolve 针对进化搜索计算开销大、候选重复的问题提出三个组件：</p>
+<ol>
+<li>
+<p>Parent Sampling<br>
+综合父代性能排名和已产生后代数量。高性能候选获得更多机会，但不会由少数候选垄断全部预算。</p>
+</li>
+<li>
+<p>Code-Novelty Rejection Sampling<br>
+使用代码嵌入的余弦相似度检测候选是否与已有种群过于相似，拒绝低新颖性样本。</p>
+</li>
+<li>
+<p>Meta-Scratchpad<br>
+从成功方案中提炼可复用模式，为未来变异提供指导。</p>
+</li>
+</ol>
+<ul>
+<li>【2025-09】【Sakana AI】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2509.19349">ShinkaEvolve: Towards Open-Ended and Sample-Efficient Program Evolution</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 通过父代采样、新颖性过滤和元级经验记录，提高 LLM 驱动程序演化的样本效率，并降低种群被近似重复程序占据的风险。</li>
+</ul>
+<h2 id="2-5-7-ThetaEvolve、Hyperagents-与-DemoEvolve">2.5.7 ThetaEvolve、Hyperagents 与 DemoEvolve</h2>
+<ul>
+<li>
+<p>【2025-11】【Microsoft Research / UW】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2511.23473">ThetaEvolve: Test-Time Learning on Open Problems</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 在 AlphaEvolve 风格的候选程序数据库和 in-context evolution 之外加入强化学习。其目标是让模型不仅从当前 prompt 读取成功经验，还能把开放问题求解策略写入权重，实现程序搜索和参数学习结合。</p>
+</li>
+<li>
+<p>【2026-03】【Meta FAIR / Meta Superintelligence Labs / UBC / Vector Institute】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2603.19461">Hyperagents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 在 DGM 的基础上引入 meta-agent。任务代理被表示为可修改程序，meta-agent 决定如何修改已有代理并产生新代理，将自我修改从编码任务扩展到更一般的可计算任务。</p>
+</li>
+<li>
+<p>【2026-05-23】【Tsinghua / AgiBot】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.24539">DemoEvolve: Overcoming Sparse Feedback in Agentic Harness Evolution with Demonstrations</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 针对长时程任务只有稀疏最终奖励的问题，在自生成 rollout archive 中加入人类专家演示。演示为失败诊断和 harness 修改提供参考轨迹，帮助系统判断问题出现在规划、工具调用还是执行阶段。</p>
+</li>
+</ul>
+<h2 id="2-5-8-进化搜索的适用边界">2.5.8 进化搜索的适用边界</h2>
+<p>原文认为，这类方法在以下任务上最有优势：</p>
+<ul>
+<li>矩阵乘法；</li>
+<li>GPU kernel 优化；</li>
+<li>算法竞赛；</li>
+<li>数据中心调度；</li>
+<li>可运行程序优化；</li>
+<li>具有自动测试的编码任务。</li>
+</ul>
+<p>共同点是 fitness 容易量化。</p>
+<p>当评价具有以下特征时，进化搜索会明显变困难：</p>
+<ul>
+<li>评价缓慢；</li>
+<li>评价成本高；</li>
+<li>指标模糊；</li>
+<li>多个评价者意见不一致；</li>
+<li>只能依赖启发式 judge；</li>
+<li>真正价值需要长期才能显现。</li>
+</ul>
+<p>此外，进化搜索需要大量候选执行，计算效率和搜索效率仍是核心问题。</p>
+<hr>
+<h2 id="2-6-Joint-Optimization-with-Model-Weights">2.6 Joint Optimization with Model Weights</h2>
+<h2 id="2-6-1-从非参数更新走向参数与系统联合更新">2.6.1 从非参数更新走向参数与系统联合更新</h2>
+<p>Harness evolution 改变的是模型之外的非参数系统。完整自我改进还可以允许模型同步修改权重。</p>
+<p>权重更新可以来自：</p>
+<ul>
+<li>改进训练数据；</li>
+<li>改进训练流水线；</li>
+<li>SFT；</li>
+<li>LoRA；</li>
+<li>强化学习；</li>
+<li>测试时训练；</li>
+<li>持续学习。</li>
+</ul>
+<p>联合系统必须决定：当前失败应该通过修改 harness 解决，还是通过修改模型参数解决。</p>
+<p>例如：</p>
+<ul>
+<li>工具说明不清晰，适合修改 harness；</li>
+<li>模型缺少领域知识，可能需要权重更新；</li>
+<li>工作流缺少验证步骤，适合修改 harness；</li>
+<li>模型无法执行已有复杂策略，可能需要训练；</li>
+<li>高频重复经验可能适合从 memory 内化到权重。</li>
+</ul>
+<h3 id="参考文献补充：Test-Time-Discovery">参考文献补充：Test-Time Discovery</h3>
+<ul>
+<li>【2026-01】【Stanford / NVIDIA / Together AI / UCSD / Astera Institute】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.16175">Learning to Discover at Test Time</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 提出 TTT-Discover，在面对单个开放问题时继续对模型执行测试时强化学习。与提高任务平均准确率不同，其目标更接近在大量尝试中找到一个突破性最优解，为开放式科学和算法发现提供参数侧自我改进路径。</li>
+</ul>
+<h2 id="2-6-2-Continual-Harness">2.6.2 Continual Harness</h2>
+<p>Continual Harness 在不重置的长时程游戏环境中同时执行：</p>
+<ul>
+<li>harness 更新；</li>
+<li>轨迹和记忆积累；</li>
+<li>策略模型持续学习。</li>
+</ul>
+<p>当当前策略产生低奖励轨迹时，强教师模型为轨迹生成更好的动作或标签，随后将这些信息蒸馏到较弱策略模型中。这样，外部 harness 和内部 policy 可以共同适应持续变化的任务。</p>
+<ul>
+<li>【2026-05-11】【Princeton / Google DeepMind】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.09998">Continual Harness: Online Adaptation for Self-Improving Foundation Agents</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 在长时程游戏设置中结合 prompt、skill、sub-agent、memory 更新和教师蒸馏，使代理在不中断任务的情况下持续适应。论文强调 online adaptation，而不是在每轮实验后重新初始化代理。</li>
+</ul>
+<h3 id="参考文献补充：不确定性引导的测试时发现">参考文献补充：不确定性引导的测试时发现</h3>
+<ul>
+<li>【2026-05-11】【Stanford / NUST / OU】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.11328">Epistemic Uncertainty for Test-Time Discovery</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 维护多个 LoRA 假设，以不同适配器在 token 级输出上的分歧估计 epistemic uncertainty。系统将这种分歧作为探索信号，引导模型访问训练覆盖不足、但可能产生新发现的区域。</li>
+</ul>
+<h2 id="2-6-3-SIA：由-Feedback-Agent-决定更新-Harness-还是权重">2.6.3 SIA：由 Feedback-Agent 决定更新 Harness 还是权重</h2>
+<p>SIA 包含三个主要角色：</p>
+<ul>
+<li>Meta-Agent：提出初始 harness；</li>
+<li>Task-Specific Agent：执行实际任务；</li>
+<li>Feedback-Agent：读取近期轨迹，决定下一轮更新 harness 还是模型权重。</li>
+</ul>
+<p>这一结构直接把“更新哪一层”变成代理决策问题。</p>
+<p>但原文对当前实验证据持保留态度：</p>
+<ul>
+<li>Task-Specific Agent 使用的模型明显弱于 Meta-Agent 和 Feedback-Agent；</li>
+<li>不同组件使用不同能力模型，难以判断收益来自架构还是强模型辅助；</li>
+<li>基线较弱，难以与其他 harness 优化方法进行干净比较；</li>
+<li>训练稳定性和 Goodhart effect 仍未解决。</li>
+</ul>
+<p>因此，作者认为方向重要，但当前结果仍属于 provisional evidence。</p>
+<ul>
+<li>【2026-05-28】【Hexo Labs / Oxford】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2605.27276">SIA: Self Improving AI with Harness &amp; Weight Updates</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 尝试把 harness 修改和参数更新纳入同一闭环，由 Feedback-Agent 根据执行轨迹选择更新类型。论文是联合优化方向的早期实例，但实验中不同代理的模型能力和基线设置形成较强混杂因素。</li>
+</ul>
+<hr>
+<h2 id="3-Future-Challenges">3. Future Challenges</h2>
+<h2 id="3-1-自动写论文不等于自动科学发现">3.1 自动写论文不等于自动科学发现</h2>
+<p>原文认为 AI Scientist 类系统已经证明，专家设计的 harness 可以协调研究流程中的大量操作。但论文生产和科学发现并不相同。</p>
+<p>系统可能生成形式完整、语言可信的论文，同时存在：</p>
+<ul>
+<li>伪造引用；</li>
+<li>实验分数不可复现；</li>
+<li>代码与论文描述不一致；</li>
+<li>方案在实现中发生漂移；</li>
+<li>实验本身很弱；</li>
+<li>结论超过证据支持范围。</li>
+</ul>
+<h2 id="3-2-四次自主研究实验中的六类失败">3.2 四次自主研究实验中的六类失败</h2>
+<p>Why LLMs Aren’t Scientists Yet 使用极简工具测试模型能否从想法走到论文。工具主要包括：</p>
+<ul>
+<li><code>read_file</code></li>
+<li><code>write_file</code></li>
+<li><code>llm_search</code></li>
+<li><code>list_files</code></li>
+</ul>
+<p>每个研究想法拥有独立 workspace，代理可以在其中生成和读取文档。实验覆盖：</p>
+<ul>
+<li>world models；</li>
+<li>multi-agent RL；</li>
+<li>AI safety and alignment。</li>
+</ul>
+<p>每个领域提供约 45—50 篇高质量种子文献。人类专家最终选择四个想法进入完整流程，但只有一个被完整执行成论文。</p>
+<p>研究总结出六类反复出现的问题：</p>
+<ol>
+<li>
+<p>Bias Toward Training-Data Defaults<br>
+模型倾向使用训练数据中常见但已经过时的库、命令、文件格式和默认假设，而不检查真实仓库与数据。</p>
+</li>
+<li>
+<p>Implementation Drift Under Execution Pressure<br>
+当原创方法实现困难时，模型逐渐退回更熟悉、更简单的标准方案，最终代码与原始研究想法不再一致。</p>
+</li>
+<li>
+<p>Memory and Context Degradation<br>
+长项目中若关键信息没有保存为持久产物，模型会忘记此前决定、实验条件和失败原因。</p>
+</li>
+<li>
+<p>Over-Optimism<br>
+面对噪声或失败结果，模型仍倾向宣布成功，或用临时数值调整让结果看起来合理。</p>
+</li>
+<li>
+<p>Insufficient Domain Intelligence<br>
+模型缺少研究中的 tacit knowledge，例如实现难度判断、结果合理性判断，以及哪些 baseline 真正重要。</p>
+</li>
+<li>
+<p>Weak Scientific Taste<br>
+实验可能可以运行，却没有回答最重要的问题；系统难以判断哪个方向值得继续追踪。</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>【2025-11-20】【OpenAI，联合 Oxford / Cambridge / LLNL 等】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2511.16072">Early Science Acceleration Experiments with GPT-5</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 记录 GPT-5 在多个真实科研项目中的辅助作用和失败方式。论文观察到模型可能过早宣布发现，通过临时数值修补维持结论，或把噪声解释为突破，原文将其概括为类似 “p-hacking and eureka-ing” 的行为。</p>
+</li>
+<li>
+<p>【2026-01】【Lossfunk】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.03315">Why LLMs Aren’t Scientists Yet: Lessons from Four Autonomous Research Attempts</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 使用最小 scaffold 运行四项端到端自主研究，仅一项完整完成。论文将失败归因于陈旧默认值、实现漂移、记忆退化、过度乐观、领域知识不足和科学品味薄弱。</p>
+</li>
+</ul>
+<h2 id="3-3-七项核心瓶颈">3.3 七项核心瓶颈</h2>
+<h3 id="1-Weak-and-Fuzzy-Evaluators">1. Weak and Fuzzy Evaluators</h3>
+<p>当前自我改进最成功的任务通常有快速、客观且可重复的评价函数，例如：</p>
+<ul>
+<li>单元测试；</li>
+<li>编译结果；</li>
+<li>数学答案；</li>
+<li>游戏得分；</li>
+<li>运行速度；</li>
+<li>benchmark 分数。</li>
+</ul>
+<p>但科研价值、创新性、问题选择和长期影响没有同等精确的 verifier。</p>
+<p>Research taste 同时涉及：</p>
+<ul>
+<li>问题 framing；</li>
+<li>实验设计；</li>
+<li>对意外结果的判断；</li>
+<li>判断哪个失败值得重试；</li>
+<li>判断哪个成功其实没有意义。</li>
+</ul>
+<p>弱 evaluator 会导致系统优化可测指标，而不是实际目标。</p>
+<h3 id="2-Context-and-Memory-Lifecycle">2. Context and Memory Lifecycle</h3>
+<p>代理越自主，记忆增长越快。系统不仅要“拥有记忆”，还要管理记忆生命周期：</p>
+<ul>
+<li>哪些信息进入记忆；</li>
+<li>哪些信息过期；</li>
+<li>哪些结论互相冲突；</li>
+<li>哪些失败应长期保留；</li>
+<li>哪些细节只需短期存在；</li>
+<li>怎样压缩而不丢失关键因果信息；</li>
+<li>怎样从大量历史中检索当前相关经验。</li>
+</ul>
+<p>原文进一步推测，context engineering 可能最终成为智能本身的重要组成，而不只是外部软件技巧。人类能够在一生中维护和重组记忆，长期代理也需要类似能力。</p>
+<h3 id="3-Negative-Results">3. Negative Results</h3>
+<p>科学文献偏向发表成功结果，训练数据中的成功案例远多于失败案例。因此模型可能不擅长：</p>
+<ul>
+<li>判断何时放弃假设；</li>
+<li>承认实验失败；</li>
+<li>记录负结果；</li>
+<li>区分暂时失败和根本不可行；</li>
+<li>避免把失败重新包装为成功。</li>
+</ul>
+<p>研究 harness 应让失败尝试容易保存，因为失败可以帮助剪枝搜索空间，避免后续代理重复走相同路径。</p>
+<h3 id="4-Diversity-Collapse">4. Diversity Collapse</h3>
+<p>进化搜索和强化学习都容易利用当前已知高奖励模式，导致种群收敛为同一方案的近似变体。</p>
+<p>开放式研究中，这尤其危险，因为真正有价值的路线在早期可能：</p>
+<ul>
+<li>得分较低；</li>
+<li>不符合当前 evaluator；</li>
+<li>需要更长时间才显示价值；</li>
+<li>与已有高分方案差异较大。</li>
+</ul>
+<p>因此需要多样性维护、新颖性奖励、分支 archive 和不同评价维度。</p>
+<h3 id="5-Reward-Hacking">5. Reward Hacking</h3>
+<p>自我改进系统会优化它所获得的信号，而不自动理解设计者真正想要的目标。</p>
+<p>例如：</p>
+<ul>
+<li>奖励来自测试时，代理可能只针对测试过拟合；</li>
+<li>奖励来自 judge model 时，代理可能学习讨好该 judge；</li>
+<li>奖励来自 benchmark 时，代理可能利用数据或环境漏洞；</li>
+<li>若允许修改 verifier，代理可能直接削弱验证条件；</li>
+<li>若允许调整预算，代理可能通过增加推理资源而非改进 harness 获得更高分。</li>
+</ul>
+<p>因此 evaluator 和 permission control 应位于 harness evolution loop 之外，并结合：</p>
+<ul>
+<li>held-out tests；</li>
+<li>trace audits；</li>
+<li>只读验证器；</li>
+<li>人类审查；</li>
+<li>修改范围限制。</li>
+</ul>
+<h3 id="6-Long-Term-Success">6. Long-Term Success</h3>
+<p>训练 sandbox 中的奖励通常关注单次 rollout 的结果，但真实软件和科研系统需要长期维护。</p>
+<p>以编码代理为例，代理可能完成当前 issue，却损害：</p>
+<ul>
+<li>可维护性；</li>
+<li>模块所有权边界；</li>
+<li>迁移成本；</li>
+<li>向后兼容性；</li>
+<li>技术债；</li>
+<li>未来调试难度；</li>
+<li>大型团队的协作约定。</li>
+</ul>
+<p>这些后果往往不会在短期 benchmark 中立即出现。如何把长期系统健康纳入训练和评价仍是开放问题。</p>
+<h3 id="7-The-Role-of-Humans">7. The Role of Humans</h3>
+<p>原文不主张简单移除人类，而是让人类向更高抽象层移动。</p>
+<p>人类应在以下位置提供监督和方向：</p>
+<ul>
+<li>选择值得研究的问题；</li>
+<li>定义评价标准；</li>
+<li>设定权限和安全边界；</li>
+<li>判断高影响修改；</li>
+<li>审查 evaluator 无法可靠判断的结果；</li>
+<li>决定何时停止或改变方向。</li>
+</ul>
+<p>关键问题不是“是否有人类参与”，而是人类应在什么时间、以什么抽象层级介入。</p>
+<hr>
+<h2 id="4-Appendix：Useful-Benchmarks">4. Appendix：Useful Benchmarks</h2>
+<h2 id="4-1-科研复现与研究代理">4.1 科研复现与研究代理</h2>
+<ul>
+<li>
+<p>【2024-09】【Princeton】【TMLR 2024】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2409.11363">CORE-Bench: Fostering the Credibility of Published Research Through a Computational Reproducibility Agent Benchmark</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 评估代理能否使用论文提供的代码和数据复现已发表结果。基准包含来自计算机科学、社会科学和医学的 90 篇论文，共形成 270 项任务，并设置不同难度以及纯语言和视觉语言版本。原文记录，当时最强设置在最难任务上的准确率仍约为 21%。</p>
+</li>
+<li>
+<p>【2024-10】【OSU NLP / UW–Madison】【ICLR 2025】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.05080">ScienceAgentBench: Toward Rigorous Assessment of Language Agents for Data-Driven Scientific Discovery</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 从数学、化学、生物和地理四个领域的 44 篇同行评审论文提取 102 个科研任务，覆盖数据处理、模型开发、数据分析和可视化。代理需要生成可执行 Python 程序，而不只是自然语言回答。</p>
+</li>
+<li>
+<p>【2024-10】【OpenAI】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2410.07095">MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 将 75 项 Kaggle 竞赛构造成离线机器学习工程环境，测试数据准备、模型训练、实验管理和预测提交。使用 Kaggle 公开排行榜作为人类基线，并分析推理资源扩展和数据污染问题。论文中最佳设置达到铜牌水平的竞赛比例为 16.9%。</p>
+</li>
+<li>
+<p>【2024-11】【METR / Redwood Research / Harvard】【ICML 2025】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2411.15114">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents Against Human Experts</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 在七个开放式机器学习研究工程环境中比较代理和人类专家。任务包括 kernel 优化、scaling law 实验、embedding 修复和 GPT-2 问答微调。代理在两小时预算下得分可显著高于人类，但人类在八小时和三十二小时预算下具有更好的持续收益。</p>
+</li>
+<li>
+<p>【2025-02】【Stanford Hazy Research / Princeton】【arXiv 预印本】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.10517">KernelBench: Can LLMs Write Efficient GPU Kernels?</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 包含 250 个 PyTorch workload，评价生成 kernel 是否同时正确且快于基线。核心指标 <code>fast_p</code> 表示正确并超过基线速度的 kernel 比例，适合评价编码代理在具有精确执行反馈下的程序优化能力。</p>
+</li>
+<li>
+<p>【2025-04】【OpenAI】【ICML 2025】<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.01848">PaperBench: Evaluating AI’s Ability to Replicate AI Research</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 要求代理从零复现 20 篇 ICML 2024 Spotlight 或 Oral 论文，包括理解论文、建立代码库和执行实验。任务被分解为 8,316 个可独立评分的 rubric，并由原论文作者参与制定。基准还包括较轻量的 PaperBench Code-Dev 和用于评价自动评分器的 JudgeEval。</p>
+</li>
+</ul>
+<h2 id="4-2-这些-Benchmark-在原文中的作用">4.2 这些 Benchmark 在原文中的作用</h2>
+<p>这些 benchmark 分别衡量了自我改进 harness 所需的不同能力：</p>
+<ul>
+<li>CORE-Bench：能否利用已有代码和数据复现科研结果；</li>
+<li>ScienceAgentBench：能否完成真实数据驱动科学任务；</li>
+<li>MLE-bench：能否执行端到端机器学习工程；</li>
+<li>RE-Bench：能否在开放式研发环境中与人类专家竞争；</li>
+<li>KernelBench：能否在明确 verifier 下优化高性能程序；</li>
+<li>PaperBench：能否从论文描述重建完整研究产物。</li>
+</ul>
+<p>它们共同说明，评价 harness 不能只看最终自然语言答案，还需要检查：</p>
+<ul>
+<li>代码；</li>
+<li>执行结果；</li>
+<li>实验产物；</li>
+<li>资源使用；</li>
+<li>可复现性；</li>
+<li>长时程表现；</li>
+<li>与人类专家的比较。</li>
+</ul>
+<hr>
+<h2 id="5-原文整体方法脉络总结">5. 原文整体方法脉络总结</h2>
+<p>原文所描述的 harness 自我改进路线可以概括为五层。</p>
+<h3 id="第一层：Workflow">第一层：Workflow</h3>
+<p>先建立稳定的 <code>Plan → Execute → Observe/Test → Improve</code> 循环，让模型能够持续行动，而不是一次性回答。</p>
+<h3 id="第二层：Persistent-State">第二层：Persistent State</h3>
+<p>把日志、代码、轨迹和实验结果保存到文件系统，避免长期任务完全依赖上下文窗口。</p>
+<h3 id="第三层：Structured-Context-and-Agent-Organization">第三层：Structured Context and Agent Organization</h3>
+<p>使用结构化 playbook、记忆维护、子代理和后台任务，提高长流程的信息密度和并行能力。</p>
+<h3 id="第四层：Harness-as-Code">第四层：Harness as Code</h3>
+<p>将 prompt、工具、memory、workflow、permissions 和 sub-agent configuration 统一表示为可执行代码，使整个系统成为可搜索和可修改对象。</p>
+<h3 id="第五层：Optimizer-Self-Improvement">第五层：Optimizer Self-Improvement</h3>
+<p>进一步优化：</p>
+<ul>
+<li>生成 harness 修改的 proposer；</li>
+<li>选择候选的搜索算法；</li>
+<li>维护种群的进化机制；</li>
+<li>决定 context 如何更新的 skill；</li>
+<li>决定更新 harness 还是权重的 feedback policy。</li>
+</ul>
+<p>最终优化对象从“答案”转向“产生和改进答案的机器”。</p>
+<p>但原文始终保留一个限制条件：</p>
+<p>Harness 可以放大、组织和持久化基础模型已有的智能，却不能保证弱模型通过递归结构自动变强。成功的自我改进同时需要：</p>
+<ul>
+<li>足够强的基础模型；</li>
+<li>可执行且可检查的系统表示；</li>
+<li>高质量 evaluator；</li>
+<li>可追踪的失败证据；</li>
+<li>严格的权限边界；</li>
+<li>held-out validation；</li>
+<li>多样性维护；</li>
+<li>对负结果和长期影响的建模；</li>
+<li>在关键抽象层级上的人类监督。</li>
+</ul>
+<pre><code></code></pre>
+
+                    </div>
+                    
+                    <section class="post-backlinks" aria-labelledby="post-backlinks-title">
+                        <h2 id="post-backlinks-title" class="post-backlinks__title">Referenced by</h2>
+                        <div class="post-backlinks__list">
+                            
+                                <a class="post-backlinks__link" href="/202607%20Agent%20Safety/">202607 Agent Safety</a>
+                            
+                                <a class="post-backlinks__link" href="/%E7%A7%91%E7%A0%94%E7%B4%A2%E5%BC%95/">科研索引</a>
+                            
+                        </div>
+                    </section>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/202607%20Agent%20Safety%20Benchmarks/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">202607 Agent Safety Benchmarks</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/202607%20Agent%20Safety/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">202607 Agent Safety</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+                <div class="post-toc-inner">
+                    <div class="post-toc-scroll mdui-prose">
+                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-Safety"><span class="post-toc-text">5. Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-Self-Improving-Harness"><span class="post-toc-text">2.4 Self-Improving Harness</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-1-Code-%E6%98%AF%E7%BB%9F%E4%B8%80%E7%9A%84-Harness-%E8%A1%A8%E7%A4%BA%E8%AF%AD%E8%A8%80"><span class="post-toc-text">2.4.1 Code 是统一的 Harness 表示语言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-2-STOP%EF%BC%9A%E4%B8%8D%E4%BC%98%E5%8C%96%E7%AD%94%E6%A1%88%EF%BC%8C%E8%80%8C%E6%98%AF%E4%BC%98%E5%8C%96%E2%80%9C%E6%94%B9%E8%BF%9B%E7%AD%94%E6%A1%88%E7%9A%84%E7%A8%8B%E5%BA%8F%E2%80%9D"><span class="post-toc-text">2.4.2 STOP：不优化答案，而是优化“改进答案的程序”</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-3-Harness-Updating-%E4%B8%8E-Harness-Benefit-%E6%98%AF%E4%B8%A4%E7%A7%8D%E8%83%BD%E5%8A%9B"><span class="post-toc-text">2.4.3 Harness Updating 与 Harness Benefit 是两种能力</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-4-Self-Harness%EF%BC%9A%E6%8F%90%E5%87%BA%E2%80%94%E8%AF%84%E4%BB%B7%E2%80%94%E6%8E%A5%E5%8F%97%E9%97%AD%E7%8E%AF"><span class="post-toc-text">2.4.4 Self-Harness：提出—评价—接受闭环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%EF%BC%9AWeakness-Mining"><span class="post-toc-text">阶段一：Weakness Mining</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%EF%BC%9AHarness-Proposal"><span class="post-toc-text">阶段二：Harness Proposal</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%89%EF%BC%9AProposal-Validation"><span class="post-toc-text">阶段三：Proposal Validation</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-5-AHE%EF%BC%9A%E4%BB%A5%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7%E7%BA%A6%E6%9D%9F-Harness-Evolution"><span class="post-toc-text">2.4.5 AHE：以可观测性约束 Harness Evolution</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Component-Observability"><span class="post-toc-text">1. Component Observability</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Experience-Observability"><span class="post-toc-text">2. Experience Observability</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Decision-Observability"><span class="post-toc-text">3. Decision Observability</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-Evolutionary-Search"><span class="post-toc-text">2.5 Evolutionary Search</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-1-%E4%B8%BA%E4%BB%80%E4%B9%88-Harness-%E9%80%82%E5%90%88%E8%BF%9B%E5%8C%96%E6%90%9C%E7%B4%A2"><span class="post-toc-text">2.5.1 为什么 Harness 适合进化搜索</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-2-Promptbreeder%EF%BC%9A%E5%90%8C%E6%97%B6%E6%BC%94%E5%8C%96-Prompt-%E5%92%8C-Mutation-Prompt"><span class="post-toc-text">2.5.2 Promptbreeder：同时演化 Prompt 和 Mutation Prompt</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-3-Darwin-Godel-Machine%EF%BC%9A%E8%AE%A9%E5%8F%AF%E7%BC%96%E8%BE%91%E4%BB%A3%E7%90%86%E4%BA%A7%E7%94%9F%E5%90%8E%E4%BB%A3"><span class="post-toc-text">2.5.3 Darwin Gödel Machine：让可编辑代理产生后代</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-4-AlphaEvolve%EF%BC%9A%E5%86%BB%E7%BB%93%E6%A8%A1%E5%9E%8B%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%BF%9B%E5%8C%96"><span class="post-toc-text">2.5.4 AlphaEvolve：冻结模型驱动的程序进化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-5-GEPA%EF%BC%9A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%8F%8D%E6%80%9D%E4%B8%8E-Pareto-%E8%BF%9B%E5%8C%96"><span class="post-toc-text">2.5.5 GEPA：自然语言反思与 Pareto 进化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-6-ShinkaEvolve%EF%BC%9A%E6%8F%90%E9%AB%98-LLM-%E7%A8%8B%E5%BA%8F%E8%BF%9B%E5%8C%96%E7%9A%84%E9%87%87%E6%A0%B7%E6%95%88%E7%8E%87"><span class="post-toc-text">2.5.6 ShinkaEvolve：提高 LLM 程序进化的采样效率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-7-ThetaEvolve%E3%80%81Hyperagents-%E4%B8%8E-DemoEvolve"><span class="post-toc-text">2.5.7 ThetaEvolve、Hyperagents 与 DemoEvolve</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-8-%E8%BF%9B%E5%8C%96%E6%90%9C%E7%B4%A2%E7%9A%84%E9%80%82%E7%94%A8%E8%BE%B9%E7%95%8C"><span class="post-toc-text">2.5.8 进化搜索的适用边界</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-Joint-Optimization-with-Model-Weights"><span class="post-toc-text">2.6 Joint Optimization with Model Weights</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-1-%E4%BB%8E%E9%9D%9E%E5%8F%82%E6%95%B0%E6%9B%B4%E6%96%B0%E8%B5%B0%E5%90%91%E5%8F%82%E6%95%B0%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%81%94%E5%90%88%E6%9B%B4%E6%96%B0"><span class="post-toc-text">2.6.1 从非参数更新走向参数与系统联合更新</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%A1%A5%E5%85%85%EF%BC%9ATest-Time-Discovery"><span class="post-toc-text">参考文献补充：Test-Time Discovery</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-2-Continual-Harness"><span class="post-toc-text">2.6.2 Continual Harness</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%A1%A5%E5%85%85%EF%BC%9A%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E5%BC%95%E5%AF%BC%E7%9A%84%E6%B5%8B%E8%AF%95%E6%97%B6%E5%8F%91%E7%8E%B0"><span class="post-toc-text">参考文献补充：不确定性引导的测试时发现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-3-SIA%EF%BC%9A%E7%94%B1-Feedback-Agent-%E5%86%B3%E5%AE%9A%E6%9B%B4%E6%96%B0-Harness-%E8%BF%98%E6%98%AF%E6%9D%83%E9%87%8D"><span class="post-toc-text">2.6.3 SIA：由 Feedback-Agent 决定更新 Harness 还是权重</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Future-Challenges"><span class="post-toc-text">3. Future Challenges</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-%E8%87%AA%E5%8A%A8%E5%86%99%E8%AE%BA%E6%96%87%E4%B8%8D%E7%AD%89%E4%BA%8E%E8%87%AA%E5%8A%A8%E7%A7%91%E5%AD%A6%E5%8F%91%E7%8E%B0"><span class="post-toc-text">3.1 自动写论文不等于自动科学发现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-%E5%9B%9B%E6%AC%A1%E8%87%AA%E4%B8%BB%E7%A0%94%E7%A9%B6%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%85%AD%E7%B1%BB%E5%A4%B1%E8%B4%A5"><span class="post-toc-text">3.2 四次自主研究实验中的六类失败</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-%E4%B8%83%E9%A1%B9%E6%A0%B8%E5%BF%83%E7%93%B6%E9%A2%88"><span class="post-toc-text">3.3 七项核心瓶颈</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Weak-and-Fuzzy-Evaluators"><span class="post-toc-text">1. Weak and Fuzzy Evaluators</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Context-and-Memory-Lifecycle"><span class="post-toc-text">2. Context and Memory Lifecycle</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Negative-Results"><span class="post-toc-text">3. Negative Results</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Diversity-Collapse"><span class="post-toc-text">4. Diversity Collapse</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Reward-Hacking"><span class="post-toc-text">5. Reward Hacking</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-Long-Term-Success"><span class="post-toc-text">6. Long-Term Success</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-The-Role-of-Humans"><span class="post-toc-text">7. The Role of Humans</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Appendix%EF%BC%9AUseful-Benchmarks"><span class="post-toc-text">4. Appendix：Useful Benchmarks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-%E7%A7%91%E7%A0%94%E5%A4%8D%E7%8E%B0%E4%B8%8E%E7%A0%94%E7%A9%B6%E4%BB%A3%E7%90%86"><span class="post-toc-text">4.1 科研复现与研究代理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-%E8%BF%99%E4%BA%9B-Benchmark-%E5%9C%A8%E5%8E%9F%E6%96%87%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-text">4.2 这些 Benchmark 在原文中的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E5%8E%9F%E6%96%87%E6%95%B4%E4%BD%93%E6%96%B9%E6%B3%95%E8%84%89%E7%BB%9C%E6%80%BB%E7%BB%93"><span class="post-toc-text">5. 原文整体方法脉络总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9AWorkflow"><span class="post-toc-text">第一层：Workflow</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9APersistent-State"><span class="post-toc-text">第二层：Persistent State</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%89%E5%B1%82%EF%BC%9AStructured-Context-and-Agent-Organization"><span class="post-toc-text">第三层：Structured Context and Agent Organization</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%B1%82%EF%BC%9AHarness-as-Code"><span class="post-toc-text">第四层：Harness as Code</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%94%E5%B1%82%EF%BC%9AOptimizer-Self-Improvement"><span class="post-toc-text">第五层：Optimizer Self-Improvement</span></a></li></ol></li></ol>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
+    <div class="post-toc-scroll mdui-prose">
+      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-Safety"><span class="post-toc-text">5. Safety</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-Self-Improving-Harness"><span class="post-toc-text">2.4 Self-Improving Harness</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-1-Code-%E6%98%AF%E7%BB%9F%E4%B8%80%E7%9A%84-Harness-%E8%A1%A8%E7%A4%BA%E8%AF%AD%E8%A8%80"><span class="post-toc-text">2.4.1 Code 是统一的 Harness 表示语言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-2-STOP%EF%BC%9A%E4%B8%8D%E4%BC%98%E5%8C%96%E7%AD%94%E6%A1%88%EF%BC%8C%E8%80%8C%E6%98%AF%E4%BC%98%E5%8C%96%E2%80%9C%E6%94%B9%E8%BF%9B%E7%AD%94%E6%A1%88%E7%9A%84%E7%A8%8B%E5%BA%8F%E2%80%9D"><span class="post-toc-text">2.4.2 STOP：不优化答案，而是优化“改进答案的程序”</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-3-Harness-Updating-%E4%B8%8E-Harness-Benefit-%E6%98%AF%E4%B8%A4%E7%A7%8D%E8%83%BD%E5%8A%9B"><span class="post-toc-text">2.4.3 Harness Updating 与 Harness Benefit 是两种能力</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-4-Self-Harness%EF%BC%9A%E6%8F%90%E5%87%BA%E2%80%94%E8%AF%84%E4%BB%B7%E2%80%94%E6%8E%A5%E5%8F%97%E9%97%AD%E7%8E%AF"><span class="post-toc-text">2.4.4 Self-Harness：提出—评价—接受闭环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%EF%BC%9AWeakness-Mining"><span class="post-toc-text">阶段一：Weakness Mining</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%EF%BC%9AHarness-Proposal"><span class="post-toc-text">阶段二：Harness Proposal</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%89%EF%BC%9AProposal-Validation"><span class="post-toc-text">阶段三：Proposal Validation</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-5-AHE%EF%BC%9A%E4%BB%A5%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7%E7%BA%A6%E6%9D%9F-Harness-Evolution"><span class="post-toc-text">2.4.5 AHE：以可观测性约束 Harness Evolution</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Component-Observability"><span class="post-toc-text">1. Component Observability</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Experience-Observability"><span class="post-toc-text">2. Experience Observability</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Decision-Observability"><span class="post-toc-text">3. Decision Observability</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-Evolutionary-Search"><span class="post-toc-text">2.5 Evolutionary Search</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-1-%E4%B8%BA%E4%BB%80%E4%B9%88-Harness-%E9%80%82%E5%90%88%E8%BF%9B%E5%8C%96%E6%90%9C%E7%B4%A2"><span class="post-toc-text">2.5.1 为什么 Harness 适合进化搜索</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-2-Promptbreeder%EF%BC%9A%E5%90%8C%E6%97%B6%E6%BC%94%E5%8C%96-Prompt-%E5%92%8C-Mutation-Prompt"><span class="post-toc-text">2.5.2 Promptbreeder：同时演化 Prompt 和 Mutation Prompt</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-3-Darwin-Godel-Machine%EF%BC%9A%E8%AE%A9%E5%8F%AF%E7%BC%96%E8%BE%91%E4%BB%A3%E7%90%86%E4%BA%A7%E7%94%9F%E5%90%8E%E4%BB%A3"><span class="post-toc-text">2.5.3 Darwin Gödel Machine：让可编辑代理产生后代</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-4-AlphaEvolve%EF%BC%9A%E5%86%BB%E7%BB%93%E6%A8%A1%E5%9E%8B%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%BF%9B%E5%8C%96"><span class="post-toc-text">2.5.4 AlphaEvolve：冻结模型驱动的程序进化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-5-GEPA%EF%BC%9A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%8F%8D%E6%80%9D%E4%B8%8E-Pareto-%E8%BF%9B%E5%8C%96"><span class="post-toc-text">2.5.5 GEPA：自然语言反思与 Pareto 进化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-6-ShinkaEvolve%EF%BC%9A%E6%8F%90%E9%AB%98-LLM-%E7%A8%8B%E5%BA%8F%E8%BF%9B%E5%8C%96%E7%9A%84%E9%87%87%E6%A0%B7%E6%95%88%E7%8E%87"><span class="post-toc-text">2.5.6 ShinkaEvolve：提高 LLM 程序进化的采样效率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-7-ThetaEvolve%E3%80%81Hyperagents-%E4%B8%8E-DemoEvolve"><span class="post-toc-text">2.5.7 ThetaEvolve、Hyperagents 与 DemoEvolve</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-8-%E8%BF%9B%E5%8C%96%E6%90%9C%E7%B4%A2%E7%9A%84%E9%80%82%E7%94%A8%E8%BE%B9%E7%95%8C"><span class="post-toc-text">2.5.8 进化搜索的适用边界</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-Joint-Optimization-with-Model-Weights"><span class="post-toc-text">2.6 Joint Optimization with Model Weights</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-1-%E4%BB%8E%E9%9D%9E%E5%8F%82%E6%95%B0%E6%9B%B4%E6%96%B0%E8%B5%B0%E5%90%91%E5%8F%82%E6%95%B0%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%81%94%E5%90%88%E6%9B%B4%E6%96%B0"><span class="post-toc-text">2.6.1 从非参数更新走向参数与系统联合更新</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%A1%A5%E5%85%85%EF%BC%9ATest-Time-Discovery"><span class="post-toc-text">参考文献补充：Test-Time Discovery</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-2-Continual-Harness"><span class="post-toc-text">2.6.2 Continual Harness</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%A1%A5%E5%85%85%EF%BC%9A%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E5%BC%95%E5%AF%BC%E7%9A%84%E6%B5%8B%E8%AF%95%E6%97%B6%E5%8F%91%E7%8E%B0"><span class="post-toc-text">参考文献补充：不确定性引导的测试时发现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-3-SIA%EF%BC%9A%E7%94%B1-Feedback-Agent-%E5%86%B3%E5%AE%9A%E6%9B%B4%E6%96%B0-Harness-%E8%BF%98%E6%98%AF%E6%9D%83%E9%87%8D"><span class="post-toc-text">2.6.3 SIA：由 Feedback-Agent 决定更新 Harness 还是权重</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Future-Challenges"><span class="post-toc-text">3. Future Challenges</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-%E8%87%AA%E5%8A%A8%E5%86%99%E8%AE%BA%E6%96%87%E4%B8%8D%E7%AD%89%E4%BA%8E%E8%87%AA%E5%8A%A8%E7%A7%91%E5%AD%A6%E5%8F%91%E7%8E%B0"><span class="post-toc-text">3.1 自动写论文不等于自动科学发现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-%E5%9B%9B%E6%AC%A1%E8%87%AA%E4%B8%BB%E7%A0%94%E7%A9%B6%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%85%AD%E7%B1%BB%E5%A4%B1%E8%B4%A5"><span class="post-toc-text">3.2 四次自主研究实验中的六类失败</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-%E4%B8%83%E9%A1%B9%E6%A0%B8%E5%BF%83%E7%93%B6%E9%A2%88"><span class="post-toc-text">3.3 七项核心瓶颈</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Weak-and-Fuzzy-Evaluators"><span class="post-toc-text">1. Weak and Fuzzy Evaluators</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Context-and-Memory-Lifecycle"><span class="post-toc-text">2. Context and Memory Lifecycle</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Negative-Results"><span class="post-toc-text">3. Negative Results</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Diversity-Collapse"><span class="post-toc-text">4. Diversity Collapse</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Reward-Hacking"><span class="post-toc-text">5. Reward Hacking</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-Long-Term-Success"><span class="post-toc-text">6. Long-Term Success</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-The-Role-of-Humans"><span class="post-toc-text">7. The Role of Humans</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Appendix%EF%BC%9AUseful-Benchmarks"><span class="post-toc-text">4. Appendix：Useful Benchmarks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-%E7%A7%91%E7%A0%94%E5%A4%8D%E7%8E%B0%E4%B8%8E%E7%A0%94%E7%A9%B6%E4%BB%A3%E7%90%86"><span class="post-toc-text">4.1 科研复现与研究代理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-%E8%BF%99%E4%BA%9B-Benchmark-%E5%9C%A8%E5%8E%9F%E6%96%87%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-text">4.2 这些 Benchmark 在原文中的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E5%8E%9F%E6%96%87%E6%95%B4%E4%BD%93%E6%96%B9%E6%B3%95%E8%84%89%E7%BB%9C%E6%80%BB%E7%BB%93"><span class="post-toc-text">5. 原文整体方法脉络总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9AWorkflow"><span class="post-toc-text">第一层：Workflow</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9APersistent-State"><span class="post-toc-text">第二层：Persistent State</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%89%E5%B1%82%EF%BC%9AStructured-Context-and-Agent-Organization"><span class="post-toc-text">第三层：Structured Context and Agent Organization</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%B1%82%EF%BC%9AHarness-as-Code"><span class="post-toc-text">第四层：Harness as Code</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%94%E5%B1%82%EF%BC%9AOptimizer-Self-Improvement"><span class="post-toc-text">第五层：Optimizer Self-Improvement</span></a></li></ol></li></ol>
+    </div>
+  </nav>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">108 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">461 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">193 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">11 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>

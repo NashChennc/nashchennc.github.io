@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html lang="cn" class="mdui-theme-auto">
+<html lang="cn">
 <head>
   <meta charset="UTF-8">
   <script>
     (function () {
-      var KEY = 'mdblog-theme';
-      var el = document.documentElement;
       try {
-        var t = localStorage.getItem(KEY);
-        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
-        if (t === 'light' || t === 'dark') {
-          el.classList.add('mdui-theme-' + t);
-        } else {
-          el.classList.add('mdui-theme-auto');
-        }
-      } catch (err) {
-        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
-        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
       }
     })();
   </script>
@@ -48,13 +40,13 @@
   <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
   
   
+  
+  
   <link rel="stylesheet" href="/css/tokens.css">
   
   <link rel="stylesheet" href="/css/global-layout.css">
   
   <link rel="stylesheet" href="/css/topbar.css">
-  
-  <link rel="stylesheet" href="/css/hero.css">
   
   <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
   
@@ -63,8 +55,6 @@
   <link rel="stylesheet" href="/css/categories-postinfo.css">
   
   <link rel="stylesheet" href="/css/footer.css">
-  
-  <link rel="stylesheet" href="/css/banner-page.css">
   
   <link rel="stylesheet" href="/css/article-prose.css">
   
@@ -76,9 +66,29 @@
   
   <link rel="stylesheet" href="/css/custom.css">
 
-  <meta name="theme-color" content="#6750A4">
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
 
   
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
   
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
@@ -125,7 +135,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 85</a>
+    >笔记 · 108</a>
       
     
       
@@ -133,7 +143,7 @@
       href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
       class="topbar-desktop-link topbar-category-link"
       
-    >碎碎念 · 454</a>
+    >碎碎念 · 461</a>
       
     
       
@@ -141,7 +151,7 @@
       href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
       class="topbar-desktop-link topbar-category-link"
       
-    >流水账 · 192</a>
+    >流水账 · 193</a>
       
     
       
@@ -150,14 +160,6 @@
       class="topbar-desktop-link topbar-category-link"
       
     >散文 · 11</a>
-      
-    
-      
-    <a
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      class="topbar-desktop-link topbar-category-link"
-      
-    >专栏 · 2</a>
       
     
   </nav>
@@ -315,117 +317,6 @@
       <!-- Main Content (page-level layout lives in individual views) -->
       <div id="main-content">
         <!-- 全宽 Banner -->
-<div
-  class="banner-container banner-container--page"
-  data-banner-layout-root
-  data-banner-layout-config="/js/banner-title-layout.json"
->
-  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
-
-  <div class="banner-overlay banner-overlay--tint">
-    <div class="banner-inner">
-      <div class="app-container">
-        <div class="banner-inner__content">
-          <div class="banner-card-title">
-            
-
-  
-    
-      <div class="banner-hero-title banner-hero-title--inner">
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">NOUS SOMMES</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">我们是</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">DES ENFANTS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">孩子</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">，</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">MAIS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">但</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">DES ENFANTS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">我们</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">PROGRESSIFS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">精力充沛</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">，</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">勇往直前</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">。</span>
-            </span>
-          </div>
-        
-      </div>
-    
-  
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="/js/banner-title-layout.js" defer></script>
 
 
 
@@ -439,7 +330,7 @@
                 <div class="post-page-card__header">
                     <h1 class="post-page__title note-card-title">回忆录 序</h1>
                     <div class="post-page__meta-row">
-                        <span class="note-date">2026 Jun 03</span>
+                        <span class="note-date">2026 Aug 11</span>
                         
                             <div class="post-page__meta--cats">
                                 
@@ -456,29 +347,28 @@
                     <div class="mdui-prose">
                         <h2 id="序">序</h2>
 <p>从去年一月份开始想写这篇回忆录，到现在已经一年半了。</p>
-<p>但我一直无从下笔。一来因为四年来筋疲力尽，体验到了何为 “无暇维护自己的一致性”；二来在重大事件完结后，人总会倾向于描绘一个宏大的叙事，而非详尽的事实。总而言之，自己记忆的可信性再次低到了一个不可接受的程度。</p>
+<p>但我总觉得无从下笔。一来因为四年来实在筋疲力尽，第一次感到 “无暇维护” 自己的一切；二来在重大事件完结后，人总会倾向于描绘一个宏大的叙事，而非准确的事实——显然这是我想要避免的。总而言之，自己记忆的可信性再次低到了一个不可接受的程度。</p>
 <p>我真的忘记了好多事情啊。</p>
-<p>从前我觉得我并不是一个健忘的人。我曾经有一套清晰的索引。我可以清晰地回忆起班上每张试卷的笔迹、十几个部落冲突小号里的阵型和配兵，硬盘里上百个节点的路径和内容。我记得每件事发生的日期，当时和谁在一起，又看到了什么。但现在不能了。</p>
-<p>杂乱的包袱越堆越多，或许已经失去了索引的意义。</p>
-<p>我曾经有一个奇怪的习惯。</p>
-<p>大半夜失眠不知道该干什么的时候，我会顺着学号数我初二班级的名单，即使其中的一些人我已经很久没有见过了。</p>
-<p>出于一些关于记忆的信念，这或许是我做过的关于自己的、最早的、朴素的长期实验之一。一方面我当然不想忘记这样重要的事；另一方面我又会想：究竟有什么东西可以破坏我数学归纳式的自我维护。我以这样矛盾的心态期待着毁灭的到来。</p>
-<p>某一天开始，我发现我真的数不下来了。在记不起名单的同时，我意识到我也把什么重要的东西给丢掉了。</p>
+<p>从前我觉得自己并不是一个健忘的人。我曾经有一套清晰的索引，可以清晰地回忆起每件事，或者是每一个理论。但，对的，现在不能了。不知为何，杂乱的包袱越堆越多，或许已经失去了索引的意义。</p>
+<p>我曾经有一个奇怪的习惯。大半夜失眠不知道该干什么的时候，我会顺着学号数我初二班级的名单，即使其中的一些人我已经很久没有见过了。</p>
+<p>出于一些关于记忆的信念，这或许是我做过的关于自己的、最早的、朴素的长期实验之一。一方面我当然不想忘记这样重要的事；另一方面我始终期待着：究竟有什么东西可以破坏我数学归纳式的自我维护。我以这样矛盾的心态期待着毁灭的到来。</p>
+<p>某一天开始，我发现我真的数不下来了。在记不起名单的同时，我意识到说不定我也把什么重要的东西给丢掉了。</p>
 <p>唉。</p>
 <p>我真的忘记了好多事情啊——</p>
-<p>话说回来。之所以会做这个实验，我想是受到 <a href="/%E5%B4%A9%E5%9D%8F3/" title="">崩坏3</a> 里的 <a href="/%E5%B4%A9%E5%9D%8F3%20%E7%AC%A6%E5%8D%8E%E4%B8%8E%E8%AF%86%E4%B9%8B%E5%BE%8B%E8%80%85%E5%A4%AA%E8%99%9A%E5%B1%B1%E7%AF%87/" title="">符华</a> 的启发。她的故事主题是 “记忆” 与 “意识”：</p>
+<p>话说回来。之所以会做这个实验，我想是受到 <a href="/%E5%B4%A9%E5%9D%8F3/" title="">崩坏3</a> 里的 <a href="/%E5%B4%A9%E5%9D%8F3%20%E7%AC%A6%E5%8D%8E%E4%B8%8E%E8%AF%86%E4%B9%8B%E5%BE%8B%E8%80%85%E5%A4%AA%E8%99%9A%E5%B1%B1%E7%AF%87/" title="">符华</a> 的影响。她的故事主题是 “记忆” 与 “意识”：</p>
 <ul>
 <li>她以普通人的心智守护了神州五万年，饱受记忆管理问题的折磨。</li>
 <li>她有一项压箱底的武器：“羽渡尘”，可以燃烧自己的记忆获得力量。</li>
 </ul>
 <img src="/files/rafa_83049015_p0_%E9%A3%8E%E5%8A%A8%EF%BD%9C%E7%A5%9E%E5%B7%9E%E6%B8%B8%E8%AE%B0%2007.jpg" alt="">
-<p>在这样朴素的基础设定下，故事试图反思：如果记忆不是自我的全部，那么自我又是什么？</p>
-<p>从总体的角度来讲，自我当然来源于过去经历的总集。然而我们并不总能掌控自己的记忆和意识。显然，维护人格的连续性是一项深刻的课题。这个议题给我年幼的心灵带来了极大的震撼。它在我尚不谙世事时告诉我一个朴素的道理：人不总是自知的，也不总是一致的；自知的那一部分，即使被完整记忆下来也很难完整构成自我。</p>
-<p>维护连续的自我观已然难如登天，更不要说一致的自我观了。</p>
-<p>我见过一些同自己的过去切割的人。我想我没有那样的立场来评价他们的经历。</p>
+<p>在这样朴素到近乎烂俗的基础设定下，故事试图反思：如果记忆不是自我的全部，那么自我又是什么？</p>
+<p>从总体的角度来讲，自我当然来源于过去经历的总集。然而我们并不总能掌控自己的记忆和意识，被察觉且言明的部分微不足道。这个议题给我年幼的心灵带来了极大的震撼。它在我尚不谙世事时告诉我一个朴素的道理：人不总是自知的，也不总是一致的；自知的那一部分，即使被完整记忆下来也很难完整构成自我。</p>
+<p>但人总归是想要弄明白到底何为自我的，毕竟过去的一切也许正在决定着你下一刻的行为。维护人格的连续性是一项深刻的课题。维护连续的自我观已然难如登天，更不要说一致的自我观了。</p>
 <p>我还很喜欢一句不知道从哪听来的俄国谚语：</p>
 <p>如果过去的我和未来的我碰见了，他们肯定很聊得来。可惜他们谁也没见过对方。</p>
-<p>然而——过去的那个人却不见了。我感受不到他了。这四年间压力过载的时候，我留下日记的意愿会显著升高。或许是预感到这样的事情会发生。但文字显然不足以承载十分多的感受。文档里空余一些苍白的记忆。</p>
+<p>我很想念那个过去的我。</p>
+<p>和过去的自己ju
+我感受不到他了。这四年间压力过载的时候，我留下日记的意愿会显著升高。或许是预感到这样的事情会发生。但文字显然不足以承载十分多的感受。文档里空余一些苍白的记忆。</p>
 <p>那是谁啊。</p>
 <p>我的不知道他究竟去哪里了，或许只是因为一场意外，谁知道呢？是因为生理、心理、或是虚无？至少我现在还没有想明白那一样带走他的事物。</p>
 <p>所以那些我拼命想去记住的东西最终还是会被忘掉吗？</p>
@@ -523,14 +413,13 @@
         </main>
         
         <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
-            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
                 <div class="post-toc-inner">
-                    <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
                         <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BA%8F"><span class="post-toc-text">序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1"><span class="post-toc-text">1</span></a></li></ol></li></ol>
                     </div>
                 </div>
-            </mdui-card>
+            </nav>
         </aside>
         
     </div>
@@ -694,12 +583,11 @@
   aria-label="Table of Contents"
 >
   
-  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
-    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
     <div class="post-toc-scroll mdui-prose">
       <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BA%8F"><span class="post-toc-text">序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1"><span class="post-toc-text">1</span></a></li></ol></li></ol>
     </div>
-  </section>
+  </nav>
   
 
   
@@ -717,7 +605,7 @@
       
     >
       笔记
-      <span slot="description">85 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -729,7 +617,7 @@
       
     >
       碎碎念
-      <span slot="description">454 posts</span>
+      <span slot="description">461 posts</span>
     </mdui-list-item>
       
     
@@ -741,7 +629,7 @@
       
     >
       流水账
-      <span slot="description">192 posts</span>
+      <span slot="description">193 posts</span>
     </mdui-list-item>
       
     
@@ -757,18 +645,6 @@
     </mdui-list-item>
       
     
-      
-    <mdui-list-item
-      rounded
-      icon="folder"
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      
-    >
-      专栏
-      <span slot="description">2 posts</span>
-    </mdui-list-item>
-      
-    
   </mdui-list>
   
 </mdui-navigation-drawer>
@@ -776,12 +652,12 @@
 
 
   <!-- Scripts -->
-  <script src="/mdui2/mdui.global.js"></script>
   <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
   

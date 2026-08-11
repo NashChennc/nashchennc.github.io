@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html lang="cn" class="mdui-theme-auto">
+<html lang="cn">
 <head>
   <meta charset="UTF-8">
   <script>
     (function () {
-      var KEY = 'mdblog-theme';
-      var el = document.documentElement;
       try {
-        var t = localStorage.getItem(KEY);
-        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
-        if (t === 'light' || t === 'dark') {
-          el.classList.add('mdui-theme-' + t);
-        } else {
-          el.classList.add('mdui-theme-auto');
-        }
-      } catch (err) {
-        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
-        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
       }
     })();
   </script>
@@ -48,13 +40,13 @@
   <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
   
   
+  
+  
   <link rel="stylesheet" href="/css/tokens.css">
   
   <link rel="stylesheet" href="/css/global-layout.css">
   
   <link rel="stylesheet" href="/css/topbar.css">
-  
-  <link rel="stylesheet" href="/css/hero.css">
   
   <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
   
@@ -63,8 +55,6 @@
   <link rel="stylesheet" href="/css/categories-postinfo.css">
   
   <link rel="stylesheet" href="/css/footer.css">
-  
-  <link rel="stylesheet" href="/css/banner-page.css">
   
   <link rel="stylesheet" href="/css/article-prose.css">
   
@@ -76,9 +66,29 @@
   
   <link rel="stylesheet" href="/css/custom.css">
 
-  <meta name="theme-color" content="#6750A4">
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
 
   
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
   
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
@@ -125,7 +135,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 85</a>
+    >笔记 · 108</a>
       
     
       
@@ -133,7 +143,7 @@
       href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
       class="topbar-desktop-link topbar-category-link"
       
-    >碎碎念 · 454</a>
+    >碎碎念 · 461</a>
       
     
       
@@ -141,7 +151,7 @@
       href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
       class="topbar-desktop-link topbar-category-link"
       
-    >流水账 · 192</a>
+    >流水账 · 193</a>
       
     
       
@@ -150,14 +160,6 @@
       class="topbar-desktop-link topbar-category-link"
       
     >散文 · 11</a>
-      
-    
-      
-    <a
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      class="topbar-desktop-link topbar-category-link"
-      
-    >专栏 · 2</a>
       
     
   </nav>
@@ -315,117 +317,6 @@
       <!-- Main Content (page-level layout lives in individual views) -->
       <div id="main-content">
         <!-- 全宽 Banner -->
-<div
-  class="banner-container banner-container--page"
-  data-banner-layout-root
-  data-banner-layout-config="/js/banner-title-layout.json"
->
-  <div class="banner-bg" style='--banner-bg-image: url("/image/banner.jpeg");'></div>
-
-  <div class="banner-overlay banner-overlay--tint">
-    <div class="banner-inner">
-      <div class="app-container">
-        <div class="banner-inner__content">
-          <div class="banner-card-title">
-            
-
-  
-    
-      <div class="banner-hero-title banner-hero-title--inner">
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">NOUS SOMMES</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">我们是</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">DES ENFANTS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">孩子</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">，</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">MAIS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">但</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">DES ENFANTS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">我们</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">PROGRESSIFS</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">精力充沛</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">，</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper">PLEINS DE FORCE ET DE COURAGE</span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">勇往直前</span>
-            </span>
-          </div>
-        
-          <div class="banner-hero-title__col">
-            <span class="banner-hero-title__upper-wrap">
-              <span class="banner-hero-title__upper"></span>
-            </span>
-            <span class="banner-hero-title__lower-wrap">
-              <span class="banner-hero-title__lower">。</span>
-            </span>
-          </div>
-        
-      </div>
-    
-  
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="/js/banner-title-layout.js" defer></script>
 
 
 
@@ -452,9 +343,9 @@
                                 
                                     <a href="/tags/%E5%8F%8D%E6%80%9D/" class="note-tag">反思</a>
                                 
-                                    <a href="/tags/%E5%AD%A6%E4%B8%9A-%E8%AF%BE%E7%A8%8B/" class="note-tag">学业/课程</a>
-                                
                                     <a href="/tags/%E6%95%B0%E5%AD%A6/" class="note-tag">数学</a>
+                                
+                                    <a href="/tags/%E5%AD%A6%E4%B8%9A-%E8%AF%BE%E7%A8%8B/" class="note-tag">学业/课程</a>
                                 
                                     <a href="/tags/%E6%B8%B8%E6%88%8F-%E5%B4%A9%E9%93%81/" class="note-tag">游戏/崩铁</a>
                                 
@@ -495,7 +386,7 @@
 <p>一直到考试周开始前最后一天，我找了心理辅导。但心理老师跟我说了一小时的垃圾话，除了问我有没有想着自杀之外没有任何有意义的内容。倒是分散不少我本就不集中的注意力。此后我大概明白这些问题只能自己解决，或者找到值得依靠的朋友。</p>
 <p>调整了几天最后究极速成。那是真正的速成，学完的时候我甚至觉得我已经把该会的都学会了，也不知道只用了三天速成哪来的自信。</p>
 <p>考试周我发出了两封邮件。一封是考完<a href="/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%BC%95%E8%AE%BA%EF%BC%8822%E7%A7%8B%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%EF%BC%89/" title="">微分方程</a>后咨询转系，甚至想把数学转成辅修回去搞计算机。我一度非常兴奋，以为好像可以起死回生妙手回春扭转乾坤什么之类的。后来弄明白了学习情况的原则是记录下来是不能更改。于是大概放弃这个念头，不得不接受现状。另一封，是发给了当初选择数学的时候就想认识的马杰老师，至少在我心目中的组合学顶流。相当矛盾。一个人的心态怎么能在极端之间</p>
-<p>这之后，加到了马老师微信，拿到了课件，我开始整理自己的洛谷博客。看到依然活跃的社区、曾经的自己和关注自己的人们，我开始想一些过往的事情。我想要什么、我喜欢什么，这些问题好像在离我远去。直到看见洛谷生机勃勃的样子，曾经的神犇留下的笔记，我好像又明白了点什么，要去找回自己遗失的热情。一想到回去学<a href="/%E7%BB%84%E5%90%88%E5%AD%A6/" title="">组合学</a>就是我最开始的愿望，再听到Euphoria那奔放浪漫而又天真的旋律，配上引发ptsd的歌词，泪水实在是止不住。</p>
+<p>这之后，加到了马老师微信，拿到了课件，我开始整理自己的洛谷博客。看到依然活跃的社区、曾经的自己和关注自己的人们，我开始想一些过往的事情。我想要什么、我喜欢什么，这些问题好像在离我远去。直到看见洛谷生机勃勃的样子，曾经的神犇留下的笔记，我好像又明白了点什么，要去找回自己遗失的热情。一想到回去学<a href="/%E7%BB%84%E5%90%88%E5%AD%A6%EF%BC%88%E8%AF%BE%E7%A8%8B%EF%BC%89/" title="">组合学（课程）</a>就是我最开始的愿望，再听到Euphoria那奔放浪漫而又天真的旋律，配上引发ptsd的歌词，泪水实在是止不住。</p>
 <p>开学的几周还算井井有条。去收二手书意外淘到带笔记的好书，前两周的进度甚至在花费极大量时间搭新博客的情况下有点超前，裸考补完了疫情推迟的四级。之后或许是某个时间点出了问题。大约是第四周第五周，也许是从某件事，也或许是累积起来的一系列事情，最终又滚起了雪球。这之中可能有某天熬夜失败导致作息颠倒再导致注意力不能集中，加上一些情况，形成了有相当程度负面影响的死循环。但好在有写博客这样一个仅存的正反馈机制，靠着这些我慢慢挪动着进度。期中考试前突击了<a href="/%E5%A4%8D%E5%88%86%E6%9E%90/" title="">复分析</a>和<a href="/%E6%A6%82%E7%8E%87%E8%AE%BA/" title="">概率论</a>，大概是几乎跟上了进度。没有期中考的话，我整个人只会更烂。也感谢徐神的笔记和社团，让我对科大的评价又提高不少。</p>
 <p><a href="/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/" title="">近世代数</a>助教友好地说全部作业都可以补。我想着反正也得找点什么东西学学。整理了一晚上笔记，还翻开了翻开<a href="/%E5%87%A0%E4%BD%95%E5%AD%A6%E5%9F%BA%E7%A1%80/" title="">几何学基础</a>，同样是感觉没什么进度推进，但确实有很多理解加深了。翻阅了几遍，几何之中的优美又把我吸引住了。在这过程中我又意识到我的兴趣排序大约是组合几何代数分析。对于分析我并没有强烈的兴趣，而且基本是无感，但无感就是学数学的原罪，这也是之后一系列问题的原因之一。</p>
 <p>于是晚上我就一直兴奋到了4点。因为在这样精神状态不佳的时间段，能够集中注意力的时间确实非常珍贵。于是我一直没有停下。写完数学还继续记下这些想法。写到这里的时候，天已经亮了。</p>
@@ -530,7 +421,7 @@ we must know, we will know.<br>
 <p>mahler5</p>
 <p>关于人</p>
 <p>关于责任</p>
-<p>开学时鼓起勇气找了mj，找回了<a href="/%E7%BB%84%E5%90%88%E5%AD%A6/" title="">组合学</a></p>
+<p>开学时鼓起勇气找了mj，找回了<a href="/%E7%BB%84%E5%90%88%E5%AD%A6%EF%BC%88%E8%AF%BE%E7%A8%8B%EF%BC%89/" title="">组合学（课程）</a></p>
 <p>5.22 聊天，找回了自动证明</p>
 <p>那是梦想。</p>
 <p>那是一切的源头。</p>
@@ -599,14 +490,13 @@ we must know, we will know.<br>
         </main>
         
         <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
-            <mdui-card variant="filled" class="post-toc-card toc-full-height">
+            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
                 <div class="post-toc-inner">
-                    <div class="post-toc__title">Table of Contents</div>
                     <div class="post-toc-scroll mdui-prose">
                         <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2023-5-7-4-09"><span class="post-toc-text">2023.5.7 4:09</span></a></li></ol>
                     </div>
                 </div>
-            </mdui-card>
+            </nav>
         </aside>
         
     </div>
@@ -770,12 +660,11 @@ we must know, we will know.<br>
   aria-label="Table of Contents"
 >
   
-  <section class="site-category-drawer__section site-category-drawer__toc" aria-labelledby="site-drawer-toc-title">
-    <div id="site-drawer-toc-title" class="site-category-drawer__section-title">Table of Contents</div>
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
     <div class="post-toc-scroll mdui-prose">
       <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2023-5-7-4-09"><span class="post-toc-text">2023.5.7 4:09</span></a></li></ol>
     </div>
-  </section>
+  </nav>
   
 
   
@@ -793,7 +682,7 @@ we must know, we will know.<br>
       
     >
       笔记
-      <span slot="description">85 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -805,7 +694,7 @@ we must know, we will know.<br>
       
     >
       碎碎念
-      <span slot="description">454 posts</span>
+      <span slot="description">461 posts</span>
     </mdui-list-item>
       
     
@@ -817,7 +706,7 @@ we must know, we will know.<br>
       
     >
       流水账
-      <span slot="description">192 posts</span>
+      <span slot="description">193 posts</span>
     </mdui-list-item>
       
     
@@ -833,18 +722,6 @@ we must know, we will know.<br>
     </mdui-list-item>
       
     
-      
-    <mdui-list-item
-      rounded
-      icon="folder"
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      
-    >
-      专栏
-      <span slot="description">2 posts</span>
-    </mdui-list-item>
-      
-    
   </mdui-list>
   
 </mdui-navigation-drawer>
@@ -852,12 +729,12 @@ we must know, we will know.<br>
 
 
   <!-- Scripts -->
-  <script src="/mdui2/mdui.global.js"></script>
   <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
   

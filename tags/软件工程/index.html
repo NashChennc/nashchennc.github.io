@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html lang="cn" class="mdui-theme-auto">
+<html lang="cn">
 <head>
   <meta charset="UTF-8">
   <script>
     (function () {
-      var KEY = 'mdblog-theme';
-      var el = document.documentElement;
       try {
-        var t = localStorage.getItem(KEY);
-        el.classList.remove('mdui-theme-auto', 'mdui-theme-light', 'mdui-theme-dark');
-        if (t === 'light' || t === 'dark') {
-          el.classList.add('mdui-theme-' + t);
-        } else {
-          el.classList.add('mdui-theme-auto');
-        }
-      } catch (err) {
-        el.classList.remove('mdui-theme-light', 'mdui-theme-dark');
-        if (!el.classList.contains('mdui-theme-auto')) el.classList.add('mdui-theme-auto');
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
       }
     })();
   </script>
@@ -48,13 +40,13 @@
   <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
   
   
+  
+  
   <link rel="stylesheet" href="/css/tokens.css">
   
   <link rel="stylesheet" href="/css/global-layout.css">
   
   <link rel="stylesheet" href="/css/topbar.css">
-  
-  <link rel="stylesheet" href="/css/hero.css">
   
   <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
   
@@ -63,8 +55,6 @@
   <link rel="stylesheet" href="/css/categories-postinfo.css">
   
   <link rel="stylesheet" href="/css/footer.css">
-  
-  <link rel="stylesheet" href="/css/banner-page.css">
   
   <link rel="stylesheet" href="/css/article-prose.css">
   
@@ -76,9 +66,29 @@
   
   <link rel="stylesheet" href="/css/custom.css">
 
-  <meta name="theme-color" content="#6750A4">
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
 
   
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
   
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body id="top">
@@ -125,7 +135,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 85</a>
+    >笔记 · 108</a>
       
     
       
@@ -133,7 +143,7 @@
       href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
       class="topbar-desktop-link topbar-category-link"
       
-    >碎碎念 · 454</a>
+    >碎碎念 · 461</a>
       
     
       
@@ -141,7 +151,7 @@
       href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
       class="topbar-desktop-link topbar-category-link"
       
-    >流水账 · 192</a>
+    >流水账 · 193</a>
       
     
       
@@ -150,14 +160,6 @@
       class="topbar-desktop-link topbar-category-link"
       
     >散文 · 11</a>
-      
-    
-      
-    <a
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      class="topbar-desktop-link topbar-category-link"
-      
-    >专栏 · 2</a>
       
     
   </nav>
@@ -320,7 +322,7 @@
             <div class="category-index">
                 
                 <header class="notes-header">
-                    <h1 class="notes-title">软件工程<span class="notes-post-count">28</span></h1>
+                    <h1 class="notes-title">软件工程<span class="notes-post-count">29</span></h1>
                     
                 </header>
                 
@@ -386,7 +388,7 @@
       <span>No posts</span>
     </div>
   </div>
-  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2022.05.26 数据库连接成功","url":"/2022.05.26%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F/","date":"2022-05-26","tags":["软件工程","Coding"]},{"title":"2022.05.26 做了无人挑战的数据库课实验拓展","url":"/2022.05.26%20%E5%81%9A%E4%BA%86%E6%97%A0%E4%BA%BA%E6%8C%91%E6%88%98%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E5%AE%9E%E9%AA%8C%E6%8B%93%E5%B1%95/","date":"2022-05-26","tags":["软件工程","学业/课程","Coding"]},{"title":"2022.05.26 Hello World+","url":"/2022.05.26%20Hello%20World+/","date":"2022-05-26","tags":["软件工程"]},{"title":"2022.05.28 前端搭好了","url":"/2022.05.28%20%E5%89%8D%E7%AB%AF%E6%90%AD%E5%A5%BD%E4%BA%86/","date":"2022-05-28","tags":["软件工程"]},{"title":"2022.05.30 萌新的一周","url":"/2022.05.30%20%E8%90%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%91%A8/","date":"2022-05-30","tags":["软件工程"]},{"title":"2022.10.09 网上的md2html包怎么还没有我一晚上","url":"/2022.10.09%20%E7%BD%91%E4%B8%8A%E7%9A%84md2html%E5%8C%85%E6%80%8E%E4%B9%88%E8%BF%98%E6%B2%A1%E6%9C%89%E6%88%91%E4%B8%80%E6%99%9A%E4%B8%8A/","date":"2022-10-09","tags":["软件工程"]},{"title":"2023.11.13 写了个刷四史网课的脚本","url":"/2023.11.13%20%E5%86%99%E4%BA%86%E4%B8%AA%E5%88%B7%E5%9B%9B%E5%8F%B2%E7%BD%91%E8%AF%BE%E7%9A%84%E8%84%9A%E6%9C%AC/","date":"2023-11-13","tags":["软件工程","学业/课程"]},{"title":"2024.02.14 厨力是第一生产力！伟大的开源社区","url":"/2024.02.14%20%E5%8E%A8%E5%8A%9B%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B%EF%BC%81%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/","date":"2024-02-14","tags":["软件工程","游戏/原神"]},{"title":"CC Auto Mode - 03 - 权限剥离与信任边界","url":"/ccauto-03-permission-stripping/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode - 04 - 多 Agent 安全交接","url":"/ccauto-04-multi-agent/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode - Auto Mode 安全架构分析报告系列","url":"/ccauto-00-index/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","menu","Safety"]},{"title":"CC Auto Mode 01 - Entry Point 总览","url":"/ccauto-01-entrypoint/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 02 - 安全判定分类管道","url":"/ccauto-02-classifier/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 05 - 门禁、熔断与异步踢出","url":"/ccauto-05-gate-circuit-breaker/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 06 - 配置体系与可定制 Slot","url":"/ccauto-06-configuration/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 07 - Deny-and-Continue 韧性设计","url":"/ccauto-07-deny-and-resilience/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 A - 单次请求的上下文整形流水线","url":"/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 B - 长会话压缩与多线程状态隔离","url":"/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"CC Auto Mode 附录 C - 分类器边界之外的纵深防御","url":"/ccauto-C-%E5%88%86%E7%B1%BB%E5%99%A8%E8%BE%B9%E7%95%8C%E4%B9%8B%E5%A4%96%E7%9A%84%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1/","date":"2026-03-31","tags":["软件工程","Agent","Anthropic","LLM","Safety"]},{"title":"硬件/系统/网络相关","url":"/%E8%A3%85%E6%9C%BA%E7%9B%B8%E5%85%B3/","date":"2026-05-18","tags":["软件工程"]},{"title":"邮箱代收设置","url":"/%E9%82%AE%E7%AE%B1%E4%BB%A3%E6%94%B6%E8%AE%BE%E7%BD%AE/","date":"2026-05-18","tags":["笔记","软件工程"]},{"title":"Github使用简介","url":"/Github%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/","date":"2026-05-18","tags":["笔记","软件工程"]},{"title":"Hexo Github 博客搭建","url":"/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/","date":"2026-05-18","tags":["软件工程"]},{"title":"JavaScript","url":"/JavaScript/","date":"2026-05-18","tags":["软件工程"]},{"title":"QQ 无头客户端","url":"/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/","date":"2026-05-18","tags":["软件工程"]},{"title":"Test Driven Development","url":"/Test%20Driven%20Development/","date":"2026-05-18","tags":["软件工程"]},{"title":"Text2Speech","url":"/Text2Speech/","date":"2026-05-18","tags":["软件工程","音频","语音"]},{"title":"远程服务器使用","url":"/%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/","date":"2026-05-20","tags":["软件工程"]}]}</script>
+  <script type="application/json" data-activity-data>{"scope":"tag","posts":[{"title":"2022.05.26 数据库连接成功","url":"/2022.05.26%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F/","date":"2022-05-26","tags":["软件工程","Coding"]},{"title":"2022.05.26 做了无人挑战的数据库课实验拓展","url":"/2022.05.26%20%E5%81%9A%E4%BA%86%E6%97%A0%E4%BA%BA%E6%8C%91%E6%88%98%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BE%E5%AE%9E%E9%AA%8C%E6%8B%93%E5%B1%95/","date":"2022-05-26","tags":["软件工程","学业/课程","Coding"]},{"title":"2022.05.26 Hello World+","url":"/2022.05.26%20Hello%20World+/","date":"2022-05-26","tags":["软件工程"]},{"title":"2022.05.28 前端搭好了","url":"/2022.05.28%20%E5%89%8D%E7%AB%AF%E6%90%AD%E5%A5%BD%E4%BA%86/","date":"2022-05-28","tags":["软件工程"]},{"title":"2022.05.30 萌新的一周","url":"/2022.05.30%20%E8%90%8C%E6%96%B0%E7%9A%84%E4%B8%80%E5%91%A8/","date":"2022-05-30","tags":["软件工程"]},{"title":"2022.10.09 网上的md2html包怎么还没有我一晚上","url":"/2022.10.09%20%E7%BD%91%E4%B8%8A%E7%9A%84md2html%E5%8C%85%E6%80%8E%E4%B9%88%E8%BF%98%E6%B2%A1%E6%9C%89%E6%88%91%E4%B8%80%E6%99%9A%E4%B8%8A/","date":"2022-10-09","tags":["软件工程"]},{"title":"2023.11.13 写了个刷四史网课的脚本","url":"/2023.11.13%20%E5%86%99%E4%BA%86%E4%B8%AA%E5%88%B7%E5%9B%9B%E5%8F%B2%E7%BD%91%E8%AF%BE%E7%9A%84%E8%84%9A%E6%9C%AC/","date":"2023-11-13","tags":["软件工程","学业/课程"]},{"title":"2024.02.14 厨力是第一生产力！伟大的开源社区","url":"/2024.02.14%20%E5%8E%A8%E5%8A%9B%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B%EF%BC%81%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/","date":"2024-02-14","tags":["软件工程","游戏/原神"]},{"title":"CC Auto Mode - 03 - 权限剥离与信任边界","url":"/ccauto-03-permission-stripping/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"CC Auto Mode - 04 - 多 Agent 安全交接","url":"/ccauto-04-multi-agent/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"CC Auto Mode - Auto Mode 安全架构分析报告系列","url":"/ccauto-00-index/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety","menu"]},{"title":"CC Auto Mode 01 - Entry Point 总览","url":"/ccauto-01-entrypoint/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"CC Auto Mode 02 - 安全判定分类管道","url":"/ccauto-02-classifier/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"CC Auto Mode 05 - 门禁、熔断与异步踢出","url":"/ccauto-05-gate-circuit-breaker/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"CC Auto Mode 06 - 配置体系与可定制 Slot","url":"/ccauto-06-configuration/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"CC Auto Mode 07 - Deny-and-Continue 韧性设计","url":"/ccauto-07-deny-and-resilience/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"CC Auto Mode 附录 A - 单次请求的上下文整形流水线","url":"/ccauto-A-%E5%8D%95%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E6%95%B4%E5%BD%A2%E6%B5%81%E6%B0%B4%E7%BA%BF/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"CC Auto Mode 附录 B - 长会话压缩与多线程状态隔离","url":"/ccauto-B-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%8E%8B%E7%BC%A9%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%9A%94%E7%A6%BB/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"CC Auto Mode 附录 C - 分类器边界之外的纵深防御","url":"/ccauto-C-%E5%88%86%E7%B1%BB%E5%99%A8%E8%BE%B9%E7%95%8C%E4%B9%8B%E5%A4%96%E7%9A%84%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1/","date":"2026-03-31","tags":["软件工程","AI","AI/Agent","AI/Anthropic","AI/LLM","AI/Safety"]},{"title":"缓存和超时设置","url":"/%E7%BC%93%E5%AD%98%E5%92%8C%E8%B6%85%E6%97%B6%E8%AE%BE%E7%BD%AE/","date":"2026-08-11","tags":["软件工程"]},{"title":"硬件/系统/网络相关","url":"/%E8%A3%85%E6%9C%BA%E7%9B%B8%E5%85%B3/","date":"2026-08-11","tags":["软件工程"]},{"title":"邮箱代收设置","url":"/%E9%82%AE%E7%AE%B1%E4%BB%A3%E6%94%B6%E8%AE%BE%E7%BD%AE/","date":"2026-08-11","tags":["笔记","软件工程"]},{"title":"远程服务器使用","url":"/%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/","date":"2026-08-11","tags":["软件工程"]},{"title":"Github使用简介","url":"/Github%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/","date":"2026-08-11","tags":["笔记","软件工程"]},{"title":"Hexo Github 博客搭建","url":"/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/","date":"2026-08-11","tags":["软件工程"]},{"title":"JavaScript","url":"/JavaScript/","date":"2026-08-11","tags":["软件工程"]},{"title":"QQ 无头客户端","url":"/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/","date":"2026-08-11","tags":["软件工程"]},{"title":"Test Driven Development","url":"/Test%20Driven%20Development/","date":"2026-08-11","tags":["软件工程"]},{"title":"Text2Speech","url":"/Text2Speech/","date":"2026-08-11","tags":["软件工程","音频","语音"]}]}</script>
 </div>
 
 
@@ -405,35 +407,42 @@
         class="index-taxonomy__chip"
         href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"
         aria-current="page"
-      >软件工程 · 28</a>
+      >软件工程 · 29</a>
           
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/Agent/"
+        href="/tags/AI/"
         
-      >Agent · 11</a>
+      >AI · 11</a>
           
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/Anthropic/"
+        href="/tags/AI-Agent/"
         
-      >Anthropic · 11</a>
+      >AI/Agent · 11</a>
           
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/LLM/"
+        href="/tags/AI-Anthropic/"
         
-      >LLM · 11</a>
+      >AI/Anthropic · 11</a>
           
       <a
         role="listitem"
         class="index-taxonomy__chip"
-        href="/tags/Safety/"
+        href="/tags/AI-LLM/"
         
-      >Safety · 11</a>
+      >AI/LLM · 11</a>
+          
+      <a
+        role="listitem"
+        class="index-taxonomy__chip"
+        href="/tags/AI-Safety/"
+        
+      >AI/Safety · 11</a>
           
       <a
         role="listitem"
@@ -449,22 +458,22 @@
         
       >学业/课程 · 2</a>
           
+        </div>
+        
+        <details class="index-taxonomy__tags-details">
+          <summary class="index-taxonomy__tags-summary">
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 5 more tags</span>
+            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
+          </summary>
+          <div class="index-taxonomy__tags-overflow-sleeve">
+            <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
+              
       <a
         role="listitem"
         class="index-taxonomy__chip"
         href="/tags/Coding/"
         
       >Coding · 2</a>
-          
-        </div>
-        
-        <details class="index-taxonomy__tags-details">
-          <summary class="index-taxonomy__tags-summary">
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--collapsed">Show 4 more tags</span>
-            <span class="index-taxonomy__tags-summary-label index-taxonomy__tags-summary-label--expanded">Show fewer tags</span>
-          </summary>
-          <div class="index-taxonomy__tags-overflow-sleeve">
-            <div class="index-taxonomy__chips index-taxonomy__chips--overflow" role="list">
               
       <a
         role="listitem"
@@ -510,81 +519,6 @@
                 
                     <div class="notes-grid__cell">
                         
-<mdui-card clickable variant="filled" href="/%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/" class="note-card">
-  
-  <img src="/image/banner/nozomizo13.JPG" class="note-cover" alt="远程服务器使用" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">远程服务器使用</h2>
-      
-      <p class="note-excerpt">服务器速查：CUDA 进程排查、环境变量指定 GPU，以及 SSH 与 tmux 会话管理。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">软件工程</span>
-      
-      <span class="note-date">2026 May 20</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/Github%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/" class="note-card">
-  
-  <img src="/image/banner/Image_1758434264021.jpeg" class="note-cover" alt="Github使用简介" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">Github使用简介</h2>
-      
-      <p class="note-excerpt">Git 与 GitHub 概念入门、Desktop 客户端与常用命令及学习资源链接汇总。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">软件工程</span>
-      
-      <span class="note-date">2026 May 18</span>
-      <span class="note-read">5 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
-<mdui-card clickable variant="filled" href="/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="note-card">
-  
-  <img src="/files/111095834_p0_%E9%BB%91%E5%A1%94.jpg" class="note-cover" alt="QQ 无头客户端" loading="lazy">
-  
-  <div class="note-card-body">
-    <div class="note-content">
-      <h2 class="note-card-title">QQ 无头客户端</h2>
-      
-      <p class="note-excerpt">用 NapCat、NoneBot2、Koishi 等搭建 QQ 机器人：安装、反向 WebSocket 与插件配置备忘。</p>
-      
-    </div>
-    <div class="note-meta">
-      
-      <span class="note-tag">软件工程</span>
-      
-      <span class="note-date">2026 May 18</span>
-      <span class="note-read">1 min read</span>
-    </div>
-  </div>
-</mdui-card>
-
-                    </div>
-                
-                    <div class="notes-grid__cell">
-                        
 <mdui-card clickable variant="filled" href="/%E8%A3%85%E6%9C%BA%E7%9B%B8%E5%85%B3/" class="note-card">
   
   <img src="/image/banner/IMG_0138.jpeg" class="note-cover" alt="装机相关" loading="lazy">
@@ -600,7 +534,7 @@
       
       <span class="note-tag">软件工程</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -625,8 +559,33 @@
       
       <span class="note-tag">软件工程</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/Github%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/" class="note-card">
+  
+  <img src="/image/banner/Image_1758434264021.jpeg" class="note-cover" alt="Github使用简介" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">Github使用简介</h2>
+      
+      <p class="note-excerpt">Git 与 GitHub 概念入门、Desktop 客户端与常用命令及学习资源链接汇总。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">软件工程</span>
+      
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">5 min read</span>
     </div>
   </div>
 </mdui-card>
@@ -650,7 +609,32 @@
       
       <span class="note-tag">软件工程</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/QQ%20%E6%97%A0%E5%A4%B4%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="note-card">
+  
+  <img src="/files/111095834_p0_%E9%BB%91%E5%A1%94.jpg" class="note-cover" alt="QQ 无头客户端" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">QQ 无头客户端</h2>
+      
+      <p class="note-excerpt">用 NapCat、NoneBot2、Koishi 等搭建 QQ 机器人：安装、反向 WebSocket 与插件配置备忘。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">软件工程</span>
+      
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -675,7 +659,7 @@
       
       <span class="note-tag">软件工程</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">4 min read</span>
     </div>
   </div>
@@ -700,7 +684,57 @@
       
       <span class="note-tag">软件工程</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">1 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E7%BC%93%E5%AD%98%E5%92%8C%E8%B6%85%E6%97%B6%E8%AE%BE%E7%BD%AE/" class="note-card">
+  
+  <img src="/image/banner/nozomizo25.JPG" class="note-cover" alt="缓存和超时设置" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">缓存和超时设置</h2>
+      
+      <p class="note-excerpt">1. 解决空间不足 ([Errno 28] No space left on device) 报错原因通常不是主硬盘已满，而是&amp;nbsp;/tmp&amp;nbsp;临时编译目录太小，或&amp;nbsp;~/.cache/pip&amp;nbsp;缓存堆积。 方案 A：单次安装不留缓存（最常用） 强制直接安装并清理临时文件，不占用 cache 空间。 Bash 1pip inst...</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">软件工程</span>
+      
+      <span class="note-date">2026 Aug 11</span>
+      <span class="note-read">2 min read</span>
+    </div>
+  </div>
+</mdui-card>
+
+                    </div>
+                
+                    <div class="notes-grid__cell">
+                        
+<mdui-card clickable variant="filled" href="/%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/" class="note-card">
+  
+  <img src="/image/banner/nozomizo13.JPG" class="note-cover" alt="远程服务器使用" loading="lazy">
+  
+  <div class="note-card-body">
+    <div class="note-content">
+      <h2 class="note-card-title">远程服务器使用</h2>
+      
+      <p class="note-excerpt">服务器速查：CUDA 进程排查、环境变量指定 GPU，以及 SSH 与 tmux 会话管理。</p>
+      
+    </div>
+    <div class="note-meta">
+      
+      <span class="note-tag">软件工程</span>
+      
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -725,7 +759,7 @@
       
       <span class="note-tag">软件工程</span>
       
-      <span class="note-date">2026 May 18</span>
+      <span class="note-date">2026 Aug 11</span>
       <span class="note-read">1 min read</span>
     </div>
   </div>
@@ -748,7 +782,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">5 min read</span>
@@ -773,7 +807,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">6 min read</span>
@@ -798,7 +832,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">31 min read</span>
@@ -823,7 +857,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">5 min read</span>
@@ -848,7 +882,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">10 min read</span>
@@ -873,7 +907,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">8 min read</span>
@@ -898,7 +932,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">4 min read</span>
@@ -923,7 +957,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">7 min read</span>
@@ -948,7 +982,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">15 min read</span>
@@ -973,7 +1007,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">13 min read</span>
@@ -998,7 +1032,7 @@
     </div>
     <div class="note-meta">
       
-      <span class="note-tag">软件工程</span>
+      <span class="note-tag">AI</span>
       
       <span class="note-date">2026 Mar 31</span>
       <span class="note-read">13 min read</span>
@@ -1387,7 +1421,7 @@
       
     >
       笔记
-      <span slot="description">85 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -1399,7 +1433,7 @@
       
     >
       碎碎念
-      <span slot="description">454 posts</span>
+      <span slot="description">461 posts</span>
     </mdui-list-item>
       
     
@@ -1411,7 +1445,7 @@
       
     >
       流水账
-      <span slot="description">192 posts</span>
+      <span slot="description">193 posts</span>
     </mdui-list-item>
       
     
@@ -1427,18 +1461,6 @@
     </mdui-list-item>
       
     
-      
-    <mdui-list-item
-      rounded
-      icon="folder"
-      href="/categories/%E4%B8%93%E6%A0%8F"
-      
-    >
-      专栏
-      <span slot="description">2 posts</span>
-    </mdui-list-item>
-      
-    
   </mdui-list>
   
 </mdui-navigation-drawer>
@@ -1446,12 +1468,12 @@
 
 
   <!-- Scripts -->
-  <script src="/mdui2/mdui.global.js"></script>
   <script src="/js/site-navigation.js" defer></script>
   <script src="/js/note-card-layout.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/site-search.js" defer></script>
   <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
   
