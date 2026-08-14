@@ -64,6 +64,8 @@
   
   <link rel="stylesheet" href="/css/site-search.css">
   
+  <link rel="stylesheet" href="/css/link-preview.css">
+  
   <link rel="stylesheet" href="/css/custom.css">
 
   <meta name="theme-color" content="#6495ED">
@@ -104,7 +106,7 @@
       class="topbar-mobile-control"
       variant="standard"
       icon="menu"
-      aria-label="Categories"
+      aria-label="Table of Contents"
       aria-expanded="false"
       aria-haspopup="true"
       aria-controls="site-category-drawer"
@@ -135,7 +137,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 107</a>
+    >笔记 · 108</a>
       
     
       
@@ -316,9 +318,13 @@
     <mdui-layout-main>
       <!-- Main Content (page-level layout lives in individual views) -->
       <div id="main-content">
-        <main class="page-shell app-container page-shell--pad-static-page">
-    <div class="mdui-prose page-page__prose">
-        <h2 id="About-Me">About Me</h2>
+        
+
+<main class="page-shell app-container page-shell--pad-static-page">
+    <div class="page-grid page-grid--post">
+        <div class="page-main page-page__body">
+            <div class="mdui-prose page-page__prose">
+                <h2 id="About-Me">About Me</h2>
 <p>你好！我是 <a href="CV2026spring.pdf">Nachuan Chen</a> (CV Here)，</p><div style="width: 40%;"><p></p>
 <div class="md-gallery">
 <img src="/files/avatar/avatar.jpeg" alt=""> <img src="/files/avatar/natsuki.jpg" alt=""> <img src="/files/avatar/mutsumi.jpg" alt="">
@@ -366,6 +372,39 @@
 <p>还记得那时都是古法 Copy Paste 写 EJS；我在折腾博客途中造了不少轮子，试了不少像 MathJax 这样的渲染插件，甚至因为插件兼容性等问题手搓过 Markdown 编译器。但后来 Vibe Coding 成熟之后这些都成为过去了。而随着 洛谷专栏 代替 洛谷博客 的生态位，MDBlog 也成为了历史。（泪目）</p>
 <p>这张图其实是 2025 Nov 25 在 Gemini 3 Pro 发布之后，我用来尝试 Vibe Coding 做出来的。但是核心的设计语言延续了原来 MDBlog 的风格。这个配色、以及这个扁平化的设计，几乎跟 <a target="_blank" rel="noopener" href="https://www.mdui.org/docs">MDUI 1 文档</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 和许多谷歌文档 的风格一模一样。</p>
 <p>如果你想要原本 MDUI v1 的主题，我也放在了 GitHub 上 <a target="_blank" rel="noopener" href="https://github.com/NashChennc/hexo-mdblog">NashChennc/hexo-mdblog</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon> 。不过也是同样不保证可移植性。或许在我有空的时候会好好维护一下。</p>
+<h2 id="友链">友链</h2>
+<p style="line-height: 4">
+  <a target="_blank" rel="noopener" href="https://sulcop5.github.io/" style="white-space: nowrap"><img src="https://github.com/sulcop5.png?size=64" alt="" width="36" height="36" style="vertical-align: middle; border-radius: 50%" loading="lazy" decoding="async"> 因果交流电灯</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+   
+  <a target="_blank" rel="noopener" href="https://andrewluan.github.io/" style="white-space: nowrap"><img src="https://github.com/andrewluan.png?size=64" alt="" width="36" height="36" style="vertical-align: middle; border-radius: 50%" loading="lazy" decoding="async"> AndrewLuan</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+   
+  <a target="_blank" rel="noopener" href="https://phiyu.github.io/" style="white-space: nowrap"><img src="https://github.com/phiyu.png?size=64" alt="" width="36" height="36" style="vertical-align: middle; border-radius: 50%" loading="lazy" decoding="async"> Uphi.</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+   
+  <a target="_blank" rel="noopener" href="https://yanyutang.github.io/" style="white-space: nowrap"><img src="https://github.com/yanyutang.png?size=64" alt="" width="36" height="36" style="vertical-align: middle; border-radius: 50%" loading="lazy" decoding="async"> 云歌.</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+   
+  <a target="_blank" rel="noopener" href="https://futwangalerda.github.io/" style="white-space: nowrap"><img src="https://github.com/futwangalerda.png?size=64" alt="" width="36" height="36" style="vertical-align: middle; border-radius: 50%" loading="lazy" decoding="async"> 富特王格勒</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+   
+  <a target="_blank" rel="noopener" href="https://kclo4-li.github.io/" style="white-space: nowrap"><img src="https://github.com/kclo4-li.png?size=64" alt="" width="36" height="36" style="vertical-align: middle; border-radius: 50%" loading="lazy" decoding="async"> KClO4</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+   
+  <a target="_blank" rel="noopener" href="https://posanbu.github.io/" style="white-space: nowrap"><img src="https://github.com/posanbu.png?size=64" alt="" width="36" height="36" style="vertical-align: middle; border-radius: 50%" loading="lazy" decoding="async"> 北宇治迫伞部</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+   
+  <a target="_blank" rel="noopener" href="https://uso-manual.readthedocs.io" style="white-space: nowrap"><img src="https://uso-manual.readthedocs.io/zh-cn/latest/_images/uso-icon.png" alt="" width="36" height="36" style="vertical-align: middle; border-radius: 50%" loading="lazy" decoding="async"> USTC学生管弦乐团</a><mdui-icon name="open_in_new" class="post-external-link-icon" aria-hidden="true"></mdui-icon>
+</p>
+            </div>
+        </div>
+        
+<aside class="page-sidebar page-sidebar--post sticky-sidebar">
+    <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+        <div class="post-toc-inner">
+            <div class="post-toc-scroll mdui-prose">
+                
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About-Me"><span class="post-toc-text">About Me</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Research-Engineering"><span class="post-toc-text">Research &amp; Engineering</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Life-Taste"><span class="post-toc-text">Life &amp; Taste</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Design"><span class="post-toc-text">Design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8B%E9%93%BE"><span class="post-toc-text">友链</span></a></li></ol>
+
+            </div>
+        </div>
+    </nav>
+</aside>
+
 
     </div>
 </main>
@@ -525,10 +564,20 @@
   modal
   close-on-esc
   close-on-overlay-click
-  aria-label="Categories"
+  aria-label="Table of Contents"
 >
   
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
+    <div class="post-toc-scroll mdui-prose">
+      
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About-Me"><span class="post-toc-text">About Me</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Research-Engineering"><span class="post-toc-text">Research &amp; Engineering</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Life-Taste"><span class="post-toc-text">Life &amp; Taste</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Design"><span class="post-toc-text">Design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8B%E9%93%BE"><span class="post-toc-text">友链</span></a></li></ol>
 
+    </div>
+  </nav>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
   
 
   
@@ -542,7 +591,7 @@
       
     >
       笔记
-      <span slot="description">107 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -597,6 +646,7 @@
   <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
+  <script src="/js/link-preview.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

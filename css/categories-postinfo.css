@@ -172,6 +172,15 @@ mdui-card.archives-category-card {
   max-width: 650px;
 }
 
+/* source/_data/*.md 渲染出的段落沿用旧版 notes-subtitle__row 的行距。 */
+.notes-subtitle > p {
+  margin: 0;
+}
+
+.notes-subtitle > p + p {
+  margin-top: 0.4em;
+}
+
 /* 版心外说明段内 <a>：对齐 MDUI .mdui-prose a 的主色与悬停下划线，不作用于 prose */
 .notes-subtitle a {
   color: rgb(var(--mdui-color-primary));

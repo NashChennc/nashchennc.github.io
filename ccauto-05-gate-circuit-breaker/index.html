@@ -64,6 +64,8 @@
   
   <link rel="stylesheet" href="/css/site-search.css">
   
+  <link rel="stylesheet" href="/css/link-preview.css">
+  
   <link rel="stylesheet" href="/css/custom.css">
 
   <meta name="theme-color" content="#6495ED">
@@ -135,7 +137,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 107</a>
+    >笔记 · 108</a>
       
     
       
@@ -684,16 +686,19 @@
             </mdui-card>
         </main>
         
-        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
-            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
-                <div class="post-toc-inner">
-                    <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8C%E5%B1%82%E9%97%A8%E7%A6%81%E4%BD%93%E7%B3%BB"><span class="post-toc-text">双层门禁体系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8C%E6%AD%A5%E9%97%A8%E7%A6%81%EF%BC%9AisAutoModeGateEnabled"><span class="post-toc-text">同步门禁：isAutoModeGateEnabled</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%82%E6%AD%A5%E6%9D%83%E5%A8%81%E6%A0%A1%E9%AA%8C%EF%BC%9AverifyAutoModeGateAccess"><span class="post-toc-text">异步权威校验：verifyAutoModeGateAccess</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AF%E5%8F%98%E6%8D%A2%E5%87%BD%E6%95%B0%EF%BC%8C%E8%80%8C%E9%9D%9E%E9%A2%84%E8%AE%A1%E7%AE%97%E7%9A%84-context"><span class="post-toc-text">返回值是变换函数，而非预计算的 context</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#kickOutOfAutoIfNeeded-%E5%8F%98%E6%8D%A2"><span class="post-toc-text">kickOutOfAutoIfNeeded 变换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%9A%E7%9F%A5%E7%AD%96%E7%95%A5"><span class="post-toc-text">通知策略</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%94%AF%E6%8C%81%E5%88%A4%E5%AE%9A"><span class="post-toc-text">模型支持判定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8C%82%E8%BD%BD%E6%97%B6%E5%92%8C%E5%8F%98%E5%8C%96%E6%97%B6%E9%87%8D%E8%B7%91"><span class="post-toc-text">挂载时和变化时重跑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tengu-auto-mode-config-%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%84"><span class="post-toc-text">tengu_auto_mode_config 配置结构</span></a></li></ol>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-        
+<aside class="page-sidebar page-sidebar--post sticky-sidebar">
+    <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+        <div class="post-toc-inner">
+            <div class="post-toc-scroll mdui-prose">
+                
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8C%E5%B1%82%E9%97%A8%E7%A6%81%E4%BD%93%E7%B3%BB"><span class="post-toc-text">双层门禁体系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8C%E6%AD%A5%E9%97%A8%E7%A6%81%EF%BC%9AisAutoModeGateEnabled"><span class="post-toc-text">同步门禁：isAutoModeGateEnabled</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%82%E6%AD%A5%E6%9D%83%E5%A8%81%E6%A0%A1%E9%AA%8C%EF%BC%9AverifyAutoModeGateAccess"><span class="post-toc-text">异步权威校验：verifyAutoModeGateAccess</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AF%E5%8F%98%E6%8D%A2%E5%87%BD%E6%95%B0%EF%BC%8C%E8%80%8C%E9%9D%9E%E9%A2%84%E8%AE%A1%E7%AE%97%E7%9A%84-context"><span class="post-toc-text">返回值是变换函数，而非预计算的 context</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#kickOutOfAutoIfNeeded-%E5%8F%98%E6%8D%A2"><span class="post-toc-text">kickOutOfAutoIfNeeded 变换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%9A%E7%9F%A5%E7%AD%96%E7%95%A5"><span class="post-toc-text">通知策略</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%94%AF%E6%8C%81%E5%88%A4%E5%AE%9A"><span class="post-toc-text">模型支持判定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8C%82%E8%BD%BD%E6%97%B6%E5%92%8C%E5%8F%98%E5%8C%96%E6%97%B6%E9%87%8D%E8%B7%91"><span class="post-toc-text">挂载时和变化时重跑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tengu-auto-mode-config-%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%84"><span class="post-toc-text">tengu_auto_mode_config 配置结构</span></a></li></ol>
+
+            </div>
+        </div>
+    </nav>
+</aside>
+
+
     </div>
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
@@ -857,7 +862,9 @@
   
   <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
     <div class="post-toc-scroll mdui-prose">
-      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8C%E5%B1%82%E9%97%A8%E7%A6%81%E4%BD%93%E7%B3%BB"><span class="post-toc-text">双层门禁体系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8C%E6%AD%A5%E9%97%A8%E7%A6%81%EF%BC%9AisAutoModeGateEnabled"><span class="post-toc-text">同步门禁：isAutoModeGateEnabled</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%82%E6%AD%A5%E6%9D%83%E5%A8%81%E6%A0%A1%E9%AA%8C%EF%BC%9AverifyAutoModeGateAccess"><span class="post-toc-text">异步权威校验：verifyAutoModeGateAccess</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AF%E5%8F%98%E6%8D%A2%E5%87%BD%E6%95%B0%EF%BC%8C%E8%80%8C%E9%9D%9E%E9%A2%84%E8%AE%A1%E7%AE%97%E7%9A%84-context"><span class="post-toc-text">返回值是变换函数，而非预计算的 context</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#kickOutOfAutoIfNeeded-%E5%8F%98%E6%8D%A2"><span class="post-toc-text">kickOutOfAutoIfNeeded 变换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%9A%E7%9F%A5%E7%AD%96%E7%95%A5"><span class="post-toc-text">通知策略</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%94%AF%E6%8C%81%E5%88%A4%E5%AE%9A"><span class="post-toc-text">模型支持判定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8C%82%E8%BD%BD%E6%97%B6%E5%92%8C%E5%8F%98%E5%8C%96%E6%97%B6%E9%87%8D%E8%B7%91"><span class="post-toc-text">挂载时和变化时重跑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tengu-auto-mode-config-%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%84"><span class="post-toc-text">tengu_auto_mode_config 配置结构</span></a></li></ol>
+      
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8C%E5%B1%82%E9%97%A8%E7%A6%81%E4%BD%93%E7%B3%BB"><span class="post-toc-text">双层门禁体系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8C%E6%AD%A5%E9%97%A8%E7%A6%81%EF%BC%9AisAutoModeGateEnabled"><span class="post-toc-text">同步门禁：isAutoModeGateEnabled</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%82%E6%AD%A5%E6%9D%83%E5%A8%81%E6%A0%A1%E9%AA%8C%EF%BC%9AverifyAutoModeGateAccess"><span class="post-toc-text">异步权威校验：verifyAutoModeGateAccess</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC%E6%98%AF%E5%8F%98%E6%8D%A2%E5%87%BD%E6%95%B0%EF%BC%8C%E8%80%8C%E9%9D%9E%E9%A2%84%E8%AE%A1%E7%AE%97%E7%9A%84-context"><span class="post-toc-text">返回值是变换函数，而非预计算的 context</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#kickOutOfAutoIfNeeded-%E5%8F%98%E6%8D%A2"><span class="post-toc-text">kickOutOfAutoIfNeeded 变换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%9A%E7%9F%A5%E7%AD%96%E7%95%A5"><span class="post-toc-text">通知策略</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%94%AF%E6%8C%81%E5%88%A4%E5%AE%9A"><span class="post-toc-text">模型支持判定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8C%82%E8%BD%BD%E6%97%B6%E5%92%8C%E5%8F%98%E5%8C%96%E6%97%B6%E9%87%8D%E8%B7%91"><span class="post-toc-text">挂载时和变化时重跑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tengu-auto-mode-config-%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%84"><span class="post-toc-text">tengu_auto_mode_config 配置结构</span></a></li></ol>
+
     </div>
   </nav>
   
@@ -877,7 +884,7 @@
       
     >
       笔记
-      <span slot="description">107 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -932,6 +939,7 @@
   <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
+  <script src="/js/link-preview.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

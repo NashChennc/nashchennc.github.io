@@ -148,8 +148,8 @@ mdui-card.post-page-card {
   text-underline-offset: 0.12em;
 }
 
-/* 独立 Page 模板：横向滚动放在 main，避免 .mdui-prose 成滚动容器影响表后段落 */
-main.page-shell:has(.page-page__prose) {
+/* 独立 Page 模板：横向滚动放在正文栏，避免祖先 overflow 破坏 sticky 侧栏 */
+.page-main.page-page__body {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -159,6 +159,23 @@ main.page-shell .mdui-prose.page-page__prose {
   max-width: min(var(--page-static-prose-max-width), 100%);
   margin-right: auto;
   margin-left: 0;
+}
+
+/* 有目录时正文栏受 grid 限宽（--page-article-column-max-width），正文填满栏宽，与文章页读数宽度一致 */
+.page-grid--post:not(.page-grid--single) .page-main.page-page__body .page-page__prose {
+  max-width: none;
+}
+
+/* 页面无卡片内边距，正文与目录比文章页更贴，单独放宽空隙 */
+@media (min-width: 840px) {
+  .page-grid--post:not(.page-grid--single):has(.page-page__body) {
+    column-gap: 4rem;
+  }
+}
+
+/* 页面正文标题与文章页一致的目录锚点偏移，避免贴住固定顶栏 */
+.page-page__prose :is(h2[id], h3[id]) {
+  scroll-margin-top: var(--app-sticky-stack-gap);
 }
 
 /* 文章侧栏目录：直接落在页面背景上；随正文吸附，长文时仅目录区内部滚动 */

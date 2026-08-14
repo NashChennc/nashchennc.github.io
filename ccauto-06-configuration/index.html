@@ -64,6 +64,8 @@
   
   <link rel="stylesheet" href="/css/site-search.css">
   
+  <link rel="stylesheet" href="/css/link-preview.css">
+  
   <link rel="stylesheet" href="/css/custom.css">
 
   <meta name="theme-color" content="#6495ED">
@@ -135,7 +137,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 107</a>
+    >笔记 · 108</a>
       
     
       
@@ -554,16 +556,19 @@
             </mdui-card>
         </main>
         
-        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
-            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
-                <div class="post-toc-inner">
-                    <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E4%B8%AA%E5%8F%AF%E5%AE%9A%E5%88%B6-Slot"><span class="post-toc-text">三个可定制 Slot</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Slot-%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="post-toc-text">Slot 注入方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Slot-%E5%86%85%E5%AE%B9%E6%9D%A5%E6%BA%90"><span class="post-toc-text">Slot 内容来源</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%90%88%E5%B9%B6%EF%BC%9A%E6%95%85%E6%84%8F%E6%8E%92%E9%99%A4-projectSettings"><span class="post-toc-text">设置合并：故意排除 projectSettings</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9B%B8%E5%90%8C%E7%9A%84%E6%8E%92%E9%99%A4%E7%AD%96%E7%95%A5%E5%BA%94%E7%94%A8%E4%BA%8E%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E8%AE%BE%E7%BD%AE"><span class="post-toc-text">相同的排除策略应用于其他安全设置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CLI-%E5%AD%90%E5%91%BD%E4%BB%A4%EF%BC%9Aclaude-auto-mode"><span class="post-toc-text">CLI 子命令：claude auto-mode</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-defaults"><span class="post-toc-text">claude auto-mode defaults</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-config"><span class="post-toc-text">claude auto-mode config</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-critique"><span class="post-toc-text">claude auto-mode critique</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Plan-Mode-%E4%B8%8B%E7%9A%84-Auto-Mode"><span class="post-toc-text">Plan Mode 下的 Auto Mode</span></a></li></ol>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-        
+<aside class="page-sidebar page-sidebar--post sticky-sidebar">
+    <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+        <div class="post-toc-inner">
+            <div class="post-toc-scroll mdui-prose">
+                
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E4%B8%AA%E5%8F%AF%E5%AE%9A%E5%88%B6-Slot"><span class="post-toc-text">三个可定制 Slot</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Slot-%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="post-toc-text">Slot 注入方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Slot-%E5%86%85%E5%AE%B9%E6%9D%A5%E6%BA%90"><span class="post-toc-text">Slot 内容来源</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%90%88%E5%B9%B6%EF%BC%9A%E6%95%85%E6%84%8F%E6%8E%92%E9%99%A4-projectSettings"><span class="post-toc-text">设置合并：故意排除 projectSettings</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9B%B8%E5%90%8C%E7%9A%84%E6%8E%92%E9%99%A4%E7%AD%96%E7%95%A5%E5%BA%94%E7%94%A8%E4%BA%8E%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E8%AE%BE%E7%BD%AE"><span class="post-toc-text">相同的排除策略应用于其他安全设置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CLI-%E5%AD%90%E5%91%BD%E4%BB%A4%EF%BC%9Aclaude-auto-mode"><span class="post-toc-text">CLI 子命令：claude auto-mode</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-defaults"><span class="post-toc-text">claude auto-mode defaults</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-config"><span class="post-toc-text">claude auto-mode config</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-critique"><span class="post-toc-text">claude auto-mode critique</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Plan-Mode-%E4%B8%8B%E7%9A%84-Auto-Mode"><span class="post-toc-text">Plan Mode 下的 Auto Mode</span></a></li></ol>
+
+            </div>
+        </div>
+    </nav>
+</aside>
+
+
     </div>
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
@@ -727,7 +732,9 @@
   
   <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
     <div class="post-toc-scroll mdui-prose">
-      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E4%B8%AA%E5%8F%AF%E5%AE%9A%E5%88%B6-Slot"><span class="post-toc-text">三个可定制 Slot</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Slot-%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="post-toc-text">Slot 注入方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Slot-%E5%86%85%E5%AE%B9%E6%9D%A5%E6%BA%90"><span class="post-toc-text">Slot 内容来源</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%90%88%E5%B9%B6%EF%BC%9A%E6%95%85%E6%84%8F%E6%8E%92%E9%99%A4-projectSettings"><span class="post-toc-text">设置合并：故意排除 projectSettings</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9B%B8%E5%90%8C%E7%9A%84%E6%8E%92%E9%99%A4%E7%AD%96%E7%95%A5%E5%BA%94%E7%94%A8%E4%BA%8E%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E8%AE%BE%E7%BD%AE"><span class="post-toc-text">相同的排除策略应用于其他安全设置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CLI-%E5%AD%90%E5%91%BD%E4%BB%A4%EF%BC%9Aclaude-auto-mode"><span class="post-toc-text">CLI 子命令：claude auto-mode</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-defaults"><span class="post-toc-text">claude auto-mode defaults</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-config"><span class="post-toc-text">claude auto-mode config</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-critique"><span class="post-toc-text">claude auto-mode critique</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Plan-Mode-%E4%B8%8B%E7%9A%84-Auto-Mode"><span class="post-toc-text">Plan Mode 下的 Auto Mode</span></a></li></ol>
+      
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E4%B8%AA%E5%8F%AF%E5%AE%9A%E5%88%B6-Slot"><span class="post-toc-text">三个可定制 Slot</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Slot-%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="post-toc-text">Slot 注入方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Slot-%E5%86%85%E5%AE%B9%E6%9D%A5%E6%BA%90"><span class="post-toc-text">Slot 内容来源</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%90%88%E5%B9%B6%EF%BC%9A%E6%95%85%E6%84%8F%E6%8E%92%E9%99%A4-projectSettings"><span class="post-toc-text">设置合并：故意排除 projectSettings</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9B%B8%E5%90%8C%E7%9A%84%E6%8E%92%E9%99%A4%E7%AD%96%E7%95%A5%E5%BA%94%E7%94%A8%E4%BA%8E%E5%85%B6%E4%BB%96%E5%AE%89%E5%85%A8%E8%AE%BE%E7%BD%AE"><span class="post-toc-text">相同的排除策略应用于其他安全设置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CLI-%E5%AD%90%E5%91%BD%E4%BB%A4%EF%BC%9Aclaude-auto-mode"><span class="post-toc-text">CLI 子命令：claude auto-mode</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-defaults"><span class="post-toc-text">claude auto-mode defaults</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-config"><span class="post-toc-text">claude auto-mode config</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#claude-auto-mode-critique"><span class="post-toc-text">claude auto-mode critique</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Plan-Mode-%E4%B8%8B%E7%9A%84-Auto-Mode"><span class="post-toc-text">Plan Mode 下的 Auto Mode</span></a></li></ol>
+
     </div>
   </nav>
   
@@ -747,7 +754,7 @@
       
     >
       笔记
-      <span slot="description">107 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -802,6 +809,7 @@
   <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
+  <script src="/js/link-preview.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

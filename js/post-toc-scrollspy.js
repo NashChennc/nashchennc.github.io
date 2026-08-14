@@ -178,10 +178,12 @@
     }
 
     if ('ResizeObserver' in window) {
-      var articleBody = document.querySelector('.post-page-card__body');
-      if (articleBody) {
+      var articleBodies = document.querySelectorAll('.post-page-card__body, .page-page__body');
+      if (articleBodies.length) {
         resizeObserver = new ResizeObserver(recalculate);
-        resizeObserver.observe(articleBody);
+        articleBodies.forEach(function (el) {
+          resizeObserver.observe(el);
+        });
       }
     }
 

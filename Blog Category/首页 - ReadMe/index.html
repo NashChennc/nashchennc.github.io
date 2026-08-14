@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
-  <title>ReadMe - 生猛活海鲜大排档</title>
+  <title>首页 - README - 生猛活海鲜大排档</title>
 
   <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
   <link rel="stylesheet" href="/mdui2/mdui.css">
@@ -63,6 +63,8 @@
   <link rel="stylesheet" href="/css/activity-heatmap.css">
   
   <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/link-preview.css">
   
   <link rel="stylesheet" href="/css/custom.css">
 
@@ -135,7 +137,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 107</a>
+    >笔记 · 108</a>
       
     
       
@@ -328,7 +330,7 @@
         <main class="page-main page-main--post">
             <mdui-card variant="filled" class="post-page-card">
                 <div class="post-page-card__header">
-                    <h1 class="post-page__title note-card-title">ReadMe</h1>
+                    <h1 class="post-page__title note-card-title">首页 - README</h1>
                     <div class="post-page__meta-row">
                         <span class="note-date">2023 Aug 10</span>
                         
@@ -362,7 +364,6 @@
 <li><a href="/%E9%9F%B3%E4%B9%90%E7%AC%94%E8%AE%B0%E7%B4%A2%E5%BC%95/" title="">音乐笔记索引</a></li>
 </ul>
 <p><a href="/Blog%20Category/%E6%9C%AA%E5%88%86%E7%B1%BB/" title="">未分类</a></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TABLE join(file.tags, &quot; &quot;) AS Tags, default(updated, file.mtime) AS &quot;时间&quot;, categories AS &quot;分类&quot;</span><br><span class="line">FROM -&quot;Templates&quot; AND -#menu</span><br><span class="line">WHERE file.name != this.file.name</span><br><span class="line">SORT default(updated, file.mtime) DESC</span><br></pre></td></tr></tbody></table></figure>
 
                     </div>
                     
@@ -410,16 +411,19 @@
             </mdui-card>
         </main>
         
-        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
-            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
-                <div class="post-toc-inner">
-                    <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">须知：神爱世人</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">芙门。（双手合十）</span></a></li></ol>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-        
+<aside class="page-sidebar page-sidebar--post sticky-sidebar">
+    <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+        <div class="post-toc-inner">
+            <div class="post-toc-scroll mdui-prose">
+                
+<ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">须知：神爱世人</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">芙门。（双手合十）</span></a></li></ol>
+
+            </div>
+        </div>
+    </nav>
+</aside>
+
+
     </div>
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
@@ -583,7 +587,9 @@
   
   <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
     <div class="post-toc-scroll mdui-prose">
-      <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">须知：神爱世人</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">芙门。（双手合十）</span></a></li></ol>
+      
+<ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">须知：神爱世人</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link"><span class="post-toc-text">芙门。（双手合十）</span></a></li></ol>
+
     </div>
   </nav>
   
@@ -603,7 +609,7 @@
       
     >
       笔记
-      <span slot="description">107 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -658,6 +664,7 @@
   <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
+  <script src="/js/link-preview.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

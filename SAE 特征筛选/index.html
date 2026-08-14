@@ -64,6 +64,8 @@
   
   <link rel="stylesheet" href="/css/site-search.css">
   
+  <link rel="stylesheet" href="/css/link-preview.css">
+  
   <link rel="stylesheet" href="/css/custom.css">
 
   <meta name="theme-color" content="#6495ED">
@@ -135,7 +137,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 107</a>
+    >笔记 · 108</a>
       
     
       
@@ -706,16 +708,19 @@
             </mdui-card>
         </main>
         
-        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
-            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
-                <div class="post-toc-inner">
-                    <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A"><span class="post-toc-text">1. 数学定义与几何解释</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E8%BF%99%E4%B8%AA%E6%8C%87%E6%A0%87%E7%9A%84%E6%80%A7%E8%B4%A8-Properties"><span class="post-toc-text">2. 这个指标的性质 (Properties)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E8%AF%84%E4%BB%B7%EF%BC%9A%E5%9C%A8-SAE-%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-text">3. 评价：在 SAE 场景下的优缺点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E6%94%B9%E8%BF%9B%E5%BB%BA%E8%AE%AE%EF%BC%9A%E6%A0%87%E5%87%86%E5%8C%96%E5%B9%B3%E5%9D%87%E5%B7%AE"><span class="post-toc-text">4. 改进建议：标准化平均差</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E5%AF%B9%E6%AF%94%E6%80%BB%E8%A1%A8-The-Theoretical-Matrix"><span class="post-toc-text">1. 核心对比总表 (The Theoretical Matrix)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%EF%BC%9A%E4%BB%8E%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%AD%A6%E8%A7%92%E5%BA%A6"><span class="post-toc-text">2. 深度剖析：从信息论与统计学角度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E9%92%88%E5%AF%B9%E4%BD%A0%E7%9A%84-Pipeline-SAE-Forest-%E7%9A%84%E5%85%B7%E4%BD%93%E5%BB%BA%E8%AE%AE"><span class="post-toc-text">3. 针对你的 Pipeline (SAE -&gt; Forest) 的具体建议</span></a></li></ol>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-        
+<aside class="page-sidebar page-sidebar--post sticky-sidebar">
+    <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+        <div class="post-toc-inner">
+            <div class="post-toc-scroll mdui-prose">
+                
+<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A"><span class="post-toc-text">1. 数学定义与几何解释</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E8%BF%99%E4%B8%AA%E6%8C%87%E6%A0%87%E7%9A%84%E6%80%A7%E8%B4%A8-Properties"><span class="post-toc-text">2. 这个指标的性质 (Properties)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E8%AF%84%E4%BB%B7%EF%BC%9A%E5%9C%A8-SAE-%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-text">3. 评价：在 SAE 场景下的优缺点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E6%94%B9%E8%BF%9B%E5%BB%BA%E8%AE%AE%EF%BC%9A%E6%A0%87%E5%87%86%E5%8C%96%E5%B9%B3%E5%9D%87%E5%B7%AE"><span class="post-toc-text">4. 改进建议：标准化平均差</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E5%AF%B9%E6%AF%94%E6%80%BB%E8%A1%A8-The-Theoretical-Matrix"><span class="post-toc-text">1. 核心对比总表 (The Theoretical Matrix)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%EF%BC%9A%E4%BB%8E%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%AD%A6%E8%A7%92%E5%BA%A6"><span class="post-toc-text">2. 深度剖析：从信息论与统计学角度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E9%92%88%E5%AF%B9%E4%BD%A0%E7%9A%84-Pipeline-SAE-Forest-%E7%9A%84%E5%85%B7%E4%BD%93%E5%BB%BA%E8%AE%AE"><span class="post-toc-text">3. 针对你的 Pipeline (SAE -&gt; Forest) 的具体建议</span></a></li></ol>
+
+            </div>
+        </div>
+    </nav>
+</aside>
+
+
     </div>
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
@@ -879,7 +884,9 @@
   
   <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
     <div class="post-toc-scroll mdui-prose">
-      <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A"><span class="post-toc-text">1. 数学定义与几何解释</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E8%BF%99%E4%B8%AA%E6%8C%87%E6%A0%87%E7%9A%84%E6%80%A7%E8%B4%A8-Properties"><span class="post-toc-text">2. 这个指标的性质 (Properties)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E8%AF%84%E4%BB%B7%EF%BC%9A%E5%9C%A8-SAE-%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-text">3. 评价：在 SAE 场景下的优缺点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E6%94%B9%E8%BF%9B%E5%BB%BA%E8%AE%AE%EF%BC%9A%E6%A0%87%E5%87%86%E5%8C%96%E5%B9%B3%E5%9D%87%E5%B7%AE"><span class="post-toc-text">4. 改进建议：标准化平均差</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E5%AF%B9%E6%AF%94%E6%80%BB%E8%A1%A8-The-Theoretical-Matrix"><span class="post-toc-text">1. 核心对比总表 (The Theoretical Matrix)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%EF%BC%9A%E4%BB%8E%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%AD%A6%E8%A7%92%E5%BA%A6"><span class="post-toc-text">2. 深度剖析：从信息论与统计学角度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E9%92%88%E5%AF%B9%E4%BD%A0%E7%9A%84-Pipeline-SAE-Forest-%E7%9A%84%E5%85%B7%E4%BD%93%E5%BB%BA%E8%AE%AE"><span class="post-toc-text">3. 针对你的 Pipeline (SAE -&gt; Forest) 的具体建议</span></a></li></ol>
+      
+<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A"><span class="post-toc-text">1. 数学定义与几何解释</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E8%BF%99%E4%B8%AA%E6%8C%87%E6%A0%87%E7%9A%84%E6%80%A7%E8%B4%A8-Properties"><span class="post-toc-text">2. 这个指标的性质 (Properties)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E8%AF%84%E4%BB%B7%EF%BC%9A%E5%9C%A8-SAE-%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-text">3. 评价：在 SAE 场景下的优缺点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E6%94%B9%E8%BF%9B%E5%BB%BA%E8%AE%AE%EF%BC%9A%E6%A0%87%E5%87%86%E5%8C%96%E5%B9%B3%E5%9D%87%E5%B7%AE"><span class="post-toc-text">4. 改进建议：标准化平均差</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%A0%B8%E5%BF%83%E5%AF%B9%E6%AF%94%E6%80%BB%E8%A1%A8-The-Theoretical-Matrix"><span class="post-toc-text">1. 核心对比总表 (The Theoretical Matrix)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%EF%BC%9A%E4%BB%8E%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%AD%A6%E8%A7%92%E5%BA%A6"><span class="post-toc-text">2. 深度剖析：从信息论与统计学角度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E9%92%88%E5%AF%B9%E4%BD%A0%E7%9A%84-Pipeline-SAE-Forest-%E7%9A%84%E5%85%B7%E4%BD%93%E5%BB%BA%E8%AE%AE"><span class="post-toc-text">3. 针对你的 Pipeline (SAE -&gt; Forest) 的具体建议</span></a></li></ol>
+
     </div>
   </nav>
   
@@ -899,7 +906,7 @@
       
     >
       笔记
-      <span slot="description">107 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -954,6 +961,7 @@
   <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
+  <script src="/js/link-preview.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

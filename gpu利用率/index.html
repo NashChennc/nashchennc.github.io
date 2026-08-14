@@ -64,6 +64,8 @@
   
   <link rel="stylesheet" href="/css/site-search.css">
   
+  <link rel="stylesheet" href="/css/link-preview.css">
+  
   <link rel="stylesheet" href="/css/custom.css">
 
   <meta name="theme-color" content="#6495ED">
@@ -135,7 +137,7 @@
       href="/categories/%E7%AC%94%E8%AE%B0"
       class="topbar-desktop-link topbar-category-link"
       
-    >笔记 · 107</a>
+    >笔记 · 108</a>
       
     
       
@@ -489,16 +491,19 @@
             </mdui-card>
         </main>
         
-        <aside class="page-sidebar page-sidebar--post sticky-sidebar" id="post-sidebar">
-            <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
-                <div class="post-toc-inner">
-                    <div class="post-toc-scroll mdui-prose">
-                        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MFU-%E6%A8%A1%E5%9E%8B%E6%B5%AE%E7%82%B9%E6%95%B0%E5%88%A9%E7%94%A8%E7%8E%87"><span class="post-toc-text">MFU 模型浮点数利用率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%86%85%E5%AD%98%E5%A2%99%E4%B8%8E%E7%AE%97%E6%9C%AF%E5%BC%BA%E5%BA%A6%E4%B8%8D%E8%B6%B3%EF%BC%88Memory-Wall-Arithmetic-Intensity%EF%BC%89"><span class="post-toc-text">1. 内存墙与算术强度不足（Memory Wall &amp; Arithmetic Intensity）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-MFU-%E4%B8%8E-HFU-%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%9A%E6%BF%80%E6%B4%BB%E9%87%8D%E8%AE%A1%E7%AE%97%EF%BC%88Activation-Recomputation%EF%BC%89"><span class="post-toc-text">2. MFU 与 HFU 的差异：激活重计算（Activation Recomputation）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E5%88%86%E5%B8%83%E5%BC%8F%E9%80%9A%E4%BF%A1%E7%9A%84%E5%BC%80%E9%94%80%EF%BC%88Communication-Overhead%EF%BC%89"><span class="post-toc-text">3. 分布式通信的开销（Communication Overhead）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E5%B9%B6%E9%9D%9E%E6%89%80%E6%9C%89%E8%BF%90%E7%AE%97%E9%83%BD%E8%83%BD%E4%BD%BF%E7%94%A8-Tensor-Core"><span class="post-toc-text">4. 并非所有运算都能使用 Tensor Core</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A8%80%E7%96%8F%E5%88%A9%E7%94%A8%E7%8E%87"><span class="post-toc-text">稀疏利用率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E7%A1%AC%E4%BB%B6%E5%B1%82%E9%9D%A2%EF%BC%9ANVIDIA-%E7%9A%84-2-4-%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%80%E7%96%8F%EF%BC%88Structured-Sparsity%EF%BC%89"><span class="post-toc-text">1. 硬件层面：NVIDIA 的 2:4 结构化稀疏（Structured Sparsity）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E7%AE%97%E6%B3%95%E5%B1%82%E9%9D%A2%EF%BC%9AFMA-%E6%8C%87%E4%BB%A4%E4%B8%AD%E7%9A%84-FLOPs-%E4%B8%8E-MACs"><span class="post-toc-text">2. 算法层面：FMA 指令中的 FLOPs 与 MACs</span></a></li></ol></li></ol>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-        
+<aside class="page-sidebar page-sidebar--post sticky-sidebar">
+    <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+        <div class="post-toc-inner">
+            <div class="post-toc-scroll mdui-prose">
+                
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MFU-%E6%A8%A1%E5%9E%8B%E6%B5%AE%E7%82%B9%E6%95%B0%E5%88%A9%E7%94%A8%E7%8E%87"><span class="post-toc-text">MFU 模型浮点数利用率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%86%85%E5%AD%98%E5%A2%99%E4%B8%8E%E7%AE%97%E6%9C%AF%E5%BC%BA%E5%BA%A6%E4%B8%8D%E8%B6%B3%EF%BC%88Memory-Wall-Arithmetic-Intensity%EF%BC%89"><span class="post-toc-text">1. 内存墙与算术强度不足（Memory Wall &amp; Arithmetic Intensity）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-MFU-%E4%B8%8E-HFU-%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%9A%E6%BF%80%E6%B4%BB%E9%87%8D%E8%AE%A1%E7%AE%97%EF%BC%88Activation-Recomputation%EF%BC%89"><span class="post-toc-text">2. MFU 与 HFU 的差异：激活重计算（Activation Recomputation）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E5%88%86%E5%B8%83%E5%BC%8F%E9%80%9A%E4%BF%A1%E7%9A%84%E5%BC%80%E9%94%80%EF%BC%88Communication-Overhead%EF%BC%89"><span class="post-toc-text">3. 分布式通信的开销（Communication Overhead）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E5%B9%B6%E9%9D%9E%E6%89%80%E6%9C%89%E8%BF%90%E7%AE%97%E9%83%BD%E8%83%BD%E4%BD%BF%E7%94%A8-Tensor-Core"><span class="post-toc-text">4. 并非所有运算都能使用 Tensor Core</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A8%80%E7%96%8F%E5%88%A9%E7%94%A8%E7%8E%87"><span class="post-toc-text">稀疏利用率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E7%A1%AC%E4%BB%B6%E5%B1%82%E9%9D%A2%EF%BC%9ANVIDIA-%E7%9A%84-2-4-%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%80%E7%96%8F%EF%BC%88Structured-Sparsity%EF%BC%89"><span class="post-toc-text">1. 硬件层面：NVIDIA 的 2:4 结构化稀疏（Structured Sparsity）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E7%AE%97%E6%B3%95%E5%B1%82%E9%9D%A2%EF%BC%9AFMA-%E6%8C%87%E4%BB%A4%E4%B8%AD%E7%9A%84-FLOPs-%E4%B8%8E-MACs"><span class="post-toc-text">2. 算法层面：FMA 指令中的 FLOPs 与 MACs</span></a></li></ol></li></ol>
+
+            </div>
+        </div>
+    </nav>
+</aside>
+
+
     </div>
 </div>
 <div id="page-bottom" aria-hidden="true"></div>
@@ -662,7 +667,9 @@
   
   <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
     <div class="post-toc-scroll mdui-prose">
-      <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MFU-%E6%A8%A1%E5%9E%8B%E6%B5%AE%E7%82%B9%E6%95%B0%E5%88%A9%E7%94%A8%E7%8E%87"><span class="post-toc-text">MFU 模型浮点数利用率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%86%85%E5%AD%98%E5%A2%99%E4%B8%8E%E7%AE%97%E6%9C%AF%E5%BC%BA%E5%BA%A6%E4%B8%8D%E8%B6%B3%EF%BC%88Memory-Wall-Arithmetic-Intensity%EF%BC%89"><span class="post-toc-text">1. 内存墙与算术强度不足（Memory Wall &amp; Arithmetic Intensity）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-MFU-%E4%B8%8E-HFU-%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%9A%E6%BF%80%E6%B4%BB%E9%87%8D%E8%AE%A1%E7%AE%97%EF%BC%88Activation-Recomputation%EF%BC%89"><span class="post-toc-text">2. MFU 与 HFU 的差异：激活重计算（Activation Recomputation）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E5%88%86%E5%B8%83%E5%BC%8F%E9%80%9A%E4%BF%A1%E7%9A%84%E5%BC%80%E9%94%80%EF%BC%88Communication-Overhead%EF%BC%89"><span class="post-toc-text">3. 分布式通信的开销（Communication Overhead）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E5%B9%B6%E9%9D%9E%E6%89%80%E6%9C%89%E8%BF%90%E7%AE%97%E9%83%BD%E8%83%BD%E4%BD%BF%E7%94%A8-Tensor-Core"><span class="post-toc-text">4. 并非所有运算都能使用 Tensor Core</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A8%80%E7%96%8F%E5%88%A9%E7%94%A8%E7%8E%87"><span class="post-toc-text">稀疏利用率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E7%A1%AC%E4%BB%B6%E5%B1%82%E9%9D%A2%EF%BC%9ANVIDIA-%E7%9A%84-2-4-%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%80%E7%96%8F%EF%BC%88Structured-Sparsity%EF%BC%89"><span class="post-toc-text">1. 硬件层面：NVIDIA 的 2:4 结构化稀疏（Structured Sparsity）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E7%AE%97%E6%B3%95%E5%B1%82%E9%9D%A2%EF%BC%9AFMA-%E6%8C%87%E4%BB%A4%E4%B8%AD%E7%9A%84-FLOPs-%E4%B8%8E-MACs"><span class="post-toc-text">2. 算法层面：FMA 指令中的 FLOPs 与 MACs</span></a></li></ol></li></ol>
+      
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MFU-%E6%A8%A1%E5%9E%8B%E6%B5%AE%E7%82%B9%E6%95%B0%E5%88%A9%E7%94%A8%E7%8E%87"><span class="post-toc-text">MFU 模型浮点数利用率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%86%85%E5%AD%98%E5%A2%99%E4%B8%8E%E7%AE%97%E6%9C%AF%E5%BC%BA%E5%BA%A6%E4%B8%8D%E8%B6%B3%EF%BC%88Memory-Wall-Arithmetic-Intensity%EF%BC%89"><span class="post-toc-text">1. 内存墙与算术强度不足（Memory Wall &amp; Arithmetic Intensity）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-MFU-%E4%B8%8E-HFU-%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%9A%E6%BF%80%E6%B4%BB%E9%87%8D%E8%AE%A1%E7%AE%97%EF%BC%88Activation-Recomputation%EF%BC%89"><span class="post-toc-text">2. MFU 与 HFU 的差异：激活重计算（Activation Recomputation）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E5%88%86%E5%B8%83%E5%BC%8F%E9%80%9A%E4%BF%A1%E7%9A%84%E5%BC%80%E9%94%80%EF%BC%88Communication-Overhead%EF%BC%89"><span class="post-toc-text">3. 分布式通信的开销（Communication Overhead）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E5%B9%B6%E9%9D%9E%E6%89%80%E6%9C%89%E8%BF%90%E7%AE%97%E9%83%BD%E8%83%BD%E4%BD%BF%E7%94%A8-Tensor-Core"><span class="post-toc-text">4. 并非所有运算都能使用 Tensor Core</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A8%80%E7%96%8F%E5%88%A9%E7%94%A8%E7%8E%87"><span class="post-toc-text">稀疏利用率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E7%A1%AC%E4%BB%B6%E5%B1%82%E9%9D%A2%EF%BC%9ANVIDIA-%E7%9A%84-2-4-%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%80%E7%96%8F%EF%BC%88Structured-Sparsity%EF%BC%89"><span class="post-toc-text">1. 硬件层面：NVIDIA 的 2:4 结构化稀疏（Structured Sparsity）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E7%AE%97%E6%B3%95%E5%B1%82%E9%9D%A2%EF%BC%9AFMA-%E6%8C%87%E4%BB%A4%E4%B8%AD%E7%9A%84-FLOPs-%E4%B8%8E-MACs"><span class="post-toc-text">2. 算法层面：FMA 指令中的 FLOPs 与 MACs</span></a></li></ol></li></ol>
+
     </div>
   </nav>
   
@@ -682,7 +689,7 @@
       
     >
       笔记
-      <span slot="description">107 posts</span>
+      <span slot="description">108 posts</span>
     </mdui-list-item>
       
     
@@ -737,6 +744,7 @@
   <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
   <script src="/js/index-taxonomy-tags.js" defer></script>
   <script src="/js/activity-heatmap.js" defer></script>
+  <script src="/js/link-preview.js" defer></script>
   
   <script src="/katex/katex.min.js"></script>
   <script src="/katex/contrib/auto-render.min.js"></script>

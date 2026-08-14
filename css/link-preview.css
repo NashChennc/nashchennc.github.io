@@ -1,0 +1,18 @@
+/* 链接预览 tooltip：标题单行，超宽省略号截断 */
+mdui-tooltip::part(headline) {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 正文（摘要）：预留最多 3 行，自动换行，超出省略号截断；
+   长不可断字符串（如外链 URL）强制断行后再按行数截断 */
+mdui-tooltip::part(content) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
