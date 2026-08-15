@@ -29,3 +29,29 @@
   height: auto;
   border-radius: 8px;
 }
+
+/* ==========================================================================
+   LilyPond 谱例（scripts/lilypond.js 输出 <figure class="lilypond-score">）
+   ========================================================================== */
+.lilypond-score {
+  text-align: center;
+  margin: 2em auto;
+}
+
+.lilypond-score-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 深色模式反色：LilyPond SVG 以 currentColor 上色，经 <img> 引入时固定为黑，
+   需用 filter 反相成白（透明底不受影响）以适配深色背景。
+   hue-rotate(180deg) 让黑白完美反相的同时保留彩色元素的色相，避免被反成补色。 */
+.mdui-theme-dark .lilypond-score-image {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@media (prefers-color-scheme: dark) {
+  .mdui-theme-auto .lilypond-score-image {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
