@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mdblog-theme');
+        document.documentElement.className = (t === 'light' || t === 'dark') ? 'mdui-theme-' + t : 'mdui-theme-auto';
+      } catch (e) {
+        document.documentElement.className = 'mdui-theme-auto';
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>わがままハイウェイ - 生猛活海鲜大排档</title>
+
+  <!-- MDUI 2 核心样式（先于图标与站点覆盖） -->
+  <link rel="stylesheet" href="/mdui2/mdui.css">
+  <link rel="stylesheet" href="/mdui2/outlined.css">
+  <!-- 与 MDUI mdui-icon 使用的 Material Icons* 家族名对齐，否则仅 outlined.css 时图标不显示 -->
+  <link rel="stylesheet" href="/mdui2/mdui-material-font-aliases.css">
+
+  <!-- Font Awesome 6 for brand icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  
+
+  <!-- 站点样式：并行加载各模块，避免单入口 custom.css 内 @import 串行阻塞 FCP -->
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/tokens.css">
+  
+  <link rel="stylesheet" href="/css/global-layout.css">
+  
+  <link rel="stylesheet" href="/css/topbar.css">
+  
+  <link rel="stylesheet" href="/css/motion-scroll-reveal.css">
+  
+  <link rel="stylesheet" href="/css/lists-cards.css">
+  
+  <link rel="stylesheet" href="/css/categories-postinfo.css">
+  
+  <link rel="stylesheet" href="/css/footer.css">
+  
+  <link rel="stylesheet" href="/css/article-prose.css">
+  
+  <link rel="stylesheet" href="/css/index-taxonomy.css">
+  
+  <link rel="stylesheet" href="/css/activity-heatmap.css">
+  
+  <link rel="stylesheet" href="/css/site-search.css">
+  
+  <link rel="stylesheet" href="/css/link-preview.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <meta name="theme-color" content="#6495ED">
+
+  <!-- MDUI 核心脚本：移至 <head> 以防止组件默认色闪烁 -->
+  <script src="/mdui2/mdui.global.js"></script>
+  <script>
+    (function () {
+      var themeColor = "#6495ED";
+      if (themeColor && typeof mdui !== 'undefined' && mdui.setColorScheme) {
+        mdui.setColorScheme(themeColor);
+      }
+    })();
+  </script>
+
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV49J0P7YC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-LV49J0P7YC");
+  </script>
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body id="top">
+  
+  <!-- Header/AppBar -->
+  <mdui-layout>
+    
+
+<mdui-top-app-bar class="app-top-bar" scroll-behavior="elevate">
+  
+    <mdui-button-icon
+      id="site-nav-toggle"
+      class="topbar-mobile-control"
+      variant="standard"
+      icon="menu"
+      aria-label="Table of Contents"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="site-category-drawer"
+    ></mdui-button-icon>
+  
+
+  <mdui-button-icon
+    variant="standard"
+    icon="home"
+    href="/"
+    class="topbar-mobile-home-btn"
+    aria-label="Home"
+    
+  ></mdui-button-icon>
+
+  
+  <div class="topbar-desktop-spacer" aria-hidden="true"></div>
+
+  <nav class="topbar-desktop-nav" aria-label="Categories">
+    <a
+      href="/"
+      class="topbar-desktop-link topbar-desktop-home__link"
+      
+    >Home</a>
+    
+      
+    <a
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >笔记 · 113</a>
+      
+    
+      
+    <a
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >碎碎念 · 435</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >流水账 · 105</a>
+      
+    
+      
+    <a
+      href="/categories/%E6%95%A3%E6%96%87"
+      class="topbar-desktop-link topbar-category-link"
+      
+    >散文 · 10</a>
+      
+    
+  </nav>
+  
+
+  <mdui-top-app-bar-title class="topbar-title topbar-title--mobile">生猛活海鲜大排档</mdui-top-app-bar-title>
+
+  <div class="topbar-actions">
+    <mdui-button-icon
+      variant="standard"
+      icon="calendar_month"
+      href="/archives"
+      class="topbar-archive-btn"
+      aria-label="archives"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="site-search-toggle"
+      variant="standard"
+      icon="search"
+      class="topbar-search-toggle"
+      aria-label="Search"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-controls="search-palette"
+      aria-keyshortcuts="Control+K Meta+K"
+    ></mdui-button-icon>
+    <mdui-button-icon
+      id="theme-toggle"
+      variant="standard"
+      icon="dark_mode"
+      class="topbar-theme-toggle"
+      data-label-dark="Switch to dark mode"
+      data-label-light="Switch to light mode"
+      data-label-follow="Use system theme (Shift+click to restore)"
+      aria-label="Switch to dark mode"
+    ></mdui-button-icon>
+    
+<div class="topbar-profile-cluster">
+  <mdui-button-icon
+    variant="standard"
+    class="topbar-profile-trigger-btn"
+    href="/about"
+    aria-label="About"
+    
+  >
+    
+      <img src="/image/avatar.jpeg" class="topbar-profile-trigger__avatar" alt="" width="40" height="40" decoding="async">
+    
+  </mdui-button-icon>
+
+  
+    <nav class="topbar-profile-social-bar" aria-label="Social links">
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://qm.qq.com/q/RPs1VkX9OU"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="695977430"
+          aria-label="695977430"
+        >
+          <i class="fa-brands fa-qq mdui-text-color-light-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://github.com/nashchennc"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="NashChennc"
+          aria-label="NashChennc"
+        >
+          <i class="fa-brands fa-github mdui-text-color-black topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="https://space.bilibili.com/1574355304"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="哔哩哔哩"
+          aria-label="哔哩哔哩"
+        >
+          <i class="fa-brands fa-bilibili mdui-text-color-pink topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+        
+        
+        <mdui-button-icon
+          class="topbar-profile-social-bar__btn"
+          variant="standard"
+          href="mailto:chennachuan0423@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="chennachuan0423@gmail.com"
+          aria-label="chennachuan0423@gmail.com"
+        >
+          <i class="fa-solid fa-envelope mdui-text-color-blue topbar-profile-social-bar__icon" aria-hidden="true"></i>
+        </mdui-button-icon>
+        
+      
+    </nav>
+  
+</div>
+
+  </div>
+</mdui-top-app-bar>
+
+    <mdui-dialog
+  id="search-palette"
+  class="search-palette-dialog"
+  close-on-esc
+  data-search-url="/search.json"
+  data-search-no-results="No matching posts"
+  data-search-empty-hint="Search posts…"
+>
+  <div class="palette-container">
+    <mdui-text-field
+      id="palette-input"
+      class="palette-input"
+      variant="outlined"
+      type="search"
+      icon="search"
+      placeholder="Search posts…"
+      clearable
+      aria-label="Search posts"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
+    ></mdui-text-field>
+
+    <mdui-list id="palette-results" class="palette-results" hidden></mdui-list>
+
+    <div id="palette-empty-state" class="palette-empty-state">
+      <mdui-icon name="manage_search" class="palette-empty-state__icon"></mdui-icon>
+      <p class="palette-empty-state__text">Search posts…</p>
+    </div>
+  </div>
+</mdui-dialog>
+
+
+    <mdui-layout-main>
+      <!-- Main Content (page-level layout lives in individual views) -->
+      <div id="main-content">
+        <!-- 全宽 Banner -->
+
+
+
+
+<div class="page-shell app-container">
+    <div class="page-grid page-grid--post">
+        <!-- 文章内容 -->
+
+        <main class="page-main page-main--post">
+            <mdui-card variant="filled" class="post-page-card">
+                <div class="post-page-card__header">
+                    <h1 class="post-page__title note-card-title">わがままハイウェイ</h1>
+                    <div class="post-page__meta-row">
+                        <span class="note-date">2026 Aug 21</span>
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/categories/%E7%AC%94%E8%AE%B0/" class="note-tag">笔记</a>
+                                
+                            </div>
+                        
+                        
+                            <div class="post-page__meta--cats">
+                                
+                                    <a href="/tags/%E4%B9%90%E8%B0%B1/" class="note-tag">乐谱</a>
+                                
+                            </div>
+                        
+                        <span class="note-read">1 min read</span>
+                    </div>
+                    <mdui-divider></mdui-divider>
+                </div>
+                <div class="post-page-card__body">
+                    <div class="mdui-prose">
+                        <h2 id="mm-44–62">mm.44–62</h2>
+<figure class="lilypond-score"><img class="lilypond-score-image" src="/lilypond/629c11bd8099cbc60bba5e2c524ef08287e14905d20207267246038fdfd03b25.svg"></figure>
+<p>未校对</p>
+<h2 id="mm-77–92">mm.77–92</h2>
+<figure class="lilypond-score"><img class="lilypond-score-image" src="/lilypond/6322afe9628d0c6adf53f6c0fbd14b91cdd681cb1027691135a97a014cdb0d59.svg"></figure>
+<h2 id="mm-101–109">mm.101–109</h2>
+<figure class="lilypond-score"><img class="lilypond-score-image" src="/lilypond/130b82f135d915489fed0f396e530331a60bf03f566753841e9221fff1e402b9.svg"></figure>
+<h2 id="mm-120–128">mm.120–128</h2>
+<figure class="lilypond-score"><img class="lilypond-score-image" src="/lilypond/bc5e5b0b6cb1f9f5e7b2faa68575ded7ab48715ea2316ee5e986a72b69dc75ed.svg"></figure>
+<h2 id="mm-133–148">mm.133–148</h2>
+<figure class="lilypond-score"><img class="lilypond-score-image" src="/lilypond/c1fa6832a7fd8a0ffca35eb2786a1cea74e130f08ca3bc1c20cc9773c69951ee.svg"></figure>
+<h2 id="mm-149–156">mm.149–156</h2>
+<figure class="lilypond-score"><img class="lilypond-score-image" src="/lilypond/2065d6ed4ace716dcd45a1e863833082e473a73ddb0b1509fb9e59728fb6897e.svg"></figure>
+<h2 id="mm-161–167">mm.161–167</h2>
+<figure class="lilypond-score"><img class="lilypond-score-image" src="/lilypond/652205c4923b4fe4981b5e67f29c004b134d433ea3c147fc701996bcb2b31168.svg"></figure>
+<p>继续，剩下的是&nbsp;<strong>m.204–211</strong>&nbsp;和跳到&nbsp;<strong>m.221–223</strong>。原摘录对应 Excerpt 19A/19B、20、21、22。</p>
+<h2 id="mm-204–211">mm.204–211</h2>
+<figure class="lilypond-score"><img class="lilypond-score-image" src="/lilypond/618dab8d1a57787c6bc7a2968222c632e4c170fc851804d11803fc7f50bc6710.svg"></figure>
+<h2 id="mm-221–223">mm.221–223</h2>
+<p>Vo.2 在这三小节全部是休止，所以歌词只有 Vo.1。</p>
+<figure class="lilypond-score"><img class="lilypond-score-image" src="/lilypond/3c4d591783bc9ae2c9b6d122fb24cb3d2cda863e87ee477f41acc2071b3f196c.svg"></figure>
+
+                    </div>
+                    
+                </div>
+                
+
+                
+                <mdui-divider></mdui-divider>
+                <div class="post-nav">
+                    <div class="post-nav__side post-nav__side--prev">
+                            
+                                <a class="post-nav__link" href="/%E3%83%9A%E3%83%B3%EF%BC%9A%E5%8A%9B%EF%BC%9A%E5%88%80/">
+                                    <span class="post-nav__label">
+                                        <mdui-icon name="arrow_back"></mdui-icon>
+                                        Previous
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">ペン：力：刀</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                    <div class="post-nav__side post-nav__side--next">
+                            
+                                <a class="post-nav__link" href="/Draft/%E8%BF%91%E6%9C%9F%E8%AE%A1%E5%88%92/">
+                                    <span class="post-nav__label">
+                                        Next
+                                        <mdui-icon name="arrow_forward"></mdui-icon>
+                                    </span>
+                                    <span class="post-nav__body">
+                                        
+                                        <span class="post-nav__category">笔记</span>
+                                        
+                                        <span class="post-nav__title">近期计划</span>
+                                    </span>
+                                </a>
+                            
+                    </div>
+                </div>
+                
+
+            </mdui-card>
+        </main>
+        
+<aside class="page-sidebar page-sidebar--post sticky-sidebar">
+    <nav class="post-toc-panel toc-full-height" aria-label="Table of Contents">
+        <div class="post-toc-inner">
+            <div class="post-toc-scroll mdui-prose">
+                
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-44%E2%80%9362"><span class="post-toc-text">mm.44–62</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-77%E2%80%9392"><span class="post-toc-text">mm.77–92</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-101%E2%80%93109"><span class="post-toc-text">mm.101–109</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-120%E2%80%93128"><span class="post-toc-text">mm.120–128</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-133%E2%80%93148"><span class="post-toc-text">mm.133–148</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-149%E2%80%93156"><span class="post-toc-text">mm.149–156</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-161%E2%80%93167"><span class="post-toc-text">mm.161–167</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-204%E2%80%93211"><span class="post-toc-text">mm.204–211</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-221%E2%80%93223"><span class="post-toc-text">mm.221–223</span></a></li></ol>
+
+            </div>
+        </div>
+    </nav>
+</aside>
+
+
+    </div>
+</div>
+<div id="page-bottom" aria-hidden="true"></div>
+
+      </div>
+      <!-- Footer -->
+      
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="app-container site-footer__container">
+    
+    <div class="site-footer__social-wrap">
+      
+      <p class="site-footer__social-intro">无聊死了。来找我聊会天。</p>
+      
+    <nav class="site-footer__social" aria-label="Social links">
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://qm.qq.com/q/RPs1VkX9OU"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="695977430"
+        aria-label="695977430"
+      >
+        <i class="fa-brands fa-qq mdui-text-color-light-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://github.com/nashchennc"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="NashChennc"
+        aria-label="NashChennc"
+      >
+        <i class="fa-brands fa-github mdui-text-color-black site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="https://space.bilibili.com/1574355304"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="哔哩哔哩"
+        aria-label="哔哩哔哩"
+      >
+        <i class="fa-brands fa-bilibili mdui-text-color-pink site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+        
+        
+        
+        
+        
+        
+      <mdui-button-icon
+        class="site-footer__social-btn"
+        variant="standard"
+        href="mailto:chennachuan0423@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="chennachuan0423@gmail.com"
+        aria-label="chennachuan0423@gmail.com"
+      >
+        <i class="fa-solid fa-envelope mdui-text-color-blue site-footer__social-icon" aria-hidden="true"></i>
+      </mdui-button-icon>
+        
+      
+    </nav>
+    </div>
+    
+    <div class="site-footer__bottom">
+      <div class="site-footer__meta">
+        <p class="site-footer__copyright">
+          <span class="site-footer__copyright-line">&copy; 2026 <span class="site-footer__author">AAA爆炒生猛活海鲜</span></span><span class="site-footer__sep" aria-hidden="true"> · </span><span class="site-footer__powered">
+            Powered by
+            <span class="mdui-prose site-footer__powered-prose">
+              <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a><span class="site-footer__powered-sep" aria-hidden="true"> | </span><a href="https://www.mdui.org/" target="_blank" rel="noopener noreferrer">MDUI 2</a>
+            </span>
+          </span>
+        </p>
+      </div>
+      
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <div class="site-footer__nav-inner">
+          
+            
+            
+            
+          <mdui-button variant="text" href="/" class="site-footer__nav-btn">Home</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/archives" class="site-footer__nav-btn">Archives</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/files" class="site-footer__nav-btn">Files</mdui-button>
+            
+          
+            
+            
+            
+          <mdui-button variant="text" href="/about" class="site-footer__nav-btn">About</mdui-button>
+            
+          
+        </div>
+      </nav>
+      
+    </div>
+  </div>
+</footer>
+
+    </mdui-layout-main>
+  </mdui-layout>
+  
+
+
+<mdui-navigation-drawer
+  id="site-category-drawer"
+  class="site-category-drawer"
+  modal
+  close-on-esc
+  close-on-overlay-click
+  aria-label="Table of Contents"
+>
+  
+  <nav class="site-category-drawer__section site-category-drawer__toc" aria-label="Table of Contents">
+    <div class="post-toc-scroll mdui-prose">
+      
+<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-44%E2%80%9362"><span class="post-toc-text">mm.44–62</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-77%E2%80%9392"><span class="post-toc-text">mm.77–92</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-101%E2%80%93109"><span class="post-toc-text">mm.101–109</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-120%E2%80%93128"><span class="post-toc-text">mm.120–128</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-133%E2%80%93148"><span class="post-toc-text">mm.133–148</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-149%E2%80%93156"><span class="post-toc-text">mm.149–156</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-161%E2%80%93167"><span class="post-toc-text">mm.161–167</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-204%E2%80%93211"><span class="post-toc-text">mm.204–211</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mm-221%E2%80%93223"><span class="post-toc-text">mm.221–223</span></a></li></ol>
+
+    </div>
+  </nav>
+  
+
+  
+  <mdui-divider class="site-category-drawer__divider"></mdui-divider>
+  
+
+  
+  <mdui-list class="site-category-drawer__list">
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%AC%94%E8%AE%B0"
+      
+    >
+      笔记
+      <span slot="description">113 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5"
+      
+    >
+      碎碎念
+      <span slot="description">435 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6"
+      
+    >
+      流水账
+      <span slot="description">105 posts</span>
+    </mdui-list-item>
+      
+    
+      
+    <mdui-list-item
+      rounded
+      icon="folder"
+      href="/categories/%E6%95%A3%E6%96%87"
+      
+    >
+      散文
+      <span slot="description">10 posts</span>
+    </mdui-list-item>
+      
+    
+  </mdui-list>
+  
+</mdui-navigation-drawer>
+
+
+
+  <!-- Scripts -->
+  <script src="/js/site-navigation.js" defer></script>
+  <script src="/js/note-card-layout.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/site-search.js" defer></script>
+  <script src="/js/motion-scroll-reveal.js" defer></script>
+  <script src="/js/post-toc-scrollspy.js?v=20260811.1" defer></script>
+  <script src="/js/index-taxonomy-tags.js" defer></script>
+  <script src="/js/activity-heatmap.js" defer></script>
+  <script src="/js/link-preview.js" defer></script>
+  
+  <script src="/katex/katex.min.js"></script>
+  <script src="/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      });
+    });
+  </script>
+  
+  
+  <script src="/mermaid/mermaid.min.js"></script>
+  <script>
+    (function () {
+      var m = {"version":"10.8.0","enable":true,"theme":"forest","logLevel":5,"startOnLoad":true,"arrowMarkerAbsolute":false,"flowchart":{"htmlLabels":true,"useMaxWidth":true,"curve":"linear"},"sequence":{"diagramMarginX":50,"diagramMarginY":10,"actorMargin":50,"width":150,"height":65,"boxMargin":10,"boxTextMargin":5,"noteMargin":10,"messageMargin":35,"mirrorActors":true,"bottomMarginAdj":1,"useMaxWidth":true},"gantt":{"titleTopMargin":25,"barHeight":20,"barGap":4,"topPadding":50,"leftPadding":75,"gridLineStartPadding":35,"fontSize":11,"fontFamily":"\"Open-Sans\", \"sans-serif\"","numberSectionStyles":4,"axisFormat":"%Y-%m-%d"},"class":{},"git":{},"options":{"theme":"default","startOnLoad":false,"securityLevel":"loose"}};
+      var opts = Object.assign({}, m);
+      delete opts.enable;
+      delete opts.version;
+      var nested = opts.options;
+      delete opts.options;
+      if (nested && typeof nested === 'object') Object.assign(opts, nested);
+      window.__HEXO_MERMAID__ = opts;
+    })();
+  </script>
+  <script src="/js/mermaid-theme.js" defer></script>
+  
+</body>
+</html>
