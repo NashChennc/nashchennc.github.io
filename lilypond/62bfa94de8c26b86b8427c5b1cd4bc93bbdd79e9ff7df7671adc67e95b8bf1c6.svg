@@ -1382,7 +1382,7 @@ c0 -62 30 -97 30 -100c0 -4 -4 -7 -8 -7c-13 0 -98 130 -98 204c0 41 27 42 40 42c33
 <tspan>純那</tspan>
 </text>
 </g>
-<g transform="translate(28.2609, 52.0045)">
+<g transform="translate(31.3521, 52.0045)">
 <rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
 </g>
 <g transform="translate(0.0000, 54.0045)">
@@ -1403,26 +1403,17 @@ c0 -62 30 -97 30 -100c0 -4 -4 -7 -8 -7c-13 0 -98 130 -98 204c0 41 27 42 40 42c33
 <g transform="translate(102.2399, 52.0045)">
 <rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
 </g>
-<g transform="translate(89.4546, 52.0045)">
+<g transform="translate(92.1337, 52.0045)">
 <rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
 </g>
-<g transform="translate(80.8309, 52.0045)">
+<g transform="translate(82.0275, 52.0045)">
 <rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
 </g>
-<g transform="translate(72.2072, 52.0045)">
+<g transform="translate(59.3848, 52.0045)">
 <rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
-</g>
-<g transform="translate(52.6873, 52.0045)">
-<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
-</g>
-<g transform="translate(53.7001, 53.0045)">
-<path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
 <g transform="translate(0.0000, 52.0045)">
-<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M7.1450 2.0000C7.6118 2.5560 8.5659 2.5560 9.0327 2.0000L9.0327 2.0000C8.5659 2.4360 7.6118 2.4360 7.1450 2.0000z"/>
-</g>
-<g transform="translate(95.1923, 51.0045)">
-<path transform="scale(0.0040, -0.0040)" d="M365 -156h-355c-6 0 -10 4 -10 10v136c0 6 4 10 10 10h355c6 0 10 -4 10 -10v-136c0 -6 -4 -10 -10 -10z" fill="currentColor"/>
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M7.1450 2.0000C7.6510 2.5898 8.7390 2.5898 9.2450 2.0000L9.2450 2.0000C8.7390 2.4698 7.6510 2.4698 7.1450 2.0000z"/>
 </g>
 <g transform="translate(0.8000, 53.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M266 -635h-6c-108 0 -195 88 -195 197c0 58 53 103 112 103c54 0 95 -47 95 -103c0 -52 -43 -95 -95 -95c-11 0 -21 2 -31 6c26 -39 68 -65 117 -65h4zM401 151c19 -89 48 -242 60 -354c76 27 112 94 112 163c0 89 -60 179 -172 191zM74 28c0 -112 98 -247 278 -247
@@ -1447,241 +1438,244 @@ c-13 0 -23 11 -23 25z" fill="currentColor"/>
 <tspan>205</tspan>
 </text>
 </g>
-<g transform="translate(74.0270, 52.0045)">
-<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.1810 -1.2250C2.3213 -2.1396 8.2644 -2.1396 9.4047 -1.2250L9.4047 -1.2250C8.2644 -2.0196 2.3213 -2.0196 1.1810 -1.2250z"/>
-</g>
-<g transform="translate(9.2327, 53.5045)">
+<g transform="translate(9.4450, 53.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(10.4719, 52.0045)">
+<g transform="translate(10.6842, 52.0045)">
 <rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3138" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(10.5369, 50.0445)">
+<g transform="translate(10.7492, 50.0445)">
 <path transform="scale(0.0040, -0.0040)" d="M0 0v-375h-16v375h16zM123 -729c0 10 42 87 42 196c0 103 -94 208 -165 283v250c0 -197 207 -336 207 -533c0 -71 -15 -141 -41 -207c-5 -8 -13 -12 -20 -12c-12 0 -23 9 -23 23z" fill="currentColor"/>
 </g>
-<g transform="translate(12.7461, 52.0045)">
+<g transform="translate(13.1786, 52.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(12.1690, 57.5045)">
+<g transform="translate(12.6015, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>よ</tspan>
 </text>
 </g>
-<g transform="translate(12.8111, 52.0045)">
+<g transform="translate(13.2436, 52.0045)">
 <rect x="-0.0650" y="0.1862" width="0.1300" height="3.1471" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(11.7001, 52.0045)">
+<g transform="translate(12.1326, 52.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M-7 375c8 4 17 7 25 7s16 -3 24 -7l-2 -183l106 20h3c10 0 18 -7 18 -17l7 -570c-8 -4 -17 -7 -25 -7s-16 3 -24 7l2 183l-106 -20h-3c-10 0 -18 7 -18 17zM131 112l-92 -17l-3 -207l92 17z" fill="currentColor"/>
 </g>
-<g transform="translate(16.9554, 51.5045)">
+<g transform="translate(18.1130, 51.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(16.9554, 57.5045)">
+<g transform="translate(18.1130, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>り</tspan>
 </text>
 </g>
-<g transform="translate(17.0204, 52.0045)">
+<g transform="translate(18.1780, 52.0045)">
 <rect x="-0.0650" y="-0.3138" width="0.1300" height="3.3138" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(17.0854, 54.9645)">
+<g transform="translate(18.2430, 54.9645)">
 <path transform="scale(0.0040, -0.0040)" d="M0 0h-16v375h16v-375zM224 509c0 94 -40 158 -40 168c0 14 11 22 23 22c7 0 15 -3 20 -11c25 -56 40 -117 40 -179c0 -203 -267 -306 -267 -509v250c97 59 224 148 224 259z" fill="currentColor"/>
 </g>
-<g transform="translate(20.1964, 51.5045)">
+<g transform="translate(69.1374, 52.0045)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5042 -0.2382C1.9957 -0.8158 3.0329 -0.8158 3.5244 -0.2382L3.5244 -0.2382C3.0329 -0.6958 1.9957 -0.6958 1.5042 -0.2382z"/>
+</g>
+<g transform="translate(21.8374, 51.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(20.2614, 52.0045)">
+<g transform="translate(21.9024, 52.0045)">
 <rect x="-0.0650" y="-0.3138" width="0.1300" height="3.3138" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(61.1504, 52.0045)">
-<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5042 -0.2522C1.9015 -0.7433 2.6437 -0.7433 3.0410 -0.2522L3.0410 -0.2522C2.6437 -0.6233 1.9015 -0.6233 1.5042 -0.2522z"/>
-</g>
-<g transform="translate(24.4058, 52.0045)">
+<g transform="translate(26.7719, 52.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M-6 78c0 59 124 83 124 182c0 24 -8 49 -25 69l-35 42c-3 3 -4 7 -4 10c0 9 9 15 17 15c4 0 8 -1 11 -5l151 -180c7 -9 10 -17 10 -25c0 -59 -124 -83 -124 -182c0 -24 7 -49 24 -69l84 -99c3 -3 4 -7 4 -10c0 -9 -8 -16 -16 -16s-45 44 -109 44c-16 0 -53 0 -53 -67
 c0 -62 30 -97 30 -100c0 -4 -4 -7 -8 -7c-13 0 -98 130 -98 204c0 41 27 42 40 42c33 0 78 -13 119 -31l-132 158c-7 9 -10 17 -10 25z" fill="currentColor"/>
 </g>
-<g transform="translate(29.2737, 54.0045)">
+<g transform="translate(32.4459, 54.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(28.6967, 57.5045)">
+<g transform="translate(31.8689, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>か</tspan>
 </text>
 </g>
-<g transform="translate(31.0279, 53.5045)">
+<g transform="translate(34.2001, 53.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 0c0 31 25 56 56 56s56 -25 56 -56s-25 -56 -56 -56s-56 25 -56 56z" fill="currentColor"/>
 </g>
-<g transform="translate(30.5129, 52.0045)">
-<rect x="-0.0650" y="-1.1996" width="0.1300" height="3.0134" ry="0.0400" fill="currentColor"/>
+<g transform="translate(33.6851, 52.0045)">
+<rect x="-0.0650" y="-1.1984" width="0.1300" height="3.0122" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(33.3311, 53.0045)">
+<g transform="translate(55.6604, 52.0045)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5042 1.2152C2.1729 1.9247 3.9495 1.9247 4.6182 1.2152L4.6182 1.2152C3.9495 1.8047 2.1729 1.8047 1.5042 1.2152z"/>
+</g>
+<g transform="translate(37.1282, 53.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(33.3311, 57.5045)">
+<g transform="translate(37.1282, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>た</tspan>
 </text>
 </g>
-<g transform="translate(34.5703, 52.0045)">
-<rect x="-0.0650" y="-1.8004" width="0.1300" height="2.6142" ry="0.0400" fill="currentColor"/>
+<g transform="translate(38.3674, 52.0045)">
+<rect x="-0.0650" y="-1.8016" width="0.1300" height="2.6154" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(49.4463, 52.0045)">
-<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5042 1.2258C2.0870 1.8762 3.4710 1.8762 4.0538 1.2258L4.0538 1.2258C3.4710 1.7562 2.0870 1.7562 1.5042 1.2258z"/>
-</g>
-<g transform="translate(35.6037, 53.0045)">
+<g transform="translate(39.6424, 53.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(36.8429, 52.0045)">
-<rect x="-0.0650" y="-1.9963" width="0.1300" height="2.8101" ry="0.0400" fill="currentColor"/>
+<g transform="translate(40.8816, 52.0045)">
+<rect x="-0.0650" y="-1.9968" width="0.1300" height="2.8106" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(38.8447, 53.5045)">
+<g transform="translate(43.3668, 53.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(38.8447, 57.5045)">
+<g transform="translate(43.3668, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>な</tspan>
 </text>
 </g>
-<g transform="translate(40.0839, 52.0045)">
-<rect x="-0.0650" y="-1.8137" width="0.1300" height="3.1275" ry="0.0400" fill="currentColor"/>
+<g transform="translate(44.6060, 52.0045)">
+<rect x="-0.0650" y="-1.8132" width="0.1300" height="3.1270" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(42.0857, 53.5045)">
+<g transform="translate(40.8166, 50.0045)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.8144 -0.0100 3.8144 0.3900 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(47.0912, 53.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(43.3249, 52.0045)">
+<g transform="translate(48.3304, 52.0045)">
 <rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3138" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(43.3899, 50.0445)">
+<g transform="translate(48.3954, 50.0445)">
 <path transform="scale(0.0040, -0.0040)" d="M0 0v-375h-16v375h16zM123 -729c0 10 42 87 42 196c0 103 -94 208 -165 283v250c0 -197 207 -336 207 -533c0 -71 -15 -141 -41 -207c-5 -8 -13 -12 -20 -12c-12 0 -23 9 -23 23z" fill="currentColor"/>
 </g>
-<g transform="translate(36.7779, 50.0045)">
-<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.3310 -0.0100 3.3310 0.3900 0.0400 0.2000 0.0400 -0.2000"/>
-</g>
-<g transform="translate(45.3266, 52.0045)">
+<g transform="translate(50.8156, 52.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(44.7496, 57.5045)">
+<g transform="translate(50.2385, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>よ</tspan>
 </text>
 </g>
-<g transform="translate(45.3916, 52.0045)">
+<g transform="translate(50.8806, 52.0045)">
 <rect x="-0.0650" y="0.1862" width="0.1300" height="3.1471" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(49.4463, 53.0045)">
+<g transform="translate(43.3668, 52.0045)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5042 2.0000C1.9957 2.5775 3.0329 2.5775 3.5244 2.0000L3.5244 2.0000C3.0329 2.4575 1.9957 2.4575 1.5042 2.0000z"/>
+</g>
+<g transform="translate(55.6604, 53.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(49.4463, 57.5045)">
+<g transform="translate(55.6604, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>り</tspan>
 </text>
 </g>
-<g transform="translate(50.6855, 52.0045)">
+<g transform="translate(56.8996, 52.0045)">
 <rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3138" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(50.7505, 49.5445)">
+<g transform="translate(56.9646, 49.5445)">
 <path transform="scale(0.0040, -0.0040)" d="M0 0v-375h-16v375h16zM123 -729c0 10 42 87 42 196c0 103 -94 208 -165 283v250c0 -197 207 -336 207 -533c0 -71 -15 -141 -41 -207c-5 -8 -13 -12 -20 -12c-12 0 -23 9 -23 23z" fill="currentColor"/>
 </g>
-<g transform="translate(38.8447, 52.0045)">
-<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.5042 2.0000C1.9015 2.4910 2.6437 2.4910 3.0410 2.0000L3.0410 2.0000C2.6437 2.3710 1.9015 2.3710 1.5042 2.0000z"/>
+<g transform="translate(84.1213, 52.0045)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M1.1810 -1.6393C2.4014 -2.5755 9.6668 -2.5755 10.8872 -1.6393L10.8872 -1.6393C9.6668 -2.4555 2.4014 -2.4555 1.1810 -1.6393z"/>
 </g>
-<g transform="translate(54.9393, 52.0045)">
+<g transform="translate(61.7177, 52.0045)">
 <rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3138" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(55.0043, 49.5445)">
+<g transform="translate(61.7827, 49.5445)">
 <path transform="scale(0.0040, -0.0040)" d="M0 0v-375h-16v375h16zM123 -729c0 10 42 87 42 196c0 103 -94 208 -165 283v250c0 -197 207 -336 207 -533c0 -71 -15 -141 -41 -207c-5 -8 -13 -12 -20 -12c-12 0 -23 9 -23 23z" fill="currentColor"/>
 </g>
-<g transform="translate(30.4479, 50.8145)">
-<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="4.1474 -0.8200 4.1474 -0.4200 0.0400 0.2000 0.0400 -0.2000"/>
+<g transform="translate(33.6201, 50.8145)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="4.7722 -0.8200 4.7722 -0.4200 0.0400 0.2000 0.0400 -0.2000"/>
 </g>
-<g transform="translate(33.4703, 51.1770)">
-<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="1.1250 -0.3725 1.1250 0.0275 0.0400 0.2000 0.0400 -0.2000"/>
+<g transform="translate(37.2674, 51.1546)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="1.1250 -0.3501 1.1250 0.0499 0.0400 0.2000 0.0400 -0.2000"/>
 </g>
-<g transform="translate(56.9411, 51.5045)">
+<g transform="translate(64.2029, 51.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(56.3640, 57.5045)">
+<g transform="translate(63.6259, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>も</tspan>
 </text>
 </g>
-<g transform="translate(57.0061, 52.0045)">
+<g transform="translate(64.2679, 52.0045)">
 <rect x="-0.0650" y="-0.3138" width="0.1300" height="3.3138" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(61.1504, 52.0045)">
+<g transform="translate(69.1374, 52.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(61.1504, 57.5045)">
+<g transform="translate(69.1374, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>つ</tspan>
 </text>
 </g>
-<g transform="translate(61.2154, 52.0045)">
+<g transform="translate(69.2024, 52.0045)">
 <rect x="-0.0650" y="0.1862" width="0.1300" height="3.1888" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(61.2804, 55.3395)">
+<g transform="translate(69.2674, 55.3395)">
 <path transform="scale(0.0040, -0.0040)" d="M0 0h-16v375h16v-375zM224 509c0 94 -40 158 -40 168c0 14 11 22 23 22c7 0 15 -3 20 -11c25 -56 40 -117 40 -179c0 -203 -267 -306 -267 -509v250c97 59 224 148 224 259z" fill="currentColor"/>
 </g>
-<g transform="translate(33.3311, 52.0045)">
-<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M0.8521 2.0000C1.3160 2.5534 2.2607 2.5534 2.7247 2.0000L2.7247 2.0000C2.2607 2.4334 1.3160 2.4334 0.8521 2.0000z"/>
+<g transform="translate(37.1282, 52.0045)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M0.8521 2.0000C1.3607 2.5920 2.4578 2.5920 2.9664 2.0000L2.9664 2.0000C2.4578 2.4720 1.3607 2.4720 0.8521 2.0000z"/>
 </g>
-<g transform="translate(64.3914, 52.0045)">
+<g transform="translate(72.8618, 52.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(64.4564, 52.0045)">
+<g transform="translate(72.9268, 52.0045)">
 <rect x="-0.0650" y="0.1862" width="0.1300" height="3.1888" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(64.5214, 55.3395)">
+<g transform="translate(72.9918, 55.3395)">
 <path transform="scale(0.0040, -0.0040)" d="M0 0h-16v375h16v-375zM224 509c0 94 -40 158 -40 168c0 14 11 22 23 22c7 0 15 -3 20 -11c25 -56 40 -117 40 -179c0 -203 -267 -306 -267 -509v250c97 59 224 148 224 259z" fill="currentColor"/>
 </g>
-<g transform="translate(67.6324, 51.0045)">
+<g transform="translate(76.5861, 51.0045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
-<g transform="translate(67.0553, 57.5045)">
+<g transform="translate(76.0091, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>よ</tspan>
 </text>
 </g>
-<g transform="translate(69.3866, 50.5045)">
+<g transform="translate(78.3403, 50.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M0 0c0 31 25 56 56 56s56 -25 56 -56s-25 -56 -56 -56s-56 25 -56 56z" fill="currentColor"/>
 </g>
-<g transform="translate(67.6974, 52.0045)">
+<g transform="translate(76.6511, 52.0045)">
 <rect x="-0.0650" y="-0.8138" width="0.1300" height="3.3138" ry="0.0400" fill="currentColor"/>
 </g>
-<g transform="translate(74.0270, 51.5045)">
+<g transform="translate(84.1213, 51.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M347 -26c0 102 -89 139 -133 139c-23 0 -70 -10 -70 -89c0 -91 76 -136 132 -136c22 0 71 8 71 86zM245 136c144 0 246 -65 246 -136s-102 -136 -246 -136s-245 65 -245 136s101 136 245 136z" fill="currentColor"/>
 </g>
-<g transform="translate(74.0270, 57.5045)">
+<g transform="translate(84.1213, 57.5045)">
 <text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
 <tspan>く</tspan>
 </text>
 </g>
-<g transform="translate(71.2267, 48.4061)">
+<g transform="translate(81.0470, 48.4061)">
 <text font-family="serif" font-size="2.7719" text-anchor="start" fill="currentColor">
 <tspan>Q</tspan>
 </text>
 </g>
-<g transform="translate(71.2267, 48.4061)">
+<g transform="translate(81.0470, 48.4061)">
 <rect x="-0.3520" y="-2.2784" width="0.1000" height="3.0268" ry="0.0000" fill="currentColor"/>
 </g>
-<g transform="translate(71.2267, 48.4061)">
+<g transform="translate(81.0470, 48.4061)">
 <rect x="2.4030" y="-2.2784" width="0.1000" height="3.0268" ry="0.0000" fill="currentColor"/>
 </g>
-<g transform="translate(71.2267, 48.4061)">
+<g transform="translate(81.0470, 48.4061)">
 <rect x="-0.3520" y="0.6484" width="2.8550" height="0.1000" ry="0.0000" fill="currentColor"/>
 </g>
-<g transform="translate(71.2267, 48.4061)">
+<g transform="translate(81.0470, 48.4061)">
 <rect x="-0.3520" y="-2.2784" width="2.8550" height="0.1000" ry="0.0000" fill="currentColor"/>
 </g>
-<g transform="translate(16.9554, 52.0045)">
-<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M0.8521 -1.2250C1.4806 -1.9079 3.0646 -1.9079 3.6931 -1.2250L3.6931 -1.2250C3.0646 -1.7879 1.4806 -1.7879 0.8521 -1.2250z"/>
+<g transform="translate(18.1130, 52.0045)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M0.8521 -1.2250C1.5502 -1.9528 3.4784 -1.9528 4.1765 -1.2250L4.1765 -1.2250C3.4784 -1.8328 1.5502 -1.8328 0.8521 -1.2250z"/>
 </g>
-<g transform="translate(82.6507, 51.5045)">
+<g transform="translate(94.2275, 51.5045)">
 <path transform="scale(0.0040, -0.0040)" d="M347 -26c0 102 -89 139 -133 139c-23 0 -70 -10 -70 -89c0 -91 76 -136 132 -136c22 0 71 8 71 86zM245 136c144 0 246 -65 246 -136s-102 -136 -246 -136s-245 65 -245 136s101 136 245 136z" fill="currentColor"/>
 </g>
 <g transform="translate(-4.6703, 52.6799)">
 <text font-family="serif" font-size="2.2000" text-anchor="start" fill="currentColor">
 <tspan>純那</tspan>
 </text>
+</g>
+<g transform="translate(60.4785, 53.0045)">
+<path transform="scale(0.0040, -0.0040)" d="M0 -46c0 91 116 182 217 182c63 0 109 -35 109 -90c0 -87 -110 -182 -220 -182c-67 0 -106 39 -106 90z" fill="currentColor"/>
 </g>
 </svg>
